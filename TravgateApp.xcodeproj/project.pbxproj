@@ -76,6 +76,18 @@
 		65B6797A2B44238B00E5D1C3 /* Inter-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 65B679762B44230D00E5D1C3 /* Inter-Medium.ttf */; };
 		65B6797B2B44238B00E5D1C3 /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 65B679772B44230D00E5D1C3 /* Inter-Regular.ttf */; };
 		65B6797C2B44238B00E5D1C3 /* Inter-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 65B679782B44230D00E5D1C3 /* Inter-SemiBold.ttf */; };
+		65B679862B4425CE00E5D1C3 /* TabSelectTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B679842B4425CE00E5D1C3 /* TabSelectTVCell.swift */; };
+		65B679872B4425CE00E5D1C3 /* TabSelectTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65B679852B4425CE00E5D1C3 /* TabSelectTVCell.xib */; };
+		65B6798C2B443AE500E5D1C3 /* PopularDestinationsTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B6798A2B443AE500E5D1C3 /* PopularDestinationsTVCell.swift */; };
+		65B6798D2B443AE500E5D1C3 /* PopularDestinationsTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65B6798B2B443AE500E5D1C3 /* PopularDestinationsTVCell.xib */; };
+		65B679912B443D1100E5D1C3 /* SelectCityCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B6798F2B443D1100E5D1C3 /* SelectCityCVCell.swift */; };
+		65B679922B443D1100E5D1C3 /* SelectCityCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65B679902B443D1100E5D1C3 /* SelectCityCVCell.xib */; };
+		65B679962B443D9200E5D1C3 /* SelectDestCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B679942B443D9200E5D1C3 /* SelectDestCVCell.swift */; };
+		65B679972B443D9200E5D1C3 /* SelectDestCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65B679952B443D9200E5D1C3 /* SelectDestCVCell.xib */; };
+		65B6799B2B44465800E5D1C3 /* TopcityGuidesCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B679992B44465800E5D1C3 /* TopcityGuidesCVCell.swift */; };
+		65B6799C2B44465800E5D1C3 /* TopcityGuidesCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65B6799A2B44465800E5D1C3 /* TopcityGuidesCVCell.xib */; };
+		65B679A42B44475A00E5D1C3 /* TopcityGuidesTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B679A22B44475A00E5D1C3 /* TopcityGuidesTVCell.swift */; };
+		65B679A52B44475A00E5D1C3 /* TopcityGuidesTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65B679A32B44475A00E5D1C3 /* TopcityGuidesTVCell.xib */; };
 		A49629B2BC0298903ECB14C9 /* Pods_TravgateApp_TravgateAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CD57DADF2827CC7315F9E10 /* Pods_TravgateApp_TravgateAppUITests.framework */; };
 		B0DAB0DBB63A478E83F5291D /* Pods_TravgateAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 634B61CF8AE4096700985889 /* Pods_TravgateAppTests.framework */; };
 		F35DB7DEE4FE2CEB1228C68B /* Pods_TravgateApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C1727B54071D4A493CAF226 /* Pods_TravgateApp.framework */; };
@@ -177,6 +189,18 @@
 		65B679762B44230D00E5D1C3 /* Inter-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Medium.ttf"; sourceTree = "<group>"; };
 		65B679772B44230D00E5D1C3 /* Inter-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Regular.ttf"; sourceTree = "<group>"; };
 		65B679782B44230D00E5D1C3 /* Inter-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-SemiBold.ttf"; sourceTree = "<group>"; };
+		65B679842B4425CE00E5D1C3 /* TabSelectTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabSelectTVCell.swift; sourceTree = "<group>"; };
+		65B679852B4425CE00E5D1C3 /* TabSelectTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabSelectTVCell.xib; sourceTree = "<group>"; };
+		65B6798A2B443AE500E5D1C3 /* PopularDestinationsTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularDestinationsTVCell.swift; sourceTree = "<group>"; };
+		65B6798B2B443AE500E5D1C3 /* PopularDestinationsTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopularDestinationsTVCell.xib; sourceTree = "<group>"; };
+		65B6798F2B443D1100E5D1C3 /* SelectCityCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCityCVCell.swift; sourceTree = "<group>"; };
+		65B679902B443D1100E5D1C3 /* SelectCityCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectCityCVCell.xib; sourceTree = "<group>"; };
+		65B679942B443D9200E5D1C3 /* SelectDestCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDestCVCell.swift; sourceTree = "<group>"; };
+		65B679952B443D9200E5D1C3 /* SelectDestCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectDestCVCell.xib; sourceTree = "<group>"; };
+		65B679992B44465800E5D1C3 /* TopcityGuidesCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopcityGuidesCVCell.swift; sourceTree = "<group>"; };
+		65B6799A2B44465800E5D1C3 /* TopcityGuidesCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopcityGuidesCVCell.xib; sourceTree = "<group>"; };
+		65B679A22B44475A00E5D1C3 /* TopcityGuidesTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopcityGuidesTVCell.swift; sourceTree = "<group>"; };
+		65B679A32B44475A00E5D1C3 /* TopcityGuidesTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopcityGuidesTVCell.xib; sourceTree = "<group>"; };
 		8C1727B54071D4A493CAF226 /* Pods_TravgateApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TravgateApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92CCA4D767899C0947F898F0 /* Pods-TravgateAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravgateAppTests.debug.xcconfig"; path = "Target Support Files/Pods-TravgateAppTests/Pods-TravgateAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A833FE625AA0EA62C12BEE47 /* Pods-TravgateApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravgateApp.debug.xcconfig"; path = "Target Support Files/Pods-TravgateApp/Pods-TravgateApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -495,6 +519,9 @@
 		6517181D2B4410B4003D3723 /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
+				65B679832B44258400E5D1C3 /* View Models */,
+				65B679822B44257700E5D1C3 /* MODULES */,
+				65B679802B44256700E5D1C3 /* Views */,
 				65B679672B441E0200E5D1C3 /* SB */,
 				651718242B4415BA003D3723 /* VC */,
 			);
@@ -550,6 +577,104 @@
 				65B679782B44230D00E5D1C3 /* Inter-SemiBold.ttf */,
 			);
 			path = Inter;
+			sourceTree = "<group>";
+		};
+		65B6797E2B44254D00E5D1C3 /* TVCells */ = {
+			isa = PBXGroup;
+			children = (
+				65B6799D2B44471000E5D1C3 /* TopcityGuidesTVCell */,
+				65B679892B443ACE00E5D1C3 /* PopularDestinationsTVCell */,
+				65B679882B443ABC00E5D1C3 /* TabSelectTVCell */,
+			);
+			name = TVCells;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		65B679802B44256700E5D1C3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				65B6797E2B44254D00E5D1C3 /* TVCells */,
+				65B679812B44257100E5D1C3 /* CVCells */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		65B679812B44257100E5D1C3 /* CVCells */ = {
+			isa = PBXGroup;
+			children = (
+				65B679982B44463F00E5D1C3 /* TopcityGuidesCVCell */,
+				65B679932B443D7A00E5D1C3 /* SelectDestCVCell */,
+				65B6798E2B443CEE00E5D1C3 /* SelectCityCVCell */,
+			);
+			path = CVCells;
+			sourceTree = "<group>";
+		};
+		65B679822B44257700E5D1C3 /* MODULES */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MODULES;
+			sourceTree = "<group>";
+		};
+		65B679832B44258400E5D1C3 /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Models";
+			sourceTree = "<group>";
+		};
+		65B679882B443ABC00E5D1C3 /* TabSelectTVCell */ = {
+			isa = PBXGroup;
+			children = (
+				65B679842B4425CE00E5D1C3 /* TabSelectTVCell.swift */,
+				65B679852B4425CE00E5D1C3 /* TabSelectTVCell.xib */,
+			);
+			path = TabSelectTVCell;
+			sourceTree = "<group>";
+		};
+		65B679892B443ACE00E5D1C3 /* PopularDestinationsTVCell */ = {
+			isa = PBXGroup;
+			children = (
+				65B6798A2B443AE500E5D1C3 /* PopularDestinationsTVCell.swift */,
+				65B6798B2B443AE500E5D1C3 /* PopularDestinationsTVCell.xib */,
+			);
+			path = PopularDestinationsTVCell;
+			sourceTree = "<group>";
+		};
+		65B6798E2B443CEE00E5D1C3 /* SelectCityCVCell */ = {
+			isa = PBXGroup;
+			children = (
+				65B6798F2B443D1100E5D1C3 /* SelectCityCVCell.swift */,
+				65B679902B443D1100E5D1C3 /* SelectCityCVCell.xib */,
+			);
+			path = SelectCityCVCell;
+			sourceTree = "<group>";
+		};
+		65B679932B443D7A00E5D1C3 /* SelectDestCVCell */ = {
+			isa = PBXGroup;
+			children = (
+				65B679942B443D9200E5D1C3 /* SelectDestCVCell.swift */,
+				65B679952B443D9200E5D1C3 /* SelectDestCVCell.xib */,
+			);
+			path = SelectDestCVCell;
+			sourceTree = "<group>";
+		};
+		65B679982B44463F00E5D1C3 /* TopcityGuidesCVCell */ = {
+			isa = PBXGroup;
+			children = (
+				65B679992B44465800E5D1C3 /* TopcityGuidesCVCell.swift */,
+				65B6799A2B44465800E5D1C3 /* TopcityGuidesCVCell.xib */,
+			);
+			path = TopcityGuidesCVCell;
+			sourceTree = "<group>";
+		};
+		65B6799D2B44471000E5D1C3 /* TopcityGuidesTVCell */ = {
+			isa = PBXGroup;
+			children = (
+				65B679A22B44475A00E5D1C3 /* TopcityGuidesTVCell.swift */,
+				65B679A32B44475A00E5D1C3 /* TopcityGuidesTVCell.xib */,
+			);
+			path = TopcityGuidesTVCell;
 			sourceTree = "<group>";
 		};
 		81FCC340B91874B16663E227 /* Pods */ = {
@@ -681,20 +806,26 @@
 				65B6797B2B44238B00E5D1C3 /* Inter-Regular.ttf in Resources */,
 				65B6797C2B44238B00E5D1C3 /* Inter-SemiBold.ttf in Resources */,
 				65B6796F2B44229C00E5D1C3 /* OpenSans-Bold.ttf in Resources */,
+				65B679872B4425CE00E5D1C3 /* TabSelectTVCell.xib in Resources */,
 				65B679702B44229C00E5D1C3 /* OpenSans-Light.ttf in Resources */,
 				65B679712B44229C00E5D1C3 /* OpenSans-Medium.ttf in Resources */,
 				65B679722B44229C00E5D1C3 /* OpenSans-Regular.ttf in Resources */,
 				65B679732B44229C00E5D1C3 /* OpenSans-SemiBold.ttf in Resources */,
+				65B6799C2B44465800E5D1C3 /* TopcityGuidesCVCell.xib in Resources */,
 				651717F62B43F8D4003D3723 /* Oswald-SemiBold.ttf in Resources */,
 				651717F82B43F8D4003D3723 /* Lato-Semibold.ttf in Resources */,
+				65B679A52B44475A00E5D1C3 /* TopcityGuidesTVCell.xib in Resources */,
 				651717E42B43F8D4003D3723 /* loderimg.gif in Resources */,
 				651717FD2B43F8D4003D3723 /* Poppins-Light.ttf in Resources */,
 				65B679662B441DE800E5D1C3 /* Main.storyboard in Resources */,
+				65B6798D2B443AE500E5D1C3 /* PopularDestinationsTVCell.xib in Resources */,
 				651714202B43F839003D3723 /* LaunchScreen.storyboard in Resources */,
 				651718112B43F8D4003D3723 /* clist.json in Resources */,
 				651717FF2B43F8D4003D3723 /* Oswald-Medium.ttf in Resources */,
 				651717FE2B43F8D4003D3723 /* Poppins-Medium.ttf in Resources */,
 				651717FB2B43F8D4003D3723 /* Lato-Medium.ttf in Resources */,
+				65B679972B443D9200E5D1C3 /* SelectDestCVCell.xib in Resources */,
+				65B679922B443D1100E5D1C3 /* SelectCityCVCell.xib in Resources */,
 				651717FC2B43F8D4003D3723 /* Roboto-Medium.ttf in Resources */,
 				651718022B43F8D4003D3723 /* Poppins-Bold.ttf in Resources */,
 				651717E32B43F8D4003D3723 /* newloder.gif in Resources */,
@@ -878,6 +1009,7 @@
 				651717EF2B43F8D4003D3723 /* StringExtension.swift in Sources */,
 				651717EA2B43F8D4003D3723 /* TableViewHelper.swift in Sources */,
 				6517180E2B43F8D4003D3723 /* BaseViewModelProtocol.swift in Sources */,
+				65B6799B2B44465800E5D1C3 /* TopcityGuidesCVCell.swift in Sources */,
 				651717DF2B43F8D4003D3723 /* TableViewCell.swift in Sources */,
 				651717E12B43F8D4003D3723 /* UIModels.swift in Sources */,
 				651717E52B43F8D4003D3723 /* SessionManager.swift in Sources */,
@@ -887,6 +1019,7 @@
 				6517180D2B43F8D4003D3723 /* Loader.swift in Sources */,
 				6517180B2B43F8D4003D3723 /* NSObject+Helper.swift in Sources */,
 				651718102B43F8D4003D3723 /* StoryboardExtension.swift in Sources */,
+				65B6798C2B443AE500E5D1C3 /* PopularDestinationsTVCell.swift in Sources */,
 				651714142B43F837003D3723 /* AppDelegate.swift in Sources */,
 				651717DE2B43F8D4003D3723 /* BaseVC.swift in Sources */,
 				6517180A2B43F8D4003D3723 /* DeviceName.swift in Sources */,
@@ -896,7 +1029,11 @@
 				651717E92B43F8D4003D3723 /* BorderView.swift in Sources */,
 				651717F12B43F8D4003D3723 /* DateExtension.swift in Sources */,
 				651717EE2B43F8D4003D3723 /* TableViewExtensions.swift in Sources */,
+				65B679912B443D1100E5D1C3 /* SelectCityCVCell.swift in Sources */,
 				651717ED2B43F8D4003D3723 /* UIKitHelper.swift in Sources */,
+				65B679A42B44475A00E5D1C3 /* TopcityGuidesTVCell.swift in Sources */,
+				65B679962B443D9200E5D1C3 /* SelectDestCVCell.swift in Sources */,
+				65B679862B4425CE00E5D1C3 /* TabSelectTVCell.swift in Sources */,
 				6517182A2B441630003D3723 /* TripsVC.swift in Sources */,
 				6517180C2B43F8D4003D3723 /* Decodable.swift in Sources */,
 				6517182C2B44163F003D3723 /* ProfileVC.swift in Sources */,

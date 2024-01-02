@@ -23,8 +23,10 @@ enum socialSignUpType {
 enum TVCellType {
     
     
-//    case ChooseProfilPpictureTVCell
-//    case HotelPurchaseSummaryTVCell
+    case TabSelectTVCell
+    case PopularDestinationsTVCell
+    
+    
 }
 
 enum CVCellType {

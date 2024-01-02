@@ -49,10 +49,25 @@
                     <view key="view" contentMode="scaleToFill" id="iZM-9Q-UxN">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="FGm-hF-tBN">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="769"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="OE6-x4-4e7"/>
                         <color key="backgroundColor" systemColor="systemGray4Color"/>
+                        <constraints>
+                            <constraint firstItem="FGm-hF-tBN" firstAttribute="top" secondItem="iZM-9Q-UxN" secondAttribute="top" id="0VW-pa-0gM"/>
+                            <constraint firstItem="OE6-x4-4e7" firstAttribute="trailing" secondItem="FGm-hF-tBN" secondAttribute="trailing" id="KGE-xf-59g"/>
+                            <constraint firstItem="OE6-x4-4e7" firstAttribute="bottom" secondItem="FGm-hF-tBN" secondAttribute="bottom" id="p2h-Y2-lhC"/>
+                            <constraint firstItem="FGm-hF-tBN" firstAttribute="leading" secondItem="OE6-x4-4e7" secondAttribute="leading" id="stT-Vh-NgW"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 1" id="7oT-a7-ady"/>
+                    <connections>
+                        <outlet property="commonTableView" destination="FGm-hF-tBN" id="wiZ-dM-LIa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UIq-8i-0G2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

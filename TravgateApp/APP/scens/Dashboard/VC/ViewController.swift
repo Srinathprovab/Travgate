@@ -30,3 +30,21 @@ class ViewController: UIViewController {
     
 }
 
+
+
+class MySingleton {
+    // Declare static constant instance
+    static let shared = MySingleton()
+
+    // Declare your variables
+    var myVariable1: Int
+    var myVariable2: String
+    var tablerow = [TableRow]()
+    var payload = [String:Any]()
+
+    // Private initializer to prevent multiple instances
+    private init() {
+        myVariable1 = 0
+        myVariable2 = "Default value"
+    }
+}

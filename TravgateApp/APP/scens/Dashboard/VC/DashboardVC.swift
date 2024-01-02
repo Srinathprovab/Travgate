@@ -7,23 +7,59 @@
 
 import UIKit
 
-class DashboardVC: UIViewController {
-
+class DashboardVC: BaseTableVC {
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
+        
+        setupUI()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    func setupUI() {
+        
+        commonTableView.registerTVCells(["TabSelectTVCell",
+                                         "PopularDestinationsTVCell"])
+        setupTableViewCells()
     }
-    */
+    
+    
+    func setupTableViewCells() {
+        MySingleton.shared.tablerow.removeAll()
+        
+        MySingleton.shared.tablerow.append(TableRow(cellType:.TabSelectTVCell))
+        MySingleton.shared.tablerow.append(TableRow(key:"flight",cellType:.PopularDestinationsTVCell))
+        MySingleton.shared.tablerow.append(TableRow(key:"hotel",cellType:.PopularDestinationsTVCell))
 
+        
+        commonTVData =  MySingleton.shared.tablerow
+        commonTableView.reloadData()
+    }
+    
+    
+    override func didTapOnMenuBtnAction(cell: TabSelectTVCell) {
+        print("didTapOnMenuBtnAction")
+    }
+    
+    override func didTapOnSelectCurrencyBtnAction(cell: TabSelectTVCell) {
+        print("didTapOnSelectCurrencyBtnAction")
+    }
+    
+    override func didTapOnFlightTabSelectBtnAction(cell: TabSelectTVCell) {
+        print("didTapOnFlightTabSelectBtnAction")
+    }
+    
+    override func didTapOnHotelTabSelect(cell: TabSelectTVCell) {
+        print("didTapOnHotelTabSelect")
+    }
+    
+    override func didTapOnMoreServiceBtnAction(cell: TabSelectTVCell) {
+        print("didTapOnMoreServiceBtnAction")
+    }
+    
 }

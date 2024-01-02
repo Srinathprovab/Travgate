@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="OpenSans-SemiBold.ttf">
+            <string>OpenSans-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="TopcityGuidesCVCell" customModule="TravgateApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="222" height="167"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="222" height="167"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dcB-xe-L6K" customClass="BorderedView" customModule="TravgateApp" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="222" height="167"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dest" translatesAutoresizingMaskIntoConstraints="NO" id="11q-Sp-USb">
+                                <rect key="frame" x="0.0" y="0.0" width="222" height="167"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dubai" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HQZ-cG-rlP">
+                                <rect key="frame" x="12" y="135.66666666666666" width="198" height="19.333333333333343"/>
+                                <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="14"/>
+                                <color key="textColor" name="WhiteColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="11q-Sp-USb" secondAttribute="bottom" id="HRl-rC-Jby"/>
+                            <constraint firstAttribute="trailing" secondItem="HQZ-cG-rlP" secondAttribute="trailing" constant="12" id="PYo-gQ-zlq"/>
+                            <constraint firstItem="HQZ-cG-rlP" firstAttribute="leading" secondItem="dcB-xe-L6K" secondAttribute="leading" constant="12" id="UxI-DG-cgW"/>
+                            <constraint firstItem="11q-Sp-USb" firstAttribute="top" secondItem="dcB-xe-L6K" secondAttribute="top" id="a2L-8O-CVc"/>
+                            <constraint firstAttribute="bottom" secondItem="HQZ-cG-rlP" secondAttribute="bottom" constant="12" id="c8f-BG-BX2"/>
+                            <constraint firstItem="11q-Sp-USb" firstAttribute="leading" secondItem="dcB-xe-L6K" secondAttribute="leading" id="cV9-dJ-fK7"/>
+                            <constraint firstAttribute="trailing" secondItem="11q-Sp-USb" secondAttribute="trailing" id="wlr-jM-TBk"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="6"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="dcB-xe-L6K" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="6pD-r6-Rvt"/>
+                <constraint firstItem="dcB-xe-L6K" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Ax5-Ja-IkC"/>
+                <constraint firstAttribute="trailing" secondItem="dcB-xe-L6K" secondAttribute="trailing" id="LZa-0B-aIf"/>
+                <constraint firstAttribute="bottom" secondItem="dcB-xe-L6K" secondAttribute="bottom" id="Mfu-bH-8jm"/>
+            </constraints>
+            <size key="customSize" width="222" height="167"/>
+            <connections>
+                <outlet property="img" destination="11q-Sp-USb" id="mUG-lh-cRB"/>
+                <outlet property="titlelbl" destination="HQZ-cG-rlP" id="S0a-oa-2xo"/>
+            </connections>
+            <point key="canvasLocation" x="61.068702290076331" y="60.91549295774648"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="dest" width="190" height="125"/>
+        <namedColor name="WhiteColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

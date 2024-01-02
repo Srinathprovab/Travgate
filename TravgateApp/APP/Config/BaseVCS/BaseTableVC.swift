@@ -8,7 +8,9 @@
 import UIKit
 import MaterialComponents
 
-class BaseTableVC: UIViewController {
+class BaseTableVC: UIViewController, TabSelectTVCellDelegate {
+    
+    
     
     
     
@@ -97,8 +99,12 @@ class BaseTableVC: UIViewController {
     }
     
     
-  
-  //  func textViewDidChange(textView: UITextView) {}
+    
+    func didTapOnMenuBtnAction(cell: TabSelectTVCell) {}
+    func didTapOnSelectCurrencyBtnAction(cell: TabSelectTVCell) {}
+    func didTapOnFlightTabSelectBtnAction(cell: TabSelectTVCell) {}
+    func didTapOnHotelTabSelect(cell: TabSelectTVCell) {}
+    func didTapOnMoreServiceBtnAction(cell: TabSelectTVCell) {}
     
 }
 
@@ -155,9 +161,15 @@ extension BaseTableVC: UITableViewDataSource {
                 
                 //Sign & SignUp Cells
                 
-//            case .EmptyTVCell:
-//                let cell: EmptyTVCell = commonTV.dequeTVCell(indexPath: indexPath)
-//                commonCell = cell
+            case .TabSelectTVCell:
+                let cell: TabSelectTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                cell.delegate = self
+                commonCell = cell
+                
+                
+            case .PopularDestinationsTVCell:
+                let cell: PopularDestinationsTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                commonCell = cell
                 
                 
                 
