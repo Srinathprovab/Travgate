@@ -10,7 +10,6 @@
 		651714142B43F837003D3723 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651714132B43F837003D3723 /* AppDelegate.swift */; };
 		651714162B43F837003D3723 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651714152B43F837003D3723 /* SceneDelegate.swift */; };
 		651714182B43F837003D3723 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651714172B43F837003D3723 /* ViewController.swift */; };
-		6517141B2B43F837003D3723 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 651714192B43F837003D3723 /* Main.storyboard */; };
 		6517141D2B43F839003D3723 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6517141C2B43F839003D3723 /* Assets.xcassets */; };
 		651714202B43F839003D3723 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6517141E2B43F839003D3723 /* LaunchScreen.storyboard */; };
 		6517142B2B43F839003D3723 /* TravgateAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6517142A2B43F839003D3723 /* TravgateAppTests.swift */; };
@@ -49,14 +48,9 @@
 		651717FE2B43F8D4003D3723 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 651716672B43F8D0003D3723 /* Poppins-Medium.ttf */; };
 		651717FF2B43F8D4003D3723 /* Oswald-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 651716682B43F8D0003D3723 /* Oswald-Medium.ttf */; };
 		651718002B43F8D4003D3723 /* Poppins-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 651716692B43F8D1003D3723 /* Poppins-ExtraBold.ttf */; };
-		651718012B43F8D4003D3723 /* OpenSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6517166A2B43F8D1003D3723 /* OpenSans-Medium.ttf */; };
 		651718022B43F8D4003D3723 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6517166B2B43F8D1003D3723 /* Poppins-Bold.ttf */; };
 		651718032B43F8D4003D3723 /* Poppins-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6517166C2B43F8D1003D3723 /* Poppins-Black.ttf */; };
 		651718042B43F8D4003D3723 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6517166D2B43F8D1003D3723 /* Poppins-SemiBold.ttf */; };
-		651718052B43F8D4003D3723 /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6517166F2B43F8D1003D3723 /* OpenSans-Semibold.ttf */; };
-		651718062B43F8D4003D3723 /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 651716702B43F8D1003D3723 /* OpenSans-Light.ttf */; };
-		651718072B43F8D4003D3723 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 651716712B43F8D1003D3723 /* OpenSans-Bold.ttf */; };
-		651718082B43F8D4003D3723 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 651716722B43F8D1003D3723 /* OpenSans-Regular.ttf */; };
 		651718092B43F8D4003D3723 /* ColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651716732B43F8D1003D3723 /* ColorManager.swift */; };
 		6517180A2B43F8D4003D3723 /* DeviceName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651716752B43F8D1003D3723 /* DeviceName.swift */; };
 		6517180B2B43F8D4003D3723 /* NSObject+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651716762B43F8D1003D3723 /* NSObject+Helper.swift */; };
@@ -67,12 +61,21 @@
 		651718102B43F8D4003D3723 /* StoryboardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6517167B2B43F8D1003D3723 /* StoryboardExtension.swift */; };
 		651718112B43F8D4003D3723 /* clist.json in Resources */ = {isa = PBXBuildFile; fileRef = 6517167E2B43F8D1003D3723 /* clist.json */; };
 		651718122B43F8D4003D3723 /* currencylist.json in Resources */ = {isa = PBXBuildFile; fileRef = 6517167F2B43F8D1003D3723 /* currencylist.json */; };
-		651718212B441104003D3723 /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 651718202B441104003D3723 /* Dashboard.storyboard */; };
 		651718232B441151003D3723 /* DashBoardTBVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651718222B441151003D3723 /* DashBoardTBVC.swift */; };
 		651718282B441620003D3723 /* DashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651718272B441620003D3723 /* DashboardVC.swift */; };
 		6517182A2B441630003D3723 /* TripsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651718292B441630003D3723 /* TripsVC.swift */; };
 		6517182C2B44163F003D3723 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6517182B2B44163F003D3723 /* ProfileVC.swift */; };
 		6517182E2B441650003D3723 /* MoreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6517182D2B441650003D3723 /* MoreVC.swift */; };
+		65B679662B441DE800E5D1C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65B679652B441DE800E5D1C3 /* Main.storyboard */; };
+		65B6796F2B44229C00E5D1C3 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 65B6796D2B4421FC00E5D1C3 /* OpenSans-Bold.ttf */; };
+		65B679702B44229C00E5D1C3 /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 65B6796E2B4421FD00E5D1C3 /* OpenSans-Light.ttf */; };
+		65B679712B44229C00E5D1C3 /* OpenSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 65B6796C2B4421FC00E5D1C3 /* OpenSans-Medium.ttf */; };
+		65B679722B44229C00E5D1C3 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 65B6796A2B4421FC00E5D1C3 /* OpenSans-Regular.ttf */; };
+		65B679732B44229C00E5D1C3 /* OpenSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 65B6796B2B4421FC00E5D1C3 /* OpenSans-SemiBold.ttf */; };
+		65B679792B44238B00E5D1C3 /* Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 65B679752B44230C00E5D1C3 /* Inter-Bold.ttf */; };
+		65B6797A2B44238B00E5D1C3 /* Inter-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 65B679762B44230D00E5D1C3 /* Inter-Medium.ttf */; };
+		65B6797B2B44238B00E5D1C3 /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 65B679772B44230D00E5D1C3 /* Inter-Regular.ttf */; };
+		65B6797C2B44238B00E5D1C3 /* Inter-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 65B679782B44230D00E5D1C3 /* Inter-SemiBold.ttf */; };
 		A49629B2BC0298903ECB14C9 /* Pods_TravgateApp_TravgateAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CD57DADF2827CC7315F9E10 /* Pods_TravgateApp_TravgateAppUITests.framework */; };
 		B0DAB0DBB63A478E83F5291D /* Pods_TravgateAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 634B61CF8AE4096700985889 /* Pods_TravgateAppTests.framework */; };
 		F35DB7DEE4FE2CEB1228C68B /* Pods_TravgateApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C1727B54071D4A493CAF226 /* Pods_TravgateApp.framework */; };
@@ -104,7 +107,6 @@
 		651714132B43F837003D3723 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		651714152B43F837003D3723 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		651714172B43F837003D3723 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		6517141A2B43F837003D3723 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6517141C2B43F839003D3723 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6517141F2B43F839003D3723 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		651714212B43F839003D3723 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -150,10 +152,6 @@
 		6517166B2B43F8D1003D3723 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
 		6517166C2B43F8D1003D3723 /* Poppins-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Black.ttf"; sourceTree = "<group>"; };
 		6517166D2B43F8D1003D3723 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
-		6517166F2B43F8D1003D3723 /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
-		651716702B43F8D1003D3723 /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Light.ttf"; sourceTree = "<group>"; };
-		651716712B43F8D1003D3723 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
-		651716722B43F8D1003D3723 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
 		651716732B43F8D1003D3723 /* ColorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorManager.swift; sourceTree = "<group>"; };
 		651716752B43F8D1003D3723 /* DeviceName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceName.swift; sourceTree = "<group>"; };
 		651716762B43F8D1003D3723 /* NSObject+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+Helper.swift"; sourceTree = "<group>"; };
@@ -164,12 +162,21 @@
 		6517167B2B43F8D1003D3723 /* StoryboardExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardExtension.swift; sourceTree = "<group>"; };
 		6517167E2B43F8D1003D3723 /* clist.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = clist.json; sourceTree = "<group>"; };
 		6517167F2B43F8D1003D3723 /* currencylist.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = currencylist.json; sourceTree = "<group>"; };
-		651718202B441104003D3723 /* Dashboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Dashboard.storyboard; sourceTree = "<group>"; };
 		651718222B441151003D3723 /* DashBoardTBVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashBoardTBVC.swift; sourceTree = "<group>"; };
 		651718272B441620003D3723 /* DashboardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardVC.swift; sourceTree = "<group>"; };
 		651718292B441630003D3723 /* TripsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsVC.swift; sourceTree = "<group>"; };
 		6517182B2B44163F003D3723 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		6517182D2B441650003D3723 /* MoreVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreVC.swift; sourceTree = "<group>"; };
+		65B679652B441DE800E5D1C3 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		65B6796A2B4421FC00E5D1C3 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
+		65B6796B2B4421FC00E5D1C3 /* OpenSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiBold.ttf"; sourceTree = "<group>"; };
+		65B6796C2B4421FC00E5D1C3 /* OpenSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Medium.ttf"; sourceTree = "<group>"; };
+		65B6796D2B4421FC00E5D1C3 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
+		65B6796E2B4421FD00E5D1C3 /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Light.ttf"; sourceTree = "<group>"; };
+		65B679752B44230C00E5D1C3 /* Inter-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Bold.ttf"; sourceTree = "<group>"; };
+		65B679762B44230D00E5D1C3 /* Inter-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Medium.ttf"; sourceTree = "<group>"; };
+		65B679772B44230D00E5D1C3 /* Inter-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Regular.ttf"; sourceTree = "<group>"; };
+		65B679782B44230D00E5D1C3 /* Inter-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-SemiBold.ttf"; sourceTree = "<group>"; };
 		8C1727B54071D4A493CAF226 /* Pods_TravgateApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TravgateApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92CCA4D767899C0947F898F0 /* Pods-TravgateAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravgateAppTests.debug.xcconfig"; path = "Target Support Files/Pods-TravgateAppTests/Pods-TravgateAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A833FE625AA0EA62C12BEE47 /* Pods-TravgateApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravgateApp.debug.xcconfig"; path = "Target Support Files/Pods-TravgateApp/Pods-TravgateApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -348,12 +355,13 @@
 		651716592B43F8D0003D3723 /* UIFonts */ = {
 			isa = PBXGroup;
 			children = (
+				65B679742B4422DD00E5D1C3 /* Inter */,
+				65B679692B4421D400E5D1C3 /* openSans */,
 				651716732B43F8D1003D3723 /* ColorManager.swift */,
 				6517165A2B43F8D0003D3723 /* FontManager.swift */,
 				6517165B2B43F8D0003D3723 /* UIColorManager.swift */,
 				6517165C2B43F8D0003D3723 /* Oswald */,
 				651716642B43F8D0003D3723 /* Poppins */,
-				6517166E2B43F8D1003D3723 /* OpenSans */,
 			);
 			path = UIFonts;
 			sourceTree = "<group>";
@@ -386,17 +394,6 @@
 				6517166D2B43F8D1003D3723 /* Poppins-SemiBold.ttf */,
 			);
 			path = Poppins;
-			sourceTree = "<group>";
-		};
-		6517166E2B43F8D1003D3723 /* OpenSans */ = {
-			isa = PBXGroup;
-			children = (
-				6517166F2B43F8D1003D3723 /* OpenSans-Semibold.ttf */,
-				651716702B43F8D1003D3723 /* OpenSans-Light.ttf */,
-				651716712B43F8D1003D3723 /* OpenSans-Bold.ttf */,
-				651716722B43F8D1003D3723 /* OpenSans-Regular.ttf */,
-			);
-			path = OpenSans;
 			sourceTree = "<group>";
 		};
 		651716742B43F8D1003D3723 /* Helper */ = {
@@ -444,7 +441,7 @@
 		651718152B440B38003D3723 /* Flight */ = {
 			isa = PBXGroup;
 			children = (
-				6517181C2B440B8B003D3723 /* SB */,
+				65B679642B441CB800E5D1C3 /* SB */,
 				6517181B2B440B70003D3723 /* CVCells */,
 				6517181A2B440B64003D3723 /* TVCells */,
 				651718192B440B5C003D3723 /* Model */,
@@ -495,18 +492,10 @@
 			path = CVCells;
 			sourceTree = "<group>";
 		};
-		6517181C2B440B8B003D3723 /* SB */ = {
-			isa = PBXGroup;
-			children = (
-				651714192B43F837003D3723 /* Main.storyboard */,
-			);
-			path = SB;
-			sourceTree = "<group>";
-		};
 		6517181D2B4410B4003D3723 /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
-				651718202B441104003D3723 /* Dashboard.storyboard */,
+				65B679672B441E0200E5D1C3 /* SB */,
 				651718242B4415BA003D3723 /* VC */,
 			);
 			path = Dashboard;
@@ -523,6 +512,44 @@
 				6517182D2B441650003D3723 /* MoreVC.swift */,
 			);
 			path = VC;
+			sourceTree = "<group>";
+		};
+		65B679642B441CB800E5D1C3 /* SB */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SB;
+			sourceTree = "<group>";
+		};
+		65B679672B441E0200E5D1C3 /* SB */ = {
+			isa = PBXGroup;
+			children = (
+				65B679652B441DE800E5D1C3 /* Main.storyboard */,
+			);
+			path = SB;
+			sourceTree = "<group>";
+		};
+		65B679692B4421D400E5D1C3 /* openSans */ = {
+			isa = PBXGroup;
+			children = (
+				65B6796D2B4421FC00E5D1C3 /* OpenSans-Bold.ttf */,
+				65B6796E2B4421FD00E5D1C3 /* OpenSans-Light.ttf */,
+				65B6796C2B4421FC00E5D1C3 /* OpenSans-Medium.ttf */,
+				65B6796A2B4421FC00E5D1C3 /* OpenSans-Regular.ttf */,
+				65B6796B2B4421FC00E5D1C3 /* OpenSans-SemiBold.ttf */,
+			);
+			path = openSans;
+			sourceTree = "<group>";
+		};
+		65B679742B4422DD00E5D1C3 /* Inter */ = {
+			isa = PBXGroup;
+			children = (
+				65B679752B44230C00E5D1C3 /* Inter-Bold.ttf */,
+				65B679762B44230D00E5D1C3 /* Inter-Medium.ttf */,
+				65B679772B44230D00E5D1C3 /* Inter-Regular.ttf */,
+				65B679782B44230D00E5D1C3 /* Inter-SemiBold.ttf */,
+			);
+			path = Inter;
 			sourceTree = "<group>";
 		};
 		81FCC340B91874B16663E227 /* Pods */ = {
@@ -649,13 +676,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65B679792B44238B00E5D1C3 /* Inter-Bold.ttf in Resources */,
+				65B6797A2B44238B00E5D1C3 /* Inter-Medium.ttf in Resources */,
+				65B6797B2B44238B00E5D1C3 /* Inter-Regular.ttf in Resources */,
+				65B6797C2B44238B00E5D1C3 /* Inter-SemiBold.ttf in Resources */,
+				65B6796F2B44229C00E5D1C3 /* OpenSans-Bold.ttf in Resources */,
+				65B679702B44229C00E5D1C3 /* OpenSans-Light.ttf in Resources */,
+				65B679712B44229C00E5D1C3 /* OpenSans-Medium.ttf in Resources */,
+				65B679722B44229C00E5D1C3 /* OpenSans-Regular.ttf in Resources */,
+				65B679732B44229C00E5D1C3 /* OpenSans-SemiBold.ttf in Resources */,
 				651717F62B43F8D4003D3723 /* Oswald-SemiBold.ttf in Resources */,
-				651718212B441104003D3723 /* Dashboard.storyboard in Resources */,
 				651717F82B43F8D4003D3723 /* Lato-Semibold.ttf in Resources */,
 				651717E42B43F8D4003D3723 /* loderimg.gif in Resources */,
-				651718072B43F8D4003D3723 /* OpenSans-Bold.ttf in Resources */,
-				651718012B43F8D4003D3723 /* OpenSans-Medium.ttf in Resources */,
 				651717FD2B43F8D4003D3723 /* Poppins-Light.ttf in Resources */,
+				65B679662B441DE800E5D1C3 /* Main.storyboard in Resources */,
 				651714202B43F839003D3723 /* LaunchScreen.storyboard in Resources */,
 				651718112B43F8D4003D3723 /* clist.json in Resources */,
 				651717FF2B43F8D4003D3723 /* Oswald-Medium.ttf in Resources */,
@@ -668,14 +702,10 @@
 				651718122B43F8D4003D3723 /* currencylist.json in Resources */,
 				651718032B43F8D4003D3723 /* Poppins-Black.ttf in Resources */,
 				6517141D2B43F839003D3723 /* Assets.xcassets in Resources */,
-				651718082B43F8D4003D3723 /* OpenSans-Regular.ttf in Resources */,
 				651717F92B43F8D4003D3723 /* Oswald-Regular.ttf in Resources */,
-				651718062B43F8D4003D3723 /* OpenSans-Light.ttf in Resources */,
 				651717F52B43F8D4003D3723 /* Oswald-Bold.ttf in Resources */,
 				651718042B43F8D4003D3723 /* Poppins-SemiBold.ttf in Resources */,
 				651717FA2B43F8D4003D3723 /* Lato-Light.ttf in Resources */,
-				6517141B2B43F837003D3723 /* Main.storyboard in Resources */,
-				651718052B43F8D4003D3723 /* OpenSans-Semibold.ttf in Resources */,
 				651718002B43F8D4003D3723 /* Poppins-ExtraBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -909,14 +939,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		651714192B43F837003D3723 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				6517141A2B43F837003D3723 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		6517141E2B43F839003D3723 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

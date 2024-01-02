@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aOT-gx-Opk">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Item 2-->
+        <scene sceneID="f1d-8Z-qAp">
+            <objects>
+                <viewController storyboardIdentifier="TripsVC" id="Nay-bV-Czo" customClass="TripsVC" customModule="TravgateApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bdb-Iu-KVH">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Ca1-fq-sEg"/>
+                        <color key="backgroundColor" systemColor="systemPinkColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 2" id="r2k-Tx-taM"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mFt-rG-qAb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-770" y="785"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="Sf1-4c-L5l">
+            <objects>
+                <viewController storyboardIdentifier="ProfileVC" id="D0i-1E-YHb" customClass="ProfileVC" customModule="TravgateApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QVP-JN-d23">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="qCn-Ib-Ees"/>
+                        <color key="backgroundColor" systemColor="systemYellowColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="Yge-9e-xsp"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FOR-Qb-LQf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="102" y="785"/>
+        </scene>
+        <!--Item 1-->
+        <scene sceneID="fWE-yD-T4Y">
+            <objects>
+                <viewController storyboardIdentifier="DashboardVC" id="jcA-w4-Xr8" customClass="DashboardVC" customModule="TravgateApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iZM-9Q-UxN">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="OE6-x4-4e7"/>
+                        <color key="backgroundColor" systemColor="systemGray4Color"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 1" id="7oT-a7-ady"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UIq-8i-0G2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1576" y="785"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="hQ6-NR-noK">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b9e-df-IMv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="ViewController" id="aOT-gx-Opk" customClass="ViewController" customModule="TravgateApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ibm-Jg-M33">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="C5W-uh-5dx">
+                                <rect key="frame" x="36.666666666666657" y="259" width="320" height="110"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="Wd4-oT-lx9"/>
+                                    <constraint firstAttribute="height" constant="110" id="jG8-pJ-hRX"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="nsV-KU-TFV"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="C5W-uh-5dx" firstAttribute="centerX" secondItem="ibm-Jg-M33" secondAttribute="centerX" id="eed-fy-glM"/>
+                            <constraint firstItem="C5W-uh-5dx" firstAttribute="top" secondItem="nsV-KU-TFV" secondAttribute="top" constant="200" id="wuC-7c-UQb"/>
+                        </constraints>
+                    </view>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="-1370" y="-62"/>
+        </scene>
+        <!--Dash BoardTBVC-->
+        <scene sceneID="UN9-HT-s3r">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FBN-0H-ETd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tabBarController storyboardIdentifier="DashBoardTBVC" id="880-9x-frI" customClass="DashBoardTBVC" customModule="TravgateApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="KOS-MB-PC3">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" name="Buttoncolor"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="jcA-w4-Xr8" kind="relationship" relationship="viewControllers" id="ZBa-5J-WoB"/>
+                        <segue destination="Nay-bV-Czo" kind="relationship" relationship="viewControllers" id="haQ-vz-o6B"/>
+                        <segue destination="D0i-1E-YHb" kind="relationship" relationship="viewControllers" id="wJk-rm-aQM"/>
+                        <segue destination="1fJ-Fn-9ed" kind="relationship" relationship="viewControllers" id="zyZ-Kd-NC9"/>
+                    </connections>
+                </tabBarController>
+            </objects>
+            <point key="canvasLocation" x="-258" y="-55"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="Djd-tp-HRm">
+            <objects>
+                <viewController storyboardIdentifier="MoreVC" id="1fJ-Fn-9ed" customClass="MoreVC" customModule="TravgateApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9ir-Kv-KvI">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="ptz-18-xIE"/>
+                        <color key="backgroundColor" systemColor="tintColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="Y4x-OS-mbi"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9R2-MJ-znU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="976" y="785"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="logo" width="336" height="108"/>
+        <namedColor name="Buttoncolor">
+            <color red="0.2669999897480011" green="0.70999997854232788" blue="0.046999998390674591" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray4Color">
+            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tintColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

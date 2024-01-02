@@ -83,4 +83,10 @@ extension UIFont {
     }
     
     
+    
+    public static func InterRegular(size: CGFloat) -> UIFont {
+        return UIFont(name: "Inter-Regular", size: size)!
+    }
+    
+    
 }
