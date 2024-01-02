@@ -16,6 +16,66 @@
 		6517142B2B43F839003D3723 /* TravgateAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6517142A2B43F839003D3723 /* TravgateAppTests.swift */; };
 		651714352B43F839003D3723 /* TravgateAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651714342B43F839003D3723 /* TravgateAppUITests.swift */; };
 		651714372B43F839003D3723 /* TravgateAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651714362B43F839003D3723 /* TravgateAppUITestsLaunchTests.swift */; };
+		651717DE2B43F8D4003D3723 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6517163F2B43F8D0003D3723 /* BaseVC.swift */; };
+		651717DF2B43F8D4003D3723 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651716402B43F8D0003D3723 /* TableViewCell.swift */; };
+		651717E02B43F8D4003D3723 /* BaseTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651716412B43F8D0003D3723 /* BaseTableVC.swift */; };
+		651717E12B43F8D4003D3723 /* UIModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651716422B43F8D0003D3723 /* UIModels.swift */; };
+		651717E22B43F8D4003D3723 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651716442B43F8D0003D3723 /* Constants.swift */; };
+		651717E32B43F8D4003D3723 /* newloder.gif in Resources */ = {isa = PBXBuildFile; fileRef = 651716452B43F8D0003D3723 /* newloder.gif */; };
+		651717E42B43F8D4003D3723 /* loderimg.gif in Resources */ = {isa = PBXBuildFile; fileRef = 651716462B43F8D0003D3723 /* loderimg.gif */; };
+		651717E52B43F8D4003D3723 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651716472B43F8D0003D3723 /* SessionManager.swift */; };
+		651717E82B43F8D4003D3723 /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6517164D2B43F8D0003D3723 /* ServiceManager.swift */; };
+		651717E92B43F8D4003D3723 /* BorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6517164E2B43F8D0003D3723 /* BorderView.swift */; };
+		651717EA2B43F8D4003D3723 /* TableViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651716502B43F8D0003D3723 /* TableViewHelper.swift */; };
+		651717EB2B43F8D4003D3723 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651716512B43F8D0003D3723 /* UIViewControllerExtension.swift */; };
+		651717EC2B43F8D4003D3723 /* ButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651716522B43F8D0003D3723 /* ButtonExtension.swift */; };
+		651717ED2B43F8D4003D3723 /* UIKitHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651716532B43F8D0003D3723 /* UIKitHelper.swift */; };
+		651717EE2B43F8D4003D3723 /* TableViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651716542B43F8D0003D3723 /* TableViewExtensions.swift */; };
+		651717EF2B43F8D4003D3723 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651716552B43F8D0003D3723 /* StringExtension.swift */; };
+		651717F02B43F8D4003D3723 /* TextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651716562B43F8D0003D3723 /* TextFieldExtension.swift */; };
+		651717F12B43F8D4003D3723 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651716572B43F8D0003D3723 /* DateExtension.swift */; };
+		651717F22B43F8D4003D3723 /* UITapGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651716582B43F8D0003D3723 /* UITapGestureRecognizer.swift */; };
+		651717F32B43F8D4003D3723 /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6517165A2B43F8D0003D3723 /* FontManager.swift */; };
+		651717F42B43F8D4003D3723 /* UIColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6517165B2B43F8D0003D3723 /* UIColorManager.swift */; };
+		651717F52B43F8D4003D3723 /* Oswald-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6517165D2B43F8D0003D3723 /* Oswald-Bold.ttf */; };
+		651717F62B43F8D4003D3723 /* Oswald-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6517165E2B43F8D0003D3723 /* Oswald-SemiBold.ttf */; };
+		651717F72B43F8D4003D3723 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6517165F2B43F8D0003D3723 /* Lato-Regular.ttf */; };
+		651717F82B43F8D4003D3723 /* Lato-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 651716602B43F8D0003D3723 /* Lato-Semibold.ttf */; };
+		651717F92B43F8D4003D3723 /* Oswald-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 651716612B43F8D0003D3723 /* Oswald-Regular.ttf */; };
+		651717FA2B43F8D4003D3723 /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 651716622B43F8D0003D3723 /* Lato-Light.ttf */; };
+		651717FB2B43F8D4003D3723 /* Lato-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 651716632B43F8D0003D3723 /* Lato-Medium.ttf */; };
+		651717FC2B43F8D4003D3723 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 651716652B43F8D0003D3723 /* Roboto-Medium.ttf */; };
+		651717FD2B43F8D4003D3723 /* Poppins-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 651716662B43F8D0003D3723 /* Poppins-Light.ttf */; };
+		651717FE2B43F8D4003D3723 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 651716672B43F8D0003D3723 /* Poppins-Medium.ttf */; };
+		651717FF2B43F8D4003D3723 /* Oswald-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 651716682B43F8D0003D3723 /* Oswald-Medium.ttf */; };
+		651718002B43F8D4003D3723 /* Poppins-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 651716692B43F8D1003D3723 /* Poppins-ExtraBold.ttf */; };
+		651718012B43F8D4003D3723 /* OpenSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6517166A2B43F8D1003D3723 /* OpenSans-Medium.ttf */; };
+		651718022B43F8D4003D3723 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6517166B2B43F8D1003D3723 /* Poppins-Bold.ttf */; };
+		651718032B43F8D4003D3723 /* Poppins-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6517166C2B43F8D1003D3723 /* Poppins-Black.ttf */; };
+		651718042B43F8D4003D3723 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6517166D2B43F8D1003D3723 /* Poppins-SemiBold.ttf */; };
+		651718052B43F8D4003D3723 /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6517166F2B43F8D1003D3723 /* OpenSans-Semibold.ttf */; };
+		651718062B43F8D4003D3723 /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 651716702B43F8D1003D3723 /* OpenSans-Light.ttf */; };
+		651718072B43F8D4003D3723 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 651716712B43F8D1003D3723 /* OpenSans-Bold.ttf */; };
+		651718082B43F8D4003D3723 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 651716722B43F8D1003D3723 /* OpenSans-Regular.ttf */; };
+		651718092B43F8D4003D3723 /* ColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651716732B43F8D1003D3723 /* ColorManager.swift */; };
+		6517180A2B43F8D4003D3723 /* DeviceName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651716752B43F8D1003D3723 /* DeviceName.swift */; };
+		6517180B2B43F8D4003D3723 /* NSObject+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651716762B43F8D1003D3723 /* NSObject+Helper.swift */; };
+		6517180C2B43F8D4003D3723 /* Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651716772B43F8D1003D3723 /* Decodable.swift */; };
+		6517180D2B43F8D4003D3723 /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651716782B43F8D1003D3723 /* Loader.swift */; };
+		6517180E2B43F8D4003D3723 /* BaseViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651716792B43F8D1003D3723 /* BaseViewModelProtocol.swift */; };
+		6517180F2B43F8D4003D3723 /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6517167A2B43F8D1003D3723 /* ProgressHUD.swift */; };
+		651718102B43F8D4003D3723 /* StoryboardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6517167B2B43F8D1003D3723 /* StoryboardExtension.swift */; };
+		651718112B43F8D4003D3723 /* clist.json in Resources */ = {isa = PBXBuildFile; fileRef = 6517167E2B43F8D1003D3723 /* clist.json */; };
+		651718122B43F8D4003D3723 /* currencylist.json in Resources */ = {isa = PBXBuildFile; fileRef = 6517167F2B43F8D1003D3723 /* currencylist.json */; };
+		651718212B441104003D3723 /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 651718202B441104003D3723 /* Dashboard.storyboard */; };
+		651718232B441151003D3723 /* DashBoardTBVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651718222B441151003D3723 /* DashBoardTBVC.swift */; };
+		651718282B441620003D3723 /* DashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651718272B441620003D3723 /* DashboardVC.swift */; };
+		6517182A2B441630003D3723 /* TripsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651718292B441630003D3723 /* TripsVC.swift */; };
+		6517182C2B44163F003D3723 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6517182B2B44163F003D3723 /* ProfileVC.swift */; };
+		6517182E2B441650003D3723 /* MoreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6517182D2B441650003D3723 /* MoreVC.swift */; };
+		A49629B2BC0298903ECB14C9 /* Pods_TravgateApp_TravgateAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CD57DADF2827CC7315F9E10 /* Pods_TravgateApp_TravgateAppUITests.framework */; };
+		B0DAB0DBB63A478E83F5291D /* Pods_TravgateAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 634B61CF8AE4096700985889 /* Pods_TravgateAppTests.framework */; };
+		F35DB7DEE4FE2CEB1228C68B /* Pods_TravgateApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C1727B54071D4A493CAF226 /* Pods_TravgateApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +96,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		240F8178E18EDE58F85041CA /* Pods-TravgateAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravgateAppTests.release.xcconfig"; path = "Target Support Files/Pods-TravgateAppTests/Pods-TravgateAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		3C751BD1AF769704CFE02F44 /* Pods-TravgateApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravgateApp.release.xcconfig"; path = "Target Support Files/Pods-TravgateApp/Pods-TravgateApp.release.xcconfig"; sourceTree = "<group>"; };
+		3CD57DADF2827CC7315F9E10 /* Pods_TravgateApp_TravgateAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TravgateApp_TravgateAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		634B61CF8AE4096700985889 /* Pods_TravgateAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TravgateAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		651714102B43F837003D3723 /* TravgateApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravgateApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		651714132B43F837003D3723 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		651714152B43F837003D3723 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +113,68 @@
 		651714302B43F839003D3723 /* TravgateAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TravgateAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		651714342B43F839003D3723 /* TravgateAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravgateAppUITests.swift; sourceTree = "<group>"; };
 		651714362B43F839003D3723 /* TravgateAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravgateAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		6517163F2B43F8D0003D3723 /* BaseVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
+		651716402B43F8D0003D3723 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		651716412B43F8D0003D3723 /* BaseTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableVC.swift; sourceTree = "<group>"; };
+		651716422B43F8D0003D3723 /* UIModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIModels.swift; sourceTree = "<group>"; };
+		651716442B43F8D0003D3723 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		651716452B43F8D0003D3723 /* newloder.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = newloder.gif; sourceTree = "<group>"; };
+		651716462B43F8D0003D3723 /* loderimg.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loderimg.gif; sourceTree = "<group>"; };
+		651716472B43F8D0003D3723 /* SessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
+		6517164D2B43F8D0003D3723 /* ServiceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
+		6517164E2B43F8D0003D3723 /* BorderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderView.swift; sourceTree = "<group>"; };
+		651716502B43F8D0003D3723 /* TableViewHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewHelper.swift; sourceTree = "<group>"; };
+		651716512B43F8D0003D3723 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		651716522B43F8D0003D3723 /* ButtonExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonExtension.swift; sourceTree = "<group>"; };
+		651716532B43F8D0003D3723 /* UIKitHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIKitHelper.swift; sourceTree = "<group>"; };
+		651716542B43F8D0003D3723 /* TableViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewExtensions.swift; sourceTree = "<group>"; };
+		651716552B43F8D0003D3723 /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		651716562B43F8D0003D3723 /* TextFieldExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldExtension.swift; sourceTree = "<group>"; };
+		651716572B43F8D0003D3723 /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		651716582B43F8D0003D3723 /* UITapGestureRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITapGestureRecognizer.swift; sourceTree = "<group>"; };
+		6517165A2B43F8D0003D3723 /* FontManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
+		6517165B2B43F8D0003D3723 /* UIColorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorManager.swift; sourceTree = "<group>"; };
+		6517165D2B43F8D0003D3723 /* Oswald-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-Bold.ttf"; sourceTree = "<group>"; };
+		6517165E2B43F8D0003D3723 /* Oswald-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-SemiBold.ttf"; sourceTree = "<group>"; };
+		6517165F2B43F8D0003D3723 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
+		651716602B43F8D0003D3723 /* Lato-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Semibold.ttf"; sourceTree = "<group>"; };
+		651716612B43F8D0003D3723 /* Oswald-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-Regular.ttf"; sourceTree = "<group>"; };
+		651716622B43F8D0003D3723 /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Light.ttf"; sourceTree = "<group>"; };
+		651716632B43F8D0003D3723 /* Lato-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Medium.ttf"; sourceTree = "<group>"; };
+		651716652B43F8D0003D3723 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		651716662B43F8D0003D3723 /* Poppins-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Light.ttf"; sourceTree = "<group>"; };
+		651716672B43F8D0003D3723 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
+		651716682B43F8D0003D3723 /* Oswald-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-Medium.ttf"; sourceTree = "<group>"; };
+		651716692B43F8D1003D3723 /* Poppins-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraBold.ttf"; sourceTree = "<group>"; };
+		6517166A2B43F8D1003D3723 /* OpenSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Medium.ttf"; sourceTree = "<group>"; };
+		6517166B2B43F8D1003D3723 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
+		6517166C2B43F8D1003D3723 /* Poppins-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Black.ttf"; sourceTree = "<group>"; };
+		6517166D2B43F8D1003D3723 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
+		6517166F2B43F8D1003D3723 /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
+		651716702B43F8D1003D3723 /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Light.ttf"; sourceTree = "<group>"; };
+		651716712B43F8D1003D3723 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
+		651716722B43F8D1003D3723 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
+		651716732B43F8D1003D3723 /* ColorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorManager.swift; sourceTree = "<group>"; };
+		651716752B43F8D1003D3723 /* DeviceName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceName.swift; sourceTree = "<group>"; };
+		651716762B43F8D1003D3723 /* NSObject+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+Helper.swift"; sourceTree = "<group>"; };
+		651716772B43F8D1003D3723 /* Decodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Decodable.swift; sourceTree = "<group>"; };
+		651716782B43F8D1003D3723 /* Loader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
+		651716792B43F8D1003D3723 /* BaseViewModelProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewModelProtocol.swift; sourceTree = "<group>"; };
+		6517167A2B43F8D1003D3723 /* ProgressHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressHUD.swift; sourceTree = "<group>"; };
+		6517167B2B43F8D1003D3723 /* StoryboardExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardExtension.swift; sourceTree = "<group>"; };
+		6517167E2B43F8D1003D3723 /* clist.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = clist.json; sourceTree = "<group>"; };
+		6517167F2B43F8D1003D3723 /* currencylist.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = currencylist.json; sourceTree = "<group>"; };
+		651718202B441104003D3723 /* Dashboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Dashboard.storyboard; sourceTree = "<group>"; };
+		651718222B441151003D3723 /* DashBoardTBVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashBoardTBVC.swift; sourceTree = "<group>"; };
+		651718272B441620003D3723 /* DashboardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardVC.swift; sourceTree = "<group>"; };
+		651718292B441630003D3723 /* TripsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsVC.swift; sourceTree = "<group>"; };
+		6517182B2B44163F003D3723 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		6517182D2B441650003D3723 /* MoreVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreVC.swift; sourceTree = "<group>"; };
+		8C1727B54071D4A493CAF226 /* Pods_TravgateApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TravgateApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		92CCA4D767899C0947F898F0 /* Pods-TravgateAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravgateAppTests.debug.xcconfig"; path = "Target Support Files/Pods-TravgateAppTests/Pods-TravgateAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A833FE625AA0EA62C12BEE47 /* Pods-TravgateApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravgateApp.debug.xcconfig"; path = "Target Support Files/Pods-TravgateApp/Pods-TravgateApp.debug.xcconfig"; sourceTree = "<group>"; };
+		BBDE2F58F72AA616EC567804 /* Pods-TravgateApp-TravgateAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravgateApp-TravgateAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-TravgateApp-TravgateAppUITests/Pods-TravgateApp-TravgateAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		FFE627D4634869D92FB4547E /* Pods-TravgateApp-TravgateAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravgateApp-TravgateAppUITests.release.xcconfig"; path = "Target Support Files/Pods-TravgateApp-TravgateAppUITests/Pods-TravgateApp-TravgateAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +182,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F35DB7DEE4FE2CEB1228C68B /* Pods_TravgateApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +190,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0DAB0DBB63A478E83F5291D /* Pods_TravgateAppTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,12 +198,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A49629B2BC0298903ECB14C9 /* Pods_TravgateApp_TravgateAppUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5BEC774A3992231C55B33CA6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8C1727B54071D4A493CAF226 /* Pods_TravgateApp.framework */,
+				3CD57DADF2827CC7315F9E10 /* Pods_TravgateApp_TravgateAppUITests.framework */,
+				634B61CF8AE4096700985889 /* Pods_TravgateAppTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		651714072B43F837003D3723 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +222,8 @@
 				651714292B43F839003D3723 /* TravgateAppTests */,
 				651714332B43F839003D3723 /* TravgateAppUITests */,
 				651714112B43F837003D3723 /* Products */,
+				81FCC340B91874B16663E227 /* Pods */,
+				5BEC774A3992231C55B33CA6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,10 +240,9 @@
 		651714122B43F837003D3723 /* TravgateApp */ = {
 			isa = PBXGroup;
 			children = (
+				6517144A2B43F8CD003D3723 /* APP */,
 				651714132B43F837003D3723 /* AppDelegate.swift */,
 				651714152B43F837003D3723 /* SceneDelegate.swift */,
-				651714172B43F837003D3723 /* ViewController.swift */,
-				651714192B43F837003D3723 /* Main.storyboard */,
 				6517141C2B43F839003D3723 /* Assets.xcassets */,
 				6517141E2B43F839003D3723 /* LaunchScreen.storyboard */,
 				651714212B43F839003D3723 /* Info.plist */,
@@ -127,6 +267,277 @@
 			path = TravgateAppUITests;
 			sourceTree = "<group>";
 		};
+		6517144A2B43F8CD003D3723 /* APP */ = {
+			isa = PBXGroup;
+			children = (
+				651718142B43F901003D3723 /* scens */,
+				6517163D2B43F8D0003D3723 /* Config */,
+			);
+			path = APP;
+			sourceTree = "<group>";
+		};
+		6517163D2B43F8D0003D3723 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				6517163E2B43F8D0003D3723 /* BaseVCS */,
+				651716432B43F8D0003D3723 /* Constants */,
+				651716482B43F8D0003D3723 /* CommonMethods */,
+				6517164C2B43F8D0003D3723 /* Service Manager */,
+				6517164F2B43F8D0003D3723 /* Extensions */,
+				651716592B43F8D0003D3723 /* UIFonts */,
+				651716742B43F8D1003D3723 /* Helper */,
+				6517167C2B43F8D1003D3723 /* JsonFiles */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		6517163E2B43F8D0003D3723 /* BaseVCS */ = {
+			isa = PBXGroup;
+			children = (
+				6517163F2B43F8D0003D3723 /* BaseVC.swift */,
+				651716402B43F8D0003D3723 /* TableViewCell.swift */,
+				651716412B43F8D0003D3723 /* BaseTableVC.swift */,
+				651716422B43F8D0003D3723 /* UIModels.swift */,
+			);
+			path = BaseVCS;
+			sourceTree = "<group>";
+		};
+		651716432B43F8D0003D3723 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				651716442B43F8D0003D3723 /* Constants.swift */,
+				651716452B43F8D0003D3723 /* newloder.gif */,
+				651716462B43F8D0003D3723 /* loderimg.gif */,
+				651716472B43F8D0003D3723 /* SessionManager.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		651716482B43F8D0003D3723 /* CommonMethods */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CommonMethods;
+			sourceTree = "<group>";
+		};
+		6517164C2B43F8D0003D3723 /* Service Manager */ = {
+			isa = PBXGroup;
+			children = (
+				6517164D2B43F8D0003D3723 /* ServiceManager.swift */,
+				6517164E2B43F8D0003D3723 /* BorderView.swift */,
+			);
+			path = "Service Manager";
+			sourceTree = "<group>";
+		};
+		6517164F2B43F8D0003D3723 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				651716502B43F8D0003D3723 /* TableViewHelper.swift */,
+				651716512B43F8D0003D3723 /* UIViewControllerExtension.swift */,
+				651716522B43F8D0003D3723 /* ButtonExtension.swift */,
+				651716532B43F8D0003D3723 /* UIKitHelper.swift */,
+				651716542B43F8D0003D3723 /* TableViewExtensions.swift */,
+				651716552B43F8D0003D3723 /* StringExtension.swift */,
+				651716562B43F8D0003D3723 /* TextFieldExtension.swift */,
+				651716572B43F8D0003D3723 /* DateExtension.swift */,
+				651716582B43F8D0003D3723 /* UITapGestureRecognizer.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		651716592B43F8D0003D3723 /* UIFonts */ = {
+			isa = PBXGroup;
+			children = (
+				651716732B43F8D1003D3723 /* ColorManager.swift */,
+				6517165A2B43F8D0003D3723 /* FontManager.swift */,
+				6517165B2B43F8D0003D3723 /* UIColorManager.swift */,
+				6517165C2B43F8D0003D3723 /* Oswald */,
+				651716642B43F8D0003D3723 /* Poppins */,
+				6517166E2B43F8D1003D3723 /* OpenSans */,
+			);
+			path = UIFonts;
+			sourceTree = "<group>";
+		};
+		6517165C2B43F8D0003D3723 /* Oswald */ = {
+			isa = PBXGroup;
+			children = (
+				6517165D2B43F8D0003D3723 /* Oswald-Bold.ttf */,
+				6517165E2B43F8D0003D3723 /* Oswald-SemiBold.ttf */,
+				6517165F2B43F8D0003D3723 /* Lato-Regular.ttf */,
+				651716602B43F8D0003D3723 /* Lato-Semibold.ttf */,
+				651716612B43F8D0003D3723 /* Oswald-Regular.ttf */,
+				651716622B43F8D0003D3723 /* Lato-Light.ttf */,
+				651716632B43F8D0003D3723 /* Lato-Medium.ttf */,
+			);
+			path = Oswald;
+			sourceTree = "<group>";
+		};
+		651716642B43F8D0003D3723 /* Poppins */ = {
+			isa = PBXGroup;
+			children = (
+				651716652B43F8D0003D3723 /* Roboto-Medium.ttf */,
+				651716662B43F8D0003D3723 /* Poppins-Light.ttf */,
+				651716672B43F8D0003D3723 /* Poppins-Medium.ttf */,
+				651716682B43F8D0003D3723 /* Oswald-Medium.ttf */,
+				651716692B43F8D1003D3723 /* Poppins-ExtraBold.ttf */,
+				6517166A2B43F8D1003D3723 /* OpenSans-Medium.ttf */,
+				6517166B2B43F8D1003D3723 /* Poppins-Bold.ttf */,
+				6517166C2B43F8D1003D3723 /* Poppins-Black.ttf */,
+				6517166D2B43F8D1003D3723 /* Poppins-SemiBold.ttf */,
+			);
+			path = Poppins;
+			sourceTree = "<group>";
+		};
+		6517166E2B43F8D1003D3723 /* OpenSans */ = {
+			isa = PBXGroup;
+			children = (
+				6517166F2B43F8D1003D3723 /* OpenSans-Semibold.ttf */,
+				651716702B43F8D1003D3723 /* OpenSans-Light.ttf */,
+				651716712B43F8D1003D3723 /* OpenSans-Bold.ttf */,
+				651716722B43F8D1003D3723 /* OpenSans-Regular.ttf */,
+			);
+			path = OpenSans;
+			sourceTree = "<group>";
+		};
+		651716742B43F8D1003D3723 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				651716752B43F8D1003D3723 /* DeviceName.swift */,
+				651716762B43F8D1003D3723 /* NSObject+Helper.swift */,
+				651716772B43F8D1003D3723 /* Decodable.swift */,
+				651716782B43F8D1003D3723 /* Loader.swift */,
+				651716792B43F8D1003D3723 /* BaseViewModelProtocol.swift */,
+				6517167A2B43F8D1003D3723 /* ProgressHUD.swift */,
+				6517167B2B43F8D1003D3723 /* StoryboardExtension.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		6517167C2B43F8D1003D3723 /* JsonFiles */ = {
+			isa = PBXGroup;
+			children = (
+				6517167D2B43F8D1003D3723 /* CurrencyListJson */,
+			);
+			path = JsonFiles;
+			sourceTree = "<group>";
+		};
+		6517167D2B43F8D1003D3723 /* CurrencyListJson */ = {
+			isa = PBXGroup;
+			children = (
+				6517167E2B43F8D1003D3723 /* clist.json */,
+				6517167F2B43F8D1003D3723 /* currencylist.json */,
+			);
+			path = CurrencyListJson;
+			sourceTree = "<group>";
+		};
+		651718142B43F901003D3723 /* scens */ = {
+			isa = PBXGroup;
+			children = (
+				6517181D2B4410B4003D3723 /* Dashboard */,
+				651718172B440B47003D3723 /* Login */,
+				651718152B440B38003D3723 /* Flight */,
+				651718162B440B40003D3723 /* Hotel */,
+			);
+			path = scens;
+			sourceTree = "<group>";
+		};
+		651718152B440B38003D3723 /* Flight */ = {
+			isa = PBXGroup;
+			children = (
+				6517181C2B440B8B003D3723 /* SB */,
+				6517181B2B440B70003D3723 /* CVCells */,
+				6517181A2B440B64003D3723 /* TVCells */,
+				651718192B440B5C003D3723 /* Model */,
+				651718182B440B51003D3723 /* VC */,
+			);
+			path = Flight;
+			sourceTree = "<group>";
+		};
+		651718162B440B40003D3723 /* Hotel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Hotel;
+			sourceTree = "<group>";
+		};
+		651718172B440B47003D3723 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		651718182B440B51003D3723 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		651718192B440B5C003D3723 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6517181A2B440B64003D3723 /* TVCells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TVCells;
+			sourceTree = "<group>";
+		};
+		6517181B2B440B70003D3723 /* CVCells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CVCells;
+			sourceTree = "<group>";
+		};
+		6517181C2B440B8B003D3723 /* SB */ = {
+			isa = PBXGroup;
+			children = (
+				651714192B43F837003D3723 /* Main.storyboard */,
+			);
+			path = SB;
+			sourceTree = "<group>";
+		};
+		6517181D2B4410B4003D3723 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				651718202B441104003D3723 /* Dashboard.storyboard */,
+				651718242B4415BA003D3723 /* VC */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		651718242B4415BA003D3723 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				651714172B43F837003D3723 /* ViewController.swift */,
+				651718222B441151003D3723 /* DashBoardTBVC.swift */,
+				651718272B441620003D3723 /* DashboardVC.swift */,
+				651718292B441630003D3723 /* TripsVC.swift */,
+				6517182B2B44163F003D3723 /* ProfileVC.swift */,
+				6517182D2B441650003D3723 /* MoreVC.swift */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		81FCC340B91874B16663E227 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A833FE625AA0EA62C12BEE47 /* Pods-TravgateApp.debug.xcconfig */,
+				3C751BD1AF769704CFE02F44 /* Pods-TravgateApp.release.xcconfig */,
+				BBDE2F58F72AA616EC567804 /* Pods-TravgateApp-TravgateAppUITests.debug.xcconfig */,
+				FFE627D4634869D92FB4547E /* Pods-TravgateApp-TravgateAppUITests.release.xcconfig */,
+				92CCA4D767899C0947F898F0 /* Pods-TravgateAppTests.debug.xcconfig */,
+				240F8178E18EDE58F85041CA /* Pods-TravgateAppTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -134,9 +545,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6517143A2B43F839003D3723 /* Build configuration list for PBXNativeTarget "TravgateApp" */;
 			buildPhases = (
+				D916AFDE2D52E1FDEFEAC470 /* [CP] Check Pods Manifest.lock */,
 				6517140C2B43F837003D3723 /* Sources */,
 				6517140D2B43F837003D3723 /* Frameworks */,
 				6517140E2B43F837003D3723 /* Resources */,
+				B19D28AE9C447FC88E0F354F /* [CP] Embed Pods Frameworks */,
+				DA70185ACBB7719B79C1F904 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -151,6 +565,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6517143D2B43F839003D3723 /* Build configuration list for PBXNativeTarget "TravgateAppTests" */;
 			buildPhases = (
+				7B1C09FC8002FA551A0E9FDB /* [CP] Check Pods Manifest.lock */,
 				651714222B43F839003D3723 /* Sources */,
 				651714232B43F839003D3723 /* Frameworks */,
 				651714242B43F839003D3723 /* Resources */,
@@ -169,9 +584,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 651714402B43F839003D3723 /* Build configuration list for PBXNativeTarget "TravgateAppUITests" */;
 			buildPhases = (
+				BF7F0E5824898267E1930EF4 /* [CP] Check Pods Manifest.lock */,
 				6517142C2B43F839003D3723 /* Sources */,
 				6517142D2B43F839003D3723 /* Frameworks */,
 				6517142E2B43F839003D3723 /* Resources */,
+				67BB2C7051B09AA74969E1D6 /* [CP] Embed Pods Frameworks */,
+				D0DFF4EA38085F86AEC247B5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -231,9 +649,34 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				651717F62B43F8D4003D3723 /* Oswald-SemiBold.ttf in Resources */,
+				651718212B441104003D3723 /* Dashboard.storyboard in Resources */,
+				651717F82B43F8D4003D3723 /* Lato-Semibold.ttf in Resources */,
+				651717E42B43F8D4003D3723 /* loderimg.gif in Resources */,
+				651718072B43F8D4003D3723 /* OpenSans-Bold.ttf in Resources */,
+				651718012B43F8D4003D3723 /* OpenSans-Medium.ttf in Resources */,
+				651717FD2B43F8D4003D3723 /* Poppins-Light.ttf in Resources */,
 				651714202B43F839003D3723 /* LaunchScreen.storyboard in Resources */,
+				651718112B43F8D4003D3723 /* clist.json in Resources */,
+				651717FF2B43F8D4003D3723 /* Oswald-Medium.ttf in Resources */,
+				651717FE2B43F8D4003D3723 /* Poppins-Medium.ttf in Resources */,
+				651717FB2B43F8D4003D3723 /* Lato-Medium.ttf in Resources */,
+				651717FC2B43F8D4003D3723 /* Roboto-Medium.ttf in Resources */,
+				651718022B43F8D4003D3723 /* Poppins-Bold.ttf in Resources */,
+				651717E32B43F8D4003D3723 /* newloder.gif in Resources */,
+				651717F72B43F8D4003D3723 /* Lato-Regular.ttf in Resources */,
+				651718122B43F8D4003D3723 /* currencylist.json in Resources */,
+				651718032B43F8D4003D3723 /* Poppins-Black.ttf in Resources */,
 				6517141D2B43F839003D3723 /* Assets.xcassets in Resources */,
+				651718082B43F8D4003D3723 /* OpenSans-Regular.ttf in Resources */,
+				651717F92B43F8D4003D3723 /* Oswald-Regular.ttf in Resources */,
+				651718062B43F8D4003D3723 /* OpenSans-Light.ttf in Resources */,
+				651717F52B43F8D4003D3723 /* Oswald-Bold.ttf in Resources */,
+				651718042B43F8D4003D3723 /* Poppins-SemiBold.ttf in Resources */,
+				651717FA2B43F8D4003D3723 /* Lato-Light.ttf in Resources */,
 				6517141B2B43F837003D3723 /* Main.storyboard in Resources */,
+				651718052B43F8D4003D3723 /* OpenSans-Semibold.ttf in Resources */,
+				651718002B43F8D4003D3723 /* Poppins-ExtraBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,14 +696,183 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		67BB2C7051B09AA74969E1D6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TravgateApp-TravgateAppUITests/Pods-TravgateApp-TravgateAppUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TravgateApp-TravgateAppUITests/Pods-TravgateApp-TravgateAppUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TravgateApp-TravgateAppUITests/Pods-TravgateApp-TravgateAppUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7B1C09FC8002FA551A0E9FDB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TravgateAppTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B19D28AE9C447FC88E0F354F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TravgateApp/Pods-TravgateApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TravgateApp/Pods-TravgateApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TravgateApp/Pods-TravgateApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BF7F0E5824898267E1930EF4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TravgateApp-TravgateAppUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D0DFF4EA38085F86AEC247B5 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TravgateApp-TravgateAppUITests/Pods-TravgateApp-TravgateAppUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TravgateApp-TravgateAppUITests/Pods-TravgateApp-TravgateAppUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TravgateApp-TravgateAppUITests/Pods-TravgateApp-TravgateAppUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D916AFDE2D52E1FDEFEAC470 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TravgateApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DA70185ACBB7719B79C1F904 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TravgateApp/Pods-TravgateApp-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TravgateApp/Pods-TravgateApp-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TravgateApp/Pods-TravgateApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		6517140C2B43F837003D3723 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6517180F2B43F8D4003D3723 /* ProgressHUD.swift in Sources */,
+				651717EB2B43F8D4003D3723 /* UIViewControllerExtension.swift in Sources */,
+				651717E82B43F8D4003D3723 /* ServiceManager.swift in Sources */,
+				651717F32B43F8D4003D3723 /* FontManager.swift in Sources */,
 				651714182B43F837003D3723 /* ViewController.swift in Sources */,
+				651718232B441151003D3723 /* DashBoardTBVC.swift in Sources */,
+				651717E22B43F8D4003D3723 /* Constants.swift in Sources */,
+				651717EF2B43F8D4003D3723 /* StringExtension.swift in Sources */,
+				651717EA2B43F8D4003D3723 /* TableViewHelper.swift in Sources */,
+				6517180E2B43F8D4003D3723 /* BaseViewModelProtocol.swift in Sources */,
+				651717DF2B43F8D4003D3723 /* TableViewCell.swift in Sources */,
+				651717E12B43F8D4003D3723 /* UIModels.swift in Sources */,
+				651717E52B43F8D4003D3723 /* SessionManager.swift in Sources */,
+				651718282B441620003D3723 /* DashboardVC.swift in Sources */,
+				651717EC2B43F8D4003D3723 /* ButtonExtension.swift in Sources */,
+				651717F22B43F8D4003D3723 /* UITapGestureRecognizer.swift in Sources */,
+				6517180D2B43F8D4003D3723 /* Loader.swift in Sources */,
+				6517180B2B43F8D4003D3723 /* NSObject+Helper.swift in Sources */,
+				651718102B43F8D4003D3723 /* StoryboardExtension.swift in Sources */,
 				651714142B43F837003D3723 /* AppDelegate.swift in Sources */,
+				651717DE2B43F8D4003D3723 /* BaseVC.swift in Sources */,
+				6517180A2B43F8D4003D3723 /* DeviceName.swift in Sources */,
 				651714162B43F837003D3723 /* SceneDelegate.swift in Sources */,
+				651717E02B43F8D4003D3723 /* BaseTableVC.swift in Sources */,
+				6517182E2B441650003D3723 /* MoreVC.swift in Sources */,
+				651717E92B43F8D4003D3723 /* BorderView.swift in Sources */,
+				651717F12B43F8D4003D3723 /* DateExtension.swift in Sources */,
+				651717EE2B43F8D4003D3723 /* TableViewExtensions.swift in Sources */,
+				651717ED2B43F8D4003D3723 /* UIKitHelper.swift in Sources */,
+				6517182A2B441630003D3723 /* TripsVC.swift in Sources */,
+				6517180C2B43F8D4003D3723 /* Decodable.swift in Sources */,
+				6517182C2B44163F003D3723 /* ProfileVC.swift in Sources */,
+				651717F02B43F8D4003D3723 /* TextFieldExtension.swift in Sources */,
+				651717F42B43F8D4003D3723 /* UIColorManager.swift in Sources */,
+				651718092B43F8D4003D3723 /* ColorManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,6 +1044,7 @@
 		};
 		6517143B2B43F839003D3723 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A833FE625AA0EA62C12BEE47 /* Pods-TravgateApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -443,8 +1056,9 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -452,14 +1066,18 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.provab.TravgateApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		6517143C2B43F839003D3723 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3C751BD1AF769704CFE02F44 /* Pods-TravgateApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -471,8 +1089,9 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -480,14 +1099,18 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.provab.TravgateApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 		6517143E2B43F839003D3723 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 92CCA4D767899C0947F898F0 /* Pods-TravgateAppTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -508,6 +1131,7 @@
 		};
 		6517143F2B43F839003D3723 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 240F8178E18EDE58F85041CA /* Pods-TravgateAppTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -528,6 +1152,7 @@
 		};
 		651714412B43F839003D3723 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BBDE2F58F72AA616EC567804 /* Pods-TravgateApp-TravgateAppUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -546,6 +1171,7 @@
 		};
 		651714422B43F839003D3723 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FFE627D4634869D92FB4547E /* Pods-TravgateApp-TravgateAppUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
