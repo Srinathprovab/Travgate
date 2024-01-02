@@ -1,0 +1,607 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		651714142B43F837003D3723 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651714132B43F837003D3723 /* AppDelegate.swift */; };
+		651714162B43F837003D3723 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651714152B43F837003D3723 /* SceneDelegate.swift */; };
+		651714182B43F837003D3723 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651714172B43F837003D3723 /* ViewController.swift */; };
+		6517141B2B43F837003D3723 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 651714192B43F837003D3723 /* Main.storyboard */; };
+		6517141D2B43F839003D3723 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6517141C2B43F839003D3723 /* Assets.xcassets */; };
+		651714202B43F839003D3723 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6517141E2B43F839003D3723 /* LaunchScreen.storyboard */; };
+		6517142B2B43F839003D3723 /* TravgateAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6517142A2B43F839003D3723 /* TravgateAppTests.swift */; };
+		651714352B43F839003D3723 /* TravgateAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651714342B43F839003D3723 /* TravgateAppUITests.swift */; };
+		651714372B43F839003D3723 /* TravgateAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651714362B43F839003D3723 /* TravgateAppUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		651714272B43F839003D3723 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 651714082B43F837003D3723 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6517140F2B43F837003D3723;
+			remoteInfo = TravgateApp;
+		};
+		651714312B43F839003D3723 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 651714082B43F837003D3723 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6517140F2B43F837003D3723;
+			remoteInfo = TravgateApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		651714102B43F837003D3723 /* TravgateApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravgateApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		651714132B43F837003D3723 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		651714152B43F837003D3723 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		651714172B43F837003D3723 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		6517141A2B43F837003D3723 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6517141C2B43F839003D3723 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6517141F2B43F839003D3723 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		651714212B43F839003D3723 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		651714262B43F839003D3723 /* TravgateAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TravgateAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6517142A2B43F839003D3723 /* TravgateAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravgateAppTests.swift; sourceTree = "<group>"; };
+		651714302B43F839003D3723 /* TravgateAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TravgateAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		651714342B43F839003D3723 /* TravgateAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravgateAppUITests.swift; sourceTree = "<group>"; };
+		651714362B43F839003D3723 /* TravgateAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravgateAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6517140D2B43F837003D3723 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		651714232B43F839003D3723 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6517142D2B43F839003D3723 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		651714072B43F837003D3723 = {
+			isa = PBXGroup;
+			children = (
+				651714122B43F837003D3723 /* TravgateApp */,
+				651714292B43F839003D3723 /* TravgateAppTests */,
+				651714332B43F839003D3723 /* TravgateAppUITests */,
+				651714112B43F837003D3723 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		651714112B43F837003D3723 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				651714102B43F837003D3723 /* TravgateApp.app */,
+				651714262B43F839003D3723 /* TravgateAppTests.xctest */,
+				651714302B43F839003D3723 /* TravgateAppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		651714122B43F837003D3723 /* TravgateApp */ = {
+			isa = PBXGroup;
+			children = (
+				651714132B43F837003D3723 /* AppDelegate.swift */,
+				651714152B43F837003D3723 /* SceneDelegate.swift */,
+				651714172B43F837003D3723 /* ViewController.swift */,
+				651714192B43F837003D3723 /* Main.storyboard */,
+				6517141C2B43F839003D3723 /* Assets.xcassets */,
+				6517141E2B43F839003D3723 /* LaunchScreen.storyboard */,
+				651714212B43F839003D3723 /* Info.plist */,
+			);
+			path = TravgateApp;
+			sourceTree = "<group>";
+		};
+		651714292B43F839003D3723 /* TravgateAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				6517142A2B43F839003D3723 /* TravgateAppTests.swift */,
+			);
+			path = TravgateAppTests;
+			sourceTree = "<group>";
+		};
+		651714332B43F839003D3723 /* TravgateAppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				651714342B43F839003D3723 /* TravgateAppUITests.swift */,
+				651714362B43F839003D3723 /* TravgateAppUITestsLaunchTests.swift */,
+			);
+			path = TravgateAppUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6517140F2B43F837003D3723 /* TravgateApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6517143A2B43F839003D3723 /* Build configuration list for PBXNativeTarget "TravgateApp" */;
+			buildPhases = (
+				6517140C2B43F837003D3723 /* Sources */,
+				6517140D2B43F837003D3723 /* Frameworks */,
+				6517140E2B43F837003D3723 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TravgateApp;
+			productName = TravgateApp;
+			productReference = 651714102B43F837003D3723 /* TravgateApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		651714252B43F839003D3723 /* TravgateAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6517143D2B43F839003D3723 /* Build configuration list for PBXNativeTarget "TravgateAppTests" */;
+			buildPhases = (
+				651714222B43F839003D3723 /* Sources */,
+				651714232B43F839003D3723 /* Frameworks */,
+				651714242B43F839003D3723 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				651714282B43F839003D3723 /* PBXTargetDependency */,
+			);
+			name = TravgateAppTests;
+			productName = TravgateAppTests;
+			productReference = 651714262B43F839003D3723 /* TravgateAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		6517142F2B43F839003D3723 /* TravgateAppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 651714402B43F839003D3723 /* Build configuration list for PBXNativeTarget "TravgateAppUITests" */;
+			buildPhases = (
+				6517142C2B43F839003D3723 /* Sources */,
+				6517142D2B43F839003D3723 /* Frameworks */,
+				6517142E2B43F839003D3723 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				651714322B43F839003D3723 /* PBXTargetDependency */,
+			);
+			name = TravgateAppUITests;
+			productName = TravgateAppUITests;
+			productReference = 651714302B43F839003D3723 /* TravgateAppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		651714082B43F837003D3723 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					6517140F2B43F837003D3723 = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					651714252B43F839003D3723 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 6517140F2B43F837003D3723;
+					};
+					6517142F2B43F839003D3723 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 6517140F2B43F837003D3723;
+					};
+				};
+			};
+			buildConfigurationList = 6517140B2B43F837003D3723 /* Build configuration list for PBXProject "TravgateApp" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 651714072B43F837003D3723;
+			productRefGroup = 651714112B43F837003D3723 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6517140F2B43F837003D3723 /* TravgateApp */,
+				651714252B43F839003D3723 /* TravgateAppTests */,
+				6517142F2B43F839003D3723 /* TravgateAppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6517140E2B43F837003D3723 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				651714202B43F839003D3723 /* LaunchScreen.storyboard in Resources */,
+				6517141D2B43F839003D3723 /* Assets.xcassets in Resources */,
+				6517141B2B43F837003D3723 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		651714242B43F839003D3723 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6517142E2B43F839003D3723 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6517140C2B43F837003D3723 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				651714182B43F837003D3723 /* ViewController.swift in Sources */,
+				651714142B43F837003D3723 /* AppDelegate.swift in Sources */,
+				651714162B43F837003D3723 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		651714222B43F839003D3723 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6517142B2B43F839003D3723 /* TravgateAppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6517142C2B43F839003D3723 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				651714372B43F839003D3723 /* TravgateAppUITestsLaunchTests.swift in Sources */,
+				651714352B43F839003D3723 /* TravgateAppUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		651714282B43F839003D3723 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6517140F2B43F837003D3723 /* TravgateApp */;
+			targetProxy = 651714272B43F839003D3723 /* PBXContainerItemProxy */;
+		};
+		651714322B43F839003D3723 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6517140F2B43F837003D3723 /* TravgateApp */;
+			targetProxy = 651714312B43F839003D3723 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		651714192B43F837003D3723 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6517141A2B43F837003D3723 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		6517141E2B43F839003D3723 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6517141F2B43F839003D3723 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		651714382B43F839003D3723 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		651714392B43F839003D3723 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6517143B2B43F839003D3723 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5TLY5PME9K;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TravgateApp/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.provab.TravgateApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6517143C2B43F839003D3723 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5TLY5PME9K;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TravgateApp/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.provab.TravgateApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		6517143E2B43F839003D3723 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5TLY5PME9K;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.provab.TravgateAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TravgateApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TravgateApp";
+			};
+			name = Debug;
+		};
+		6517143F2B43F839003D3723 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5TLY5PME9K;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.provab.TravgateAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TravgateApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TravgateApp";
+			};
+			name = Release;
+		};
+		651714412B43F839003D3723 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5TLY5PME9K;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.provab.TravgateAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TravgateApp;
+			};
+			name = Debug;
+		};
+		651714422B43F839003D3723 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5TLY5PME9K;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.provab.TravgateAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TravgateApp;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6517140B2B43F837003D3723 /* Build configuration list for PBXProject "TravgateApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				651714382B43F839003D3723 /* Debug */,
+				651714392B43F839003D3723 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6517143A2B43F839003D3723 /* Build configuration list for PBXNativeTarget "TravgateApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6517143B2B43F839003D3723 /* Debug */,
+				6517143C2B43F839003D3723 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6517143D2B43F839003D3723 /* Build configuration list for PBXNativeTarget "TravgateAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6517143E2B43F839003D3723 /* Debug */,
+				6517143F2B43F839003D3723 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		651714402B43F839003D3723 /* Build configuration list for PBXNativeTarget "TravgateAppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				651714412B43F839003D3723 /* Debug */,
+				651714422B43F839003D3723 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 651714082B43F837003D3723 /* Project object */;
+}
