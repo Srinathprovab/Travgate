@@ -8,7 +8,8 @@
 import UIKit
 import MaterialComponents
 
-class BaseTableVC: UIViewController, TabSelectTVCellDelegate {
+class BaseTableVC: UIViewController, TabSelectTVCellDelegate, MoreServiceTVCellDelegate {
+   
     
     
     
@@ -105,6 +106,15 @@ class BaseTableVC: UIViewController, TabSelectTVCellDelegate {
     func didTapOnFlightTabSelectBtnAction(cell: TabSelectTVCell) {}
     func didTapOnHotelTabSelect(cell: TabSelectTVCell) {}
     func didTapOnMoreServiceBtnAction(cell: TabSelectTVCell) {}
+    func didTapOnClosebtnAction(cell: MoreServiceTVCell) {}
+    func didTapOnVisabtnAction(cell: MoreServiceTVCell) {}
+    func didTapOnInsurancebtnAction(cell: MoreServiceTVCell) {}
+    func didTapOnTransfersbtnAction(cell: MoreServiceTVCell) {}
+    func didTapOnActivitiesbtnAction(cell: MoreServiceTVCell) {}
+    func didTapOnCruisebtnAction(cell: MoreServiceTVCell) {}
+    func didTapOnAutopaybtnAction(cell: MoreServiceTVCell) {}
+    
+   
     
 }
 
@@ -161,6 +171,12 @@ extension BaseTableVC: UITableViewDataSource {
                 
                 //Sign & SignUp Cells
                 
+                
+            case .EmptyTVCell:
+                let cell: EmptyTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                commonCell = cell
+                
+                
             case .TabSelectTVCell:
                 let cell: TabSelectTVCell = commonTV.dequeTVCell(indexPath: indexPath)
                 cell.delegate = self
@@ -171,6 +187,22 @@ extension BaseTableVC: UITableViewDataSource {
                 let cell: PopularDestinationsTVCell = commonTV.dequeTVCell(indexPath: indexPath)
                 commonCell = cell
                 
+                
+            case .TopcityGuidesTVCell:
+                let cell: TopcityGuidesTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                commonCell = cell
+                
+                
+                
+            case .SpecialOffersTVCell:
+                let cell: SpecialOffersTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                commonCell = cell
+                
+                
+            case .MoreServiceTVCell:
+                let cell: MoreServiceTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                cell.delegate = self
+                commonCell = cell
                 
                 
                 

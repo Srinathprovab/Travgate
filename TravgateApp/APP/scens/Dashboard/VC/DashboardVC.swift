@@ -11,7 +11,6 @@ class DashboardVC: BaseTableVC {
     
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,7 +23,12 @@ class DashboardVC: BaseTableVC {
     func setupUI() {
         
         commonTableView.registerTVCells(["TabSelectTVCell",
-                                         "PopularDestinationsTVCell"])
+                                         "PopularDestinationsTVCell",
+                                         "TopcityGuidesTVCell",
+                                         "SpecialOffersTVCell",
+                                         "EmptyTVCell",
+                                         "MoreServiceTVCell"])
+        
         setupTableViewCells()
     }
     
@@ -33,9 +37,12 @@ class DashboardVC: BaseTableVC {
         MySingleton.shared.tablerow.removeAll()
         
         MySingleton.shared.tablerow.append(TableRow(cellType:.TabSelectTVCell))
-        MySingleton.shared.tablerow.append(TableRow(key:"flight",cellType:.PopularDestinationsTVCell))
-        MySingleton.shared.tablerow.append(TableRow(key:"hotel",cellType:.PopularDestinationsTVCell))
-
+        MySingleton.shared.tablerow.append(TableRow(cellType:.MoreServiceTVCell))
+        MySingleton.shared.tablerow.append(TableRow(cellType:.PopularDestinationsTVCell))
+        MySingleton.shared.tablerow.append(TableRow(cellType:.TopcityGuidesTVCell))
+        MySingleton.shared.tablerow.append(TableRow(cellType:.SpecialOffersTVCell))
+        MySingleton.shared.tablerow.append(TableRow(height:30,cellType:.EmptyTVCell))
+        
         
         commonTVData =  MySingleton.shared.tablerow
         commonTableView.reloadData()
@@ -59,7 +66,37 @@ class DashboardVC: BaseTableVC {
     }
     
     override func didTapOnMoreServiceBtnAction(cell: TabSelectTVCell) {
-        print("didTapOnMoreServiceBtnAction")
+        commonTableView.reloadData()
     }
+    
+    override func didTapOnClosebtnAction(cell: MoreServiceTVCell) {
+        commonTableView.reloadData()
+    }
+    
+    override func didTapOnVisabtnAction(cell: MoreServiceTVCell) {
+        print("didTapOnVisabtnAction")
+    }
+    
+    override func didTapOnInsurancebtnAction(cell: MoreServiceTVCell) {
+        print("didTapOnInsurancebtnAction")
+    }
+    
+    override func didTapOnTransfersbtnAction(cell: MoreServiceTVCell) {
+        print("didTapOnTransfersbtnAction")
+    }
+    
+    override func didTapOnActivitiesbtnAction(cell: MoreServiceTVCell) {
+        print("didTapOnActivitiesbtnAction")
+    }
+    
+    override func didTapOnCruisebtnAction(cell: MoreServiceTVCell) {
+        print("didTapOnCruisebtnAction")
+    }
+    
+    override func didTapOnAutopaybtnAction(cell: MoreServiceTVCell) {
+        print("didTapOnAutopaybtnAction")
+    }
+    
+    
     
 }

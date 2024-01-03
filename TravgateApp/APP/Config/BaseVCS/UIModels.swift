@@ -22,9 +22,13 @@ enum socialSignUpType {
 
 enum TVCellType {
     
-    
+    //DASHBOARD
     case TabSelectTVCell
     case PopularDestinationsTVCell
+    case TopcityGuidesTVCell
+    case SpecialOffersTVCell
+    case EmptyTVCell
+    case MoreServiceTVCell
     
     
 }

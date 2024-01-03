@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		650DBA262B451A390052294A /* SpecialOffersCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650DBA242B451A390052294A /* SpecialOffersCVCell.swift */; };
+		650DBA272B451A390052294A /* SpecialOffersCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 650DBA252B451A390052294A /* SpecialOffersCVCell.xib */; };
+		650DBA2A2B451B840052294A /* SpecialOffersTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650DBA282B451B840052294A /* SpecialOffersTVCell.swift */; };
+		650DBA2B2B451B840052294A /* SpecialOffersTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 650DBA292B451B840052294A /* SpecialOffersTVCell.xib */; };
+		650DBA2F2B451D7E0052294A /* EmptyTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650DBA2D2B451D7E0052294A /* EmptyTVCell.swift */; };
+		650DBA302B451D7E0052294A /* EmptyTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 650DBA2E2B451D7E0052294A /* EmptyTVCell.xib */; };
+		650DBA342B451FFD0052294A /* MoreServiceTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650DBA322B451FFD0052294A /* MoreServiceTVCell.swift */; };
+		650DBA352B451FFD0052294A /* MoreServiceTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 650DBA332B451FFD0052294A /* MoreServiceTVCell.xib */; };
+		650DBA392B4528410052294A /* MoreServiceCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650DBA372B4528410052294A /* MoreServiceCVCell.swift */; };
+		650DBA3A2B4528410052294A /* MoreServiceCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 650DBA382B4528410052294A /* MoreServiceCVCell.xib */; };
 		651714142B43F837003D3723 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651714132B43F837003D3723 /* AppDelegate.swift */; };
 		651714162B43F837003D3723 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651714152B43F837003D3723 /* SceneDelegate.swift */; };
 		651714182B43F837003D3723 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651714172B43F837003D3723 /* ViewController.swift */; };
@@ -115,6 +125,16 @@
 		3C751BD1AF769704CFE02F44 /* Pods-TravgateApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravgateApp.release.xcconfig"; path = "Target Support Files/Pods-TravgateApp/Pods-TravgateApp.release.xcconfig"; sourceTree = "<group>"; };
 		3CD57DADF2827CC7315F9E10 /* Pods_TravgateApp_TravgateAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TravgateApp_TravgateAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		634B61CF8AE4096700985889 /* Pods_TravgateAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TravgateAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		650DBA242B451A390052294A /* SpecialOffersCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialOffersCVCell.swift; sourceTree = "<group>"; };
+		650DBA252B451A390052294A /* SpecialOffersCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpecialOffersCVCell.xib; sourceTree = "<group>"; };
+		650DBA282B451B840052294A /* SpecialOffersTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialOffersTVCell.swift; sourceTree = "<group>"; };
+		650DBA292B451B840052294A /* SpecialOffersTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpecialOffersTVCell.xib; sourceTree = "<group>"; };
+		650DBA2D2B451D7E0052294A /* EmptyTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyTVCell.swift; sourceTree = "<group>"; };
+		650DBA2E2B451D7E0052294A /* EmptyTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyTVCell.xib; sourceTree = "<group>"; };
+		650DBA322B451FFD0052294A /* MoreServiceTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreServiceTVCell.swift; sourceTree = "<group>"; };
+		650DBA332B451FFD0052294A /* MoreServiceTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoreServiceTVCell.xib; sourceTree = "<group>"; };
+		650DBA372B4528410052294A /* MoreServiceCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreServiceCVCell.swift; sourceTree = "<group>"; };
+		650DBA382B4528410052294A /* MoreServiceCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoreServiceCVCell.xib; sourceTree = "<group>"; };
 		651714102B43F837003D3723 /* TravgateApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravgateApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		651714132B43F837003D3723 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		651714152B43F837003D3723 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -246,6 +266,51 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		650DBA222B451A0E0052294A /* SpecialOffersTVCell */ = {
+			isa = PBXGroup;
+			children = (
+				650DBA282B451B840052294A /* SpecialOffersTVCell.swift */,
+				650DBA292B451B840052294A /* SpecialOffersTVCell.xib */,
+			);
+			path = SpecialOffersTVCell;
+			sourceTree = "<group>";
+		};
+		650DBA232B451A210052294A /* SpecialOffersCVCell */ = {
+			isa = PBXGroup;
+			children = (
+				650DBA242B451A390052294A /* SpecialOffersCVCell.swift */,
+				650DBA252B451A390052294A /* SpecialOffersCVCell.xib */,
+			);
+			path = SpecialOffersCVCell;
+			sourceTree = "<group>";
+		};
+		650DBA2C2B451D680052294A /* EmptyTVCell */ = {
+			isa = PBXGroup;
+			children = (
+				650DBA2D2B451D7E0052294A /* EmptyTVCell.swift */,
+				650DBA2E2B451D7E0052294A /* EmptyTVCell.xib */,
+			);
+			path = EmptyTVCell;
+			sourceTree = "<group>";
+		};
+		650DBA312B451FE00052294A /* MoreServiceTVCell */ = {
+			isa = PBXGroup;
+			children = (
+				650DBA322B451FFD0052294A /* MoreServiceTVCell.swift */,
+				650DBA332B451FFD0052294A /* MoreServiceTVCell.xib */,
+			);
+			path = MoreServiceTVCell;
+			sourceTree = "<group>";
+		};
+		650DBA362B4528250052294A /* MoreServiceCVCell */ = {
+			isa = PBXGroup;
+			children = (
+				650DBA372B4528410052294A /* MoreServiceCVCell.swift */,
+				650DBA382B4528410052294A /* MoreServiceCVCell.xib */,
+			);
+			path = MoreServiceCVCell;
+			sourceTree = "<group>";
+		};
 		651714072B43F837003D3723 = {
 			isa = PBXGroup;
 			children = (
@@ -301,8 +366,8 @@
 		6517144A2B43F8CD003D3723 /* APP */ = {
 			isa = PBXGroup;
 			children = (
-				651718142B43F901003D3723 /* scens */,
 				6517163D2B43F8D0003D3723 /* Config */,
+				651718142B43F901003D3723 /* scens */,
 			);
 			path = APP;
 			sourceTree = "<group>";
@@ -582,6 +647,9 @@
 		65B6797E2B44254D00E5D1C3 /* TVCells */ = {
 			isa = PBXGroup;
 			children = (
+				650DBA312B451FE00052294A /* MoreServiceTVCell */,
+				650DBA2C2B451D680052294A /* EmptyTVCell */,
+				650DBA222B451A0E0052294A /* SpecialOffersTVCell */,
 				65B6799D2B44471000E5D1C3 /* TopcityGuidesTVCell */,
 				65B679892B443ACE00E5D1C3 /* PopularDestinationsTVCell */,
 				65B679882B443ABC00E5D1C3 /* TabSelectTVCell */,
@@ -602,6 +670,8 @@
 		65B679812B44257100E5D1C3 /* CVCells */ = {
 			isa = PBXGroup;
 			children = (
+				650DBA362B4528250052294A /* MoreServiceCVCell */,
+				650DBA232B451A210052294A /* SpecialOffersCVCell */,
 				65B679982B44463F00E5D1C3 /* TopcityGuidesCVCell */,
 				65B679932B443D7A00E5D1C3 /* SelectDestCVCell */,
 				65B6798E2B443CEE00E5D1C3 /* SelectCityCVCell */,
@@ -808,15 +878,19 @@
 				65B6796F2B44229C00E5D1C3 /* OpenSans-Bold.ttf in Resources */,
 				65B679872B4425CE00E5D1C3 /* TabSelectTVCell.xib in Resources */,
 				65B679702B44229C00E5D1C3 /* OpenSans-Light.ttf in Resources */,
+				650DBA3A2B4528410052294A /* MoreServiceCVCell.xib in Resources */,
 				65B679712B44229C00E5D1C3 /* OpenSans-Medium.ttf in Resources */,
 				65B679722B44229C00E5D1C3 /* OpenSans-Regular.ttf in Resources */,
+				650DBA352B451FFD0052294A /* MoreServiceTVCell.xib in Resources */,
 				65B679732B44229C00E5D1C3 /* OpenSans-SemiBold.ttf in Resources */,
 				65B6799C2B44465800E5D1C3 /* TopcityGuidesCVCell.xib in Resources */,
 				651717F62B43F8D4003D3723 /* Oswald-SemiBold.ttf in Resources */,
 				651717F82B43F8D4003D3723 /* Lato-Semibold.ttf in Resources */,
+				650DBA272B451A390052294A /* SpecialOffersCVCell.xib in Resources */,
 				65B679A52B44475A00E5D1C3 /* TopcityGuidesTVCell.xib in Resources */,
 				651717E42B43F8D4003D3723 /* loderimg.gif in Resources */,
 				651717FD2B43F8D4003D3723 /* Poppins-Light.ttf in Resources */,
+				650DBA302B451D7E0052294A /* EmptyTVCell.xib in Resources */,
 				65B679662B441DE800E5D1C3 /* Main.storyboard in Resources */,
 				65B6798D2B443AE500E5D1C3 /* PopularDestinationsTVCell.xib in Resources */,
 				651714202B43F839003D3723 /* LaunchScreen.storyboard in Resources */,
@@ -830,6 +904,7 @@
 				651718022B43F8D4003D3723 /* Poppins-Bold.ttf in Resources */,
 				651717E32B43F8D4003D3723 /* newloder.gif in Resources */,
 				651717F72B43F8D4003D3723 /* Lato-Regular.ttf in Resources */,
+				650DBA2B2B451B840052294A /* SpecialOffersTVCell.xib in Resources */,
 				651718122B43F8D4003D3723 /* currencylist.json in Resources */,
 				651718032B43F8D4003D3723 /* Poppins-Black.ttf in Resources */,
 				6517141D2B43F839003D3723 /* Assets.xcassets in Resources */,
@@ -1004,6 +1079,7 @@
 				651717E82B43F8D4003D3723 /* ServiceManager.swift in Sources */,
 				651717F32B43F8D4003D3723 /* FontManager.swift in Sources */,
 				651714182B43F837003D3723 /* ViewController.swift in Sources */,
+				650DBA262B451A390052294A /* SpecialOffersCVCell.swift in Sources */,
 				651718232B441151003D3723 /* DashBoardTBVC.swift in Sources */,
 				651717E22B43F8D4003D3723 /* Constants.swift in Sources */,
 				651717EF2B43F8D4003D3723 /* StringExtension.swift in Sources */,
@@ -1011,6 +1087,7 @@
 				6517180E2B43F8D4003D3723 /* BaseViewModelProtocol.swift in Sources */,
 				65B6799B2B44465800E5D1C3 /* TopcityGuidesCVCell.swift in Sources */,
 				651717DF2B43F8D4003D3723 /* TableViewCell.swift in Sources */,
+				650DBA2F2B451D7E0052294A /* EmptyTVCell.swift in Sources */,
 				651717E12B43F8D4003D3723 /* UIModels.swift in Sources */,
 				651717E52B43F8D4003D3723 /* SessionManager.swift in Sources */,
 				651718282B441620003D3723 /* DashboardVC.swift in Sources */,
@@ -1026,12 +1103,15 @@
 				651714162B43F837003D3723 /* SceneDelegate.swift in Sources */,
 				651717E02B43F8D4003D3723 /* BaseTableVC.swift in Sources */,
 				6517182E2B441650003D3723 /* MoreVC.swift in Sources */,
+				650DBA392B4528410052294A /* MoreServiceCVCell.swift in Sources */,
+				650DBA2A2B451B840052294A /* SpecialOffersTVCell.swift in Sources */,
 				651717E92B43F8D4003D3723 /* BorderView.swift in Sources */,
 				651717F12B43F8D4003D3723 /* DateExtension.swift in Sources */,
 				651717EE2B43F8D4003D3723 /* TableViewExtensions.swift in Sources */,
 				65B679912B443D1100E5D1C3 /* SelectCityCVCell.swift in Sources */,
 				651717ED2B43F8D4003D3723 /* UIKitHelper.swift in Sources */,
 				65B679A42B44475A00E5D1C3 /* TopcityGuidesTVCell.swift in Sources */,
+				650DBA342B451FFD0052294A /* MoreServiceTVCell.swift in Sources */,
 				65B679962B443D9200E5D1C3 /* SelectDestCVCell.swift in Sources */,
 				65B679862B4425CE00E5D1C3 /* TabSelectTVCell.swift in Sources */,
 				6517182A2B441630003D3723 /* TripsVC.swift in Sources */,
@@ -1212,6 +1292,7 @@
 				DEVELOPMENT_TEAM = 5TLY5PME9K;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TravgateApp/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -1245,6 +1326,7 @@
 				DEVELOPMENT_TEAM = 5TLY5PME9K;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TravgateApp/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
