@@ -8,8 +8,8 @@
 import UIKit
 
 protocol MoreServiceTVCellDelegate {
-    func didTapOnClosebtnAction(cell:MoreServiceTVCell)
     
+    func didTapOnClosebtnAction(cell:MoreServiceTVCell)
     func didTapOnVisabtnAction(cell:MoreServiceTVCell)
     func didTapOnInsurancebtnAction(cell:MoreServiceTVCell)
     func didTapOnTransfersbtnAction(cell:MoreServiceTVCell)
@@ -24,10 +24,14 @@ class MoreServiceTVCell: TableViewCell {
     
     @IBOutlet weak var holderView: UIView!
     @IBOutlet weak var moreServiceCV: UICollectionView!
+    @IBOutlet weak var closeView: UIView!
+    @IBOutlet weak var titlelbl: UILabel!
+    
     
     var serviceArray = ["Visa","Insurance","Transfers","Activities","Cruise","Auto pay"]
     var serviceImgsArray = ["s1","s2","s3","s4","s5","s6"]
     var delegate:MoreServiceTVCellDelegate?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

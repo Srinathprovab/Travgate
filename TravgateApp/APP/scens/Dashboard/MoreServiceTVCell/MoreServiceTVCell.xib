@@ -106,8 +106,10 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="closeView" destination="Tpz-CX-bTc" id="6z0-rU-LsX"/>
                 <outlet property="holderView" destination="LTH-wu-k4Y" id="ju4-fV-FQN"/>
                 <outlet property="moreServiceCV" destination="RzL-dT-G7L" id="pYi-aW-vCM"/>
+                <outlet property="titlelbl" destination="Kiy-rC-JXs" id="cr9-9f-Yhf"/>
             </connections>
             <point key="canvasLocation" x="227.48091603053433" y="89.788732394366207"/>
         </tableViewCell>

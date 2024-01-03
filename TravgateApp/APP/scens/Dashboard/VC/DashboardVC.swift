@@ -74,7 +74,8 @@ class DashboardVC: BaseTableVC {
     }
     
     override func didTapOnFlightTabSelectBtnAction(cell: TabSelectTVCell) {
-        print("didTapOnFlightTabSelectBtnAction")
+        defaults.set("Flight", forKey: UserDefaultsKeys.tabselect)
+        gotoFlightSearchVC()
     }
     
     override func didTapOnHotelTabSelect(cell: TabSelectTVCell) {
@@ -153,14 +154,18 @@ extension DashboardVC {
     
     
     @objc func selectedCurrency() {
-        
-        
         commonTableView.reloadRows(at: [IndexPath(item: 0, section: 0)], with: .automatic)
     }
     
     func gotoSelectLanguageVC() {
         guard let vc = SelectLanguageVC.newInstance.self else {return}
         vc.modalPresentationStyle = .overCurrentContext
+        present(vc, animated: true)
+    }
+    
+    func gotoFlightSearchVC() {
+        guard let vc = FlightSearchVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)
     }
     

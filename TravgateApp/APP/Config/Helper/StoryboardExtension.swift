@@ -11,8 +11,7 @@ import UIKit
 
 enum Storyboard: String {
     case Main
-    case Dashboard
-   
+    case Flight
    
     
     var name: String {

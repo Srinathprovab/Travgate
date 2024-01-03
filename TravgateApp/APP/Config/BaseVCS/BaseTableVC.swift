@@ -11,12 +11,6 @@ import MaterialComponents
 class BaseTableVC: UIViewController, TabSelectTVCellDelegate, MoreServiceTVCellDelegate {
    
     
-    
-    
-    
-    
-    
-    
     @IBOutlet weak var commonScrollView: UITableView!
     @IBOutlet weak var commonTableView: UITableView!
     @IBOutlet weak var commonTVTopConstraint: NSLayoutConstraint!
@@ -204,9 +198,18 @@ extension BaseTableVC: UITableViewDataSource {
                 cell.delegate = self
                 commonCell = cell
                 
+                
+                
             case .SelectLanguageTVCell:
                 let cell: SelectLanguageTVCell = commonTV.dequeTVCell(indexPath: indexPath)
                 commonCell = cell
+                
+                
+            case .FlightSearchTVCell:
+                let cell: FlightSearchTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                commonCell = cell
+                
+                
                 
                 
                 

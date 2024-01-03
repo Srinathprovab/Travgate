@@ -15,6 +15,9 @@ class TopcityGuidesCVCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        img.layer.cornerRadius = 6
+        img.clipsToBounds = true
     }
 
 }

@@ -27,6 +27,10 @@
 		650DBA4F2B4547CC0052294A /* SelectLanguageTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 650DBA4D2B4547CC0052294A /* SelectLanguageTVCell.xib */; };
 		650DBA502B4547CC0052294A /* SelectLanguageTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650DBA4E2B4547CC0052294A /* SelectLanguageTVCell.swift */; };
 		650DBA532B4549950052294A /* SelectCurrencyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650DBA522B4549950052294A /* SelectCurrencyModel.swift */; };
+		650DBA552B45626C0052294A /* Flight.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 650DBA542B45626C0052294A /* Flight.storyboard */; };
+		650DBA572B4562920052294A /* FlightSearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650DBA562B4562920052294A /* FlightSearchVC.swift */; };
+		650DBA5C2B456CE90052294A /* FlightSearchTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650DBA5A2B456CE90052294A /* FlightSearchTVCell.swift */; };
+		650DBA5D2B456CE90052294A /* FlightSearchTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 650DBA5B2B456CE90052294A /* FlightSearchTVCell.xib */; };
 		651714142B43F837003D3723 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651714132B43F837003D3723 /* AppDelegate.swift */; };
 		651714162B43F837003D3723 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651714152B43F837003D3723 /* SceneDelegate.swift */; };
 		651714182B43F837003D3723 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651714172B43F837003D3723 /* ViewController.swift */; };
@@ -155,6 +159,10 @@
 		650DBA4D2B4547CC0052294A /* SelectLanguageTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectLanguageTVCell.xib; sourceTree = "<group>"; };
 		650DBA4E2B4547CC0052294A /* SelectLanguageTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectLanguageTVCell.swift; sourceTree = "<group>"; };
 		650DBA522B4549950052294A /* SelectCurrencyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCurrencyModel.swift; sourceTree = "<group>"; };
+		650DBA542B45626C0052294A /* Flight.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Flight.storyboard; sourceTree = "<group>"; };
+		650DBA562B4562920052294A /* FlightSearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightSearchVC.swift; sourceTree = "<group>"; };
+		650DBA5A2B456CE90052294A /* FlightSearchTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightSearchTVCell.swift; sourceTree = "<group>"; };
+		650DBA5B2B456CE90052294A /* FlightSearchTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FlightSearchTVCell.xib; sourceTree = "<group>"; };
 		651714102B43F837003D3723 /* TravgateApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravgateApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		651714132B43F837003D3723 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		651714152B43F837003D3723 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -358,6 +366,24 @@
 				650DBA522B4549950052294A /* SelectCurrencyModel.swift */,
 			);
 			path = SelectCurrencyModel;
+			sourceTree = "<group>";
+		};
+		650DBA582B456CC50052294A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6517181A2B440B64003D3723 /* TVCells */,
+				6517181B2B440B70003D3723 /* CVCells */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		650DBA592B456CD40052294A /* FlightSearchTVCell */ = {
+			isa = PBXGroup;
+			children = (
+				650DBA5A2B456CE90052294A /* FlightSearchTVCell.swift */,
+				650DBA5B2B456CE90052294A /* FlightSearchTVCell.xib */,
+			);
+			path = FlightSearchTVCell;
 			sourceTree = "<group>";
 		};
 		651714072B43F837003D3723 = {
@@ -579,9 +605,8 @@
 		651718152B440B38003D3723 /* Flight */ = {
 			isa = PBXGroup;
 			children = (
+				650DBA582B456CC50052294A /* Views */,
 				65B679642B441CB800E5D1C3 /* SB */,
-				6517181B2B440B70003D3723 /* CVCells */,
-				6517181A2B440B64003D3723 /* TVCells */,
 				651718192B440B5C003D3723 /* Model */,
 				651718182B440B51003D3723 /* VC */,
 			);
@@ -605,6 +630,7 @@
 		651718182B440B51003D3723 /* VC */ = {
 			isa = PBXGroup;
 			children = (
+				650DBA562B4562920052294A /* FlightSearchVC.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -619,6 +645,7 @@
 		6517181A2B440B64003D3723 /* TVCells */ = {
 			isa = PBXGroup;
 			children = (
+				650DBA592B456CD40052294A /* FlightSearchTVCell */,
 			);
 			path = TVCells;
 			sourceTree = "<group>";
@@ -659,6 +686,7 @@
 		65B679642B441CB800E5D1C3 /* SB */ = {
 			isa = PBXGroup;
 			children = (
+				650DBA542B45626C0052294A /* Flight.storyboard */,
 			);
 			path = SB;
 			sourceTree = "<group>";
@@ -937,6 +965,7 @@
 				65B679722B44229C00E5D1C3 /* OpenSans-Regular.ttf in Resources */,
 				650DBA352B451FFD0052294A /* MoreServiceTVCell.xib in Resources */,
 				65B679732B44229C00E5D1C3 /* OpenSans-SemiBold.ttf in Resources */,
+				650DBA5D2B456CE90052294A /* FlightSearchTVCell.xib in Resources */,
 				65B6799C2B44465800E5D1C3 /* TopcityGuidesCVCell.xib in Resources */,
 				651717F62B43F8D4003D3723 /* Oswald-SemiBold.ttf in Resources */,
 				651717F82B43F8D4003D3723 /* Lato-Semibold.ttf in Resources */,
@@ -963,6 +992,7 @@
 				651718122B43F8D4003D3723 /* currencylist.json in Resources */,
 				651718032B43F8D4003D3723 /* Poppins-Black.ttf in Resources */,
 				6517141D2B43F839003D3723 /* Assets.xcassets in Resources */,
+				650DBA552B45626C0052294A /* Flight.storyboard in Resources */,
 				651717F92B43F8D4003D3723 /* Oswald-Regular.ttf in Resources */,
 				651717F52B43F8D4003D3723 /* Oswald-Bold.ttf in Resources */,
 				651718042B43F8D4003D3723 /* Poppins-SemiBold.ttf in Resources */,
@@ -1149,6 +1179,7 @@
 				651718282B441620003D3723 /* DashboardVC.swift in Sources */,
 				651717EC2B43F8D4003D3723 /* ButtonExtension.swift in Sources */,
 				651717F22B43F8D4003D3723 /* UITapGestureRecognizer.swift in Sources */,
+				650DBA572B4562920052294A /* FlightSearchVC.swift in Sources */,
 				6517180D2B43F8D4003D3723 /* Loader.swift in Sources */,
 				6517180B2B43F8D4003D3723 /* NSObject+Helper.swift in Sources */,
 				651718102B43F8D4003D3723 /* StoryboardExtension.swift in Sources */,
@@ -1160,6 +1191,7 @@
 				650DBA452B453E680052294A /* Deail_code_list.swift in Sources */,
 				651714162B43F837003D3723 /* SceneDelegate.swift in Sources */,
 				651717E02B43F8D4003D3723 /* BaseTableVC.swift in Sources */,
+				650DBA5C2B456CE90052294A /* FlightSearchTVCell.swift in Sources */,
 				650DBA432B453E680052294A /* TopFlightDetails.swift in Sources */,
 				6517182E2B441650003D3723 /* MoreVC.swift in Sources */,
 				650DBA392B4528410052294A /* MoreServiceCVCell.swift in Sources */,
@@ -1352,7 +1384,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 5TLY5PME9K;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TravgateApp/Info.plist;
@@ -1386,7 +1418,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 5TLY5PME9K;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TravgateApp/Info.plist;

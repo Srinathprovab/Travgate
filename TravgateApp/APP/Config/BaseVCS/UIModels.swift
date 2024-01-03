@@ -31,6 +31,9 @@ enum TVCellType {
     case MoreServiceTVCell
     case SelectLanguageTVCell
     
+    //Flight
+    case FlightSearchTVCell
+    
     
 }
 

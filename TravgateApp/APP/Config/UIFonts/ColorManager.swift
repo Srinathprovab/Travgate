@@ -93,5 +93,13 @@ extension UIColor {
     }
     
     
+    public static var FromColor : UIColor {
+        
+        get {
+            return UIColor(named: "fromcolor")!
+        }
+    }
+    
+    
     
 }
