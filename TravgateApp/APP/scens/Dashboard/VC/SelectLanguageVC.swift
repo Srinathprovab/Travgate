@@ -30,9 +30,11 @@ class SelectLanguageVC: BaseTableVC {
         return vc
     }
     
-
-   
-  
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        getCurrencyList()
+    }
     
     
     override func viewDidLoad() {
@@ -44,49 +46,24 @@ class SelectLanguageVC: BaseTableVC {
     }
     
     
-    
-    func setupViews(v:UIView,radius:CGFloat,color:UIColor) {
-        v.backgroundColor = color
-        v.layer.cornerRadius = radius
-        v.clipsToBounds = true
-        //        v.layer.borderWidth = 0
-        //        v.layer.borderColor = UIColor.AppBorderColor.cgColor
-    }
-    
-    func setupLabels(lbl:UILabel,text:String,textcolor:UIColor,font:UIFont) {
-        lbl.text = text
-        lbl.textColor = textcolor
-        lbl.font = font
-    }
-    
     func setupUI() {
         
-        setupViews(v: holderView, radius: 10, color: .WhiteColor)
-        setupViews(v: langView, radius: 3, color: .WhiteColor)
-        setupViews(v: currencyView, radius: 3, color: .WhiteColor)
-        setupViews(v: langUL, radius: 0, color: .Buttoncolor)
-        setupViews(v: currencyUL, radius: 0, color: .WhiteColor)
-        
-       // setupLabels(lbl: titlelbl, text: "Select Language /Currency", textcolor: .TitleColor, font: .OpenSansRegular(size: 18))
-        setupLabels(lbl: titlelbl, text: "Select Currency", textcolor: .TitleColor, font: .OpenSansRegular(size: 18))
-        setupLabels(lbl: langlbl, text: "Currency", textcolor: .TitleColor, font: .OpenSansRegular(size: 16))
-        setupLabels(lbl: currencylbl, text: "Currency", textcolor: .SubtitleColor, font: .OpenSansRegular(size: 16))
-        
-        langBtn.setTitle("", for: .normal)
-        currencBtn.setTitle("", for: .normal)
-        closeBtn.setTitle("", for: .normal)
-        
+        langBtn.isUserInteractionEnabled = false
         currencyView.isHidden = true
         commonTableView.registerTVCells(["SelectLanguageTVCell",
-                                        "EmptyTVCell"])
+                                         "EmptyTVCell"])
         
     }
     
     
     func setuplanguageTVCell() {
+        
         MySingleton.shared.tablerow.removeAll()
+        
         MySingleton.shared.tablerow.append(TableRow(title:"English",subTitle: "",key:"lang",image: "english",cellType: .SelectLanguageTVCell))
         MySingleton.shared.tablerow.append(TableRow(title:"Arabic",subTitle: "",key:"lang",image: "arabic",cellType: .SelectLanguageTVCell))
+        
+        
         commonTVData = MySingleton.shared.tablerow
         commonTableView.reloadData()
     }
@@ -97,11 +74,11 @@ class SelectLanguageVC: BaseTableVC {
         
         MySingleton.shared.currencyListArray.forEach { i in
             MySingleton.shared.tablerow.append(TableRow(title:"\(i.name ?? "")",
-                                     subTitle: "\(i.symbol ?? "")",
-                                     key:"lang1",
-                                     text:  i.type,
-                                     image: i.icon,
-                                     cellType: .SelectLanguageTVCell))
+                                                        subTitle: "\(i.symbol ?? "")",
+                                                        key:"lang1",
+                                                        text:  i.type,
+                                                        image: i.icon,
+                                                        cellType: .SelectLanguageTVCell))
             
         }
         
@@ -118,7 +95,7 @@ class SelectLanguageVC: BaseTableVC {
     
     
     @IBAction func didTapOnLanguageBtn(_ sender: Any) {
-       
+        
         langlbl.textColor = .TitleColor
         langUL.backgroundColor = .WhiteColor
         
@@ -143,7 +120,6 @@ class SelectLanguageVC: BaseTableVC {
             cell.selected()
             defaults.set(cell.subTitlelbl.text, forKey: UserDefaultsKeys.selectedCurrency)
             defaults.set(cell.type, forKey: UserDefaultsKeys.selectedCurrencyType)
-       //     defaults.set(cell.logoimg, forKey: UserDefaultsKeys.selectedCurrencyImg)
             NotificationCenter.default.post(name: NSNotification.Name("selectedCurrency"), object: nil)
             dismiss(animated: true)
         }
@@ -173,6 +149,8 @@ class SelectLanguageVC: BaseTableVC {
                 // Access the array of currency using the "data" key
                 if let currencyList = jsonDictionary["data"] {
                     MySingleton.shared.currencyListArray = currencyList
+                    
+                    
                     DispatchQueue.main.async {[self] in
                         setupCurencyTVCell()
                     }

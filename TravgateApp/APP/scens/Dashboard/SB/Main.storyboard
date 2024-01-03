@@ -9,6 +9,11 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="OpenSans-Regular.ttf">
+            <string>OpenSans-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Item 2-->
         <scene sceneID="f1d-8Z-qAp">
@@ -144,17 +149,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6lk-j5-axA">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6lk-j5-axA" customClass="BorderedView" customModule="TravgateApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="209" width="393" height="643"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iF8-S3-49X">
-                                        <rect key="frame" x="16" y="20" width="305" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Currency" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iF8-S3-49X">
+                                        <rect key="frame" x="16" y="20" width="305" height="24.666666666666671"/>
+                                        <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NiM-Af-KPH">
-                                        <rect key="frame" x="337" y="10.666666666666657" width="40" height="40"/>
+                                        <rect key="frame" x="337" y="12.333333333333343" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="8IT-Kg-Qc3"/>
                                             <constraint firstAttribute="width" constant="40" id="hfi-ep-gMd"/>
@@ -166,17 +171,17 @@
                                             <action selector="closeBtnAction:" destination="Tw1-BK-V6G" eventType="touchUpInside" id="Mmg-g0-cIX"/>
                                         </connections>
                                     </button>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gUr-TW-oPU">
-                                        <rect key="frame" x="16" y="71" width="80" height="40"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gUr-TW-oPU" customClass="BorderedView" customModule="TravgateApp" customModuleProvider="target">
+                                        <rect key="frame" x="16" y="74.666666666666686" width="80" height="40"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Language " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="klt-8J-beU">
-                                                <rect key="frame" x="0.0" y="10.000000000000002" width="80" height="20.666666666666671"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <rect key="frame" x="0.0" y="10" width="80" height="22"/>
+                                                <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mKT-0Y-scE">
-                                                <rect key="frame" x="0.0" y="38.666666666666686" width="80" height="1.3333333333333357"/>
+                                                <rect key="frame" x="0.0" y="38.666666666666629" width="80" height="1.3333333333333357"/>
                                                 <color key="backgroundColor" systemColor="systemMintColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1.5" id="n5C-HJ-yW1"/>
@@ -206,18 +211,23 @@
                                             <constraint firstAttribute="bottom" secondItem="mKT-0Y-scE" secondAttribute="bottom" id="oNQ-fT-lhX"/>
                                             <constraint firstItem="Vfy-AB-L2D" firstAttribute="leading" secondItem="gUr-TW-oPU" secondAttribute="leading" id="tIp-93-TUN"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="3"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yAX-hj-3So">
-                                        <rect key="frame" x="136" y="71" width="75" height="40"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yAX-hj-3So" customClass="BorderedView" customModule="TravgateApp" customModuleProvider="target">
+                                        <rect key="frame" x="136" y="74.666666666666686" width="75" height="40"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Currency" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CHy-M7-X9d">
-                                                <rect key="frame" x="0.0" y="10.000000000000002" width="75" height="20.666666666666671"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <rect key="frame" x="0.0" y="10" width="75" height="22"/>
+                                                <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bww-FR-tag">
-                                                <rect key="frame" x="0.0" y="38.666666666666686" width="75" height="1.3333333333333357"/>
+                                                <rect key="frame" x="0.0" y="38.666666666666629" width="75" height="1.3333333333333357"/>
                                                 <color key="backgroundColor" systemColor="systemMintColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1.5" id="P4K-C7-cZF"/>
@@ -247,13 +257,18 @@
                                             <constraint firstAttribute="trailing" secondItem="Bww-FR-tag" secondAttribute="trailing" id="hIg-gJ-pYS"/>
                                             <constraint firstItem="CHy-M7-X9d" firstAttribute="leading" secondItem="yAX-hj-3So" secondAttribute="leading" id="hmd-MZ-TRs"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="3"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </view>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="6rU-9K-bXK">
-                                        <rect key="frame" x="0.0" y="141" width="393" height="502"/>
+                                        <rect key="frame" x="0.0" y="144.66666666666671" width="393" height="498.33333333333326"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </tableView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="gUr-TW-oPU" firstAttribute="top" secondItem="iF8-S3-49X" secondAttribute="bottom" constant="30" id="3Cx-Vw-k5g"/>
                                     <constraint firstItem="6rU-9K-bXK" firstAttribute="top" secondItem="gUr-TW-oPU" secondAttribute="bottom" constant="30" id="6ug-vd-Q9r"/>
@@ -269,6 +284,11 @@
                                     <constraint firstAttribute="trailing" secondItem="6rU-9K-bXK" secondAttribute="trailing" id="fPp-lq-C6C"/>
                                     <constraint firstItem="yAX-hj-3So" firstAttribute="leading" secondItem="gUr-TW-oPU" secondAttribute="trailing" constant="40" id="woh-oc-XON"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Zdg-We-fsy"/>

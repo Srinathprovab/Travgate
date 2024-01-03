@@ -13,6 +13,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        MySingleton.shared.callonce()
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.0, execute: {
             self.gotodashBoardScreen()
@@ -56,5 +57,17 @@ class MySingleton {
     private init() {
         myVariable1 = 0
         myVariable2 = "Default value"
+    }
+    
+    
+    func callonce() {
+        
+        if !UserDefaults.standard.bool(forKey: "ExecuteOnce") {
+            
+            defaults.set("KWD", forKey: UserDefaultsKeys.selectedCurrency)
+            defaults.set("KWD", forKey: UserDefaultsKeys.selectedCurrencyType)
+            
+            UserDefaults.standard.set(true, forKey: "ExecuteOnce")
+        }
     }
 }

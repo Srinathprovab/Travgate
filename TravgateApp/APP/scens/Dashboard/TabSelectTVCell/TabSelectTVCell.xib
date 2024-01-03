@@ -31,7 +31,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="524" height="316"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hometop" translatesAutoresizingMaskIntoConstraints="NO" id="QlM-v3-wsu">
-                                <rect key="frame" x="0.0" y="0.0" width="524" height="316"/>
+                                <rect key="frame" x="0.0" y="0.0" width="524" height="266"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Yb-AA-CKs" customClass="BorderedView" customModule="TravgateApp" customModuleProvider="target">
@@ -265,7 +265,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemGray3Color"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="QlM-v3-wsu" firstAttribute="leading" secondItem="xMz-24-5g0" secondAttribute="leading" id="2Hy-9d-VXa"/>
                             <constraint firstItem="QlM-v3-wsu" firstAttribute="top" secondItem="xMz-24-5g0" secondAttribute="top" id="54D-kC-FjO"/>
@@ -274,7 +274,7 @@
                             <constraint firstItem="syI-ST-Spr" firstAttribute="leading" secondItem="7oc-0h-uL4" secondAttribute="trailing" constant="8" id="Ian-5I-Rju"/>
                             <constraint firstItem="vE9-Mi-Zo8" firstAttribute="top" secondItem="Css-QU-fwE" secondAttribute="bottom" constant="30" id="LfU-oS-HGg"/>
                             <constraint firstItem="7oc-0h-uL4" firstAttribute="top" secondItem="vE9-Mi-Zo8" secondAttribute="bottom" constant="45" id="OZ1-8k-ssA"/>
-                            <constraint firstAttribute="bottom" secondItem="QlM-v3-wsu" secondAttribute="bottom" id="SHq-aw-Jxt"/>
+                            <constraint firstAttribute="bottom" secondItem="QlM-v3-wsu" secondAttribute="bottom" constant="50" id="SHq-aw-Jxt"/>
                             <constraint firstAttribute="height" constant="316" id="XJ9-QY-adW"/>
                             <constraint firstAttribute="trailing" secondItem="JWp-bs-VFY" secondAttribute="trailing" constant="15" id="Yvm-jx-XOE"/>
                             <constraint firstAttribute="trailing" secondItem="QlM-v3-wsu" secondAttribute="trailing" id="Z8C-IV-zet"/>
@@ -314,9 +314,6 @@
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGray3Color">
-            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

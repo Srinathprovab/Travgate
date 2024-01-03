@@ -13,7 +13,16 @@ class DashboardVC: BaseTableVC {
     
     
     override func viewWillAppear(_ animated: Bool) {
-        callIndexPageAPI()
+        
+        DispatchQueue.main.async {[self] in
+            observeNotification()
+        }
+        
+        DispatchQueue.main.async {[self] in
+            callIndexPageAPI()
+        }
+       
+      
     }
     
     override func viewDidLoad() {
@@ -136,6 +145,18 @@ extension DashboardVC:IndexPageViewModelDelegate {
 
 
 extension DashboardVC {
+    
+    func observeNotification() {
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(selectedCurrency), name: Notification.Name("selectedCurrency"), object: nil)
+    }
+    
+    
+    @objc func selectedCurrency() {
+        
+        
+        commonTableView.reloadRows(at: [IndexPath(item: 0, section: 0)], with: .automatic)
+    }
     
     func gotoSelectLanguageVC() {
         guard let vc = SelectLanguageVC.newInstance.self else {return}

@@ -40,6 +40,10 @@ class TabSelectTVCell: TableViewCell {
         // Configure the view for the selected state
     }
     
+    override func updateUI() {
+        currencylbl.text = defaults.string(forKey: UserDefaultsKeys.selectedCurrencyType) ?? "KWD"
+    }
+    
     @IBAction func didTapOnSelectCurrencyBtnAction(_ sender: Any) {
         delegate?.didTapOnSelectCurrencyBtnAction(cell: self)
     }
