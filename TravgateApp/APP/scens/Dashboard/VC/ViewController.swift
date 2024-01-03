@@ -35,13 +35,23 @@ class ViewController: UIViewController {
 class MySingleton {
     // Declare static constant instance
     static let shared = MySingleton()
-
+    
     // Declare your variables
     var myVariable1: Int
     var myVariable2: String
     var tablerow = [TableRow]()
     var payload = [String:Any]()
-
+    
+    //Home Page
+    var indexpagevm:IndexPageViewModel?
+    var topFlightDetails = [TopFlightDetails]()
+    var topHotelDetails = [TopHotelDetails]()
+    var deail_code_list = [Deail_code_list]()
+    var currencyListArray = [SelectCurrencyData]()
+    
+    
+    
+    
     // Private initializer to prevent multiple instances
     private init() {
         myVariable1 = 0

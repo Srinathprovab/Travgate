@@ -11,12 +11,19 @@ class DashboardVC: BaseTableVC {
     
     
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        callIndexPageAPI()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
         
         setupUI()
+        MySingleton.shared.indexpagevm = IndexPageViewModel(self)
+        
     }
     
     
@@ -29,7 +36,7 @@ class DashboardVC: BaseTableVC {
                                          "EmptyTVCell",
                                          "MoreServiceTVCell"])
         
-        setupTableViewCells()
+       
     }
     
     
@@ -54,7 +61,7 @@ class DashboardVC: BaseTableVC {
     }
     
     override func didTapOnSelectCurrencyBtnAction(cell: TabSelectTVCell) {
-        print("didTapOnSelectCurrencyBtnAction")
+        gotoSelectLanguageVC()
     }
     
     override func didTapOnFlightTabSelectBtnAction(cell: TabSelectTVCell) {
@@ -98,5 +105,42 @@ class DashboardVC: BaseTableVC {
     }
     
     
+    
+}
+
+
+extension DashboardVC:IndexPageViewModelDelegate {
+    
+    
+    func callIndexPageAPI() {
+        MySingleton.shared.indexpagevm?.CALL_INDEX_PAGE_API(dictParam: [:])
+    }
+    
+    
+    func indexPageDetails(response: IndexPagemodel) {
+        
+        MySingleton.shared.topFlightDetails = response.topFlightDetails ?? []
+        MySingleton.shared.topHotelDetails = response.topHotelDetails ?? []
+        MySingleton.shared.deail_code_list = response.deail_code_list ?? []
+        
+        DispatchQueue.main.async {[self] in
+            setupTableViewCells()
+        }
+        
+    }
+    
+    
+    
+}
+
+
+
+extension DashboardVC {
+    
+    func gotoSelectLanguageVC() {
+        guard let vc = SelectLanguageVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .overCurrentContext
+        present(vc, animated: true)
+    }
     
 }

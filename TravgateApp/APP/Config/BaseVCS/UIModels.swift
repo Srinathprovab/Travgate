@@ -29,6 +29,7 @@ enum TVCellType {
     case SpecialOffersTVCell
     case EmptyTVCell
     case MoreServiceTVCell
+    case SelectLanguageTVCell
     
     
 }

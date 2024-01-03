@@ -204,6 +204,10 @@ extension BaseTableVC: UITableViewDataSource {
                 cell.delegate = self
                 commonCell = cell
                 
+            case .SelectLanguageTVCell:
+                let cell: SelectLanguageTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                commonCell = cell
+                
                 
                 
             default:

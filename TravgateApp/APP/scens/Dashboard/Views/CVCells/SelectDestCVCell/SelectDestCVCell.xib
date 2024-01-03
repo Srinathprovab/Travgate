@@ -13,9 +13,6 @@
         <array key="OpenSans-Medium.ttf">
             <string>OpenSans-Medium</string>
         </array>
-        <array key="OpenSans-SemiBold.ttf">
-            <string>OpenSans-SemiBold</string>
-        </array>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -40,20 +37,10 @@
                                 <color key="textColor" name="WhiteColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Istanbul" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pd3-EX-sFX">
-                                <rect key="frame" x="12" y="214" width="347" height="22"/>
-                                <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="16"/>
-                                <color key="textColor" name="WhiteColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Pqh-ts-uEs" secondAttribute="trailing" id="4LT-m4-ama"/>
-                            <constraint firstItem="Pd3-EX-sFX" firstAttribute="centerX" secondItem="Pj4-Cr-zw4" secondAttribute="centerX" id="9Dn-eI-D3J"/>
-                            <constraint firstAttribute="bottom" secondItem="Pd3-EX-sFX" secondAttribute="bottom" constant="12" id="DCa-NC-V5U"/>
-                            <constraint firstAttribute="trailing" secondItem="Pd3-EX-sFX" secondAttribute="trailing" constant="12" id="KqU-Pl-XZt"/>
-                            <constraint firstItem="Pd3-EX-sFX" firstAttribute="leading" secondItem="Pj4-Cr-zw4" secondAttribute="leading" constant="12" id="TgB-wD-x3g"/>
                             <constraint firstItem="Pqh-ts-uEs" firstAttribute="top" secondItem="Pj4-Cr-zw4" secondAttribute="top" id="UA7-by-5iB"/>
                             <constraint firstAttribute="bottom" secondItem="Pqh-ts-uEs" secondAttribute="bottom" id="VV9-2B-4Si"/>
                             <constraint firstItem="Pqh-ts-uEs" firstAttribute="leading" secondItem="Pj4-Cr-zw4" secondAttribute="leading" id="ilZ-3D-uAZ"/>
@@ -75,9 +62,8 @@
             </constraints>
             <size key="customSize" width="371" height="248"/>
             <connections>
-                <outlet property="hoteldestname" destination="Pd3-EX-sFX" id="zWS-1r-XEQ"/>
                 <outlet property="img" destination="Pqh-ts-uEs" id="wo2-6a-P5e"/>
-                <outlet property="titlelbl" destination="Pd3-EX-sFX" id="jjp-kC-hgR"/>
+                <outlet property="titlelbl" destination="L9L-Nk-A83" id="7ft-jA-eJY"/>
             </connections>
             <point key="canvasLocation" x="383.96946564885496" y="89.436619718309871"/>
         </collectionViewCell>

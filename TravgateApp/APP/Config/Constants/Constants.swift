@@ -30,8 +30,8 @@ let screenHeight = UIScreen.main.bounds.size.height
 var loderBool = false
 var basicloderBool = false
 
-var BASE_URL = "https://kuwaitways.com/mobile_webservices/index.php/"
-var BASE_URL1 = "https://kuwaitways.com/mobile_webservices/index.php/"
+var BASE_URL = "https://provabdevelopment.com/pro_new/mobile_webservices/mobile/index.php/"
+var BASE_URL1 = "https://provabdevelopment.com/pro_new/mobile_webservices/mobile/index.php/"
 var defaultCountryCode = "+91"
 var mobilenoMaxLength = Int()
 var mobilenoMaxLengthBool = false
@@ -44,45 +44,8 @@ var callapibool = Bool()
 /* URL endpoints */
 struct ApiEndpoints {
     
-    static let indexpage = "general/index"
-    static let countrylist1 = "flight/country_list"
-    static let general_getAirlineList = "general/getAirlineList"
-    static let mobilePreFlightSearch = "mobile_pre_flight_search"
-    static let mobilelogin = "auth/mobile_login"
-    static let mobileregister = "auth/mobile_register_on_light_box"
-    static let mobilelogout = "auth/mobile_ajax_logout"
-    static let auth_deleteuser = "auth/deleteuser"
-    static let general_mobile_contact_us = "general/mobile_contact_us"
-    static let mobileforgotpassword = "auth/mobile_forgot_password"
-    static let updatemobileprofile = "user/mobile_profile"
-    static let getCurrencyList = "general/getCurrencyList"
-    static let getairportcodelist = "ajax/get_airport_code_list"
-    static let mobilepreflightsearch = "general/mobile_pre_flight_search"
-    static let getFlightDetails = "flight/getFlightDetails"
-    static let preprocessbooking = "flight/pre_process_booking"
-    static let mobilebooking = "flight/booking"
-    static let processpassengerdetail = "flight/process_passenger_detail"
-    static let prebooking = "flight/pre_booking/"
-    static let prepaymentconfirmation = "flight/pre_payment_confirmation/"
-    static let sendtopayment = "flight/send_to_payment/"
-    static let securebooking = "flight/secure_booking/"
-    static let upcomingbookingmobile = "flight/upcoming_booking_mobile"
-    static let completedbookingmobile = "flight/completed_booking_mobile"
-    static let cancelledbookingmobile = "flight/cancelled_booking_mobile"
-    static let getSpecialAssistancelist = "general/getSpecialAssistance_list"
-    static let getMeals_list = "general/getMeals_list"
-    static let applypromocode = "management/promocode"
-    //HOTEL
-    static let gethotelcitylist = "ajax/get_hotel_city_list"
-    static let mobileprehotelsearch = "general/mobile_pre_hotel_search"
-    static let general_ajaxHotelSearch_pagination = "general/ajaxHotelSearch_pagination"
-    
-    static let hoteldetails = "hotel/mobile_details"
-    static let hotelmobilebooking = "hotel/mobile_booking"
-    static let mobilehotelprebooking = "hotel/mobile_hotel_pre_booking"
-    static let hotelsecurebooking = "hotel/secure_booking"
-
-    
+    static let indexpage = "general/getTopFlightHotelDestination"
+   
     
     
 }

@@ -13,7 +13,7 @@ class SpecialOffersTVCell: TableViewCell {
     
     @IBOutlet weak var offerCV: UICollectionView!
     
-    
+    var offerlist = [Deail_code_list]()
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -25,6 +25,12 @@ class SpecialOffersTVCell: TableViewCell {
         super.setSelected(selected, animated: animated)
         
         // Configure the view for the selected state
+    }
+    
+    
+    override func updateUI() {
+        offerlist = MySingleton.shared.deail_code_list
+        offerCV.reloadData()
     }
     
     
@@ -57,13 +63,19 @@ extension SpecialOffersTVCell:UICollectionViewDelegate,UICollectionViewDataSourc
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return offerlist.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         var commonCell = UICollectionViewCell()
         
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell1", for: indexPath) as? SpecialOffersCVCell {
+            
+          //  cell.titlelbl.text = offerlist[indexPath.row].room_type
+            cell.codelbl.text = offerlist[indexPath.row].promo_code
+            cell.img.sd_setImage(with: URL(string:  offerlist[indexPath.row].topDealImg ?? ""), placeholderImage:UIImage(contentsOfFile:"placeholder.png"))
+            
+            
             commonCell = cell
         }
         return commonCell

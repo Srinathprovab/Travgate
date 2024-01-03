@@ -30,8 +30,9 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xMz-24-5g0">
                         <rect key="frame" x="0.0" y="0.0" width="524" height="316"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QlM-v3-wsu">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hometop" translatesAutoresizingMaskIntoConstraints="NO" id="QlM-v3-wsu">
                                 <rect key="frame" x="0.0" y="0.0" width="524" height="316"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Yb-AA-CKs" customClass="BorderedView" customModule="TravgateApp" customModuleProvider="target">
                                 <rect key="frame" x="89" y="210" width="110" height="80"/>
@@ -303,6 +304,7 @@
     <resources>
         <image name="downarrow" width="22" height="22"/>
         <image name="flight" width="30" height="30"/>
+        <image name="hometop" width="428" height="268"/>
         <image name="hotel" width="30" height="30"/>
         <image name="logo2" width="184.33332824707031" height="59"/>
         <image name="menu" width="30" height="30"/>

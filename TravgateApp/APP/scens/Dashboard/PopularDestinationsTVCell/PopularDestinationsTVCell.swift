@@ -14,6 +14,7 @@ class PopularDestinationsTVCell: TableViewCell {
     @IBOutlet weak var selectDestCV: UICollectionView!
     
     
+    var flightlist = [TopFlightDetails]()
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -30,7 +31,10 @@ class PopularDestinationsTVCell: TableViewCell {
     
     
     override func updateUI() {
+        flightlist = MySingleton.shared.topFlightDetails
         
+        
+        selectDestCV.reloadData()
     }
     
     
@@ -101,7 +105,7 @@ extension PopularDestinationsTVCell:UICollectionViewDelegate,UICollectionViewDat
         if collectionView == citySelectCV {
             return 10
         }else {
-            return 10
+            return flightlist.count
         }
     }
     
@@ -112,10 +116,15 @@ extension PopularDestinationsTVCell:UICollectionViewDelegate,UICollectionViewDat
         if collectionView == citySelectCV {
             if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell1", for: indexPath) as? SelectCityCVCell {
                 
+                
+                
                 commonCell = cell
             }
         }else {
             if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell2", for: indexPath) as? SelectDestCVCell {
+                
+                cell.titlelbl.text = flightlist[indexPath.row].to_city_name
+                cell.img.sd_setImage(with: URL(string:  flightlist[indexPath.row].topFlightImg ?? ""), placeholderImage:UIImage(contentsOfFile:"placeholder.png"))
                 
                 commonCell = cell
             }
