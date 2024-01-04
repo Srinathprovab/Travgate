@@ -8,7 +8,7 @@
 import UIKit
 import MaterialComponents
 
-class BaseTableVC: UIViewController, TabSelectTVCellDelegate, MoreServiceTVCellDelegate {
+class BaseTableVC: UIViewController, TabSelectTVCellDelegate {
    
     
     @IBOutlet weak var commonScrollView: UITableView!
@@ -100,13 +100,13 @@ class BaseTableVC: UIViewController, TabSelectTVCellDelegate, MoreServiceTVCellD
     func didTapOnFlightTabSelectBtnAction(cell: TabSelectTVCell) {}
     func didTapOnHotelTabSelect(cell: TabSelectTVCell) {}
     func didTapOnMoreServiceBtnAction(cell: TabSelectTVCell) {}
-    func didTapOnClosebtnAction(cell: MoreServiceTVCell) {}
-    func didTapOnVisabtnAction(cell: MoreServiceTVCell) {}
-    func didTapOnInsurancebtnAction(cell: MoreServiceTVCell) {}
-    func didTapOnTransfersbtnAction(cell: MoreServiceTVCell) {}
-    func didTapOnActivitiesbtnAction(cell: MoreServiceTVCell) {}
-    func didTapOnCruisebtnAction(cell: MoreServiceTVCell) {}
-    func didTapOnAutopaybtnAction(cell: MoreServiceTVCell) {}
+    func didTapOnClosebtnAction(cell: TabSelectTVCell) {}
+    func didTapOnVisabtnAction(cell: TabSelectTVCell) {}
+    func didTapOnInsurancebtnAction(cell: TabSelectTVCell) {}
+    func didTapOnTransfersbtnAction(cell: TabSelectTVCell) {}
+    func didTapOnActivitiesbtnAction(cell: TabSelectTVCell) {}
+    func didTapOnCruisebtnAction(cell: TabSelectTVCell) {}
+    func didTapOnAutopaybtnAction(cell: TabSelectTVCell) {}
     
    
     
@@ -193,11 +193,7 @@ extension BaseTableVC: UITableViewDataSource {
                 commonCell = cell
                 
                 
-            case .MoreServiceTVCell:
-                let cell: MoreServiceTVCell = commonTV.dequeTVCell(indexPath: indexPath)
-                cell.delegate = self
-                commonCell = cell
-                
+          
                 
                 
             case .SelectLanguageTVCell:

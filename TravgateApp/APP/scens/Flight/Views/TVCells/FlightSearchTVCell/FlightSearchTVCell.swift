@@ -10,6 +10,7 @@ import UIKit
 class FlightSearchTVCell: TableViewCell {
     
     @IBOutlet weak var holderView: BorderedView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

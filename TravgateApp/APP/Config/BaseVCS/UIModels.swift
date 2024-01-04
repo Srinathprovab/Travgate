@@ -28,7 +28,6 @@ enum TVCellType {
     case TopcityGuidesTVCell
     case SpecialOffersTVCell
     case EmptyTVCell
-    case MoreServiceTVCell
     case SelectLanguageTVCell
     
     //Flight

@@ -42,8 +42,7 @@ class DashboardVC: BaseTableVC {
                                          "PopularDestinationsTVCell",
                                          "TopcityGuidesTVCell",
                                          "SpecialOffersTVCell",
-                                         "EmptyTVCell",
-                                         "MoreServiceTVCell"])
+                                         "EmptyTVCell"])
         
        
     }
@@ -53,7 +52,6 @@ class DashboardVC: BaseTableVC {
         MySingleton.shared.tablerow.removeAll()
         
         MySingleton.shared.tablerow.append(TableRow(cellType:.TabSelectTVCell))
-        MySingleton.shared.tablerow.append(TableRow(cellType:.MoreServiceTVCell))
         MySingleton.shared.tablerow.append(TableRow(cellType:.PopularDestinationsTVCell))
         MySingleton.shared.tablerow.append(TableRow(cellType:.TopcityGuidesTVCell))
         MySingleton.shared.tablerow.append(TableRow(cellType:.SpecialOffersTVCell))
@@ -86,31 +84,31 @@ class DashboardVC: BaseTableVC {
         commonTableView.reloadData()
     }
     
-    override func didTapOnClosebtnAction(cell: MoreServiceTVCell) {
+    override func didTapOnClosebtnAction(cell: TabSelectTVCell) {
         commonTableView.reloadData()
     }
     
-    override func didTapOnVisabtnAction(cell: MoreServiceTVCell) {
+    override func didTapOnVisabtnAction(cell: TabSelectTVCell) {
         print("didTapOnVisabtnAction")
     }
     
-    override func didTapOnInsurancebtnAction(cell: MoreServiceTVCell) {
+    override func didTapOnInsurancebtnAction(cell: TabSelectTVCell) {
         print("didTapOnInsurancebtnAction")
     }
     
-    override func didTapOnTransfersbtnAction(cell: MoreServiceTVCell) {
+    override func didTapOnTransfersbtnAction(cell: TabSelectTVCell) {
         print("didTapOnTransfersbtnAction")
     }
     
-    override func didTapOnActivitiesbtnAction(cell: MoreServiceTVCell) {
+    override func didTapOnActivitiesbtnAction(cell: TabSelectTVCell) {
         print("didTapOnActivitiesbtnAction")
     }
     
-    override func didTapOnCruisebtnAction(cell: MoreServiceTVCell) {
+    override func didTapOnCruisebtnAction(cell: TabSelectTVCell) {
         print("didTapOnCruisebtnAction")
     }
     
-    override func didTapOnAutopaybtnAction(cell: MoreServiceTVCell) {
+    override func didTapOnAutopaybtnAction(cell: TabSelectTVCell) {
         print("didTapOnAutopaybtnAction")
     }
     
