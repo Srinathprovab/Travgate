@@ -8,7 +8,10 @@
 import UIKit
 import MaterialComponents
 
-class BaseTableVC: UIViewController, TabSelectTVCellDelegate {
+class BaseTableVC: UIViewController, TabSelectTVCellDelegate, FlightSearchTVCellDelegate {
+    
+    
+    
    
     
     @IBOutlet weak var commonScrollView: UITableView!
@@ -108,7 +111,14 @@ class BaseTableVC: UIViewController, TabSelectTVCellDelegate {
     func didTapOnCruisebtnAction(cell: TabSelectTVCell) {}
     func didTapOnAutopaybtnAction(cell: TabSelectTVCell) {}
     
-   
+    func didTapOnAdvanceOption(cell: FlightSearchTVCell) {}
+    func didTapOnClassBtnAction(cell:FlightSearchTVCell){}
+    func donedatePicker(cell:FlightSearchTVCell) {}
+    func cancelDatePicker(cell:FlightSearchTVCell) {}
+    func didTapOnSwipeCityBtnAction(cell: FlightSearchTVCell) {}
+    func didTapOnHideReturnDateBtnAction(cell:FlightSearchTVCell) {}
+    func didTapOnFlightSearchBtnAction(cell:FlightSearchTVCell) {}
+    
     
 }
 
@@ -201,8 +211,10 @@ extension BaseTableVC: UITableViewDataSource {
                 commonCell = cell
                 
                 
+                
             case .FlightSearchTVCell:
                 let cell: FlightSearchTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                cell.delegate = self
                 commonCell = cell
                 
                 

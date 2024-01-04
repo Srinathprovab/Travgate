@@ -30,8 +30,8 @@ let screenHeight = UIScreen.main.bounds.size.height
 var loderBool = false
 var basicloderBool = false
 
-var BASE_URL = "https://provabdevelopment.com/pro_new/mobile_webservices/mobile/index.php/"
-var BASE_URL1 = "https://provabdevelopment.com/pro_new/mobile_webservices/mobile/index.php/"
+var BASE_URL = "https://travrun.com/pro_new/mobile/index.php/"
+var BASE_URL1 = "https://travrun.com/pro_new/mobile/index.php/"
 var defaultCountryCode = "+91"
 var mobilenoMaxLength = Int()
 var mobilenoMaxLengthBool = false
@@ -45,7 +45,7 @@ var callapibool = Bool()
 struct ApiEndpoints {
     
     static let indexpage = "general/getTopFlightHotelDestination"
-   
+    static let get_airport_code_list = "ajax/get_airport_code_list"
     
     
 }
@@ -100,6 +100,7 @@ struct UserDefaultsKeys {
     static var hchildCount = "HChild_Count"
     static var infantsCount = "Infants_Count"
     static var selectClass = "select_class"
+    static var rselectClass = "rselect_class"
     static var fromlocid = "from_loc_id"
     static var tolocid = "to_loc_id"
     static var fromcityname = "fromcityname"

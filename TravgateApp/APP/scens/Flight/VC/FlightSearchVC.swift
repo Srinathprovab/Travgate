@@ -46,7 +46,8 @@ class FlightSearchVC: BaseTableVC {
         roundtriplbl.textColor = .TitleColor
         multicitylbl.textColor = .TitleColor
         
-        setupTVCells()
+        defaults.set("oneway", forKey: UserDefaultsKeys.journeyType)
+        setupOnewayTVCells()
     }
     
     func roundtripTap() {
@@ -57,7 +58,8 @@ class FlightSearchVC: BaseTableVC {
         roundtriplbl.textColor = .WhiteColor
         multicitylbl.textColor = .TitleColor
         
-        setupTVCells()
+        defaults.set("circle", forKey: UserDefaultsKeys.journeyType)
+        setupRoundTripTVCells()
     }
     
     func multicityTap() {
@@ -68,7 +70,59 @@ class FlightSearchVC: BaseTableVC {
         roundtriplbl.textColor = .TitleColor
         multicitylbl.textColor = .WhiteColor
         
-        setupTVCells()
+        // setupOnewayTVCells()
+    }
+    
+    
+    
+    //MARK: - didTapOnClassBtnAction
+    override func didTapOnClassBtnAction(cell:FlightSearchTVCell){
+        commonTableView.reloadData()
+    }
+    
+    
+    //MARK: - didTapOnAdvanceOption
+    override func didTapOnAdvanceOption(cell: FlightSearchTVCell) {
+        commonTableView.reloadData()
+    }
+    
+    
+    
+    //MARK: - donedatePicker cancelDatePicker
+    override func donedatePicker(cell:FlightSearchTVCell){
+        
+        let journyType = defaults.string(forKey: UserDefaultsKeys.journeyType)
+        if journyType == "oneway" {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "dd-MM-yyyy"
+            defaults.set(formatter.string(from: cell.depDatePicker.date), forKey: UserDefaultsKeys.calDepDate)
+            
+        }else {
+            
+            let formatter = DateFormatter()
+            formatter.dateFormat = "dd-MM-yyyy"
+            defaults.set(formatter.string(from: cell.retdepDatePicker.date), forKey: UserDefaultsKeys.calDepDate)
+            defaults.set(formatter.string(from: cell.retDatePicker.date), forKey: UserDefaultsKeys.calRetDate)
+        }
+        
+        commonTableView.reloadData()
+        self.view.endEditing(true)
+    }
+    
+    override func cancelDatePicker(cell:FlightSearchTVCell){
+        self.view.endEditing(true)
+    }
+    
+    
+    
+    
+    override func didTapOnHideReturnDateBtnAction(cell:FlightSearchTVCell) {
+        onewayTap()
+    }
+    
+    
+    override func didTapOnFlightSearchBtnAction(cell:FlightSearchTVCell) {
+        didTapOnFlightSearchBtnAction()
     }
     
     
@@ -90,10 +144,6 @@ class FlightSearchVC: BaseTableVC {
         multicityTap()
     }
     
-    
-    
-    
-    
 }
 
 
@@ -113,11 +163,83 @@ extension FlightSearchVC {
     
     
     
-    func setupTVCells() {
+    func setupOnewayTVCells() {
         MySingleton.shared.tablerow.removeAll()
-        MySingleton.shared.tablerow.append(TableRow(cellType:.FlightSearchTVCell))
+        MySingleton.shared.tablerow.append(TableRow(key:"oneway",cellType:.FlightSearchTVCell))
         MySingleton.shared.tablerow.append(TableRow(height:50,cellType:.EmptyTVCell))
         commonTVData = MySingleton.shared.tablerow
         commonTableView.reloadData()
+    }
+    
+    
+    func setupRoundTripTVCells() {
+        MySingleton.shared.tablerow.removeAll()
+        MySingleton.shared.tablerow.append(TableRow(key:"circle",cellType:.FlightSearchTVCell))
+        MySingleton.shared.tablerow.append(TableRow(height:50,cellType:.EmptyTVCell))
+        commonTVData = MySingleton.shared.tablerow
+        commonTableView.reloadData()
+    }
+}
+
+
+
+extension FlightSearchVC {
+    func didTapOnFlightSearchBtnAction() {
+        MySingleton.shared.payload.removeAll()
+        
+        MySingleton.shared.payload["trip_type"] = defaults.string(forKey: UserDefaultsKeys.journeyType)
+        MySingleton.shared.payload["adult"] = defaults.string(forKey: UserDefaultsKeys.adultCount)
+        MySingleton.shared.payload["child"] = defaults.string(forKey: UserDefaultsKeys.childCount)
+        MySingleton.shared.payload["infant"] = defaults.string(forKey: UserDefaultsKeys.infantsCount)
+        MySingleton.shared.payload["from"] = defaults.string(forKey: UserDefaultsKeys.fromCity)
+        MySingleton.shared.payload["from_loc_id"] = defaults.string(forKey: UserDefaultsKeys.fromlocid)
+        MySingleton.shared.payload["to"] = defaults.string(forKey: UserDefaultsKeys.toCity)
+        MySingleton.shared.payload["to_loc_id"] = defaults.string(forKey: UserDefaultsKeys.tolocid)
+        MySingleton.shared.payload["depature"] = defaults.string(forKey: UserDefaultsKeys.calDepDate)
+        MySingleton.shared.payload["out_jrn"] = "All Times"
+        MySingleton.shared.payload["ret_jrn"] = "All Times"
+        MySingleton.shared.payload["direct_flight"] = ""
+        MySingleton.shared.payload["psscarrier"] = ""
+        MySingleton.shared.payload["search_flight"] = "Search"
+        MySingleton.shared.payload["user_id"] = ""
+        MySingleton.shared.payload["search_source"] = "Postman"
+        MySingleton.shared.payload["currency"] = defaults.string(forKey: UserDefaultsKeys.selectedCurrency)
+        if defaults.string(forKey: UserDefaultsKeys.journeyType) == "oneway" {
+            
+            MySingleton.shared.payload["v_class"] = defaults.string(forKey: UserDefaultsKeys.selectClass)
+            MySingleton.shared.payload["return"] = ""
+            
+            if defaults.string(forKey: UserDefaultsKeys.fromCity) == nil {
+                showToast(message: "Enter From City")
+            }else if defaults.string(forKey: UserDefaultsKeys.toCity) == nil {
+                showToast(message: "Enter To City")
+            }else if defaults.string(forKey: UserDefaultsKeys.calDepDate) == "Add Date" {
+                showToast(message: "Add Departure Date")
+            }else {
+                print(MySingleton.shared.payload)
+            }
+
+        }else {
+            MySingleton.shared.payload["v_class"] = defaults.string(forKey: UserDefaultsKeys.selectClass)
+           // MySingleton.shared.payload["v_class"] = defaults.string(forKey: UserDefaultsKeys.selectClass)
+            MySingleton.shared.payload["return"] = defaults.string(forKey: UserDefaultsKeys.calRetDate)
+            
+            if defaults.string(forKey: UserDefaultsKeys.fromCity) == nil {
+                showToast(message: "Enter From City")
+            }else if defaults.string(forKey: UserDefaultsKeys.toCity) == nil {
+                showToast(message: "Enter To City")
+            }else if defaults.string(forKey: UserDefaultsKeys.calDepDate) == "Add Date" {
+                showToast(message: "Add Departure Date")
+            }else if defaults.string(forKey: UserDefaultsKeys.calRetDate) == "Add Date" {
+                showToast(message: "Add Return Date")
+            }else {
+                print(MySingleton.shared.payload)
+            }
+
+        }
+        
+        
+       
+        
     }
 }

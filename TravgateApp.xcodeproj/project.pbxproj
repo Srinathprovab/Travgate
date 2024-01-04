@@ -110,6 +110,14 @@
 		65B6799C2B44465800E5D1C3 /* TopcityGuidesCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65B6799A2B44465800E5D1C3 /* TopcityGuidesCVCell.xib */; };
 		65B679A42B44475A00E5D1C3 /* TopcityGuidesTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B679A22B44475A00E5D1C3 /* TopcityGuidesTVCell.swift */; };
 		65B679A52B44475A00E5D1C3 /* TopcityGuidesTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65B679A32B44475A00E5D1C3 /* TopcityGuidesTVCell.xib */; };
+		65B959252B466F1400A4EAE7 /* InfoCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B959232B466F1400A4EAE7 /* InfoCVCell.swift */; };
+		65B959262B466F1400A4EAE7 /* InfoCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65B959242B466F1400A4EAE7 /* InfoCVCell.xib */; };
+		65B959282B4687F300A4EAE7 /* SingleClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B959272B4687F300A4EAE7 /* SingleClass.swift */; };
+		65B9592D2B468DFD00A4EAE7 /* FromCityTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B9592B2B468DFD00A4EAE7 /* FromCityTVCell.swift */; };
+		65B9592E2B468DFD00A4EAE7 /* FromCityTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65B9592C2B468DFD00A4EAE7 /* FromCityTVCell.xib */; };
+		65B959312B468F8000A4EAE7 /* SelectCityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B959302B468F8000A4EAE7 /* SelectCityViewModel.swift */; };
+		65B959342B468F9B00A4EAE7 /* SelectCityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B959332B468F9B00A4EAE7 /* SelectCityModel.swift */; };
+		65B959382B46DD7E00A4EAE7 /* CountrylistModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B959372B46DD7E00A4EAE7 /* CountrylistModel.swift */; };
 		A49629B2BC0298903ECB14C9 /* Pods_TravgateApp_TravgateAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CD57DADF2827CC7315F9E10 /* Pods_TravgateApp_TravgateAppUITests.framework */; };
 		B0DAB0DBB63A478E83F5291D /* Pods_TravgateAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 634B61CF8AE4096700985889 /* Pods_TravgateAppTests.framework */; };
 		F35DB7DEE4FE2CEB1228C68B /* Pods_TravgateApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C1727B54071D4A493CAF226 /* Pods_TravgateApp.framework */; };
@@ -245,6 +253,14 @@
 		65B6799A2B44465800E5D1C3 /* TopcityGuidesCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopcityGuidesCVCell.xib; sourceTree = "<group>"; };
 		65B679A22B44475A00E5D1C3 /* TopcityGuidesTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopcityGuidesTVCell.swift; sourceTree = "<group>"; };
 		65B679A32B44475A00E5D1C3 /* TopcityGuidesTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopcityGuidesTVCell.xib; sourceTree = "<group>"; };
+		65B959232B466F1400A4EAE7 /* InfoCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCVCell.swift; sourceTree = "<group>"; };
+		65B959242B466F1400A4EAE7 /* InfoCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoCVCell.xib; sourceTree = "<group>"; };
+		65B959272B4687F300A4EAE7 /* SingleClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleClass.swift; sourceTree = "<group>"; };
+		65B9592B2B468DFD00A4EAE7 /* FromCityTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FromCityTVCell.swift; sourceTree = "<group>"; };
+		65B9592C2B468DFD00A4EAE7 /* FromCityTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FromCityTVCell.xib; sourceTree = "<group>"; };
+		65B959302B468F8000A4EAE7 /* SelectCityViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectCityViewModel.swift; sourceTree = "<group>"; };
+		65B959332B468F9B00A4EAE7 /* SelectCityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCityModel.swift; sourceTree = "<group>"; };
+		65B959372B46DD7E00A4EAE7 /* CountrylistModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountrylistModel.swift; sourceTree = "<group>"; };
 		8C1727B54071D4A493CAF226 /* Pods_TravgateApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TravgateApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92CCA4D767899C0947F898F0 /* Pods-TravgateAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravgateAppTests.debug.xcconfig"; path = "Target Support Files/Pods-TravgateAppTests/Pods-TravgateAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A833FE625AA0EA62C12BEE47 /* Pods-TravgateApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravgateApp.debug.xcconfig"; path = "Target Support Files/Pods-TravgateApp/Pods-TravgateApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -456,6 +472,7 @@
 				651716402B43F8D0003D3723 /* TableViewCell.swift */,
 				651716412B43F8D0003D3723 /* BaseTableVC.swift */,
 				651716422B43F8D0003D3723 /* UIModels.swift */,
+				65B959272B4687F300A4EAE7 /* SingleClass.swift */,
 			);
 			path = BaseVCS;
 			sourceTree = "<group>";
@@ -592,6 +609,7 @@
 		651718152B440B38003D3723 /* Flight */ = {
 			isa = PBXGroup;
 			children = (
+				65B9592F2B468F7500A4EAE7 /* ViewModel */,
 				650DBA582B456CC50052294A /* Views */,
 				65B679642B441CB800E5D1C3 /* SB */,
 				651718192B440B5C003D3723 /* Model */,
@@ -625,6 +643,7 @@
 		651718192B440B5C003D3723 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				65B959322B468F9300A4EAE7 /* SelectCityModel */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -632,7 +651,7 @@
 		6517181A2B440B64003D3723 /* TVCells */ = {
 			isa = PBXGroup;
 			children = (
-				650DBA592B456CD40052294A /* FlightSearchTVCell */,
+				65B959292B468DD700A4EAE7 /* Flight Search */,
 			);
 			path = TVCells;
 			sourceTree = "<group>";
@@ -640,6 +659,7 @@
 		6517181B2B440B70003D3723 /* CVCells */ = {
 			isa = PBXGroup;
 			children = (
+				65B959222B466EFA00A4EAE7 /* InfoCVCell */,
 			);
 			path = CVCells;
 			sourceTree = "<group>";
@@ -815,6 +835,50 @@
 			path = TopcityGuidesTVCell;
 			sourceTree = "<group>";
 		};
+		65B959222B466EFA00A4EAE7 /* InfoCVCell */ = {
+			isa = PBXGroup;
+			children = (
+				65B959232B466F1400A4EAE7 /* InfoCVCell.swift */,
+				65B959242B466F1400A4EAE7 /* InfoCVCell.xib */,
+			);
+			path = InfoCVCell;
+			sourceTree = "<group>";
+		};
+		65B959292B468DD700A4EAE7 /* Flight Search */ = {
+			isa = PBXGroup;
+			children = (
+				65B9592A2B468DE400A4EAE7 /* FromCityTVCell */,
+				650DBA592B456CD40052294A /* FlightSearchTVCell */,
+			);
+			path = "Flight Search";
+			sourceTree = "<group>";
+		};
+		65B9592A2B468DE400A4EAE7 /* FromCityTVCell */ = {
+			isa = PBXGroup;
+			children = (
+				65B9592B2B468DFD00A4EAE7 /* FromCityTVCell.swift */,
+				65B9592C2B468DFD00A4EAE7 /* FromCityTVCell.xib */,
+			);
+			path = FromCityTVCell;
+			sourceTree = "<group>";
+		};
+		65B9592F2B468F7500A4EAE7 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				65B959302B468F8000A4EAE7 /* SelectCityViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		65B959322B468F9300A4EAE7 /* SelectCityModel */ = {
+			isa = PBXGroup;
+			children = (
+				65B959332B468F9B00A4EAE7 /* SelectCityModel.swift */,
+				65B959372B46DD7E00A4EAE7 /* CountrylistModel.swift */,
+			);
+			path = SelectCityModel;
+			sourceTree = "<group>";
+		};
 		81FCC340B91874B16663E227 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -948,6 +1012,7 @@
 				65B679702B44229C00E5D1C3 /* OpenSans-Light.ttf in Resources */,
 				650DBA3A2B4528410052294A /* MoreServiceCVCell.xib in Resources */,
 				65B679712B44229C00E5D1C3 /* OpenSans-Medium.ttf in Resources */,
+				65B959262B466F1400A4EAE7 /* InfoCVCell.xib in Resources */,
 				65B679722B44229C00E5D1C3 /* OpenSans-Regular.ttf in Resources */,
 				65B679732B44229C00E5D1C3 /* OpenSans-SemiBold.ttf in Resources */,
 				650DBA5D2B456CE90052294A /* FlightSearchTVCell.xib in Resources */,
@@ -964,6 +1029,7 @@
 				651714202B43F839003D3723 /* LaunchScreen.storyboard in Resources */,
 				651718112B43F8D4003D3723 /* clist.json in Resources */,
 				651717FF2B43F8D4003D3723 /* Oswald-Medium.ttf in Resources */,
+				65B9592E2B468DFD00A4EAE7 /* FromCityTVCell.xib in Resources */,
 				651717FE2B43F8D4003D3723 /* Poppins-Medium.ttf in Resources */,
 				651717FB2B43F8D4003D3723 /* Lato-Medium.ttf in Resources */,
 				65B679972B443D9200E5D1C3 /* SelectDestCVCell.xib in Resources */,
@@ -1161,7 +1227,9 @@
 				650DBA2F2B451D7E0052294A /* EmptyTVCell.swift in Sources */,
 				651717E12B43F8D4003D3723 /* UIModels.swift in Sources */,
 				651717E52B43F8D4003D3723 /* SessionManager.swift in Sources */,
+				65B959312B468F8000A4EAE7 /* SelectCityViewModel.swift in Sources */,
 				651718282B441620003D3723 /* DashboardVC.swift in Sources */,
+				65B9592D2B468DFD00A4EAE7 /* FromCityTVCell.swift in Sources */,
 				651717EC2B43F8D4003D3723 /* ButtonExtension.swift in Sources */,
 				651717F22B43F8D4003D3723 /* UITapGestureRecognizer.swift in Sources */,
 				650DBA572B4562920052294A /* FlightSearchVC.swift in Sources */,
@@ -1174,11 +1242,13 @@
 				651717DE2B43F8D4003D3723 /* BaseVC.swift in Sources */,
 				6517180A2B43F8D4003D3723 /* DeviceName.swift in Sources */,
 				650DBA452B453E680052294A /* Deail_code_list.swift in Sources */,
+				65B959252B466F1400A4EAE7 /* InfoCVCell.swift in Sources */,
 				651714162B43F837003D3723 /* SceneDelegate.swift in Sources */,
 				651717E02B43F8D4003D3723 /* BaseTableVC.swift in Sources */,
 				650DBA5C2B456CE90052294A /* FlightSearchTVCell.swift in Sources */,
 				650DBA432B453E680052294A /* TopFlightDetails.swift in Sources */,
 				6517182E2B441650003D3723 /* MoreVC.swift in Sources */,
+				65B959342B468F9B00A4EAE7 /* SelectCityModel.swift in Sources */,
 				650DBA392B4528410052294A /* MoreServiceCVCell.swift in Sources */,
 				650DBA442B453E680052294A /* TopHotelDetails.swift in Sources */,
 				650DBA2A2B451B840052294A /* SpecialOffersTVCell.swift in Sources */,
@@ -1191,12 +1261,14 @@
 				651717ED2B43F8D4003D3723 /* UIKitHelper.swift in Sources */,
 				65B679A42B44475A00E5D1C3 /* TopcityGuidesTVCell.swift in Sources */,
 				65B679962B443D9200E5D1C3 /* SelectDestCVCell.swift in Sources */,
+				65B959282B4687F300A4EAE7 /* SingleClass.swift in Sources */,
 				65B679862B4425CE00E5D1C3 /* TabSelectTVCell.swift in Sources */,
 				6517182A2B441630003D3723 /* TripsVC.swift in Sources */,
 				6517180C2B43F8D4003D3723 /* Decodable.swift in Sources */,
 				650DBA532B4549950052294A /* SelectCurrencyModel.swift in Sources */,
 				6517182C2B44163F003D3723 /* ProfileVC.swift in Sources */,
 				650DBA4B2B4547170052294A /* SelectLanguageVC.swift in Sources */,
+				65B959382B46DD7E00A4EAE7 /* CountrylistModel.swift in Sources */,
 				651717F02B43F8D4003D3723 /* TextFieldExtension.swift in Sources */,
 				651717F42B43F8D4003D3723 /* UIColorManager.swift in Sources */,
 				651718092B43F8D4003D3723 /* ColorManager.swift in Sources */,
@@ -1368,7 +1440,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 5TLY5PME9K;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TravgateApp/Info.plist;
@@ -1402,7 +1474,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 5TLY5PME9K;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TravgateApp/Info.plist;

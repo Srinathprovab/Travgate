@@ -77,16 +77,16 @@
                                                         <rect key="frame" x="12" y="6" width="341" height="28"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eVb-YQ-jpO" customClass="BorderedView" customModule="TravgateApp" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="104.33333333333333" height="28"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="163.66666666666666" height="28"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="One - way" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tZN-tp-bv3">
-                                                                        <rect key="frame" x="18" y="5.3333333333333428" width="68.333333333333329" height="17"/>
+                                                                        <rect key="frame" x="47.666666666666679" y="5.3333333333333428" width="68.333333333333314" height="17"/>
                                                                         <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="14"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KaF-PY-Nkx">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="104.33333333333333" height="28"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="163.66666666666666" height="28"/>
                                                                         <state key="normal" title="Button"/>
                                                                         <buttonConfiguration key="configuration" style="plain"/>
                                                                         <connections>
@@ -111,16 +111,16 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GMI-5q-a8n" customClass="BorderedView" customModule="TravgateApp" customModuleProvider="target">
-                                                                <rect key="frame" x="118.33333333333334" y="0.0" width="104.33333333333334" height="28"/>
+                                                                <rect key="frame" x="177.66666666666663" y="0.0" width="163.33333333333337" height="28"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Round - Trip" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8dj-xx-obn">
-                                                                        <rect key="frame" x="11.333333333333314" y="5.3333333333333428" width="82" height="17"/>
+                                                                        <rect key="frame" x="40.666666666666686" y="5.3333333333333428" width="82" height="17"/>
                                                                         <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="14"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JSm-Ia-cVf">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="104.33333333333333" height="28"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="163.33333333333334" height="28"/>
                                                                         <state key="normal" title="Button"/>
                                                                         <buttonConfiguration key="configuration" style="plain"/>
                                                                         <connections>
@@ -144,17 +144,17 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UcF-e3-iYI" customClass="BorderedView" customModule="TravgateApp" customModuleProvider="target">
-                                                                <rect key="frame" x="236.66666666666671" y="0.0" width="104.33333333333334" height="28"/>
+                                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UcF-e3-iYI" customClass="BorderedView" customModule="TravgateApp" customModuleProvider="target">
+                                                                <rect key="frame" x="341" y="0.0" width="0.0" height="28"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Multi - City" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OfO-Cs-vtH">
-                                                                        <rect key="frame" x="15.666666666666629" y="5.3333333333333428" width="73.333333333333329" height="17"/>
+                                                                        <rect key="frame" x="-36.666666666666686" y="5.3333333333333428" width="73.333333333333329" height="17"/>
                                                                         <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="14"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AEP-dY-xcN">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="104.33333333333333" height="28"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="28"/>
                                                                         <state key="normal" title="Button"/>
                                                                         <buttonConfiguration key="configuration" style="plain"/>
                                                                         <connections>

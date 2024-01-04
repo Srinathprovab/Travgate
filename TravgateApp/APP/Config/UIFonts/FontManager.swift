@@ -34,13 +34,13 @@ extension UIFont {
     }
     
     
-    public static func oswaldRegular(size: CGFloat) -> UIFont {
-        return UIFont(name: "Oswald-Regular", size: size)!
-    }
+//    public static func oswaldRegular(size: CGFloat) -> UIFont {
+//        return UIFont(name: "Oswald-Regular", size: size)!
+//    }
     
-    public static func OswaldSemiBold(size: CGFloat) -> UIFont {
-        return UIFont(name: "Oswald-SemiBold", size: size)!
-    }
+//    public static func OswaldSemiBold(size: CGFloat) -> UIFont {
+//        return UIFont(name: "Oswald-SemiBold", size: size)!
+//    }
     
     
     
@@ -50,9 +50,9 @@ extension UIFont {
         return UIFont(name: "Lato-Regular", size: size)!
     }
     
-    public static func LatoLight(size: CGFloat) -> UIFont {
-        return UIFont(name: "Lato-Light", size: size)!
-    }
+//    public static func LatoLight(size: CGFloat) -> UIFont {
+//        return UIFont(name: "Lato-Light", size: size)!
+//    }
     
     
     public static func LatoSemibold(size: CGFloat) -> UIFont {
@@ -86,6 +86,11 @@ extension UIFont {
     
     public static func InterRegular(size: CGFloat) -> UIFont {
         return UIFont(name: "Inter-Regular", size: size)!
+    }
+    
+    
+    public static func InterMedium(size: CGFloat) -> UIFont {
+        return UIFont(name: "Inter-Medium", size: size)!
     }
     
     
