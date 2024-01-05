@@ -215,7 +215,18 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="classlbl" destination="2lm-mY-36m" id="dav-vB-SX4"/>
+                <outlet property="fromCityNamelbl" destination="9mI-UQ-7aF" id="LdF-xM-SuO"/>
+                <outlet property="fromCityTimelbl" destination="WGv-5u-Kqa" id="2I4-ig-K1T"/>
+                <outlet property="hourslbl" destination="6ct-A4-8rG" id="Cdd-2y-pKj"/>
+                <outlet property="inNolbl" destination="quV-hz-R3j" id="BaU-wF-KP3"/>
+                <outlet property="logoImg" destination="9uC-d4-6Bi" id="fur-2z-sd4"/>
+                <outlet property="luggagelbl" destination="esG-qY-Ufn" id="KBs-xp-gRT"/>
+                <outlet property="noOfStopslbl" destination="6Br-6y-Lak" id="eNi-2i-tkQ"/>
+                <outlet property="toCityNamelbl" destination="UhP-mp-J0Y" id="Sf0-1y-bXd"/>
+                <outlet property="toCityTimelbl" destination="Epc-kX-Kew" id="9Lm-rI-96X"/>
                 <outlet property="ul" destination="CVp-Fn-lpq" id="tEn-MH-fE1"/>
+                <outlet property="worklbl" destination="Oij-Dq-Hc2" id="dvx-yI-1eM"/>
             </connections>
             <point key="canvasLocation" x="251.14503816793894" y="102.46478873239437"/>
         </tableViewCell>

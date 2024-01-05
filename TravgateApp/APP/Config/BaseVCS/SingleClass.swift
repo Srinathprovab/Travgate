@@ -37,7 +37,8 @@ class MySingleton {
     var icount = 0
     var infoArray = [String]()
     var countrylist = [Country_list]()
-    
+    var vm:FlightListViewModel?
+    var flights = [[FlightList]]()
     
     
     // Private initializer to prevent multiple instances
@@ -47,6 +48,8 @@ class MySingleton {
     }
     
     
+    
+    //MARK: - ExecuteOnce
     func callonce() {
         
         if !UserDefaults.standard.bool(forKey: "ExecuteOnce") {
@@ -59,6 +62,23 @@ class MySingleton {
     }
     
     
+    //MARK: - convert Date Format
+    func convertDateFormat(inputDate: String,f1:String,f2:String) -> String {
+        
+        let olDateFormatter = DateFormatter()
+        olDateFormatter.dateFormat = f1
+        
+        guard let oldDate = olDateFormatter.date(from: inputDate) else { return "" }
+        
+        let convertDateFormatter = DateFormatter()
+        convertDateFormatter.dateFormat = f2
+        
+        return convertDateFormatter.string(from: oldDate)
+    }
+    
+    
+    
+    //MARK: - getCountryList
     func getCountryList() {
         
         // Get the path to the clist.json file in the Xcode project

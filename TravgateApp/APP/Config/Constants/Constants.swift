@@ -46,6 +46,8 @@ struct ApiEndpoints {
     
     static let indexpage = "general/getTopFlightHotelDestination"
     static let get_airport_code_list = "ajax/get_airport_code_list"
+    static let general_mobile_pre_flight_search = "general/mobile_pre_flight_search"
+    
     
     
 }
@@ -105,6 +107,8 @@ struct UserDefaultsKeys {
     static var tolocid = "to_loc_id"
     static var fromcityname = "fromcityname"
     static var tocityname = "tocityname"
+    static var fcity = "fcity"
+    static var tcity = "tcity"
     
     //ROUND TRIP
 //    static var rlocationcity = "rlocation_city"

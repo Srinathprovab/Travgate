@@ -8,7 +8,7 @@
 import UIKit
 import MaterialComponents
 
-class BaseTableVC: UIViewController, TabSelectTVCellDelegate, FlightSearchTVCellDelegate {
+class BaseTableVC: UIViewController, TabSelectTVCellDelegate, FlightSearchTVCellDelegate, FlightResultTVCellDelegate {
     
     
     
@@ -119,6 +119,10 @@ class BaseTableVC: UIViewController, TabSelectTVCellDelegate, FlightSearchTVCell
     func didTapOnHideReturnDateBtnAction(cell:FlightSearchTVCell) {}
     func didTapOnFlightSearchBtnAction(cell:FlightSearchTVCell) {}
     
+    func didTapOnFlightDetails(cell: FlightResultTVCell) {}
+    func didTapOnBookNowBtnAction(cell: FlightResultTVCell) {}
+    func didTapOnMoreSimilarFlightBtnAction(cell:FlightResultTVCell){}
+    
     
 }
 
@@ -219,6 +223,7 @@ extension BaseTableVC: UITableViewDataSource {
                 
             case .FlightResultTVCell:
                 let cell: FlightResultTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                cell.delegate = self
                 commonCell = cell
                 
                 

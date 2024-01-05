@@ -55,12 +55,24 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yq8-Cw-Ztn">
+                                                        <rect key="frame" x="0.0" y="0.0" width="85" height="26"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain"/>
+                                                        <connections>
+                                                            <action selector="didTapOnFlightDetails:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="79w-2M-ZzX"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" name="FlightDetailsBtnColor"/>
                                                 <constraints>
                                                     <constraint firstItem="Nmt-QU-g5i" firstAttribute="centerX" secondItem="4fA-Hd-0KV" secondAttribute="centerX" id="3kA-ew-VrE"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Yq8-Cw-Ztn" secondAttribute="trailing" id="9BZ-Nc-dZ7"/>
+                                                    <constraint firstAttribute="bottom" secondItem="Yq8-Cw-Ztn" secondAttribute="bottom" id="AJa-Bi-tJu"/>
                                                     <constraint firstItem="Nmt-QU-g5i" firstAttribute="centerY" secondItem="4fA-Hd-0KV" secondAttribute="centerY" id="GbO-al-6Lm"/>
                                                     <constraint firstAttribute="width" constant="85" id="UPD-EI-NFh"/>
+                                                    <constraint firstItem="Yq8-Cw-Ztn" firstAttribute="top" secondItem="4fA-Hd-0KV" secondAttribute="top" id="etq-G5-jcb"/>
+                                                    <constraint firstItem="Yq8-Cw-Ztn" firstAttribute="leading" secondItem="4fA-Hd-0KV" secondAttribute="leading" id="pso-ek-2iE"/>
                                                     <constraint firstAttribute="height" constant="26" id="uEK-xq-1Im"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
@@ -84,13 +96,25 @@
                                                         <color key="textColor" name="WhiteColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j5s-Oh-2v4">
+                                                        <rect key="frame" x="0.0" y="0.0" width="85" height="26"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain"/>
+                                                        <connections>
+                                                            <action selector="didTapOnBookNowBtnAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="OSJ-pS-1b7"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" name="BooknowBtnColor"/>
                                                 <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="j5s-Oh-2v4" secondAttribute="trailing" id="E7k-bl-2mv"/>
                                                     <constraint firstAttribute="width" constant="85" id="Kag-f0-ppO"/>
                                                     <constraint firstItem="Qhs-ye-EQg" firstAttribute="centerY" secondItem="aaJ-ea-nKO" secondAttribute="centerY" id="NJ7-Ij-UtO"/>
+                                                    <constraint firstItem="j5s-Oh-2v4" firstAttribute="leading" secondItem="aaJ-ea-nKO" secondAttribute="leading" id="PX0-yB-IOk"/>
                                                     <constraint firstItem="Qhs-ye-EQg" firstAttribute="centerX" secondItem="aaJ-ea-nKO" secondAttribute="centerX" id="lzC-Wb-LDL"/>
+                                                    <constraint firstAttribute="bottom" secondItem="j5s-Oh-2v4" secondAttribute="bottom" id="rZd-3B-yEb"/>
                                                     <constraint firstAttribute="height" constant="26" id="wsV-Ew-1Ty"/>
+                                                    <constraint firstItem="j5s-Oh-2v4" firstAttribute="top" secondItem="aaJ-ea-nKO" secondAttribute="top" id="y5q-Ae-d90"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -131,9 +155,33 @@
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TpG-7W-ya0">
                                         <rect key="frame" x="0.0" y="175" width="451" height="32"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fKi-or-pAE">
+                                                <rect key="frame" x="145.66666666666666" y="2.6666666666666572" width="159.99999999999997" height="27"/>
+                                                <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="12"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="More option at same price 8">
+                                                    <color key="titleColor" name="BackBtnColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="didTapOnMoreSimilarFlightBtnAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="azj-aJ-qAt"/>
+                                                </connections>
+                                            </button>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="similar" translatesAutoresizingMaskIntoConstraints="NO" id="cIm-ls-s4F">
+                                                <rect key="frame" x="311.66666666666669" y="8" width="16" height="16"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="16" id="QbL-Z2-icd"/>
+                                                    <constraint firstAttribute="height" constant="16" id="WOm-ov-XSj"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
                                         <color key="backgroundColor" name="MoreSimilarColor"/>
                                         <constraints>
+                                            <constraint firstItem="fKi-or-pAE" firstAttribute="centerY" secondItem="TpG-7W-ya0" secondAttribute="centerY" id="Fi4-Bm-4PP"/>
+                                            <constraint firstItem="cIm-ls-s4F" firstAttribute="centerY" secondItem="fKi-or-pAE" secondAttribute="centerY" id="GPX-EH-vW4"/>
                                             <constraint firstAttribute="height" constant="32" id="Pty-kM-ymL"/>
+                                            <constraint firstItem="cIm-ls-s4F" firstAttribute="leading" secondItem="fKi-or-pAE" secondAttribute="trailing" constant="6" id="d81-II-9js"/>
+                                            <constraint firstItem="fKi-or-pAE" firstAttribute="centerX" secondItem="TpG-7W-ya0" secondAttribute="centerX" id="yWs-87-Ivh"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -168,6 +216,11 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="bottomView" destination="TpG-7W-ya0" id="3Fn-an-bAo"/>
+                <outlet property="fareTypelbl" destination="TWs-nU-U3w" id="3Vb-Ov-NY2"/>
+                <outlet property="kwdlbl" destination="n3w-1H-BJ9" id="x63-eK-nMj"/>
+                <outlet property="moreSimilarBtn" destination="fKi-or-pAE" id="AaK-aj-j7j"/>
+                <outlet property="strikekwdlbl" destination="Gq5-nS-Pdz" id="fcZ-x6-l93"/>
                 <outlet property="summeryTV" destination="hAu-iP-gQU" id="QbD-MX-E6j"/>
                 <outlet property="tvheight" destination="Pz9-XR-jN8" id="eG6-HF-ZVQ"/>
             </connections>
@@ -175,6 +228,10 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="similar" width="16" height="16"/>
+        <namedColor name="BackBtnColor">
+            <color red="0.10599999874830246" green="0.29399999976158142" blue="0.36500000953674316" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="BooknowBtnColor">
             <color red="0.93300002813339233" green="0.097999997437000275" blue="0.20800000429153442" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

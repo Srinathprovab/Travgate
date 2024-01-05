@@ -563,6 +563,8 @@ extension FlightSearchTVCell:UITableViewDelegate, UITableViewDataSource {
                 //         defaults.set("\(cityList[indexPath.row].city ?? "") (\(cityList[indexPath.row].code ?? ""))", forKey: UserDefaultsKeys.fromairport)
                 defaults.set("\(cityList[indexPath.row].city ?? "") (\(cityList[indexPath.row].code ?? ""))", forKey: UserDefaultsKeys.fromcityname)
                 
+                defaults.set("\(cityList[indexPath.row].city ?? "")", forKey: UserDefaultsKeys.fcity)
+                
                 
                 
                 fromtvHeight.constant = 0
@@ -578,6 +580,7 @@ extension FlightSearchTVCell:UITableViewDelegate, UITableViewDataSource {
                 defaults.set(cityList[indexPath.row].id ?? "", forKey: UserDefaultsKeys.tolocid)
                 //     defaults.set("\(cityList[indexPath.row].city ?? "") (\(cityList[indexPath.row].code ?? ""))", forKey: UserDefaultsKeys.toairport)
                 defaults.set("\(cityList[indexPath.row].city ?? "") (\(cityList[indexPath.row].code ?? ""))", forKey: UserDefaultsKeys.tocityname)
+                defaults.set("\(cityList[indexPath.row].city ?? "")", forKey: UserDefaultsKeys.tcity)
                 
                 
                 totvHeight.constant = 0
