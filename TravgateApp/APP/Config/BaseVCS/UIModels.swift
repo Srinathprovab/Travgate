@@ -33,6 +33,7 @@ enum TVCellType {
     //Flight
     case FlightSearchTVCell
     case FlightResultTVCell
+    case TicketIssuingTimeTVCell
     
     
 }

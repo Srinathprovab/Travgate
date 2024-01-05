@@ -227,7 +227,9 @@ extension BaseTableVC: UITableViewDataSource {
                 commonCell = cell
                 
                 
-                
+            case .TicketIssuingTimeTVCell:
+                let cell: TicketIssuingTimeTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                commonCell = cell
                 
                 
                 

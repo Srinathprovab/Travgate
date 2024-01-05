@@ -10,11 +10,17 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Inter-Bold.ttf">
+            <string>Inter-Bold</string>
+        </array>
         <array key="Inter-Medium.ttf">
             <string>Inter-Medium</string>
         </array>
         <array key="Inter-Regular.ttf">
             <string>Inter-Regular</string>
+        </array>
+        <array key="OpenSans-Bold.ttf">
+            <string>OpenSans-Bold</string>
         </array>
         <array key="OpenSans-Medium.ttf">
             <string>OpenSans-Medium</string>
@@ -836,6 +842,140 @@
             </objects>
             <point key="canvasLocation" x="1535" y="-2"/>
         </scene>
+        <!--Flight DeatilsVC-->
+        <scene sceneID="aNA-y6-C4I">
+            <objects>
+                <viewController storyboardIdentifier="FlightDeatilsVC" id="clN-4d-beo" customClass="FlightDeatilsVC" customModule="TravgateApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LbY-Pp-Jf2">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hSo-Ks-bgX">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gNc-qZ-bKr">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="120"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flight Details" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l1H-EF-s58">
+                                                <rect key="frame" x="100" y="65" width="193" height="22"/>
+                                                <fontDescription key="fontDescription" name="OpenSans-Medium" family="Open Sans" pointSize="16"/>
+                                                <color key="textColor" name="BackBtnColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A1x-jt-cU4">
+                                                <rect key="frame" x="13" y="61" width="30" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="H72-1m-Esp"/>
+                                                    <constraint firstAttribute="width" constant="30" id="JWx-ys-wFi"/>
+                                                </constraints>
+                                                <color key="tintColor" name="TitleColor"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="" image="back1"/>
+                                                <connections>
+                                                    <action selector="didTapOnBackBtnAction:" destination="clN-4d-beo" eventType="touchUpInside" id="uxE-MN-iBE"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" name="LayoverColor"/>
+                                        <constraints>
+                                            <constraint firstItem="A1x-jt-cU4" firstAttribute="leading" secondItem="gNc-qZ-bKr" secondAttribute="leading" constant="13" id="2gH-Dm-35I"/>
+                                            <constraint firstItem="l1H-EF-s58" firstAttribute="leading" secondItem="gNc-qZ-bKr" secondAttribute="leading" constant="100" id="59e-Ng-9hv"/>
+                                            <constraint firstItem="l1H-EF-s58" firstAttribute="top" secondItem="gNc-qZ-bKr" secondAttribute="top" constant="65" id="8v0-G2-gjo"/>
+                                            <constraint firstItem="A1x-jt-cU4" firstAttribute="centerY" secondItem="l1H-EF-s58" secondAttribute="centerY" id="LlF-lw-7AD"/>
+                                            <constraint firstItem="l1H-EF-s58" firstAttribute="centerX" secondItem="gNc-qZ-bKr" secondAttribute="centerX" id="POB-c1-eqR"/>
+                                            <constraint firstAttribute="height" constant="120" id="Zzc-51-Cge"/>
+                                        </constraints>
+                                    </view>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="lG8-cj-iHx">
+                                        <rect key="frame" x="0.0" y="220" width="393" height="532"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </tableView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RUG-PL-ib6" customClass="BorderedView" customModule="TravgateApp" customModuleProvider="target">
+                                        <rect key="frame" x="16" y="762" width="361" height="65"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Book Now" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xJK-EF-mfb">
+                                                <rect key="frame" x="20" y="23" width="71.333333333333329" height="19.333333333333329"/>
+                                                <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="14"/>
+                                                <color key="textColor" name="WhiteColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="KWD 54.250" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vwU-j6-9Hh">
+                                                <rect key="frame" x="215.66666666666666" y="20.333333333333371" width="125.33333333333334" height="24.333333333333329"/>
+                                                <fontDescription key="fontDescription" name="Inter-Bold" family="Inter" pointSize="20"/>
+                                                <color key="textColor" name="WhiteColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pk8-JO-yT3">
+                                                <rect key="frame" x="0.0" y="0.0" width="361" height="65"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain"/>
+                                                <connections>
+                                                    <action selector="didTapOnBookNowBtnAction:" destination="clN-4d-beo" eventType="touchUpInside" id="Mfd-JK-37p"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" name="BooknowBtnColor"/>
+                                        <constraints>
+                                            <constraint firstItem="pk8-JO-yT3" firstAttribute="top" secondItem="RUG-PL-ib6" secondAttribute="top" id="4Ii-yF-0aU"/>
+                                            <constraint firstAttribute="bottom" secondItem="pk8-JO-yT3" secondAttribute="bottom" id="84f-6V-c5k"/>
+                                            <constraint firstItem="xJK-EF-mfb" firstAttribute="centerY" secondItem="RUG-PL-ib6" secondAttribute="centerY" id="AXE-yh-UO0"/>
+                                            <constraint firstItem="xJK-EF-mfb" firstAttribute="leading" secondItem="RUG-PL-ib6" secondAttribute="leading" constant="20" id="VW0-No-Pxj"/>
+                                            <constraint firstAttribute="trailing" secondItem="pk8-JO-yT3" secondAttribute="trailing" id="dPc-Yv-oyM"/>
+                                            <constraint firstItem="pk8-JO-yT3" firstAttribute="leading" secondItem="RUG-PL-ib6" secondAttribute="leading" id="ew7-ud-x4d"/>
+                                            <constraint firstAttribute="trailing" secondItem="vwU-j6-9Hh" secondAttribute="trailing" constant="20" id="h5m-sv-BBL"/>
+                                            <constraint firstItem="vwU-j6-9Hh" firstAttribute="centerY" secondItem="xJK-EF-mfb" secondAttribute="centerY" id="kNJ-dr-O8a"/>
+                                            <constraint firstAttribute="height" constant="65" id="uCa-F7-WiF"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="6"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sIM-b1-28v">
+                                        <rect key="frame" x="0.0" y="120" width="393" height="100"/>
+                                        <color key="backgroundColor" systemColor="systemCyanColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="hXR-Rl-c81"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="RUG-PL-ib6" secondAttribute="trailing" constant="16" id="2Dd-3s-iWM"/>
+                                    <constraint firstItem="gNc-qZ-bKr" firstAttribute="leading" secondItem="hSo-Ks-bgX" secondAttribute="leading" id="EgX-Jj-haa"/>
+                                    <constraint firstItem="lG8-cj-iHx" firstAttribute="leading" secondItem="hSo-Ks-bgX" secondAttribute="leading" id="I4A-HT-nhb"/>
+                                    <constraint firstAttribute="trailing" secondItem="sIM-b1-28v" secondAttribute="trailing" id="IoZ-jk-L6X"/>
+                                    <constraint firstItem="gNc-qZ-bKr" firstAttribute="top" secondItem="hSo-Ks-bgX" secondAttribute="top" id="JAP-bV-Sp4"/>
+                                    <constraint firstAttribute="bottom" secondItem="RUG-PL-ib6" secondAttribute="bottom" constant="25" id="ME8-Eb-6Xa"/>
+                                    <constraint firstItem="lG8-cj-iHx" firstAttribute="top" secondItem="sIM-b1-28v" secondAttribute="bottom" id="MHq-kh-NgF"/>
+                                    <constraint firstAttribute="trailing" secondItem="gNc-qZ-bKr" secondAttribute="trailing" id="MIn-oi-Wlg"/>
+                                    <constraint firstItem="sIM-b1-28v" firstAttribute="top" secondItem="gNc-qZ-bKr" secondAttribute="bottom" id="ZvO-cM-ydp"/>
+                                    <constraint firstItem="RUG-PL-ib6" firstAttribute="leading" secondItem="hSo-Ks-bgX" secondAttribute="leading" constant="16" id="ePI-58-eKa"/>
+                                    <constraint firstItem="sIM-b1-28v" firstAttribute="leading" secondItem="hSo-Ks-bgX" secondAttribute="leading" id="fPX-Fe-qrQ"/>
+                                    <constraint firstItem="RUG-PL-ib6" firstAttribute="top" secondItem="lG8-cj-iHx" secondAttribute="bottom" constant="10" id="lU9-JX-haG"/>
+                                    <constraint firstAttribute="trailing" secondItem="lG8-cj-iHx" secondAttribute="trailing" id="w32-te-lmU"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="RdB-m7-seB"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="hSo-Ks-bgX" secondAttribute="bottom" id="fsr-xJ-xop"/>
+                            <constraint firstItem="RdB-m7-seB" firstAttribute="trailing" secondItem="hSo-Ks-bgX" secondAttribute="trailing" id="g4h-bl-BIk"/>
+                            <constraint firstItem="hSo-Ks-bgX" firstAttribute="top" secondItem="LbY-Pp-Jf2" secondAttribute="top" id="h7h-8k-tPI"/>
+                            <constraint firstItem="hSo-Ks-bgX" firstAttribute="leading" secondItem="RdB-m7-seB" secondAttribute="leading" id="lKQ-UW-V8B"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="commonTableView" destination="lG8-cj-iHx" id="ZWV-Gp-e3y"/>
+                        <outlet property="selectBtnsHolderView" destination="sIM-b1-28v" id="btN-nE-RGA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h9r-K6-Ssj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2252.6717557251909" y="-2.1126760563380285"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Group 18076" width="79" height="30"/>
@@ -850,6 +990,9 @@
         <namedColor name="BackBtnColor">
             <color red="0.10599999874830246" green="0.29399999976158142" blue="0.36500000953674316" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="BooknowBtnColor">
+            <color red="0.93300002813339233" green="0.097999997437000275" blue="0.20800000429153442" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="LayoverColor">
             <color red="0.96100002527236938" green="0.98400002717971802" blue="0.94900000095367432" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -861,6 +1004,9 @@
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemCyanColor">
+            <color red="0.19607843137254902" green="0.67843137254901964" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

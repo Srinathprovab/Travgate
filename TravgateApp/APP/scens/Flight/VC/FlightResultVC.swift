@@ -30,7 +30,10 @@ class FlightResultVC: BaseTableVC {
     
     
     override func viewWillAppear(_ animated: Bool) {
-        callAPI()
+        if MySingleton.shared.callboolapi == true {
+            callAPI()
+        }
+       
     }
     
     override func viewDidLoad() {
@@ -63,7 +66,9 @@ class FlightResultVC: BaseTableVC {
     
     
     override func didTapOnFlightDetails(cell: FlightResultTVCell) {
-        print("didTapOnFlightDetails")
+        guard let vc = FlightDeatilsVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: false)
     }
     
     override func didTapOnBookNowBtnAction(cell: FlightResultTVCell) {
@@ -80,6 +85,7 @@ class FlightResultVC: BaseTableVC {
     
     
     @IBAction func didTapOnBackBtnAction(_ sender: Any) {
+        MySingleton.shared.callboolapi = false
         guard let vc = FlightSearchVC.newInstance.self else {return}
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: false)

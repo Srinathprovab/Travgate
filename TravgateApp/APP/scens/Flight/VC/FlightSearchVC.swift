@@ -244,6 +244,7 @@ extension FlightSearchVC {
     
     
     func gotoFlightResultVC() {
+        MySingleton.shared.callboolapi = true
         guard let vc = FlightResultVC.newInstance.self else {return}
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)

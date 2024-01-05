@@ -39,6 +39,7 @@ class MySingleton {
     var countrylist = [Country_list]()
     var vm:FlightListViewModel?
     var flights = [[FlightList]]()
+    var callboolapi = false
     
     
     // Private initializer to prevent multiple instances

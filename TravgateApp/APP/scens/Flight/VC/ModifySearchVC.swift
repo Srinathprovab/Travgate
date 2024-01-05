@@ -125,7 +125,7 @@ class ModifySearchVC: BaseTableVC {
     
     
     @IBAction func didTapOnBackBtnAction(_ sender: Any) {
-        
+        MySingleton.shared.callboolapi = false
         dismiss(animated: true)
     }
     
@@ -244,6 +244,7 @@ extension ModifySearchVC {
     
     
     func gotoFlightResultVC() {
+        MySingleton.shared.callboolapi = true
         guard let vc = FlightResultVC.newInstance.self else {return}
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)
