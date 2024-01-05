@@ -151,7 +151,8 @@ extension FlightSearchVC {
     
     
     func setupUI(){
-        onewayTap()
+        
+        roundtripTap()
         
         commonTableView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner] // Top left corner, Top right corner respectively
         commonTableView.layer.cornerRadius = 12
@@ -213,10 +214,10 @@ extension FlightSearchVC {
                 showToast(message: "Enter From City")
             }else if defaults.string(forKey: UserDefaultsKeys.toCity) == nil {
                 showToast(message: "Enter To City")
-            }else if defaults.string(forKey: UserDefaultsKeys.calDepDate) == "Add Date" {
+            }else if defaults.string(forKey: UserDefaultsKeys.calDepDate) == "Add Date" || defaults.string(forKey: UserDefaultsKeys.calDepDate) == nil {
                 showToast(message: "Add Departure Date")
             }else {
-                print(MySingleton.shared.payload)
+                gotoFlightResultVC()
             }
 
         }else {
@@ -228,18 +229,24 @@ extension FlightSearchVC {
                 showToast(message: "Enter From City")
             }else if defaults.string(forKey: UserDefaultsKeys.toCity) == nil {
                 showToast(message: "Enter To City")
-            }else if defaults.string(forKey: UserDefaultsKeys.calDepDate) == "Add Date" {
+            }else if defaults.string(forKey: UserDefaultsKeys.calDepDate) == "Add Date" || defaults.string(forKey: UserDefaultsKeys.calDepDate) == nil {
                 showToast(message: "Add Departure Date")
-            }else if defaults.string(forKey: UserDefaultsKeys.calRetDate) == "Add Date" {
+            }else if defaults.string(forKey: UserDefaultsKeys.calRetDate) == "Add Date" || defaults.string(forKey: UserDefaultsKeys.calRetDate) == nil {
                 showToast(message: "Add Return Date")
             }else {
-                print(MySingleton.shared.payload)
+                gotoFlightResultVC()
             }
 
         }
         
         
-       
-        
     }
+    
+    
+    func gotoFlightResultVC() {
+        guard let vc = FlightResultVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
+    }
+    
 }

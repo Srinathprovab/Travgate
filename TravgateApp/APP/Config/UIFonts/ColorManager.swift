@@ -101,5 +101,21 @@ extension UIColor {
     }
     
     
+    public static var KWDcolor : UIColor {
+        
+        get {
+            return UIColor(named: "kwdcolor")!
+        }
+    }
+    
+    
+    public static var RefundableColor : UIColor {
+        
+        get {
+            return UIColor(named: "refundableColor")!
+        }
+    }
+    
+    
     
 }

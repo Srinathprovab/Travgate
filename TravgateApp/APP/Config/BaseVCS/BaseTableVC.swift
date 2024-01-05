@@ -203,8 +203,6 @@ extension BaseTableVC: UITableViewDataSource {
                 commonCell = cell
                 
                 
-          
-                
                 
             case .SelectLanguageTVCell:
                 let cell: SelectLanguageTVCell = commonTV.dequeTVCell(indexPath: indexPath)
@@ -216,6 +214,13 @@ extension BaseTableVC: UITableViewDataSource {
                 let cell: FlightSearchTVCell = commonTV.dequeTVCell(indexPath: indexPath)
                 cell.delegate = self
                 commonCell = cell
+                
+                
+                
+            case .FlightResultTVCell:
+                let cell: FlightResultTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                commonCell = cell
+                
                 
                 
                 
