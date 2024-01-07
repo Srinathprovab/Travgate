@@ -127,7 +127,19 @@ class FlightSearchVC: BaseTableVC {
     
     
     @IBAction func didTapOnBackBtnAction(_ sender: Any) {
-        dismiss(animated: true)
+        MySingleton.shared.callboolapi = true
+        guard let vc = DashBoardTBVC.newInstance.self else {return}
+        vc.selectedIndex = 0
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: false)
+    }
+    
+    
+    
+    override func didTapOnReturnDateBtnAction(cell:FlightSearchTVCell) {
+        roundtripTap()
+        NotificationCenter.default.post(name: NSNotification.Name("roundtripTap"), object: nil)
+
     }
     
     @IBAction func didTapOnOnewayBtnAction(_ sender: Any) {
@@ -245,6 +257,7 @@ extension FlightSearchVC {
     
     func gotoFlightResultVC() {
         MySingleton.shared.callboolapi = true
+        defaults.set(false, forKey: "flightfilteronce")
         guard let vc = FlightResultVC.newInstance.self else {return}
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)

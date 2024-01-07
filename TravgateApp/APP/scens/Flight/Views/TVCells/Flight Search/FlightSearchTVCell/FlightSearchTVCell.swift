@@ -16,6 +16,7 @@ protocol FlightSearchTVCellDelegate {
     func cancelDatePicker(cell:FlightSearchTVCell)
     func didTapOnHideReturnDateBtnAction(cell:FlightSearchTVCell)
     func didTapOnFlightSearchBtnAction(cell:FlightSearchTVCell)
+    func didTapOnReturnDateBtnAction(cell:FlightSearchTVCell)
 }
 
 class FlightSearchTVCell: TableViewCell, SelectCityViewModelProtocal {
@@ -61,8 +62,9 @@ class FlightSearchTVCell: TableViewCell, SelectCityViewModelProtocal {
     @IBOutlet weak var airlineView: BorderedView!
     @IBOutlet weak var airlinelbl: UILabel!
     @IBOutlet weak var airlineTF: UITextField!
-    
-    
+    @IBOutlet weak var returnDateBtn: UIButton!
+    @IBOutlet weak var additionalView: UIView!
+    @IBOutlet weak var selectadditionallbl: UILabel!
     
     
     
@@ -116,6 +118,7 @@ class FlightSearchTVCell: TableViewCell, SelectCityViewModelProtocal {
     func setupUI() {
         
         setAttributedString(str1: "    Advanced search options")
+        setAttributedString1(str1: "    Select Aditional options")
         setupinfoCV()
         
         fromTF.tag = 1
@@ -141,7 +144,6 @@ class FlightSearchTVCell: TableViewCell, SelectCityViewModelProtocal {
         childDecBtn.addTarget(self, action: #selector(didTapOnChildDecrementBtnAction(_:)), for: .touchUpInside)
         infantIncBtn.addTarget(self, action: #selector(didTapOnInfantIncrementBtnAction(_:)), for: .touchUpInside)
         infantDecBtn.addTarget(self, action: #selector(didTapOnInfantDecrementBtnAction(_:)), for: .touchUpInside)
-        
         
         
         setupOnewayClassDropDown()
@@ -190,6 +192,7 @@ class FlightSearchTVCell: TableViewCell, SelectCityViewModelProtocal {
             self.retTF.isHidden = true
             showdepDatePicker()
             
+            returnDateBtn.isHidden = false
             
         }else {
             hideRoundTripBtn.isUserInteractionEnabled = true
@@ -208,12 +211,13 @@ class FlightSearchTVCell: TableViewCell, SelectCityViewModelProtocal {
             showreturndepDatePicker()
             showretDatePicker()
             
-            
+            returnDateBtn.isHidden = true
         }
         
-        
+
     }
     
+
     
     
     @IBAction func didTapOnOnewayClassBtnAction(_ sender: Any) {
@@ -340,6 +344,11 @@ class FlightSearchTVCell: TableViewCell, SelectCityViewModelProtocal {
     
     
     
+    @IBAction func didTapOnReturnDateBtnAction(_ sender: Any) {
+        delegate?.didTapOnReturnDateBtnAction(cell: self)
+    }
+    
+    
 }
 
 
@@ -381,6 +390,46 @@ extension FlightSearchTVCell {
             delegate?.didTapOnAdvanceOption(cell: self)
         }
     }
+    
+    
+    
+    func setAttributedString1(str1:String) {
+        
+        
+        let atter1 : [NSAttributedString.Key: Any] = [NSAttributedString.Key.foregroundColor:UIColor.TitleColor,
+                                                      NSAttributedString.Key.font:UIFont.InterMedium(size: 14),
+                                                      .underlineStyle: NSUnderlineStyle.single.rawValue]
+        
+        
+        
+        let atterStr1 = NSMutableAttributedString(string: str1, attributes: atter1)
+        
+        let combination = NSMutableAttributedString()
+        combination.append(atterStr1)
+        selectadditionallbl.attributedText = combination
+        
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(labelTapped1))
+        selectadditionallbl.addGestureRecognizer(tapGesture)
+        selectadditionallbl.isUserInteractionEnabled = true
+        
+        
+    }
+    
+    @objc func labelTapped1(gesture:UITapGestureRecognizer) {
+        if gesture.didTapAttributedString("Select Aditional options", in: selectadditionallbl) {
+            infoViewbool.toggle()
+            if infoViewbool {
+                additionalView.isHidden = false
+            }else {
+                additionalView.isHidden = true
+            }
+            
+            delegate?.didTapOnAdvanceOption(cell: self)
+        }
+    }
+    
+    
 }
 
 

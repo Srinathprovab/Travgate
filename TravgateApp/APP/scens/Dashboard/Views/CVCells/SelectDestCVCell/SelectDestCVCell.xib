@@ -30,13 +30,31 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dest" translatesAutoresizingMaskIntoConstraints="NO" id="Pqh-ts-uEs">
                                 <rect key="frame" x="0.0" y="0.0" width="371" height="248"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Jw Marriott marquis" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L9L-Nk-A83">
-                                <rect key="frame" x="10" y="10" width="351" height="19.333333333333329"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="OpenSans-Medium" family="Open Sans" pointSize="14"/>
-                                <color key="textColor" name="WhiteColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d0d-AA-Jw3" customClass="BorderedView" customModule="TravgateApp" customModuleProvider="target">
+                                <rect key="frame" x="10" y="10" width="120" height="30"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jw Marriott marquis" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gCW-Wt-SGK">
+                                        <rect key="frame" x="5" y="5" width="110" height="20"/>
+                                        <fontDescription key="fontDescription" name="OpenSans-Medium" family="Open Sans" pointSize="14"/>
+                                        <color key="textColor" name="WhiteColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="gCW-Wt-SGK" secondAttribute="trailing" constant="5" id="BHN-P0-3Y5"/>
+                                    <constraint firstItem="gCW-Wt-SGK" firstAttribute="leading" secondItem="d0d-AA-Jw3" secondAttribute="leading" constant="5" id="CIs-4u-s6N"/>
+                                    <constraint firstItem="gCW-Wt-SGK" firstAttribute="top" secondItem="d0d-AA-Jw3" secondAttribute="top" constant="5" id="Kcp-Wc-j1c"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="120" id="TCo-hQ-41e"/>
+                                    <constraint firstAttribute="bottom" secondItem="gCW-Wt-SGK" secondAttribute="bottom" constant="5" id="b90-M1-OCc"/>
+                                    <constraint firstAttribute="height" constant="30" id="d7X-Ar-POr"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
@@ -44,6 +62,8 @@
                             <constraint firstItem="Pqh-ts-uEs" firstAttribute="top" secondItem="Pj4-Cr-zw4" secondAttribute="top" id="UA7-by-5iB"/>
                             <constraint firstAttribute="bottom" secondItem="Pqh-ts-uEs" secondAttribute="bottom" id="VV9-2B-4Si"/>
                             <constraint firstItem="Pqh-ts-uEs" firstAttribute="leading" secondItem="Pj4-Cr-zw4" secondAttribute="leading" id="ilZ-3D-uAZ"/>
+                            <constraint firstItem="d0d-AA-Jw3" firstAttribute="leading" secondItem="Pj4-Cr-zw4" secondAttribute="leading" constant="10" id="mJS-Hh-0wI"/>
+                            <constraint firstItem="d0d-AA-Jw3" firstAttribute="top" secondItem="Pj4-Cr-zw4" secondAttribute="top" constant="10" id="vCx-48-xJN"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -63,7 +83,7 @@
             <size key="customSize" width="371" height="248"/>
             <connections>
                 <outlet property="img" destination="Pqh-ts-uEs" id="wo2-6a-P5e"/>
-                <outlet property="titlelbl" destination="L9L-Nk-A83" id="7ft-jA-eJY"/>
+                <outlet property="titlelbl" destination="gCW-Wt-SGK" id="IZw-KE-roY"/>
             </connections>
             <point key="canvasLocation" x="383.96946564885496" y="89.436619718309871"/>
         </collectionViewCell>

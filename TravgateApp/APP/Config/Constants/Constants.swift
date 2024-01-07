@@ -40,6 +40,32 @@ var mobilenoMaxLengthBool = false
 //DASHBOARD
 var callapibool = Bool()
 
+//MARK: - FILTER RELATED VARIABLES
+var filterTap = String()
+var filterPrice = String()
+var prices = [String]()
+var filterModel = FlightFilterModel()
+var sortBy: SortParameter = .nothing
+var hotelfiltermodel = HotelFilterModel()
+var mapModelArray: [MapModel] = []
+var faretypeArray = [String]()
+var directFlightBool = true
+var facilityArray = [String]()
+var AirlinesArray = [String]()
+var ConnectingFlightsArray = [String]()
+var ConnectingAirportsArray = [String]()
+var luggageArray = [String]()
+var neighbourwoodArray = [String]()
+var amenitiesArray = [String]()
+var nearBylocationsArray = [String]()
+var kwdPriceArray = [String]()
+var dateArray = [String]()
+
+struct MapModel {
+    var longitude =  String()
+    var latitude =  String()
+    var hotelname = String()
+}
 
 /* URL endpoints */
 struct ApiEndpoints {
@@ -47,6 +73,8 @@ struct ApiEndpoints {
     static let indexpage = "general/getTopFlightHotelDestination"
     static let get_airport_code_list = "ajax/get_airport_code_list"
     static let general_mobile_pre_flight_search = "general/mobile_pre_flight_search"
+    static let flight_getFlightDetails = "flight/getFlightDetails"
+    
     
     
     

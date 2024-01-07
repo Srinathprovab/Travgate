@@ -8,11 +8,12 @@
 import UIKit
 import MaterialComponents
 
-class BaseTableVC: UIViewController, TabSelectTVCellDelegate, FlightSearchTVCellDelegate, FlightResultTVCellDelegate {
+class BaseTableVC: UIViewController, TabSelectTVCellDelegate, FlightSearchTVCellDelegate, FlightResultTVCellDelegate, SideMenuTitleTVCellDelegate, MenuBGTVCellDelegate, SliderTVCellDelegate, CheckBoxTVCellDelegate, FilterDepartureTVCellDelegate, LabelTVCellDelegate, PopularFiltersTVCellDelegate,DepartureTimeTVCellDelegate, ButtonTVCellDelegate, SortbyTVCellDelegate {
     
     
     
-   
+    
+    
     
     @IBOutlet weak var commonScrollView: UITableView!
     @IBOutlet weak var commonTableView: UITableView!
@@ -118,10 +119,38 @@ class BaseTableVC: UIViewController, TabSelectTVCellDelegate, FlightSearchTVCell
     func didTapOnSwipeCityBtnAction(cell: FlightSearchTVCell) {}
     func didTapOnHideReturnDateBtnAction(cell:FlightSearchTVCell) {}
     func didTapOnFlightSearchBtnAction(cell:FlightSearchTVCell) {}
+    func didTapOnReturnDateBtnAction(cell:FlightSearchTVCell) {}
     
     func didTapOnFlightDetails(cell: FlightResultTVCell) {}
     func didTapOnBookNowBtnAction(cell: FlightResultTVCell) {}
     func didTapOnMoreSimilarFlightBtnAction(cell:FlightResultTVCell){}
+    func didTaponCell(cell: SideMenuTitleTVCell) {}
+    func didTapOnLoginBtn(cell: MenuBGTVCell) {}
+    func didTapOnEditProfileBtn(cell: MenuBGTVCell) {}
+    
+    
+    func didTapOnLowtoHighBtn(cell: SortbyTVCell) {}
+    func didTapOnHightoLowBtn(cell: SortbyTVCell) {}
+    func btnAction(cell: ButtonTVCell) {}
+    func didTapOnDualBtn1(cell: ButtonTVCell) {}
+    func didTapOnDualBtn2(cell: ButtonTVCell) {}
+    func didTapOnOneRatingViewBtn(cell: PopularFiltersTVCell) {}
+    func didTapOnTwoRatingViewBtn(cell: PopularFiltersTVCell) {}
+    func didTapOnThreeatingViewBtn(cell: PopularFiltersTVCell) {}
+    func didTapOnFouratingViewBtn(cell: PopularFiltersTVCell) {}
+    func didTapOnFivetingViewBtn(cell: PopularFiltersTVCell) {}
+    func didTapOnCloseBtn(cell: LabelTVCell) {}
+    func didTapOnShowMoreBtn(cell: LabelTVCell) {}
+    func didTapOnDropDownBtn(cell: FilterDepartureTVCell) {}
+    func didTapOnTimeBtn(cell: FilterDepartureTVCell) {}
+    func didTapOnCheckBoxDropDownBtn(cell: CheckBoxTVCell) {}
+    func didTapOnShowMoreBtn(cell: CheckBoxTVCell) {}
+    func didTapOnCheckBox(cell: checkOptionsTVCell) {}
+    func didTapOnDeselectCheckBox(cell: checkOptionsTVCell) {}
+    func didTapOnShowSliderBtn(cell: SliderTVCell) {}
+    func didSelectDepartureTime(cell: DepartureTimeCVCell) {}
+    func didDeSelectDepartureTime(cell: DepartureTimeCVCell) {}
+    
     
     
 }
@@ -230,6 +259,83 @@ extension BaseTableVC: UITableViewDataSource {
             case .TicketIssuingTimeTVCell:
                 let cell: TicketIssuingTimeTVCell = commonTV.dequeTVCell(indexPath: indexPath)
                 commonCell = cell
+                
+                
+            case .QuickLinkTableViewCell:
+                let cell: QuickLinkTableViewCell = commonTV.dequeTVCell(indexPath: indexPath)
+                commonCell = cell
+                
+                
+                
+            case .SideMenuTitleTVCell:
+                let cell: SideMenuTitleTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                cell.delegate = self
+                commonCell = cell
+                
+                
+                
+            case .MenuBGTVCell:
+                let cell: MenuBGTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                cell.delegate = self
+                commonCell = cell
+                
+                
+            case .ItineraryTVCell:
+                let cell: ItineraryTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                commonCell = cell
+                
+                
+                
+                
+            case .SliderTVCell:
+                let cell: SliderTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                cell.delegate = self
+                commonCell = cell
+                
+                
+            case .CheckBoxTVCell:
+                let cell: CheckBoxTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                cell.delegate = self
+                commonCell = cell
+                
+                
+                
+            case .FilterDepartureTVCell:
+                let cell: FilterDepartureTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                cell.delegate = self
+                commonCell = cell
+                
+                
+            case .LabelTVCell:
+                let cell: LabelTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                cell.delegate = self
+                commonCell = cell
+                
+                
+                
+            case .PopularFiltersTVCell:
+                let cell: PopularFiltersTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                cell.delegate = self
+                commonCell = cell
+                
+                
+            case .DepartureTimeTVCell:
+                let cell: DepartureTimeTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                cell.delegate = self
+                commonCell = cell
+                
+                
+            case .ButtonTVCell:
+                let cell: ButtonTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                cell.delegate = self
+                commonCell = cell
+                
+                
+            case .SortbyTVCell:
+                let cell: SortbyTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                cell.delegate = self
+                commonCell = cell
+                
                 
                 
                 

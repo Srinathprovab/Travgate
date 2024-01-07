@@ -13,7 +13,10 @@ class SpecialOffersTVCell: TableViewCell {
     
     @IBOutlet weak var offerCV: UICollectionView!
     
-    var offerlist = [Deail_code_list]()
+    
+    var itemCount = Int()
+    var autoScrollTimer: Timer?
+    var offerlist = [Deal_code_list]()
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -30,7 +33,10 @@ class SpecialOffersTVCell: TableViewCell {
     
     override func updateUI() {
         offerlist = MySingleton.shared.deail_code_list
+        itemCount = offerlist.count
+       // startAutoScroll()
         offerCV.reloadData()
+        
     }
     
     
@@ -45,8 +51,8 @@ class SpecialOffersTVCell: TableViewCell {
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: 190, height: 168)
         layout.scrollDirection = .horizontal
-        layout.minimumInteritemSpacing = 6
-        layout.minimumLineSpacing = 6
+        layout.minimumInteritemSpacing = 16
+        layout.minimumLineSpacing = 16
         // layout.sectionInset = UIEdgeInsets(top: 0, left: 6, bottom: 0, right: 6)
         offerCV.collectionViewLayout = layout
         
@@ -82,4 +88,45 @@ extension SpecialOffersTVCell:UICollectionViewDelegate,UICollectionViewDataSourc
     }
     
     
+}
+
+
+
+// MARK: - Auto Scrolling
+extension SpecialOffersTVCell {
+    
+    
+    func startAutoScroll() {
+        autoScrollTimer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(scrollToNextItem), userInfo: nil, repeats: true)
+    }
+    
+    func stopAutoScroll() {
+        autoScrollTimer?.invalidate()
+        autoScrollTimer = nil
+    }
+    
+    @objc func scrollToNextItem() {
+        
+        
+        guard itemCount > 0 else {
+            return // No items in the collection view
+        }
+        
+        let currentIndexPaths = offerCV.indexPathsForVisibleItems.sorted()
+        let lastIndexPath = currentIndexPaths.last ?? IndexPath(item: 0, section: 0)
+        
+        var nextIndexPath: IndexPath
+        
+        if lastIndexPath.item == itemCount - 1 {
+            nextIndexPath = IndexPath(item: 0, section: lastIndexPath.section)
+        } else {
+            nextIndexPath = IndexPath(item: lastIndexPath.item + 1, section: lastIndexPath.section)
+        }
+        
+        if nextIndexPath.item >= itemCount {
+            nextIndexPath = IndexPath(item: 0, section: nextIndexPath.section) // Adjust the index path if it exceeds the bounds
+        }
+        
+        offerCV.scrollToItem(at: nextIndexPath, at: .centeredHorizontally, animated: true)
+    }
 }

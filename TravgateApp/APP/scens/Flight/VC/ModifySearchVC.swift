@@ -245,6 +245,7 @@ extension ModifySearchVC {
     
     func gotoFlightResultVC() {
         MySingleton.shared.callboolapi = true
+        defaults.set(false, forKey: "flightfilteronce")
         guard let vc = FlightResultVC.newInstance.self else {return}
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)

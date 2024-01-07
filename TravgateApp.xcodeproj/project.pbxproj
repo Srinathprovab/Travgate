@@ -21,7 +21,6 @@
 		650DBA412B453E680052294A /* City_data_list.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650DBA3C2B453E670052294A /* City_data_list.swift */; };
 		650DBA432B453E680052294A /* TopFlightDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650DBA3E2B453E670052294A /* TopFlightDetails.swift */; };
 		650DBA442B453E680052294A /* TopHotelDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650DBA3F2B453E670052294A /* TopHotelDetails.swift */; };
-		650DBA452B453E680052294A /* Deail_code_list.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650DBA402B453E680052294A /* Deail_code_list.swift */; };
 		650DBA472B453E8C0052294A /* IndexPagemodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650DBA462B453E8C0052294A /* IndexPagemodel.swift */; };
 		650DBA492B453EA80052294A /* IndexPageViewmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650DBA482B453EA80052294A /* IndexPageViewmodel.swift */; };
 		650DBA4B2B4547170052294A /* SelectLanguageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650DBA4A2B4547170052294A /* SelectLanguageVC.swift */; };
@@ -50,8 +49,6 @@
 		651717E02B43F8D4003D3723 /* BaseTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651716412B43F8D0003D3723 /* BaseTableVC.swift */; };
 		651717E12B43F8D4003D3723 /* UIModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651716422B43F8D0003D3723 /* UIModels.swift */; };
 		651717E22B43F8D4003D3723 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651716442B43F8D0003D3723 /* Constants.swift */; };
-		651717E32B43F8D4003D3723 /* newloder.gif in Resources */ = {isa = PBXBuildFile; fileRef = 651716452B43F8D0003D3723 /* newloder.gif */; };
-		651717E42B43F8D4003D3723 /* loderimg.gif in Resources */ = {isa = PBXBuildFile; fileRef = 651716462B43F8D0003D3723 /* loderimg.gif */; };
 		651717E52B43F8D4003D3723 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651716472B43F8D0003D3723 /* SessionManager.swift */; };
 		651717E82B43F8D4003D3723 /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6517164D2B43F8D0003D3723 /* ServiceManager.swift */; };
 		651717E92B43F8D4003D3723 /* BorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6517164E2B43F8D0003D3723 /* BorderView.swift */; };
@@ -96,6 +93,7 @@
 		6517182A2B441630003D3723 /* TripsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651718292B441630003D3723 /* TripsVC.swift */; };
 		6517182C2B44163F003D3723 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6517182B2B44163F003D3723 /* ProfileVC.swift */; };
 		6517182E2B441650003D3723 /* MoreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6517182D2B441650003D3723 /* MoreVC.swift */; };
+		653E16AF2B4AB13A00CB2EC9 /* BookingDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653E16AE2B4AB13A00CB2EC9 /* BookingDetailsVC.swift */; };
 		653E2D1A2B47E8810082AFF6 /* FlightModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653E2D192B47E8810082AFF6 /* FlightModel.swift */; };
 		653E2D202B47E94D0082AFF6 /* FlightDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653E2D1F2B47E94D0082AFF6 /* FlightDataModel.swift */; };
 		653E2D222B47E9A50082AFF6 /* FlightSearchParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653E2D212B47E9A50082AFF6 /* FlightSearchParams.swift */; };
@@ -140,6 +138,50 @@
 		65B959312B468F8000A4EAE7 /* SelectCityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B959302B468F8000A4EAE7 /* SelectCityViewModel.swift */; };
 		65B959342B468F9B00A4EAE7 /* SelectCityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B959332B468F9B00A4EAE7 /* SelectCityModel.swift */; };
 		65B959382B46DD7E00A4EAE7 /* CountrylistModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B959372B46DD7E00A4EAE7 /* CountrylistModel.swift */; };
+		65CB2CEC2B492AC5009B5B2E /* Deal_code_list.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CB2CEB2B492AC5009B5B2E /* Deal_code_list.swift */; };
+		65CB2CEE2B493241009B5B2E /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CB2CED2B493241009B5B2E /* SideMenuViewController.swift */; };
+		65CB2CF32B493268009B5B2E /* QuickLinkTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65CB2CF12B493268009B5B2E /* QuickLinkTableViewCell.xib */; };
+		65CB2CF42B493268009B5B2E /* QuickLinkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CB2CF22B493268009B5B2E /* QuickLinkTableViewCell.swift */; };
+		65CB2CF92B49328A009B5B2E /* SideMenuTitleTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65CB2CF72B49328A009B5B2E /* SideMenuTitleTVCell.xib */; };
+		65CB2CFA2B49328A009B5B2E /* SideMenuTitleTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CB2CF82B49328A009B5B2E /* SideMenuTitleTVCell.swift */; };
+		65CB2CFD2B493294009B5B2E /* MenuBGTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65CB2CFB2B493294009B5B2E /* MenuBGTVCell.xib */; };
+		65CB2CFE2B493294009B5B2E /* MenuBGTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CB2CFC2B493294009B5B2E /* MenuBGTVCell.swift */; };
+		65CB2D022B49469C009B5B2E /* ItineraryTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CB2D002B49469C009B5B2E /* ItineraryTVCell.swift */; };
+		65CB2D032B49469C009B5B2E /* ItineraryTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65CB2D012B49469C009B5B2E /* ItineraryTVCell.xib */; };
+		65CB2D072B494771009B5B2E /* AddItineraryTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CB2D052B494771009B5B2E /* AddItineraryTVCell.swift */; };
+		65CB2D082B494771009B5B2E /* AddItineraryTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65CB2D062B494771009B5B2E /* AddItineraryTVCell.xib */; };
+		65CB2D0B2B495384009B5B2E /* FlightDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CB2D0A2B495384009B5B2E /* FlightDetailsModel.swift */; };
+		65CB2D0D2B4953B0009B5B2E /* JourneySummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CB2D0C2B4953B0009B5B2E /* JourneySummary.swift */; };
+		65CB2D0F2B4953D8009B5B2E /* ItinearyFlightDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CB2D0E2B4953D8009B5B2E /* ItinearyFlightDetails.swift */; };
+		65CB2D112B49542D009B5B2E /* Baggage_details.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CB2D102B49542D009B5B2E /* Baggage_details.swift */; };
+		65CB2D132B495440009B5B2E /* PriceDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CB2D122B495440009B5B2E /* PriceDetails.swift */; };
+		65CB2D152B49546A009B5B2E /* Custom_farerules.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CB2D142B49546A009B5B2E /* Custom_farerules.swift */; };
+		65CB2D172B495480009B5B2E /* Cancelation_fee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CB2D162B495480009B5B2E /* Cancelation_fee.swift */; };
+		65CB2D192B49548A009B5B2E /* Date_charge_fee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CB2D182B49548A009B5B2E /* Date_charge_fee.swift */; };
+		65CB2D1B2B49552F009B5B2E /* FlightDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CB2D1A2B49552F009B5B2E /* FlightDetailsViewModel.swift */; };
+		65D85BEC2B4A467500D939D0 /* FilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D85BEB2B4A467500D939D0 /* FilterVC.swift */; };
+		65D85BF72B4A46FF00D939D0 /* CheckBoxTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D85BF52B4A46FF00D939D0 /* CheckBoxTVCell.swift */; };
+		65D85BF82B4A46FF00D939D0 /* CheckBoxTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65D85BF62B4A46FF00D939D0 /* CheckBoxTVCell.xib */; };
+		65D85BFC2B4A471F00D939D0 /* checkOptionsTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D85BFA2B4A471F00D939D0 /* checkOptionsTVCell.swift */; };
+		65D85BFD2B4A471F00D939D0 /* checkOptionsTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65D85BFB2B4A471F00D939D0 /* checkOptionsTVCell.xib */; };
+		65D85C002B4A473800D939D0 /* SortbyTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D85BFE2B4A473800D939D0 /* SortbyTVCell.swift */; };
+		65D85C012B4A473800D939D0 /* SortbyTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65D85BFF2B4A473800D939D0 /* SortbyTVCell.xib */; };
+		65D85C042B4A477100D939D0 /* PopularFiltersTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65D85C022B4A477100D939D0 /* PopularFiltersTVCell.xib */; };
+		65D85C052B4A477100D939D0 /* PopularFiltersTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D85C032B4A477100D939D0 /* PopularFiltersTVCell.swift */; };
+		65D85C082B4A478100D939D0 /* LabelTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D85C062B4A478000D939D0 /* LabelTVCell.swift */; };
+		65D85C092B4A478100D939D0 /* LabelTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65D85C072B4A478100D939D0 /* LabelTVCell.xib */; };
+		65D85C0C2B4A479500D939D0 /* DepartureTimeTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D85C0A2B4A479400D939D0 /* DepartureTimeTVCell.swift */; };
+		65D85C0D2B4A479500D939D0 /* DepartureTimeTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65D85C0B2B4A479500D939D0 /* DepartureTimeTVCell.xib */; };
+		65D85C102B4A47A700D939D0 /* FilterDepartureTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D85C0E2B4A47A600D939D0 /* FilterDepartureTVCell.swift */; };
+		65D85C112B4A47A700D939D0 /* FilterDepartureTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65D85C0F2B4A47A700D939D0 /* FilterDepartureTVCell.xib */; };
+		65D85C152B4A47CB00D939D0 /* SliderTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D85C132B4A47CA00D939D0 /* SliderTVCell.swift */; };
+		65D85C162B4A47CB00D939D0 /* SliderTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65D85C142B4A47CB00D939D0 /* SliderTVCell.xib */; };
+		65D85C182B4A486F00D939D0 /* NoInternetConnectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D85C172B4A486F00D939D0 /* NoInternetConnectionVC.swift */; };
+		65D85C1C2B4A54FA00D939D0 /* ButtonTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D85C1A2B4A54F900D939D0 /* ButtonTVCell.swift */; };
+		65D85C1D2B4A54FA00D939D0 /* ButtonTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65D85C1B2B4A54FA00D939D0 /* ButtonTVCell.xib */; };
+		65D85C212B4A55CB00D939D0 /* DepartureTimeCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65D85C1F2B4A55CB00D939D0 /* DepartureTimeCVCell.xib */; };
+		65D85C222B4A55CB00D939D0 /* DepartureTimeCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D85C202B4A55CB00D939D0 /* DepartureTimeCVCell.swift */; };
+		65D85C242B4A818000D939D0 /* loder.gif in Resources */ = {isa = PBXBuildFile; fileRef = 65D85C232B4A818000D939D0 /* loder.gif */; };
 		A49629B2BC0298903ECB14C9 /* Pods_TravgateApp_TravgateAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CD57DADF2827CC7315F9E10 /* Pods_TravgateApp_TravgateAppUITests.framework */; };
 		B0DAB0DBB63A478E83F5291D /* Pods_TravgateAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 634B61CF8AE4096700985889 /* Pods_TravgateAppTests.framework */; };
 		F35DB7DEE4FE2CEB1228C68B /* Pods_TravgateApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C1727B54071D4A493CAF226 /* Pods_TravgateApp.framework */; };
@@ -181,7 +223,6 @@
 		650DBA3C2B453E670052294A /* City_data_list.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = City_data_list.swift; sourceTree = "<group>"; };
 		650DBA3E2B453E670052294A /* TopFlightDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopFlightDetails.swift; sourceTree = "<group>"; };
 		650DBA3F2B453E670052294A /* TopHotelDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopHotelDetails.swift; sourceTree = "<group>"; };
-		650DBA402B453E680052294A /* Deail_code_list.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deail_code_list.swift; sourceTree = "<group>"; };
 		650DBA462B453E8C0052294A /* IndexPagemodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexPagemodel.swift; sourceTree = "<group>"; };
 		650DBA482B453EA80052294A /* IndexPageViewmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexPageViewmodel.swift; sourceTree = "<group>"; };
 		650DBA4A2B4547170052294A /* SelectLanguageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectLanguageVC.swift; sourceTree = "<group>"; };
@@ -214,8 +255,6 @@
 		651716412B43F8D0003D3723 /* BaseTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableVC.swift; sourceTree = "<group>"; };
 		651716422B43F8D0003D3723 /* UIModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIModels.swift; sourceTree = "<group>"; };
 		651716442B43F8D0003D3723 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		651716452B43F8D0003D3723 /* newloder.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = newloder.gif; sourceTree = "<group>"; };
-		651716462B43F8D0003D3723 /* loderimg.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loderimg.gif; sourceTree = "<group>"; };
 		651716472B43F8D0003D3723 /* SessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		6517164D2B43F8D0003D3723 /* ServiceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
 		6517164E2B43F8D0003D3723 /* BorderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderView.swift; sourceTree = "<group>"; };
@@ -261,6 +300,7 @@
 		651718292B441630003D3723 /* TripsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsVC.swift; sourceTree = "<group>"; };
 		6517182B2B44163F003D3723 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		6517182D2B441650003D3723 /* MoreVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreVC.swift; sourceTree = "<group>"; };
+		653E16AE2B4AB13A00CB2EC9 /* BookingDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingDetailsVC.swift; sourceTree = "<group>"; };
 		653E2D192B47E8810082AFF6 /* FlightModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightModel.swift; sourceTree = "<group>"; };
 		653E2D1F2B47E94D0082AFF6 /* FlightDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightDataModel.swift; sourceTree = "<group>"; };
 		653E2D212B47E9A50082AFF6 /* FlightSearchParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightSearchParams.swift; sourceTree = "<group>"; };
@@ -305,6 +345,50 @@
 		65B959302B468F8000A4EAE7 /* SelectCityViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectCityViewModel.swift; sourceTree = "<group>"; };
 		65B959332B468F9B00A4EAE7 /* SelectCityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCityModel.swift; sourceTree = "<group>"; };
 		65B959372B46DD7E00A4EAE7 /* CountrylistModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountrylistModel.swift; sourceTree = "<group>"; };
+		65CB2CEB2B492AC5009B5B2E /* Deal_code_list.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deal_code_list.swift; sourceTree = "<group>"; };
+		65CB2CED2B493241009B5B2E /* SideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
+		65CB2CF12B493268009B5B2E /* QuickLinkTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuickLinkTableViewCell.xib; sourceTree = "<group>"; };
+		65CB2CF22B493268009B5B2E /* QuickLinkTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickLinkTableViewCell.swift; sourceTree = "<group>"; };
+		65CB2CF72B49328A009B5B2E /* SideMenuTitleTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SideMenuTitleTVCell.xib; sourceTree = "<group>"; };
+		65CB2CF82B49328A009B5B2E /* SideMenuTitleTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuTitleTVCell.swift; sourceTree = "<group>"; };
+		65CB2CFB2B493294009B5B2E /* MenuBGTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuBGTVCell.xib; sourceTree = "<group>"; };
+		65CB2CFC2B493294009B5B2E /* MenuBGTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuBGTVCell.swift; sourceTree = "<group>"; };
+		65CB2D002B49469C009B5B2E /* ItineraryTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItineraryTVCell.swift; sourceTree = "<group>"; };
+		65CB2D012B49469C009B5B2E /* ItineraryTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItineraryTVCell.xib; sourceTree = "<group>"; };
+		65CB2D052B494771009B5B2E /* AddItineraryTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItineraryTVCell.swift; sourceTree = "<group>"; };
+		65CB2D062B494771009B5B2E /* AddItineraryTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddItineraryTVCell.xib; sourceTree = "<group>"; };
+		65CB2D0A2B495384009B5B2E /* FlightDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightDetailsModel.swift; sourceTree = "<group>"; };
+		65CB2D0C2B4953B0009B5B2E /* JourneySummary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JourneySummary.swift; sourceTree = "<group>"; };
+		65CB2D0E2B4953D8009B5B2E /* ItinearyFlightDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItinearyFlightDetails.swift; sourceTree = "<group>"; };
+		65CB2D102B49542D009B5B2E /* Baggage_details.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Baggage_details.swift; sourceTree = "<group>"; };
+		65CB2D122B495440009B5B2E /* PriceDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PriceDetails.swift; sourceTree = "<group>"; };
+		65CB2D142B49546A009B5B2E /* Custom_farerules.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Custom_farerules.swift; sourceTree = "<group>"; };
+		65CB2D162B495480009B5B2E /* Cancelation_fee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cancelation_fee.swift; sourceTree = "<group>"; };
+		65CB2D182B49548A009B5B2E /* Date_charge_fee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date_charge_fee.swift; sourceTree = "<group>"; };
+		65CB2D1A2B49552F009B5B2E /* FlightDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightDetailsViewModel.swift; sourceTree = "<group>"; };
+		65D85BEB2B4A467500D939D0 /* FilterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterVC.swift; sourceTree = "<group>"; };
+		65D85BF52B4A46FF00D939D0 /* CheckBoxTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBoxTVCell.swift; sourceTree = "<group>"; };
+		65D85BF62B4A46FF00D939D0 /* CheckBoxTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CheckBoxTVCell.xib; sourceTree = "<group>"; };
+		65D85BFA2B4A471F00D939D0 /* checkOptionsTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = checkOptionsTVCell.swift; sourceTree = "<group>"; };
+		65D85BFB2B4A471F00D939D0 /* checkOptionsTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = checkOptionsTVCell.xib; sourceTree = "<group>"; };
+		65D85BFE2B4A473800D939D0 /* SortbyTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortbyTVCell.swift; sourceTree = "<group>"; };
+		65D85BFF2B4A473800D939D0 /* SortbyTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SortbyTVCell.xib; sourceTree = "<group>"; };
+		65D85C022B4A477100D939D0 /* PopularFiltersTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopularFiltersTVCell.xib; sourceTree = "<group>"; };
+		65D85C032B4A477100D939D0 /* PopularFiltersTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopularFiltersTVCell.swift; sourceTree = "<group>"; };
+		65D85C062B4A478000D939D0 /* LabelTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelTVCell.swift; sourceTree = "<group>"; };
+		65D85C072B4A478100D939D0 /* LabelTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LabelTVCell.xib; sourceTree = "<group>"; };
+		65D85C0A2B4A479400D939D0 /* DepartureTimeTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepartureTimeTVCell.swift; sourceTree = "<group>"; };
+		65D85C0B2B4A479500D939D0 /* DepartureTimeTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DepartureTimeTVCell.xib; sourceTree = "<group>"; };
+		65D85C0E2B4A47A600D939D0 /* FilterDepartureTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterDepartureTVCell.swift; sourceTree = "<group>"; };
+		65D85C0F2B4A47A700D939D0 /* FilterDepartureTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FilterDepartureTVCell.xib; sourceTree = "<group>"; };
+		65D85C132B4A47CA00D939D0 /* SliderTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderTVCell.swift; sourceTree = "<group>"; };
+		65D85C142B4A47CB00D939D0 /* SliderTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SliderTVCell.xib; sourceTree = "<group>"; };
+		65D85C172B4A486F00D939D0 /* NoInternetConnectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoInternetConnectionVC.swift; sourceTree = "<group>"; };
+		65D85C1A2B4A54F900D939D0 /* ButtonTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonTVCell.swift; sourceTree = "<group>"; };
+		65D85C1B2B4A54FA00D939D0 /* ButtonTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ButtonTVCell.xib; sourceTree = "<group>"; };
+		65D85C1F2B4A55CB00D939D0 /* DepartureTimeCVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DepartureTimeCVCell.xib; sourceTree = "<group>"; };
+		65D85C202B4A55CB00D939D0 /* DepartureTimeCVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepartureTimeCVCell.swift; sourceTree = "<group>"; };
+		65D85C232B4A818000D939D0 /* loder.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loder.gif; sourceTree = "<group>"; };
 		8C1727B54071D4A493CAF226 /* Pods_TravgateApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TravgateApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92CCA4D767899C0947F898F0 /* Pods-TravgateAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravgateAppTests.debug.xcconfig"; path = "Target Support Files/Pods-TravgateAppTests/Pods-TravgateAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A833FE625AA0EA62C12BEE47 /* Pods-TravgateApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravgateApp.debug.xcconfig"; path = "Target Support Files/Pods-TravgateApp/Pods-TravgateApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -353,6 +437,8 @@
 		6501F3652B48614B00F4625B /* Fdetails */ = {
 			isa = PBXGroup;
 			children = (
+				65CB2D042B494759009B5B2E /* AddItineraryTVCell */,
+				65CB2CFF2B494637009B5B2E /* ItineraryTVCell */,
 				6501F3662B48615400F4625B /* TicketIssuingTimeTVCell */,
 			);
 			path = Fdetails;
@@ -407,10 +493,10 @@
 			isa = PBXGroup;
 			children = (
 				650DBA3C2B453E670052294A /* City_data_list.swift */,
-				650DBA402B453E680052294A /* Deail_code_list.swift */,
 				650DBA3E2B453E670052294A /* TopFlightDetails.swift */,
 				650DBA3F2B453E670052294A /* TopHotelDetails.swift */,
 				650DBA462B453E8C0052294A /* IndexPagemodel.swift */,
+				65CB2CEB2B492AC5009B5B2E /* Deal_code_list.swift */,
 			);
 			path = HomePage;
 			sourceTree = "<group>";
@@ -569,8 +655,7 @@
 			isa = PBXGroup;
 			children = (
 				651716442B43F8D0003D3723 /* Constants.swift */,
-				651716452B43F8D0003D3723 /* newloder.gif */,
-				651716462B43F8D0003D3723 /* loderimg.gif */,
+				65D85C232B4A818000D939D0 /* loder.gif */,
 				651716472B43F8D0003D3723 /* SessionManager.swift */,
 			);
 			path = Constants;
@@ -728,6 +813,9 @@
 				65113B882B47B94000C4B3E4 /* FlightResultVC.swift */,
 				653E2D372B48393A0082AFF6 /* SimilarFlightsVC.swift */,
 				6501F3632B485CD900F4625B /* FlightDeatilsVC.swift */,
+				65D85BEB2B4A467500D939D0 /* FilterVC.swift */,
+				65D85C172B4A486F00D939D0 /* NoInternetConnectionVC.swift */,
+				653E16AE2B4AB13A00CB2EC9 /* BookingDetailsVC.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -735,6 +823,7 @@
 		651718192B440B5C003D3723 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				65CB2D092B495362009B5B2E /* FlightDetailsModel */,
 				653E2D182B47E86F0082AFF6 /* FlightModel */,
 				65B959322B468F9300A4EAE7 /* SelectCityModel */,
 			);
@@ -744,6 +833,7 @@
 		6517181A2B440B64003D3723 /* TVCells */ = {
 			isa = PBXGroup;
 			children = (
+				65D85BED2B4A469A00D939D0 /* Filters */,
 				6501F3652B48614B00F4625B /* Fdetails */,
 				65113B8A2B47C88200C4B3E4 /* Flight Result */,
 				65B959292B468DD700A4EAE7 /* Flight Search */,
@@ -754,6 +844,7 @@
 		6517181B2B440B70003D3723 /* CVCells */ = {
 			isa = PBXGroup;
 			children = (
+				65D85C1E2B4A55BD00D939D0 /* DepartureTimeCVCell */,
 				65B959222B466EFA00A4EAE7 /* InfoCVCell */,
 			);
 			path = CVCells;
@@ -781,6 +872,7 @@
 				6517182B2B44163F003D3723 /* ProfileVC.swift */,
 				6517182D2B441650003D3723 /* MoreVC.swift */,
 				650DBA4A2B4547170052294A /* SelectLanguageVC.swift */,
+				65CB2CED2B493241009B5B2E /* SideMenuViewController.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -845,6 +937,7 @@
 		65B6797E2B44254D00E5D1C3 /* TVCells */ = {
 			isa = PBXGroup;
 			children = (
+				65CB2CEF2B493250009B5B2E /* SideMenu */,
 				650DBA4C2B4547B40052294A /* SelectLanguageTVCell */,
 				650DBA2C2B451D680052294A /* EmptyTVCell */,
 				650DBA222B451A0E0052294A /* SpecialOffersTVCell */,
@@ -980,6 +1073,7 @@
 			children = (
 				65B959302B468F8000A4EAE7 /* SelectCityViewModel.swift */,
 				653E2D332B47FDEF0082AFF6 /* FlightViewModel.swift */,
+				65CB2D1A2B49552F009B5B2E /* FlightDetailsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -991,6 +1085,182 @@
 				65B959372B46DD7E00A4EAE7 /* CountrylistModel.swift */,
 			);
 			path = SelectCityModel;
+			sourceTree = "<group>";
+		};
+		65CB2CEF2B493250009B5B2E /* SideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				65CB2CF62B49327E009B5B2E /* MenuBGTVCell */,
+				65CB2CF52B493275009B5B2E /* SideMenuTitleTVCell */,
+				65CB2CF02B493259009B5B2E /* QuickLinkTableViewCell */,
+			);
+			path = SideMenu;
+			sourceTree = "<group>";
+		};
+		65CB2CF02B493259009B5B2E /* QuickLinkTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				65CB2CF22B493268009B5B2E /* QuickLinkTableViewCell.swift */,
+				65CB2CF12B493268009B5B2E /* QuickLinkTableViewCell.xib */,
+			);
+			path = QuickLinkTableViewCell;
+			sourceTree = "<group>";
+		};
+		65CB2CF52B493275009B5B2E /* SideMenuTitleTVCell */ = {
+			isa = PBXGroup;
+			children = (
+				65CB2CF82B49328A009B5B2E /* SideMenuTitleTVCell.swift */,
+				65CB2CF72B49328A009B5B2E /* SideMenuTitleTVCell.xib */,
+			);
+			path = SideMenuTitleTVCell;
+			sourceTree = "<group>";
+		};
+		65CB2CF62B49327E009B5B2E /* MenuBGTVCell */ = {
+			isa = PBXGroup;
+			children = (
+				65CB2CFC2B493294009B5B2E /* MenuBGTVCell.swift */,
+				65CB2CFB2B493294009B5B2E /* MenuBGTVCell.xib */,
+			);
+			path = MenuBGTVCell;
+			sourceTree = "<group>";
+		};
+		65CB2CFF2B494637009B5B2E /* ItineraryTVCell */ = {
+			isa = PBXGroup;
+			children = (
+				65CB2D002B49469C009B5B2E /* ItineraryTVCell.swift */,
+				65CB2D012B49469C009B5B2E /* ItineraryTVCell.xib */,
+			);
+			path = ItineraryTVCell;
+			sourceTree = "<group>";
+		};
+		65CB2D042B494759009B5B2E /* AddItineraryTVCell */ = {
+			isa = PBXGroup;
+			children = (
+				65CB2D052B494771009B5B2E /* AddItineraryTVCell.swift */,
+				65CB2D062B494771009B5B2E /* AddItineraryTVCell.xib */,
+			);
+			path = AddItineraryTVCell;
+			sourceTree = "<group>";
+		};
+		65CB2D092B495362009B5B2E /* FlightDetailsModel */ = {
+			isa = PBXGroup;
+			children = (
+				65CB2D0A2B495384009B5B2E /* FlightDetailsModel.swift */,
+				65CB2D0C2B4953B0009B5B2E /* JourneySummary.swift */,
+				65CB2D0E2B4953D8009B5B2E /* ItinearyFlightDetails.swift */,
+				65CB2D102B49542D009B5B2E /* Baggage_details.swift */,
+				65CB2D122B495440009B5B2E /* PriceDetails.swift */,
+				65CB2D142B49546A009B5B2E /* Custom_farerules.swift */,
+				65CB2D162B495480009B5B2E /* Cancelation_fee.swift */,
+				65CB2D182B49548A009B5B2E /* Date_charge_fee.swift */,
+			);
+			path = FlightDetailsModel;
+			sourceTree = "<group>";
+		};
+		65D85BED2B4A469A00D939D0 /* Filters */ = {
+			isa = PBXGroup;
+			children = (
+				65D85C192B4A54EE00D939D0 /* ButtonTVCell */,
+				65D85C122B4A47BE00D939D0 /* SliderTVCell */,
+				65D85BF92B4A471200D939D0 /* checkOptionsTVCell */,
+				65D85BF42B4A46E400D939D0 /* FilterDepartureTVCell */,
+				65D85BF32B4A46DC00D939D0 /* DepartureTimeTVCell */,
+				65D85BF22B4A46D100D939D0 /* LabelTVCell */,
+				65D85BF12B4A46CA00D939D0 /* PopularFiltersTVCell */,
+				65D85BEF2B4A46AF00D939D0 /* SortbyTVCell */,
+				65D85BEE2B4A46A800D939D0 /* CheckBoxTVCell */,
+			);
+			path = Filters;
+			sourceTree = "<group>";
+		};
+		65D85BEE2B4A46A800D939D0 /* CheckBoxTVCell */ = {
+			isa = PBXGroup;
+			children = (
+				65D85BF52B4A46FF00D939D0 /* CheckBoxTVCell.swift */,
+				65D85BF62B4A46FF00D939D0 /* CheckBoxTVCell.xib */,
+			);
+			path = CheckBoxTVCell;
+			sourceTree = "<group>";
+		};
+		65D85BEF2B4A46AF00D939D0 /* SortbyTVCell */ = {
+			isa = PBXGroup;
+			children = (
+				65D85BFE2B4A473800D939D0 /* SortbyTVCell.swift */,
+				65D85BFF2B4A473800D939D0 /* SortbyTVCell.xib */,
+			);
+			path = SortbyTVCell;
+			sourceTree = "<group>";
+		};
+		65D85BF12B4A46CA00D939D0 /* PopularFiltersTVCell */ = {
+			isa = PBXGroup;
+			children = (
+				65D85C032B4A477100D939D0 /* PopularFiltersTVCell.swift */,
+				65D85C022B4A477100D939D0 /* PopularFiltersTVCell.xib */,
+			);
+			path = PopularFiltersTVCell;
+			sourceTree = "<group>";
+		};
+		65D85BF22B4A46D100D939D0 /* LabelTVCell */ = {
+			isa = PBXGroup;
+			children = (
+				65D85C062B4A478000D939D0 /* LabelTVCell.swift */,
+				65D85C072B4A478100D939D0 /* LabelTVCell.xib */,
+			);
+			path = LabelTVCell;
+			sourceTree = "<group>";
+		};
+		65D85BF32B4A46DC00D939D0 /* DepartureTimeTVCell */ = {
+			isa = PBXGroup;
+			children = (
+				65D85C0A2B4A479400D939D0 /* DepartureTimeTVCell.swift */,
+				65D85C0B2B4A479500D939D0 /* DepartureTimeTVCell.xib */,
+			);
+			path = DepartureTimeTVCell;
+			sourceTree = "<group>";
+		};
+		65D85BF42B4A46E400D939D0 /* FilterDepartureTVCell */ = {
+			isa = PBXGroup;
+			children = (
+				65D85C0E2B4A47A600D939D0 /* FilterDepartureTVCell.swift */,
+				65D85C0F2B4A47A700D939D0 /* FilterDepartureTVCell.xib */,
+			);
+			path = FilterDepartureTVCell;
+			sourceTree = "<group>";
+		};
+		65D85BF92B4A471200D939D0 /* checkOptionsTVCell */ = {
+			isa = PBXGroup;
+			children = (
+				65D85BFA2B4A471F00D939D0 /* checkOptionsTVCell.swift */,
+				65D85BFB2B4A471F00D939D0 /* checkOptionsTVCell.xib */,
+			);
+			path = checkOptionsTVCell;
+			sourceTree = "<group>";
+		};
+		65D85C122B4A47BE00D939D0 /* SliderTVCell */ = {
+			isa = PBXGroup;
+			children = (
+				65D85C132B4A47CA00D939D0 /* SliderTVCell.swift */,
+				65D85C142B4A47CB00D939D0 /* SliderTVCell.xib */,
+			);
+			path = SliderTVCell;
+			sourceTree = "<group>";
+		};
+		65D85C192B4A54EE00D939D0 /* ButtonTVCell */ = {
+			isa = PBXGroup;
+			children = (
+				65D85C1A2B4A54F900D939D0 /* ButtonTVCell.swift */,
+				65D85C1B2B4A54FA00D939D0 /* ButtonTVCell.xib */,
+			);
+			path = ButtonTVCell;
+			sourceTree = "<group>";
+		};
+		65D85C1E2B4A55BD00D939D0 /* DepartureTimeCVCell */ = {
+			isa = PBXGroup;
+			children = (
+				65D85C202B4A55CB00D939D0 /* DepartureTimeCVCell.swift */,
+				65D85C1F2B4A55CB00D939D0 /* DepartureTimeCVCell.xib */,
+			);
+			path = DepartureTimeCVCell;
 			sourceTree = "<group>";
 		};
 		81FCC340B91874B16663E227 /* Pods */ = {
@@ -1118,6 +1388,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				65B679792B44238B00E5D1C3 /* Inter-Bold.ttf in Resources */,
+				65D85C112B4A47A700D939D0 /* FilterDepartureTVCell.xib in Resources */,
 				65B6797A2B44238B00E5D1C3 /* Inter-Medium.ttf in Resources */,
 				65B6797B2B44238B00E5D1C3 /* Inter-Regular.ttf in Resources */,
 				65B6797C2B44238B00E5D1C3 /* Inter-SemiBold.ttf in Resources */,
@@ -1130,17 +1401,21 @@
 				65B959262B466F1400A4EAE7 /* InfoCVCell.xib in Resources */,
 				65B679722B44229C00E5D1C3 /* OpenSans-Regular.ttf in Resources */,
 				65B679732B44229C00E5D1C3 /* OpenSans-SemiBold.ttf in Resources */,
+				65D85C042B4A477100D939D0 /* PopularFiltersTVCell.xib in Resources */,
 				650DBA5D2B456CE90052294A /* FlightSearchTVCell.xib in Resources */,
 				65B6799C2B44465800E5D1C3 /* TopcityGuidesCVCell.xib in Resources */,
 				651717F62B43F8D4003D3723 /* Oswald-SemiBold.ttf in Resources */,
 				651717F82B43F8D4003D3723 /* Lato-Semibold.ttf in Resources */,
 				650DBA272B451A390052294A /* SpecialOffersCVCell.xib in Resources */,
+				65D85C092B4A478100D939D0 /* LabelTVCell.xib in Resources */,
 				65B679A52B44475A00E5D1C3 /* TopcityGuidesTVCell.xib in Resources */,
-				651717E42B43F8D4003D3723 /* loderimg.gif in Resources */,
 				651717FD2B43F8D4003D3723 /* Poppins-Light.ttf in Resources */,
+				65D85C242B4A818000D939D0 /* loder.gif in Resources */,
 				650DBA302B451D7E0052294A /* EmptyTVCell.xib in Resources */,
 				65B679662B441DE800E5D1C3 /* Main.storyboard in Resources */,
 				65113B8F2B47C8A500C4B3E4 /* FlightResultTVCell.xib in Resources */,
+				65D85C1D2B4A54FA00D939D0 /* ButtonTVCell.xib in Resources */,
+				65D85C212B4A55CB00D939D0 /* DepartureTimeCVCell.xib in Resources */,
 				65B6798D2B443AE500E5D1C3 /* PopularDestinationsTVCell.xib in Resources */,
 				651714202B43F839003D3723 /* LaunchScreen.storyboard in Resources */,
 				651718112B43F8D4003D3723 /* clist.json in Resources */,
@@ -1148,19 +1423,28 @@
 				65B9592E2B468DFD00A4EAE7 /* FromCityTVCell.xib in Resources */,
 				651717FE2B43F8D4003D3723 /* Poppins-Medium.ttf in Resources */,
 				6501F36A2B48619C00F4625B /* TicketIssuingTimeTVCell.xib in Resources */,
+				65D85BF82B4A46FF00D939D0 /* CheckBoxTVCell.xib in Resources */,
 				651717FB2B43F8D4003D3723 /* Lato-Medium.ttf in Resources */,
 				65B679972B443D9200E5D1C3 /* SelectDestCVCell.xib in Resources */,
+				65CB2D082B494771009B5B2E /* AddItineraryTVCell.xib in Resources */,
+				65D85BFD2B4A471F00D939D0 /* checkOptionsTVCell.xib in Resources */,
 				65B679922B443D1100E5D1C3 /* SelectCityCVCell.xib in Resources */,
+				65D85C162B4A47CB00D939D0 /* SliderTVCell.xib in Resources */,
 				651717FC2B43F8D4003D3723 /* Roboto-Medium.ttf in Resources */,
 				651718022B43F8D4003D3723 /* Poppins-Bold.ttf in Resources */,
 				650DBA4F2B4547CC0052294A /* SelectLanguageTVCell.xib in Resources */,
-				651717E32B43F8D4003D3723 /* newloder.gif in Resources */,
 				651717F72B43F8D4003D3723 /* Lato-Regular.ttf in Resources */,
 				650DBA2B2B451B840052294A /* SpecialOffersTVCell.xib in Resources */,
 				651718122B43F8D4003D3723 /* currencylist.json in Resources */,
+				65CB2CFD2B493294009B5B2E /* MenuBGTVCell.xib in Resources */,
+				65CB2D032B49469C009B5B2E /* ItineraryTVCell.xib in Resources */,
 				651718032B43F8D4003D3723 /* Poppins-Black.ttf in Resources */,
+				65CB2CF92B49328A009B5B2E /* SideMenuTitleTVCell.xib in Resources */,
 				6517141D2B43F839003D3723 /* Assets.xcassets in Resources */,
+				65CB2CF32B493268009B5B2E /* QuickLinkTableViewCell.xib in Resources */,
 				650DBA552B45626C0052294A /* Flight.storyboard in Resources */,
+				65D85C0D2B4A479500D939D0 /* DepartureTimeTVCell.xib in Resources */,
+				65D85C012B4A473800D939D0 /* SortbyTVCell.xib in Resources */,
 				651717F92B43F8D4003D3723 /* Oswald-Regular.ttf in Resources */,
 				651717F52B43F8D4003D3723 /* Oswald-Bold.ttf in Resources */,
 				651718042B43F8D4003D3723 /* Poppins-SemiBold.ttf in Resources */,
@@ -1338,39 +1622,51 @@
 				650DBA262B451A390052294A /* SpecialOffersCVCell.swift in Sources */,
 				651718232B441151003D3723 /* DashBoardTBVC.swift in Sources */,
 				651717E22B43F8D4003D3723 /* Constants.swift in Sources */,
+				65CB2CF42B493268009B5B2E /* QuickLinkTableViewCell.swift in Sources */,
 				6501F3692B48619C00F4625B /* TicketIssuingTimeTVCell.swift in Sources */,
 				651717EF2B43F8D4003D3723 /* StringExtension.swift in Sources */,
+				653E16AF2B4AB13A00CB2EC9 /* BookingDetailsVC.swift in Sources */,
 				653E2D302B47EBBC0082AFF6 /* Details.swift in Sources */,
 				651717EA2B43F8D4003D3723 /* TableViewHelper.swift in Sources */,
 				6517180E2B43F8D4003D3723 /* BaseViewModelProtocol.swift in Sources */,
+				65D85C1C2B4A54FA00D939D0 /* ButtonTVCell.swift in Sources */,
 				653E2D282B47EB290082AFF6 /* FlightSummery.swift in Sources */,
+				65CB2CFE2B493294009B5B2E /* MenuBGTVCell.swift in Sources */,
 				65B6799B2B44465800E5D1C3 /* TopcityGuidesCVCell.swift in Sources */,
 				651717DF2B43F8D4003D3723 /* TableViewCell.swift in Sources */,
+				65CB2D0D2B4953B0009B5B2E /* JourneySummary.swift in Sources */,
 				650DBA2F2B451D7E0052294A /* EmptyTVCell.swift in Sources */,
 				651717E12B43F8D4003D3723 /* UIModels.swift in Sources */,
 				651717E52B43F8D4003D3723 /* SessionManager.swift in Sources */,
 				65B959312B468F8000A4EAE7 /* SelectCityViewModel.swift in Sources */,
+				65CB2D172B495480009B5B2E /* Cancelation_fee.swift in Sources */,
 				651718282B441620003D3723 /* DashboardVC.swift in Sources */,
+				65CB2CEC2B492AC5009B5B2E /* Deal_code_list.swift in Sources */,
 				65B9592D2B468DFD00A4EAE7 /* FromCityTVCell.swift in Sources */,
 				651717EC2B43F8D4003D3723 /* ButtonExtension.swift in Sources */,
 				653E2D1A2B47E8810082AFF6 /* FlightModel.swift in Sources */,
 				651717F22B43F8D4003D3723 /* UITapGestureRecognizer.swift in Sources */,
 				650DBA572B4562920052294A /* FlightSearchVC.swift in Sources */,
+				65D85BF72B4A46FF00D939D0 /* CheckBoxTVCell.swift in Sources */,
 				6517180D2B43F8D4003D3723 /* Loader.swift in Sources */,
 				6517180B2B43F8D4003D3723 /* NSObject+Helper.swift in Sources */,
 				651718102B43F8D4003D3723 /* StoryboardExtension.swift in Sources */,
 				65B6798C2B443AE500E5D1C3 /* PopularDestinationsTVCell.swift in Sources */,
+				65CB2D0F2B4953D8009B5B2E /* ItinearyFlightDetails.swift in Sources */,
+				65CB2D1B2B49552F009B5B2E /* FlightDetailsViewModel.swift in Sources */,
 				650DBA492B453EA80052294A /* IndexPageViewmodel.swift in Sources */,
 				651714142B43F837003D3723 /* AppDelegate.swift in Sources */,
 				653E2D262B47EAD30082AFF6 /* FlightDetails.swift in Sources */,
+				65D85C0C2B4A479500D939D0 /* DepartureTimeTVCell.swift in Sources */,
 				651717DE2B43F8D4003D3723 /* BaseVC.swift in Sources */,
 				6517180A2B43F8D4003D3723 /* DeviceName.swift in Sources */,
-				650DBA452B453E680052294A /* Deail_code_list.swift in Sources */,
+				65D85C222B4A55CB00D939D0 /* DepartureTimeCVCell.swift in Sources */,
 				65B959252B466F1400A4EAE7 /* InfoCVCell.swift in Sources */,
 				651714162B43F837003D3723 /* SceneDelegate.swift in Sources */,
 				653E2D242B47E9D10082AFF6 /* FlightList.swift in Sources */,
 				651717E02B43F8D4003D3723 /* BaseTableVC.swift in Sources */,
 				650DBA5C2B456CE90052294A /* FlightSearchTVCell.swift in Sources */,
+				65CB2D072B494771009B5B2E /* AddItineraryTVCell.swift in Sources */,
 				650DBA432B453E680052294A /* TopFlightDetails.swift in Sources */,
 				6517182E2B441650003D3723 /* MoreVC.swift in Sources */,
 				65B959342B468F9B00A4EAE7 /* SelectCityModel.swift in Sources */,
@@ -1378,20 +1674,31 @@
 				650DBA392B4528410052294A /* MoreServiceCVCell.swift in Sources */,
 				650DBA442B453E680052294A /* TopHotelDetails.swift in Sources */,
 				650DBA2A2B451B840052294A /* SpecialOffersTVCell.swift in Sources */,
+				65CB2D152B49546A009B5B2E /* Custom_farerules.swift in Sources */,
+				65CB2D112B49542D009B5B2E /* Baggage_details.swift in Sources */,
 				651717E92B43F8D4003D3723 /* BorderView.swift in Sources */,
+				65D85C002B4A473800D939D0 /* SortbyTVCell.swift in Sources */,
 				650DBA472B453E8C0052294A /* IndexPagemodel.swift in Sources */,
 				653E2D2A2B47EB650082AFF6 /* FlightClass.swift in Sources */,
+				65CB2CEE2B493241009B5B2E /* SideMenuViewController.swift in Sources */,
 				651717F12B43F8D4003D3723 /* DateExtension.swift in Sources */,
+				65CB2D132B495440009B5B2E /* PriceDetails.swift in Sources */,
+				65D85C082B4A478100D939D0 /* LabelTVCell.swift in Sources */,
 				651717EE2B43F8D4003D3723 /* TableViewExtensions.swift in Sources */,
 				653E2D222B47E9A50082AFF6 /* FlightSearchParams.swift in Sources */,
+				65D85C182B4A486F00D939D0 /* NoInternetConnectionVC.swift in Sources */,
 				653E2D362B4831690082AFF6 /* ModifySearchVC.swift in Sources */,
 				65B679912B443D1100E5D1C3 /* SelectCityCVCell.swift in Sources */,
+				65D85C102B4A47A700D939D0 /* FilterDepartureTVCell.swift in Sources */,
 				650DBA502B4547CC0052294A /* SelectLanguageTVCell.swift in Sources */,
+				65CB2D0B2B495384009B5B2E /* FlightDetailsModel.swift in Sources */,
+				65CB2CFA2B49328A009B5B2E /* SideMenuTitleTVCell.swift in Sources */,
 				653E2D322B47EBFB0082AFF6 /* Price.swift in Sources */,
 				651717ED2B43F8D4003D3723 /* UIKitHelper.swift in Sources */,
 				6501F3642B485CD900F4625B /* FlightDeatilsVC.swift in Sources */,
 				65B679A42B44475A00E5D1C3 /* TopcityGuidesTVCell.swift in Sources */,
 				65B679962B443D9200E5D1C3 /* SelectDestCVCell.swift in Sources */,
+				65D85C152B4A47CB00D939D0 /* SliderTVCell.swift in Sources */,
 				653E2D202B47E94D0082AFF6 /* FlightDataModel.swift in Sources */,
 				65113B932B47D5F400C4B3E4 /* FlightResultSummeryTVCell.swift in Sources */,
 				65B959282B4687F300A4EAE7 /* SingleClass.swift in Sources */,
@@ -1400,13 +1707,18 @@
 				65113B892B47B94000C4B3E4 /* FlightResultVC.swift in Sources */,
 				6517182A2B441630003D3723 /* TripsVC.swift in Sources */,
 				6517180C2B43F8D4003D3723 /* Decodable.swift in Sources */,
+				65CB2D022B49469C009B5B2E /* ItineraryTVCell.swift in Sources */,
 				650DBA532B4549950052294A /* SelectCurrencyModel.swift in Sources */,
+				65D85BFC2B4A471F00D939D0 /* checkOptionsTVCell.swift in Sources */,
 				6517182C2B44163F003D3723 /* ProfileVC.swift in Sources */,
+				65D85C052B4A477100D939D0 /* PopularFiltersTVCell.swift in Sources */,
 				65113B8E2B47C8A500C4B3E4 /* FlightResultTVCell.swift in Sources */,
 				650DBA4B2B4547170052294A /* SelectLanguageVC.swift in Sources */,
 				65B959382B46DD7E00A4EAE7 /* CountrylistModel.swift in Sources */,
 				651717F02B43F8D4003D3723 /* TextFieldExtension.swift in Sources */,
 				651717F42B43F8D4003D3723 /* UIColorManager.swift in Sources */,
+				65CB2D192B49548A009B5B2E /* Date_charge_fee.swift in Sources */,
+				65D85BEC2B4A467500D939D0 /* FilterVC.swift in Sources */,
 				651718092B43F8D4003D3723 /* ColorManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1576,7 +1888,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = 5TLY5PME9K;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TravgateApp/Info.plist;
@@ -1610,7 +1922,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = 5TLY5PME9K;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TravgateApp/Info.plist;

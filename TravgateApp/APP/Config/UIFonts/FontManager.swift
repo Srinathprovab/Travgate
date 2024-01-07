@@ -47,7 +47,7 @@ extension UIFont {
     
     
     public static func LatoRegular(size: CGFloat) -> UIFont {
-        return UIFont(name: "Lato-Regular", size: size)!
+        return UIFont(name: "OpenSans-Regular", size: size)!
     }
     
 //    public static func LatoLight(size: CGFloat) -> UIFont {
@@ -70,6 +70,13 @@ extension UIFont {
     }
     
     
+    public static func LatoLight(size: CGFloat) -> UIFont {
+        return UIFont(name: "OpenSans-Light", size: size)!
+    }
+    
+    
+    
+    
     public static func OpenSansMedium(size: CGFloat) -> UIFont {
         return UIFont(name: "OpenSans-Medium", size: size)!
     }
@@ -77,6 +84,12 @@ extension UIFont {
     public static func OpenSansBold(size: CGFloat) -> UIFont {
         return UIFont(name: "OpenSans-Bold", size: size)!
     }
+    
+    public static func LatoBold(size: CGFloat) -> UIFont {
+        return UIFont(name: "OpenSans-Bold", size: size)!
+    }
+    
+    
     
     public static func OpenSansRegular(size: CGFloat) -> UIFont {
         return UIFont(name: "OpenSans-Regular", size: size)!

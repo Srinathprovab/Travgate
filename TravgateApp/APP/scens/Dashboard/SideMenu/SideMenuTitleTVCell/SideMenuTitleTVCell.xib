@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="48" id="KGk-i7-Jjw" customClass="SideMenuTitleTVCell" customModule="Travrun" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="419" height="46"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="419" height="46"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dbG-LR-ZCm">
+                        <rect key="frame" x="0.0" y="0.0" width="419" height="46"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="X6h-7H-LhZ">
+                                <rect key="frame" x="16" y="10.666666666666664" width="372" height="25"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DBK-Un-UL1">
+                                        <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="C7u-3x-J1y"/>
+                                            <constraint firstAttribute="width" constant="25" id="IvV-fa-EKS"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FG2-7y-EnT">
+                                        <rect key="frame" x="41" y="0.0" width="331" height="25"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menubarArrow" translatesAutoresizingMaskIntoConstraints="NO" id="DZp-gz-pMk">
+                                <rect key="frame" x="388" y="17.666666666666668" width="6" height="11"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="11" id="Hp3-IH-BLa"/>
+                                    <constraint firstAttribute="width" constant="6" id="xXr-4k-NKF"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="DZp-gz-pMk" secondAttribute="trailing" constant="25" id="DKb-oh-gLp"/>
+                            <constraint firstItem="DZp-gz-pMk" firstAttribute="leading" secondItem="X6h-7H-LhZ" secondAttribute="trailing" id="Ssc-CF-cfX"/>
+                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="46" id="XZ1-Ce-EIq"/>
+                            <constraint firstItem="X6h-7H-LhZ" firstAttribute="leading" secondItem="dbG-LR-ZCm" secondAttribute="leading" constant="16" id="de0-rS-olq"/>
+                            <constraint firstItem="DZp-gz-pMk" firstAttribute="centerY" secondItem="FG2-7y-EnT" secondAttribute="centerY" id="g5X-Ta-7d8"/>
+                            <constraint firstItem="X6h-7H-LhZ" firstAttribute="top" secondItem="dbG-LR-ZCm" secondAttribute="top" constant="10.67" id="mFm-n3-MZX"/>
+                        </constraints>
+                    </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yaq-rH-ySp">
+                        <rect key="frame" x="0.0" y="0.0" width="419" height="46"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="46" id="u0N-hZ-urG"/>
+                        </constraints>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                        <connections>
+                            <action selector="sideMenuButtonAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="52b-lN-msk"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="dbG-LR-ZCm" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="43P-7d-Rn3"/>
+                    <constraint firstAttribute="trailing" secondItem="dbG-LR-ZCm" secondAttribute="trailing" id="9Hp-KD-uHX"/>
+                    <constraint firstItem="Yaq-rH-ySp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Eta-ce-Wgu"/>
+                    <constraint firstItem="dbG-LR-ZCm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="HqZ-tJ-O88"/>
+                    <constraint firstAttribute="bottom" secondItem="dbG-LR-ZCm" secondAttribute="bottom" id="PSb-4a-YSJ"/>
+                    <constraint firstAttribute="bottom" secondItem="Yaq-rH-ySp" secondAttribute="bottom" id="XMl-kU-SNe"/>
+                    <constraint firstItem="Yaq-rH-ySp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="oo3-ua-k8U"/>
+                    <constraint firstAttribute="trailing" secondItem="Yaq-rH-ySp" secondAttribute="trailing" id="xg6-sw-1TJ"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="arrowImage" destination="DZp-gz-pMk" id="g8W-9K-oha"/>
+                <outlet property="holderView" destination="dbG-LR-ZCm" id="n1Y-LK-nSg"/>
+                <outlet property="imgWidth" destination="IvV-fa-EKS" id="75u-Kz-1M7"/>
+                <outlet property="menuOptionImg" destination="DBK-Un-UL1" id="Cci-Yx-i60"/>
+                <outlet property="menuTitlelbl" destination="FG2-7y-EnT" id="iV4-Vy-jiw"/>
+                <outlet property="sideMenuButton" destination="Yaq-rH-ySp" id="XZi-ro-u1w"/>
+            </connections>
+            <point key="canvasLocation" x="130.53435114503816" y="21.126760563380284"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="menubarArrow" width="6" height="11"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

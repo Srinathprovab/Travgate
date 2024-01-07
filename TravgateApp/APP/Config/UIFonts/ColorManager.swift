@@ -34,6 +34,15 @@ extension UIColor {
         }
     }
     
+    public static var AppBorderColor : UIColor {
+        
+        get {
+            return UIColor(named: "BorderColor")!
+        }
+    }
+    
+    
+    
     
     public static var Buttoncolor : UIColor {
         
@@ -41,6 +50,39 @@ extension UIColor {
             return UIColor(named: "Buttoncolor")!
         }
     }
+    
+    
+    public static var AppTabSelectColor : UIColor {
+        
+        get {
+            return UIColor(named: "Buttoncolor")!
+        }
+    }
+    
+    
+    
+    
+    
+    
+    public static var AppBtnColor : UIColor {
+        
+        get {
+            return UIColor(named: "Buttoncolor")!
+        }
+    }
+    
+    
+    public static var AppCalenderDateSelectColor : UIColor {
+        
+        get {
+            return UIColor(named: "Buttoncolor")!
+        }
+    }
+    
+    
+    
+    
+    
     
     
     public static var FlightDetailsBtnColor : UIColor {
@@ -77,12 +119,30 @@ extension UIColor {
     }
     
     
+    public static var SubTitleColor : UIColor {
+        
+        get {
+            return UIColor(named: "SubtitleColor")!
+        }
+    }
+    
+    
     public static var TitleColor : UIColor {
         
         get {
             return UIColor(named: "TitleColor")!
         }
     }
+    
+    public static var AppLabelColor : UIColor {
+        
+        get {
+            return UIColor(named: "TitleColor")!
+        }
+    }
+    
+    
+    
     
     
     public static var WhiteColor : UIColor {

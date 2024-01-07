@@ -10,8 +10,8 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="OpenSans-SemiBold.ttf">
-            <string>OpenSans-SemiBold</string>
+        <array key="OpenSans-Medium.ttf">
+            <string>OpenSans-Medium</string>
         </array>
     </customFonts>
     <objects>
@@ -30,21 +30,39 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dest" translatesAutoresizingMaskIntoConstraints="NO" id="11q-Sp-USb">
                                 <rect key="frame" x="0.0" y="0.0" width="222" height="167"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dubai" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HQZ-cG-rlP">
-                                <rect key="frame" x="12" y="135.66666666666666" width="198" height="19.333333333333343"/>
-                                <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="14"/>
-                                <color key="textColor" name="WhiteColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KfL-lT-lou" customClass="BorderedView" customModule="TravgateApp" customModuleProvider="target">
+                                <rect key="frame" x="51" y="135" width="120" height="30"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jw Marriott marquis" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HfH-l4-nyO">
+                                        <rect key="frame" x="5" y="5" width="110" height="20"/>
+                                        <fontDescription key="fontDescription" name="OpenSans-Medium" family="Open Sans" pointSize="14"/>
+                                        <color key="textColor" name="WhiteColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="5xh-Y5-doo"/>
+                                    <constraint firstAttribute="trailing" secondItem="HfH-l4-nyO" secondAttribute="trailing" constant="5" id="9Mo-5v-M8r"/>
+                                    <constraint firstItem="HfH-l4-nyO" firstAttribute="leading" secondItem="KfL-lT-lou" secondAttribute="leading" constant="5" id="IC7-kV-jhu"/>
+                                    <constraint firstItem="HfH-l4-nyO" firstAttribute="top" secondItem="KfL-lT-lou" secondAttribute="top" constant="5" id="Sxf-P0-U1t"/>
+                                    <constraint firstAttribute="bottom" secondItem="HfH-l4-nyO" secondAttribute="bottom" constant="5" id="Zyq-of-53u"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="120" id="lRw-kH-xOH"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="KfL-lT-lou" firstAttribute="centerX" secondItem="dcB-xe-L6K" secondAttribute="centerX" id="EA6-V3-FyE"/>
                             <constraint firstAttribute="bottom" secondItem="11q-Sp-USb" secondAttribute="bottom" id="HRl-rC-Jby"/>
-                            <constraint firstAttribute="trailing" secondItem="HQZ-cG-rlP" secondAttribute="trailing" constant="12" id="PYo-gQ-zlq"/>
-                            <constraint firstItem="HQZ-cG-rlP" firstAttribute="leading" secondItem="dcB-xe-L6K" secondAttribute="leading" constant="12" id="UxI-DG-cgW"/>
                             <constraint firstItem="11q-Sp-USb" firstAttribute="top" secondItem="dcB-xe-L6K" secondAttribute="top" id="a2L-8O-CVc"/>
-                            <constraint firstAttribute="bottom" secondItem="HQZ-cG-rlP" secondAttribute="bottom" constant="12" id="c8f-BG-BX2"/>
                             <constraint firstItem="11q-Sp-USb" firstAttribute="leading" secondItem="dcB-xe-L6K" secondAttribute="leading" id="cV9-dJ-fK7"/>
+                            <constraint firstAttribute="bottom" secondItem="KfL-lT-lou" secondAttribute="bottom" constant="2" id="sWf-Tn-AJ9"/>
                             <constraint firstAttribute="trailing" secondItem="11q-Sp-USb" secondAttribute="trailing" id="wlr-jM-TBk"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
@@ -65,7 +83,7 @@
             <size key="customSize" width="222" height="167"/>
             <connections>
                 <outlet property="img" destination="11q-Sp-USb" id="mUG-lh-cRB"/>
-                <outlet property="titlelbl" destination="HQZ-cG-rlP" id="S0a-oa-2xo"/>
+                <outlet property="titlelbl" destination="HfH-l4-nyO" id="lS3-vj-BiX"/>
             </connections>
             <point key="canvasLocation" x="61.068702290076331" y="60.91549295774648"/>
         </collectionViewCell>

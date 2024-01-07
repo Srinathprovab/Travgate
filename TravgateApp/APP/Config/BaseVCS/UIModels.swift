@@ -34,6 +34,20 @@ enum TVCellType {
     case FlightSearchTVCell
     case FlightResultTVCell
     case TicketIssuingTimeTVCell
+    case QuickLinkTableViewCell
+    case SideMenuTitleTVCell
+    case MenuBGTVCell
+    case ItineraryTVCell
+    
+    //FILTER
+    case SliderTVCell
+    case CheckBoxTVCell
+    case FilterDepartureTVCell
+    case LabelTVCell
+    case PopularFiltersTVCell
+    case DepartureTimeTVCell
+    case ButtonTVCell
+    case SortbyTVCell
     
     
 }

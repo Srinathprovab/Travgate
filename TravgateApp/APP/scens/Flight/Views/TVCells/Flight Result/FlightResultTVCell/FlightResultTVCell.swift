@@ -25,6 +25,7 @@ class FlightResultTVCell: TableViewCell {
     @IBOutlet weak var bottomView: UIView!
     
     
+    var selectedResult = String()
     var newsimilarList = [[FlightList]]()
     var delegate:FlightResultTVCellDelegate?
     var flightsummery = [Summary]()
@@ -49,6 +50,7 @@ class FlightResultTVCell: TableViewCell {
     }
     
     override func updateUI() {
+        selectedResult = cellInfo?.title ?? ""
         flightsummery = cellInfo?.data1 as! [Summary]
         flightlist = cellInfo?.moreData as? FlightList
         
@@ -62,6 +64,11 @@ class FlightResultTVCell: TableViewCell {
             fareTypelbl.textColor = .BackBtnColor
         }else {
             fareTypelbl.textColor = .BooknowBtnColor
+        }
+        
+        
+        if cellInfo?.key == "similar" {
+            bottomView.isHidden = true
         }
         
         tvheight.constant = CGFloat((flightsummery.count ) * 133)
@@ -125,7 +132,7 @@ extension FlightResultTVCell:UITableViewDelegate,UITableViewDataSource {
             cell.toCityNamelbl.text = "\(data.destination?.city ?? "")(\(data.destination?.loc ?? ""))"
             cell.hourslbl.text = data.duration
             cell.noOfStopslbl.text = "\(data.no_of_stops ?? 0) Stop"
-            cell.inNolbl.text = "(\(data.flight_number ?? "")"
+            cell.inNolbl.text = "\(data.operator_code ?? "") \(data.flight_number ?? "")"
             cell.logoImg.sd_setImage(with: URL(string: data.operator_image ?? ""), placeholderImage:UIImage(contentsOfFile:"placeholder.png"))
             cell.classlbl.text = data.fclass?.name
             
@@ -134,6 +141,7 @@ extension FlightResultTVCell:UITableViewDelegate,UITableViewDataSource {
             if summeryTV.isLast(for: indexPath) {
                 cell.ul.isHidden = true
             }
+            
             
             
             c = cell

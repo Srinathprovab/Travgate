@@ -9,6 +9,22 @@ import Foundation
 import UIKit
 
 
+func setupLabels(lbl:UILabel,text:String,textcolor:UIColor,font:UIFont) {
+    lbl.text = text
+    lbl.textColor = textcolor
+    lbl.font = font
+}
+
+//MARK: - INITIAL SETUP LABELS
+func setuplabels(lbl:UILabel,text:String,textcolor:UIColor,font:UIFont,align:NSTextAlignment) {
+    lbl.text = text
+    lbl.textColor = textcolor
+    lbl.font = font
+    lbl.numberOfLines = 0
+    lbl.textAlignment = align
+}
+
+
 class MySingleton {
     // Declare static constant instance
     static let shared = MySingleton()
@@ -23,9 +39,11 @@ class MySingleton {
     var indexpagevm:IndexPageViewModel?
     var topFlightDetails = [TopFlightDetails]()
     var topHotelDetails = [TopHotelDetails]()
-    var deail_code_list = [Deail_code_list]()
+    var deail_code_list = [Deal_code_list]()
     var currencyListArray = [SelectCurrencyData]()
     
+    
+  
     
     //Flight Search
     var directFlightBool = false
@@ -40,7 +58,14 @@ class MySingleton {
     var vm:FlightListViewModel?
     var flights = [[FlightList]]()
     var callboolapi = false
-    
+    var fdvm:FlightDetailsViewModel?
+    var bookingsource = String()
+    var bookingsourcekey = String()
+    var searchid = String()
+    var selectedResult = String()
+    var fd : [[ItinearyFlightDetails]]?
+    let dateFormatter = DateFormatter()
+    var similarflightList = [[FlightList]]()
     
     // Private initializer to prevent multiple instances
     private init() {
@@ -107,6 +132,43 @@ class MySingleton {
             print("Unable to find clist.json in the Xcode project.")
         }
         
+        
+    }
+    
+    
+    
+    //MARK: - convertToDesiredFormat
+
+    func convertToDesiredFormat(_ inputString: String) -> String {
+        if let number = Int(inputString.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()) {
+            if inputString.contains("Kilograms") {
+                return "\(number) kg"
+            } else if inputString.contains("NumberOfPieces") {
+                return "\(number) pc"
+            }
+        }
+        return "Invalid input format."
+    }
+    
+    
+    
+    //MARK: - setAttributedTextnew
+    func setAttributedTextnew(str1:String,str2:String,lbl:UILabel,str1font:UIFont,str2font:UIFont,str1Color:UIColor,str2Color:UIColor)  {
+        
+        let atter1 = [NSAttributedString.Key.foregroundColor:str1Color,
+                      NSAttributedString.Key.font:str1font] as [NSAttributedString.Key : Any]
+        let atter2 = [NSAttributedString.Key.foregroundColor:str2Color,
+                      NSAttributedString.Key.font:str2font] as [NSAttributedString.Key : Any]
+        
+        let atterStr1 = NSMutableAttributedString(string: str1, attributes: atter1)
+        let atterStr2 = NSMutableAttributedString(string: str2, attributes: atter2)
+        
+        
+        let combination = NSMutableAttributedString()
+        combination.append(atterStr1)
+        combination.append(atterStr2)
+        
+        lbl.attributedText = combination
         
     }
 }

@@ -22,6 +22,7 @@ class ViewController: UIViewController {
     
     
     func gotodashBoardScreen() {
+        MySingleton.shared.callboolapi = true
         guard let vc = DashBoardTBVC.newInstance.self else {return}
         vc.modalPresentationStyle = .fullScreen
         vc.selectedIndex = 0

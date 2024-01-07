@@ -28,16 +28,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="443" height="285"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Popular Destinations" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xft-OR-pc9">
-                                <rect key="frame" x="15" y="16" width="413" height="22"/>
+                                <rect key="frame" x="15" y="16" width="413" height="122"/>
                                 <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="16"/>
                                 <color key="textColor" name="BackBtnColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="64d-u4-aKZ">
-                                <rect key="frame" x="18" y="53" width="407" height="225"/>
+                                <rect key="frame" x="18" y="153" width="407" height="125"/>
                                 <subviews>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="zDv-S3-QhL">
-                                        <rect key="frame" x="0.0" y="0.0" width="407" height="80"/>
+                                    <collectionView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="zDv-S3-QhL">
+                                        <rect key="frame" x="0.0" y="-80" width="407" height="80"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="80" id="wG0-DU-fC0"/>
@@ -50,7 +50,7 @@
                                         </collectionViewFlowLayout>
                                     </collectionView>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="vJi-Yp-iG1">
-                                        <rect key="frame" x="0.0" y="100" width="407" height="125"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="407" height="125"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="125" id="RXZ-ZO-QDg"/>

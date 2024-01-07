@@ -14,6 +14,8 @@ class PopularDestinationsTVCell: TableViewCell {
     @IBOutlet weak var selectDestCV: UICollectionView!
     
     
+    var itemCount = Int()
+    var autoScrollTimer: Timer?
     var flightlist = [TopFlightDetails]()
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -32,8 +34,8 @@ class PopularDestinationsTVCell: TableViewCell {
     
     override func updateUI() {
         flightlist = MySingleton.shared.topFlightDetails
-        
-        
+        itemCount = flightlist.count
+       // startAutoScroll()
         selectDestCV.reloadData()
     }
     
@@ -136,4 +138,44 @@ extension PopularDestinationsTVCell:UICollectionViewDelegate,UICollectionViewDat
     
     
     
+}
+
+
+// MARK: - Auto Scrolling
+extension PopularDestinationsTVCell {
+    
+    
+    func startAutoScroll() {
+        autoScrollTimer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(scrollToNextItem), userInfo: nil, repeats: true)
+    }
+    
+    func stopAutoScroll() {
+        autoScrollTimer?.invalidate()
+        autoScrollTimer = nil
+    }
+    
+    @objc func scrollToNextItem() {
+        
+        
+        guard itemCount > 0 else {
+            return // No items in the collection view
+        }
+        
+        let currentIndexPaths = selectDestCV.indexPathsForVisibleItems.sorted()
+        let lastIndexPath = currentIndexPaths.last ?? IndexPath(item: 0, section: 0)
+        
+        var nextIndexPath: IndexPath
+        
+        if lastIndexPath.item == itemCount - 1 {
+            nextIndexPath = IndexPath(item: 0, section: lastIndexPath.section)
+        } else {
+            nextIndexPath = IndexPath(item: lastIndexPath.item + 1, section: lastIndexPath.section)
+        }
+        
+        if nextIndexPath.item >= itemCount {
+            nextIndexPath = IndexPath(item: 0, section: nextIndexPath.section) // Adjust the index path if it exceeds the bounds
+        }
+        
+        selectDestCV.scrollToItem(at: nextIndexPath, at: .centeredHorizontally, animated: true)
+    }
 }
