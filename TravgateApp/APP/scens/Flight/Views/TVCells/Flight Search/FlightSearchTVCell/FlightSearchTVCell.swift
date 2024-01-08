@@ -479,7 +479,7 @@ extension FlightSearchTVCell:UICollectionViewDelegate,UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         if let cell = collectionView.cellForItem(at: indexPath) as? InfoCVCell {
-            cell.checkimg.image = UIImage(named: "check")?.withRenderingMode(.alwaysOriginal).withTintColor(.Buttoncolor)
+            cell.checkimg.image = UIImage(named: "check")
             MySingleton.shared.infoArray.append(cell.titlelbl.text ?? "")
             
             print(MySingleton.shared.infoArray.joined(separator: ","))

@@ -30,6 +30,7 @@ enum TVCellType {
     case EmptyTVCell
     case SelectLanguageTVCell
     
+    
     //Flight
     case FlightSearchTVCell
     case FlightResultTVCell
@@ -38,6 +39,9 @@ enum TVCellType {
     case SideMenuTitleTVCell
     case MenuBGTVCell
     case ItineraryTVCell
+    case FareBreakdownTVCell
+    case FareSummaryTVCell
+    
     
     //FILTER
     case SliderTVCell

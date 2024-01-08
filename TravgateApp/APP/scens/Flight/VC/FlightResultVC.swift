@@ -166,6 +166,7 @@ extension FlightResultVC: FlightListModelProtocal {
         MySingleton.shared.searchid = "\(response.data?.search_id ?? 0)"
         MySingleton.shared.bookingsource = response.data?.j_flight_list?[0][0].booking_source_key ?? ""
         MySingleton.shared.bookingsourcekey = response.data?.j_flight_list?[0][0].booking_source ?? ""
+        MySingleton.shared.traceid = response.data?.traceId ?? ""
         
         
         cityslbl.text = "\(defaults.string(forKey: UserDefaultsKeys.fcity) ?? "") - \(defaults.string(forKey: UserDefaultsKeys.tcity) ?? "")"
@@ -822,16 +823,13 @@ extension FlightResultVC:AppliedFilters {
             }
             setupSortTVCell(list: sortedArray)
             
+        } else if sortBy == .nothing{
+            setupTVCell(list: MySingleton.shared.flights)
         }
-        
-        
-        
         
     }
     
-    //    else if sortBy == .nothing{
-    //            setupTVCell(list: MySingleton.shared.flights)
-    //        }
+       
     
     
     

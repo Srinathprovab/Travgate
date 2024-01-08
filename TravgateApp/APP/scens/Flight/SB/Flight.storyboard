@@ -1504,15 +1504,9 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aYg-86-XBA" customClass="BorderedView" customModule="TravgateApp" customModuleProvider="target">
                                         <rect key="frame" x="16" y="762" width="361" height="65"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Book Now" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fCB-vU-W82">
-                                                <rect key="frame" x="20.000000000000007" y="20.333333333333371" width="91.666666666666686" height="24.666666666666671"/>
-                                                <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="18"/>
-                                                <color key="textColor" name="WhiteColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="KWD 54.250" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1qh-o6-fFa">
-                                                <rect key="frame" x="215.66666666666666" y="20.333333333333371" width="125.33333333333334" height="24.333333333333329"/>
-                                                <fontDescription key="fontDescription" name="Inter-Bold" family="Inter" pointSize="20"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Continue To Payment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fCB-vU-W82">
+                                                <rect key="frame" x="73" y="19" width="215" height="27.333333333333329"/>
+                                                <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="20"/>
                                                 <color key="textColor" name="WhiteColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -1522,16 +1516,14 @@
                                                 <buttonConfiguration key="configuration" style="plain"/>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" name="BooknowBtnColor"/>
+                                        <color key="backgroundColor" name="Buttoncolor"/>
                                         <constraints>
+                                            <constraint firstItem="fCB-vU-W82" firstAttribute="centerX" secondItem="aYg-86-XBA" secondAttribute="centerX" id="42x-Ge-KeX"/>
                                             <constraint firstItem="Rkb-dq-1LH" firstAttribute="top" secondItem="aYg-86-XBA" secondAttribute="top" id="4ez-kh-py4"/>
-                                            <constraint firstItem="fCB-vU-W82" firstAttribute="centerY" secondItem="aYg-86-XBA" secondAttribute="centerY" id="9AM-cx-Rvp"/>
+                                            <constraint firstItem="fCB-vU-W82" firstAttribute="centerY" secondItem="aYg-86-XBA" secondAttribute="centerY" id="Msi-Qg-ubT"/>
                                             <constraint firstAttribute="trailing" secondItem="Rkb-dq-1LH" secondAttribute="trailing" id="PPI-Lu-S4h"/>
                                             <constraint firstAttribute="bottom" secondItem="Rkb-dq-1LH" secondAttribute="bottom" id="XnD-2x-S0b"/>
-                                            <constraint firstItem="1qh-o6-fFa" firstAttribute="centerY" secondItem="fCB-vU-W82" secondAttribute="centerY" id="YRV-5b-edU"/>
-                                            <constraint firstAttribute="trailing" secondItem="1qh-o6-fFa" secondAttribute="trailing" constant="20" id="YgQ-rt-kHo"/>
                                             <constraint firstItem="Rkb-dq-1LH" firstAttribute="leading" secondItem="aYg-86-XBA" secondAttribute="leading" id="nAr-XO-Q7M"/>
-                                            <constraint firstItem="fCB-vU-W82" firstAttribute="leading" secondItem="aYg-86-XBA" secondAttribute="leading" constant="20" id="tdM-8Q-QjP"/>
                                             <constraint firstAttribute="height" constant="65" id="wIv-ZV-4Oo"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
@@ -1567,6 +1559,7 @@
                     </view>
                     <connections>
                         <outlet property="commonTableView" destination="3Kf-S7-4gb" id="am0-Dn-dTl"/>
+                        <outlet property="holderView" destination="9KT-Pw-doX" id="HBg-FK-C3h"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xol-sb-dHi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

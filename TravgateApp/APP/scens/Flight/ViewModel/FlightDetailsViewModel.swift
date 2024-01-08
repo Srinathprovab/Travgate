@@ -7,9 +7,6 @@
 
 import Foundation
 
-
-
-
 protocol FlightDetailsViewModelDelegate : BaseViewModelProtocol {
     func flightDetails(response : FlightDetailsModel)
 

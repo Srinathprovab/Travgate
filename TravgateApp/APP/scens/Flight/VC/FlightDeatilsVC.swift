@@ -54,7 +54,8 @@ class FlightDeatilsVC: BaseTableVC, FlightDetailsViewModelDelegate {
         
         
         commonTableView.registerTVCells(["TicketIssuingTimeTVCell",
-                                         "ItineraryTVCell"])
+                                         "ItineraryTVCell",
+                                         "FareBreakdownTVCell"])
         
         
     }
@@ -185,14 +186,14 @@ extension FlightDeatilsVC {
     func flightDetails(response: FlightDetailsModel) {
         holderView.isHidden = false
         self.fd = response.flightDetails ?? [[]]
-       
+        MySingleton.shared.flightPriceDetails = response.priceDetails
         MySingleton.shared.setAttributedTextnew(str1: "\(response.priceDetails?.api_currency ?? "")",
-                             str2: "\(response.priceDetails?.grand_total ?? "")",
-                             lbl: kwdlbl,
-                             str1font: .OpenSansBold(size: 12),
-                             str2font: .OpenSansBold(size: 18),
-                             str1Color: .WhiteColor,
-                             str2Color: .WhiteColor)
+                                                str2: "\(response.priceDetails?.grand_total ?? "")",
+                                                lbl: kwdlbl,
+                                                str1font: .OpenSansBold(size: 12),
+                                                str2font: .OpenSansBold(size: 18),
+                                                str1Color: .WhiteColor,
+                                                str2Color: .WhiteColor)
         
         DispatchQueue.main.async {[self] in
             ittanneryTap()
@@ -228,6 +229,8 @@ extension FlightDeatilsVC {
         
         MySingleton.shared.tablerow.removeAll()
         
+        MySingleton.shared.tablerow.append(TableRow(cellType: .FareBreakdownTVCell))
+        
         
         commonTVData = MySingleton.shared.tablerow
         commonTableView.reloadData()
@@ -249,12 +252,12 @@ extension FlightDeatilsVC {
     func setupBaggageTVCell() {
         
         MySingleton.shared.tablerow.removeAll()
-
+        
         commonTVData = MySingleton.shared.tablerow
         commonTableView.reloadData()
         
     }
-
+    
     
 }
 

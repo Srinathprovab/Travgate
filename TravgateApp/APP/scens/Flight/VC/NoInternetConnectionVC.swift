@@ -21,7 +21,7 @@ class NoInternetConnectionVC: UIViewController {
     
     var key = String()
     static var newInstance: NoInternetConnectionVC? {
-        let storyboard = UIStoryboard(name: Storyboard.Main.name,
+        let storyboard = UIStoryboard(name: Storyboard.Flight.name,
                                       bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: self.className()) as? NoInternetConnectionVC
         return vc

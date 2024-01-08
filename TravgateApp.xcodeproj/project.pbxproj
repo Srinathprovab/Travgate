@@ -108,6 +108,18 @@
 		653E2D342B47FDEF0082AFF6 /* FlightViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653E2D332B47FDEF0082AFF6 /* FlightViewModel.swift */; };
 		653E2D362B4831690082AFF6 /* ModifySearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653E2D352B4831690082AFF6 /* ModifySearchVC.swift */; };
 		653E2D382B48393A0082AFF6 /* SimilarFlightsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653E2D372B48393A0082AFF6 /* SimilarFlightsVC.swift */; };
+		658B37052B4BB28C0011932C /* FareBreakdownTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658B37032B4BB28C0011932C /* FareBreakdownTVCell.swift */; };
+		658B37062B4BB28C0011932C /* FareBreakdownTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 658B37042B4BB28C0011932C /* FareBreakdownTVCell.xib */; };
+		658B370B2B4BDE220011932C /* MobilePreProcessBookingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658B370A2B4BDE220011932C /* MobilePreProcessBookingModel.swift */; };
+		658B370D2B4BDEE20011932C /* MPBFlightData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658B370C2B4BDEE20011932C /* MPBFlightData.swift */; };
+		658B370F2B4BDF900011932C /* MPBFlightDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658B370E2B4BDF900011932C /* MPBFlightDetails.swift */; };
+		658B37112B4BDFD60011932C /* Pre_booking_params.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658B37102B4BDFD50011932C /* Pre_booking_params.swift */; };
+		658B37132B4BE0200011932C /* MPBFormParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658B37122B4BE0200011932C /* MPBFormParams.swift */; };
+		658B37152B4BE0AE0011932C /* MPBSearchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658B37142B4BE0AE0011932C /* MPBSearchData.swift */; };
+		658B37172B4BE0DA0011932C /* Frequent_flyers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658B37162B4BE0DA0011932C /* Frequent_flyers.swift */; };
+		658B37192B4BE1090011932C /* MPBViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658B37182B4BE1090011932C /* MPBViewModel.swift */; };
+		658B371C2B4BFA580011932C /* FareSummaryTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658B371A2B4BFA580011932C /* FareSummaryTVCell.swift */; };
+		658B371D2B4BFA580011932C /* FareSummaryTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 658B371B2B4BFA580011932C /* FareSummaryTVCell.xib */; };
 		65B679662B441DE800E5D1C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65B679652B441DE800E5D1C3 /* Main.storyboard */; };
 		65B6796F2B44229C00E5D1C3 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 65B6796D2B4421FC00E5D1C3 /* OpenSans-Bold.ttf */; };
 		65B679702B44229C00E5D1C3 /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 65B6796E2B4421FD00E5D1C3 /* OpenSans-Light.ttf */; };
@@ -315,6 +327,18 @@
 		653E2D332B47FDEF0082AFF6 /* FlightViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightViewModel.swift; sourceTree = "<group>"; };
 		653E2D352B4831690082AFF6 /* ModifySearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifySearchVC.swift; sourceTree = "<group>"; };
 		653E2D372B48393A0082AFF6 /* SimilarFlightsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimilarFlightsVC.swift; sourceTree = "<group>"; };
+		658B37032B4BB28C0011932C /* FareBreakdownTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FareBreakdownTVCell.swift; sourceTree = "<group>"; };
+		658B37042B4BB28C0011932C /* FareBreakdownTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FareBreakdownTVCell.xib; sourceTree = "<group>"; };
+		658B370A2B4BDE220011932C /* MobilePreProcessBookingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobilePreProcessBookingModel.swift; sourceTree = "<group>"; };
+		658B370C2B4BDEE20011932C /* MPBFlightData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPBFlightData.swift; sourceTree = "<group>"; };
+		658B370E2B4BDF900011932C /* MPBFlightDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPBFlightDetails.swift; sourceTree = "<group>"; };
+		658B37102B4BDFD50011932C /* Pre_booking_params.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pre_booking_params.swift; sourceTree = "<group>"; };
+		658B37122B4BE0200011932C /* MPBFormParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPBFormParams.swift; sourceTree = "<group>"; };
+		658B37142B4BE0AE0011932C /* MPBSearchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPBSearchData.swift; sourceTree = "<group>"; };
+		658B37162B4BE0DA0011932C /* Frequent_flyers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Frequent_flyers.swift; sourceTree = "<group>"; };
+		658B37182B4BE1090011932C /* MPBViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPBViewModel.swift; sourceTree = "<group>"; };
+		658B371A2B4BFA580011932C /* FareSummaryTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FareSummaryTVCell.swift; sourceTree = "<group>"; };
+		658B371B2B4BFA580011932C /* FareSummaryTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FareSummaryTVCell.xib; sourceTree = "<group>"; };
 		65B679652B441DE800E5D1C3 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		65B6796A2B4421FC00E5D1C3 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
 		65B6796B2B4421FC00E5D1C3 /* OpenSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiBold.ttf"; sourceTree = "<group>"; };
@@ -437,6 +461,7 @@
 		6501F3652B48614B00F4625B /* Fdetails */ = {
 			isa = PBXGroup;
 			children = (
+				658B37022B4BB2720011932C /* FareBreakdownTVCell */,
 				65CB2D042B494759009B5B2E /* AddItineraryTVCell */,
 				65CB2CFF2B494637009B5B2E /* ItineraryTVCell */,
 				6501F3662B48615400F4625B /* TicketIssuingTimeTVCell */,
@@ -823,6 +848,7 @@
 		651718192B440B5C003D3723 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				658B37092B4BDDF20011932C /* MobilePreProcessBookingModel */,
 				65CB2D092B495362009B5B2E /* FlightDetailsModel */,
 				653E2D182B47E86F0082AFF6 /* FlightModel */,
 				65B959322B468F9300A4EAE7 /* SelectCityModel */,
@@ -833,6 +859,7 @@
 		6517181A2B440B64003D3723 /* TVCells */ = {
 			isa = PBXGroup;
 			children = (
+				658B37072B4BDAC50011932C /* BookingDetails */,
 				65D85BED2B4A469A00D939D0 /* Filters */,
 				6501F3652B48614B00F4625B /* Fdetails */,
 				65113B8A2B47C88200C4B3E4 /* Flight Result */,
@@ -893,6 +920,46 @@
 				653E2D312B47EBFB0082AFF6 /* Price.swift */,
 			);
 			path = FlightModel;
+			sourceTree = "<group>";
+		};
+		658B37022B4BB2720011932C /* FareBreakdownTVCell */ = {
+			isa = PBXGroup;
+			children = (
+				658B37032B4BB28C0011932C /* FareBreakdownTVCell.swift */,
+				658B37042B4BB28C0011932C /* FareBreakdownTVCell.xib */,
+			);
+			path = FareBreakdownTVCell;
+			sourceTree = "<group>";
+		};
+		658B37072B4BDAC50011932C /* BookingDetails */ = {
+			isa = PBXGroup;
+			children = (
+				658B37082B4BDACF0011932C /* FareSummaryTVCell */,
+			);
+			path = BookingDetails;
+			sourceTree = "<group>";
+		};
+		658B37082B4BDACF0011932C /* FareSummaryTVCell */ = {
+			isa = PBXGroup;
+			children = (
+				658B371A2B4BFA580011932C /* FareSummaryTVCell.swift */,
+				658B371B2B4BFA580011932C /* FareSummaryTVCell.xib */,
+			);
+			path = FareSummaryTVCell;
+			sourceTree = "<group>";
+		};
+		658B37092B4BDDF20011932C /* MobilePreProcessBookingModel */ = {
+			isa = PBXGroup;
+			children = (
+				658B370A2B4BDE220011932C /* MobilePreProcessBookingModel.swift */,
+				658B370C2B4BDEE20011932C /* MPBFlightData.swift */,
+				658B370E2B4BDF900011932C /* MPBFlightDetails.swift */,
+				658B37102B4BDFD50011932C /* Pre_booking_params.swift */,
+				658B37122B4BE0200011932C /* MPBFormParams.swift */,
+				658B37142B4BE0AE0011932C /* MPBSearchData.swift */,
+				658B37162B4BE0DA0011932C /* Frequent_flyers.swift */,
+			);
+			path = MobilePreProcessBookingModel;
 			sourceTree = "<group>";
 		};
 		65B679642B441CB800E5D1C3 /* SB */ = {
@@ -1074,6 +1141,7 @@
 				65B959302B468F8000A4EAE7 /* SelectCityViewModel.swift */,
 				653E2D332B47FDEF0082AFF6 /* FlightViewModel.swift */,
 				65CB2D1A2B49552F009B5B2E /* FlightDetailsViewModel.swift */,
+				658B37182B4BE1090011932C /* MPBViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1400,6 +1468,7 @@
 				65B679712B44229C00E5D1C3 /* OpenSans-Medium.ttf in Resources */,
 				65B959262B466F1400A4EAE7 /* InfoCVCell.xib in Resources */,
 				65B679722B44229C00E5D1C3 /* OpenSans-Regular.ttf in Resources */,
+				658B37062B4BB28C0011932C /* FareBreakdownTVCell.xib in Resources */,
 				65B679732B44229C00E5D1C3 /* OpenSans-SemiBold.ttf in Resources */,
 				65D85C042B4A477100D939D0 /* PopularFiltersTVCell.xib in Resources */,
 				650DBA5D2B456CE90052294A /* FlightSearchTVCell.xib in Resources */,
@@ -1446,6 +1515,7 @@
 				65D85C0D2B4A479500D939D0 /* DepartureTimeTVCell.xib in Resources */,
 				65D85C012B4A473800D939D0 /* SortbyTVCell.xib in Resources */,
 				651717F92B43F8D4003D3723 /* Oswald-Regular.ttf in Resources */,
+				658B371D2B4BFA580011932C /* FareSummaryTVCell.xib in Resources */,
 				651717F52B43F8D4003D3723 /* Oswald-Bold.ttf in Resources */,
 				651718042B43F8D4003D3723 /* Poppins-SemiBold.ttf in Resources */,
 				651717FA2B43F8D4003D3723 /* Lato-Light.ttf in Resources */,
@@ -1644,6 +1714,7 @@
 				65CB2CEC2B492AC5009B5B2E /* Deal_code_list.swift in Sources */,
 				65B9592D2B468DFD00A4EAE7 /* FromCityTVCell.swift in Sources */,
 				651717EC2B43F8D4003D3723 /* ButtonExtension.swift in Sources */,
+				658B370B2B4BDE220011932C /* MobilePreProcessBookingModel.swift in Sources */,
 				653E2D1A2B47E8810082AFF6 /* FlightModel.swift in Sources */,
 				651717F22B43F8D4003D3723 /* UITapGestureRecognizer.swift in Sources */,
 				650DBA572B4562920052294A /* FlightSearchVC.swift in Sources */,
@@ -1660,6 +1731,7 @@
 				65D85C0C2B4A479500D939D0 /* DepartureTimeTVCell.swift in Sources */,
 				651717DE2B43F8D4003D3723 /* BaseVC.swift in Sources */,
 				6517180A2B43F8D4003D3723 /* DeviceName.swift in Sources */,
+				658B37052B4BB28C0011932C /* FareBreakdownTVCell.swift in Sources */,
 				65D85C222B4A55CB00D939D0 /* DepartureTimeCVCell.swift in Sources */,
 				65B959252B466F1400A4EAE7 /* InfoCVCell.swift in Sources */,
 				651714162B43F837003D3723 /* SceneDelegate.swift in Sources */,
@@ -1678,6 +1750,7 @@
 				65CB2D112B49542D009B5B2E /* Baggage_details.swift in Sources */,
 				651717E92B43F8D4003D3723 /* BorderView.swift in Sources */,
 				65D85C002B4A473800D939D0 /* SortbyTVCell.swift in Sources */,
+				658B370D2B4BDEE20011932C /* MPBFlightData.swift in Sources */,
 				650DBA472B453E8C0052294A /* IndexPagemodel.swift in Sources */,
 				653E2D2A2B47EB650082AFF6 /* FlightClass.swift in Sources */,
 				65CB2CEE2B493241009B5B2E /* SideMenuViewController.swift in Sources */,
@@ -1687,6 +1760,8 @@
 				651717EE2B43F8D4003D3723 /* TableViewExtensions.swift in Sources */,
 				653E2D222B47E9A50082AFF6 /* FlightSearchParams.swift in Sources */,
 				65D85C182B4A486F00D939D0 /* NoInternetConnectionVC.swift in Sources */,
+				658B370F2B4BDF900011932C /* MPBFlightDetails.swift in Sources */,
+				658B37172B4BE0DA0011932C /* Frequent_flyers.swift in Sources */,
 				653E2D362B4831690082AFF6 /* ModifySearchVC.swift in Sources */,
 				65B679912B443D1100E5D1C3 /* SelectCityCVCell.swift in Sources */,
 				65D85C102B4A47A700D939D0 /* FilterDepartureTVCell.swift in Sources */,
@@ -1704,13 +1779,18 @@
 				65B959282B4687F300A4EAE7 /* SingleClass.swift in Sources */,
 				653E2D382B48393A0082AFF6 /* SimilarFlightsVC.swift in Sources */,
 				65B679862B4425CE00E5D1C3 /* TabSelectTVCell.swift in Sources */,
+				658B37152B4BE0AE0011932C /* MPBSearchData.swift in Sources */,
+				658B371C2B4BFA580011932C /* FareSummaryTVCell.swift in Sources */,
 				65113B892B47B94000C4B3E4 /* FlightResultVC.swift in Sources */,
 				6517182A2B441630003D3723 /* TripsVC.swift in Sources */,
 				6517180C2B43F8D4003D3723 /* Decodable.swift in Sources */,
+				658B37132B4BE0200011932C /* MPBFormParams.swift in Sources */,
 				65CB2D022B49469C009B5B2E /* ItineraryTVCell.swift in Sources */,
+				658B37112B4BDFD60011932C /* Pre_booking_params.swift in Sources */,
 				650DBA532B4549950052294A /* SelectCurrencyModel.swift in Sources */,
 				65D85BFC2B4A471F00D939D0 /* checkOptionsTVCell.swift in Sources */,
 				6517182C2B44163F003D3723 /* ProfileVC.swift in Sources */,
+				658B37192B4BE1090011932C /* MPBViewModel.swift in Sources */,
 				65D85C052B4A477100D939D0 /* PopularFiltersTVCell.swift in Sources */,
 				65113B8E2B47C8A500C4B3E4 /* FlightResultTVCell.swift in Sources */,
 				650DBA4B2B4547170052294A /* SelectLanguageVC.swift in Sources */,

@@ -55,17 +55,25 @@ class MySingleton {
     var icount = 0
     var infoArray = [String]()
     var countrylist = [Country_list]()
-    var vm:FlightListViewModel?
     var flights = [[FlightList]]()
     var callboolapi = false
-    var fdvm:FlightDetailsViewModel?
     var bookingsource = String()
     var bookingsourcekey = String()
     var searchid = String()
+    var traceid = String()
     var selectedResult = String()
     var fd : [[ItinearyFlightDetails]]?
     let dateFormatter = DateFormatter()
     var similarflightList = [[FlightList]]()
+    var flightPriceDetails: PriceDetails?
+    var mpbpriceDetails: PriceDetails?
+    
+    var vm:FlightListViewModel?
+    var fdvm:FlightDetailsViewModel?
+    var mpbvm:MPBViewModel?
+    
+    
+    
     
     // Private initializer to prevent multiple instances
     private init() {

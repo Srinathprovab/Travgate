@@ -7,9 +7,10 @@
 
 import UIKit
 
-class BookingDetailsVC: BaseTableVC {
+class BookingDetailsVC: BaseTableVC, MPBViewModelDelegate {
     
     
+    @IBOutlet weak var holderView: UIView!
     static var newInstance: BookingDetailsVC? {
         let storyboard = UIStoryboard(name: Storyboard.Flight.name,
                                       bundle: nil)
@@ -27,9 +28,16 @@ class BookingDetailsVC: BaseTableVC {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        setupUI()
+        MySingleton.shared.mpbvm = MPBViewModel(self)
     }
     
     
+    
+    
+    func setupUI() {
+        commonTableView.registerTVCells(["FareSummaryTVCell"])
+    }
     
     
     @IBAction func didTapOnBackBtnAction(_ sender: Any) {
@@ -46,8 +54,39 @@ class BookingDetailsVC: BaseTableVC {
 extension BookingDetailsVC {
     
     func callAPI() {
-        
+        holderView.isHidden = true
+        if MySingleton.shared.callboolapi == true {
+            MySingleton.shared.payload.removeAll()
+            MySingleton.shared.payload["search_id"] =  MySingleton.shared.searchid
+            MySingleton.shared.payload["selectedResult"] =  MySingleton.shared.selectedResult
+            MySingleton.shared.payload["booking_source"] =  MySingleton.shared.bookingsource
+            MySingleton.shared.payload["traceId"] =  MySingleton.shared.traceid
+            MySingleton.shared.payload["user_id"] =  defaults.string(forKey: UserDefaultsKeys.userid) ?? "0"
+            MySingleton.shared.mpbvm?.CALL_MOBILE_PRE_PROCESS_BOOKING_API(dictParam: MySingleton.shared.payload)
+        }
     }
+    
+    
+    func MPBDetails(response: MobilePreProcessBookingModel) {
+        holderView.isHidden = false
+        MySingleton.shared.mpbpriceDetails = response.pre_booking_params?.priceDetails
+        
+        DispatchQueue.main.async {[self] in
+            setupTVCell()
+        }
+    }
+    
+    
+    
+    func setupTVCell() {
+        MySingleton.shared.tablerow.removeAll()
+        
+        MySingleton.shared.tablerow.append(TableRow(cellType:.FareSummaryTVCell))
+        
+        commonTVData = MySingleton.shared.tablerow
+        commonTableView.reloadData()
+    }
+    
 }
 
 
