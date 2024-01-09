@@ -8,7 +8,10 @@
 import UIKit
 import MaterialComponents
 
-class BaseTableVC: UIViewController, TabSelectTVCellDelegate, FlightSearchTVCellDelegate, FlightResultTVCellDelegate, SideMenuTitleTVCellDelegate, MenuBGTVCellDelegate, SliderTVCellDelegate, CheckBoxTVCellDelegate, FilterDepartureTVCellDelegate, LabelTVCellDelegate, PopularFiltersTVCellDelegate,DepartureTimeTVCellDelegate, ButtonTVCellDelegate, SortbyTVCellDelegate {
+class BaseTableVC: UIViewController, TabSelectTVCellDelegate, FlightSearchTVCellDelegate, FlightResultTVCellDelegate, SideMenuTitleTVCellDelegate, MenuBGTVCellDelegate, SliderTVCellDelegate, CheckBoxTVCellDelegate, FilterDepartureTVCellDelegate, LabelTVCellDelegate, PopularFiltersTVCellDelegate,DepartureTimeTVCellDelegate, ButtonTVCellDelegate, SortbyTVCellDelegate, BookingDetailsFlightDataTVCellDelegate, TDetailsLoginTVCellDelegate, AddDeatilsOfTravellerTVCellDelegate, ContactInformationTVCellDelegate, UsePromoCodesTVCellDelegate {
+    
+    
+    
     
     
     
@@ -150,6 +153,34 @@ class BaseTableVC: UIViewController, TabSelectTVCellDelegate, FlightSearchTVCell
     func didTapOnShowSliderBtn(cell: SliderTVCell) {}
     func didSelectDepartureTime(cell: DepartureTimeCVCell) {}
     func didDeSelectDepartureTime(cell: DepartureTimeCVCell) {}
+    func didTapOnFlightDetails(cell: BookingDetailsFlightDataTVCell) {}
+    func didTapOnLoginBtn(cell: TDetailsLoginTVCell) {}
+    
+    
+    func didTapOnExpandAdultViewbtnAction(cell: AddDeatilsOfTravellerTVCell) {}
+    func tfeditingChanged(tf: UITextField) {}
+    func didTapOnTitleBtnAction(cell: AddDeatilsOfTravellerTVCell) {}
+    func didTapOnMrBtnAction(cell: AddDeatilsOfTravellerTVCell) {}
+    func didTapOnMrsBtnAction(cell: AddDeatilsOfTravellerTVCell) {}
+    func didTapOnMissBtnAction(cell: AddDeatilsOfTravellerTVCell) {}
+    func didTapOnSaveTravellerDetailsBtnAction(cell: AddDeatilsOfTravellerTVCell) {}
+    func editingMDCOutlinedTextField(tf: UITextField) {}
+    func donedatePicker(cell: AddDeatilsOfTravellerTVCell) {}
+    func cancelDatePicker(cell: AddDeatilsOfTravellerTVCell) {}
+    func didTapOnSelectNationalityBtn(cell: AddDeatilsOfTravellerTVCell) {}
+    func didTapOnSelectIssuingCountryBtn(cell: AddDeatilsOfTravellerTVCell) {}
+    func didTapOnMealPreferenceBtn(cell: AddDeatilsOfTravellerTVCell) {}
+    func didTapOnSpecialAssicintenceBtn(cell: AddDeatilsOfTravellerTVCell) {}
+    func didTapOnFlyerProgramBtnAction(cell: AddDeatilsOfTravellerTVCell) {}
+    
+    
+    func didTapOnCountryCodeBtn(cell: ContactInformationTVCell) {}
+    func editingTextField(tf: UITextField) {}
+    func didTapOnDropDownBtn(cell: ContactInformationTVCell) {}
+    
+    func didTapOnViewAllPromoCodesBtn(cell: UsePromoCodesTVCell) {}
+    func didTapOnApplyPromosCodesBtn(cell: UsePromoCodesTVCell) {}
+    func editingChanged(tf: UITextField) {}
     
     
     
@@ -347,6 +378,61 @@ extension BaseTableVC: UITableViewDataSource {
                 commonCell = cell
                 
                 
+                
+            case .BookingDetailsFlightDataTVCell:
+                let cell: BookingDetailsFlightDataTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                cell.delegate = self
+                commonCell = cell
+                
+                
+                
+            case .TDetailsLoginTVCell:
+                let cell:  TDetailsLoginTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                cell.delegate = self
+                commonCell = cell
+                
+                
+                
+                
+            case .AddDeatilsOfTravellerTVCell:
+                let cell:  AddDeatilsOfTravellerTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                cell.delegate = self
+                commonCell = cell
+                
+                
+            case .TotalNoofTravellerTVCell:
+                let cell:  TotalNoofTravellerTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                commonCell = cell
+                
+                
+            case .UsePromoCodesTVCell:
+                let cell:  UsePromoCodesTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                cell.delegate = self
+                commonCell = cell
+                
+                
+            case .ContactInformationTVCell:
+                let cell:  ContactInformationTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                cell.delegate = self
+                commonCell = cell
+                
+                
+                
+                
+            case .BookingConfirmedTVCell:
+                let cell:  BookingConfirmedTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                commonCell = cell
+                
+                
+                
+            case .BookedTravelDetailsTVCell:
+                let cell:  BookedTravelDetailsTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                commonCell = cell
+                
+                
+            case .BCFlightDetailsTVCell:
+                let cell:  BCFlightDetailsTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                commonCell = cell
                 
                 
             default:

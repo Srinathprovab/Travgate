@@ -319,48 +319,6 @@
             </objects>
             <point key="canvasLocation" x="-770" y="1680"/>
         </scene>
-        <!--Side Menu View Controller-->
-        <scene sceneID="gSH-TZ-M9Q">
-            <objects>
-                <viewController storyboardIdentifier="SideMenuViewController" id="znJ-pV-9Ws" customClass="SideMenuViewController" customModule="Travrun" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Bfk-9D-rBn">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hFf-m6-puK">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                                <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="FQY-FT-DL5">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                    </tableView>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="FQY-FT-DL5" firstAttribute="leading" secondItem="hFf-m6-puK" secondAttribute="leading" id="LEd-AQ-f3g"/>
-                                    <constraint firstAttribute="bottom" secondItem="FQY-FT-DL5" secondAttribute="bottom" id="XM6-mX-eQf"/>
-                                    <constraint firstItem="FQY-FT-DL5" firstAttribute="top" secondItem="hFf-m6-puK" secondAttribute="top" id="h2u-iN-0ag"/>
-                                    <constraint firstAttribute="trailing" secondItem="FQY-FT-DL5" secondAttribute="trailing" id="pOs-8a-u6K"/>
-                                </constraints>
-                            </view>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="NWF-HA-ISl"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="hFf-m6-puK" firstAttribute="leading" secondItem="Bfk-9D-rBn" secondAttribute="leading" id="7pe-Bh-NWx"/>
-                            <constraint firstAttribute="bottom" secondItem="hFf-m6-puK" secondAttribute="bottom" id="HxP-ju-2o1"/>
-                            <constraint firstItem="hFf-m6-puK" firstAttribute="top" secondItem="Bfk-9D-rBn" secondAttribute="top" id="b7K-tx-Ksh"/>
-                            <constraint firstItem="NWF-HA-ISl" firstAttribute="trailing" secondItem="hFf-m6-puK" secondAttribute="trailing" id="qoy-q4-lHE"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="commonTableView" destination="FQY-FT-DL5" id="CtI-65-Xdz"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LVO-cO-dyT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="161" y="1680"/>
-        </scene>
     </scenes>
     <resources>
         <image name="flash" width="428" height="926"/>

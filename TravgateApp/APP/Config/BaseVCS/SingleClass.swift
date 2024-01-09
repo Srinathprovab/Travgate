@@ -34,6 +34,7 @@ class MySingleton {
     var myVariable2: String
     var tablerow = [TableRow]()
     var payload = [String:Any]()
+    var payload1 = [String:Any]()
     
     //Home Page
     var indexpagevm:IndexPageViewModel?
@@ -62,17 +63,37 @@ class MySingleton {
     var searchid = String()
     var traceid = String()
     var selectedResult = String()
+    var tmpFlightPreBookingId = String()
+    var accesskeytp = String()
     var fd : [[ItinearyFlightDetails]]?
     let dateFormatter = DateFormatter()
     var similarflightList = [[FlightList]]()
     var flightPriceDetails: PriceDetails?
     var mpbpriceDetails: PriceDetails?
+    var mpbFlightData : MPBFlightDetails?
+    var travelerArray: [Traveler] = []
+    var frequent_flyersArray = [Frequent_flyers]()
+    var ageCategory: AgeCategory = .adult
+    var passportExpireDateBool = false
+    var passengertypeArray = [String]()
+    var positionsCount = 0
+    var searchTextArray = [String]()
+    var payemail = String()
+    var paymobile = String()
+    var paymobilecountrycode = String()
     
+    //TIMER
+    weak var delegate: TimerManagerDelegate?
+    var timerDidFinish = false
+    var timer: Timer?
+    var totalTime = 1
+    private var backgroundTask: UIBackgroundTaskIdentifier = .invalid
+
+
+    //View Models
     var vm:FlightListViewModel?
     var fdvm:FlightDetailsViewModel?
     var mpbvm:MPBViewModel?
-    
-    
     
     
     // Private initializer to prevent multiple instances
@@ -179,4 +200,62 @@ class MySingleton {
         lbl.attributedText = combination
         
     }
+    
+    
+    
+    //MARK: - Timer SETUP
+    func startTimer(time:Int) {
+        endBackgroundTask() // End any existing background task (if any)
+        backgroundTask = UIApplication.shared.beginBackgroundTask { [weak self] in
+            self?.endBackgroundTask()
+        }
+
+        // Reset the totalTime to its initial value (e.g., 60 seconds)
+        totalTime = time
+
+        // Schedule the timer in the common run loop mode
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+        RunLoop.current.add(timer!, forMode: .common)
+    }
+
+
+    @objc func updateTimer() {
+        if totalTime != 0 {
+            totalTime -= 1
+            delegate?.updateTimer()
+        } else {
+            sessionStop()
+            delegate?.timerDidFinish()
+            endBackgroundTask()
+        }
+    }
+
+    @objc func sessionStop() {
+        if let timer = timer {
+            timer.invalidate()
+            self.timer = nil
+        }
+    }
+
+    func stopTimer() {
+        if let timer = timer {
+            timer.invalidate()
+            self.timer = nil
+        }
+    }
+
+
+    private func endBackgroundTask() {
+        guard backgroundTask != .invalid else { return }
+        UIApplication.shared.endBackgroundTask(backgroundTask)
+        backgroundTask = .invalid
+    }
 }
+
+
+protocol TimerManagerDelegate: AnyObject {
+    func timerDidFinish()
+    func updateTimer()
+}
+
+

@@ -60,6 +60,40 @@ var amenitiesArray = [String]()
 var nearBylocationsArray = [String]()
 var kwdPriceArray = [String]()
 var dateArray = [String]()
+var fl : [[FlightList]]?
+
+
+
+
+var lastContentOffset: CGFloat = 0
+
+var urlString = String()
+var tablerow = [TableRow]()
+var bookingsource = String()
+var bookingStatus = String()
+var bookingRefrence = String()
+var bookedDate = String()
+var pnrNo = String()
+var bookingId = String()
+var flightSelectedIndex = Int()
+var userspecification = [String]()
+
+var hotelimg = ""
+var hotel_check_in = ""
+var hotel_check_out = ""
+var hotel_name = ""
+var hotel_address = ""
+var total_rooms = ""
+var adult_count = ""
+var vocherpdf = ""
+var bookingitinerarydetails = [Booking_itinerary_details]()
+var Customerdetails = [Customer_details]()
+var currency = ""
+var totalPrice = ""
+var totalPax = ""
+var viewModel:VocherDetailsViewModel?
+
+
 
 struct MapModel {
     var longitude =  String()
@@ -117,7 +151,7 @@ struct UserDefaultsKeys {
     static var journeyDates = "journeyDates"
     static var cellTag = "cellTag"
     static var flightrefundtype = "flightrefundtype"
-    
+    static var mcountrycode = "mcountrycode"
     
     
     //ONE WAY

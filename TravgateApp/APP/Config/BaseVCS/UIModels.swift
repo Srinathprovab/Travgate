@@ -41,6 +41,19 @@ enum TVCellType {
     case ItineraryTVCell
     case FareBreakdownTVCell
     case FareSummaryTVCell
+    case BookingDetailsFlightDataTVCell
+    case TDetailsLoginTVCell
+    case AddDeatilsOfTravellerTVCell
+    case TotalNoofTravellerTVCell
+    case ContactInformationTVCell
+    case UsePromoCodesTVCell
+    
+    
+    
+    //Booking
+    case BookingConfirmedTVCell
+    case BCFlightDetailsTVCell
+    case BookedTravelDetailsTVCell
     
     
     //FILTER

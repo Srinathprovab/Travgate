@@ -21,7 +21,7 @@ class FlightResultSummeryTVCell: UITableViewCell {
     @IBOutlet weak var luggagelbl: UILabel!
     @IBOutlet weak var worklbl: UILabel!
     @IBOutlet weak var classlbl: UILabel!
-    
+    @IBOutlet weak var baggageView: UIStackView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

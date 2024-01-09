@@ -218,6 +218,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="baggageView" destination="Y37-7y-x9D" id="LPf-em-1DL"/>
                 <outlet property="classlbl" destination="2lm-mY-36m" id="dav-vB-SX4"/>
                 <outlet property="fromCityNamelbl" destination="9mI-UQ-7aF" id="LdF-xM-SuO"/>
                 <outlet property="fromCityTimelbl" destination="WGv-5u-Kqa" id="2I4-ig-K1T"/>

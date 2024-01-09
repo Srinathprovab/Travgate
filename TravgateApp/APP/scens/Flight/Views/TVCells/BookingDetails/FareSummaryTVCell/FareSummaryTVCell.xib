@@ -474,7 +474,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="adultPasslbl" destination="FsG-oP-6go" id="VbR-gK-Bct"/>
-                <outlet property="adultValuelbl" destination="a00-f4-VyE" id="oWv-vz-6Q6"/>
+                <outlet property="adultValuelbl" destination="9Z3-Ta-WCJ" id="Vg0-ca-Qdn"/>
                 <outlet property="adultView" destination="T4V-K1-azp" id="WZx-vV-whJ"/>
                 <outlet property="adultfare" destination="ssi-7K-NXk" id="fTV-Mx-Kfv"/>
                 <outlet property="adulttax" destination="Po5-AK-Zcx" id="aRW-Fe-PkE"/>

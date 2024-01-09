@@ -25,7 +25,7 @@ class FlightResultVC: BaseTableVC {
         return vc
     }
     
-    var fl = [[FlightList]]()
+   
     var filterdFlightList :[[FlightList]]?
     
     override func viewWillAppear(_ animated: Bool) {
@@ -187,6 +187,7 @@ extension FlightResultVC: FlightListModelProtocal {
         fl = response.data?.j_flight_list ?? [[]]
         MySingleton.shared.flights = response.data?.j_flight_list ?? [[]]
         DispatchQueue.main.async {[self] in
+            appendPriceAndDate(list: response.data?.j_flight_list ?? [[]])
             self.setupTVCell(list: MySingleton.shared.flights)
         }
     }
@@ -198,7 +199,7 @@ extension FlightResultVC: FlightListModelProtocal {
     func setupTVCell(list:[[FlightList]]) {
         MySingleton.shared.tablerow.removeAll()
         
-        appendPriceAndDate(list: list)
+       
         var updatedUniqueList: [[FlightList]] = []
         updatedUniqueList = getUniqueElements_oneway(inputArray: list)
         
@@ -578,9 +579,6 @@ extension FlightResultVC:AppliedFilters {
     
     func filtersByApplied(minpricerange: Double, maxpricerange: Double, noofStopsArray: [String], refundableTypeArray: [String], departureTime: [String], arrivalTime: [String], noOvernightFlight: [String], airlinesFilterArray: [String], luggageFilterArray: [String], connectingFlightsFilterArray: [String], ConnectingAirportsFilterArray: [String]) {
         
-        
-        
-        
         print(" ===== minpricerange ====== \n\(minpricerange)")
         print(" ===== maxpricerange ====== \n\(maxpricerange)")
         print(" ===== noofStopsArray ====== \n\(noofStopsArray.joined(separator: ","))")
@@ -598,116 +596,95 @@ extension FlightResultVC:AppliedFilters {
         
         
         
+            let sortedArray = fl.map { flight in
+                flight.filter { j in
+                    
+                    guard let summary = j.first?.flight_details?.summary else { return false }
+                    guard let price = j.first?.price?.api_total_display_fare else { return false }
+                    guard let details = j.first?.flight_details?.details else { return false }
+                    
+                    let priceRangeMatch = ((Double(price) ) >= minpricerange && (Double(price) ) <= maxpricerange)
+                    let noOfStopsMatch = noofStopsArray.isEmpty || summary.contains(where: { noofStopsArray.contains("\($0.no_of_stops ?? 0)") }) == true
+                    let refundableMatch = refundableTypeArray.isEmpty || refundableTypeArray.contains(j.first?.fareType ?? "")
+                    let airlinesMatch = airlinesFilterArray.isEmpty || summary.contains(where: { airlinesFilterArray.contains($0.operator_name ?? "") }) == true
+                    
+                    
+                    
+                    let connectingFlightsMatch = flight.contains { flight in
+                        if connectingFlightsFilterArray.isEmpty {
+                            return true // Return true for all flights if 'connectingAirportsFA' is empty
+                        }
+                        
+                        
+                        for summaryArray in details {
+                            if summaryArray.contains(where: { flightDetail in
+                                let operatorname = flightDetail.operator_name ?? ""
+                                return connectingFlightsFilterArray.contains("\(operatorname)")
+                            }) {
+                                return true // Return true for this flight if it contains a matching airport
+                            }
+                        }
+                        
+                        
+                        return false // Return false if no matching airport is found in this flight
+                    }
+                    
+                    
+                    
+                    let ConnectingAirportsMatch = flight.contains { flight in
+                        if ConnectingAirportsFilterArray.isEmpty {
+                            return true // Return true for all flights if 'connectingAirportsFA' is empty
+                        }
+                        
+                        
+                        for summaryArray in details {
+                            if summaryArray.contains(where: { flightDetail in
+                                let airportName = flightDetail.destination?.airport_name ?? ""
+                                return ConnectingAirportsFilterArray.contains("\(airportName)")
+                            }) {
+                                return true // Return true for this flight if it contains a matching airport
+                            }
+                        }
+                        
+                        
+                        return false // Return false if no matching airport is found in this flight
+                    }
+                    
+                    
+                    
+                    
+                    
+                    let depMatch = departureTime.isEmpty || summary.first?.origin?.datetime.flatMap { departureDateTime in
+                        return departureTime.contains { departureTimeRange in
+                            let timeIsInRange = isTimeInRange(time: departureDateTime, range: String(departureTimeRange))
+                            return timeIsInRange
+                        }
+                    } ?? false
+                    
+                    
+                    // Filter by arrival time
+                    let arrMatch = arrivalTime.isEmpty || summary.first?.destination?.datetime.flatMap { arrivalDateTime in
+                        return arrivalTime.contains { arrivalTimeRange in
+                            let timeIsInRange = isTimeInRange(time: arrivalDateTime, range: String(arrivalTimeRange)) // Convert Character to String
+                            return timeIsInRange
+                        }
+                    } ?? false
+                    
+                    
+                    
+                    let luggageMatch = luggageFilterArray.isEmpty || summary.contains(where: {
+                        let formattedWeight = MySingleton.shared.convertToDesiredFormat($0.weight_Allowance ?? "")
+                        return luggageFilterArray.contains(formattedWeight)
+                    }) == true
+                    
+                    
+                    
+                    return priceRangeMatch && noOfStopsMatch && refundableMatch && airlinesMatch && connectingFlightsMatch && luggageMatch && depMatch && arrMatch && ConnectingAirportsMatch
+                }
+            }
         
-        //        let sortedArray: [[FlightList]] = fl.map { (flight: [FlightList]) -> [FlightList] in
-        //            return flight.filter { (j: FlightList) -> Bool in
-        //                guard let summary = j.first?.flight_details?.summary else { return false }
-        //                guard let price = j.first?.price?.api_total_display_fare else { return false }
-        //                // Other guard statements...
-        //
-        //                let priceRangeMatch: Bool = ((Double(price) ) >= minpricerange && (Double(price) ) <= maxpricerange)
-        //                let noOfStopsMatch: Bool = noofStopsArray.isEmpty || summary.contains(where: { noofStopsArray.contains("\($0.no_of_stops ?? 0)") }) == true
-        //                let refundableMatch: Bool = refundableTypeArray.isEmpty || refundableTypeArray.contains(j.first?.fareType ?? "")
-        //                let airlinesMatch: Bool = airlinesFilterArray.isEmpty || summary.contains(where: { airlinesFilterArray.contains($0.operator_name ?? "") }) == true
-        //
-        //                return priceRangeMatch && noOfStopsMatch && refundableMatch && airlinesMatch
-        //            }
-        //        }
         
-        
-        
-        
-        
-        
-        
-        //        let sortedArray = fl.map { flight in
-        //            flight.filter { j in
-        //
-        //                guard let summary = j.first?.flight_details?.summary else { return false }
-        //                guard let price = j.first?.price?.api_total_display_fare else { return false }
-        //                guard let details = j.first?.flight_details?.details else { return false }
-        //
-        //                let priceRangeMatch = ((Double(price) ) >= minpricerange && (Double(price) ) <= maxpricerange)
-        //                let noOfStopsMatch = noofStopsArray.isEmpty || summary.contains(where: { noofStopsArray.contains("\($0.no_of_stops ?? 0)") }) == true
-        //                let refundableMatch = refundableTypeArray.isEmpty || refundableTypeArray.contains(j.first?.fareType ?? "")
-        //                let airlinesMatch = airlinesFilterArray.isEmpty || summary.contains(where: { airlinesFilterArray.contains($0.operator_name ?? "") }) == true
-        //
-        //
-        //
-        //                let connectingFlightsMatch = flight.contains { flight in
-        //                    if connectingFlightsFilterArray.isEmpty {
-        //                        return true // Return true for all flights if 'connectingAirportsFA' is empty
-        //                    }
-        //
-        //
-        //                    for summaryArray in details {
-        //                        if summaryArray.contains(where: { flightDetail in
-        //                            let operatorname = flightDetail.operator_name ?? ""
-        //                            return connectingFlightsFilterArray.contains("\(operatorname)")
-        //                        }) {
-        //                            return true // Return true for this flight if it contains a matching airport
-        //                        }
-        //                    }
-        //
-        //
-        //                    return false // Return false if no matching airport is found in this flight
-        //                }
-        //
-        //
-        //
-        //                let ConnectingAirportsMatch = flight.contains { flight in
-        //                    if ConnectingAirportsFilterArray.isEmpty {
-        //                        return true // Return true for all flights if 'connectingAirportsFA' is empty
-        //                    }
-        //
-        //
-        //                    for summaryArray in details {
-        //                        if summaryArray.contains(where: { flightDetail in
-        //                            let airportName = flightDetail.destination?.airport_name ?? ""
-        //                            return ConnectingAirportsFilterArray.contains("\(airportName)")
-        //                        }) {
-        //                            return true // Return true for this flight if it contains a matching airport
-        //                        }
-        //                    }
-        //
-        //
-        //                    return false // Return false if no matching airport is found in this flight
-        //                }
-        //
-        //
-        //
-        //
-        //
-        //                let depMatch = departureTime.isEmpty || summary.first?.origin?.time.flatMap { departureDateTime in
-        //                    return departureTime.contains { departureTimeRange in
-        //                        let timeIsInRange = isTimeInRange(time: departureDateTime, range: String(departureTimeRange))
-        //                        return timeIsInRange
-        //                    }
-        //                } ?? false
-        //
-        //
-        //                // Filter by arrival time
-        //                let arrMatch = arrivalTime.isEmpty || summary.first?.destination?.time.flatMap { arrivalDateTime in
-        //                    return arrivalTime.contains { arrivalTimeRange in
-        //                        let timeIsInRange = isTimeInRange(time: arrivalDateTime, range: String(arrivalTimeRange)) // Convert Character to String
-        //                        return timeIsInRange
-        //                    }
-        //                } ?? false
-        //
-        //
-        //
-        //                let luggageMatch = luggageFilterArray.isEmpty || summary.contains(where: {
-        //                    let formattedWeight = MySingleton.shared.convertToDesiredFormat($0.weight_Allowance ?? "")
-        //                    return luggageFilterArray.contains(formattedWeight)
-        //                }) == true
-        //
-        //
-        //
-        //                return priceRangeMatch && noOfStopsMatch && refundableMatch && airlinesMatch && connectingFlightsMatch && luggageMatch && depMatch && arrMatch && ConnectingAirportsMatch
-        //            }
-        //        }
-        
-        //   setupTVCell(list: sortedArray)
+        setupTVCell(list: sortedArray ?? [[]])
         
     }
     
@@ -743,7 +720,7 @@ extension FlightResultVC:AppliedFilters {
             
         }else if sortBy == .DepartureLow {
             
-            let sortedArray = fl.flatMap { $0 }.sorted { a, b in
+            let sortedArray = MySingleton.shared.flights.flatMap { $0 }.sorted { a, b in
                 let operator_name1 = a.flight_details?.summary?.first?.destination?.time ?? ""
                 let operator_name2 = b.flight_details?.summary?.first?.destination?.time ?? ""
                 return operator_name1 < operator_name2 // Sort in descending order
@@ -755,7 +732,7 @@ extension FlightResultVC:AppliedFilters {
         }else if sortBy == .DepartureHigh {
             
             
-            let sortedArray = fl.flatMap { $0 }.sorted { a, b in
+            let sortedArray = MySingleton.shared.flights.flatMap { $0 }.sorted { a, b in
                 let operator_name1 = a.flight_details?.summary?.first?.destination?.time ?? ""
                 let operator_name2 = b.flight_details?.summary?.first?.destination?.time ?? ""
                 return operator_name1 > operator_name2 // Sort in descending order
@@ -766,7 +743,7 @@ extension FlightResultVC:AppliedFilters {
             
         }else if sortBy == .ArrivalLow{
             
-            let sortedArray = fl.flatMap { $0 }.sorted { a, b in
+            let sortedArray = MySingleton.shared.flights.flatMap { $0 }.sorted { a, b in
                 let operator_name1 = a.flight_details?.summary?.first?.origin?.time ?? ""
                 let operator_name2 = b.flight_details?.summary?.first?.origin?.time ?? ""
                 return operator_name1 < operator_name2 // Sort in descending order
@@ -776,7 +753,7 @@ extension FlightResultVC:AppliedFilters {
             
         }else if sortBy == .ArrivalHigh{
             
-            let sortedArray = fl.flatMap { $0 }.sorted { a, b in
+            let sortedArray = MySingleton.shared.flights.flatMap { $0 }.sorted { a, b in
                 let operator_name1 = a.flight_details?.summary?.first?.origin?.time ?? ""
                 let operator_name2 = b.flight_details?.summary?.first?.origin?.time ?? ""
                 return operator_name1 > operator_name2 // Sort in descending order
@@ -787,7 +764,7 @@ extension FlightResultVC:AppliedFilters {
             
         }else if sortBy == .DurationLow{
             
-            let sortedArray = fl.flatMap { $0 }.sorted { a, b in
+            let sortedArray = MySingleton.shared.flights.flatMap { $0 }.sorted { a, b in
                 let operator_name1 = a.flight_details?.summary?.first?.duration_seconds ?? 0
                 let operator_name2 = b.flight_details?.summary?.first?.duration_seconds ?? 0
                 return operator_name1 < operator_name2 // Sort in descending order
@@ -798,7 +775,7 @@ extension FlightResultVC:AppliedFilters {
             
         }else if sortBy == .DurationHigh{
             
-            let sortedArray = fl.flatMap { $0 }.sorted { a, b in
+            let sortedArray = MySingleton.shared.flights.flatMap { $0 }.sorted { a, b in
                 let operator_name1 = a.flight_details?.summary?.first?.duration_seconds ?? 0
                 let operator_name2 = b.flight_details?.summary?.first?.duration_seconds ?? 0
                 return operator_name1 > operator_name2 // Sort in descending order
@@ -807,7 +784,7 @@ extension FlightResultVC:AppliedFilters {
             setupSortTVCell(list: sortedArray)
             
         }else if sortBy == .airlinessortatoz {
-            let sortedArray = fl.flatMap { $0 }.sorted { a, b in
+            let sortedArray = MySingleton.shared.flights.flatMap { $0 }.sorted { a, b in
                 let operator_name1 = a.flight_details?.summary?.first?.operator_name ?? ""
                 let operator_name2 = b.flight_details?.summary?.first?.operator_name ?? ""
                 return operator_name1 < operator_name2 // Sort in ascending order
@@ -816,7 +793,7 @@ extension FlightResultVC:AppliedFilters {
         } else if sortBy == .airlinessortztoa {
             
             
-            let sortedArray = fl.flatMap { $0 }.sorted { a, b in
+            let sortedArray = MySingleton.shared.flights.flatMap { $0 }.sorted { a, b in
                 let operator_name1 = a.flight_details?.summary?.first?.operator_name ?? ""
                 let operator_name2 = b.flight_details?.summary?.first?.operator_name ?? ""
                 return operator_name1 > operator_name2 // Sort in ascending order
@@ -842,15 +819,17 @@ extension FlightResultVC {
     
     func addObserver() {
         
-        if MySingleton.shared.callboolapi == true {
-            callAPI()
-        }
+       
         
         NotificationCenter.default.addObserver(self, selector: #selector(nointernet), name: Notification.Name("offline"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(resultnil), name: NSNotification.Name("resultnil"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(nointrnetreload), name: Notification.Name("nointrnetreload"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(reload), name: Notification.Name("reload"), object: nil)
         
+        
+        if MySingleton.shared.callboolapi == true {
+            callAPI()
+        }
     }
     
     
@@ -878,6 +857,7 @@ extension FlightResultVC {
     
     //MARK: - nointernet
     @objc func nointernet() {
+        
         guard let vc = NoInternetConnectionVC.newInstance.self else {return}
         vc.modalPresentationStyle = .overCurrentContext
         vc.key = "nointernet"

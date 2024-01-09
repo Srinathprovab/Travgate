@@ -7,7 +7,7 @@
 
 import Foundation
 struct IndexPagemodel : Codable {
-    let city_data_list : [City_data_list]?
+    let city_data_list : [City_data_list1]?
     let status : Bool?
     let topHotelDetails : [TopHotelDetails]?
     let topFlightDetails : [TopFlightDetails]?
@@ -24,7 +24,7 @@ struct IndexPagemodel : Codable {
 
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        city_data_list = try values.decodeIfPresent([City_data_list].self, forKey: .city_data_list)
+        city_data_list = try values.decodeIfPresent([City_data_list1].self, forKey: .city_data_list)
         status = try values.decodeIfPresent(Bool.self, forKey: .status)
         topHotelDetails = try values.decodeIfPresent([TopHotelDetails].self, forKey: .topHotelDetails)
         topFlightDetails = try values.decodeIfPresent([TopFlightDetails].self, forKey: .topFlightDetails)

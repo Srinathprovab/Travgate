@@ -10,7 +10,7 @@ import UIKit
 class FlightSearchVC: BaseTableVC {
     
     
-    
+    @IBOutlet weak var logoimg: UIImageView!
     @IBOutlet weak var onewayView: BorderedView!
     @IBOutlet weak var onewaylbl: UILabel!
     @IBOutlet weak var roundtripView: BorderedView!
@@ -39,6 +39,7 @@ class FlightSearchVC: BaseTableVC {
     
     
     func onewayTap() {
+        logoimg.image = UIImage(named: "onewayimg")
         onewayView.backgroundColor = .Buttoncolor
         roundtripView.backgroundColor = .WhiteColor
         multicityView.backgroundColor = .WhiteColor
@@ -51,6 +52,7 @@ class FlightSearchVC: BaseTableVC {
     }
     
     func roundtripTap() {
+        logoimg.image = UIImage(named: "circleimg")
         onewayView.backgroundColor = .WhiteColor
         roundtripView.backgroundColor = .Buttoncolor
         multicityView.backgroundColor = .WhiteColor

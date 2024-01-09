@@ -36,9 +36,9 @@ class NoInternetConnectionVC: UIViewController {
     
     func noresultSetup(){
         wifiImg.image = UIImage(named: "oops")
-        setupLabels(lbl: titlelbl, text: "No Results Found", textcolor: .TitleColor, font: .OpenSansMedium(size: 18))
+        setupLabels(lbl: titlelbl, text: "No Results Found", textcolor: .TitleColor, font: .OpenSansMedium(size: 16))
         setupLabels(lbl: subTitlelbl, text: "Please Search Again", textcolor: .TitleColor, font: .OpenSansLight(size: 14))
-        setupLabels(lbl: btnlbl, text: "Search Again", textcolor: .WhiteColor, font: .OpenSansBold(size: 20))
+        setupLabels(lbl: btnlbl, text: "Search Again", textcolor: .WhiteColor, font: .OpenSansBold(size: 18))
     }
     
     
@@ -54,9 +54,9 @@ class NoInternetConnectionVC: UIViewController {
         wifiImg.image = UIImage(named: "wifi")
         closeImg.image = UIImage(named: "close1")
         
-        setupLabels(lbl: titlelbl, text: "No Internet Connection", textcolor: .AppLabelColor, font: .OpenSansMedium(size: 18))
+        setupLabels(lbl: titlelbl, text: "No Internet Connection", textcolor: .AppLabelColor, font: .OpenSansMedium(size: 16))
         setupLabels(lbl: subTitlelbl, text: "Please Check Your Internet Connection", textcolor: .AppLabelColor, font: .LatoLight(size: 14))
-        setupLabels(lbl: btnlbl, text: "Try Again", textcolor: .WhiteColor, font: .OpenSansBold(size: 20))
+        setupLabels(lbl: btnlbl, text: "Try Again", textcolor: .WhiteColor, font: .OpenSansBold(size: 18))
         tryAgainBtn.setTitle("", for: .normal)
         setupViews(v: btnView, radius: 4, color: .AppBtnColor)
     }
@@ -87,6 +87,7 @@ class NoInternetConnectionVC: UIViewController {
             
         }else {
             NotificationCenter.default.post(name: NSNotification.Name("reloadTV"), object: nil)
+            NotificationCenter.default.post(name: NSNotification.Name("nointrnetreload"), object: nil)
             dismiss(animated: false)
         }
     }

@@ -383,8 +383,10 @@ extension FlightSearchTVCell {
             infoViewbool.toggle()
             if infoViewbool {
                 infoView.isHidden = false
+                advanceSearchlbl.textColor = .BooknowBtnColor
             }else {
                 infoView.isHidden = true
+                advanceSearchlbl.textColor = .TitleColor
             }
             
             delegate?.didTapOnAdvanceOption(cell: self)
@@ -421,8 +423,10 @@ extension FlightSearchTVCell {
             infoViewbool.toggle()
             if infoViewbool {
                 additionalView.isHidden = false
+                selectadditionallbl.textColor = .BooknowBtnColor
             }else {
                 additionalView.isHidden = true
+                selectadditionallbl.textColor = .TitleColor
             }
             
             delegate?.didTapOnAdvanceOption(cell: self)

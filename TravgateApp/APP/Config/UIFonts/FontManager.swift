@@ -23,7 +23,7 @@ extension UIFont {
         return UIFont(name: "Poppins-Light", size: size)!
     }
     public static func poppinsMedium(size: CGFloat) -> UIFont {
-        return UIFont(name: "Poppins-Medium", size: size)!
+        return UIFont(name: "OpenSans-Medium", size: size)!
     }
     public static func poppinsRegular(size: CGFloat) -> UIFont {
         return UIFont(name: "Poppins-Medium", size: size)!
@@ -56,7 +56,7 @@ extension UIFont {
     
     
     public static func LatoSemibold(size: CGFloat) -> UIFont {
-        return UIFont(name: "Lato-Semibold", size: size)!
+        return UIFont(name: "OpenSans-Bold", size: size)!
     }
     
     public static func LatoMedium(size: CGFloat) -> UIFont {

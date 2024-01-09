@@ -144,11 +144,7 @@ extension DashboardVC:IndexPageViewModelDelegate {
         
     }
     
-    
-    
 }
-
-
 
 extension DashboardVC {
     
@@ -185,7 +181,7 @@ extension DashboardVC {
         }
         
         //MARK: Side Menu
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let storyboard = UIStoryboard(name: "Login", bundle: Bundle.main)
         self.sideMenuViewController = storyboard.instantiateViewController(withIdentifier: "SideMenuViewController") as? SideMenuViewController
         view.insertSubview(self.sideMenuViewController!.view, at: self.revealSideMenuOnTop ? 2 : 0)
         addChild(self.sideMenuViewController!)
@@ -268,10 +264,6 @@ extension DashboardVC {
     
     
 }
-
-
-
-
 
 extension DashboardVC: UIGestureRecognizerDelegate {
     
@@ -392,16 +384,16 @@ extension DashboardVC {
     
     func addObserver() {
         
-        if MySingleton.shared.callboolapi == true {
-            callIndexPageAPI()
-        }
-        
         NotificationCenter.default.addObserver(self, selector: #selector(nointernet), name: Notification.Name("offline"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(resultnil), name: NSNotification.Name("resultnil"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(nointrnetreload), name: Notification.Name("nointrnetreload"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(reload), name: Notification.Name("reload"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(selectedCurrency), name: Notification.Name("selectedCurrency"), object: nil)
         
+        
+        if MySingleton.shared.callboolapi == true {
+            callIndexPageAPI()
+        }
         
     }
     
@@ -434,13 +426,10 @@ extension DashboardVC {
     
     //MARK: - nointernet
     @objc func nointernet() {
-        
-        
         guard let vc = NoInternetConnectionVC.newInstance.self else {return}
         vc.modalPresentationStyle = .overCurrentContext
         vc.key = "nointernet"
         self.present(vc, animated: true)
     }
-    
     
 }

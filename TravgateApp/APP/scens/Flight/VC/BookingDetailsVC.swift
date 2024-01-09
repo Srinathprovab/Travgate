@@ -10,6 +10,7 @@ import UIKit
 class BookingDetailsVC: BaseTableVC, MPBViewModelDelegate {
     
     
+    @IBOutlet weak var sessionlbl: UILabel!
     @IBOutlet weak var holderView: UIView!
     static var newInstance: BookingDetailsVC? {
         let storyboard = UIStoryboard(name: Storyboard.Flight.name,
@@ -20,6 +21,8 @@ class BookingDetailsVC: BaseTableVC, MPBViewModelDelegate {
     
     
     
+    
+    //MARK: - Loading Functions
     override func viewWillAppear(_ animated: Bool) {
         addObserver()
     }
@@ -29,23 +32,83 @@ class BookingDetailsVC: BaseTableVC, MPBViewModelDelegate {
         
         // Do any additional setup after loading the view.
         setupUI()
+        MySingleton.shared.delegate = self
         MySingleton.shared.mpbvm = MPBViewModel(self)
     }
     
     
-    
-    
     func setupUI() {
-        commonTableView.registerTVCells(["FareSummaryTVCell"])
+        commonTableView.registerTVCells(["FareSummaryTVCell",
+                                         "EmptyTVCell",
+                                         "TDetailsLoginTVCell",
+                                         "TotalNoofTravellerTVCell",
+                                         "AddDeatilsOfTravellerTVCell",
+                                         "ContactInformationTVCell",
+                                         "UsePromoCodesTVCell",
+                                         "BookingDetailsFlightDataTVCell"])
     }
     
     
+    
+    
+    
+    //MARK: - didTapOnFlightDetails BookingDetailsFlightDataTVCell
+    override func didTapOnFlightDetails(cell: BookingDetailsFlightDataTVCell) {
+        MySingleton.shared.callboolapi = true
+        guard let vc = ViewFlightDetailsVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: false)
+    }
+    
+    
+    
+    
+    
+    
+    //MARK: - AddDeatilsOfTravellerTVCell Delegate Methods
+    
+    override func didTapOnExpandAdultViewbtnAction(cell: AddDeatilsOfTravellerTVCell) {
+        if cell.expandViewBool == true {
+            
+            cell.expandView()
+            cell.expandViewBool = false
+        }else {
+            
+            cell.collapsView()
+            cell.expandViewBool = true
+        }
+        
+        commonTableView.beginUpdates()
+        commonTableView.endUpdates()
+    }
+    
+    
+    override func tfeditingChanged(tf:UITextField) {
+        print(tf.tag)
+    }
+    
+    
+    
+    override func donedatePicker(cell:AddDeatilsOfTravellerTVCell){
+        self.view.endEditing(true)
+    }
+    
+    override func cancelDatePicker(cell:AddDeatilsOfTravellerTVCell){
+        self.view.endEditing(true)
+    }
+    
+    
+    override func didTapOnFlyerProgramBtnAction(cell:AddDeatilsOfTravellerTVCell){
+        
+    }
+    
+    
+    
+    //MARK: - didTapOnBackBtnAction
     @IBAction func didTapOnBackBtnAction(_ sender: Any) {
         MySingleton.shared.callboolapi = false
         dismiss(animated: true)
     }
-    
-    
     
 }
 
@@ -62,6 +125,7 @@ extension BookingDetailsVC {
             MySingleton.shared.payload["booking_source"] =  MySingleton.shared.bookingsource
             MySingleton.shared.payload["traceId"] =  MySingleton.shared.traceid
             MySingleton.shared.payload["user_id"] =  defaults.string(forKey: UserDefaultsKeys.userid) ?? "0"
+            
             MySingleton.shared.mpbvm?.CALL_MOBILE_PRE_PROCESS_BOOKING_API(dictParam: MySingleton.shared.payload)
         }
     }
@@ -70,6 +134,11 @@ extension BookingDetailsVC {
     func MPBDetails(response: MobilePreProcessBookingModel) {
         holderView.isHidden = false
         MySingleton.shared.mpbpriceDetails = response.pre_booking_params?.priceDetails
+        MySingleton.shared.mpbFlightData = response.flight_data?[0].flight_details
+        MySingleton.shared.frequent_flyersArray = response.frequent_flyers ?? []
+        
+        MySingleton.shared.stopTimer()
+        MySingleton.shared.startTimer(time: 10)
         
         DispatchQueue.main.async {[self] in
             setupTVCell()
@@ -81,7 +150,68 @@ extension BookingDetailsVC {
     func setupTVCell() {
         MySingleton.shared.tablerow.removeAll()
         
+        
+        if defaults.bool(forKey: UserDefaultsKeys.loggedInStatus) == false {
+            MySingleton.shared.tablerow.append(TableRow(cellType:.TDetailsLoginTVCell))
+        }
+        
+        MySingleton.shared.tablerow.append(TableRow(cellType:.BookingDetailsFlightDataTVCell,
+                                                    data1: MySingleton.shared.mpbFlightData?.summary))
+        
+        
+        MySingleton.shared.passengertypeArray.removeAll()
+        MySingleton.shared.tablerow.append(TableRow(height:10,cellType:.EmptyTVCell))
+        MySingleton.shared.tablerow.append(TableRow(title:"Traveller Details",
+                                                    subTitle: defaults.string(forKey: UserDefaultsKeys.totalTravellerCount),
+                                                    cellType:.TotalNoofTravellerTVCell))
+        
+        for i in 1...Int(MySingleton.shared.adultsCount) {
+            MySingleton.shared.positionsCount += 1
+            MySingleton.shared.passengertypeArray.append("Adult")
+            let travellerCell = TableRow(title: "Adult \(i)",
+                                         key: "adult",
+                                         characterLimit: MySingleton.shared.positionsCount,
+                                         cellType: .AddDeatilsOfTravellerTVCell)
+            MySingleton.shared.searchTextArray.append("Adult \(i)")
+            MySingleton.shared.tablerow.append(travellerCell)
+            
+        }
+        
+        
+        if Int(MySingleton.shared.childCount)  != 0 {
+            for i in 1...Int(MySingleton.shared.childCount)  {
+                MySingleton.shared.positionsCount += 1
+                MySingleton.shared.passengertypeArray.append("Child")
+                MySingleton.shared.tablerow.append(TableRow(title:"Child \(i)",
+                                                            key:"child",
+                                                            characterLimit: MySingleton.shared.positionsCount,
+                                                            cellType:.AddDeatilsOfTravellerTVCell))
+                MySingleton.shared.searchTextArray.append("Child \(i)")
+            }
+        }
+        
+        if Int(MySingleton.shared.infantsCount)  != 0 {
+            for i in 1...Int(MySingleton.shared.infantsCount)  {
+                MySingleton.shared.positionsCount += 1
+                MySingleton.shared.passengertypeArray.append("Infant")
+                MySingleton.shared.tablerow.append(TableRow(title:"Infant \(i)",
+                                                            key:"infant",
+                                                            characterLimit:  MySingleton.shared.positionsCount,
+                                                            cellType:.AddDeatilsOfTravellerTVCell))
+                MySingleton.shared.searchTextArray.append("Infant \(i)")
+            }
+        }
+        
+        
+        
+        MySingleton.shared.tablerow.append(TableRow(cellType:.ContactInformationTVCell))
+        MySingleton.shared.tablerow.append(TableRow(cellType:.UsePromoCodesTVCell))
+        
+        MySingleton.shared.tablerow.append(TableRow(height:10,cellType:.EmptyTVCell))
         MySingleton.shared.tablerow.append(TableRow(cellType:.FareSummaryTVCell))
+        MySingleton.shared.tablerow.append(TableRow(height:50,cellType:.EmptyTVCell))
+        
+        
         
         commonTVData = MySingleton.shared.tablerow
         commonTableView.reloadData()
@@ -90,20 +220,271 @@ extension BookingDetailsVC {
 }
 
 
-//MARK: - addObserver
+
+
+
 extension BookingDetailsVC {
     
-    func addObserver() {
+    
+    func ContinueToPaymentBtnTap() {
+        loderBool = true
+        MySingleton.shared.payload.removeAll()
+        MySingleton.shared.payload1.removeAll()
         
-        if MySingleton.shared.callboolapi == true {
-            callAPI()
+        
+        
+        var callpaymentbool = true
+        var fnameCharBool = true
+        var lnameCharBool = true
+        
+        
+        for traveler in   MySingleton.shared.travelerArray {
+            
+            if traveler.firstName == nil  || traveler.firstName?.isEmpty == true{
+                callpaymentbool = false
+                
+            }
+            
+            if (traveler.firstName?.count ?? 0) <= 3 {
+                fnameCharBool = false
+            }
+            
+            if traveler.lastName == nil || traveler.firstName?.isEmpty == true{
+                callpaymentbool = false
+            }
+            
+            if (traveler.lastName?.count ?? 0) <= 3 {
+                lnameCharBool = false
+            }
+            
+            if traveler.dob == nil || traveler.dob?.isEmpty == true{
+                callpaymentbool = false
+            }
+            
+            if traveler.passportno == nil || traveler.passportno?.isEmpty == true{
+                callpaymentbool = false
+            }
+            
+            if traveler.passportIssuingCountry == nil || traveler.passportIssuingCountry?.isEmpty == true{
+                callpaymentbool = false
+            }
+            
+            if traveler.passportExpireDate == nil || traveler.passportExpireDate?.isEmpty == true{
+                callpaymentbool = false
+            }
+            
+            
+            // Continue checking other fields
         }
+        
+        
+        
+        let positionsCount = commonTableView.numberOfRows(inSection: 0)
+        for position in 0..<positionsCount {
+            // Fetch the cell for the given position
+            if let cell = commonTableView.cellForRow(at: IndexPath(row: position, section: 0)) as? AddDeatilsOfTravellerTVCell {
+                
+                if cell.titleTF.text?.isEmpty == true {
+                    // Textfield is empty
+                    cell.titleView.layer.borderColor = UIColor.red.cgColor
+                    callpaymentbool = false
+                    
+                } else {
+                    // Textfield is not empty
+                }
+                
+                if cell.fnameTF.text?.isEmpty == true {
+                    // Textfield is empty
+                    cell.fnameView.layer.borderColor = UIColor.red.cgColor
+                    callpaymentbool = false
+                }else if (cell.fnameTF.text?.count ?? 0) <= 3{
+                    cell.fnameView.layer.borderColor = UIColor.red.cgColor
+                    fnameCharBool = false
+                }else {
+                    fnameCharBool = true
+                }
+                
+                if cell.lnameTF.text?.isEmpty == true {
+                    // Textfield is empty
+                    cell.lnameView.layer.borderColor = UIColor.red.cgColor
+                    callpaymentbool = false
+                }else if (cell.lnameTF.text?.count ?? 0) <= 3{
+                    cell.lnameView.layer.borderColor = UIColor.red.cgColor
+                    lnameCharBool = false
+                } else {
+                    // Textfield is not empty
+                    lnameCharBool = true
+                }
+                
+                
+                if cell.dobTF.text?.isEmpty == true {
+                    // Textfield is empty
+                    cell.dobView.layer.borderColor = UIColor.red.cgColor
+                    callpaymentbool = false
+                } else {
+                    // Textfield is not empty
+                }
+                
+                
+                if cell.passportnoTF.text?.isEmpty == true {
+                    // Textfield is empty
+                    cell.passportnoView.layer.borderColor = UIColor.red.cgColor
+                    callpaymentbool = false
+                } else {
+                    // Textfield is not empty
+                }
+                
+                
+                if cell.passportIssuingCountryTF.text?.isEmpty == true {
+                    // Textfield is empty
+                    cell.issuecountryView.layer.borderColor = UIColor.red.cgColor
+                    callpaymentbool = false
+                } else {
+                    // Textfield is not empty
+                }
+                
+                
+                if cell.passportExpireDateTF.text?.isEmpty == true {
+                    // Textfield is empty
+                    cell.passportexpireView.layer.borderColor = UIColor.red.cgColor
+                    callpaymentbool = false
+                } else {
+                    // Textfield is not empty
+                }
+                
+            }
+        }
+        
+        let laedpassengerArray = MySingleton.shared.travelerArray.compactMap({$0.laedpassenger})
+        let mrtitleArray = MySingleton.shared.travelerArray.compactMap({$0.mrtitle})
+        let genderArray = MySingleton.shared.travelerArray.compactMap({$0.gender})
+        let firstnameArray = MySingleton.shared.travelerArray.compactMap({$0.firstName})
+        let lastNameArray = MySingleton.shared.travelerArray.compactMap({$0.lastName})
+        let middlenameArray = MySingleton.shared.travelerArray.compactMap({$0.middlename})
+        let dobArray = MySingleton.shared.travelerArray.compactMap({$0.dob})
+        let passportnoArray = MySingleton.shared.travelerArray.compactMap({$0.passportno})
+        //   let nationalityArray = travelerArray.compactMap({$0.nationality})
+        let passportIssuingCountryArray = MySingleton.shared.travelerArray.compactMap({$0.passportIssuingCountry})
+        let passportExpireDateArray = MySingleton.shared.travelerArray.compactMap({$0.passportExpireDate})
+        // let passengertypeArray = travelerArray.compactMap({$0.passengertype})
+        
+        
+        // Convert arrays to string representations
+        let laedpassengerString = "[\"" + laedpassengerArray.joined(separator: "\",\"") + "\"]"
+        let genderString = "[\"" + genderArray.joined(separator: "\",\"") + "\"]"
+        let mrtitleString = "[\"" + mrtitleArray.joined(separator: "\",\"") + "\"]"
+        let firstnameString = "[\"" + firstnameArray.joined(separator: "\",\"") + "\"]"
+        let middlenameString = "[\"" + middlenameArray.joined(separator: "\",\"") + "\"]"
+        let lastNameString = "[\"" + lastNameArray.joined(separator: "\",\"") + "\"]"
+        let dobString = "[\"" + dobArray.joined(separator: "\",\"") + "\"]"
+        let passportnoString = "[\"" + passportnoArray.joined(separator: "\",\"") + "\"]"
+        let passportIssuingCountryString = "[\"" + passportIssuingCountryArray.joined(separator: "\",\"") + "\"]"
+        let passportExpireDateString = "[\"" + passportExpireDateArray.joined(separator: "\",\"") + "\"]"
+        let passengertypeArrayString = "[\"" + MySingleton.shared.passengertypeArray.joined(separator: "\",\"") + "\"]"
+        
+        
+        MySingleton.shared.payload["search_id"] = MySingleton.shared.searchid
+        MySingleton.shared.payload["tmp_flight_pre_booking_id"] = MySingleton.shared.tmpFlightPreBookingId
+        //   MySingleton.shared.payload["access_key"] = MySingleton.shared.accesskey
+        MySingleton.shared.payload["access_key_tp"] =  MySingleton.shared.accesskeytp
+        MySingleton.shared.payload["insurance_policy_type"] = "0"
+        MySingleton.shared.payload["insurance_policy_option"] = "0"
+        MySingleton.shared.payload["insurance_policy_cover_type"] = "0"
+        MySingleton.shared.payload["insurance_policy_duration"] = "0"
+        MySingleton.shared.payload["isInsurance"] = "0"
+        MySingleton.shared.payload["selectedResult"] = MySingleton.shared.selectedResult
+        MySingleton.shared.payload["redeem_points_post"] = "1"
+        MySingleton.shared.payload["booking_source"] = bookingsource
+        MySingleton.shared.payload["promocode_val"] = ""
+        MySingleton.shared.payload["promocode_code"] = ""
+        MySingleton.shared.payload["mealsAmount"] = "0"
+        MySingleton.shared.payload["baggageAmount"] = "0"
+        
+        
+        // Assign string representations to MySingleton.shared.payload dictionary
+        MySingleton.shared.payload["lead_passenger"] = laedpassengerString
+        MySingleton.shared.payload["gender"] = genderString
+        MySingleton.shared.payload["passenger_nationality"] = passportIssuingCountryString
+        MySingleton.shared.payload["name_title"] = mrtitleString
+        MySingleton.shared.payload["first_name"] = firstnameString
+        MySingleton.shared.payload["middle_name"] = middlenameString
+        MySingleton.shared.payload["last_name"] = lastNameString
+        MySingleton.shared.payload["date_of_birth"] = dobString
+        MySingleton.shared.payload["passenger_passport_number"] = passportnoString
+        MySingleton.shared.payload["passenger_passport_issuing_country"] = passportIssuingCountryString
+        MySingleton.shared.payload["passenger_passport_expiry"] = passportExpireDateString
+        MySingleton.shared.payload["passenger_type"] = passengertypeArrayString
+        
+        
+        MySingleton.shared.payload["Frequent"] = "\([["Select"]])"
+        MySingleton.shared.payload["ff_no"] = "\([[""]])"
+        
+        MySingleton.shared.payload["address2"] = "ecity"
+        MySingleton.shared.payload["billing_address_1"] = "DA"
+        MySingleton.shared.payload["billing_state"] = "ASDAS"
+        MySingleton.shared.payload["billing_city"] = "sdfsd"
+        MySingleton.shared.payload["billing_zipcode"] = "sdf"
+        
+        MySingleton.shared.payload["billing_email"] = MySingleton.shared.payemail
+        MySingleton.shared.payload["passenger_contact"] = MySingleton.shared.paymobile
+        MySingleton.shared.payload["billing_country"] = "IN"
+        MySingleton.shared.payload["country_mobile_code"] = MySingleton.shared.paymobilecountrycode
+        MySingleton.shared.payload["insurance"] = "1"
+        MySingleton.shared.payload["tc"] = "on"
+        MySingleton.shared.payload["booking_step"] = "book"
+        MySingleton.shared.payload["payment_method"] = ["activepaymentoptions"]
+        MySingleton.shared.payload["selectedCurrency"] = defaults.string(forKey: UserDefaultsKeys.selectedCurrency) ?? "KWD"
+        MySingleton.shared.payload["user_id"] = defaults.string(forKey: UserDefaultsKeys.userid) ?? "0"
+        
+        MySingleton.shared.payload["insurance_name"] = ""
+        MySingleton.shared.payload["insurance_code"] = ""
+        MySingleton.shared.payload["insurance_totalprice"] = ""
+        MySingleton.shared.payload["insurance_baseprice"] = ""
+        MySingleton.shared.payload["hidseatprice"] = ""
+        MySingleton.shared.payload["device_source"] = "MOBILE(A)"
+        
+        
+        // Check additional conditions
+        if callpaymentbool == false {
+            showToast(message: "Add Details")
+        }else if MySingleton.shared.passportExpireDateBool == false {
+            showToast(message: "Invalid expiry. Passport expires within the next 3 months.")
+        }else if !fnameCharBool {
+            showToast(message: "First name should have more than 3 characters")
+        }else if !lnameCharBool {
+            showToast(message: "Last name should have more than 3 characters")
+        }else if MySingleton.shared.payemail == "" {
+            showToast(message: "Enter Email Address")
+        }else if MySingleton.shared.payemail.isValidEmail() == false {
+            showToast(message: "Enter Valid Email Addreess")
+        }else if MySingleton.shared.paymobile == "" {
+            showToast(message: "Enter Mobile No")
+        }else if MySingleton.shared.paymobilecountrycode == "" {
+            showToast(message: "Enter Country Code")
+        }else if mobilenoMaxLengthBool == false {
+            showToast(message: "Enter Valid Mobile No")
+        }else {
+           // mbviewmodel?.CALL_MOBILE_PROCESS_PASSENGER_DETAIL_API(dictParam: MySingleton.shared.payload)
+        }
+    }
+    
+}
+
+
+//MARK: - addObserver
+extension BookingDetailsVC:TimerManagerDelegate {
+    
+    func addObserver() {
         
         NotificationCenter.default.addObserver(self, selector: #selector(nointernet), name: Notification.Name("offline"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(resultnil), name: NSNotification.Name("resultnil"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(nointrnetreload), name: Notification.Name("nointrnetreload"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(reload), name: Notification.Name("reload"), object: nil)
         
+        
+        if MySingleton.shared.callboolapi == true {
+            callAPI()
+        }
     }
     
     
@@ -138,4 +519,37 @@ extension BookingDetailsVC {
     }
     
     
+    //MARK: - updateTimer
+    func updateTimer() {
+        let totalTime = MySingleton.shared.totalTime
+        let minutes =  totalTime / 60
+        let seconds = totalTime % 60
+        let formattedTime = String(format: "%02d:%02d", minutes, seconds)
+        
+        
+        MySingleton.shared.setAttributedTextnew(str1: "Your Session Expires In : ",
+                                                str2: "\(formattedTime)",
+                                                lbl: sessionlbl,
+                                                str1font: .OpenSansMedium(size: 12),
+                                                str2font: .OpenSansMedium(size: 12),
+                                                str1Color: .TitleColor,
+                                                str2Color: .BooknowBtnColor)
+        
+        
+    }
+    
+    
+    func timerDidFinish() {
+        print("timerDidFinish")
+    }
+    
+    
+    func gotoPopupScreen() {
+        guard let vc = PopupVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .overCurrentContext
+        self.present(vc, animated: true)
+    }
 }
+
+
+

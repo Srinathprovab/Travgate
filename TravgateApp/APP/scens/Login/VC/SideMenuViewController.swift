@@ -10,7 +10,7 @@ import UIKit
 class SideMenuViewController: BaseTableVC {
     
     static var newInstance: SideMenuViewController? {
-        let storyboard = UIStoryboard(name: Storyboard.Main.name,
+        let storyboard = UIStoryboard(name: Storyboard.Login.name,
                                       bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: self.className()) as? SideMenuViewController
         return vc
@@ -26,8 +26,6 @@ class SideMenuViewController: BaseTableVC {
         
        
     }
-    
-   
     
     
     func setupUI() {
@@ -72,7 +70,6 @@ class SideMenuViewController: BaseTableVC {
     override func didTaponCell(cell: SideMenuTitleTVCell) {
         switch cell.menuTitlelbl.text {
         case "Flight":
-            print("Flight")
             showFlightSearchVC()
             break
         case "Hotel":
