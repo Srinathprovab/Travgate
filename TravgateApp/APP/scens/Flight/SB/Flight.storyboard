@@ -289,7 +289,7 @@
                                                     <constraint firstAttribute="width" constant="24" id="oG0-ha-E17"/>
                                                     <constraint firstAttribute="height" constant="24" id="yfL-fh-gp3"/>
                                                 </constraints>
-                                                <color key="tintColor" name="TitleColor"/>
+                                                <color key="tintColor" name="WhiteColor"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="" image="back1"/>
                                                 <connections>
@@ -299,19 +299,19 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dubai to Kuwait" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I2N-NO-1wg">
                                                 <rect key="frame" x="87" y="65" width="219" height="22"/>
                                                 <fontDescription key="fontDescription" name="OpenSans-Medium" family="Open Sans" pointSize="16"/>
-                                                <color key="textColor" name="BackBtnColor"/>
+                                                <color key="textColor" name="WhiteColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jun 8 - Jun 12" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HWC-hm-FCx">
                                                 <rect key="frame" x="20" y="92" width="353" height="19.333333333333329"/>
                                                 <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="14"/>
-                                                <color key="textColor" name="BackBtnColor"/>
+                                                <color key="textColor" name="WhiteColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="1 Adults | 1 child | 1 Infant" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gNV-Ss-P0D">
                                                 <rect key="frame" x="20" y="119.33333333333333" width="353" height="19.333333333333329"/>
                                                 <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="14"/>
-                                                <color key="textColor" name="BackBtnColor"/>
+                                                <color key="textColor" name="WhiteColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qs5-Am-raG">
@@ -320,7 +320,7 @@
                                                     <constraint firstAttribute="height" constant="30" id="8Zt-Fx-MUG"/>
                                                     <constraint firstAttribute="width" constant="80" id="l6L-Sz-ZTL"/>
                                                 </constraints>
-                                                <color key="tintColor" name="TitleColor"/>
+                                                <color key="tintColor" name="WhiteColor"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="" image="Group 18076"/>
                                                 <connections>
@@ -328,7 +328,7 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" name="LayoverColor"/>
+                                        <color key="backgroundColor" name="Buttoncolor"/>
                                         <constraints>
                                             <constraint firstItem="I2N-NO-1wg" firstAttribute="leading" secondItem="UXo-os-VIc" secondAttribute="trailing" constant="50" id="1O9-PB-Zin"/>
                                             <constraint firstAttribute="trailing" secondItem="qs5-Am-raG" secondAttribute="trailing" constant="13" id="2So-pG-a61"/>
@@ -756,6 +756,7 @@
                     <connections>
                         <outlet property="closebrn" destination="u1h-pw-Sts" id="A5V-ro-VKU"/>
                         <outlet property="commonTableView" destination="YVz-Gg-IGV" id="8N3-S8-IOY"/>
+                        <outlet property="logoimg" destination="fsJ-CZ-x4C" id="086-dN-NqN"/>
                         <outlet property="multicityView" destination="jsS-XC-YXi" id="50o-EJ-Akh"/>
                         <outlet property="multicitylbl" destination="BFh-9Y-Dxc" id="qQ4-kP-BKH"/>
                         <outlet property="onewayView" destination="V38-MT-ZRE" id="SEH-SM-h1G"/>
@@ -785,7 +786,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 Flight Found" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uBG-FV-x1w">
                                                 <rect key="frame" x="100" y="65" width="193" height="22"/>
                                                 <fontDescription key="fontDescription" name="OpenSans-Medium" family="Open Sans" pointSize="16"/>
-                                                <color key="textColor" name="BackBtnColor"/>
+                                                <color key="textColor" name="WhiteColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="70d-CJ-361">
@@ -794,7 +795,7 @@
                                                     <constraint firstAttribute="width" constant="30" id="9E8-0x-RUq"/>
                                                     <constraint firstAttribute="height" constant="30" id="Pva-Ie-jTz"/>
                                                 </constraints>
-                                                <color key="tintColor" name="TitleColor"/>
+                                                <color key="tintColor" name="WhiteColor"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="" image="close"/>
                                                 <connections>
@@ -802,7 +803,7 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" name="LayoverColor"/>
+                                        <color key="backgroundColor" name="Buttoncolor"/>
                                         <constraints>
                                             <constraint firstItem="uBG-FV-x1w" firstAttribute="centerX" secondItem="u0Y-78-d4J" secondAttribute="centerX" id="Lea-5a-C6J"/>
                                             <constraint firstAttribute="trailing" secondItem="70d-CJ-361" secondAttribute="trailing" constant="13" id="Ul8-8e-5VB"/>
@@ -864,7 +865,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flight Details" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l1H-EF-s58">
                                                 <rect key="frame" x="100" y="65" width="193" height="22"/>
                                                 <fontDescription key="fontDescription" name="OpenSans-Medium" family="Open Sans" pointSize="16"/>
-                                                <color key="textColor" name="BackBtnColor"/>
+                                                <color key="textColor" name="WhiteColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A1x-jt-cU4">
@@ -873,7 +874,7 @@
                                                     <constraint firstAttribute="height" constant="30" id="H72-1m-Esp"/>
                                                     <constraint firstAttribute="width" constant="30" id="JWx-ys-wFi"/>
                                                 </constraints>
-                                                <color key="tintColor" name="TitleColor"/>
+                                                <color key="tintColor" name="WhiteColor"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="" image="back1"/>
                                                 <connections>
@@ -881,7 +882,7 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" name="LayoverColor"/>
+                                        <color key="backgroundColor" name="Buttoncolor"/>
                                         <constraints>
                                             <constraint firstItem="A1x-jt-cU4" firstAttribute="leading" secondItem="gNc-qZ-bKr" secondAttribute="leading" constant="13" id="2gH-Dm-35I"/>
                                             <constraint firstItem="l1H-EF-s58" firstAttribute="leading" secondItem="gNc-qZ-bKr" secondAttribute="leading" constant="100" id="59e-Ng-9hv"/>
@@ -1293,11 +1294,12 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NKW-wX-DUJ">
                                                 <rect key="frame" x="348" y="16" width="25" height="25"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="25" id="G7U-gC-K86"/>
                                                     <constraint firstAttribute="height" constant="25" id="lcV-hL-jvL"/>
                                                 </constraints>
-                                                <color key="tintColor" name="AppTabSelectColor"/>
+                                                <color key="tintColor" name="TitleColor"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="close"/>
                                                 <connections>
@@ -1471,7 +1473,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Booking Details" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xgy-O3-uEV">
                                                 <rect key="frame" x="100" y="65" width="193" height="22"/>
                                                 <fontDescription key="fontDescription" name="OpenSans-Medium" family="Open Sans" pointSize="16"/>
-                                                <color key="textColor" name="BackBtnColor"/>
+                                                <color key="textColor" name="WhiteColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qp7-tQ-Ck9">
@@ -1480,7 +1482,7 @@
                                                     <constraint firstAttribute="width" constant="30" id="KQS-NI-Eby"/>
                                                     <constraint firstAttribute="height" constant="30" id="uuo-gh-f4Z"/>
                                                 </constraints>
-                                                <color key="tintColor" name="TitleColor"/>
+                                                <color key="tintColor" name="WhiteColor"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="" image="back1"/>
                                                 <connections>
@@ -1488,7 +1490,7 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" name="LayoverColor"/>
+                                        <color key="backgroundColor" name="Buttoncolor"/>
                                         <constraints>
                                             <constraint firstItem="Qp7-tQ-Ck9" firstAttribute="centerY" secondItem="Xgy-O3-uEV" secondAttribute="centerY" id="0gR-Dv-tbd"/>
                                             <constraint firstAttribute="height" constant="120" id="2cR-8H-DrW"/>
@@ -1515,6 +1517,9 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="361" height="65"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain"/>
+                                                <connections>
+                                                    <action selector="didTapOnContinuetoBookBtnAction:" destination="3Gt-cw-9Tc" eventType="touchUpInside" id="c1n-bY-wTh"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" name="Buttoncolor"/>
@@ -1594,7 +1599,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flight Details" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FUX-Hp-FZC">
                                                 <rect key="frame" x="100" y="65" width="193" height="22"/>
                                                 <fontDescription key="fontDescription" name="OpenSans-Medium" family="Open Sans" pointSize="16"/>
-                                                <color key="textColor" name="BackBtnColor"/>
+                                                <color key="textColor" name="WhiteColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8dk-Ku-ayS">
@@ -1603,7 +1608,7 @@
                                                     <constraint firstAttribute="width" constant="30" id="1hu-hs-FJQ"/>
                                                     <constraint firstAttribute="height" constant="30" id="GEQ-yO-foy"/>
                                                 </constraints>
-                                                <color key="tintColor" name="TitleColor"/>
+                                                <color key="tintColor" name="WhiteColor"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="" image="close"/>
                                                 <connections>
@@ -1611,7 +1616,7 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" name="LayoverColor"/>
+                                        <color key="backgroundColor" name="Buttoncolor"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="8dk-Ku-ayS" secondAttribute="trailing" constant="13" id="87T-Z3-Yrr"/>
                                             <constraint firstItem="FUX-Hp-FZC" firstAttribute="leading" secondItem="VTa-Il-rQQ" secondAttribute="leading" constant="100" id="eG1-Tv-dF1"/>
@@ -1659,7 +1664,7 @@
         <!--PopupVC-->
         <scene sceneID="fRM-te-0gV">
             <objects>
-                <viewController storyboardIdentifier="PopupVC" id="ETX-1p-4gM" customClass="PopupVC" customModule="BabSafar" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PopupVC" id="ETX-1p-4gM" customClass="PopupVC" customModule="TravgateApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0al-gb-VxS">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1749,9 +1754,6 @@
         <namedColor name="AppBtnColor">
             <color red="0.32899999618530273" green="0.32400000095367432" blue="0.4779999852180481" alpha="0.33000001311302185" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="AppTabSelectColor">
-            <color red="0.32899999618530273" green="0.32400000095367432" blue="0.4779999852180481" alpha="0.33000001311302185" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="BackBtnColor">
             <color red="0.10599999874830246" green="0.29399999976158142" blue="0.36500000953674316" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -1763,9 +1765,6 @@
         </namedColor>
         <namedColor name="Buttoncolor">
             <color red="0.2669999897480011" green="0.70999997854232788" blue="0.046999998390674591" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="LayoverColor">
-            <color red="0.96100002527236938" green="0.98400002717971802" blue="0.94900000095367432" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="TitleColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

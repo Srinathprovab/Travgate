@@ -10,6 +10,8 @@ import UIKit
 class BookingDetailsVC: BaseTableVC, MPBViewModelDelegate {
     
     
+    
+    
     @IBOutlet weak var sessionlbl: UILabel!
     @IBOutlet weak var holderView: UIView!
     static var newInstance: BookingDetailsVC? {
@@ -104,11 +106,45 @@ class BookingDetailsVC: BaseTableVC, MPBViewModelDelegate {
     
     
     
+    //MARK: - ContactInformationTVCell Delegate Methods
+    override func didTapOnCountryCodeBtn(cell: ContactInformationTVCell) {
+        MySingleton.shared.nationalityCode = cell.isoCountryCode
+        MySingleton.shared.paymobilecountrycode = cell.countrycodeTF.text ?? ""
+    }
+    
+  
+    override func editingTextField(tf:UITextField){
+        
+        if tf.tag == 1 {
+            MySingleton.shared.payemail = tf.text ?? ""
+        }else {
+            MySingleton.shared.paymobile = tf.text ?? ""
+        }
+    }
+    
+    
+   
+    override func didTapOnDropDownBtn(cell: ContactInformationTVCell) {
+        MySingleton.shared.nationalityCode = cell.isoCountryCode
+        MySingleton.shared.paymobilecountrycode = cell.countrycodeTF.text ?? ""
+    }
+    
+    
     //MARK: - didTapOnBackBtnAction
     @IBAction func didTapOnBackBtnAction(_ sender: Any) {
         MySingleton.shared.callboolapi = false
         dismiss(animated: true)
     }
+    
+    
+    //MARK: - didTapOnBackBtnAction
+    @IBAction func didTapOnContinuetoBookBtnAction(_ sender: Any) {
+        ContinueToPaymentBtnTap()
+    }
+    
+    
+    
+    
     
 }
 
@@ -126,7 +162,7 @@ extension BookingDetailsVC {
             MySingleton.shared.payload["traceId"] =  MySingleton.shared.traceid
             MySingleton.shared.payload["user_id"] =  defaults.string(forKey: UserDefaultsKeys.userid) ?? "0"
             
-            MySingleton.shared.mpbvm?.CALL_MOBILE_PRE_PROCESS_BOOKING_API(dictParam: MySingleton.shared.payload)
+            MySingleton.shared.mpbvm?.CALL_MOBILE_PRE_PROCESS_BOOKING_API(dictParam:MySingleton.shared.payload)
         }
     }
     
@@ -136,6 +172,9 @@ extension BookingDetailsVC {
         MySingleton.shared.mpbpriceDetails = response.pre_booking_params?.priceDetails
         MySingleton.shared.mpbFlightData = response.flight_data?[0].flight_details
         MySingleton.shared.frequent_flyersArray = response.frequent_flyers ?? []
+        
+        MySingleton.shared.tmpFlightPreBookingId = response.pre_booking_params?.transaction_id ?? ""
+        MySingleton.shared.accesskeytp = response.access_key_tp ?? ""
         
         MySingleton.shared.stopTimer()
         MySingleton.shared.startTimer(time: 10)
@@ -385,7 +424,7 @@ extension BookingDetailsVC {
         
         MySingleton.shared.payload["search_id"] = MySingleton.shared.searchid
         MySingleton.shared.payload["tmp_flight_pre_booking_id"] = MySingleton.shared.tmpFlightPreBookingId
-        //   MySingleton.shared.payload["access_key"] = MySingleton.shared.accesskey
+        //  MySingleton.shared.payload["access_key"] = MySingleton.shared.accesskey
         MySingleton.shared.payload["access_key_tp"] =  MySingleton.shared.accesskeytp
         MySingleton.shared.payload["insurance_policy_type"] = "0"
         MySingleton.shared.payload["insurance_policy_option"] = "0"
@@ -394,14 +433,14 @@ extension BookingDetailsVC {
         MySingleton.shared.payload["isInsurance"] = "0"
         MySingleton.shared.payload["selectedResult"] = MySingleton.shared.selectedResult
         MySingleton.shared.payload["redeem_points_post"] = "1"
-        MySingleton.shared.payload["booking_source"] = bookingsource
+        MySingleton.shared.payload["booking_source"] = MySingleton.shared.bookingsource
         MySingleton.shared.payload["promocode_val"] = ""
         MySingleton.shared.payload["promocode_code"] = ""
         MySingleton.shared.payload["mealsAmount"] = "0"
         MySingleton.shared.payload["baggageAmount"] = "0"
         
         
-        // Assign string representations to MySingleton.shared.payload dictionary
+        // Assign string representations toMySingleton.shared.payload dictionary
         MySingleton.shared.payload["lead_passenger"] = laedpassengerString
         MySingleton.shared.payload["gender"] = genderString
         MySingleton.shared.payload["passenger_nationality"] = passportIssuingCountryString
@@ -427,12 +466,12 @@ extension BookingDetailsVC {
         
         MySingleton.shared.payload["billing_email"] = MySingleton.shared.payemail
         MySingleton.shared.payload["passenger_contact"] = MySingleton.shared.paymobile
-        MySingleton.shared.payload["billing_country"] = "IN"
+        MySingleton.shared.payload["billing_country"] = MySingleton.shared.nationalityCode
         MySingleton.shared.payload["country_mobile_code"] = MySingleton.shared.paymobilecountrycode
         MySingleton.shared.payload["insurance"] = "1"
         MySingleton.shared.payload["tc"] = "on"
         MySingleton.shared.payload["booking_step"] = "book"
-        MySingleton.shared.payload["payment_method"] = ["activepaymentoptions"]
+        MySingleton.shared.payload["payment_method"] = "PNHB1"
         MySingleton.shared.payload["selectedCurrency"] = defaults.string(forKey: UserDefaultsKeys.selectedCurrency) ?? "KWD"
         MySingleton.shared.payload["user_id"] = defaults.string(forKey: UserDefaultsKeys.userid) ?? "0"
         
@@ -464,11 +503,95 @@ extension BookingDetailsVC {
         }else if mobilenoMaxLengthBool == false {
             showToast(message: "Enter Valid Mobile No")
         }else {
-           // mbviewmodel?.CALL_MOBILE_PROCESS_PASSENGER_DETAIL_API(dictParam: MySingleton.shared.payload)
+            MySingleton.shared.mpbvm?.CALL_MOBILE_PROCESS_PASSENGER_DETAIL_API(dictParam:MySingleton.shared.payload)
         }
     }
     
+    
+    
+    //MARK: mobile process passenger Details
+    func mobileprocesspassengerDetails(response: MobilePassengerdetailsModel) {
+        
+        BASE_URL = ""
+        MySingleton.shared.viewmodel1?.Call_mobile_secure_booking_API(dictParam: [:], url: "\(response.url ?? "")")
+    
+    }
+    
+    
+    
+    func mobilesecurebookingDetails(response: MobilePrePaymentModel) {
+        
+        
+        loderBool = false
+        if response.status == false {
+            showToast(message: response.message ?? "")
+        }else {
+            MySingleton.shared.stopTimer()
+            guard let vc = PaymentGatewayVC.newInstance.self else {return}
+            vc.modalPresentationStyle = .fullScreen
+            vc.payload = MySingleton.shared.payload
+            vc.grandTotalamount = "\(MySingleton.shared.flightPriceDetails?.api_currency ?? ""):\(MySingleton.shared.flightPriceDetails?.grand_total ?? "")"
+            vc.grand_total_Price = "\(MySingleton.shared.flightPriceDetails?.grand_total ?? "")"
+            vc.tmpFlightPreBookingId = MySingleton.shared.tmpFlightPreBookingId
+            present(vc, animated: true)
+        }
+        
+        
+    }
+    
+    
+    func mobilePreBookingModelDetails(response: MobilePreBookingModel) {
+        
+        BASE_URL = ""
+        MySingleton.shared.payload["search_id"] = response.data?.search_id
+        MySingleton.shared.payload["app_reference"] = response.data?.app_reference
+        MySingleton.shared.payload["promocode_val"] = response.data?.promocode_val
+        MySingleton.shared.payload["selectedCurrency"] = defaults.string(forKey: UserDefaultsKeys.selectedCurrency)
+        
+        
+        
+        if response.status == false {
+            showToast(message: response.message ?? "")
+        }else {
+            mbviewmodel?.Call_mobile_pre_payment_confirmation_API(dictParam: MySingleton.shared.payload, url: "https://travrun.com/pro_new/mobile/index.php/flight/mobile_pre_payment_confirmation")
+        }
+    }
+    
+    func mobileprepaymentconfirmationDetails(response: MobilePrePaymentModel) {
+        
+        
+        if response.status == false {
+            showToast(message: response.message ?? "")
+        }else {
+            BASE_URL = ""
+            mbviewmodel?.Call_mobile_send_to_payment_API(dictParam: [:], url: response.url ?? "")
+        }
+        
+    }
+    
+    func mobilesendtopaymentDetails(response: MobilePrePaymentModel) {
+        
+        
+        if response.status == false {
+            showToast(message: response.message ?? "")
+        }else {
+            DispatchQueue.main.async {
+                BASE_URL = ""
+                MySingleton.shared.viewmodel1?.Call_mobile_secure_booking_API(dictParam: [:], url: response.url ?? "")
+            }
+        }
+        
+    }
+    
+    
+    func mobolePaymentDetails(response: MobilePaymentModel) {
+        
+    }
+    
+    
 }
+
+
 
 
 //MARK: - addObserver

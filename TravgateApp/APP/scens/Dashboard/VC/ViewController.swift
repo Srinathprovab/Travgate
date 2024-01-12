@@ -14,6 +14,9 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         MySingleton.shared.callonce()
+        MySingleton.shared.getCountryList()
+        
+        
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.0, execute: {
             self.gotodashBoardScreen()

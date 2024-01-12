@@ -21,7 +21,6 @@ class MenuBGTVCell: TableViewCell {
     @IBOutlet weak var editProfileView: UIView!
     @IBOutlet weak var editProfilelbl: UILabel!
     @IBOutlet weak var editProfileBtn: UIButton!
-    @IBOutlet weak var editProfileViewHeight: NSLayoutConstraint!
     
     var delegate:MenuBGTVCellDelegate?
     override func awakeFromNib() {
@@ -39,16 +38,16 @@ class MenuBGTVCell: TableViewCell {
     
     override func updateUI() {
         if defaults.bool(forKey: UserDefaultsKeys.loggedInStatus) == true {
-//            loginBtn.isHidden = false
-//            loginBtn.isUserInteractionEnabled = false
-//            loginBtn.setTitle("\(pdetails?.first_name ?? pdetails?.email ?? "") \(pdetails?.last_name ?? "")", for: .normal)
-//            profileImage.sd_setImage(with: URL(string: pdetails?.image ?? "" ), placeholderImage:UIImage(contentsOfFile:"placeholder.png"))
-//            editProfileView.isHidden = false
+            
+            loginBtn.setTitle("   Srinath Badmi", for: .normal)
+            loginBtn.isUserInteractionEnabled = false
+            editProfileView.isHidden = false
         } else {
             profileImage.image = UIImage(named: "profile")?.withRenderingMode(.alwaysOriginal)
             editProfileView.isHidden = false
-            loginBtn.setTitle("Login / Signup", for: .normal)
-            loginBtn.isUserInteractionEnabled = true
+            loginBtn.setTitle("   Login/Sign up", for: .normal)
+            editProfileView.isHidden = false
+            loginBtn.isUserInteractionEnabled = false
         }
     }
     
@@ -61,24 +60,12 @@ class MenuBGTVCell: TableViewCell {
         profileImage.layer.borderColor = UIColor.WhiteColor.cgColor
         
         editProfileView.isHidden = true
-//        editProfileBtn.setTitle("Add Your Details", for: .normal)
-        editProfileBtn.setTitleColor(.TitleColor, for: .normal)
-        
-        editProfileBtn.titleLabel?.font = UIFont.InterRegular(size: 12)
-        loginBtn.setTitle("Login/Signup", for: .normal)
-        loginBtn.setTitleColor(.TitleColor , for: .normal)
-        loginBtn.titleLabel?.font = UIFont.InterMedium(size: 20)
         loginBtn.addTarget(self, action: #selector(didTapOnLoginBtn(_:)), for: .touchUpInside)
         
         editProfileView.backgroundColor = .clear
-        editProfileView.layer.cornerRadius = 15
-        editProfileView.clipsToBounds = true
-        
-        editProfilelbl.text = "Add Your Details"
-        editProfilelbl.textColor = .TitleColor
-        editProfilelbl.font = UIFont.OpenSansRegular(size: 14)
-        
-        //editProfileViewHeight.constant = 0
+        editProfileBtn.layer.cornerRadius = 15
+        editProfileBtn.layer.borderColor = UIColor.WhiteColor.cgColor
+        editProfileBtn.layer.borderWidth = 2
     }
     
     

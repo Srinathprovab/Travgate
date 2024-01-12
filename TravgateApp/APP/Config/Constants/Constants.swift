@@ -66,7 +66,6 @@ var fl : [[FlightList]]?
 
 
 var lastContentOffset: CGFloat = 0
-
 var urlString = String()
 var tablerow = [TableRow]()
 var bookingsource = String()
@@ -92,7 +91,9 @@ var currency = ""
 var totalPrice = ""
 var totalPax = ""
 var viewModel:VocherDetailsViewModel?
-
+var grand_total_Price = String()
+var totalPrice1 = String()
+var mbviewmodel:MPBViewModel?
 
 
 struct MapModel {
@@ -110,7 +111,7 @@ struct ApiEndpoints {
     static let flight_getFlightDetails = "flight/getFlightDetails"
     static let flight_mobile_pre_process_booking = "flight/mobile_pre_process_booking"
     static let flight_mobile_pre_booking = "flight/mobile_pre_booking"
-    
+    static let mobileprocesspassengerdetail = "mobile_process_passenger_detail"
     
     
 }

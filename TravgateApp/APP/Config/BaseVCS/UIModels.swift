@@ -30,6 +30,11 @@ enum TVCellType {
     case EmptyTVCell
     case SelectLanguageTVCell
     
+    //LOGIN
+    case LoginTVCell
+    case ResetPasswordTVCell
+    case SignupTVCell
+    
     
     //Flight
     case FlightSearchTVCell

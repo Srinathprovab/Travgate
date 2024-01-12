@@ -55,8 +55,13 @@ class FlightResultTVCell: TableViewCell {
         flightlist = cellInfo?.moreData as? FlightList
         
         fareTypelbl.text = flightlist?.fareType ?? ""
-        kwdlbl.text = "\(flightlist?.price?.api_currency ?? ""):\(flightlist?.price?.api_total_display_fare ?? 0.0)"
-        strikekwdlbl.text = "\(flightlist?.price?.api_currency ?? ""):\(flightlist?.price?.api_total_display_fare_withoutmarkup ?? 0.0)"
+        let kwdprice = String(format: "%.2f", flightlist?.price?.api_total_display_fare ?? 0.0)
+        let strikekwdprice = String(format: "%.2f", flightlist?.price?.api_total_display_fare_withoutmarkup ?? 0.0)
+        
+        kwdlbl.text = "\(flightlist?.price?.api_currency ?? ""):\(kwdprice)"
+        strikekwdlbl.text = "\(flightlist?.price?.api_currency ?? ""):\(strikekwdprice)"
+        
+        
         setAttributedString1(str1: strikekwdlbl.text ?? "")
         checkSimelarFlights()
         

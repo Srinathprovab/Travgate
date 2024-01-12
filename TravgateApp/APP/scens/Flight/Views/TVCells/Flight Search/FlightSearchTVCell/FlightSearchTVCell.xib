@@ -44,7 +44,7 @@
                                 <rect key="frame" x="24" y="487" width="356" height="60"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flight Search" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RuK-tz-jKb">
-                                        <rect key="frame" x="122" y="17.666666666666686" width="112" height="24.666666666666671"/>
+                                        <rect key="frame" x="122.33333333333334" y="17.666666666666686" width="111.33333333333334" height="24.666666666666671"/>
                                         <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="18"/>
                                         <color key="textColor" name="WhiteColor"/>
                                         <nil key="highlightedColor"/>

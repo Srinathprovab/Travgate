@@ -59,13 +59,11 @@ class SideMenuViewController: BaseTableVC {
         commonTableView.reloadData()
     }
     
-//    override func didTapOnLoginBtn(cell: MenuBGTVCell) {
-//        guard let vc = LoginViewController.newInstance.self else {return}
-//        vc.modalPresentationStyle = .overCurrentContext
-//        vc.isVcFrom = "SideMenuVC"
-//        present(vc, animated: true)
-//
-//    }
+    override func didTapOnLoginBtn(cell: MenuBGTVCell) {
+        guard let vc = LoginVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .overCurrentContext
+        present(vc, animated: true)
+    }
     
     override func didTaponCell(cell: SideMenuTitleTVCell) {
         switch cell.menuTitlelbl.text {
@@ -109,7 +107,9 @@ class SideMenuViewController: BaseTableVC {
     
     
     override func didTapOnEditProfileBtn(cell: MenuBGTVCell) {
-        
+        guard let vc = EditProfileVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
     }
     
   

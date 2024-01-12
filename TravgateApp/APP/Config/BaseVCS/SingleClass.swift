@@ -81,6 +81,16 @@ class MySingleton {
     var payemail = String()
     var paymobile = String()
     var paymobilecountrycode = String()
+    var viewmodel1:MobileSecureBookingViewModel?
+    var nationalityCode = String()
+    var email = String()
+    var password = String()
+    var mobile = String()
+    var fname = String()
+    var lname = String()
+    var confpassword = String()
+    
+    
     
     //TIMER
     weak var delegate: TimerManagerDelegate?
@@ -136,8 +146,10 @@ class MySingleton {
     //MARK: - getCountryList
     func getCountryList() {
         
+       
+        
         // Get the path to the clist.json file in the Xcode project
-        if let jsonFilePath = Bundle.main.path(forResource: "countrylist", ofType: "json") {
+        if let jsonFilePath = Bundle.main.path(forResource: "clist", ofType: "json") {
             do {
                 // Read the data from the file
                 let jsonData = try Data(contentsOf: URL(fileURLWithPath: jsonFilePath))

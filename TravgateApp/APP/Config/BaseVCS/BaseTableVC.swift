@@ -8,10 +8,7 @@
 import UIKit
 import MaterialComponents
 
-class BaseTableVC: UIViewController, TabSelectTVCellDelegate, FlightSearchTVCellDelegate, FlightResultTVCellDelegate, SideMenuTitleTVCellDelegate, MenuBGTVCellDelegate, SliderTVCellDelegate, CheckBoxTVCellDelegate, FilterDepartureTVCellDelegate, LabelTVCellDelegate, PopularFiltersTVCellDelegate,DepartureTimeTVCellDelegate, ButtonTVCellDelegate, SortbyTVCellDelegate, BookingDetailsFlightDataTVCellDelegate, TDetailsLoginTVCellDelegate, AddDeatilsOfTravellerTVCellDelegate, ContactInformationTVCellDelegate, UsePromoCodesTVCellDelegate {
-    
-    
-    
+class BaseTableVC: UIViewController, TabSelectTVCellDelegate, FlightSearchTVCellDelegate, FlightResultTVCellDelegate, SideMenuTitleTVCellDelegate, MenuBGTVCellDelegate, SliderTVCellDelegate, CheckBoxTVCellDelegate, FilterDepartureTVCellDelegate, LabelTVCellDelegate, PopularFiltersTVCellDelegate,DepartureTimeTVCellDelegate, ButtonTVCellDelegate, SortbyTVCellDelegate, BookingDetailsFlightDataTVCellDelegate, TDetailsLoginTVCellDelegate, AddDeatilsOfTravellerTVCellDelegate, ContactInformationTVCellDelegate, UsePromoCodesTVCellDelegate, LoginTVCellDelegate, ResetPasswordTVCellDelegate, SignupTVCellDelegate {
     
     
     
@@ -181,6 +178,17 @@ class BaseTableVC: UIViewController, TabSelectTVCellDelegate, FlightSearchTVCell
     func didTapOnViewAllPromoCodesBtn(cell: UsePromoCodesTVCell) {}
     func didTapOnApplyPromosCodesBtn(cell: UsePromoCodesTVCell) {}
     func editingChanged(tf: UITextField) {}
+    func didTapOnCloseBtnAction(cell: LoginTVCell) {}
+    func didTapOnSignUpBtnAction(cell: LoginTVCell) {}
+    func didTapOnLoginBtnAction(cell: LoginTVCell) {}
+    func didTapOnForgetPasswordBtnAction(cell: LoginTVCell) {}
+    func didTapOnSendEmailBtnAction(cell: ResetPasswordTVCell) {}
+    func didTapOnRegisterCloseBtnAction(cell: SignupTVCell) {}
+    func didTapOnSignupBtnAction(cell: SignupTVCell) {}
+    
+    
+    
+    
     
     
     
@@ -433,6 +441,28 @@ extension BaseTableVC: UITableViewDataSource {
             case .BCFlightDetailsTVCell:
                 let cell:  BCFlightDetailsTVCell = commonTV.dequeTVCell(indexPath: indexPath)
                 commonCell = cell
+                
+                
+            case .LoginTVCell:
+                let cell:  LoginTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                cell.delegate = self
+                commonCell = cell
+                
+                
+                
+            case .ResetPasswordTVCell:
+                let cell:  ResetPasswordTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                cell.delegate = self
+                commonCell = cell
+                
+                
+            case .SignupTVCell:
+                let cell:  SignupTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                cell.delegate = self
+                commonCell = cell
+                
+                
+                
                 
                 
             default:

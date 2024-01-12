@@ -63,6 +63,7 @@ class ContactInformationTVCell: TableViewCell {
     }
     
     override func updateUI() {
+       
         filterdcountrylist =  MySingleton.shared.countrylist
         loadCountryNamesAndCode()
         

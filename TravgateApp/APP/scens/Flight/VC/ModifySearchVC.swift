@@ -10,7 +10,7 @@ import UIKit
 class ModifySearchVC: BaseTableVC {
     
     
-    
+    @IBOutlet weak var logoimg: UIImageView!
     @IBOutlet weak var onewayView: BorderedView!
     @IBOutlet weak var onewaylbl: UILabel!
     @IBOutlet weak var roundtripView: BorderedView!
@@ -37,6 +37,7 @@ class ModifySearchVC: BaseTableVC {
 
     
     func onewayTap() {
+        logoimg.image = UIImage(named: "onewayimg")
         onewayView.backgroundColor = .Buttoncolor
         roundtripView.backgroundColor = .WhiteColor
         multicityView.backgroundColor = .WhiteColor
@@ -49,6 +50,7 @@ class ModifySearchVC: BaseTableVC {
     }
     
     func roundtripTap() {
+        logoimg.image = UIImage(named: "circleimg")
         onewayView.backgroundColor = .WhiteColor
         roundtripView.backgroundColor = .Buttoncolor
         multicityView.backgroundColor = .WhiteColor
@@ -125,8 +127,19 @@ class ModifySearchVC: BaseTableVC {
     
     
     @IBAction func didTapOnBackBtnAction(_ sender: Any) {
-        MySingleton.shared.callboolapi = false
-        dismiss(animated: true)
+        MySingleton.shared.callboolapi = true
+        guard let vc = DashBoardTBVC.newInstance.self else {return}
+        vc.selectedIndex = 0
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: false)
+    }
+    
+    
+    
+    override func didTapOnReturnDateBtnAction(cell:FlightSearchTVCell) {
+        roundtripTap()
+        NotificationCenter.default.post(name: NSNotification.Name("roundtripTap"), object: nil)
+
     }
     
     @IBAction func didTapOnOnewayBtnAction(_ sender: Any) {
@@ -151,7 +164,6 @@ extension ModifySearchVC {
     
     func setupUI(){
         
-        closebrn.imageView?.tintColor = .WhiteColor
         roundtripTap()
         
         commonTableView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner] // Top left corner, Top right corner respectively
@@ -161,6 +173,7 @@ extension ModifySearchVC {
                                          "EmptyTVCell"])
         
     }
+    
     
     
     func setupOnewayTVCells() {
@@ -184,7 +197,6 @@ extension ModifySearchVC {
 
 
 extension ModifySearchVC {
-    
     func didTapOnFlightSearchBtnAction() {
         MySingleton.shared.payload.removeAll()
         
