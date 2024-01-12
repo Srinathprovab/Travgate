@@ -55,6 +55,7 @@ class FlightDeatilsVC: BaseTableVC, FlightDetailsViewModelDelegate {
         
         commonTableView.registerTVCells(["TicketIssuingTimeTVCell",
                                          "ItineraryTVCell",
+                                         "EmptyTVCell",
                                          "FareBreakdownTVCell"])
         
         
@@ -217,6 +218,7 @@ extension FlightDeatilsVC {
         
         
         MySingleton.shared.tablerow.append(TableRow(cellType:.TicketIssuingTimeTVCell))
+        MySingleton.shared.tablerow.append(TableRow(height:50,cellType:.EmptyTVCell))
         
         
         commonTVData = MySingleton.shared.tablerow

@@ -34,6 +34,7 @@ enum TVCellType {
     case LoginTVCell
     case ResetPasswordTVCell
     case SignupTVCell
+    case EditProfileTVCell
     
     
     //Flight

@@ -111,6 +111,9 @@
 		654D870F2B50FA8800256B47 /* SignupTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654D870D2B50FA8800256B47 /* SignupTVCell.swift */; };
 		654D87102B50FA8800256B47 /* SignupTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 654D870E2B50FA8800256B47 /* SignupTVCell.xib */; };
 		654D87142B511CF900256B47 /* EditProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654D87132B511CF900256B47 /* EditProfileVC.swift */; };
+		654D87182B513D8000256B47 /* EditProfileTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654D87162B513D7F00256B47 /* EditProfileTVCell.swift */; };
+		654D87192B513D8000256B47 /* EditProfileTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 654D87172B513D8000256B47 /* EditProfileTVCell.xib */; };
+		654D871B2B51598F00256B47 /* MyAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654D871A2B51598F00256B47 /* MyAccountVC.swift */; };
 		658B37052B4BB28C0011932C /* FareBreakdownTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658B37032B4BB28C0011932C /* FareBreakdownTVCell.swift */; };
 		658B37062B4BB28C0011932C /* FareBreakdownTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 658B37042B4BB28C0011932C /* FareBreakdownTVCell.xib */; };
 		658B370B2B4BDE220011932C /* MobilePreProcessBookingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658B370A2B4BDE220011932C /* MobilePreProcessBookingModel.swift */; };
@@ -398,6 +401,9 @@
 		654D870D2B50FA8800256B47 /* SignupTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupTVCell.swift; sourceTree = "<group>"; };
 		654D870E2B50FA8800256B47 /* SignupTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignupTVCell.xib; sourceTree = "<group>"; };
 		654D87132B511CF900256B47 /* EditProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVC.swift; sourceTree = "<group>"; };
+		654D87162B513D7F00256B47 /* EditProfileTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileTVCell.swift; sourceTree = "<group>"; };
+		654D87172B513D8000256B47 /* EditProfileTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditProfileTVCell.xib; sourceTree = "<group>"; };
+		654D871A2B51598F00256B47 /* MyAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccountVC.swift; sourceTree = "<group>"; };
 		658B37032B4BB28C0011932C /* FareBreakdownTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FareBreakdownTVCell.swift; sourceTree = "<group>"; };
 		658B37042B4BB28C0011932C /* FareBreakdownTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FareBreakdownTVCell.xib; sourceTree = "<group>"; };
 		658B370A2B4BDE220011932C /* MobilePreProcessBookingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobilePreProcessBookingModel.swift; sourceTree = "<group>"; };
@@ -1045,6 +1051,7 @@
 				6517182B2B44163F003D3723 /* ProfileVC.swift */,
 				6517182D2B441650003D3723 /* MoreVC.swift */,
 				650DBA4A2B4547170052294A /* SelectLanguageVC.swift */,
+				654D871A2B51598F00256B47 /* MyAccountVC.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -1089,11 +1096,21 @@
 		654D87122B5119A700256B47 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				654D87152B513D6800256B47 /* EditProfileTVCell */,
 				654D870C2B50F9E900256B47 /* SignupTVCell */,
 				65AD15012B4E9E130064E8B0 /* ResetPasswordTVCell */,
 				65AD14FA2B4E80190064E8B0 /* LoginTVCell */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		654D87152B513D6800256B47 /* EditProfileTVCell */ = {
+			isa = PBXGroup;
+			children = (
+				654D87162B513D7F00256B47 /* EditProfileTVCell.swift */,
+				654D87172B513D8000256B47 /* EditProfileTVCell.xib */,
+			);
+			path = EditProfileTVCell;
 			sourceTree = "<group>";
 		};
 		658B37022B4BB2720011932C /* FareBreakdownTVCell */ = {
@@ -1978,6 +1995,7 @@
 				651717FF2B43F8D4003D3723 /* Oswald-Medium.ttf in Resources */,
 				65B9592E2B468DFD00A4EAE7 /* FromCityTVCell.xib in Resources */,
 				651717FE2B43F8D4003D3723 /* Poppins-Medium.ttf in Resources */,
+				654D87192B513D8000256B47 /* EditProfileTVCell.xib in Resources */,
 				6501F36A2B48619C00F4625B /* TicketIssuingTimeTVCell.xib in Resources */,
 				65D85BF82B4A46FF00D939D0 /* CheckBoxTVCell.xib in Resources */,
 				651717FB2B43F8D4003D3723 /* Lato-Medium.ttf in Resources */,
@@ -2195,6 +2213,7 @@
 				653E2D302B47EBBC0082AFF6 /* Details.swift in Sources */,
 				658B37602B4D72A10011932C /* CardPaymentViewController.swift in Sources */,
 				651717EA2B43F8D4003D3723 /* TableViewHelper.swift in Sources */,
+				654D871B2B51598F00256B47 /* MyAccountVC.swift in Sources */,
 				6517180E2B43F8D4003D3723 /* BaseViewModelProtocol.swift in Sources */,
 				658B37422B4D54FA0011932C /* UsePromoCodesTVCell.swift in Sources */,
 				65D85C1C2B4A54FA00D939D0 /* ButtonTVCell.swift in Sources */,
@@ -2344,6 +2363,7 @@
 				65CB2D192B49548A009B5B2E /* Date_charge_fee.swift in Sources */,
 				65D85BEC2B4A467500D939D0 /* FilterVC.swift in Sources */,
 				651718092B43F8D4003D3723 /* ColorManager.swift in Sources */,
+				654D87182B513D8000256B47 /* EditProfileTVCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2512,7 +2532,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = 5TLY5PME9K;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TravgateApp/Info.plist;
@@ -2546,7 +2566,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = 5TLY5PME9K;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TravgateApp/Info.plist;

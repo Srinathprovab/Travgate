@@ -1522,7 +1522,7 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" name="Buttoncolor"/>
+                                        <color key="backgroundColor" name="BooknowBtnColor"/>
                                         <constraints>
                                             <constraint firstItem="fCB-vU-W82" firstAttribute="centerX" secondItem="aYg-86-XBA" secondAttribute="centerX" id="42x-Ge-KeX"/>
                                             <constraint firstItem="Rkb-dq-1LH" firstAttribute="top" secondItem="aYg-86-XBA" secondAttribute="top" id="4ez-kh-py4"/>

@@ -142,9 +142,7 @@ class BookingDetailsVC: BaseTableVC, MPBViewModelDelegate {
         ContinueToPaymentBtnTap()
     }
     
-    
-    
-    
+
     
 }
 
@@ -244,8 +242,8 @@ extension BookingDetailsVC {
         
         
         MySingleton.shared.tablerow.append(TableRow(cellType:.ContactInformationTVCell))
+        MySingleton.shared.tablerow.append(TableRow(height:10,cellType:.EmptyTVCell))
         MySingleton.shared.tablerow.append(TableRow(cellType:.UsePromoCodesTVCell))
-        
         MySingleton.shared.tablerow.append(TableRow(height:10,cellType:.EmptyTVCell))
         MySingleton.shared.tablerow.append(TableRow(cellType:.FareSummaryTVCell))
         MySingleton.shared.tablerow.append(TableRow(height:50,cellType:.EmptyTVCell))
