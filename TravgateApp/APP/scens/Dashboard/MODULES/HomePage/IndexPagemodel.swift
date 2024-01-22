@@ -19,7 +19,7 @@ struct IndexPagemodel : Codable {
         case status = "status"
         case topHotelDetails = "topHotelDetails"
         case topFlightDetails = "topFlightDetails"
-        case deal_code_list = "deal_code_list"
+        case deal_code_list = "deail_code_list"
     }
 
     init(from decoder: Decoder) throws {

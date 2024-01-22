@@ -73,6 +73,12 @@ enum TVCellType {
     case SortbyTVCell
     
     
+    //HOTEL
+    case HotelSearchTVCell
+    case AddRoomsGuestsTVCell
+    case TitleLblTVCell
+    
+    
 }
 
 enum CVCellType {

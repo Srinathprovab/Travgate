@@ -8,7 +8,7 @@
 import UIKit
 import MaterialComponents
 
-class BaseTableVC: UIViewController, TabSelectTVCellDelegate, FlightSearchTVCellDelegate, FlightResultTVCellDelegate, SideMenuTitleTVCellDelegate, MenuBGTVCellDelegate, SliderTVCellDelegate, CheckBoxTVCellDelegate, FilterDepartureTVCellDelegate, LabelTVCellDelegate, PopularFiltersTVCellDelegate,DepartureTimeTVCellDelegate, ButtonTVCellDelegate, SortbyTVCellDelegate, BookingDetailsFlightDataTVCellDelegate, TDetailsLoginTVCellDelegate, AddDeatilsOfTravellerTVCellDelegate, ContactInformationTVCellDelegate, UsePromoCodesTVCellDelegate, LoginTVCellDelegate, ResetPasswordTVCellDelegate, SignupTVCellDelegate, EditProfileTVCellDelegate {
+class BaseTableVC: UIViewController, TabSelectTVCellDelegate, FlightSearchTVCellDelegate, FlightResultTVCellDelegate, SideMenuTitleTVCellDelegate, MenuBGTVCellDelegate, SliderTVCellDelegate, CheckBoxTVCellDelegate, FilterDepartureTVCellDelegate, LabelTVCellDelegate, PopularFiltersTVCellDelegate,DepartureTimeTVCellDelegate, ButtonTVCellDelegate, SortbyTVCellDelegate, BookingDetailsFlightDataTVCellDelegate, TDetailsLoginTVCellDelegate, AddDeatilsOfTravellerTVCellDelegate, ContactInformationTVCellDelegate, UsePromoCodesTVCellDelegate, LoginTVCellDelegate, ResetPasswordTVCellDelegate, SignupTVCellDelegate, EditProfileTVCellDelegate, HotelSearchTVCellDelegate, AddRoomsGuestsTVCellDelegate {
     
     
     
@@ -191,8 +191,17 @@ class BaseTableVC: UIViewController, TabSelectTVCellDelegate, FlightSearchTVCell
     func cancelDatePicker(cell:EditProfileTVCell) {}
     
     
+    func donedatePicker(cell:HotelSearchTVCell) {}
+    func cancelDatePicker(cell:HotelSearchTVCell) {}
+    func didTapOnAddRoomsBtnAction(cell:HotelSearchTVCell) {}
+    func didTapOnSelectNationlatiyBtnAction(cell:HotelSearchTVCell) {}
+    func didTapOnSelectNoofNightsBtnAction(cell:HotelSearchTVCell) {}
     
-    
+    func closeBtnAction(cell: AddRoomsGuestsTVCell) {}
+    func adultsIncrementButtonAction(cell:AddRoomsGuestsTVCell){}
+    func adultsDecrementBtnAction(cell:AddRoomsGuestsTVCell){}
+    func childrenIncrementButtonAction(cell:AddRoomsGuestsTVCell){}
+    func childrenDecrementBtnAction(cell:AddRoomsGuestsTVCell){}
     
     
     
@@ -474,7 +483,22 @@ extension BaseTableVC: UITableViewDataSource {
                 
                 
                 
+            case .HotelSearchTVCell:
+                let cell:  HotelSearchTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                cell.delegate = self
+                commonCell = cell
                 
+                
+            case .AddRoomsGuestsTVCell:
+                let cell: AddRoomsGuestsTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                cell.delegate = self
+                commonCell = cell
+                
+                
+                
+            case .TitleLblTVCell:
+                let cell: TitleLblTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                commonCell = cell
                 
                 
                 

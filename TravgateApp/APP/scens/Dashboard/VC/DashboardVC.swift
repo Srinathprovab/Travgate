@@ -83,9 +83,12 @@ class DashboardVC: BaseTableVC {
         gotoFlightSearchVC()
     }
     
+    
     override func didTapOnHotelTabSelect(cell: TabSelectTVCell) {
-        print("didTapOnHotelTabSelect")
+        defaults.set("Hotel", forKey: UserDefaultsKeys.tabselect)
+        gotoSearchHotelVC()
     }
+    
     
     override func didTapOnMoreServiceBtnAction(cell: TabSelectTVCell) {
         commonTableView.reloadData()
@@ -118,8 +121,6 @@ class DashboardVC: BaseTableVC {
     override func didTapOnAutopaybtnAction(cell: TabSelectTVCell) {
         print("didTapOnAutopaybtnAction")
     }
-    
-    
     
 }
 
@@ -160,6 +161,11 @@ extension DashboardVC {
         present(vc, animated: true)
     }
     
+    func gotoSearchHotelVC() {
+        guard let vc = SearchHotelVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
+    }
     
     
     

@@ -64,7 +64,7 @@ class FareSummaryTVCell: TableViewCell {
         
         adultValuelbl.text = "\(MySingleton.shared.mpbpriceDetails?.api_currency ?? ""):\(MySingleton.shared.mpbpriceDetails?.adultsTotalPrice ?? "")"
         adultfare.text = "\(MySingleton.shared.mpbpriceDetails?.adultsBasePrice ?? "")"
-        adultfare.text = "\(MySingleton.shared.mpbpriceDetails?.adultsTaxPrice ?? "")"
+        adulttax.text = "\(MySingleton.shared.mpbpriceDetails?.adultsTaxPrice ?? "")"
         
         childValuelbl.text = "\(MySingleton.shared.mpbpriceDetails?.api_currency ?? ""):\(MySingleton.shared.mpbpriceDetails?.childTotalPrice ?? "")"
         childfare.text = "\(MySingleton.shared.mpbpriceDetails?.childBasePrice ?? "")"

@@ -30,8 +30,11 @@ let screenHeight = UIScreen.main.bounds.size.height
 var loderBool = false
 var basicloderBool = false
 
-var BASE_URL = "https://travrun.com/pro_new/mobile/index.php/"
-var BASE_URL1 = "https://travrun.com/pro_new/mobile/index.php/"
+var BASE_URL = "https://provab.net/travgate/pro_new/mobile/index.php/"
+var BASE_URL1 = "https://provab.net/travgate/pro_new/mobile/index.php/"
+var accessToken = "e3VzZXJuYW1lOmFudWpob29kYSxwYXNzd29yZDp0cmF2Z2F0ZUBtb2JpbGVhcHAsYXV0aHR5cGU6dGVzdH0="
+
+
 var defaultCountryCode = "+91"
 var mobilenoMaxLength = Int()
 var mobilenoMaxLengthBool = false
@@ -102,6 +105,8 @@ struct MapModel {
     var hotelname = String()
 }
 
+
+
 /* URL endpoints */
 struct ApiEndpoints {
     
@@ -112,8 +117,11 @@ struct ApiEndpoints {
     static let flight_mobile_pre_process_booking = "flight/mobile_pre_process_booking"
     static let flight_mobile_pre_booking = "flight/mobile_pre_booking"
     static let mobileprocesspassengerdetail = "mobile_process_passenger_detail"
+    static let auth_mobile_login = "auth/mobile_login"
     
     
+    static let gethotelcitylist = "get_hotel_city_list"
+    static let getAirlineList = "general/getAirlineList"
 }
 
 /*App messages*/

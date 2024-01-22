@@ -355,12 +355,16 @@ class ServiceManager {
         
         
         
+        let headers: HTTPHeaders = [
+            "Token":"\(accessToken)"
+        ]
+        
         AF.request(
             completeEndpointURL,
             method: .post,
             parameters: parameters as? Parameters,
             encoding: URLEncoding.default,
-            headers: nil).validate().responseJSON { resp in
+            headers: headers).validate().responseJSON { resp in
                 
                // print(resp.value as Any)
                 print(resp.response?.statusCode as Any)

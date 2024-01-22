@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LoginVC: BaseTableVC {
+class LoginVC: BaseTableVC, LoginViewModelDelegate {
     
     
     static var newInstance: LoginVC? {
@@ -22,6 +22,9 @@ class LoginVC: BaseTableVC {
         
         // Do any additional setup after loading the view.
         setupUI()
+        
+        MySingleton.shared.loginvm = LoginViewModel(self)
+        
     }
     
     var email = String()
@@ -75,7 +78,7 @@ class LoginVC: BaseTableVC {
         }else if password.isEmpty == true {
             showToast(message: "Enter Password")
         }else {
-            showToast(message: "Call APiiiiii")
+            callAPI()
         }
     }
     
@@ -97,4 +100,20 @@ extension LoginVC {
         commonTVData =  MySingleton.shared.tablerow
         commonTableView.reloadData()
     }
+    
+    
+    func callAPI() {
+        MySingleton.shared.payload.removeAll()
+        MySingleton.shared.payload["username"] = email
+        MySingleton.shared.payload["password"] = password
+        MySingleton.shared.loginvm?.CALL_USER_LOGIN_API(dictParam:  MySingleton.shared.payload)
+    }
+    
+    
+    func loginSucess(response: LoginModel) {
+        
+    }
+    
+    
+    
 }

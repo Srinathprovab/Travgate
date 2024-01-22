@@ -44,10 +44,9 @@ class MenuBGTVCell: TableViewCell {
             editProfileView.isHidden = false
         } else {
             profileImage.image = UIImage(named: "profile")?.withRenderingMode(.alwaysOriginal)
-            editProfileView.isHidden = false
             loginBtn.setTitle("   Login/Sign up", for: .normal)
-            editProfileView.isHidden = false
-            loginBtn.isUserInteractionEnabled = false
+            editProfileView.isHidden = true
+            loginBtn.isUserInteractionEnabled = true
         }
     }
     

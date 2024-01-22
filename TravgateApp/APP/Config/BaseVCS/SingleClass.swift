@@ -89,6 +89,7 @@ class MySingleton {
     var fname = String()
     var lname = String()
     var confpassword = String()
+    var loginvm:LoginViewModel?
     
     
     

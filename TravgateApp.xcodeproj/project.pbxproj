@@ -10,6 +10,8 @@
 		6501F3642B485CD900F4625B /* FlightDeatilsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6501F3632B485CD900F4625B /* FlightDeatilsVC.swift */; };
 		6501F3692B48619C00F4625B /* TicketIssuingTimeTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6501F3672B48619C00F4625B /* TicketIssuingTimeTVCell.swift */; };
 		6501F36A2B48619C00F4625B /* TicketIssuingTimeTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6501F3682B48619C00F4625B /* TicketIssuingTimeTVCell.xib */; };
+		65063D0A2B58F8E800BF159A /* HotelCityListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65063D092B58F8E800BF159A /* HotelCityListModel.swift */; };
+		65063D0C2B58F90000BF159A /* HotelCitySearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65063D0B2B58F90000BF159A /* HotelCitySearchViewModel.swift */; };
 		650DBA262B451A390052294A /* SpecialOffersCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650DBA242B451A390052294A /* SpecialOffersCVCell.swift */; };
 		650DBA272B451A390052294A /* SpecialOffersCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 650DBA252B451A390052294A /* SpecialOffersCVCell.xib */; };
 		650DBA2A2B451B840052294A /* SpecialOffersTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650DBA282B451B840052294A /* SpecialOffersTVCell.swift */; };
@@ -93,6 +95,8 @@
 		6517182A2B441630003D3723 /* TripsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651718292B441630003D3723 /* TripsVC.swift */; };
 		6517182C2B44163F003D3723 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6517182B2B44163F003D3723 /* ProfileVC.swift */; };
 		6517182E2B441650003D3723 /* MoreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6517182D2B441650003D3723 /* MoreVC.swift */; };
+		652379CC2B5E956F0067E84A /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652379CB2B5E956F0067E84A /* LoginModel.swift */; };
+		652379CE2B5E95870067E84A /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652379CD2B5E95870067E84A /* LoginViewModel.swift */; };
 		653E16AF2B4AB13A00CB2EC9 /* BookingDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653E16AE2B4AB13A00CB2EC9 /* BookingDetailsVC.swift */; };
 		653E2D1A2B47E8810082AFF6 /* FlightModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653E2D192B47E8810082AFF6 /* FlightModel.swift */; };
 		653E2D202B47E94D0082AFF6 /* FlightDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653E2D1F2B47E94D0082AFF6 /* FlightDataModel.swift */; };
@@ -265,6 +269,18 @@
 		65D85C212B4A55CB00D939D0 /* DepartureTimeCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65D85C1F2B4A55CB00D939D0 /* DepartureTimeCVCell.xib */; };
 		65D85C222B4A55CB00D939D0 /* DepartureTimeCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D85C202B4A55CB00D939D0 /* DepartureTimeCVCell.swift */; };
 		65D85C242B4A818000D939D0 /* loder.gif in Resources */ = {isa = PBXBuildFile; fileRef = 65D85C232B4A818000D939D0 /* loder.gif */; };
+		65EC43642B5D2A41003B4C05 /* AddRoomsGuestsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65EC43632B5D2A41003B4C05 /* AddRoomsGuestsVC.swift */; };
+		65EC43682B5D2A56003B4C05 /* AddRoomsGuestsTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65EC43662B5D2A56003B4C05 /* AddRoomsGuestsTVCell.swift */; };
+		65EC43692B5D2A56003B4C05 /* AddRoomsGuestsTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65EC43672B5D2A56003B4C05 /* AddRoomsGuestsTVCell.xib */; };
+		65EC436B2B5D3CF2003B4C05 /* NationalityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65EC436A2B5D3CF2003B4C05 /* NationalityVC.swift */; };
+		65EC436E2B5D3D24003B4C05 /* Airline_list.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65EC436D2B5D3D24003B4C05 /* Airline_list.swift */; };
+		65EC43702B5D3D32003B4C05 /* AirlineListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65EC436F2B5D3D32003B4C05 /* AirlineListViewModel.swift */; };
+		65EC43742B5D3E6A003B4C05 /* TitleLblTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65EC43722B5D3E6A003B4C05 /* TitleLblTVCell.xib */; };
+		65EC43752B5D3E6A003B4C05 /* TitleLblTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65EC43732B5D3E6A003B4C05 /* TitleLblTVCell.swift */; };
+		65F253102B57E05D00ECD22A /* Hotel.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65F2530F2B57E05D00ECD22A /* Hotel.storyboard */; };
+		65F253122B57E40A00ECD22A /* SearchHotelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F253112B57E40A00ECD22A /* SearchHotelVC.swift */; };
+		65F253162B5805B100ECD22A /* HotelSearchTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F253142B5805B100ECD22A /* HotelSearchTVCell.swift */; };
+		65F253172B5805B100ECD22A /* HotelSearchTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65F253152B5805B100ECD22A /* HotelSearchTVCell.xib */; };
 		A49629B2BC0298903ECB14C9 /* Pods_TravgateApp_TravgateAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CD57DADF2827CC7315F9E10 /* Pods_TravgateApp_TravgateAppUITests.framework */; };
 		B0DAB0DBB63A478E83F5291D /* Pods_TravgateAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 634B61CF8AE4096700985889 /* Pods_TravgateAppTests.framework */; };
 		F35DB7DEE4FE2CEB1228C68B /* Pods_TravgateApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C1727B54071D4A493CAF226 /* Pods_TravgateApp.framework */; };
@@ -295,6 +311,8 @@
 		6501F3632B485CD900F4625B /* FlightDeatilsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightDeatilsVC.swift; sourceTree = "<group>"; };
 		6501F3672B48619C00F4625B /* TicketIssuingTimeTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketIssuingTimeTVCell.swift; sourceTree = "<group>"; };
 		6501F3682B48619C00F4625B /* TicketIssuingTimeTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TicketIssuingTimeTVCell.xib; sourceTree = "<group>"; };
+		65063D092B58F8E800BF159A /* HotelCityListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelCityListModel.swift; sourceTree = "<group>"; };
+		65063D0B2B58F90000BF159A /* HotelCitySearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelCitySearchViewModel.swift; sourceTree = "<group>"; };
 		650DBA242B451A390052294A /* SpecialOffersCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialOffersCVCell.swift; sourceTree = "<group>"; };
 		650DBA252B451A390052294A /* SpecialOffersCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpecialOffersCVCell.xib; sourceTree = "<group>"; };
 		650DBA282B451B840052294A /* SpecialOffersTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialOffersTVCell.swift; sourceTree = "<group>"; };
@@ -383,6 +401,8 @@
 		651718292B441630003D3723 /* TripsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsVC.swift; sourceTree = "<group>"; };
 		6517182B2B44163F003D3723 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		6517182D2B441650003D3723 /* MoreVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreVC.swift; sourceTree = "<group>"; };
+		652379CB2B5E956F0067E84A /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
+		652379CD2B5E95870067E84A /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		653E16AE2B4AB13A00CB2EC9 /* BookingDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingDetailsVC.swift; sourceTree = "<group>"; };
 		653E2D192B47E8810082AFF6 /* FlightModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightModel.swift; sourceTree = "<group>"; };
 		653E2D1F2B47E94D0082AFF6 /* FlightDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightDataModel.swift; sourceTree = "<group>"; };
@@ -555,6 +575,18 @@
 		65D85C1F2B4A55CB00D939D0 /* DepartureTimeCVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DepartureTimeCVCell.xib; sourceTree = "<group>"; };
 		65D85C202B4A55CB00D939D0 /* DepartureTimeCVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepartureTimeCVCell.swift; sourceTree = "<group>"; };
 		65D85C232B4A818000D939D0 /* loder.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loder.gif; sourceTree = "<group>"; };
+		65EC43632B5D2A41003B4C05 /* AddRoomsGuestsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRoomsGuestsVC.swift; sourceTree = "<group>"; };
+		65EC43662B5D2A56003B4C05 /* AddRoomsGuestsTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRoomsGuestsTVCell.swift; sourceTree = "<group>"; };
+		65EC43672B5D2A56003B4C05 /* AddRoomsGuestsTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddRoomsGuestsTVCell.xib; sourceTree = "<group>"; };
+		65EC436A2B5D3CF2003B4C05 /* NationalityVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NationalityVC.swift; sourceTree = "<group>"; };
+		65EC436D2B5D3D24003B4C05 /* Airline_list.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Airline_list.swift; sourceTree = "<group>"; };
+		65EC436F2B5D3D32003B4C05 /* AirlineListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirlineListViewModel.swift; sourceTree = "<group>"; };
+		65EC43722B5D3E6A003B4C05 /* TitleLblTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TitleLblTVCell.xib; sourceTree = "<group>"; };
+		65EC43732B5D3E6A003B4C05 /* TitleLblTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleLblTVCell.swift; sourceTree = "<group>"; };
+		65F2530F2B57E05D00ECD22A /* Hotel.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Hotel.storyboard; sourceTree = "<group>"; };
+		65F253112B57E40A00ECD22A /* SearchHotelVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHotelVC.swift; sourceTree = "<group>"; };
+		65F253142B5805B100ECD22A /* HotelSearchTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelSearchTVCell.swift; sourceTree = "<group>"; };
+		65F253152B5805B100ECD22A /* HotelSearchTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HotelSearchTVCell.xib; sourceTree = "<group>"; };
 		8C1727B54071D4A493CAF226 /* Pods_TravgateApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TravgateApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92CCA4D767899C0947F898F0 /* Pods-TravgateAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravgateAppTests.debug.xcconfig"; path = "Target Support Files/Pods-TravgateAppTests/Pods-TravgateAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A833FE625AA0EA62C12BEE47 /* Pods-TravgateApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravgateApp.debug.xcconfig"; path = "Target Support Files/Pods-TravgateApp/Pods-TravgateApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -618,6 +650,14 @@
 				6501F3682B48619C00F4625B /* TicketIssuingTimeTVCell.xib */,
 			);
 			path = TicketIssuingTimeTVCell;
+			sourceTree = "<group>";
+		};
+		65063D082B58F8DE00BF159A /* HotelCityListModel */ = {
+			isa = PBXGroup;
+			children = (
+				65063D092B58F8E800BF159A /* HotelCityListModel.swift */,
+			);
+			path = HotelCityListModel;
 			sourceTree = "<group>";
 		};
 		650DBA222B451A0E0052294A /* SpecialOffersTVCell */ = {
@@ -938,12 +978,12 @@
 		651718142B43F901003D3723 /* scens */ = {
 			isa = PBXGroup;
 			children = (
+				65F253072B57E00F00ECD22A /* Hotel */,
 				658B376A2B4D75280011932C /* Booking Confirmed */,
 				658B374E2B4D72A10011932C /* PaymentGateway */,
 				6517181D2B4410B4003D3723 /* Dashboard */,
 				651718172B440B47003D3723 /* Login */,
 				651718152B440B38003D3723 /* Flight */,
-				651718162B440B40003D3723 /* Hotel */,
 			);
 			path = scens;
 			sourceTree = "<group>";
@@ -958,13 +998,6 @@
 				651718182B440B51003D3723 /* VC */,
 			);
 			path = Flight;
-			sourceTree = "<group>";
-		};
-		651718162B440B40003D3723 /* Hotel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Hotel;
 			sourceTree = "<group>";
 		};
 		651718172B440B47003D3723 /* Login */ = {
@@ -1054,6 +1087,14 @@
 				654D871A2B51598F00256B47 /* MyAccountVC.swift */,
 			);
 			path = VC;
+			sourceTree = "<group>";
+		};
+		652379CA2B5E955D0067E84A /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				652379CB2B5E956F0067E84A /* LoginModel.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 		653E2D182B47E86F0082AFF6 /* FlightModel */ = {
@@ -1163,6 +1204,7 @@
 		658B371E2B4C2DF50011932C /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				652379CA2B5E955D0067E84A /* Login */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1170,6 +1212,7 @@
 		658B371F2B4C2DFD0011932C /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				652379CD2B5E95870067E84A /* LoginViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -1824,6 +1867,115 @@
 			path = DepartureTimeCVCell;
 			sourceTree = "<group>";
 		};
+		65EC43652B5D2A4B003B4C05 /* AddRoomsGuestsTVCell */ = {
+			isa = PBXGroup;
+			children = (
+				65EC43662B5D2A56003B4C05 /* AddRoomsGuestsTVCell.swift */,
+				65EC43672B5D2A56003B4C05 /* AddRoomsGuestsTVCell.xib */,
+			);
+			path = AddRoomsGuestsTVCell;
+			sourceTree = "<group>";
+		};
+		65EC436C2B5D3D1D003B4C05 /* AirlineListModel */ = {
+			isa = PBXGroup;
+			children = (
+				65EC436D2B5D3D24003B4C05 /* Airline_list.swift */,
+			);
+			path = AirlineListModel;
+			sourceTree = "<group>";
+		};
+		65EC43712B5D3E59003B4C05 /* TitleLblTVCell */ = {
+			isa = PBXGroup;
+			children = (
+				65EC43732B5D3E6A003B4C05 /* TitleLblTVCell.swift */,
+				65EC43722B5D3E6A003B4C05 /* TitleLblTVCell.xib */,
+			);
+			path = TitleLblTVCell;
+			sourceTree = "<group>";
+		};
+		65F253072B57E00F00ECD22A /* Hotel */ = {
+			isa = PBXGroup;
+			children = (
+				65F253082B57E01700ECD22A /* SB */,
+				65F2530E2B57E04900ECD22A /* ViewModel */,
+				65F2530D2B57E04200ECD22A /* Model */,
+				65F2530A2B57E02600ECD22A /* Views */,
+				65F253092B57E01F00ECD22A /* VC */,
+			);
+			path = Hotel;
+			sourceTree = "<group>";
+		};
+		65F253082B57E01700ECD22A /* SB */ = {
+			isa = PBXGroup;
+			children = (
+				65F2530F2B57E05D00ECD22A /* Hotel.storyboard */,
+			);
+			path = SB;
+			sourceTree = "<group>";
+		};
+		65F253092B57E01F00ECD22A /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				65F253112B57E40A00ECD22A /* SearchHotelVC.swift */,
+				65EC43632B5D2A41003B4C05 /* AddRoomsGuestsVC.swift */,
+				65EC436A2B5D3CF2003B4C05 /* NationalityVC.swift */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		65F2530A2B57E02600ECD22A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				65F2530C2B57E03A00ECD22A /* TVCells */,
+				65F2530B2B57E02E00ECD22A /* CVCells */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		65F2530B2B57E02E00ECD22A /* CVCells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CVCells;
+			sourceTree = "<group>";
+		};
+		65F2530C2B57E03A00ECD22A /* TVCells */ = {
+			isa = PBXGroup;
+			children = (
+				65EC43712B5D3E59003B4C05 /* TitleLblTVCell */,
+				65EC43652B5D2A4B003B4C05 /* AddRoomsGuestsTVCell */,
+				65F253132B58059200ECD22A /* HotelSearchTVCell */,
+			);
+			path = TVCells;
+			sourceTree = "<group>";
+		};
+		65F2530D2B57E04200ECD22A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				65EC436C2B5D3D1D003B4C05 /* AirlineListModel */,
+				65063D082B58F8DE00BF159A /* HotelCityListModel */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		65F2530E2B57E04900ECD22A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				65063D0B2B58F90000BF159A /* HotelCitySearchViewModel.swift */,
+				65EC436F2B5D3D32003B4C05 /* AirlineListViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		65F253132B58059200ECD22A /* HotelSearchTVCell */ = {
+			isa = PBXGroup;
+			children = (
+				65F253142B5805B100ECD22A /* HotelSearchTVCell.swift */,
+				65F253152B5805B100ECD22A /* HotelSearchTVCell.xib */,
+			);
+			path = HotelSearchTVCell;
+			sourceTree = "<group>";
+		};
 		81FCC340B91874B16663E227 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1968,6 +2120,7 @@
 				65B679722B44229C00E5D1C3 /* OpenSans-Regular.ttf in Resources */,
 				658B37062B4BB28C0011932C /* FareBreakdownTVCell.xib in Resources */,
 				65B679732B44229C00E5D1C3 /* OpenSans-SemiBold.ttf in Resources */,
+				65EC43692B5D2A56003B4C05 /* AddRoomsGuestsTVCell.xib in Resources */,
 				658B37902B4D75280011932C /* BCFlightInfoTVCell.xib in Resources */,
 				65D85C042B4A477100D939D0 /* PopularFiltersTVCell.xib in Resources */,
 				658B37452B4D55090011932C /* ContactInformationTVCell.xib in Resources */,
@@ -2016,9 +2169,12 @@
 				650DBA2B2B451B840052294A /* SpecialOffersTVCell.xib in Resources */,
 				651718122B43F8D4003D3723 /* currencylist.json in Resources */,
 				65CB2CFD2B493294009B5B2E /* MenuBGTVCell.xib in Resources */,
+				65F253102B57E05D00ECD22A /* Hotel.storyboard in Resources */,
 				65CB2D032B49469C009B5B2E /* ItineraryTVCell.xib in Resources */,
 				651718032B43F8D4003D3723 /* Poppins-Black.ttf in Resources */,
 				65CB2CF92B49328A009B5B2E /* SideMenuTitleTVCell.xib in Resources */,
+				65EC43742B5D3E6A003B4C05 /* TitleLblTVCell.xib in Resources */,
+				65F253172B5805B100ECD22A /* HotelSearchTVCell.xib in Resources */,
 				6517141D2B43F839003D3723 /* Assets.xcassets in Resources */,
 				65CB2CF32B493268009B5B2E /* QuickLinkTableViewCell.xib in Resources */,
 				650DBA552B45626C0052294A /* Flight.storyboard in Resources */,
@@ -2196,7 +2352,9 @@
 				658B37362B4D494E0011932C /* AddDeatilsOfTravellerTVCell.swift in Sources */,
 				6517180F2B43F8D4003D3723 /* ProgressHUD.swift in Sources */,
 				651717EB2B43F8D4003D3723 /* UIViewControllerExtension.swift in Sources */,
+				65EC436E2B5D3D24003B4C05 /* Airline_list.swift in Sources */,
 				653E2D342B47FDEF0082AFF6 /* FlightViewModel.swift in Sources */,
+				65F253162B5805B100ECD22A /* HotelSearchTVCell.swift in Sources */,
 				653E2D2E2B47EB910082AFF6 /* Destination.swift in Sources */,
 				651717E82B43F8D4003D3723 /* ServiceManager.swift in Sources */,
 				650DBA412B453E680052294A /* City_data_list.swift in Sources */,
@@ -2204,9 +2362,11 @@
 				651714182B43F837003D3723 /* ViewController.swift in Sources */,
 				650DBA262B451A390052294A /* SpecialOffersCVCell.swift in Sources */,
 				651718232B441151003D3723 /* DashBoardTBVC.swift in Sources */,
+				65EC43702B5D3D32003B4C05 /* AirlineListViewModel.swift in Sources */,
 				651717E22B43F8D4003D3723 /* Constants.swift in Sources */,
 				65CB2CF42B493268009B5B2E /* QuickLinkTableViewCell.swift in Sources */,
 				6501F3692B48619C00F4625B /* TicketIssuingTimeTVCell.swift in Sources */,
+				65EC43752B5D3E6A003B4C05 /* TitleLblTVCell.swift in Sources */,
 				65AD14F72B4E708C0064E8B0 /* MobilePassengerdetailsModel.swift in Sources */,
 				651717EF2B43F8D4003D3723 /* StringExtension.swift in Sources */,
 				653E16AF2B4AB13A00CB2EC9 /* BookingDetailsVC.swift in Sources */,
@@ -2218,6 +2378,7 @@
 				658B37422B4D54FA0011932C /* UsePromoCodesTVCell.swift in Sources */,
 				65D85C1C2B4A54FA00D939D0 /* ButtonTVCell.swift in Sources */,
 				658B374D2B4D71350011932C /* PopupVC.swift in Sources */,
+				65063D0C2B58F90000BF159A /* HotelCitySearchViewModel.swift in Sources */,
 				653E2D282B47EB290082AFF6 /* FlightSummery.swift in Sources */,
 				65CB2CFE2B493294009B5B2E /* MenuBGTVCell.swift in Sources */,
 				65B6799B2B44465800E5D1C3 /* TopcityGuidesCVCell.swift in Sources */,
@@ -2266,14 +2427,18 @@
 				658B372D2B4D064A0011932C /* ViewFlightDetailsVC.swift in Sources */,
 				653E2D242B47E9D10082AFF6 /* FlightList.swift in Sources */,
 				651717E02B43F8D4003D3723 /* BaseTableVC.swift in Sources */,
+				65EC436B2B5D3CF2003B4C05 /* NationalityVC.swift in Sources */,
 				658B373C2B4D4E270011932C /* TotalNoofTravellerTVCell.swift in Sources */,
 				650DBA5C2B456CE90052294A /* FlightSearchTVCell.swift in Sources */,
 				65CB2D072B494771009B5B2E /* AddItineraryTVCell.swift in Sources */,
+				65EC43642B5D2A41003B4C05 /* AddRoomsGuestsVC.swift in Sources */,
 				650DBA432B453E680052294A /* TopFlightDetails.swift in Sources */,
 				6517182E2B441650003D3723 /* MoreVC.swift in Sources */,
 				65B959342B468F9B00A4EAE7 /* SelectCityModel.swift in Sources */,
 				653E2D2C2B47EB830082AFF6 /* Origin.swift in Sources */,
+				65063D0A2B58F8E800BF159A /* HotelCityListModel.swift in Sources */,
 				650DBA392B4528410052294A /* MoreServiceCVCell.swift in Sources */,
+				65EC43682B5D2A56003B4C05 /* AddRoomsGuestsTVCell.swift in Sources */,
 				650DBA442B453E680052294A /* TopHotelDetails.swift in Sources */,
 				650DBA2A2B451B840052294A /* SpecialOffersTVCell.swift in Sources */,
 				658B37842B4D75280011932C /* Booking_transaction_details.swift in Sources */,
@@ -2282,6 +2447,8 @@
 				65CB2D112B49542D009B5B2E /* Baggage_details.swift in Sources */,
 				651717E92B43F8D4003D3723 /* BorderView.swift in Sources */,
 				658B379A2B4D77BF0011932C /* BookingConfirmedTVCell.swift in Sources */,
+				65F253122B57E40A00ECD22A /* SearchHotelVC.swift in Sources */,
+				652379CC2B5E956F0067E84A /* LoginModel.swift in Sources */,
 				65D85C002B4A473800D939D0 /* SortbyTVCell.swift in Sources */,
 				658B370D2B4BDEE20011932C /* MPBFlightData.swift in Sources */,
 				650DBA472B453E8C0052294A /* IndexPagemodel.swift in Sources */,
@@ -2349,6 +2516,7 @@
 				65D85BFC2B4A471F00D939D0 /* checkOptionsTVCell.swift in Sources */,
 				6517182C2B44163F003D3723 /* ProfileVC.swift in Sources */,
 				658B37192B4BE1090011932C /* MPBViewModel.swift in Sources */,
+				652379CE2B5E95870067E84A /* LoginViewModel.swift in Sources */,
 				658B37462B4D55090011932C /* ContactInformationTVCell.swift in Sources */,
 				65D85C052B4A477100D939D0 /* PopularFiltersTVCell.swift in Sources */,
 				65113B8E2B47C8A500C4B3E4 /* FlightResultTVCell.swift in Sources */,
