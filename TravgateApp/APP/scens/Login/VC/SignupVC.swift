@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SignupVC: BaseTableVC {
+class SignupVC: BaseTableVC, RegisterViewModelDelegate {
     
     
     static var newInstance: SignupVC? {
@@ -30,6 +30,8 @@ class SignupVC: BaseTableVC {
         
         // Do any additional setup after loading the view.
         setupUI()
+        
+        MySingleton.shared.registervm = RegisterViewModel(self)
     }
     
     
@@ -89,23 +91,36 @@ class SignupVC: BaseTableVC {
     override func didTapOnSignupBtnAction(cell:SignupTVCell){
         if fname.isEmpty == true {
             showToast(message: "Enter First Name")
+            errorTextField(v: cell.fnameview)
         }else if lname.isEmpty == true {
             showToast(message: "Enter Last Name")
+            errorTextField(v: cell.lnameview)
         }else if mobile.isEmpty == true {
             showToast(message: "Enter Mobile Number")
+            errorTextField(v: cell.mobileview)
         }else if email.isEmpty == true {
             showToast(message: "Enter Email Address")
+            errorTextField(v: cell.emailview)
         }else if email.isValidEmail() == false {
             showToast(message: "Enter Valid Email Address")
+            errorTextField(v: cell.emailview)
         }else if password.isEmpty == true {
             showToast(message: "Enter Password")
+            errorTextField(v: cell.passview)
         }else if confpassword.isEmpty == true {
             showToast(message: "Enter Confirm Password")
+            errorTextField(v: cell.confPassview)
         }else  if password !=  confpassword {
             showToast(message: "Password Should Match With Confirm Password")
+            errorTextField(v: cell.confPassview)
         }else {
-            showToast(message: "Calll APIIII")
+            callAPI()
         }
+    }
+    
+    
+    func errorTextField(v:UIView) {
+        v.layer.borderColor = UIColor.BooknowBtnColor.cgColor
     }
     
     
@@ -120,4 +135,31 @@ extension SignupVC {
         commonTVData =  MySingleton.shared.tablerow
         commonTableView.reloadData()
     }
+    
+    
+    func callAPI() {
+        MySingleton.shared.payload.removeAll()
+        MySingleton.shared.payload["first_name"] = fname
+        MySingleton.shared.payload["last_name"] = lname
+        MySingleton.shared.payload["phone"] = mobile
+        MySingleton.shared.payload["email"] = email
+        MySingleton.shared.payload["password"] = password
+        MySingleton.shared.registervm?.CALL_USER_REGISTER_API(dictParam:  MySingleton.shared.payload)
+    }
+    
+    
+    func registerSucess(response: RegisterModel) {
+        
+        showToast(message: response.msg ?? "")
+        
+        if response.status == true {
+            let seconds = 2.0
+            DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {[self] in
+               dismiss(animated: true)
+            }
+        }
+            
+    }
+    
+    
 }

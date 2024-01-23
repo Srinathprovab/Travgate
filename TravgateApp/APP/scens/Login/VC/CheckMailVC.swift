@@ -19,7 +19,7 @@ class CheckMailVC: UIViewController {
     
     
     override func viewWillAppear(_ animated: Bool) {
-        let seconds = 3.0
+        let seconds = 2.5
         DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
             // Put your code which should be executed with a delay here
             self.gotoDashBoardTBVC()
@@ -35,10 +35,8 @@ class CheckMailVC: UIViewController {
     
     
     func gotoDashBoardTBVC() {
-        guard let vc = DashBoardTBVC.newInstance.self else {return}
-        vc.modalPresentationStyle = .fullScreen
-        vc.selectedIndex = 0
-        present(vc, animated: true)
+        self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+
     }
     
 }

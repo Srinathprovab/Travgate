@@ -7,7 +7,8 @@
 
 import UIKit
 
-class ResetPasswordVC: BaseTableVC {
+class ResetPasswordVC: BaseTableVC, ResetPasswordViewModelDelegate {
+  
     
     
     static var newInstance: ResetPasswordVC? {
@@ -18,12 +19,15 @@ class ResetPasswordVC: BaseTableVC {
     }
 
     var email = String()
+    var mobile = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         setupUI()
+        
+        MySingleton.shared.resetpasswordvm = ResetPasswordViewModel(self)
     }
     
     
@@ -40,6 +44,11 @@ class ResetPasswordVC: BaseTableVC {
             email = tf.text ?? ""
             break
             
+            
+        case 12:
+            mobile = tf.text ?? ""
+            break
+            
        
         default:
             break
@@ -50,12 +59,15 @@ class ResetPasswordVC: BaseTableVC {
         
         if email.isEmpty == true {
             showToast(message: "Enter Email Address")
+            cell.emailview.layer.borderColor = UIColor.BooknowBtnColor.cgColor
         }else if email.isValidEmail() == false {
             showToast(message: "Enter Vlaid Email Address")
+            cell.emailview.layer.borderColor = UIColor.BooknowBtnColor.cgColor
+        }else if mobile.isEmpty == true {
+            showToast(message: "Enter Mobile Number")
+            cell.mobileview.layer.borderColor = UIColor.BooknowBtnColor.cgColor
         }else {
-            guard let vc = CheckMailVC.newInstance.self else {return}
-            vc.modalPresentationStyle = .fullScreen
-            present(vc, animated: true)
+            callAPI()
         }
         
     }
@@ -76,5 +88,34 @@ extension ResetPasswordVC {
         MySingleton.shared.tablerow.append(TableRow(cellType:.ResetPasswordTVCell))
         commonTVData =  MySingleton.shared.tablerow
         commonTableView.reloadData()
+    }
+    
+    
+    func callAPI() {
+        MySingleton.shared.payload.removeAll()
+        
+        MySingleton.shared.payload["email"] = email
+        MySingleton.shared.payload["phone"] = mobile
+        MySingleton.shared.resetpasswordvm?.CALL_USER_RESET_PASSWORD_API(dictParam:  MySingleton.shared.payload)
+        
+    }
+    
+    
+    func resetpasswordSucess(response: LoginModel) {
+        
+        showToast(message: response.data ?? "")
+        if response.status == true {
+            let seconds = 1.0
+            DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {[self] in
+                gotoCheckMailVC()
+            }
+        }
+    }
+    
+    
+    func gotoCheckMailVC() {
+        guard let vc = CheckMailVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
     }
 }

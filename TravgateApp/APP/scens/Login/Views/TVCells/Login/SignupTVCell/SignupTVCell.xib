@@ -447,12 +447,18 @@
             <connections>
                 <outlet property="confPassBtn" destination="7w7-yA-7CN" id="wWO-fd-S4Z"/>
                 <outlet property="confPassTF" destination="sNf-KB-P7v" id="Ia9-MM-dK7"/>
+                <outlet property="confPassview" destination="M8z-H9-4je" id="7uL-e4-smq"/>
                 <outlet property="emailTF" destination="Hjl-s7-K8y" id="jo8-We-2WJ"/>
+                <outlet property="emailview" destination="GUV-no-EHM" id="Q22-Xr-Znl"/>
                 <outlet property="fnameTF" destination="eOb-QG-4pj" id="hbo-Dg-wH8"/>
+                <outlet property="fnameview" destination="NZf-MR-KY3" id="DBE-LF-5MY"/>
                 <outlet property="lnameTF" destination="2pI-Le-h84" id="57K-Wm-56y"/>
+                <outlet property="lnameview" destination="a3g-1z-IVh" id="RRi-UU-dMX"/>
                 <outlet property="mobileTF" destination="o92-Tw-gX1" id="JPT-cN-kjM"/>
+                <outlet property="mobileview" destination="mh2-Sv-dun" id="q0V-Ss-kt1"/>
                 <outlet property="passTF" destination="jZt-F0-58t" id="cmB-KQ-Ska"/>
                 <outlet property="passshowBtn" destination="Ddd-lO-Wed" id="7Uy-NM-MqN"/>
+                <outlet property="passview" destination="jOL-hF-lQn" id="arV-Qf-brf"/>
                 <outlet property="signupbtn" destination="kbO-L1-TrX" id="ONc-Ft-yRz"/>
             </connections>
             <point key="canvasLocation" x="217.55725190839695" y="525"/>

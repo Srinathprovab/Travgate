@@ -54,16 +54,33 @@ class EditProfileTVCell: TableViewCell {
     
     override func updateUI() {
         
+        profileDateils()
         mobileView.isUserInteractionEnabled = false
         emailView.isUserInteractionEnabled = false
+       
         if cellInfo?.key == "noedit" {
+            holderView.alpha = 0.7
             holderView.isUserInteractionEnabled = false
             UpdateBtn.isHidden = true
+            
         }else {
+            holderView.alpha = 1
             holderView.isUserInteractionEnabled = true
             UpdateBtn.isHidden = false
+            mobileView.alpha = 0.5
+            emailView.alpha = 0.5
         }
+        
+        
+        if MySingleton.shared.profiledata?.gender == "Female" {
+            femaleSelected()
+        }else {
+            maleSelected()
+        }
+        
     }
+    
+    
     
     func setupUI() {
         showDatePicker()
@@ -98,6 +115,10 @@ class EditProfileTVCell: TableViewCell {
     }
     
     @IBAction func didTapOnMailBtnAction(_ sender: Any) {
+        maleSelected()
+    }
+    
+    func maleSelected() {
         gender = "Male"
         maleImg.image = UIImage(named: "radioSelected1")?.withRenderingMode(.alwaysOriginal).withTintColor(.AppBtnColor)
         femaleimg.image = UIImage(named: "radiounselected")?.withRenderingMode(.alwaysOriginal).withTintColor(.AppBtnColor)
@@ -106,6 +127,11 @@ class EditProfileTVCell: TableViewCell {
     
     
     @IBAction func didTapOnFeMailBtnAction(_ sender: Any) {
+        femaleSelected()
+    }
+    
+    
+    func femaleSelected() {
         gender = "Female"
         femaleimg.image = UIImage(named: "radioSelected1")?.withRenderingMode(.alwaysOriginal).withTintColor(.AppBtnColor)
         maleImg.image = UIImage(named: "radiounselected")?.withRenderingMode(.alwaysOriginal).withTintColor(.AppBtnColor)
@@ -196,4 +222,22 @@ extension EditProfileTVCell {
     }
     
     
+}
+
+
+extension EditProfileTVCell {
+    
+    func profileDateils() {
+        fnameTF.text = MySingleton.shared.profiledata?.first_name
+        lnameTF.text = MySingleton.shared.profiledata?.last_name
+        mobileTF.text = MySingleton.shared.profiledata?.phone
+        emailTF.text = MySingleton.shared.profiledata?.email
+        dobTF.text = MySingleton.shared.profiledata?.date_of_birth
+        addressTF.text = MySingleton.shared.profiledata?.address
+        countryTF.text = MySingleton.shared.profiledata?.country_name
+        stateTF.text = MySingleton.shared.profiledata?.state_name
+        cityTF.text = MySingleton.shared.profiledata?.city_name
+        pincodeTF.text = MySingleton.shared.profiledata?.pin_code
+        
+    }
 }

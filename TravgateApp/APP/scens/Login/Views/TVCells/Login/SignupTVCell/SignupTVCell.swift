@@ -28,6 +28,14 @@ class SignupTVCell: TableViewCell {
     @IBOutlet weak var signupbtn: UIButton!
     
     
+    @IBOutlet weak var fnameview: UIView!
+    @IBOutlet weak var lnameview: UIView!
+    @IBOutlet weak var mobileview: UIView!
+    @IBOutlet weak var emailview: UIView!
+    @IBOutlet weak var passview: UIView!
+    @IBOutlet weak var confPassview: UIView!
+    
+    
     var showbool1 = false
     var showbool2 = false
     var delegate:SignupTVCellDelegate?
@@ -75,6 +83,46 @@ class SignupTVCell: TableViewCell {
     
     
     @objc func editingText(textField:UITextField) {
+        
+        
+        switch textField.tag {
+        case 1:
+            fnameview.layer.borderColor = UIColor.AppBorderColor.cgColor
+            break
+            
+        case 2:
+            lnameview.layer.borderColor = UIColor.AppBorderColor.cgColor
+            break
+            
+            
+        case 12:
+            mobileview.layer.borderColor = UIColor.AppBorderColor.cgColor
+            break
+            
+            
+        case 11:
+            emailview.layer.borderColor = UIColor.AppBorderColor.cgColor
+            break
+            
+            
+        case 3:
+            passview.layer.borderColor = UIColor.AppBorderColor.cgColor
+            break
+            
+            
+            
+        case 4:
+            confPassview.layer.borderColor = UIColor.AppBorderColor.cgColor
+            break
+            
+            
+            
+        default:
+            break
+        }
+        
+        
+        
         delegate?.editingTextField(tf: textField)
     }
     

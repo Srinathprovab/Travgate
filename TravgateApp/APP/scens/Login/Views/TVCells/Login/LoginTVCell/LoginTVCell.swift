@@ -23,7 +23,8 @@ class LoginTVCell: TableViewCell {
     @IBOutlet weak var passTF: UITextField!
     @IBOutlet weak var showPasswordBtn: UIButton!
     @IBOutlet weak var loginBtn: UIButton!
-    
+    @IBOutlet weak var emailview: UIView!
+    @IBOutlet weak var passwordview: UIView!
     var passbool = false
     var delegate:LoginTVCellDelegate?
     override func awakeFromNib() {
@@ -66,6 +67,11 @@ class LoginTVCell: TableViewCell {
     
     
     @objc func editingText(textField:UITextField) {
+        if textField.tag == 1 {
+            emailview.layer.borderColor = UIColor.AppBorderColor.cgColor
+        }else {
+            passwordview.layer.borderColor = UIColor.AppBorderColor.cgColor
+        }
         delegate?.editingTextField(tf: textField)
     }
     

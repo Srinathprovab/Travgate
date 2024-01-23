@@ -6,8 +6,13 @@
 //
 
 import UIKit
+import MobileCoreServices
+import Alamofire
 
-class EditProfileVC: BaseTableVC {
+
+class EditProfileVC: BaseTableVC, ProfileViewModelDelegate {
+    
+    
     
     
     @IBOutlet weak var profileView: BorderedView!
@@ -30,6 +35,7 @@ class EditProfileVC: BaseTableVC {
     var date_of_birth = String()
     var address = String()
     var phone = String()
+    var email = String()
     var gender = String()
     var country_name = String()
     var state_name = String()
@@ -43,10 +49,13 @@ class EditProfileVC: BaseTableVC {
         
         // Do any additional setup after loading the view.
         setupUI()
+        
+        MySingleton.shared.profilevm = ProfileViewModel(self)
     }
     
     
     func setupUI() {
+        profiledetails()
         setAttributedString(str1: "Change Picture")
         commonTableView.backgroundColor = .WhiteColor
         commonTableView.registerTVCells(["EditProfileTVCell","EmptyTVCell"])
@@ -251,6 +260,27 @@ extension EditProfileVC:UIImagePickerControllerDelegate & UINavigationController
 
 //MARK: - setupTVCells
 extension EditProfileVC {
+    
+    func profiledetails() {
+        first_name = MySingleton.shared.profiledata?.first_name ?? ""
+        last_name = MySingleton.shared.profiledata?.last_name ?? ""
+        date_of_birth = MySingleton.shared.profiledata?.date_of_birth ?? ""
+        address = MySingleton.shared.profiledata?.address ?? ""
+        country_name = MySingleton.shared.profiledata?.country_name ?? ""
+        state_name = MySingleton.shared.profiledata?.state_name ?? ""
+        city_name = MySingleton.shared.profiledata?.city_name ?? ""
+        pin_code = MySingleton.shared.profiledata?.pin_code ?? ""
+        phone = MySingleton.shared.profiledata?.phone ?? ""
+        email = MySingleton.shared.profiledata?.email ?? ""
+        gender = MySingleton.shared.profiledata?.gender ?? ""
+        
+        if gender == "" {
+            gender = "Male"
+        }
+        
+    }
+    
+    
     func updateProfile(){
         if first_name.isEmpty == true {
             showToast(message: "Enter First Name")
@@ -259,7 +289,99 @@ extension EditProfileVC {
         }else  if date_of_birth.isEmpty == true {
             showToast(message: "Enter Date Of Birth")
         }else {
-            showToast(message: "Calll APIIII")
+            
+            MySingleton.shared.payload.removeAll()
+            MySingleton.shared.payload["user_id"] = defaults.string(forKey: UserDefaultsKeys.userid) ?? "0"
+            MySingleton.shared.payload["first_name"] = first_name
+            MySingleton.shared.payload["last_name"] = last_name
+            MySingleton.shared.payload["phone"] = phone
+            MySingleton.shared.payload["email"] = email
+            MySingleton.shared.payload["address"] = address
+            MySingleton.shared.payload["address2"] = ""
+            MySingleton.shared.payload["country_name"] = country_name
+            MySingleton.shared.payload["state_name"] = state_name
+            MySingleton.shared.payload["city_name"] = city_name
+            MySingleton.shared.payload["pin_code"] = pin_code
+            MySingleton.shared.payload["date_of_birth"] =  MySingleton.shared.convertDateFormat(inputDate: date_of_birth, f1: "dd-MM-yyyy", f2: "yyyy-MM-dd")
+            MySingleton.shared.payload["gender"] = gender
+            
+            
+            
+           // MySingleton.shared.profilevm?.CALL_UPDATE_PROFILE_DETAILS_API(dictParam: MySingleton.shared.payload)
+            callUpdateProfileAPI()
         }
     }
+    
+    
+    func profileDetails(response: ProfileModel) {
+        
+    }
+    
+    func profileUpdateSucess(response: ProfileModel) {
+        
+        MySingleton.shared.profiledata = response.data
+        showToast(message: response.msg ?? "")
+        NotificationCenter.default.post(name: NSNotification.Name("logindone"), object: nil)
+        
+        let seconds = 2.0
+        DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+            self.dismiss(animated: true)
+        }
+    }
+    
+    
+    func callUpdateProfileAPI() {
+        
+        MySingleton.shared.profilevm?.view.showLoader()
+        
+        // Set up headers
+            let headers1: HTTPHeaders = [
+                "Token": accessToken
+            ]
+        
+        AF.upload(multipartFormData: { [self] MultipartFormData in
+            
+            for (key, value) in  MySingleton.shared.payload {
+                MultipartFormData.append((value as AnyObject).data(using: String.Encoding.utf8.rawValue)!, withName: key)
+            }
+            
+            if let img = profilePic.image {
+                if let imageData = img.jpegData(compressionQuality: 0.4) {
+                    MultipartFormData.append(imageData, withName: "image", fileName: "\(Date()).jpeg", mimeType: "image/jpeg")
+                }
+            }
+            
+        }, to: "https://provab.net/travgate/pro_new/mobile/index.php/user/mobile_profile",headers: headers1).responseDecodable(of: ProfileModel.self) { [self] resp in
+            
+            switch resp.result {
+            case let .success(data):
+                
+                MySingleton.shared.profilevm?.view.hideLoader()
+                
+                showToast(message: "Updated Sucess")
+                NotificationCenter.default.post(name: NSNotification.Name("logindone"), object: nil)
+                
+                let seconds = 2.0
+                DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+                    self.dismiss(animated: true)
+                }
+                
+                break
+                
+            case .failure(let encodingError):
+                MySingleton.shared.profilevm?.view.hideLoader()
+                print("ERROR RESPONSE: \(encodingError)")
+                break
+                
+            }
+            
+        }
+        
+    }
+    
+    
+    
+    
 }
+
+

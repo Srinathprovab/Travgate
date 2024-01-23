@@ -7,7 +7,9 @@
 
 import UIKit
 
-class SideMenuViewController: BaseTableVC {
+class SideMenuViewController: BaseTableVC, ProfileViewModelDelegate {
+   
+    
     
     static var newInstance: SideMenuViewController? {
         let storyboard = UIStoryboard(name: Storyboard.Login.name,
@@ -19,12 +21,26 @@ class SideMenuViewController: BaseTableVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setupUI()
+        MySingleton.shared.profilevm = ProfileViewModel(self)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         
-       
+        NotificationCenter.default.addObserver(self, selector: #selector(logindone), name: Notification.Name("logindone"), object: nil)
+        
+         let userloggedBool = defaults.bool(forKey: UserDefaultsKeys.loggedInStatus) 
+            if userloggedBool == true {
+                callShowProfileAPI()
+            }
+        
+    }
+    
+    
+    @objc func logindone() {
+        callShowProfileAPI()
     }
     
     
@@ -89,8 +105,7 @@ class SideMenuViewController: BaseTableVC {
             print("Customer Support")
             break
         case "Logout":
-            print("logout here")
-            //callLogoutAPI()
+            callLogoutAPI()
             break
         default:
             break
@@ -115,3 +130,38 @@ class SideMenuViewController: BaseTableVC {
   
 }
 
+
+
+extension SideMenuViewController {
+    
+    
+    func callShowProfileAPI() {
+        MySingleton.shared.payload.removeAll()
+        MySingleton.shared.payload["user_id"] = defaults.string(forKey: UserDefaultsKeys.userid) ?? "0"
+        MySingleton.shared.profilevm?.CALL_SHOW_PROFILE_DETAILS_API(dictParam:  MySingleton.shared.payload)
+    }
+    
+    
+    func profileDetails(response: ProfileModel) {
+        MySingleton.shared.profiledata = response.data
+        
+        DispatchQueue.main.async {
+            self.setupMenuTVCells()
+        }
+    }
+    
+    func profileUpdateSucess(response: ProfileModel) {
+        
+    }
+    
+    
+    func callLogoutAPI() {
+        
+        defaults.set(false, forKey: UserDefaultsKeys.loggedInStatus)
+        defaults.set("0", forKey: UserDefaultsKeys.userid)
+      
+        DispatchQueue.main.async {
+            self.setupMenuTVCells()
+        }
+    }
+}

@@ -39,11 +39,18 @@ class MenuBGTVCell: TableViewCell {
     override func updateUI() {
         if defaults.bool(forKey: UserDefaultsKeys.loggedInStatus) == true {
             
-            loginBtn.setTitle("   Srinath Badmi", for: .normal)
+            loginBtn.setTitle("   \( MySingleton.shared.profiledata?.first_name ?? "")", for: .normal)
             loginBtn.isUserInteractionEnabled = false
             editProfileView.isHidden = false
+            
+            if MySingleton.shared.profiledata?.image != "" {
+                profileImage.sd_setImage(with: URL(string: MySingleton.shared.profiledata?.image ?? ""), placeholderImage:UIImage(contentsOfFile:"placeholder.png"))
+            }else {
+                profileImage.image = UIImage(named: "noprofile")?.withRenderingMode(.alwaysOriginal)
+            }
+            
         } else {
-            profileImage.image = UIImage(named: "profile")?.withRenderingMode(.alwaysOriginal)
+            profileImage.image = UIImage(named: "noprofile")?.withRenderingMode(.alwaysOriginal)
             loginBtn.setTitle("   Login/Sign up", for: .normal)
             editProfileView.isHidden = true
             loginBtn.isUserInteractionEnabled = true
@@ -52,7 +59,7 @@ class MenuBGTVCell: TableViewCell {
     
     
     func setupUI() {
-        profileImage.image = UIImage(named: "profile")?.withRenderingMode(.alwaysOriginal)
+        profileImage.image = UIImage(named: "noprofile")?.withRenderingMode(.alwaysOriginal)
         profileImage.layer.cornerRadius = profileImage.layer.frame.width / 2
         profileImage.clipsToBounds = true
         profileImage.layer.borderWidth = 4

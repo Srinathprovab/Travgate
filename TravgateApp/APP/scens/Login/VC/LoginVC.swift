@@ -71,12 +71,16 @@ class LoginVC: BaseTableVC, LoginViewModelDelegate {
     }
     
     override func didTapOnLoginBtnAction(cell: LoginTVCell) {
+        
         if email.isEmpty == true {
             showToast(message: "Enter Email Address")
+            cell.emailview.layer.borderColor = UIColor.BooknowBtnColor.cgColor
         }else if email.isValidEmail() == false {
             showToast(message: "Enter Valid Email Address")
+            cell.emailview.layer.borderColor = UIColor.BooknowBtnColor.cgColor
         }else if password.isEmpty == true {
             showToast(message: "Enter Password")
+            cell.passwordview.layer.borderColor = UIColor.BooknowBtnColor.cgColor
         }else {
             callAPI()
         }
@@ -111,7 +115,21 @@ extension LoginVC {
     
     
     func loginSucess(response: LoginModel) {
-        
+       
+        showToast(message: response.data ?? "")
+    
+        if response.status == true {
+            
+            defaults.set(true, forKey: UserDefaultsKeys.loggedInStatus)
+            defaults.set(response.user_id, forKey: UserDefaultsKeys.userid)
+            
+            NotificationCenter.default.post(name: NSNotification.Name("logindone"), object: nil)
+            let seconds = 2.0
+            DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {[self] in
+               dismiss(animated: true)
+            }
+        }
+
     }
     
     

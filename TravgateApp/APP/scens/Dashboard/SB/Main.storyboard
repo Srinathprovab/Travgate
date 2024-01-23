@@ -127,9 +127,17 @@
                                                 <rect key="frame" x="0.0" y="10" width="393" height="629"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </tableView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aKT-gG-u4l">
+                                                <rect key="frame" x="176" y="309.33333333333337" width="41.333333333333343" height="20.333333333333314"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
+                                            <constraint firstItem="aKT-gG-u4l" firstAttribute="centerY" secondItem="HSh-6d-iwZ" secondAttribute="centerY" id="K0J-IP-lyB"/>
+                                            <constraint firstItem="aKT-gG-u4l" firstAttribute="centerX" secondItem="HSh-6d-iwZ" secondAttribute="centerX" id="Ldu-cU-hiL"/>
                                             <constraint firstAttribute="trailing" secondItem="WYa-33-aAM" secondAttribute="trailing" id="iIR-kV-0Pp"/>
                                             <constraint firstItem="WYa-33-aAM" firstAttribute="leading" secondItem="HSh-6d-iwZ" secondAttribute="leading" id="jlh-t2-s9s"/>
                                             <constraint firstItem="WYa-33-aAM" firstAttribute="top" secondItem="HSh-6d-iwZ" secondAttribute="top" constant="10" id="oMJ-NE-QXl"/>
@@ -164,6 +172,8 @@
                     <connections>
                         <outlet property="changePicturelbl" destination="AVA-MB-IqI" id="ocY-1N-lAU"/>
                         <outlet property="commonTableView" destination="WYa-33-aAM" id="10k-ZT-PDg"/>
+                        <outlet property="editbtn" destination="24j-j5-yeQ" id="ssn-ra-oU6"/>
+                        <outlet property="loginlbl" destination="aKT-gG-u4l" id="YPp-Th-yVe"/>
                         <outlet property="profilePic" destination="GxY-dW-y4M" id="8fz-eA-0RF"/>
                         <outlet property="profileView" destination="dss-w2-b4F" id="FeP-4H-qxW"/>
                     </connections>

@@ -15,7 +15,10 @@ protocol ResetPasswordTVCellDelegate {
 class ResetPasswordTVCell: TableViewCell {
 
     @IBOutlet weak var emailtf: UITextField!
+    @IBOutlet weak var mobileTF: UITextField!
     @IBOutlet weak var sendbtn: UIButton!
+    @IBOutlet weak var emailview: UIView!
+    @IBOutlet weak var mobileview: UIView!
     
     
     var delegate:ResetPasswordTVCellDelegate?
@@ -34,6 +37,7 @@ class ResetPasswordTVCell: TableViewCell {
     func setupUI() {
         sendbtn.layer.cornerRadius = 6
         setupTF(tf: emailtf)
+        setupTF(tf: mobileTF)
     }
     
     
@@ -44,6 +48,11 @@ class ResetPasswordTVCell: TableViewCell {
     }
     
     @objc func editingText(textField:UITextField) {
+        if textField.tag == 1 {
+            emailview.layer.borderColor = UIColor.BorderColor.cgColor
+        }else {
+            mobileview.layer.borderColor = UIColor.BorderColor.cgColor
+        }
         delegate?.editingTextField(tf: textField)
     }
     

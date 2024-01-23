@@ -277,9 +277,11 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="emailTF" destination="csQ-94-e3K" id="F8j-cP-9cH"/>
+                <outlet property="emailview" destination="b2C-ho-ae3" id="8Zf-HL-DIJ"/>
                 <outlet property="holderView" destination="xoC-bw-nS6" id="32z-sJ-hqA"/>
                 <outlet property="loginBtn" destination="q4S-4Z-4SH" id="xst-8g-Oul"/>
                 <outlet property="passTF" destination="pOo-8y-k5y" id="RtA-2p-J25"/>
+                <outlet property="passwordview" destination="cOW-qa-7vM" id="zME-bW-UIF"/>
                 <outlet property="showPasswordBtn" destination="uGh-X5-FQm" id="IHk-Pd-U49"/>
             </connections>
             <point key="canvasLocation" x="-96.18320610687023" y="67.957746478873247"/>

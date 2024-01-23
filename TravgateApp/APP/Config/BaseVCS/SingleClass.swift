@@ -90,8 +90,10 @@ class MySingleton {
     var lname = String()
     var confpassword = String()
     var loginvm:LoginViewModel?
-    
-    
+    var resetpasswordvm:ResetPasswordViewModel?
+    var registervm:RegisterViewModel?
+    var profilevm:ProfileViewModel?
+    var profiledata:ProfileData?
     
     //TIMER
     weak var delegate: TimerManagerDelegate?

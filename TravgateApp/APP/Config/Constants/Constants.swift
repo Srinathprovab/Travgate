@@ -117,8 +117,11 @@ struct ApiEndpoints {
     static let flight_mobile_pre_process_booking = "flight/mobile_pre_process_booking"
     static let flight_mobile_pre_booking = "flight/mobile_pre_booking"
     static let mobileprocesspassengerdetail = "mobile_process_passenger_detail"
-    static let auth_mobile_login = "auth/mobile_login"
     
+    static let auth_mobile_login = "auth/mobile_login"
+    static let auth_mobile_forgot_password = "auth/mobile_forgot_password"
+    static let auth_mobile_register_on_light_box = "auth/mobile_register_on_light_box"
+    static let user_mobile_profile = "user/mobile_profile"
     
     static let gethotelcitylist = "get_hotel_city_list"
     static let getAirlineList = "general/getAirlineList"
