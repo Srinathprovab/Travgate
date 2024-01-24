@@ -230,6 +230,8 @@
 		65B959312B468F8000A4EAE7 /* SelectCityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B959302B468F8000A4EAE7 /* SelectCityViewModel.swift */; };
 		65B959342B468F9B00A4EAE7 /* SelectCityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B959332B468F9B00A4EAE7 /* SelectCityModel.swift */; };
 		65B959382B46DD7E00A4EAE7 /* CountrylistModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B959372B46DD7E00A4EAE7 /* CountrylistModel.swift */; };
+		65C5900D2B60FB3C00BF7DB9 /* NewDepartureTimeTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C5900B2B60FB3C00BF7DB9 /* NewDepartureTimeTVCell.swift */; };
+		65C5900E2B60FB3C00BF7DB9 /* NewDepartureTimeTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65C5900C2B60FB3C00BF7DB9 /* NewDepartureTimeTVCell.xib */; };
 		65CB2CEC2B492AC5009B5B2E /* Deal_code_list.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CB2CEB2B492AC5009B5B2E /* Deal_code_list.swift */; };
 		65CB2CEE2B493241009B5B2E /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CB2CED2B493241009B5B2E /* SideMenuViewController.swift */; };
 		65CB2CF32B493268009B5B2E /* QuickLinkTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65CB2CF12B493268009B5B2E /* QuickLinkTableViewCell.xib */; };
@@ -541,6 +543,8 @@
 		65B959302B468F8000A4EAE7 /* SelectCityViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectCityViewModel.swift; sourceTree = "<group>"; };
 		65B959332B468F9B00A4EAE7 /* SelectCityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCityModel.swift; sourceTree = "<group>"; };
 		65B959372B46DD7E00A4EAE7 /* CountrylistModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountrylistModel.swift; sourceTree = "<group>"; };
+		65C5900B2B60FB3C00BF7DB9 /* NewDepartureTimeTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDepartureTimeTVCell.swift; sourceTree = "<group>"; };
+		65C5900C2B60FB3C00BF7DB9 /* NewDepartureTimeTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewDepartureTimeTVCell.xib; sourceTree = "<group>"; };
 		65CB2CEB2B492AC5009B5B2E /* Deal_code_list.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deal_code_list.swift; sourceTree = "<group>"; };
 		65CB2CED2B493241009B5B2E /* SideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		65CB2CF12B493268009B5B2E /* QuickLinkTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuickLinkTableViewCell.xib; sourceTree = "<group>"; };
@@ -1724,6 +1728,15 @@
 			path = SelectCityModel;
 			sourceTree = "<group>";
 		};
+		65C5900A2B60FAF000BF7DB9 /* NewDepartureTimeTVCell */ = {
+			isa = PBXGroup;
+			children = (
+				65C5900B2B60FB3C00BF7DB9 /* NewDepartureTimeTVCell.swift */,
+				65C5900C2B60FB3C00BF7DB9 /* NewDepartureTimeTVCell.xib */,
+			);
+			path = NewDepartureTimeTVCell;
+			sourceTree = "<group>";
+		};
 		65CB2CF02B493259009B5B2E /* QuickLinkTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -1787,6 +1800,7 @@
 		65D85BED2B4A469A00D939D0 /* Filters */ = {
 			isa = PBXGroup;
 			children = (
+				65C5900A2B60FAF000BF7DB9 /* NewDepartureTimeTVCell */,
 				65D85C192B4A54EE00D939D0 /* ButtonTVCell */,
 				65D85C122B4A47BE00D939D0 /* SliderTVCell */,
 				65D85BF92B4A471200D939D0 /* checkOptionsTVCell */,
@@ -2123,6 +2137,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65C5900E2B60FB3C00BF7DB9 /* NewDepartureTimeTVCell.xib in Resources */,
 				65B679792B44238B00E5D1C3 /* Inter-Bold.ttf in Resources */,
 				65D85C112B4A47A700D939D0 /* FilterDepartureTVCell.xib in Resources */,
 				65B6797A2B44238B00E5D1C3 /* Inter-Medium.ttf in Resources */,
@@ -2426,6 +2441,7 @@
 				658B370B2B4BDE220011932C /* MobilePreProcessBookingModel.swift in Sources */,
 				653E2D1A2B47E8810082AFF6 /* FlightModel.swift in Sources */,
 				651717F22B43F8D4003D3723 /* UITapGestureRecognizer.swift in Sources */,
+				65C5900D2B60FB3C00BF7DB9 /* NewDepartureTimeTVCell.swift in Sources */,
 				650DBA572B4562920052294A /* FlightSearchVC.swift in Sources */,
 				65D85BF72B4A46FF00D939D0 /* CheckBoxTVCell.swift in Sources */,
 				65AD15072B4EA6090064E8B0 /* CheckMailVC.swift in Sources */,

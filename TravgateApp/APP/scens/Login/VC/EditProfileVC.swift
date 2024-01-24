@@ -58,7 +58,8 @@ class EditProfileVC: BaseTableVC, ProfileViewModelDelegate {
         profiledetails()
         setAttributedString(str1: "Change Picture")
         commonTableView.backgroundColor = .WhiteColor
-        commonTableView.registerTVCells(["EditProfileTVCell","EmptyTVCell"])
+        commonTableView.registerTVCells(["EditProfileTVCell",
+                                         "EmptyTVCell"])
         setupTVCells()
     }
     
@@ -307,7 +308,7 @@ extension EditProfileVC {
             
             
             
-           // MySingleton.shared.profilevm?.CALL_UPDATE_PROFILE_DETAILS_API(dictParam: MySingleton.shared.payload)
+            // MySingleton.shared.profilevm?.CALL_UPDATE_PROFILE_DETAILS_API(dictParam: MySingleton.shared.payload)
             callUpdateProfileAPI()
         }
     }
@@ -331,51 +332,50 @@ extension EditProfileVC {
     
     
     func callUpdateProfileAPI() {
-        
         MySingleton.shared.profilevm?.view.showLoader()
         
-        // Set up headers
-            let headers1: HTTPHeaders = [
-                "Token": accessToken
-            ]
+        let headersnew: HTTPHeaders = [
+            "Token":"\(accessToken)"
+        ]
         
-        AF.upload(multipartFormData: { [self] MultipartFormData in
-            
+        // Create a multipart form data request using Alamofire
+        AF.upload(multipartFormData: { multipartFormData in
+            // Append the parameters to the request
             for (key, value) in  MySingleton.shared.payload {
-                MultipartFormData.append((value as AnyObject).data(using: String.Encoding.utf8.rawValue)!, withName: key)
+                multipartFormData.append("\(value)".data(using: String.Encoding.utf8)!, withName: key)
             }
             
-            if let img = profilePic.image {
-                if let imageData = img.jpegData(compressionQuality: 0.4) {
-                    MultipartFormData.append(imageData, withName: "image", fileName: "\(Date()).jpeg", mimeType: "image/jpeg")
-                }
-            }
+            // Append the image to the request
+//            if let imageData = self.profilePic?.image?.jpegData(compressionQuality: 0.4) {
+//                multipartFormData.append(imageData, withName: "image", fileName: "\(Date()).jpg", mimeType: "image/jpeg")
+//            }
             
-        }, to: "https://provab.net/travgate/pro_new/mobile/index.php/user/mobile_profile",headers: headers1).responseDecodable(of: ProfileModel.self) { [self] resp in
-            
-            switch resp.result {
-            case let .success(data):
-                
+        }, to: BASE_URL + ApiEndpoints.user_mobile_profile,headers: headersnew).responseDecodable(of: ProfileModel.self) { response in
+            // Handle the response
+            switch response.result {
+            case .success(let profileUpdateModel):
+                // Handle success
                 MySingleton.shared.profilevm?.view.hideLoader()
+                self.showToast(message: profileUpdateModel.msg ?? "")
                 
-                showToast(message: "Updated Sucess")
-                NotificationCenter.default.post(name: NSNotification.Name("logindone"), object: nil)
+                MySingleton.shared.profiledata = profileUpdateModel.data
+                
                 
                 let seconds = 2.0
                 DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+                    NotificationCenter.default.post(name: NSNotification.Name("logindone"), object: nil)
                     self.dismiss(animated: true)
                 }
                 
                 break
-                
-            case .failure(let encodingError):
-                MySingleton.shared.profilevm?.view.hideLoader()
-                print("ERROR RESPONSE: \(encodingError)")
+            case .failure(let error):
+                // Handle error
+                print("Upload failure: \(error.localizedDescription)")
                 break
-                
             }
-            
         }
+        
+        
         
     }
     

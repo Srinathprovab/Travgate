@@ -214,6 +214,7 @@ class FilterVC: BaseTableVC{
                                          "PopularFiltersTVCell",
                                          "LabelTVCell",
                                          "SliderTVCell",
+                                         "NewDepartureTimeTVCell",
                                          "DepartureTimeTVCell",
                                          "FilterDepartureTVCell"])
         
@@ -248,8 +249,12 @@ class FilterVC: BaseTableVC{
         //                tablerow.append(TableRow(title:"Arrival Time",cellType:.DepartureTimeTVCell))
         
         
-        tablerow.append(TableRow(title:"Departurn Time",key:"time", data: departurnTimeArray,cellType:.CheckBoxTVCell))
-        tablerow.append(TableRow(title:"Arrival Time",key:"time", data: departurnTimeArray,cellType:.CheckBoxTVCell))
+        //        tablerow.append(TableRow(title:"Departurn Time",key:"time", data: departurnTimeArray,cellType:.CheckBoxTVCell))
+        //        tablerow.append(TableRow(title:"Arrival Time",key:"time", data: departurnTimeArray,cellType:.CheckBoxTVCell))
+        
+        
+        tablerow.append(TableRow(title:"Departure Time",cellType:.NewDepartureTimeTVCell))
+        tablerow.append(TableRow(title:"Arrival Time",cellType:.NewDepartureTimeTVCell))
         
         
         tablerow.append(TableRow(title:"No Overnight Flight",data: noOverNightFlightArray,cellType:.CheckBoxTVCell))
@@ -978,20 +983,20 @@ class FilterVC: BaseTableVC{
             
             switch cell.titlelbl.text {
                 
-            case "12AM - 6AM":
+            case "from 12AM":
                 departureTimeFilter.append("12 am - 6 am")
                 break
                 
-            case "6AM - 12PM":
+            case "from 6AM":
                 departureTimeFilter.append("06 am - 12 pm")
                 break
                 
-            case "12PM - 6PM":
+            case "from 12PM":
                 departureTimeFilter.append("12 pm - 06 pm")
                 break
                 
                 
-            case "6PM - 12AM":
+            case "from 6PM":
                 departureTimeFilter.append("06 pm - 12 am")
                 break
                 
@@ -1006,20 +1011,20 @@ class FilterVC: BaseTableVC{
             
             switch cell.titlelbl.text {
                 
-            case "12AM - 6AM":
+            case "from 12AM":
                 arrivalTimeFilter.append("12 am - 6 am")
                 break
                 
-            case "6AM - 12PM":
+            case "from 6AM":
                 arrivalTimeFilter.append("06 am - 12 pm")
                 break
                 
-            case "12PM - 6PM":
+            case "from 12PM":
                 arrivalTimeFilter.append("12 pm - 06 pm")
                 break
                 
                 
-            case "6PM - 12AM":
+            case "from 6PM":
                 arrivalTimeFilter.append("06 pm - 12 am")
                 break
                 
@@ -1044,6 +1049,14 @@ class FilterVC: BaseTableVC{
         }
         
     }
+    
+    //MARK: - didTapOnDropDownBtnAction
+    override func didTapOnDropDownBtnAction(cell:NewDepartureTimeTVCell) {
+        commonTableView.reloadRows(at: [IndexPath(item: cell.indexPath?.row ?? 0, section: 0)], with: .automatic)
+        
+        print(cell.indexPath?.row ?? 0)
+    }
+    
     
     
     //MARK: - didTapOnFiltersBtn

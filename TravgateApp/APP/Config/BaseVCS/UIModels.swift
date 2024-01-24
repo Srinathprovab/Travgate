@@ -71,6 +71,7 @@ enum TVCellType {
     case DepartureTimeTVCell
     case ButtonTVCell
     case SortbyTVCell
+    case NewDepartureTimeTVCell
     
     
     //HOTEL

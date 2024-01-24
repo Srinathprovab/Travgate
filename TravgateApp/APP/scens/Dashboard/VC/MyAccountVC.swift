@@ -216,18 +216,14 @@ extension MyAccountVC {
 extension MyAccountVC {
     
     func addObserver() {
-        checkLoginStatus()
-        
+       
         NotificationCenter.default.addObserver(self, selector: #selector(logindone), name: Notification.Name("logindone"), object: nil)
         
+        checkLoginStatus()
     }
     
     
     @objc func logindone() {
-        
-        
-        DispatchQueue.main.async {
-            self.checkLoginStatus()
-        }
+        self.commonTableView.reloadData()
     }
 }
