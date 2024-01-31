@@ -7,8 +7,8 @@
 
 import UIKit
 
-class SideMenuViewController: BaseTableVC, ProfileViewModelDelegate {
-   
+class SideMenuViewController: BaseTableVC, ProfileViewModelDelegate, LogoutViewModelDelegate {
+    
     
     
     static var newInstance: SideMenuViewController? {
@@ -17,13 +17,14 @@ class SideMenuViewController: BaseTableVC, ProfileViewModelDelegate {
         let vc = storyboard.instantiateViewController(withIdentifier: self.className()) as? SideMenuViewController
         return vc
     }
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupUI()
         MySingleton.shared.profilevm = ProfileViewModel(self)
+        MySingleton.shared.logoutvm = LogoutViewModel(self)
         
     }
     
@@ -31,10 +32,10 @@ class SideMenuViewController: BaseTableVC, ProfileViewModelDelegate {
         
         NotificationCenter.default.addObserver(self, selector: #selector(logindone), name: Notification.Name("logindone"), object: nil)
         
-         let userloggedBool = defaults.bool(forKey: UserDefaultsKeys.loggedInStatus) 
-            if userloggedBool == true {
-                callShowProfileAPI()
-            }
+        let userloggedBool = defaults.bool(forKey: UserDefaultsKeys.loggedInStatus)
+        if userloggedBool == true {
+            callShowProfileAPI()
+        }
         
     }
     
@@ -66,6 +67,12 @@ class SideMenuViewController: BaseTableVC, ProfileViewModelDelegate {
         
         
         if defaults.bool(forKey: UserDefaultsKeys.loggedInStatus) == true {
+            
+            MySingleton.shared.tablerow.append(TableRow(title:"Delete Account",key: "deleteacc", image: "deleteacc",cellType:.SideMenuTitleTVCell))
+            
+            MySingleton.shared.tablerow.append(TableRow(height: 10, bgColor: HexColor("#FFFFFF") , cellType: .EmptyTVCell))
+            
+            
             MySingleton.shared.tablerow.append(TableRow(title:"Logout",key: "logout", image: "IonLogOut",cellType:.SideMenuTitleTVCell))
         }
         
@@ -107,6 +114,12 @@ class SideMenuViewController: BaseTableVC, ProfileViewModelDelegate {
         case "Logout":
             callLogoutAPI()
             break
+            
+        case "Delete Account":
+            
+            deleteUserAccountAPI()
+            
+            
         default:
             break
         }
@@ -117,8 +130,8 @@ class SideMenuViewController: BaseTableVC, ProfileViewModelDelegate {
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)
     }
-   
-
+    
+    
     
     
     override func didTapOnEditProfileBtn(cell: MenuBGTVCell) {
@@ -127,7 +140,7 @@ class SideMenuViewController: BaseTableVC, ProfileViewModelDelegate {
         present(vc, animated: true)
     }
     
-  
+    
 }
 
 
@@ -156,12 +169,46 @@ extension SideMenuViewController {
     
     
     func callLogoutAPI() {
+        MySingleton.shared.logoutvm?.CALL_USER_LOGOUT_API(dictParam: [:])
+    }
+    
+    
+    func logoutSucess(response: LoginModel) {
         
         defaults.set(false, forKey: UserDefaultsKeys.loggedInStatus)
         defaults.set("0", forKey: UserDefaultsKeys.userid)
-      
-        DispatchQueue.main.async {
+        showToast(message: response.data ?? "")
+        let seconds = 2.0
+        DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+            self.setupMenuTVCells()
+        }
+        
+    }
+    
+}
+
+
+
+extension SideMenuViewController {
+    
+    
+    func deleteUserAccountAPI() {
+        MySingleton.shared.payload.removeAll()
+        MySingleton.shared.payload["user_id"] = defaults.string(forKey: UserDefaultsKeys.userid) ?? ""
+        MySingleton.shared.logoutvm?.CALL__DELETE_USER_API(dictParam:  MySingleton.shared.payload)
+    }
+    
+    
+    func userDeleteSucess(response: LoginModel) {
+        
+        defaults.set(false, forKey: UserDefaultsKeys.loggedInStatus)
+        defaults.set("0", forKey: UserDefaultsKeys.userid)
+        
+        showToast(message: response.msg ?? "")
+        let seconds = 2.0
+        DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
             self.setupMenuTVCells()
         }
     }
+    
 }

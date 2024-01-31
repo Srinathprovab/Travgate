@@ -40,6 +40,7 @@ class MyAccountVC: BaseTableVC {
     
     
     func setupUI() {
+        profilePic.layer.cornerRadius = 40
         setAttributedString(str1: "Login To View Your Profile")
         commonTableView.backgroundColor = .WhiteColor
         commonTableView.registerTVCells(["EditProfileTVCell",
@@ -104,54 +105,6 @@ extension MyAccountVC {
 }
 
 
-//MARK: - imagePickerController openGallery openCemera
-
-extension MyAccountVC:UIImagePickerControllerDelegate & UINavigationControllerDelegate {
-    
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        
-        
-        if let tempImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            self.profilePic.image = tempImage
-        }
-        
-        //self.pickerbool = true
-        picker.dismiss(animated: true, completion: nil)
-    }
-    
-    
-    func openGallery() {
-        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.photoLibrary){
-            let imagePicker = UIImagePickerController()
-            imagePicker.delegate = self
-            imagePicker.allowsEditing = true
-            imagePicker.sourceType = UIImagePickerController.SourceType.photoLibrary
-            self.present(imagePicker, animated: true, completion: nil)
-        } else {
-            let alert  = UIAlertController(title: "Warning", message: "You don't have permission to access gallery.", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-        }
-    }
-    
-    
-    func openCemera() {
-        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera){
-            let imagePicker = UIImagePickerController()
-            imagePicker.delegate = self
-            imagePicker.allowsEditing = true
-            imagePicker.sourceType = UIImagePickerController.SourceType.camera
-            self.present(imagePicker, animated: true, completion: nil)
-        } else {
-            let alert  = UIAlertController(title: "Warning", message: "You don't have camera.", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-        }
-    }
-    
-    
-}
 
 //MARK: - setupTVCells
 extension MyAccountVC {
@@ -216,6 +169,12 @@ extension MyAccountVC {
 extension MyAccountVC {
     
     func addObserver() {
+       
+        if MySingleton.shared.profiledata?.image == "" || MySingleton.shared.profiledata?.image == nil {
+            profilePic.image = UIImage(named: "noprofile")
+        }else {
+            profilePic.sd_setImage(with: URL(string:  MySingleton.shared.profiledata?.image ?? ""), placeholderImage:UIImage(contentsOfFile:"placeholder.png"))
+        }
        
         NotificationCenter.default.addObserver(self, selector: #selector(logindone), name: Notification.Name("logindone"), object: nil)
         

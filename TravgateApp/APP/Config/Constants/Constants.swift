@@ -99,6 +99,10 @@ var totalPrice1 = String()
 var mbviewmodel:MPBViewModel?
 
 
+var hsearchid = String()
+var hbookingsource = String()
+var hotelSearchResult = [HotelSearchResult]()
+
 struct MapModel {
     var longitude =  String()
     var latitude =  String()
@@ -119,10 +123,12 @@ struct ApiEndpoints {
     static let mobileprocesspassengerdetail = "mobile_process_passenger_detail"
     
     static let auth_mobile_login = "auth/mobile_login"
+    static let auth_mobile_logout = "auth/mobile_logout"
+    static let auth_deleteuser = "auth/deleteuser"
     static let auth_mobile_forgot_password = "auth/mobile_forgot_password"
     static let auth_mobile_register_on_light_box = "auth/mobile_register_on_light_box"
-    static let user_mobile_profile = "user/mobile_profile"
     
+    static let user_mobile_profile = "user/mobile_profile"
     static let gethotelcitylist = "get_hotel_city_list"
     static let getAirlineList = "general/getAirlineList"
 }

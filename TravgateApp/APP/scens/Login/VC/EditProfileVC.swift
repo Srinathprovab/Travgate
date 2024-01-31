@@ -263,6 +263,7 @@ extension EditProfileVC:UIImagePickerControllerDelegate & UINavigationController
 extension EditProfileVC {
     
     func profiledetails() {
+        profilePic.layer.cornerRadius = 40
         first_name = MySingleton.shared.profiledata?.first_name ?? ""
         last_name = MySingleton.shared.profiledata?.last_name ?? ""
         date_of_birth = MySingleton.shared.profiledata?.date_of_birth ?? ""
@@ -274,6 +275,14 @@ extension EditProfileVC {
         phone = MySingleton.shared.profiledata?.phone ?? ""
         email = MySingleton.shared.profiledata?.email ?? ""
         gender = MySingleton.shared.profiledata?.gender ?? ""
+        
+        
+        if MySingleton.shared.profiledata?.image == "" || MySingleton.shared.profiledata?.image == nil {
+            profilePic.image = UIImage(named: "noprofile")
+        }else {
+            profilePic.sd_setImage(with: URL(string:  MySingleton.shared.profiledata?.image ?? ""), placeholderImage:UIImage(contentsOfFile:"placeholder.png"))
+        }
+       
         
         if gender == "" {
             gender = "Male"
@@ -345,10 +354,10 @@ extension EditProfileVC {
                 multipartFormData.append("\(value)".data(using: String.Encoding.utf8)!, withName: key)
             }
             
-            // Append the image to the request
-//            if let imageData = self.profilePic?.image?.jpegData(compressionQuality: 0.4) {
-//                multipartFormData.append(imageData, withName: "image", fileName: "\(Date()).jpg", mimeType: "image/jpeg")
-//            }
+       //      Append the image to the request
+            if let imageData = self.profilePic?.image?.jpegData(compressionQuality: 0.4) {
+                multipartFormData.append(imageData, withName: "image", fileName: "\(Date()).jpg", mimeType: "image/jpeg")
+            }
             
         }, to: BASE_URL + ApiEndpoints.user_mobile_profile,headers: headersnew).responseDecodable(of: ProfileModel.self) { response in
             // Handle the response

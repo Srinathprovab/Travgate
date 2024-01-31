@@ -54,6 +54,9 @@ class SideMenuTitleTVCell: TableViewCell {
 
         } else if cellInfo?.key == "logout" {
             arrowImage.isHidden = true
+        }else if cellInfo?.key == "deleteacc" {
+            arrowImage.isHidden = true
+            menuOptionImg.image = UIImage(named: cellInfo?.image ?? "")?.withRenderingMode(.alwaysOriginal).withTintColor(.BooknowBtnColor)
         }
     }
     

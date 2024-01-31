@@ -94,6 +94,7 @@ class MySingleton {
     var registervm:RegisterViewModel?
     var profilevm:ProfileViewModel?
     var profiledata:ProfileData?
+    var logoutvm:LogoutViewModel?
     
     //TIMER
     weak var delegate: TimerManagerDelegate?
