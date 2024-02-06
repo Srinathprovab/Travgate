@@ -1,0 +1,6 @@
+framework module Pods_TravgateApp_TravgateAppUITests {
+  umbrella header "Pods-TravgateApp-TravgateAppUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
