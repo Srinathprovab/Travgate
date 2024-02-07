@@ -7,23 +7,181 @@
 
 import UIKit
 
-class VisaVC: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+class VisaVC: BaseTableVC {
+    
+    
+    
+    static var newInstance: VisaVC? {
+        let storyboard = UIStoryboard(name: Storyboard.Visa.name,
+                                      bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: self.className()) as? VisaVC
+        return vc
+    }
+    var fname = String()
+    var lname = String()
+    var email = String()
+    var mobile = String()
+    var countrycode = String()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        addObserver()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Do any additional setup after loading the view.
+        setupUI()
     }
-    */
+    
+    
+    
+    override func editingTextField(tf:UITextField){
+        
+        switch tf.tag {
+        case 1:
+            fname = tf.text ?? ""
+            break
+            
+        case 2:
+            lname = tf.text ?? ""
+            break
+        
+        case 3:
+            email = tf.text ?? ""
+            break
+            
+        case 4:
+            countrycode = tf.text ?? ""
+            break
+            
+        case 5:
+            mobile = tf.text ?? ""
+            break
+        
+            
+            
+            
+        default:
+            break
+        }
+    }
+    
+    override func didTapOnPassengersBtnAction(cell:VisaTVCell) {
+        print("didTapOnPassengersBtnAction")
+    }
+    
+    
+    @IBAction func didTapOnBackBtnAction(_ sender: Any) {
+        dismiss(animated: true)
+    }
+    
+    
+    override func didTapOnSubmitEnquiryBtnAction(cell: VisaTVCell) {
+        
+        if fname.isEmpty == true {
+            showToast(message: "Enter First Name")
+            errorTextField(v: cell.fnameTF)
+        }else if lname.isEmpty == true {
+            showToast(message: "Enter Last Name")
+            errorTextField(v: cell.lnameTF)
+        }else if mobile.isEmpty == true {
+            showToast(message: "Enter Mobile Number")
+            errorTextField(v: cell.mobileTF)
+        }else if email.isEmpty == true {
+            showToast(message: "Enter Email Address")
+            errorTextField(v: cell.emailTF)
+        }else if email.isValidEmail() == false {
+            showToast(message: "Enter Valid Email Address")
+            errorTextField(v: cell.emailTF)
+        }else {
+            callAPI()
+        }
+    }
+    
+    
+    func errorTextField(v:UITextField) {
+        v.layer.borderColor = UIColor.BooknowBtnColor.cgColor
+    }
+    
+}
 
+
+extension VisaVC {
+    
+    
+    func setupUI(){
+        
+        
+        commonTableView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner] // Top left corner, Top right corner respectively
+        commonTableView.layer.cornerRadius = 12
+        commonTableView.clipsToBounds = true
+        commonTableView.registerTVCells(["VisaTVCell",
+                                         "EmptyTVCell"])
+        
+        setupVisaTVCells()
+        
+    }
+    
+    
+    
+    func setupVisaTVCells() {
+        MySingleton.shared.tablerow.removeAll()
+        
+        MySingleton.shared.tablerow.append(TableRow(cellType:.VisaTVCell))
+        MySingleton.shared.tablerow.append(TableRow(height:50,cellType:.EmptyTVCell))
+        
+        commonTVData = MySingleton.shared.tablerow
+        commonTableView.reloadData()
+    }
+    
+    
+    
+}
+
+
+
+extension VisaVC {
+    
+    
+    func callAPI() {
+        print("callAPI")
+    }
+    
+}
+
+extension VisaVC {
+    
+    func addObserver() {
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(nointernet), name: Notification.Name("offline"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(resultnil), name: NSNotification.Name("resultnil"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reload), name: Notification.Name("reload"), object: nil)
+        
+    }
+    
+    
+    @objc func reload() {
+        commonTableView.reloadData()
+    }
+    
+    //MARK: - resultnil
+    @objc func resultnil() {
+        guard let vc = NoInternetConnectionVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .overCurrentContext
+        vc.key = "noresult"
+        self.present(vc, animated: true)
+    }
+    
+    
+    //MARK: - nointernet
+    @objc func nointernet() {
+        guard let vc = NoInternetConnectionVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .overCurrentContext
+        vc.key = "nointernet"
+        self.present(vc, animated: true)
+    }
+    
+    
 }

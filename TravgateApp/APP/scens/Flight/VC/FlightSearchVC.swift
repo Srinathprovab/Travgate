@@ -219,6 +219,7 @@ extension FlightSearchVC {
         MySingleton.shared.payload["carrier"] = ""
         MySingleton.shared.payload["psscarrier"] = ""
         MySingleton.shared.payload["search_flight"] = "Search"
+        MySingleton.shared.payload["search_source"] = "Mobile_IOS"
         MySingleton.shared.payload["currency"] = defaults.string(forKey: UserDefaultsKeys.selectedCurrency)
         MySingleton.shared.payload["user_id"] = defaults.string(forKey: UserDefaultsKeys.userid) ?? "0"
         

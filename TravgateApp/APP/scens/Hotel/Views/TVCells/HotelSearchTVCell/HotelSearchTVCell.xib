@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -503,7 +503,7 @@
                                 <rect key="frame" x="12" y="86" width="377" height="0.0"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" id="prn-NM-suq"/>
+                                    <constraint firstAttribute="height" id="Kn9-Wc-kQg"/>
                                 </constraints>
                             </tableView>
                         </subviews>
@@ -517,18 +517,18 @@
                             <constraint firstAttribute="height" constant="509" id="KZ6-xL-5aO"/>
                             <constraint firstAttribute="trailing" secondItem="ZBD-Oy-Ng9" secondAttribute="trailing" constant="24" id="L85-bj-ZMK"/>
                             <constraint firstItem="iwZ-8K-745" firstAttribute="top" secondItem="PBQ-KQ-jjg" secondAttribute="bottom" constant="8" id="NTb-3F-Dl2"/>
-                            <constraint firstItem="avY-wd-7tj" firstAttribute="top" secondItem="zxy-Fh-Tnn" secondAttribute="bottom" id="UMm-su-HQd"/>
+                            <constraint firstAttribute="trailing" secondItem="avY-wd-7tj" secondAttribute="trailing" constant="12" id="TeT-Iu-zBy"/>
+                            <constraint firstItem="avY-wd-7tj" firstAttribute="leading" secondItem="7Ms-ld-1Wq" secondAttribute="leading" constant="12" id="ZcK-ZS-II0"/>
                             <constraint firstAttribute="trailing" secondItem="iwZ-8K-745" secondAttribute="trailing" constant="12" id="aot-5e-vWP"/>
                             <constraint firstItem="zxy-Fh-Tnn" firstAttribute="top" secondItem="7Ms-ld-1Wq" secondAttribute="top" constant="16" id="aqe-8o-BGR"/>
                             <constraint firstAttribute="trailing" secondItem="PBQ-KQ-jjg" secondAttribute="trailing" constant="12" id="eKQ-z8-dTQ"/>
-                            <constraint firstItem="avY-wd-7tj" firstAttribute="leading" secondItem="zxy-Fh-Tnn" secondAttribute="leading" id="gpw-7m-HbZ"/>
                             <constraint firstItem="ZBD-Oy-Ng9" firstAttribute="leading" secondItem="7Ms-ld-1Wq" secondAttribute="leading" constant="24" id="haq-wQ-jdi"/>
                             <constraint firstItem="PBQ-KQ-jjg" firstAttribute="top" secondItem="zxy-Fh-Tnn" secondAttribute="bottom" constant="8" symbolic="YES" id="iwV-4i-EVI"/>
                             <constraint firstItem="dGM-yO-O2g" firstAttribute="top" secondItem="iwZ-8K-745" secondAttribute="bottom" constant="8" id="kG6-qc-9JN"/>
                             <constraint firstItem="PBQ-KQ-jjg" firstAttribute="leading" secondItem="7Ms-ld-1Wq" secondAttribute="leading" constant="12" id="miS-hG-NpH"/>
                             <constraint firstItem="ZBD-Oy-Ng9" firstAttribute="top" secondItem="dGM-yO-O2g" secondAttribute="bottom" constant="114" id="tdK-l9-ZCb"/>
-                            <constraint firstItem="avY-wd-7tj" firstAttribute="trailing" secondItem="zxy-Fh-Tnn" secondAttribute="trailing" id="tor-Qd-eX2"/>
                             <constraint firstAttribute="trailing" secondItem="dGM-yO-O2g" secondAttribute="trailing" constant="12" id="xJx-py-1MU"/>
+                            <constraint firstItem="avY-wd-7tj" firstAttribute="top" secondItem="zxy-Fh-Tnn" secondAttribute="bottom" id="yPh-gd-Ffi"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
@@ -558,7 +558,7 @@
                 <outlet property="checkoutlbl" destination="Jzn-Bo-v7d" id="v7W-WY-kdY"/>
                 <outlet property="fromcityTF" destination="yzX-cK-Xer" id="6Kh-ym-hrf"/>
                 <outlet property="fromcityTV" destination="avY-wd-7tj" id="Zze-UT-2aD"/>
-                <outlet property="fromcityTVHeight" destination="prn-NM-suq" id="Wwg-G1-AZF"/>
+                <outlet property="fromcityTVHeight" destination="Kn9-Wc-kQg" id="ocK-tA-7FD"/>
                 <outlet property="nationalitylbl" destination="bGS-7x-0Ys" id="nPG-tZ-hdO"/>
                 <outlet property="roomcountlbl" destination="lpm-wE-iQ3" id="Zbh-Uj-C8q"/>
             </connections>

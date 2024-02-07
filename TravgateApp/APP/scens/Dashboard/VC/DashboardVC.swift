@@ -99,7 +99,7 @@ class DashboardVC: BaseTableVC {
     }
     
     override func didTapOnVisabtnAction(cell: TabSelectTVCell) {
-        print("didTapOnVisabtnAction")
+        gotoVisaVC()
     }
     
     override func didTapOnInsurancebtnAction(cell: TabSelectTVCell) {
@@ -119,7 +119,7 @@ class DashboardVC: BaseTableVC {
     }
     
     override func didTapOnAutopaybtnAction(cell: TabSelectTVCell) {
-        print("didTapOnAutopaybtnAction")
+        gotoAutoPaymentVC()
     }
     
 }
@@ -163,6 +163,19 @@ extension DashboardVC {
     
     func gotoSearchHotelVC() {
         guard let vc = SearchHotelVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
+    }
+    
+    func gotoVisaVC() {
+        guard let vc = VisaVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
+    }
+    
+    
+    func gotoAutoPaymentVC() {
+        guard let vc = AutoPaymentVC.newInstance.self else {return}
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)
     }

@@ -69,17 +69,23 @@ class HotelSearchTVCell: TableViewCell, HotelCitySearchViewModelDelegate {
         fromcityTF.isHidden = false
         fromcityTF.setLeftPaddingPoints(15)
         
+        
+       
     }
     
     
     override func updateUI() {
         
-        fromcityTVHeight.constant = 0
+        
         fromcityTF.text = defaults.string(forKey: UserDefaultsKeys.locationcity) ?? "City/Location"
         checkinlbl.text = defaults.string(forKey: UserDefaultsKeys.checkin) ?? "Add Date"
         checkoutlbl.text = defaults.string(forKey: UserDefaultsKeys.checkout) ?? "Add Date"
         roomcountlbl.text = "\(defaults.string(forKey: UserDefaultsKeys.hoteladultscount) ?? "1") Adults , \(defaults.string(forKey: UserDefaultsKeys.roomcount) ?? "1") Rooms"
         nationalitylbl.text = "\(defaults.string(forKey: UserDefaultsKeys.hnationality) ?? "Nationality")"
+        
+        fromcityTV.delegate = self
+        fromcityTV.dataSource = self
+        fromcityTV.register(UINib(nibName: "FromCityTVCell", bundle: nil), forCellReuseIdentifier: "cell")
         
         
         showCheckInDatePicker()
@@ -124,40 +130,6 @@ class HotelSearchTVCell: TableViewCell, HotelCitySearchViewModelDelegate {
 
 
 
-extension HotelSearchTVCell {
-    //MARK: - Text Filed Editing Changed
-    
-    
-    
-    override func textFieldDidBeginEditing(_ textField: UITextField) {
-        self.fromcityTF.text = ""
-    }
-    
-    
-    @objc func textFiledEditingChanged(_ textField:UITextField) {
-        
-        if textField.text?.isEmpty == true {
-            fromcityTVHeight.constant = 0
-        }else {
-            // self.fromcityTF.text = ""
-            CallShowCityListAPI(str: textField.text ?? "")
-            
-        }
-        
-    }
-    
-    func CallShowCityListAPI(str:String) {
-        payload["term"] = str
-        cityViewModel?.CallHotelCitySearchAPI(dictParam: payload)
-    }
-    
-    
-    func hotelCitySearchResult(response: [HotelCityListModel]) {
-        hotelList = response
-        updateHeight(height: (hotelList.count * 80))
-    }
-    
-}
 
 
 
@@ -283,3 +255,56 @@ extension HotelSearchTVCell {
     }
     
 }
+
+
+extension HotelSearchTVCell {
+    
+    
+    //MARK: - Text Filed Editing Changed
+    
+    @objc func textFiledEditingChanged(_ textField:UITextField) {
+        
+        
+        if textField.text?.isEmpty == true {
+            
+        }else {
+            
+            CallShowCityListAPI(str: textField.text ?? "")
+           
+        }
+        
+        
+    }
+    
+    
+    override func textFieldDidBeginEditing(_ textField: UITextField) {
+        fromcityTF.text = ""
+        CallShowCityListAPI(str: textField.text ?? "")
+    }
+    
+    func CallShowCityListAPI(str:String) {
+        payload["term"] = str
+        cityViewModel?.CallHotelCitySearchAPI(dictParam: payload)
+    }
+    
+    
+    func hotelCitySearchResult(response: [HotelCityListModel]) {
+        
+        hotelList = response
+        print(hotelList)
+        
+        
+        fromcityTVHeight.constant = CGFloat(hotelList.count * 80)
+        
+        DispatchQueue.main.async {[self] in
+            fromcityTV.reloadData()
+        }
+        
+    }
+    
+    
+}
+
+
+
+

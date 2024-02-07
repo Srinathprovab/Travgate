@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -181,18 +182,39 @@
                                         <rect key="frame" x="0.0" y="31.666666666666686" width="369" height="48"/>
                                         <subviews>
                                             <textField opaque="NO" tag="12" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Mobile Number" textAlignment="natural" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="o92-Tw-gX1">
-                                                <rect key="frame" x="0.0" y="0.0" width="369" height="48"/>
+                                                <rect key="frame" x="80" y="0.0" width="289" height="48"/>
                                                 <fontDescription key="fontDescription" name="OpenSans-Medium" family="Open Sans" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                             </textField>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uHB-EG-VmS">
+                                                <rect key="frame" x="0.0" y="0.0" width="80" height="48"/>
+                                                <subviews>
+                                                    <textField opaque="NO" tag="20" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3z6-8Q-KnH">
+                                                        <rect key="frame" x="0.0" y="0.0" width="80" height="48"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="3z6-8Q-KnH" firstAttribute="top" secondItem="uHB-EG-VmS" secondAttribute="top" id="14b-sV-Za0"/>
+                                                    <constraint firstAttribute="bottom" secondItem="3z6-8Q-KnH" secondAttribute="bottom" id="3bN-0Y-79u"/>
+                                                    <constraint firstAttribute="width" constant="80" id="8RV-js-ac4"/>
+                                                    <constraint firstAttribute="trailing" secondItem="3z6-8Q-KnH" secondAttribute="trailing" id="ONS-Ym-8dp"/>
+                                                    <constraint firstItem="3z6-8Q-KnH" firstAttribute="leading" secondItem="uHB-EG-VmS" secondAttribute="leading" id="yF3-UH-NIi"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="o92-Tw-gX1" secondAttribute="bottom" id="4qu-cc-ymI"/>
+                                            <constraint firstAttribute="bottom" secondItem="uHB-EG-VmS" secondAttribute="bottom" id="BbR-wr-TQN"/>
                                             <constraint firstAttribute="trailing" secondItem="o92-Tw-gX1" secondAttribute="trailing" id="K6J-Rw-U2t"/>
+                                            <constraint firstItem="uHB-EG-VmS" firstAttribute="top" secondItem="mh2-Sv-dun" secondAttribute="top" id="N5j-r6-JT7"/>
                                             <constraint firstAttribute="height" constant="48" id="QyG-gW-QHq"/>
+                                            <constraint firstItem="o92-Tw-gX1" firstAttribute="leading" secondItem="uHB-EG-VmS" secondAttribute="trailing" id="iDV-T0-Mg2"/>
                                             <constraint firstItem="o92-Tw-gX1" firstAttribute="top" secondItem="mh2-Sv-dun" secondAttribute="top" id="ifa-4t-yCr"/>
-                                            <constraint firstItem="o92-Tw-gX1" firstAttribute="leading" secondItem="mh2-Sv-dun" secondAttribute="leading" id="r7h-z1-a7T"/>
+                                            <constraint firstItem="uHB-EG-VmS" firstAttribute="leading" secondItem="mh2-Sv-dun" secondAttribute="leading" id="pX0-EG-JQK"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
@@ -448,6 +470,7 @@
                 <outlet property="confPassBtn" destination="7w7-yA-7CN" id="wWO-fd-S4Z"/>
                 <outlet property="confPassTF" destination="sNf-KB-P7v" id="Ia9-MM-dK7"/>
                 <outlet property="confPassview" destination="M8z-H9-4je" id="7uL-e4-smq"/>
+                <outlet property="countrycodeTF" destination="3z6-8Q-KnH" id="tdj-gq-B3A"/>
                 <outlet property="emailTF" destination="Hjl-s7-K8y" id="jo8-We-2WJ"/>
                 <outlet property="emailview" destination="GUV-no-EHM" id="Q22-Xr-Znl"/>
                 <outlet property="fnameTF" destination="eOb-QG-4pj" id="hbo-Dg-wH8"/>
@@ -477,5 +500,8 @@
         <namedColor name="WhiteColor">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

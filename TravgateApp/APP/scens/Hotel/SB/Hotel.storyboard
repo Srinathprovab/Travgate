@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -64,24 +64,43 @@
                                                     <constraint firstAttribute="height" constant="24" id="y2I-vi-dPc"/>
                                                 </constraints>
                                             </view>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hotel Search" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f0T-Oi-Z9d">
-                                                <rect key="frame" x="47" y="62.333333333333336" width="299" height="19.666666666666664"/>
-                                                <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="16"/>
-                                                <color key="textColor" name="WhiteColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="69g-fB-Cvk" customClass="BorderedView" customModule="TravgateApp" customModuleProvider="target">
+                                                <rect key="frame" x="136.66666666666666" y="57" width="119.99999999999997" height="30"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hotel Search" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OWQ-ky-1cw">
+                                                        <rect key="frame" x="0.0" y="0.0" width="120" height="30"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="16"/>
+                                                        <color key="textColor" name="WhiteColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstItem="OWQ-ky-1cw" firstAttribute="leading" secondItem="69g-fB-Cvk" secondAttribute="leading" id="FYb-gx-dlZ"/>
+                                                    <constraint firstAttribute="bottom" secondItem="OWQ-ky-1cw" secondAttribute="bottom" id="SdR-4h-W78"/>
+                                                    <constraint firstAttribute="trailing" secondItem="OWQ-ky-1cw" secondAttribute="trailing" id="W08-Ww-suN"/>
+                                                    <constraint firstAttribute="height" constant="30" id="kWR-bf-plQ"/>
+                                                    <constraint firstItem="OWQ-ky-1cw" firstAttribute="top" secondItem="69g-fB-Cvk" secondAttribute="top" id="mVZ-bd-g2q"/>
+                                                    <constraint firstAttribute="width" constant="120" id="yUv-TF-Po4"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="4"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstItem="f0T-Oi-Z9d" firstAttribute="centerY" secondItem="I63-AB-jim" secondAttribute="centerY" id="2YY-bt-hti"/>
+                                            <constraint firstItem="69g-fB-Cvk" firstAttribute="centerX" secondItem="Z0f-bu-fNp" secondAttribute="centerX" id="0bg-IO-Mnb"/>
                                             <constraint firstAttribute="bottom" secondItem="mHE-bM-nc5" secondAttribute="bottom" id="6Od-4h-z4P"/>
                                             <constraint firstItem="mHE-bM-nc5" firstAttribute="top" secondItem="Z0f-bu-fNp" secondAttribute="top" id="Fem-M9-G9p"/>
                                             <constraint firstAttribute="trailing" secondItem="mHE-bM-nc5" secondAttribute="trailing" id="SxV-gE-TjJ"/>
-                                            <constraint firstItem="f0T-Oi-Z9d" firstAttribute="centerX" secondItem="Z0f-bu-fNp" secondAttribute="centerX" id="UAj-dH-uAk"/>
                                             <constraint firstAttribute="height" constant="260" id="Veq-UO-dRL"/>
                                             <constraint firstItem="pha-1T-h5y" firstAttribute="top" secondItem="Z0f-bu-fNp" secondAttribute="top" constant="60" id="bpC-7C-OZ7"/>
                                             <constraint firstItem="mHE-bM-nc5" firstAttribute="leading" secondItem="Z0f-bu-fNp" secondAttribute="leading" id="eyH-6F-ptR"/>
-                                            <constraint firstItem="f0T-Oi-Z9d" firstAttribute="leading" secondItem="pha-1T-h5y" secondAttribute="trailing" constant="10" id="qMI-8K-uJI"/>
+                                            <constraint firstItem="69g-fB-Cvk" firstAttribute="centerY" secondItem="I63-AB-jim" secondAttribute="centerY" id="ibD-WS-tHB"/>
                                             <constraint firstItem="pha-1T-h5y" firstAttribute="leading" secondItem="Z0f-bu-fNp" secondAttribute="leading" constant="13" id="xBi-Gp-Igr"/>
                                         </constraints>
                                     </view>

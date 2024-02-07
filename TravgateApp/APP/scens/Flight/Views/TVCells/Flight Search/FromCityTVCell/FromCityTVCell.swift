@@ -50,7 +50,7 @@ class FromCityTVCell: TableViewCell {
         setupLabels(lbl: subTitlelbl, text: cellInfo?.subTitle ?? "", textcolor: .TitleColor, font: .OpenSansRegular(size: 10))
         setupLabels(lbl: cityShortNamelbl, text: cellInfo?.text ?? "", textcolor: .TitleColor, font: .OpenSansRegular(size: 14))
         
-        titlelbl.numberOfLines = 0
+        titlelbl.numberOfLines = 1
         subTitlelbl.numberOfLines = 0
         lblHolderView.isHidden = true
         

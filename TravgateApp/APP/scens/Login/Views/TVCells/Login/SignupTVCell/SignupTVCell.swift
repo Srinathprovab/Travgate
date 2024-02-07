@@ -26,7 +26,7 @@ class SignupTVCell: TableViewCell {
     @IBOutlet weak var passshowBtn: UIButton!
     @IBOutlet weak var confPassBtn: UIButton!
     @IBOutlet weak var signupbtn: UIButton!
-    
+    @IBOutlet weak var countrycodeTF: UITextField!
     
     @IBOutlet weak var fnameview: UIView!
     @IBOutlet weak var lnameview: UIView!
@@ -66,6 +66,7 @@ class SignupTVCell: TableViewCell {
         setupTF(tf: emailTF)
         setupTF(tf: passTF)
         setupTF(tf: confPassTF)
+        setupTF(tf: countrycodeTF)
         
     }
     

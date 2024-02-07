@@ -215,7 +215,7 @@ extension ModifySearchVC {
         MySingleton.shared.payload["psscarrier"] = ""
         MySingleton.shared.payload["search_flight"] = "Search"
         MySingleton.shared.payload["user_id"] = ""
-        MySingleton.shared.payload["search_source"] = "Postman"
+        MySingleton.shared.payload["search_source"] = "Mobile_IOS"
         MySingleton.shared.payload["currency"] = defaults.string(forKey: UserDefaultsKeys.selectedCurrency)
         if defaults.string(forKey: UserDefaultsKeys.journeyType) == "oneway" {
             

@@ -29,6 +29,7 @@ enum TVCellType {
     case SpecialOffersTVCell
     case EmptyTVCell
     case SelectLanguageTVCell
+    case TripsTVCell
     
     //LOGIN
     case LoginTVCell
@@ -78,6 +79,12 @@ enum TVCellType {
     case HotelSearchTVCell
     case AddRoomsGuestsTVCell
     case TitleLblTVCell
+    
+    
+    //VISA
+    case VisaTVCell
+    case AutoPaymentTVCell
+  
     
     
 }
