@@ -39,6 +39,16 @@ var defaultCountryCode = "+91"
 var mobilenoMaxLength = Int()
 var mobilenoMaxLengthBool = false
 
+//HOTEL
+var adtArray = [String]()
+var chArray = [String]()
+var hotelDetailsTapBool = true
+var totalRooms = 0
+var totalAdults = 0
+var totalChildren = 0
+var oldjournyType = ""
+
+
 
 //DASHBOARD
 var callapibool = Bool()
@@ -98,10 +108,22 @@ var grand_total_Price = String()
 var totalPrice1 = String()
 var mbviewmodel:MPBViewModel?
 
-
+//MARK: - Hotel
+var hotelSearchId = String()
+var roomsDetails = [[Rooms]]()
+var images = [Images]()
+var formatAmeArray = [Format_ame]()
+var formatDesc = [Format_desc]()
+var hotel_filtersumry : Filter_sumry?
 var hsearchid = String()
 var hbookingsource = String()
+var htoken = String()
+var htokenkey = String()
+var selectedrRateKeyArray = [String]()
 var hotelSearchResult = [HotelSearchResult]()
+var selectedCellStates: [IndexPath: Bool] = [:]
+var grandTotal = String()
+var selectedCellIndices: [IndexPath] = [] // Keep track of selected cell indices
 
 struct MapModel {
     var longitude =  String()
@@ -123,16 +145,29 @@ struct ApiEndpoints {
     static let flight_mobile_pre_process_booking = "flight/mobile_pre_process_booking"
     static let flight_mobile_pre_booking = "flight/mobile_pre_booking"
     static let mobileprocesspassengerdetail = "mobile_process_passenger_detail"
+    static let getCountryList = "getCountryList"
+    static let general_mobile_pre_flight_search_loader = "general/mobile_pre_flight_search_loader"
+    static let general_mobile_pre_hotel_search_loader = "general/mobile_pre_hotel_search_loader"
     
+    //LOGIN
     static let auth_mobile_login = "auth/mobile_login"
     static let auth_mobile_logout = "auth/mobile_logout"
     static let auth_deleteuser = "auth/deleteuser"
     static let auth_mobile_forgot_password = "auth/mobile_forgot_password"
     static let auth_mobile_register_on_light_box = "auth/mobile_register_on_light_box"
-    
     static let user_mobile_profile = "user/mobile_profile"
     static let gethotelcitylist = "get_hotel_city_list"
     static let getAirlineList = "general/getAirlineList"
+    
+    
+    //Hotels
+    static let general_getActiveBookingSource = "general/getActiveBookingSource"
+    static let ajaxHotelSearch_pagination = "ajaxHotelSearch_pagination"
+    static let mobileprehotelsearch = "mobile_pre_hotel_search"
+    static let general_mobileHotelSearch = "general/mobileHotelSearch"
+    static let hotelmobiledetails = "mobile_details"
+    
+    
 }
 
 /*App messages*/

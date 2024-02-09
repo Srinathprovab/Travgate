@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DashboardVC: BaseTableVC {
+class DashboardVC: BaseTableVC, AllCountryCodeListViewModelDelegate {
     
     
     //MARK: - side menu initial setup
@@ -37,6 +37,7 @@ class DashboardVC: BaseTableVC {
         
         setupUI()
         MySingleton.shared.indexpagevm = IndexPageViewModel(self)
+        MySingleton.shared.countrylistvm = AllCountryCodeListViewModel(self)
         
     }
     
@@ -85,8 +86,8 @@ class DashboardVC: BaseTableVC {
     
     
     override func didTapOnHotelTabSelect(cell: TabSelectTVCell) {
-       // defaults.set("Hotel", forKey: UserDefaultsKeys.tabselect)
-       // gotoSearchHotelVC()
+        defaults.set("Hotel", forKey: UserDefaultsKeys.tabselect)
+        gotoSearchHotelVC()
     }
     
     
@@ -138,6 +139,13 @@ extension DashboardVC:IndexPageViewModelDelegate {
         MySingleton.shared.topFlightDetails = response.topFlightDetails ?? []
         MySingleton.shared.topHotelDetails = response.topHotelDetails ?? []
         MySingleton.shared.deail_code_list = response.deal_code_list ?? []
+        
+        
+        
+        
+        DispatchQueue.main.async {[self] in
+            callCountryListAPI()
+        }
         
         DispatchQueue.main.async {[self] in
             setupTableViewCells()
@@ -403,6 +411,8 @@ extension DashboardVC {
     
     func addObserver() {
         
+        
+        
         NotificationCenter.default.addObserver(self, selector: #selector(nointernet), name: Notification.Name("offline"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(resultnil), name: NSNotification.Name("resultnil"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(nointrnetreload), name: Notification.Name("nointrnetreload"), object: nil)
@@ -451,4 +461,18 @@ extension DashboardVC {
         self.present(vc, animated: true)
     }
     
+}
+
+
+extension DashboardVC {
+    
+    
+    //MARK: - callCountryListAPI
+    func callCountryListAPI() {
+        MySingleton.shared.countrylistvm?.CALLGETCOUNTRYLIST_API(dictParam: [:])
+    }
+    
+    func getCountryList(response: AllCountryCodeListModel) {
+        MySingleton.shared.clist = response.all_country_code_list ?? []
+    }
 }

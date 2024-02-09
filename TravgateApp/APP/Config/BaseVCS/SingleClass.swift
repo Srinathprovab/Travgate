@@ -91,6 +91,7 @@ class MySingleton {
     var confpassword = String()
     var recentData:[Recent_searches]?
     var Recentsearches = [Recent_searches]()
+    var clist = [All_country_code_list]()
     
     var loginvm:LoginViewModel?
     var resetpasswordvm:ResetPasswordViewModel?
@@ -99,6 +100,9 @@ class MySingleton {
     var profiledata:ProfileData?
     var logoutvm:LogoutViewModel?
     var recentsearchvm:SearchDataViewModel?
+    var countrylistvm:AllCountryCodeListViewModel?
+    var lodervm:SearchLoaderViewModel?
+    var hotellodervm:SearchHotelLoderViewModel?
     
     //TIMER
     weak var delegate: TimerManagerDelegate?
@@ -201,27 +205,7 @@ class MySingleton {
     
     
     
-    //MARK: - setAttributedTextnew
-    func setAttributedTextnew(str1:String,str2:String,lbl:UILabel,str1font:UIFont,str2font:UIFont,str1Color:UIColor,str2Color:UIColor)  {
-        
-        let atter1 = [NSAttributedString.Key.foregroundColor:str1Color,
-                      NSAttributedString.Key.font:str1font] as [NSAttributedString.Key : Any]
-        let atter2 = [NSAttributedString.Key.foregroundColor:str2Color,
-                      NSAttributedString.Key.font:str2font] as [NSAttributedString.Key : Any]
-        
-        let atterStr1 = NSMutableAttributedString(string: str1, attributes: atter1)
-        let atterStr2 = NSMutableAttributedString(string: str2, attributes: atter2)
-        
-        
-        let combination = NSMutableAttributedString()
-        combination.append(atterStr1)
-        combination.append(atterStr2)
-        
-        lbl.attributedText = combination
-        
-    }
-    
-    
+   
     
     //MARK: - Timer SETUP
     func startTimer(time:Int) {
@@ -270,6 +254,27 @@ class MySingleton {
         UIApplication.shared.endBackgroundTask(backgroundTask)
         backgroundTask = .invalid
     }
+    
+    
+    func setAttributedTextnew(str1:String,str2:String,lbl:UILabel,str1font:UIFont,str2font:UIFont,str1Color:UIColor,str2Color:UIColor)  {
+        
+        let atter1 = [NSAttributedString.Key.foregroundColor:str1Color,
+                      NSAttributedString.Key.font:str1font] as [NSAttributedString.Key : Any]
+        let atter2 = [NSAttributedString.Key.foregroundColor:str2Color,
+                      NSAttributedString.Key.font:str2font] as [NSAttributedString.Key : Any]
+        
+        let atterStr1 = NSMutableAttributedString(string: str1, attributes: atter1)
+        let atterStr2 = NSMutableAttributedString(string: str2, attributes: atter2)
+        
+        
+        let combination = NSMutableAttributedString()
+        combination.append(atterStr1)
+        combination.append(atterStr2)
+        
+        lbl.attributedText = combination
+        
+    }
+    
 }
 
 

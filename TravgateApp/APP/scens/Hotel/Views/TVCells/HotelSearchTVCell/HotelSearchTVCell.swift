@@ -14,12 +14,14 @@ protocol HotelSearchTVCellDelegate {
     func didTapOnAddRoomsBtnAction(cell:HotelSearchTVCell)
     func didTapOnSelectNationlatiyBtnAction(cell:HotelSearchTVCell)
     func didTapOnSelectNoofNightsBtnAction(cell:HotelSearchTVCell)
+    func didTapOnSelectCountryCodeList(cell:HotelSearchTVCell)
+    func didTapOnHotelSearchBtnAction(cell:HotelSearchTVCell)
 }
 
 
 class HotelSearchTVCell: TableViewCell, HotelCitySearchViewModelDelegate {
     
-    
+    @IBOutlet weak var cancellationCheckBoxImg: UIImageView!
     @IBOutlet weak var fromcityTF: UITextField!
     @IBOutlet weak var checkinlbl: UILabel!
     @IBOutlet weak var checkoutlbl: UILabel!
@@ -29,10 +31,13 @@ class HotelSearchTVCell: TableViewCell, HotelCitySearchViewModelDelegate {
     @IBOutlet weak var fromcityTVHeight: NSLayoutConstraint!
     @IBOutlet weak var roomcountlbl: UILabel!
     @IBOutlet weak var nationalitylbl: UILabel!
+    @IBOutlet weak var nationalitylTF: UITextField!
+    @IBOutlet weak var ratingCV: UICollectionView!
     
     
-    
-    
+    var cancellationCheckBoxBool = false
+    var starTitelArray = ["1","2","3","4","5"]
+    var ndropDown = DropDown()
     var txtbool = Bool()
     var hotelList = [HotelCityListModel]()
     var cityViewModel: HotelCitySearchViewModel?
@@ -43,6 +48,21 @@ class HotelSearchTVCell: TableViewCell, HotelCitySearchViewModelDelegate {
     
     let checkinDatePicker = UIDatePicker()
     let checkoutDatePicker = UIDatePicker()
+    
+    var isSearchBool = Bool()
+    var searchText = String()
+    var filterdcountrylist = [All_country_code_list]()
+    var countryNames = [String]()
+    var countrycodesArray = [String]()
+    var originArray = [String]()
+    var isocountrycodeArray = [String]()
+    
+    
+    var cityNameArray = [String]()
+    var clist = [All_country_code_list]()
+    var cname = [String]()
+    var countryCode = String()
+    var cnameArray = [String]()
     
     var delegate: HotelSearchTVCellDelegate?
     override func awakeFromNib() {
@@ -70,8 +90,19 @@ class HotelSearchTVCell: TableViewCell, HotelCitySearchViewModelDelegate {
         fromcityTF.setLeftPaddingPoints(15)
         
         
-       
+        
+        nationalitylTF.textColor = .AppLabelColor
+        nationalitylTF.font = .OpenSansRegular(size: 14)
+        nationalitylTF.delegate = self
+        nationalitylTF.addTarget(self, action: #selector(searchTextBegin(_:)), for: .editingDidBegin)
+        nationalitylTF.addTarget(self, action: #selector(searchTextChanged(_:)), for: .editingChanged)
+        nationalitylTF.isHidden = false
+        nationalitylTF.setLeftPaddingPoints(15)
+        
+        setupCV()
     }
+    
+    
     
     
     override func updateUI() {
@@ -80,8 +111,8 @@ class HotelSearchTVCell: TableViewCell, HotelCitySearchViewModelDelegate {
         fromcityTF.text = defaults.string(forKey: UserDefaultsKeys.locationcity) ?? "City/Location"
         checkinlbl.text = defaults.string(forKey: UserDefaultsKeys.checkin) ?? "Add Date"
         checkoutlbl.text = defaults.string(forKey: UserDefaultsKeys.checkout) ?? "Add Date"
-        roomcountlbl.text = "\(defaults.string(forKey: UserDefaultsKeys.hoteladultscount) ?? "1") Adults , \(defaults.string(forKey: UserDefaultsKeys.roomcount) ?? "1") Rooms"
-        nationalitylbl.text = "\(defaults.string(forKey: UserDefaultsKeys.hnationality) ?? "Nationality")"
+        roomcountlbl.text = "\(defaults.string(forKey: UserDefaultsKeys.selectPersons) ?? "")"
+        nationalitylbl.text = "\(defaults.string(forKey: UserDefaultsKeys.hnationality) ?? "Select Nationality")"
         
         fromcityTV.delegate = self
         fromcityTV.dataSource = self
@@ -90,6 +121,8 @@ class HotelSearchTVCell: TableViewCell, HotelCitySearchViewModelDelegate {
         
         showCheckInDatePicker()
         showCheckoutDatePicker()
+        
+        setupnationalityDropDown()
         
     }
     
@@ -125,6 +158,19 @@ class HotelSearchTVCell: TableViewCell, HotelCitySearchViewModelDelegate {
         delegate?.didTapOnSelectNoofNightsBtnAction(cell: self)
     }
     
+    @IBAction func didTapOnFreeCancelationBtnAction(_ sender: Any) {
+        cancellationCheckBoxBool.toggle()
+        if cancellationCheckBoxBool {
+            cancellationCheckBoxImg.image = UIImage(named: "check")
+        }else {
+            cancellationCheckBoxImg.image = UIImage(named: "huncheck")
+        }
+    }
+    
+    
+    @IBAction func didTapOnHotelSearchBtnAction(_ sender: Any) {
+        delegate?.didTapOnHotelSearchBtnAction(cell: self)
+    }
     
 }
 
@@ -270,7 +316,7 @@ extension HotelSearchTVCell {
         }else {
             
             CallShowCityListAPI(str: textField.text ?? "")
-           
+            
         }
         
         
@@ -307,4 +353,169 @@ extension HotelSearchTVCell {
 
 
 
+//MARK: Saerch Natinality
+extension HotelSearchTVCell {
+    
+    @objc func searchTextBegin(_ textField:UITextField)  {
+        if textField == nationalitylTF {
+            nationalitylbl.text = ""
+            nationalitylTF.text = ""
+            filterdcountrylist.removeAll()
+            filterdcountrylist = MySingleton.shared.clist
+            loadCountryNamesAndCode()
+            ndropDown.show()
+        }
+        
+    }
+    
+    
+    @objc func searchTextChanged(_ textField:UITextField)  {
+        if textField == nationalitylTF {
+            searchText = textField.text ?? ""
+            if searchText == "" {
+                isSearchBool = false
+                filterContentForSearchText(searchText)
+            }else {
+                isSearchBool = true
+                filterContentForSearchText(searchText)
+            }
+        }
+        
+    }
+    
+    func filterContentForSearchText(_ searchText: String) {
+        print("Filterin with:", searchText)
+        
+        filterdcountrylist.removeAll()
+        filterdcountrylist = MySingleton.shared.clist.filter { thing in
+            return "\(thing.name?.lowercased() ?? "")".contains(searchText.lowercased())
+        }
+        
+        loadCountryNamesAndCode()
+        ndropDown.show()
+        
+    }
+    
+    func loadCountryNamesAndCode(){
+        countryNames.removeAll()
+        countrycodesArray.removeAll()
+        isocountrycodeArray.removeAll()
+        originArray.removeAll()
+        
+        filterdcountrylist.forEach { i in
+            countryNames.append(i.name ?? "")
+            countrycodesArray.append(i.country_code ?? "")
+            isocountrycodeArray.append(i.iso_country_code ?? "")
+            originArray.append(i.origin ?? "")
+        }
+        
+        DispatchQueue.main.async {[self] in
+            ndropDown.dataSource = countryNames
+        }
+    }
+    
+    func setupnationalityDropDown() {
+        
+        ndropDown.direction = .bottom
+        ndropDown.cellHeight = 50
+        ndropDown.backgroundColor = .WhiteColor
+        ndropDown.anchorView = self.nationalitylTF
+        ndropDown.bottomOffset = CGPoint(x: 0, y: nationalitylTF.frame.size.height + 10)
+        ndropDown.selectionAction = { [weak self] (index: Int, item: String) in
+            
+            print(item)
+            self?.nationalitylbl.text = self?.countryNames[index] ?? ""
+            self?.countryCode = self?.isocountrycodeArray[index] ?? ""
+            self?.nationalitylTF.text = ""
+            self?.nationalitylTF.resignFirstResponder()
+            defaults.set(self?.countryNames[index] ?? "", forKey: UserDefaultsKeys.hnationality)
+            defaults.set(self?.isocountrycodeArray[index] ?? "", forKey: UserDefaultsKeys.hnationalitycode)
+            self?.delegate?.didTapOnSelectCountryCodeList(cell: self!)
+        }
+    }
+    
+}
 
+
+
+//MARK: select star
+extension HotelSearchTVCell:UICollectionViewDelegate,UICollectionViewDataSource {
+    
+    func setupCV() {
+        
+        
+        let nib = UINib(nibName: "RatingCVCell", bundle: nil)
+        ratingCV.register(nib, forCellWithReuseIdentifier: "cell")
+        ratingCV.delegate = self
+        ratingCV.dataSource = self
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: 50, height: 30)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
+        layout.scrollDirection = .horizontal
+        layout.minimumInteritemSpacing = 5
+        layout.minimumLineSpacing = 5
+        ratingCV.collectionViewLayout = layout
+        ratingCV.bounces = false
+        ratingCV.isScrollEnabled = false
+        ratingCV.allowsMultipleSelection = true
+        
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return starTitelArray.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        var commonCell = UICollectionViewCell()
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? RatingCVCell {
+            
+            cell.titlelbl.text = starTitelArray[indexPath.row]
+            if indexPath.row == 2 {
+                cell.titlelbl.textColor = .WhiteColor
+                cell.holderView.backgroundColor = .Buttoncolor
+                cell.starimg.tintColor = .WhiteColor
+                ratingCV.selectItem(at: indexPath, animated: false, scrollPosition: .left)
+            }
+            
+            if indexPath.row == 3 {
+                cell.titlelbl.textColor = .WhiteColor
+                cell.holderView.backgroundColor = .Buttoncolor
+                cell.starimg.tintColor = .WhiteColor
+                ratingCV.selectItem(at: indexPath, animated: false, scrollPosition: .left)
+                
+            }
+            
+            if indexPath.row == 4 {
+                cell.titlelbl.textColor = .WhiteColor
+                cell.holderView.backgroundColor = .Buttoncolor
+                cell.starimg.tintColor = .WhiteColor
+                ratingCV.selectItem(at: indexPath, animated: false, scrollPosition: .left)
+                
+            }
+            
+            commonCell = cell
+        }
+        return commonCell
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let cell = collectionView.cellForItem(at: indexPath) as? RatingCVCell {
+            cell.titlelbl.textColor = .WhiteColor
+            cell.holderView.backgroundColor = .Buttoncolor
+            cell.starimg.tintColor = .WhiteColor
+        }
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        if let cell = collectionView.cellForItem(at: indexPath) as? RatingCVCell {
+            cell.titlelbl.textColor = .TitleColor
+            cell.holderView.backgroundColor = .WhiteColor
+            cell.starimg.tintColor = .TitleColor
+        }
+    }
+    
+    
+}

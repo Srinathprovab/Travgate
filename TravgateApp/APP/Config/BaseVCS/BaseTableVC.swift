@@ -8,7 +8,9 @@
 import UIKit
 import MaterialComponents
 
-class BaseTableVC: UIViewController, TabSelectTVCellDelegate, FlightSearchTVCellDelegate, FlightResultTVCellDelegate, SideMenuTitleTVCellDelegate, MenuBGTVCellDelegate, SliderTVCellDelegate, CheckBoxTVCellDelegate, FilterDepartureTVCellDelegate, LabelTVCellDelegate, PopularFiltersTVCellDelegate,DepartureTimeTVCellDelegate, ButtonTVCellDelegate, SortbyTVCellDelegate, BookingDetailsFlightDataTVCellDelegate, TDetailsLoginTVCellDelegate, AddDeatilsOfTravellerTVCellDelegate, ContactInformationTVCellDelegate, UsePromoCodesTVCellDelegate, LoginTVCellDelegate, ResetPasswordTVCellDelegate, SignupTVCellDelegate, EditProfileTVCellDelegate, HotelSearchTVCellDelegate, AddRoomsGuestsTVCellDelegate, NewDepartureTimeTVCellDelegate, VisaTVCellDelegate, AutoPaymentTVCellDelegate, TripsTVCellDelegate, YourRecentSearchesTVCellDelegate {
+class BaseTableVC: UIViewController, TabSelectTVCellDelegate, FlightSearchTVCellDelegate, FlightResultTVCellDelegate, SideMenuTitleTVCellDelegate, MenuBGTVCellDelegate, SliderTVCellDelegate, CheckBoxTVCellDelegate, FilterDepartureTVCellDelegate, LabelTVCellDelegate, PopularFiltersTVCellDelegate,DepartureTimeTVCellDelegate, ButtonTVCellDelegate, SortbyTVCellDelegate, BookingDetailsFlightDataTVCellDelegate, TDetailsLoginTVCellDelegate, AddDeatilsOfTravellerTVCellDelegate, ContactInformationTVCellDelegate, UsePromoCodesTVCellDelegate, LoginTVCellDelegate, ResetPasswordTVCellDelegate, SignupTVCellDelegate, EditProfileTVCellDelegate, HotelSearchTVCellDelegate, AddRoomsGuestsTVCellDelegate, NewDepartureTimeTVCellDelegate, VisaTVCellDelegate, AutoPaymentTVCellDelegate, TripsTVCellDelegate, YourRecentSearchesTVCellDelegate, RoomsTVcellDelegate {
+    
+    
     
     
     
@@ -195,6 +197,7 @@ class BaseTableVC: UIViewController, TabSelectTVCellDelegate, FlightSearchTVCell
     func didTapOnAddRoomsBtnAction(cell:HotelSearchTVCell) {}
     func didTapOnSelectNationlatiyBtnAction(cell:HotelSearchTVCell) {}
     func didTapOnSelectNoofNightsBtnAction(cell:HotelSearchTVCell) {}
+    func didTapOnHotelSearchBtnAction(cell:HotelSearchTVCell) {}
     
     func closeBtnAction(cell: AddRoomsGuestsTVCell) {}
     func adultsIncrementButtonAction(cell:AddRoomsGuestsTVCell){}
@@ -209,9 +212,13 @@ class BaseTableVC: UIViewController, TabSelectTVCellDelegate, FlightSearchTVCell
     
     func didTapOnCloserecentSearchBtnAction(cell: YourRecentSearchesCVCell) {}
     func didTapOnSearchRecentFlightsBtnAction(cell: YourRecentSearchesCVCell) {}
-    
-    
-    
+    func didTapOnSelectCountryCodeList(cell:HotelSearchTVCell){}
+   
+    func didTapOnRoomsBtn(cell: RoomsTVcell) {}
+    func didTapOnHotelsDetailsBtn(cell: RoomsTVcell) {}
+    func didTapOnAmenitiesBtn(cell: RoomsTVcell) {}
+    func didTapOnCancellationPolicyBtnAction(cell: NewRoomDetailsTVCell) {}
+    func didTapOnSelectRoomBtnAction(cell: NewRoomDetailsTVCell) {}
     
     
 }
@@ -541,6 +548,22 @@ extension BaseTableVC: UITableViewDataSource {
                 let cell:  YourRecentSearchesTVCell = commonTV.dequeTVCell(indexPath: indexPath)
                 cell.delegate = self
                 commonCell = cell
+                
+                
+                
+            case .RoomsTVcell:
+                let cell: RoomsTVcell = commonTV.dequeTVCell(indexPath: indexPath)
+                cell.delegate = self
+                commonCell = cell
+                
+                
+            case .HotelImagesTVCell:
+                let cell: HotelImagesTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                commonCell = cell
+                
+                
+                
+                
                 
             default:
                 print("handle this case in getCurrentCellAt")

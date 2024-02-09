@@ -167,6 +167,7 @@ extension FlightResultVC: FlightListModelProtocal {
         // Call this when you want to remove the child view controller
         removeLoader()
         loderBool = false
+        
         self.holderView.isHidden = false
         MySingleton.shared.searchid = "\(response.data?.search_id ?? 0)"
         MySingleton.shared.bookingsource = response.data?.j_flight_list?[0][0].booking_source_key ?? ""

@@ -19,6 +19,7 @@ class SearchHotelVC: BaseTableVC {
         let vc = storyboard.instantiateViewController(withIdentifier: self.className()) as? SearchHotelVC
         return vc
     }
+    var countrycode = String()
     
     
     override func viewWillAppear(_ animated: Bool) {
@@ -49,7 +50,7 @@ class SearchHotelVC: BaseTableVC {
     
     
     override func didTapOnFlightSearchBtnAction(cell:FlightSearchTVCell) {
-        didTapOnFlightSearchBtnAction()
+        didTapOnHotelSearchBtnAction()
     }
     
     
@@ -83,7 +84,7 @@ class SearchHotelVC: BaseTableVC {
     
     //MARK: - didTapOnAddRoomsBtnAction
     override func didTapOnAddRoomsBtnAction(cell:HotelSearchTVCell) {
-        guard let vc = AddRoomsGuestsVC.newInstance.self else {return}
+        guard let vc = AddRoomsVCViewController.newInstance.self else {return}
         vc.modalPresentationStyle = .overCurrentContext
         present(vc, animated: false)
     }
@@ -102,6 +103,15 @@ class SearchHotelVC: BaseTableVC {
         
     }
     
+    //MARK: - didTapOnSelectCountryCodeList
+    override func didTapOnSelectCountryCodeList(cell:HotelSearchTVCell){
+        commonTableView.reloadData()
+    }
+    
+    
+    override func didTapOnHotelSearchBtnAction(cell:HotelSearchTVCell) {
+        didTapOnHotelSearchBtnAction()
+    }
 }
 
 
@@ -110,6 +120,7 @@ extension SearchHotelVC {
     
     func setupUI(){
         
+        setInitalValues()
         
         commonTableView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner] // Top left corner, Top right corner respectively
         commonTableView.layer.cornerRadius = 12
@@ -142,18 +153,96 @@ extension SearchHotelVC {
 extension SearchHotelVC {
     
     
-    func didTapOnFlightSearchBtnAction() {
-        MySingleton.shared.payload.removeAll()
+    func setInitalValues() {
         
-
+        adtArray.removeAll()
+        chArray.removeAll()
+        
+        adtArray.append("2")
+        chArray.append("0")
+        
+        defaults.set("1", forKey: UserDefaultsKeys.roomcount)
+        defaults.set("2", forKey: UserDefaultsKeys.hoteladultscount)
+        defaults.set("0", forKey: UserDefaultsKeys.hotelchildcount)
+        
+        defaults.set("Rooms \(defaults.string(forKey: UserDefaultsKeys.roomcount) ?? ""),Adults \(defaults.string(forKey: UserDefaultsKeys.hoteladultscount) ?? "")", forKey: UserDefaultsKeys.selectPersons)
+        
     }
     
     
-    func gotoFlightResultVC() {
-        MySingleton.shared.callboolapi = true
-        defaults.set(false, forKey: "flightfilteronce")
-        guard let vc = FlightResultVC.newInstance.self else {return}
+    func didTapOnHotelSearchBtnAction() {
+        NotificationCenter.default.post(name: NSNotification.Name("resetallFilters"), object: nil)
+        MySingleton.shared.payload.removeAll()
+        MySingleton.shared.payload["city"] = defaults.string(forKey: UserDefaultsKeys.locationcity)
+        MySingleton.shared.payload["hotel_destination"] = defaults.string(forKey: UserDefaultsKeys.locationid)
+        MySingleton.shared.payload["hotel_checkin"] = defaults.string(forKey: UserDefaultsKeys.checkin)
+        MySingleton.shared.payload["hotel_checkout"] = defaults.string(forKey: UserDefaultsKeys.checkout)
+        
+        MySingleton.shared.payload["rooms"] = "\(defaults.string(forKey: UserDefaultsKeys.roomcount) ?? "1")"
+        MySingleton.shared.payload["adult"] = adtArray
+        MySingleton.shared.payload["child"] = chArray
+        
+        for roomIndex in 0..<totalRooms {
+            if let numChildren = Int(chArray[roomIndex]), numChildren > 0 {
+                var childAges: [String] = Array(repeating: "0", count: numChildren)
+                
+                if numChildren > 2 {
+                    childAges.append("0")
+                }
+                
+                MySingleton.shared.payload["childAge_\(roomIndex + 1)"] = childAges
+            }
+        }
+        
+        
+        MySingleton.shared.payload["nationality"] = defaults.string(forKey: UserDefaultsKeys.hnationalitycode)
+        MySingleton.shared.payload["language"] = "english"
+        MySingleton.shared.payload["search_source"] = "postman"
+        MySingleton.shared.payload["currency"] = defaults.string(forKey: UserDefaultsKeys.selectedCurrency) ?? "KWD"
+        MySingleton.shared.payload["user_id"] = defaults.string(forKey: UserDefaultsKeys.userid) ?? "0"
+        
+        if defaults.string(forKey: UserDefaultsKeys.locationcity) == "Add City" || defaults.string(forKey: UserDefaultsKeys.locationcity) == nil{
+            showToast(message: "Enter Hotel or City ")
+        }else if defaults.string(forKey: UserDefaultsKeys.checkin) == "Add Check In Date" || defaults.string(forKey: UserDefaultsKeys.checkin) == nil{
+            showToast(message: "Enter Checkin Date")
+        }else if defaults.string(forKey: UserDefaultsKeys.checkout) == "Add Check Out Date" || defaults.string(forKey: UserDefaultsKeys.checkout) == nil{
+            showToast(message: "Enter Checkout Date")
+        }else if defaults.string(forKey: UserDefaultsKeys.checkout) == defaults.string(forKey: UserDefaultsKeys.checkin) {
+            showToast(message: "Enter Different Dates")
+        }else if defaults.string(forKey: UserDefaultsKeys.roomcount) == "" {
+            showToast(message: "Add Rooms For Booking")
+        }else if defaults.string(forKey: UserDefaultsKeys.hnationalitycode) == "Select Nationality" {
+            showToast(message: "Please Select Nationality.")
+        }else {
+            
+            
+            do{
+                
+                let jsonData = try JSONSerialization.data(withJSONObject: MySingleton.shared.payload, options: JSONSerialization.WritingOptions.prettyPrinted)
+                let jsonStringData =  NSString(data: jsonData as Data, encoding: NSUTF8StringEncoding)! as String
+                
+                print(jsonStringData)
+                
+                
+            }catch{
+                print(error.localizedDescription)
+            }
+            
+            gotoHotelResultVC()
+            
+        }
+    }
+    
+    
+    func gotoHotelResultVC() {
+        
+        loderBool = true
+        callapibool = true
+        defaults.set(false, forKey: "hoteltfilteronce")
+        guard let vc = SearchHotelsResultVC.newInstance.self else {return}
         vc.modalPresentationStyle = .fullScreen
+        vc.countrycode = self.countrycode
+        vc.payload =  MySingleton.shared.payload
         present(vc, animated: true)
     }
     

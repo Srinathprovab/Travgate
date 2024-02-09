@@ -219,6 +219,39 @@ extension FlightSearchVC {
     
     func setupUI(){
         
+        
+          if !UserDefaults.standard.bool(forKey: "ExecuteOnce") {
+              
+              defaults.set("+965", forKey: UserDefaultsKeys.mobilecountrycode)
+              
+              defaults.set("Flight", forKey: UserDefaultsKeys.tabselect)
+              defaults.set("circle", forKey: UserDefaultsKeys.journeyType)
+              defaults.set("KWD", forKey: UserDefaultsKeys.selectedCurrency)
+              defaults.set("1", forKey: UserDefaultsKeys.totalTravellerCount)
+              
+              defaults.set("Economy", forKey: UserDefaultsKeys.selectClass)
+              defaults.set("1", forKey: UserDefaultsKeys.adultCount)
+              defaults.set("0", forKey: UserDefaultsKeys.childCount)
+              defaults.set("0", forKey: UserDefaultsKeys.infantsCount)
+              let totaltraverlers = "\(defaults.string(forKey: UserDefaultsKeys.adultCount) ?? "1") Adult | \(defaults.string(forKey: UserDefaultsKeys.childCount) ?? "0") Child | \(defaults.string(forKey: UserDefaultsKeys.infantsCount) ?? "") Infant | \(defaults.string(forKey: UserDefaultsKeys.selectClass) ?? "")"
+              defaults.set(totaltraverlers, forKey: UserDefaultsKeys.travellerDetails)
+              
+              
+           
+              
+              //Hotel default Values
+              defaults.set("1", forKey: UserDefaultsKeys.roomcount)
+              defaults.set("2", forKey: UserDefaultsKeys.hoteladultscount)
+              defaults.set("0", forKey: UserDefaultsKeys.hotelchildcount)
+              defaults.set("\(defaults.string(forKey: UserDefaultsKeys.roomcount) ?? "") Rooms,\(defaults.string(forKey: UserDefaultsKeys.hoteladultscount) ?? "") Adults,\(defaults.string(forKey: UserDefaultsKeys.hotelchildcount) ?? "") Child", forKey: UserDefaultsKeys.selectPersons)
+              
+              
+              
+              
+              UserDefaults.standard.set(true, forKey: "ExecuteOnce")
+              
+          }
+        
         roundtripTap()
         
         commonTableView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner] // Top left corner, Top right corner respectively
@@ -327,9 +360,9 @@ extension FlightSearchVC {
         
         
         MySingleton.shared.payload["trip_type"] = defaults.string(forKey: UserDefaultsKeys.journeyType)
-        MySingleton.shared.payload["adult"] = defaults.string(forKey: UserDefaultsKeys.adultCount)
-        MySingleton.shared.payload["child"] = defaults.string(forKey: UserDefaultsKeys.childCount)
-        MySingleton.shared.payload["infant"] = defaults.string(forKey: UserDefaultsKeys.infantsCount)
+        MySingleton.shared.payload["adult"] = defaults.string(forKey: UserDefaultsKeys.adultCount) ?? "1"
+        MySingleton.shared.payload["child"] = defaults.string(forKey: UserDefaultsKeys.childCount) ?? "0"
+        MySingleton.shared.payload["infant"] = defaults.string(forKey: UserDefaultsKeys.infantsCount) ?? "0"
         MySingleton.shared.payload["from"] = defaults.string(forKey: UserDefaultsKeys.fromCity)
         MySingleton.shared.payload["from_loc_id"] = defaults.string(forKey: UserDefaultsKeys.fromlocid)
         MySingleton.shared.payload["to"] = defaults.string(forKey: UserDefaultsKeys.toCity)

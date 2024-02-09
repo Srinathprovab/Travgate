@@ -20,7 +20,7 @@ class NationalityVC: BaseTableVC, AirlineListViewModelDelegate {
     var airlineNameArray = [String]()
     
     var hotelFilterd:[Country_list]  = []
-    var filtered:[Airline_list] = []
+    var filtered:[All_country_code_list] = []
     var airlinelist:[Airline_list] = []
     var vm: AirlineListViewModel?
     var tablerow = [TableRow]()
@@ -104,10 +104,10 @@ class NationalityVC: BaseTableVC, AirlineListViewModelDelegate {
     func filterContentForSearchText(_ searchText: String) {
         
         filtered.removeAll()
-        filtered = self.airlinelist.filter { thing in
-            return "\(thing.airline_name?.lowercased() ?? "")".contains(searchText.lowercased())
+        filtered = MySingleton.shared.clist.filter { thing in
+            return "\(thing.name?.lowercased() ?? "")".contains(searchText.lowercased())
         }
-        loadData(list: filtered)
+        //loadData(list: filtered)
         
         commonTableView.reloadData()
     }
@@ -124,7 +124,22 @@ extension NationalityVC {
     
     
     func callAPI() {
-        vm?.CALL_GET_AIRLINE_LIST_API(dictParam: [:])
+        //vm?.CALL_GET_AIRLINE_LIST_API(dictParam: [:])
+        
+        
+        airlineNameArray.removeAll()
+        airlinecodeArray.removeAll()
+        
+        airlineNameArray.append("ALL")
+        airlinecodeArray.append("ALL")
+        MySingleton.shared.clist.forEach { i in
+            airlineNameArray.append(i.name ?? "")
+            airlinecodeArray.append(i.country_code ?? "")
+        }
+        
+        DispatchQueue.main.async {[self] in
+            commonTableView.reloadData()
+        }
     }
     
     

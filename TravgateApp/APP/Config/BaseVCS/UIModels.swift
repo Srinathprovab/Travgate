@@ -79,6 +79,8 @@ enum TVCellType {
     case HotelSearchTVCell
     case AddRoomsGuestsTVCell
     case TitleLblTVCell
+    case HotelImagesTVCell
+    case RoomsTVcell
     
     
     //VISA

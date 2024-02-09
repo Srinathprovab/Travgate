@@ -7,46 +7,95 @@
 
 import UIKit
 
-class LoderVC: UIViewController {
+class LoderVC: UIViewController, SearchLoaderViewModelDelegate, SearchHotelLoderViewModelDelegate {
+   
+    
+    
     
     @IBOutlet weak var img: UIImageView!
     @IBOutlet weak var gifimg: UIImageView!
     @IBOutlet weak var triptypelbl: UILabel!
     @IBOutlet weak var cityslbl: UILabel!
     @IBOutlet weak var datelbl: UILabel!
-    
-
+    @IBOutlet weak var flightinfo: UIStackView!
+    @IBOutlet weak var hotelinfoView: UIView!
+    @IBOutlet weak var locationslbl: UILabel!
+    @IBOutlet weak var checkinlbl: UILabel!
+    @IBOutlet weak var checkoutlbl: UILabel!
+    @IBOutlet weak var guestlbl: UILabel!
+    @IBOutlet weak var nightslbl: UILabel!
+    @IBOutlet weak var roomslbl: UILabel!
+   
+    var searchdata:SearchData?
+    var searchHoteldata:SearchHotelData?
     var gifImages: [UIImage] = []
     var currentFrame: Int = 0
     var timer: Timer?
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        callAPI()
+    }
+    
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        setupUI()
+       
         img.layer.cornerRadius = 40
         loadGifFrames()
         startGifAnimation()
        
+        
+        MySingleton.shared.lodervm = SearchLoaderViewModel(self)
+        MySingleton.shared.hotellodervm = SearchHotelLoderViewModel(self)
+        
     }
     
     
     func setupUI() {
         
-        cityslbl.text = "\(defaults.string(forKey: UserDefaultsKeys.fromcityname) ?? "") To \(defaults.string(forKey: UserDefaultsKeys.tocityname) ?? "")"
-        
-        
-        
-        let journyType = defaults.string(forKey: UserDefaultsKeys.journeyType)
-        if journyType == "oneway" {
-            datelbl.text = "\(MySingleton.shared.convertDateFormat(inputDate: defaults.string(forKey: UserDefaultsKeys.calDepDate) ?? "", f1: "dd-MM-yyyy", f2: "EEE, dd MMM"))"
+        let tabselect = defaults.string(forKey: UserDefaultsKeys.tabselect)
+        if tabselect == "Flight" {
+            
+            flightinfo.isHidden = false
+            hotelinfoView.isHidden = true
+           
+            img.sd_setImage(with: URL(string: searchdata?.image ?? ""), placeholderImage:UIImage(contentsOfFile:"placeholder.png"))
+            
+            cityslbl.text = "\(searchdata?.from ?? "") To \(searchdata?.to ?? "")"
+    
+            let journyType = defaults.string(forKey: UserDefaultsKeys.journeyType)
+            if journyType == "oneway" {
+                datelbl.text = "\(MySingleton.shared.convertDateFormat(inputDate: searchdata?.from_date ?? "", f1: "dd-MM-yyyy", f2: "EEE, dd MMM"))"
+            }else {
+                datelbl.text = "\(MySingleton.shared.convertDateFormat(inputDate: searchdata?.from_date ?? "", f1: "dd-MM-yyyy", f2: "EEE, dd MMM")) - \(MySingleton.shared.convertDateFormat(inputDate: searchdata?.to_date ?? "", f1: "dd-MM-yyyy", f2: "EEE, dd MMM"))"
+            }
+            
+           
+            triptypelbl.text = "\(searchdata?.trip_type ?? "") - \(defaults.string(forKey: UserDefaultsKeys.totalTravellerCount) ?? "") Travellers"
+            
         }else {
-            datelbl.text = "\(MySingleton.shared.convertDateFormat(inputDate: defaults.string(forKey: UserDefaultsKeys.calDepDate) ?? "", f1: "dd-MM-yyyy", f2: "EEE, dd MMM")) - \(MySingleton.shared.convertDateFormat(inputDate: defaults.string(forKey: UserDefaultsKeys.calRetDate) ?? "", f1: "dd-MM-yyyy", f2: "EEE, dd MMM"))"
+            
+            flightinfo.isHidden = true
+            hotelinfoView.isHidden = false
+            
+            img.sd_setImage(with: URL(string: searchHoteldata?.image ?? ""), placeholderImage:UIImage(contentsOfFile:"placeholder.png"))
+            
+            locationslbl.text = searchHoteldata?.city_name ?? ""
+            checkinlbl.text = searchHoteldata?.check_in ?? ""
+            checkoutlbl.text = searchHoteldata?.check_out ?? ""
+            guestlbl.text = searchHoteldata?.adult?[0] ?? ""
+            nightslbl.text = "4 Nights"
+            roomslbl.text = searchHoteldata?.rooms ?? ""
+           
+            
         }
+    
         
        
-        triptypelbl.text = "\(defaults.string(forKey: UserDefaultsKeys.journeyType) ?? "") - \(defaults.string(forKey: UserDefaultsKeys.totalTravellerCount) ?? "") Travellers"
    
         
     }
@@ -84,5 +133,40 @@ class LoderVC: UIViewController {
     deinit {
         timer?.invalidate()
     }
+    
+   
+    
+    
+}
+
+
+extension LoderVC {
+    
+    func callAPI() {
+        let tabselect = defaults.string(forKey: UserDefaultsKeys.tabselect)
+        if tabselect == "Flight" {
+            MySingleton.shared.lodervm?.CALL_FLIGHT_LODER_DETAILS_API(dictParam: MySingleton.shared.payload)
+        }else {
+            MySingleton.shared.hotellodervm?.CALL_HOTEL_LODER_DETAILS_API(dictParam: MySingleton.shared.payload)
+        }
+    }
+    
+    
+    func searchLoderData(response: SearchLoaderModel) {
+        searchdata = response.searchdata
+        DispatchQueue.main.async {
+            self.setupUI()
+        }
+        
+    }
+    
+    
+    func searchLoderData(response: SearchHotelLoderModel) {
+        searchHoteldata = response.searchdata
+        DispatchQueue.main.async {
+            self.setupUI()
+        }
+    }
+    
     
 }
