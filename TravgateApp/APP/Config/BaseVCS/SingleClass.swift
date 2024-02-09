@@ -89,12 +89,16 @@ class MySingleton {
     var fname = String()
     var lname = String()
     var confpassword = String()
+    var recentData:[Recent_searches]?
+    var Recentsearches = [Recent_searches]()
+    
     var loginvm:LoginViewModel?
     var resetpasswordvm:ResetPasswordViewModel?
     var registervm:RegisterViewModel?
     var profilevm:ProfileViewModel?
     var profiledata:ProfileData?
     var logoutvm:LogoutViewModel?
+    var recentsearchvm:SearchDataViewModel?
     
     //TIMER
     weak var delegate: TimerManagerDelegate?

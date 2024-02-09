@@ -116,6 +116,8 @@ struct ApiEndpoints {
     
     static let indexpage = "general/getTopFlightHotelDestination"
     static let get_airport_code_list = "ajax/get_airport_code_list"
+    static let general_searchdata = "general/searchdata"
+    static let general_removeRecentSearch = "general/removeRecentSearch"
     static let general_mobile_pre_flight_search = "general/mobile_pre_flight_search"
     static let flight_getFlightDetails = "flight/getFlightDetails"
     static let flight_mobile_pre_process_booking = "flight/mobile_pre_process_booking"

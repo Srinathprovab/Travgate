@@ -63,10 +63,6 @@ class BookingDetailsVC: BaseTableVC, MPBViewModelDelegate {
     }
     
     
-    
-    
-    
-    
     //MARK: - AddDeatilsOfTravellerTVCell Delegate Methods
     
     override func didTapOnExpandAdultViewbtnAction(cell: AddDeatilsOfTravellerTVCell) {

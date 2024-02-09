@@ -54,7 +54,7 @@ enum TVCellType {
     case TotalNoofTravellerTVCell
     case ContactInformationTVCell
     case UsePromoCodesTVCell
-    
+    case YourRecentSearchesTVCell
     
     
     //Booking

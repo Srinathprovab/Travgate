@@ -7,7 +7,8 @@
 
 import UIKit
 
-class FlightSearchVC: BaseTableVC {
+class FlightSearchVC: BaseTableVC, SearchDataViewModelDelegate {
+    
     
     
     @IBOutlet weak var logoimg: UIImageView!
@@ -26,13 +27,21 @@ class FlightSearchVC: BaseTableVC {
     }
     
     
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        callGetRecentSearchAPI()
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
         setupUI()
+        
+        MySingleton.shared.recentsearchvm = SearchDataViewModel(self)
     }
-    
     
     
     
@@ -141,8 +150,52 @@ class FlightSearchVC: BaseTableVC {
     override func didTapOnReturnDateBtnAction(cell:FlightSearchTVCell) {
         roundtripTap()
         NotificationCenter.default.post(name: NSNotification.Name("roundtripTap"), object: nil)
-
+        
     }
+    
+    
+    
+    override func didTapOnCloserecentSearchBtnAction(cell: YourRecentSearchesCVCell) {
+        MySingleton.shared.payload.removeAll()
+        MySingleton.shared.payload["id"] = cell.origin
+        MySingleton.shared.recentsearchvm?.CALL_GET_REMOVE_FLIGHT_SEARCH_RECENT_DATA_API(dictParam: MySingleton.shared.payload)
+    }
+    
+    override func didTapOnSearchRecentFlightsBtnAction(cell: YourRecentSearchesCVCell) {
+        
+        
+        
+        print(cell.trip_type)
+        
+        
+        
+        defaults.setValue(cell.trip_type, forKey: UserDefaultsKeys.journeyType)
+        defaults.setValue(cell.adult, forKey: UserDefaultsKeys.adultCount)
+        defaults.setValue(cell.child, forKey: UserDefaultsKeys.childCount)
+        defaults.setValue(cell.infant, forKey: UserDefaultsKeys.infantsCount)
+        defaults.setValue(cell.from, forKey: UserDefaultsKeys.fromCity)
+        defaults.setValue(cell.from_loc_id, forKey: UserDefaultsKeys.fromlocid)
+        defaults.setValue(cell.to, forKey: UserDefaultsKeys.toCity)
+        defaults.setValue(cell.to_loc_id, forKey: UserDefaultsKeys.tolocid)
+        defaults.setValue(cell.depature, forKey: UserDefaultsKeys.calDepDate)
+        defaults.setValue(cell.sreturn, forKey: UserDefaultsKeys.calRetDate)
+        // defaults.setValue(cell.carrier, forKey: UserDefaultsKeys.journeyType)
+        //  defaults.setValue(cell.psscarrier, forKey: UserDefaultsKeys.journeyType)
+        //  defaults.setValue(cell.search_flight, forKey: UserDefaultsKeys.journeyType)
+        // defaults.setValue(cell.search_source, forKey: UserDefaultsKeys.journeyType)
+        defaults.setValue(cell.currency, forKey: UserDefaultsKeys.selectedCurrency)
+        defaults.setValue(cell.user_id, forKey: UserDefaultsKeys.userid)
+        defaults.setValue(cell.v_class, forKey: UserDefaultsKeys.selectClass)
+        defaults.setValue(cell.fcityname, forKey: UserDefaultsKeys.fromcityname)
+        defaults.setValue(cell.tcityname, forKey: UserDefaultsKeys.tocityname)
+        
+        didTapOnFlightSearchBtnAction()
+        
+    }
+    
+    
+    
+    
     
     @IBAction func didTapOnOnewayBtnAction(_ sender: Any) {
         onewayTap()
@@ -172,6 +225,7 @@ extension FlightSearchVC {
         commonTableView.layer.cornerRadius = 12
         commonTableView.clipsToBounds = true
         commonTableView.registerTVCells(["FlightSearchTVCell",
+                                         "YourRecentSearchesTVCell",
                                          "EmptyTVCell"])
         
     }
@@ -179,9 +233,17 @@ extension FlightSearchVC {
     
     
     func setupOnewayTVCells() {
+        
         MySingleton.shared.tablerow.removeAll()
         MySingleton.shared.tablerow.append(TableRow(key:"oneway",cellType:.FlightSearchTVCell))
-        MySingleton.shared.tablerow.append(TableRow(height:50,cellType:.EmptyTVCell))
+        MySingleton.shared.tablerow.append(TableRow(height:10,cellType:.EmptyTVCell))
+        
+        
+        if (MySingleton.shared.recentData?.count ?? 0) > 0 {
+            MySingleton.shared.tablerow.append(TableRow(cellType:.YourRecentSearchesTVCell))
+            MySingleton.shared.tablerow.append(TableRow(height:50,cellType:.EmptyTVCell))
+        }
+        
         commonTVData = MySingleton.shared.tablerow
         commonTableView.reloadData()
     }
@@ -190,7 +252,14 @@ extension FlightSearchVC {
     func setupRoundTripTVCells() {
         MySingleton.shared.tablerow.removeAll()
         MySingleton.shared.tablerow.append(TableRow(key:"circle",cellType:.FlightSearchTVCell))
-        MySingleton.shared.tablerow.append(TableRow(height:50,cellType:.EmptyTVCell))
+        MySingleton.shared.tablerow.append(TableRow(height:10,cellType:.EmptyTVCell))
+        
+        if (MySingleton.shared.recentData?.count ?? 0) > 0 {
+            MySingleton.shared.tablerow.append(TableRow(cellType:.YourRecentSearchesTVCell))
+            MySingleton.shared.tablerow.append(TableRow(height:50,cellType:.EmptyTVCell))
+        }
+        
+        
         commonTVData = MySingleton.shared.tablerow
         commonTableView.reloadData()
     }
@@ -199,10 +268,63 @@ extension FlightSearchVC {
 
 
 extension FlightSearchVC {
+    
+    
+    //MARK: - callGetRecentSearchAPI
+    func callGetRecentSearchAPI() {
+        MySingleton.shared.recentsearchvm?.CALL_GET_FLIGHT_SEARCH_RECENT_DATA_API(dictParam: [:])
+    }
+    
+    func flightRecentSearchDate(response: SearchDataModel) {
+        MySingleton.shared.recentData = response.recent_searches ?? []
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            let journyType = defaults.string(forKey: UserDefaultsKeys.journeyType)
+            if journyType == "oneway" {
+                
+                DispatchQueue.main.async {[self] in
+                    setupOnewayTVCells()
+                }
+            }else {
+                
+                DispatchQueue.main.async {[self] in
+                    setupRoundTripTVCells()
+                }
+                
+            }
+        }
+    }
+    
+    
+    //MARK: - removeflightRecentSearchDate
+    func removeflightRecentSearchDate(response: LoginModel) {
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            let journyType = defaults.string(forKey: UserDefaultsKeys.journeyType)
+            if journyType == "oneway" {
+                
+                DispatchQueue.main.async {[self] in
+                    setupOnewayTVCells()
+                }
+            }else {
+                
+                DispatchQueue.main.async {[self] in
+                    setupRoundTripTVCells()
+                }
+                
+            }
+        }
+    }
+    
+    
+}
+
+
+extension FlightSearchVC {
     func didTapOnFlightSearchBtnAction() {
         MySingleton.shared.payload.removeAll()
         
-   
+        
         
         MySingleton.shared.payload["trip_type"] = defaults.string(forKey: UserDefaultsKeys.journeyType)
         MySingleton.shared.payload["adult"] = defaults.string(forKey: UserDefaultsKeys.adultCount)
@@ -238,10 +360,10 @@ extension FlightSearchVC {
             }else {
                 gotoFlightResultVC()
             }
-
+            
         }else {
             MySingleton.shared.payload["v_class"] = defaults.string(forKey: UserDefaultsKeys.selectClass)
-           // MySingleton.shared.payload["v_class"] = defaults.string(forKey: UserDefaultsKeys.selectClass)
+            // MySingleton.shared.payload["v_class"] = defaults.string(forKey: UserDefaultsKeys.selectClass)
             MySingleton.shared.payload["return"] = MySingleton.shared.convertDateFormat(inputDate: defaults.string(forKey: UserDefaultsKeys.calRetDate) ?? "", f1: "dd-MM-yyyy", f2: "dd/MM/yyyy")
             
             if defaults.string(forKey: UserDefaultsKeys.fromCity) == nil {
@@ -255,7 +377,7 @@ extension FlightSearchVC {
             }else {
                 gotoFlightResultVC()
             }
-
+            
         }
         
         
@@ -271,3 +393,5 @@ extension FlightSearchVC {
     }
     
 }
+
+

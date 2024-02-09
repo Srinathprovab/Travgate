@@ -30,7 +30,7 @@ class Loader {
                 if loderBool == false {
                     loaderShow(loder: "loder", v: view)
                 }else {
-                    loaderShow(loder: "loder", v: view)
+                    //loaderShow(loder: "loder", v: view)
                 }
             }
             

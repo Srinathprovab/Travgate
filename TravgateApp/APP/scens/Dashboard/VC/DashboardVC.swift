@@ -85,8 +85,8 @@ class DashboardVC: BaseTableVC {
     
     
     override func didTapOnHotelTabSelect(cell: TabSelectTVCell) {
-        defaults.set("Hotel", forKey: UserDefaultsKeys.tabselect)
-        gotoSearchHotelVC()
+       // defaults.set("Hotel", forKey: UserDefaultsKeys.tabselect)
+       // gotoSearchHotelVC()
     }
     
     
