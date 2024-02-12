@@ -10,8 +10,6 @@ import UIKit
 class LoderVC: UIViewController, SearchLoaderViewModelDelegate, SearchHotelLoderViewModelDelegate {
    
     
-    
-    
     @IBOutlet weak var img: UIImageView!
     @IBOutlet weak var gifimg: UIImageView!
     @IBOutlet weak var triptypelbl: UILabel!
@@ -37,7 +35,6 @@ class LoderVC: UIViewController, SearchLoaderViewModelDelegate, SearchHotelLoder
         callAPI()
     }
     
-   
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +44,6 @@ class LoderVC: UIViewController, SearchLoaderViewModelDelegate, SearchHotelLoder
         img.layer.cornerRadius = 40
         loadGifFrames()
         startGifAnimation()
-       
         
         MySingleton.shared.lodervm = SearchLoaderViewModel(self)
         MySingleton.shared.hotellodervm = SearchHotelLoderViewModel(self)
@@ -93,11 +89,6 @@ class LoderVC: UIViewController, SearchLoaderViewModelDelegate, SearchHotelLoder
            
             
         }
-    
-        
-       
-   
-        
     }
     
     
@@ -133,9 +124,6 @@ class LoderVC: UIViewController, SearchLoaderViewModelDelegate, SearchHotelLoder
     deinit {
         timer?.invalidate()
     }
-    
-   
-    
     
 }
 

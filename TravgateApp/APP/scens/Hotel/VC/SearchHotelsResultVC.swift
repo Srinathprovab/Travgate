@@ -9,6 +9,7 @@ import UIKit
 import DropDown
 
 class SearchHotelsResultVC: BaseTableVC, UITextFieldDelegate, HotelSearchViewModelDelegate, HotelsTVCellelegate {
+    
     func didTapOnTermsAndConditionBtn(cell: HotelsTVCell) {
         
     }
@@ -147,10 +148,6 @@ class SearchHotelsResultVC: BaseTableVC, UITextFieldDelegate, HotelSearchViewMod
             }
         }
     }
-    
-    
-    
-    
     
     //    override func viewBtnAction(cell: CommonFromCityTVCell) {
     //        print(cell.subtitlelbl.text as Any)

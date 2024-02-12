@@ -314,6 +314,8 @@
 		65CB7A4F2B6769C600A2E110 /* HotelsTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65CB7A4D2B6769C600A2E110 /* HotelsTVCell.xib */; };
 		65CB7A502B6769C600A2E110 /* HotelsTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CB7A4E2B6769C600A2E110 /* HotelsTVCell.swift */; };
 		65D39C9F2B7A026B00917F74 /* HotelCitySearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D39C9E2B7A026B00917F74 /* HotelCitySearchViewModel.swift */; };
+		65D39CA92B7A48D200917F74 /* Insurance.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65D39CA82B7A48D200917F74 /* Insurance.storyboard */; };
+		65D39CAB2B7A48E400917F74 /* InsuranceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D39CAA2B7A48E400917F74 /* InsuranceVC.swift */; };
 		65D85BEC2B4A467500D939D0 /* FilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D85BEB2B4A467500D939D0 /* FilterVC.swift */; };
 		65D85BF72B4A46FF00D939D0 /* CheckBoxTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D85BF52B4A46FF00D939D0 /* CheckBoxTVCell.swift */; };
 		65D85BF82B4A46FF00D939D0 /* CheckBoxTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65D85BF62B4A46FF00D939D0 /* CheckBoxTVCell.xib */; };
@@ -706,6 +708,8 @@
 		65CB7A4D2B6769C600A2E110 /* HotelsTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HotelsTVCell.xib; sourceTree = "<group>"; };
 		65CB7A4E2B6769C600A2E110 /* HotelsTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotelsTVCell.swift; sourceTree = "<group>"; };
 		65D39C9E2B7A026B00917F74 /* HotelCitySearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelCitySearchViewModel.swift; sourceTree = "<group>"; };
+		65D39CA82B7A48D200917F74 /* Insurance.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Insurance.storyboard; sourceTree = "<group>"; };
+		65D39CAA2B7A48E400917F74 /* InsuranceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsuranceVC.swift; sourceTree = "<group>"; };
 		65D85BEB2B4A467500D939D0 /* FilterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterVC.swift; sourceTree = "<group>"; };
 		65D85BF52B4A46FF00D939D0 /* CheckBoxTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBoxTVCell.swift; sourceTree = "<group>"; };
 		65D85BF62B4A46FF00D939D0 /* CheckBoxTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CheckBoxTVCell.xib; sourceTree = "<group>"; };
@@ -1150,6 +1154,7 @@
 		651718142B43F901003D3723 /* scens */ = {
 			isa = PBXGroup;
 			children = (
+				65D39CA02B7A487A00917F74 /* Insurance */,
 				65E894062B72312F0043F403 /* Visa */,
 				658B376A2B4D75280011932C /* Booking Confirmed */,
 				658B374E2B4D72A10011932C /* PaymentGateway */,
@@ -2120,6 +2125,71 @@
 			path = HotelsTVCell;
 			sourceTree = "<group>";
 		};
+		65D39CA02B7A487A00917F74 /* Insurance */ = {
+			isa = PBXGroup;
+			children = (
+				65D39CA72B7A48BE00917F74 /* SB */,
+				65D39CA62B7A48B500917F74 /* Model */,
+				65D39CA52B7A48AA00917F74 /* ViewModel */,
+				65D39CA22B7A488D00917F74 /* Views */,
+				65D39CA12B7A488500917F74 /* VC */,
+			);
+			path = Insurance;
+			sourceTree = "<group>";
+		};
+		65D39CA12B7A488500917F74 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				65D39CAA2B7A48E400917F74 /* InsuranceVC.swift */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		65D39CA22B7A488D00917F74 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				65D39CA42B7A489E00917F74 /* TVCell */,
+				65D39CA32B7A489700917F74 /* CVCell */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		65D39CA32B7A489700917F74 /* CVCell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CVCell;
+			sourceTree = "<group>";
+		};
+		65D39CA42B7A489E00917F74 /* TVCell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TVCell;
+			sourceTree = "<group>";
+		};
+		65D39CA52B7A48AA00917F74 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		65D39CA62B7A48B500917F74 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		65D39CA72B7A48BE00917F74 /* SB */ = {
+			isa = PBXGroup;
+			children = (
+				65D39CA82B7A48D200917F74 /* Insurance.storyboard */,
+			);
+			path = SB;
+			sourceTree = "<group>";
+		};
 		65D85BED2B4A469A00D939D0 /* Filters */ = {
 			isa = PBXGroup;
 			children = (
@@ -2629,6 +2699,7 @@
 				65E8940F2B72317C0043F403 /* Visa.storyboard in Resources */,
 				65B6797A2B44238B00E5D1C3 /* Inter-Medium.ttf in Resources */,
 				65B6797B2B44238B00E5D1C3 /* Inter-Regular.ttf in Resources */,
+				65D39CA92B7A48D200917F74 /* Insurance.storyboard in Resources */,
 				658B37412B4D54FA0011932C /* UsePromoCodesTVCell.xib in Resources */,
 				65AD14FE2B4E80340064E8B0 /* LoginTVCell.xib in Resources */,
 				658B37992B4D77BF0011932C /* BookingConfirmedTVCell.xib in Resources */,
@@ -3117,6 +3188,7 @@
 				658B37462B4D55090011932C /* ContactInformationTVCell.swift in Sources */,
 				6545544C2B5F97D5008CE6FD /* ResetPasswordViewModel.swift in Sources */,
 				65D85C052B4A477100D939D0 /* PopularFiltersTVCell.swift in Sources */,
+				65D39CAB2B7A48E400917F74 /* InsuranceVC.swift in Sources */,
 				659CE6872B76578500D2BEBE /* AmenitiesTVCell.swift in Sources */,
 				65113B8E2B47C8A500C4B3E4 /* FlightResultTVCell.swift in Sources */,
 				658B375F2B4D72A10011932C /* PaymentMethodCollectionViewCell.swift in Sources */,
