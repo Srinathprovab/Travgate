@@ -339,7 +339,8 @@ extension SearchHotelsResultVC {
             let theJSONText = NSString(data: arrJson, encoding: String.Encoding.utf8.rawValue)
             print(theJSONText ?? "")
             payload1["search_params"] = theJSONText
-            
+            payload1["offset"] = "0"
+            payload1["limit"] = "20"
             
             viewModel?.CallHotelPreSearchAPI(dictParam: payload1)
             

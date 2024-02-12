@@ -175,12 +175,14 @@ extension SearchHotelVC {
         MySingleton.shared.payload.removeAll()
         MySingleton.shared.payload["city"] = defaults.string(forKey: UserDefaultsKeys.locationcity)
         MySingleton.shared.payload["hotel_destination"] = defaults.string(forKey: UserDefaultsKeys.locationid)
-        MySingleton.shared.payload["hotel_checkin"] = defaults.string(forKey: UserDefaultsKeys.checkin)
-        MySingleton.shared.payload["hotel_checkout"] = defaults.string(forKey: UserDefaultsKeys.checkout)
+
+        MySingleton.shared.payload["hotel_checkin"] = MySingleton.shared.convertDateFormat(inputDate: defaults.string(forKey: UserDefaultsKeys.checkin) ?? "", f1: "dd-MM-yyyy", f2: "dd/MM/yyyy")
+        MySingleton.shared.payload["hotel_checkout"] = MySingleton.shared.convertDateFormat(inputDate: defaults.string(forKey: UserDefaultsKeys.checkout) ?? "", f1: "dd-MM-yyyy", f2: "dd/MM/yyyy")
         
         MySingleton.shared.payload["rooms"] = "\(defaults.string(forKey: UserDefaultsKeys.roomcount) ?? "1")"
         MySingleton.shared.payload["adult"] = adtArray
         MySingleton.shared.payload["child"] = chArray
+        
         
         for roomIndex in 0..<totalRooms {
             if let numChildren = Int(chArray[roomIndex]), numChildren > 0 {
@@ -196,10 +198,10 @@ extension SearchHotelVC {
         
         
         MySingleton.shared.payload["nationality"] = defaults.string(forKey: UserDefaultsKeys.hnationalitycode)
-        MySingleton.shared.payload["language"] = "english"
-        MySingleton.shared.payload["search_source"] = "postman"
-        MySingleton.shared.payload["currency"] = defaults.string(forKey: UserDefaultsKeys.selectedCurrency) ?? "KWD"
-        MySingleton.shared.payload["user_id"] = defaults.string(forKey: UserDefaultsKeys.userid) ?? "0"
+//        MySingleton.shared.payload["language"] = "english"
+//        MySingleton.shared.payload["search_source"] = "Mobile_IOS"
+//        MySingleton.shared.payload["currency"] = defaults.string(forKey: UserDefaultsKeys.selectedCurrency) ?? "KWD"
+//        MySingleton.shared.payload["user_id"] = defaults.string(forKey: UserDefaultsKeys.userid) ?? "0"
         
         if defaults.string(forKey: UserDefaultsKeys.locationcity) == "Add City" || defaults.string(forKey: UserDefaultsKeys.locationcity) == nil{
             showToast(message: "Enter Hotel or City ")

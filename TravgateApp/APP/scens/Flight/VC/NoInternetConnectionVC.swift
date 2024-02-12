@@ -82,6 +82,10 @@ class NoInternetConnectionVC: UIViewController {
                 guard let vc = FlightSearchVC.newInstance.self else {return}
                 vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true)
+            }else {
+                guard let vc = SearchHotelVC.newInstance.self else {return}
+                vc.modalPresentationStyle = .fullScreen
+                self.present(vc, animated: true)
             }
             
             

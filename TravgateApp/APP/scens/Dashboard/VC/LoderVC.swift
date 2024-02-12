@@ -147,7 +147,22 @@ extension LoderVC {
         if tabselect == "Flight" {
             MySingleton.shared.lodervm?.CALL_FLIGHT_LODER_DETAILS_API(dictParam: MySingleton.shared.payload)
         }else {
-            MySingleton.shared.hotellodervm?.CALL_HOTEL_LODER_DETAILS_API(dictParam: MySingleton.shared.payload)
+           // MySingleton.shared.hotellodervm?.CALL_HOTEL_LODER_DETAILS_API(dictParam: MySingleton.shared.payload)
+            
+            
+            do {
+                
+                let arrJson = try JSONSerialization.data(withJSONObject: MySingleton.shared.payload, options: JSONSerialization.WritingOptions.prettyPrinted)
+                let theJSONText = NSString(data: arrJson, encoding: String.Encoding.utf8.rawValue)
+                print(theJSONText ?? "")
+                MySingleton.shared.payload1["search_params"] = theJSONText
+                
+                
+                MySingleton.shared.hotellodervm?.CALL_HOTEL_LODER_DETAILS_API(dictParam: MySingleton.shared.payload1)
+                
+            }catch let error as NSError{
+                print(error.description)
+            }
         }
     }
     
