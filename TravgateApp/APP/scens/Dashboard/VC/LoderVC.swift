@@ -32,8 +32,19 @@ class LoderVC: UIViewController, SearchLoaderViewModelDelegate, SearchHotelLoder
     
     
     override func viewWillAppear(_ animated: Bool) {
-        callAPI()
+        
+        if MySingleton.shared.afterResultsBool == false {
+            callAPI()
+        }else {
+            flightinfo.isHidden = true
+            hotelinfoView.isHidden = true
+            img.image = UIImage(named: "travlogo")
+           // img.sd_setImage(with: URL(string: "MySingleton.shared.loderimgurl" ), placeholderImage:UIImage(contentsOfFile:"placeholder.png"))
+        }
     }
+    
+    
+   
     
     
     override func viewDidLoad() {
@@ -157,6 +168,7 @@ extension LoderVC {
     
     func searchLoderData(response: SearchLoaderModel) {
         searchdata = response.searchdata
+        MySingleton.shared.loderimgurl = response.searchdata?.image ?? ""
         DispatchQueue.main.async {
             self.setupUI()
         }

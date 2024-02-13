@@ -19,7 +19,6 @@ class MenuBGTVCell: TableViewCell {
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var loginBtn: UIButton!
     @IBOutlet weak var editProfileView: UIView!
-    @IBOutlet weak var editProfilelbl: UILabel!
     @IBOutlet weak var editProfileBtn: UIButton!
     
     var delegate:MenuBGTVCellDelegate?

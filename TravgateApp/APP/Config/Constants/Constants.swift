@@ -125,13 +125,6 @@ var selectedCellStates: [IndexPath: Bool] = [:]
 var grandTotal = String()
 var selectedCellIndices: [IndexPath] = [] // Keep track of selected cell indices
 
-struct MapModel {
-    var longitude =  String()
-    var latitude =  String()
-    var hotelname = String()
-}
-
-
 
 /* URL endpoints */
 struct ApiEndpoints {
@@ -148,6 +141,7 @@ struct ApiEndpoints {
     static let getCountryList = "getCountryList"
     static let general_mobile_pre_flight_search_loader = "general/mobile_pre_flight_search_loader"
     static let general_mobile_pre_hotel_search_loader = "general/mobile_pre_hotel_search_loader"
+    static let general_get_airlines_list = "general/get_airlines_list"
     
     //LOGIN
     static let auth_mobile_login = "auth/mobile_login"
@@ -227,6 +221,8 @@ struct UserDefaultsKeys {
     static var tocityname = "tocityname"
     static var fcity = "fcity"
     static var tcity = "tcity"
+    static var fcariername = "fcariername"
+    static var fcariercode = "fcariercode"
     
     //ROUND TRIP
     //    static var rlocationcity = "rlocation_city"

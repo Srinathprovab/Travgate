@@ -200,23 +200,28 @@ extension ModifySearchVC {
     func didTapOnFlightSearchBtnAction() {
         MySingleton.shared.payload.removeAll()
         
+        
+        
         MySingleton.shared.payload["trip_type"] = defaults.string(forKey: UserDefaultsKeys.journeyType)
-        MySingleton.shared.payload["adult"] = defaults.string(forKey: UserDefaultsKeys.adultCount)
-        MySingleton.shared.payload["child"] = defaults.string(forKey: UserDefaultsKeys.childCount)
-        MySingleton.shared.payload["infant"] = defaults.string(forKey: UserDefaultsKeys.infantsCount)
+        MySingleton.shared.payload["adult"] = defaults.string(forKey: UserDefaultsKeys.adultCount) ?? "1"
+        MySingleton.shared.payload["child"] = defaults.string(forKey: UserDefaultsKeys.childCount) ?? "0"
+        MySingleton.shared.payload["infant"] = defaults.string(forKey: UserDefaultsKeys.infantsCount) ?? "0"
         MySingleton.shared.payload["from"] = defaults.string(forKey: UserDefaultsKeys.fromCity)
         MySingleton.shared.payload["from_loc_id"] = defaults.string(forKey: UserDefaultsKeys.fromlocid)
         MySingleton.shared.payload["to"] = defaults.string(forKey: UserDefaultsKeys.toCity)
         MySingleton.shared.payload["to_loc_id"] = defaults.string(forKey: UserDefaultsKeys.tolocid)
-        MySingleton.shared.payload["depature"] = defaults.string(forKey: UserDefaultsKeys.calDepDate)
+        MySingleton.shared.payload["depature"] = MySingleton.shared.convertDateFormat(inputDate: defaults.string(forKey: UserDefaultsKeys.calDepDate) ?? "", f1: "dd-MM-yyyy", f2: "dd/MM/yyyy")
         MySingleton.shared.payload["out_jrn"] = "All Times"
         MySingleton.shared.payload["ret_jrn"] = "All Times"
         MySingleton.shared.payload["direct_flight"] = ""
-        MySingleton.shared.payload["psscarrier"] = ""
+        MySingleton.shared.payload["carrier"] = ""
+        MySingleton.shared.payload["psscarrier"] = defaults.string(forKey: UserDefaultsKeys.fcariercode) ?? "ALL"
         MySingleton.shared.payload["search_flight"] = "Search"
-        MySingleton.shared.payload["user_id"] = ""
         MySingleton.shared.payload["search_source"] = "Mobile_IOS"
         MySingleton.shared.payload["currency"] = defaults.string(forKey: UserDefaultsKeys.selectedCurrency)
+        MySingleton.shared.payload["user_id"] = defaults.string(forKey: UserDefaultsKeys.userid) ?? "0"
+        
+        
         if defaults.string(forKey: UserDefaultsKeys.journeyType) == "oneway" {
             
             MySingleton.shared.payload["v_class"] = defaults.string(forKey: UserDefaultsKeys.selectClass)
@@ -231,11 +236,11 @@ extension ModifySearchVC {
             }else {
                 gotoFlightResultVC()
             }
-
+            
         }else {
             MySingleton.shared.payload["v_class"] = defaults.string(forKey: UserDefaultsKeys.selectClass)
-           // MySingleton.shared.payload["v_class"] = defaults.string(forKey: UserDefaultsKeys.selectClass)
-            MySingleton.shared.payload["return"] = defaults.string(forKey: UserDefaultsKeys.calRetDate)
+            // MySingleton.shared.payload["v_class"] = defaults.string(forKey: UserDefaultsKeys.selectClass)
+            MySingleton.shared.payload["return"] = MySingleton.shared.convertDateFormat(inputDate: defaults.string(forKey: UserDefaultsKeys.calRetDate) ?? "", f1: "dd-MM-yyyy", f2: "dd/MM/yyyy")
             
             if defaults.string(forKey: UserDefaultsKeys.fromCity) == nil {
                 showToast(message: "Enter From City")
@@ -248,7 +253,7 @@ extension ModifySearchVC {
             }else {
                 gotoFlightResultVC()
             }
-
+            
         }
         
         
@@ -257,6 +262,7 @@ extension ModifySearchVC {
     
     func gotoFlightResultVC() {
         MySingleton.shared.callboolapi = true
+        MySingleton.shared.afterResultsBool = false
         defaults.set(false, forKey: "flightfilteronce")
         guard let vc = FlightResultVC.newInstance.self else {return}
         vc.modalPresentationStyle = .fullScreen

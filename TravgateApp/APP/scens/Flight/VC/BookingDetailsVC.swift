@@ -128,8 +128,9 @@ class BookingDetailsVC: BaseTableVC, MPBViewModelDelegate {
     
     //MARK: - didTapOnBackBtnAction
     @IBAction func didTapOnBackBtnAction(_ sender: Any) {
-        MySingleton.shared.callboolapi = false
-        dismiss(animated: true)
+//        MySingleton.shared.callboolapi = false
+//        dismiss(animated: true)
+        sameInputs_Again_CallSaerchAPI()
     }
     
     
@@ -148,6 +149,11 @@ extension BookingDetailsVC {
     
     func callAPI() {
         holderView.isHidden = true
+        
+        MySingleton.shared.afterResultsBool = true
+        loderBool = true
+        showLoadera()
+        
         if MySingleton.shared.callboolapi == true {
             MySingleton.shared.payload.removeAll()
             MySingleton.shared.payload["search_id"] =  MySingleton.shared.searchid
@@ -163,6 +169,9 @@ extension BookingDetailsVC {
     
     func MPBDetails(response: MobilePreProcessBookingModel) {
         holderView.isHidden = false
+        loderBool = false
+        hideLoadera()
+        MySingleton.shared.afterResultsBool = false
         MySingleton.shared.mpbpriceDetails = response.pre_booking_params?.priceDetails
         MySingleton.shared.mpbFlightData = response.flight_data?[0].flight_details
         MySingleton.shared.frequent_flyersArray = response.frequent_flyers ?? []
@@ -669,4 +678,86 @@ extension BookingDetailsVC:TimerManagerDelegate {
 }
 
 
-
+//MARK: - sameInputs_Again_CallSaerchAPI
+extension BookingDetailsVC {
+    
+    
+    func sameInputs_Again_CallSaerchAPI() {
+       
+            MySingleton.shared.payload.removeAll()
+            
+            
+            
+            MySingleton.shared.payload["trip_type"] = defaults.string(forKey: UserDefaultsKeys.journeyType)
+            MySingleton.shared.payload["adult"] = defaults.string(forKey: UserDefaultsKeys.adultCount) ?? "1"
+            MySingleton.shared.payload["child"] = defaults.string(forKey: UserDefaultsKeys.childCount) ?? "0"
+            MySingleton.shared.payload["infant"] = defaults.string(forKey: UserDefaultsKeys.infantsCount) ?? "0"
+            MySingleton.shared.payload["from"] = defaults.string(forKey: UserDefaultsKeys.fromCity)
+            MySingleton.shared.payload["from_loc_id"] = defaults.string(forKey: UserDefaultsKeys.fromlocid)
+            MySingleton.shared.payload["to"] = defaults.string(forKey: UserDefaultsKeys.toCity)
+            MySingleton.shared.payload["to_loc_id"] = defaults.string(forKey: UserDefaultsKeys.tolocid)
+            MySingleton.shared.payload["depature"] = MySingleton.shared.convertDateFormat(inputDate: defaults.string(forKey: UserDefaultsKeys.calDepDate) ?? "", f1: "dd-MM-yyyy", f2: "dd/MM/yyyy")
+            MySingleton.shared.payload["out_jrn"] = "All Times"
+            MySingleton.shared.payload["ret_jrn"] = "All Times"
+            MySingleton.shared.payload["direct_flight"] = ""
+            MySingleton.shared.payload["carrier"] = ""
+            MySingleton.shared.payload["psscarrier"] = defaults.string(forKey: UserDefaultsKeys.fcariercode) ?? "ALL"
+            MySingleton.shared.payload["search_flight"] = "Search"
+            MySingleton.shared.payload["search_source"] = "Mobile_IOS"
+            MySingleton.shared.payload["currency"] = defaults.string(forKey: UserDefaultsKeys.selectedCurrency)
+            MySingleton.shared.payload["user_id"] = defaults.string(forKey: UserDefaultsKeys.userid) ?? "0"
+            
+            
+            if defaults.string(forKey: UserDefaultsKeys.journeyType) == "oneway" {
+                
+                MySingleton.shared.payload["v_class"] = defaults.string(forKey: UserDefaultsKeys.selectClass)
+                MySingleton.shared.payload["return"] = ""
+                
+                if defaults.string(forKey: UserDefaultsKeys.fromCity) == nil {
+                    showToast(message: "Enter From City")
+                }else if defaults.string(forKey: UserDefaultsKeys.toCity) == nil {
+                    showToast(message: "Enter To City")
+                }else if defaults.string(forKey: UserDefaultsKeys.calDepDate) == "Add Date" || defaults.string(forKey: UserDefaultsKeys.calDepDate) == nil {
+                    showToast(message: "Add Departure Date")
+                }else {
+                    gotoFlightResultVC()
+                }
+                
+            }else {
+                MySingleton.shared.payload["v_class"] = defaults.string(forKey: UserDefaultsKeys.selectClass)
+                // MySingleton.shared.payload["v_class"] = defaults.string(forKey: UserDefaultsKeys.selectClass)
+                MySingleton.shared.payload["return"] = MySingleton.shared.convertDateFormat(inputDate: defaults.string(forKey: UserDefaultsKeys.calRetDate) ?? "", f1: "dd-MM-yyyy", f2: "dd/MM/yyyy")
+                
+                if defaults.string(forKey: UserDefaultsKeys.fromCity) == nil {
+                    showToast(message: "Enter From City")
+                }else if defaults.string(forKey: UserDefaultsKeys.toCity) == nil {
+                    showToast(message: "Enter To City")
+                }else if defaults.string(forKey: UserDefaultsKeys.calDepDate) == "Add Date" || defaults.string(forKey: UserDefaultsKeys.calDepDate) == nil {
+                    showToast(message: "Add Departure Date")
+                }else if defaults.string(forKey: UserDefaultsKeys.calRetDate) == "Add Date" || defaults.string(forKey: UserDefaultsKeys.calRetDate) == nil {
+                    showToast(message: "Add Return Date")
+                }else {
+                    gotoFlightResultVC()
+                }
+                
+            
+            
+            
+        }
+        
+        
+        func gotoFlightResultVC() {
+            MySingleton.shared.callboolapi = true
+            MySingleton.shared.afterResultsBool = false
+            defaults.set(false, forKey: "flightfilteronce")
+            guard let vc = FlightResultVC.newInstance.self else {return}
+            vc.modalPresentationStyle = .fullScreen
+            present(vc, animated: true)
+        }
+        
+    }
+    
+    
+    
+    
+}

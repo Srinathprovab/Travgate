@@ -7,7 +7,8 @@
 
 import UIKit
 
-class FlightSearchVC: BaseTableVC, SearchDataViewModelDelegate {
+class FlightSearchVC: BaseTableVC, SearchDataViewModelDelegate, GetAirlineViewModelDelegate {
+    
     
     
     
@@ -41,6 +42,7 @@ class FlightSearchVC: BaseTableVC, SearchDataViewModelDelegate {
         setupUI()
         
         MySingleton.shared.recentsearchvm = SearchDataViewModel(self)
+        MySingleton.shared.airlinevm = GetAirlineViewModel(self)
     }
     
     
@@ -220,37 +222,35 @@ extension FlightSearchVC {
     func setupUI(){
         
         
-          if !UserDefaults.standard.bool(forKey: "ExecuteOnce") {
-              
-              defaults.set("+965", forKey: UserDefaultsKeys.mobilecountrycode)
-              
-              defaults.set("Flight", forKey: UserDefaultsKeys.tabselect)
-              defaults.set("circle", forKey: UserDefaultsKeys.journeyType)
-              defaults.set("KWD", forKey: UserDefaultsKeys.selectedCurrency)
-              defaults.set("1", forKey: UserDefaultsKeys.totalTravellerCount)
-              
-              defaults.set("Economy", forKey: UserDefaultsKeys.selectClass)
-              defaults.set("1", forKey: UserDefaultsKeys.adultCount)
-              defaults.set("0", forKey: UserDefaultsKeys.childCount)
-              defaults.set("0", forKey: UserDefaultsKeys.infantsCount)
-              let totaltraverlers = "\(defaults.string(forKey: UserDefaultsKeys.adultCount) ?? "1") Adult | \(defaults.string(forKey: UserDefaultsKeys.childCount) ?? "0") Child | \(defaults.string(forKey: UserDefaultsKeys.infantsCount) ?? "") Infant | \(defaults.string(forKey: UserDefaultsKeys.selectClass) ?? "")"
-              defaults.set(totaltraverlers, forKey: UserDefaultsKeys.travellerDetails)
-              
-              
-           
-              
-              //Hotel default Values
-              defaults.set("1", forKey: UserDefaultsKeys.roomcount)
-              defaults.set("2", forKey: UserDefaultsKeys.hoteladultscount)
-              defaults.set("0", forKey: UserDefaultsKeys.hotelchildcount)
-              defaults.set("\(defaults.string(forKey: UserDefaultsKeys.roomcount) ?? "") Rooms,\(defaults.string(forKey: UserDefaultsKeys.hoteladultscount) ?? "") Adults,\(defaults.string(forKey: UserDefaultsKeys.hotelchildcount) ?? "") Child", forKey: UserDefaultsKeys.selectPersons)
-              
-              
-              
-              
-              UserDefaults.standard.set(true, forKey: "ExecuteOnce")
-              
-          }
+        if !UserDefaults.standard.bool(forKey: "ExecuteOnce") {
+            
+            defaults.set("+965", forKey: UserDefaultsKeys.mobilecountrycode)
+            
+            defaults.set("Flight", forKey: UserDefaultsKeys.tabselect)
+            defaults.set("circle", forKey: UserDefaultsKeys.journeyType)
+            defaults.set("KWD", forKey: UserDefaultsKeys.selectedCurrency)
+            defaults.set("1", forKey: UserDefaultsKeys.totalTravellerCount)
+            
+            defaults.set("Economy", forKey: UserDefaultsKeys.selectClass)
+            defaults.set("1", forKey: UserDefaultsKeys.adultCount)
+            defaults.set("0", forKey: UserDefaultsKeys.childCount)
+            defaults.set("0", forKey: UserDefaultsKeys.infantsCount)
+            let totaltraverlers = "\(defaults.string(forKey: UserDefaultsKeys.adultCount) ?? "1") Adult | \(defaults.string(forKey: UserDefaultsKeys.childCount) ?? "0") Child | \(defaults.string(forKey: UserDefaultsKeys.infantsCount) ?? "") Infant | \(defaults.string(forKey: UserDefaultsKeys.selectClass) ?? "")"
+            defaults.set(totaltraverlers, forKey: UserDefaultsKeys.travellerDetails)
+            
+            
+            //Hotel default Values
+            defaults.set("1", forKey: UserDefaultsKeys.roomcount)
+            defaults.set("2", forKey: UserDefaultsKeys.hoteladultscount)
+            defaults.set("0", forKey: UserDefaultsKeys.hotelchildcount)
+            defaults.set("\(defaults.string(forKey: UserDefaultsKeys.roomcount) ?? "") Rooms,\(defaults.string(forKey: UserDefaultsKeys.hoteladultscount) ?? "") Adults,\(defaults.string(forKey: UserDefaultsKeys.hotelchildcount) ?? "") Child", forKey: UserDefaultsKeys.selectPersons)
+            
+            
+            
+            
+            UserDefaults.standard.set(true, forKey: "ExecuteOnce")
+            
+        }
         
         roundtripTap()
         
@@ -300,58 +300,6 @@ extension FlightSearchVC {
 
 
 
-extension FlightSearchVC {
-    
-    
-    //MARK: - callGetRecentSearchAPI
-    func callGetRecentSearchAPI() {
-        MySingleton.shared.recentsearchvm?.CALL_GET_FLIGHT_SEARCH_RECENT_DATA_API(dictParam: [:])
-    }
-    
-    func flightRecentSearchDate(response: SearchDataModel) {
-        MySingleton.shared.recentData = response.recent_searches ?? []
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-            let journyType = defaults.string(forKey: UserDefaultsKeys.journeyType)
-            if journyType == "oneway" {
-                
-                DispatchQueue.main.async {[self] in
-                    setupOnewayTVCells()
-                }
-            }else {
-                
-                DispatchQueue.main.async {[self] in
-                    setupRoundTripTVCells()
-                }
-                
-            }
-        }
-    }
-    
-    
-    //MARK: - removeflightRecentSearchDate
-    func removeflightRecentSearchDate(response: LoginModel) {
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-            let journyType = defaults.string(forKey: UserDefaultsKeys.journeyType)
-            if journyType == "oneway" {
-                
-                DispatchQueue.main.async {[self] in
-                    setupOnewayTVCells()
-                }
-            }else {
-                
-                DispatchQueue.main.async {[self] in
-                    setupRoundTripTVCells()
-                }
-                
-            }
-        }
-    }
-    
-    
-}
-
 
 extension FlightSearchVC {
     func didTapOnFlightSearchBtnAction() {
@@ -372,7 +320,7 @@ extension FlightSearchVC {
         MySingleton.shared.payload["ret_jrn"] = "All Times"
         MySingleton.shared.payload["direct_flight"] = ""
         MySingleton.shared.payload["carrier"] = ""
-        MySingleton.shared.payload["psscarrier"] = ""
+        MySingleton.shared.payload["psscarrier"] = defaults.string(forKey: UserDefaultsKeys.fcariercode) ?? "ALL"
         MySingleton.shared.payload["search_flight"] = "Search"
         MySingleton.shared.payload["search_source"] = "Mobile_IOS"
         MySingleton.shared.payload["currency"] = defaults.string(forKey: UserDefaultsKeys.selectedCurrency)
@@ -419,6 +367,7 @@ extension FlightSearchVC {
     
     func gotoFlightResultVC() {
         MySingleton.shared.callboolapi = true
+        MySingleton.shared.afterResultsBool = false
         defaults.set(false, forKey: "flightfilteronce")
         guard let vc = FlightResultVC.newInstance.self else {return}
         vc.modalPresentationStyle = .fullScreen
@@ -428,3 +377,76 @@ extension FlightSearchVC {
 }
 
 
+
+
+//MARK: - callGetRecentSearchAPI
+extension FlightSearchVC {
+    
+    func callGetRecentSearchAPI() {
+        MySingleton.shared.recentsearchvm?.CALL_GET_FLIGHT_SEARCH_RECENT_DATA_API(dictParam: [:])
+    }
+    
+    func flightRecentSearchDate(response: SearchDataModel) {
+        MySingleton.shared.recentData = response.recent_searches ?? []
+        
+      
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            self.getAirlinesAPI()
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            let journyType = defaults.string(forKey: UserDefaultsKeys.journeyType)
+            if journyType == "oneway" {
+                
+                DispatchQueue.main.async {[self] in
+                    setupOnewayTVCells()
+                }
+            }else {
+                
+                DispatchQueue.main.async {[self] in
+                    setupRoundTripTVCells()
+                }
+                
+            }
+        }
+    }
+    
+    
+    //MARK: - removeflightRecentSearchDate
+    func removeflightRecentSearchDate(response: LoginModel) {
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            let journyType = defaults.string(forKey: UserDefaultsKeys.journeyType)
+            if journyType == "oneway" {
+                
+                DispatchQueue.main.async {[self] in
+                    setupOnewayTVCells()
+                }
+            }else {
+                
+                DispatchQueue.main.async {[self] in
+                    setupRoundTripTVCells()
+                }
+                
+            }
+        }
+    }
+    
+    
+}
+
+
+//MARK: getAirlinesAPI   airlinesList
+extension FlightSearchVC {
+    
+    func getAirlinesAPI() {
+        MySingleton.shared.airlinevm?.CALL_FLIGHT_LODER_DETAILS_API(dictParam: [:])
+    }
+    
+    
+    func airlinesList(response: GetAirlineModel) {
+        MySingleton.shared.airlinelist = response.data ?? []
+    }
+    
+}

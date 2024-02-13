@@ -1,22 +1,19 @@
 //
-//  SearchHotelVC.swift
+//  ModifyHotelSearchVC.swift
 //  TravgateApp
 //
-//  Created by FCI on 17/01/24.
+//  Created by FCI on 13/02/24.
 //
 
 import UIKit
 
-class SearchHotelVC: BaseTableVC {
+class ModifyHotelSearchVC: BaseTableVC {
     
     
-    @IBOutlet weak var logoimg: UIImageView!
-    
-    
-    static var newInstance: SearchHotelVC? {
+    static var newInstance: ModifyHotelSearchVC? {
         let storyboard = UIStoryboard(name: Storyboard.Hotel.name,
                                       bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: self.className()) as? SearchHotelVC
+        let vc = storyboard.instantiateViewController(withIdentifier: self.className()) as? ModifyHotelSearchVC
         return vc
     }
     var countrycode = String()
@@ -55,11 +52,8 @@ class SearchHotelVC: BaseTableVC {
     
     
     @IBAction func didTapOnBackBtnAction(_ sender: Any) {
-        MySingleton.shared.callboolapi = true
-        guard let vc = DashBoardTBVC.newInstance.self else {return}
-        vc.selectedIndex = 0
-        vc.modalPresentationStyle = .fullScreen
-        present(vc, animated: false)
+        callapibool = false
+        dismiss(animated: true)
     }
     
     
@@ -115,12 +109,12 @@ class SearchHotelVC: BaseTableVC {
 }
 
 
-extension SearchHotelVC {
+extension ModifyHotelSearchVC {
     
     
     func setupUI(){
         
-        setInitalValues()
+       // setInitalValues()
         
         commonTableView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner] // Top left corner, Top right corner respectively
         commonTableView.layer.cornerRadius = 12
@@ -128,16 +122,16 @@ extension SearchHotelVC {
         commonTableView.registerTVCells(["HotelSearchTVCell",
                                          "EmptyTVCell"])
         
-        setupOnewayTVCells()
+        setupTVCells()
         
     }
     
     
     
-    func setupOnewayTVCells() {
+    func setupTVCells() {
         MySingleton.shared.tablerow.removeAll()
         
-        MySingleton.shared.tablerow.append(TableRow(key:"oneway",cellType:.HotelSearchTVCell))
+        MySingleton.shared.tablerow.append(TableRow(cellType:.HotelSearchTVCell))
         MySingleton.shared.tablerow.append(TableRow(height:50,cellType:.EmptyTVCell))
         
         commonTVData = MySingleton.shared.tablerow
@@ -150,24 +144,24 @@ extension SearchHotelVC {
 
 
 
-extension SearchHotelVC {
+extension ModifyHotelSearchVC {
     
     
-    func setInitalValues() {
-        
-        adtArray.removeAll()
-        chArray.removeAll()
-        
-        adtArray.append("2")
-        chArray.append("0")
-        
-        defaults.set("1", forKey: UserDefaultsKeys.roomcount)
-        defaults.set("2", forKey: UserDefaultsKeys.hoteladultscount)
-        defaults.set("0", forKey: UserDefaultsKeys.hotelchildcount)
-        
-        defaults.set("Rooms \(defaults.string(forKey: UserDefaultsKeys.roomcount) ?? ""),Adults \(defaults.string(forKey: UserDefaultsKeys.hoteladultscount) ?? "")", forKey: UserDefaultsKeys.selectPersons)
-        
-    }
+    //    func setInitalValues() {
+    //
+    //        adtArray.removeAll()
+    //        chArray.removeAll()
+    //
+    //        adtArray.append("2")
+    //        chArray.append("0")
+    //
+    //        defaults.set("1", forKey: UserDefaultsKeys.roomcount)
+    //        defaults.set("2", forKey: UserDefaultsKeys.hoteladultscount)
+    //        defaults.set("0", forKey: UserDefaultsKeys.hotelchildcount)
+    //
+    //        defaults.set("Rooms \(defaults.string(forKey: UserDefaultsKeys.roomcount) ?? ""),Adults \(defaults.string(forKey: UserDefaultsKeys.hoteladultscount) ?? "")", forKey: UserDefaultsKeys.selectPersons)
+    //
+    //    }
     
     
     func didTapOnHotelSearchBtnAction() {
@@ -177,7 +171,7 @@ extension SearchHotelVC {
         
         MySingleton.shared.payload["city"] = defaults.string(forKey: UserDefaultsKeys.locationcity)
         MySingleton.shared.payload["hotel_destination"] = defaults.string(forKey: UserDefaultsKeys.locationid)
-
+        
         MySingleton.shared.payload["hotel_checkin"] = MySingleton.shared.convertDateFormat(inputDate: defaults.string(forKey: UserDefaultsKeys.checkin) ?? "", f1: "dd-MM-yyyy", f2: "dd/MM/yyyy")
         MySingleton.shared.payload["hotel_checkout"] = MySingleton.shared.convertDateFormat(inputDate: defaults.string(forKey: UserDefaultsKeys.checkout) ?? "", f1: "dd-MM-yyyy", f2: "dd/MM/yyyy")
         
@@ -210,10 +204,10 @@ extension SearchHotelVC {
         
         
         MySingleton.shared.payload["nationality"] = defaults.string(forKey: UserDefaultsKeys.hnationalitycode)
-//        MySingleton.shared.payload["language"] = "english"
-//        MySingleton.shared.payload["search_source"] = "Mobile_IOS"
-//        MySingleton.shared.payload["currency"] = defaults.string(forKey: UserDefaultsKeys.selectedCurrency) ?? "KWD"
-//        MySingleton.shared.payload["user_id"] = defaults.string(forKey: UserDefaultsKeys.userid) ?? "0"
+        //        MySingleton.shared.payload["language"] = "english"
+        //        MySingleton.shared.payload["search_source"] = "Mobile_IOS"
+        //        MySingleton.shared.payload["currency"] = defaults.string(forKey: UserDefaultsKeys.selectedCurrency) ?? "KWD"
+        //        MySingleton.shared.payload["user_id"] = defaults.string(forKey: UserDefaultsKeys.userid) ?? "0"
         
         if defaults.string(forKey: UserDefaultsKeys.locationcity) == "Add City" || defaults.string(forKey: UserDefaultsKeys.locationcity) == nil{
             showToast(message: "Enter Hotel or City ")
@@ -266,7 +260,7 @@ extension SearchHotelVC {
 
 
 
-extension SearchHotelVC {
+extension ModifyHotelSearchVC {
     
     func addObserver() {
         

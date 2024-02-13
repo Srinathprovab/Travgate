@@ -35,7 +35,7 @@ class PopularDestinationsTVCell: TableViewCell {
     override func updateUI() {
         flightlist = MySingleton.shared.topFlightDetails
         itemCount = flightlist.count
-       // startAutoScroll()
+        // startAutoScroll()
         selectDestCV.reloadData()
     }
     
@@ -51,10 +51,10 @@ class PopularDestinationsTVCell: TableViewCell {
         citySelectCV.dataSource = self
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: calculateCellWidth(), height: 34)
-        layout.scrollDirection = .horizontal
-        layout.minimumInteritemSpacing = 6
-        layout.minimumLineSpacing = 6
-        // layout.sectionInset = UIEdgeInsets(top: 0, left: 6, bottom: 0, right: 6)
+        layout.scrollDirection = .vertical
+        layout.minimumInteritemSpacing = 3
+        layout.minimumLineSpacing = 3
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 2, bottom: 0, right: 2)
         citySelectCV.collectionViewLayout = layout
         
         citySelectCV.showsHorizontalScrollIndicator = false
@@ -105,7 +105,7 @@ extension PopularDestinationsTVCell:UICollectionViewDelegate,UICollectionViewDat
         
         
         if collectionView == citySelectCV {
-            return 10
+            return 3
         }else {
             return flightlist.count
         }

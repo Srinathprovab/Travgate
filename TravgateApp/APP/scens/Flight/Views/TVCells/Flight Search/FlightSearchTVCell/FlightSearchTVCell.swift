@@ -68,6 +68,7 @@ class FlightSearchTVCell: TableViewCell, SelectCityViewModelProtocal {
     
     
     
+    
     var timeArray = ["12:00 AM - 06:00 AM","06:00 AM - 12:00 PM","12:00 PM - 12:00 PM","06:00 PM - 12:00 AM"]
     var selectClassArray = ["Economy","Premium","First","Business"]
     var infoimgArray = ["in1","in2","in3","in4","in5","in6"]
@@ -91,7 +92,7 @@ class FlightSearchTVCell: TableViewCell, SelectCityViewModelProtocal {
     let retdepDatePicker = UIDatePicker()
     let retDatePicker = UIDatePicker()
     
-    var filterdcountrylist = [Country_list]()
+    var filterdcountrylist = [AirlineDate]()
     var countryNames = [String]()
     var countrycodesArray = [String]()
     var originArray = [String]()
@@ -159,6 +160,8 @@ class FlightSearchTVCell: TableViewCell, SelectCityViewModelProtocal {
     
     override func updateUI() {
         
+        
+        
         MySingleton.shared.getCountryList()
         
         setupTV()
@@ -214,10 +217,12 @@ class FlightSearchTVCell: TableViewCell, SelectCityViewModelProtocal {
             returnDateBtn.isHidden = true
         }
         
-
+        
+        airlinelbl.text = defaults.string(forKey: UserDefaultsKeys.fcariername)
+        
     }
     
-
+    
     
     
     @IBAction func didTapOnOnewayClassBtnAction(_ sender: Any) {
@@ -276,7 +281,7 @@ class FlightSearchTVCell: TableViewCell, SelectCityViewModelProtocal {
                 self.fromlbl.text = ""
                 
                 CallShowCityListAPI(str: textField.text ?? "")
-                dropDown.show()
+                //dropDown.show()
             }
         }else {
             txtbool = false
@@ -286,7 +291,7 @@ class FlightSearchTVCell: TableViewCell, SelectCityViewModelProtocal {
                 self.tolbl.text = ""
                 
                 CallShowCityListAPI(str: textField.text ?? "")
-                dropDown1.show()
+                // dropDown1.show()
             }
         }
         
@@ -299,13 +304,13 @@ class FlightSearchTVCell: TableViewCell, SelectCityViewModelProtocal {
             fromTF.placeholder = "Origin"
             self.fromlbl.text = ""
             CallShowCityListAPI(str: textField.text ?? "")
-            dropDown.show()
+            //  dropDown.show()
             
         }else {
             toTF.placeholder = "Destination"
             self.tolbl.text = ""
             CallShowCityListAPI(str: textField.text ?? "")
-            dropDown1.show()
+            //  dropDown1.show()
             
         }
     }
@@ -339,7 +344,7 @@ class FlightSearchTVCell: TableViewCell, SelectCityViewModelProtocal {
     }
     
     @IBAction func didTapOnAirlineTimeBtnAction(_ sender: Any) {
-        airlinetimeDropdown.show()
+        // airlinetimeDropdown.show()
     }
     
     
@@ -916,15 +921,20 @@ extension FlightSearchTVCell {
     
     
     func setupAirlineDropDown() {
-        airlinetimeDropdown.dataSource = timeArray
+        // airlinetimeDropdown.dataSource = timeArray
         airlinetimeDropdown.direction = .bottom
         airlinetimeDropdown.backgroundColor = .WhiteColor
         airlinetimeDropdown.anchorView = self.airlineView
         airlinetimeDropdown.bottomOffset = CGPoint(x: 0, y: airlineView.frame.size.height + 10)
         airlinetimeDropdown.selectionAction = { [weak self] (index: Int, item: String) in
             self?.airlinelbl.text = item
-            //            defaults.set(item, forKey: UserDefaultsKeys.rselectClass)
-            //            self?.delegate?.didTapOnClassBtnAction(cell: self!)
+            self?.airlineTF.text = ""
+            self?.airlineTF.resignFirstResponder()
+            
+            defaults.set(item, forKey: UserDefaultsKeys.fcariername)
+            defaults.set(self?.countrycodesArray[index], forKey: UserDefaultsKeys.fcariercode)
+            
+            self?.delegate?.didTapOnClassBtnAction(cell: self!)
         }
     }
     
@@ -938,9 +948,9 @@ extension FlightSearchTVCell {
         airlineTF.text = ""
         airlinelbl.text = ""
         filterdcountrylist.removeAll()
-        filterdcountrylist = MySingleton.shared.countrylist
+        filterdcountrylist = MySingleton.shared.airlinelist
         loadCountryNamesAndCode()
-        dropDown.show()
+        airlinetimeDropdown.show()
     }
     
     
@@ -961,30 +971,31 @@ extension FlightSearchTVCell {
         print("Filterin with:", searchText)
         
         filterdcountrylist.removeAll()
-        filterdcountrylist = MySingleton.shared.countrylist.filter { thing in
+        filterdcountrylist = MySingleton.shared.airlinelist.filter { thing in
             return "\(thing.name?.lowercased() ?? "")".contains(searchText.lowercased())
         }
         
         loadCountryNamesAndCode()
-        dropDown.show()
+        airlinetimeDropdown.show()
         
     }
     
     func loadCountryNamesAndCode(){
         countryNames.removeAll()
         countrycodesArray.removeAll()
-        isocountrycodeArray.removeAll()
-        originArray.removeAll()
+      
+        
+        countryNames.append("ALL")
+        countrycodesArray.append("ALL")
         
         filterdcountrylist.forEach { i in
             countryNames.append(i.name ?? "")
-            countrycodesArray.append(i.country_code ?? "")
-            isocountrycodeArray.append(i.iso_country_code ?? "")
-            originArray.append(i.origin ?? "")
+            countrycodesArray.append(i.code ?? "")
         }
         
         DispatchQueue.main.async {[self] in
-            dropDown.dataSource = countryNames
+            airlinetimeDropdown.dataSource = countryNames
+            
         }
     }
 }

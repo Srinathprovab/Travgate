@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AARatingBar
 
 protocol HotelsTVCellelegate{
     func didTapOnTermsAndConditionBtn(cell: HotelsTVCell)
@@ -17,8 +18,7 @@ class HotelsTVCell: TableViewCell {
     @IBOutlet weak var holderView: UIView!
     @IBOutlet weak var hotelImg: UIImageView!
     @IBOutlet weak var hotelNamelbl: UILabel!
-    @IBOutlet weak var ratingsView: UIView!
-    @IBOutlet weak var ratingslbl: UILabel!
+    @IBOutlet weak var ratingView: AARatingBar!
     @IBOutlet weak var locImg: UIImageView!
     @IBOutlet weak var locationlbl: UILabel!
     @IBOutlet weak var kwdlbl: UILabel!
@@ -64,12 +64,18 @@ class HotelsTVCell: TableViewCell {
     override func updateUI() {
         hotelNamelbl.text = cellInfo?.title ?? ""
         self.hotelImg.sd_setImage(with: URL(string: cellInfo?.image ?? ""), placeholderImage:UIImage(contentsOfFile:"placeholder.png"))
-        ratingslbl.text = cellInfo?.subTitle
+        ratingView.value = CGFloat(cellInfo?.characterLimit ?? 0)
         locationlbl.text = cellInfo?.buttonTitle
         kwdlbl.text = cellInfo?.text
         
         
         setAttributedString1(str1: "\(cellInfo?.text ?? ""):", str2: "\(cellInfo?.price ?? "")")
+        
+        if cellInfo?.characterLimit == 0 {
+            ratingView.isHidden = true
+        }else {
+            ratingView.isHidden = false
+        }
     }
     
     

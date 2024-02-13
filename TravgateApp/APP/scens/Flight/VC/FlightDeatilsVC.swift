@@ -173,6 +173,10 @@ extension FlightDeatilsVC {
     
     func callAPI() {
         holderView.isHidden = true
+        MySingleton.shared.afterResultsBool = true
+        loderBool = true
+        showLoadera()
+        
         
         MySingleton.shared.payload.removeAll()
         MySingleton.shared.payload["search_id"] = MySingleton.shared.searchid
@@ -185,6 +189,10 @@ extension FlightDeatilsVC {
     
     
     func flightDetails(response: FlightDetailsModel) {
+        
+        loderBool = false
+        hideLoadera()
+        
         holderView.isHidden = false
         self.fd = response.flightDetails ?? [[]]
         MySingleton.shared.flightPriceDetails = response.priceDetails
@@ -269,6 +277,8 @@ extension FlightDeatilsVC {
 extension FlightDeatilsVC {
     
     func addObserver() {
+        
+        NotificationCenter.default.post(name: NSNotification.Name("hideDetails"), object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(nointernet), name: Notification.Name("offline"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(resultnil), name: NSNotification.Name("resultnil"), object: nil)

@@ -25,7 +25,7 @@ class FlightResultVC: BaseTableVC {
         return vc
     }
     
-    var loaderVC: LoderVC!
+    
     var filterdFlightList :[[FlightList]]?
     
     override func viewWillAppear(_ animated: Bool) {
@@ -159,13 +159,13 @@ extension FlightResultVC: FlightListModelProtocal {
         MySingleton.shared.vm?.CALL_FLIGHT_SEARCH_API(dictParam: MySingleton.shared.payload)
         
         loderBool = true
-        setupLoderVC()
+        showLoadera()
     }
     
     func flightList(response: FlightModel) {
         
         // Call this when you want to remove the child view controller
-        removeLoader()
+        hideLoadera()
         loderBool = false
         
         self.holderView.isHidden = false
@@ -875,32 +875,32 @@ extension FlightResultVC {
 
 
 
-extension FlightResultVC {
-    
-    
-    
-    func setupLoderVC() {
-        // Instantiate LoderVC from the storyboard
-        let storyboard = UIStoryboard(name: "Main", bundle: nil) // Replace "Main" with your storyboard name
-        loaderVC = storyboard.instantiateViewController(withIdentifier: "LoderVC") as? LoderVC
-        addChild(loaderVC)
-        
-        // Set the frame or constraints for the child view controller's view
-        loaderVC.view.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height)
-        
-        // Add the child view controller's view to the parent view controller's view
-        view.addSubview(loaderVC.view)
-        
-        // Notify the child view controller that it has been added
-        loaderVC.didMove(toParent: self)
-    }
-    
-    
-    // Function to remove the child view controller
-    func removeLoader() {
-        loaderVC.willMove(toParent: nil)
-        loaderVC.view.removeFromSuperview()
-        loaderVC.removeFromParent()
-    }
-    
-}
+//extension FlightResultVC {
+//    
+//    
+//    
+//    func setupLoderVC() {
+//        // Instantiate LoderVC from the storyboard
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil) // Replace "Main" with your storyboard name
+//        loaderVC = storyboard.instantiateViewController(withIdentifier: "LoderVC") as? LoderVC
+//        addChild(loaderVC)
+//        
+//        // Set the frame or constraints for the child view controller's view
+//        loaderVC.view.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height)
+//        
+//        // Add the child view controller's view to the parent view controller's view
+//        view.addSubview(loaderVC.view)
+//        
+//        // Notify the child view controller that it has been added
+//        loaderVC.didMove(toParent: self)
+//    }
+//    
+//    
+//    // Function to remove the child view controller
+//    func removeLoader() {
+//        loaderVC.willMove(toParent: nil)
+//        loaderVC.view.removeFromSuperview()
+//        loaderVC.removeFromParent()
+//    }
+//    
+//}

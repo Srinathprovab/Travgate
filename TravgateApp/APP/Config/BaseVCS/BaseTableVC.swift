@@ -19,7 +19,7 @@ class BaseTableVC: UIViewController, TabSelectTVCellDelegate, FlightSearchTVCell
     @IBOutlet weak var commonTableView: UITableView!
     @IBOutlet weak var commonTVTopConstraint: NSLayoutConstraint!
     
-    
+    var loaderVC: LoderVC?
     var commonTVData = [TableRow]()
     
     override func viewDidLoad() {
@@ -213,7 +213,7 @@ class BaseTableVC: UIViewController, TabSelectTVCellDelegate, FlightSearchTVCell
     func didTapOnCloserecentSearchBtnAction(cell: YourRecentSearchesCVCell) {}
     func didTapOnSearchRecentFlightsBtnAction(cell: YourRecentSearchesCVCell) {}
     func didTapOnSelectCountryCodeList(cell:HotelSearchTVCell){}
-   
+    
     func didTapOnRoomsBtn(cell: RoomsTVcell) {}
     func didTapOnHotelsDetailsBtn(cell: RoomsTVcell) {}
     func didTapOnAmenitiesBtn(cell: RoomsTVcell) {}
@@ -609,4 +609,43 @@ extension UITableView {
         return indexPath.section == indexOfLastSection && indexPath.row == indexOfLastRowInLastSection
     }
     
+}
+
+
+//MARK: Loder Child View
+extension BaseTableVC {
+    
+    
+    func setupLoaderVC() {
+        // Instantiate LoderVC from the storyboard
+        let storyboard = UIStoryboard(name: "Main", bundle: nil) // Replace "Main" with your storyboard name
+        loaderVC = storyboard.instantiateViewController(withIdentifier: "LoderVC") as? LoderVC
+        addChild(loaderVC!)
+        
+        // Set the frame or constraints for the child view controller's view
+        loaderVC?.view.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height)
+        
+        // Add the child view controller's view to the parent view controller's view
+        view.addSubview(loaderVC!.view)
+        
+        // Notify the child view controller that it has been added
+        loaderVC?.didMove(toParent: self)
+    }
+    
+    // Function to remove the child view controller
+    func removeLoader() {
+        loaderVC?.willMove(toParent: nil)
+        loaderVC?.view.removeFromSuperview()
+        loaderVC?.removeFromParent()
+    }
+    
+    // Function to show the loader
+    func showLoadera() {
+        setupLoaderVC()
+    }
+    
+    // Function to hide the loader
+    func hideLoadera() {
+        removeLoader()
+    }
 }

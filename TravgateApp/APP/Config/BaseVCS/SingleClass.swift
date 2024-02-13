@@ -47,6 +47,8 @@ class MySingleton {
   
     
     //Flight Search
+    var loderimgurl = String()
+    var afterResultsBool = false
     var directFlightBool = false
     var adultsCount = 1
     var childCount = 0
@@ -92,6 +94,7 @@ class MySingleton {
     var recentData:[Recent_searches]?
     var Recentsearches = [Recent_searches]()
     var clist = [All_country_code_list]()
+    var airlinelist = [AirlineDate]()
     
     var loginvm:LoginViewModel?
     var resetpasswordvm:ResetPasswordViewModel?
@@ -103,6 +106,9 @@ class MySingleton {
     var countrylistvm:AllCountryCodeListViewModel?
     var lodervm:SearchLoaderViewModel?
     var hotellodervm:SearchHotelLoderViewModel?
+    var airlinevm:GetAirlineViewModel?
+    
+    
     
     //TIMER
     weak var delegate: TimerManagerDelegate?

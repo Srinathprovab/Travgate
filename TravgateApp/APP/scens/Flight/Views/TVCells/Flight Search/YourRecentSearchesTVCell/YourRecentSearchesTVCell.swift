@@ -17,6 +17,9 @@ class YourRecentSearchesTVCell: TableViewCell, YourRecentSearchesCVCellDelegate 
     
     @IBOutlet weak var recentsearchCV: UICollectionView!
     
+    
+    var itemCount = Int()
+    var autoScrollTimer: Timer?
     var delegate:YourRecentSearchesTVCellDelegate?
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,13 +33,30 @@ class YourRecentSearchesTVCell: TableViewCell, YourRecentSearchesCVCellDelegate 
         // Configure the view for the selected state
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        stopAutoScroll()
+    }
     
     func setupUI() {
         setupCV()
     }
     
     override func updateUI() {
+        
+        
+        if MySingleton.shared.recentData?.count == 0 {
+            recentsearchCV.setEmptyMessage("No Data Found")
+        }else {
+            recentsearchCV.restore()
+            itemCount = MySingleton.shared.recentData?.count ?? 0
+            startAutoScroll()
+        }
+        
         recentsearchCV.reloadData()
+        
+        
     }
     
     
@@ -133,4 +153,45 @@ extension YourRecentSearchesTVCell:UICollectionViewDelegate,UICollectionViewData
     
     
     
+}
+
+
+
+// MARK: - Auto Scrolling
+extension YourRecentSearchesTVCell {
+    
+    
+    func startAutoScroll() {
+        autoScrollTimer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(scrollToNextItem), userInfo: nil, repeats: true)
+    }
+    
+    func stopAutoScroll() {
+        autoScrollTimer?.invalidate()
+        autoScrollTimer = nil
+    }
+    
+    @objc func scrollToNextItem() {
+         
+        
+        guard itemCount > 0 else {
+            return // No items in the collection view
+        }
+        
+        let currentIndexPaths = recentsearchCV.indexPathsForVisibleItems.sorted()
+        let lastIndexPath = currentIndexPaths.last ?? IndexPath(item: 0, section: 0)
+        
+        var nextIndexPath: IndexPath
+        
+        if lastIndexPath.item == itemCount - 1 {
+            nextIndexPath = IndexPath(item: 0, section: lastIndexPath.section)
+        } else {
+            nextIndexPath = IndexPath(item: lastIndexPath.item + 1, section: lastIndexPath.section)
+        }
+        
+        if nextIndexPath.item >= itemCount {
+            nextIndexPath = IndexPath(item: 0, section: nextIndexPath.section) // Adjust the index path if it exceeds the bounds
+        }
+        
+        recentsearchCV.scrollToItem(at: nextIndexPath, at: .centeredHorizontally, animated: true)
+    }
 }

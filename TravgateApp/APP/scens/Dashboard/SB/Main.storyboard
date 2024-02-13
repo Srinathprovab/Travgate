@@ -37,11 +37,11 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Trips" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZqX-eU-52t">
                                                 <rect key="frame" x="164.33333333333334" y="70" width="64.666666666666657" height="22"/>
                                                 <fontDescription key="fontDescription" name="OpenSans-Medium" family="Open Sans" pointSize="16"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="textColor" name="HeadingColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" name="Buttoncolor"/>
+                                        <color key="backgroundColor" name="LayoverColor"/>
                                         <constraints>
                                             <constraint firstItem="ZqX-eU-52t" firstAttribute="top" secondItem="UZb-Ti-7kz" secondAttribute="top" constant="70" id="eXb-gu-kpO"/>
                                             <constraint firstAttribute="height" constant="110" id="fsh-jz-Sgz"/>
@@ -100,7 +100,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hfb-4c-4Ii">
                                                 <rect key="frame" x="152.33333333333334" y="70" width="88.666666666666657" height="22"/>
                                                 <fontDescription key="fontDescription" name="OpenSans-Medium" family="Open Sans" pointSize="16"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="textColor" name="HeadingColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="24j-j5-yeQ">
@@ -109,7 +109,7 @@
                                                     <constraint firstAttribute="width" constant="24" id="En7-5W-Iz3"/>
                                                     <constraint firstAttribute="height" constant="24" id="YOd-sy-NRy"/>
                                                 </constraints>
-                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="tintColor" name="HeadingColor"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" image="edit1"/>
                                                 <connections>
@@ -117,7 +117,7 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" name="Buttoncolor"/>
+                                        <color key="backgroundColor" name="LayoverColor"/>
                                         <constraints>
                                             <constraint firstItem="Hfb-4c-4Ii" firstAttribute="centerX" secondItem="C2q-2o-kUU" secondAttribute="centerX" id="3de-Ko-0YS"/>
                                             <constraint firstAttribute="trailing" secondItem="24j-j5-yeQ" secondAttribute="trailing" constant="15" id="IUm-oT-Jfl"/>
@@ -612,7 +612,7 @@
                                                                 </constraints>
                                                             </imageView>
                                                         </subviews>
-                                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstItem="oct-hi-Pgh" firstAttribute="centerY" secondItem="9gQ-po-Fmn" secondAttribute="centerY" id="1Mu-40-xrX"/>
                                                             <constraint firstAttribute="height" constant="140" id="4UA-rX-Yni"/>
@@ -847,6 +847,9 @@
         <namedColor name="Buttoncolor">
             <color red="0.2669999897480011" green="0.70999997854232788" blue="0.046999998390674591" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="HeadingColor">
+            <color red="0.10588235294117647" green="0.29411764705882354" blue="0.36470588235294116" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="LayoverColor">
             <color red="0.96100002527236938" green="0.98400002717971802" blue="0.94900000095367432" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -858,9 +861,6 @@
         </systemColor>
         <systemColor name="systemGray4Color">
             <color red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemMintColor">
             <color red="0.0" green="0.78039215689999997" blue="0.74509803919999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

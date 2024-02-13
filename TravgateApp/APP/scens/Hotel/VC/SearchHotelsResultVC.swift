@@ -9,16 +9,7 @@ import UIKit
 import DropDown
 
 class SearchHotelsResultVC: BaseTableVC, UITextFieldDelegate, HotelSearchViewModelDelegate, HotelsTVCellelegate {
-    
-    func didTapOnTermsAndConditionBtn(cell: HotelsTVCell) {
-        
-    }
-    
-    func didTapOnBookNowBtnAction(cell: HotelsTVCell) {
-        
-    }
-    
-    
+
     
     @IBOutlet weak var holderView: UIView!
     @IBOutlet weak var cvHolderView: UIView!
@@ -32,10 +23,9 @@ class SearchHotelsResultVC: BaseTableVC, UITextFieldDelegate, HotelSearchViewMod
     @IBOutlet weak var cittlbl: UILabel!
     @IBOutlet weak var dateslbl: UILabel!
     @IBOutlet weak var paxlbl: UILabel!
+    @IBOutlet weak var viewMapBtn: UIButton!
     
-    
-    
-    var loaderVC: LoderVC!
+   // var loaderVC: LoderVC!
     var bookingSourceDataArrayCount = Int()
     let dropDown = DropDown()
     var lastContentOffset: CGFloat = 0
@@ -95,7 +85,7 @@ class SearchHotelsResultVC: BaseTableVC, UITextFieldDelegate, HotelSearchViewMod
         
         
         self.cittlbl.text = defaults.string(forKey: UserDefaultsKeys.locationcity) ?? ""
-        self.dateslbl.text = "Checkin:\(defaults.string(forKey: UserDefaultsKeys.checkin) ?? "") | Checkout:\(defaults.string(forKey: UserDefaultsKeys.checkout) ?? "")"
+        self.dateslbl.text = "\(MySingleton.shared.convertDateFormat(inputDate: defaults.string(forKey: UserDefaultsKeys.checkin) ?? "", f1: "dd-MM-yyyy", f2: "MMM dd")) - \(MySingleton.shared.convertDateFormat(inputDate: defaults.string(forKey: UserDefaultsKeys.checkout) ?? "", f1: "dd-MM-yyyy", f2: "MMM dd"))"
         
         cvHolderView.isHidden = true
         
@@ -105,7 +95,7 @@ class SearchHotelsResultVC: BaseTableVC, UITextFieldDelegate, HotelSearchViewMod
         cvHolderView.addBottomBorderWithColor(color: .AppBorderColor, width: 1)
         recommandedbtn.setTitle("", for: .normal)
         
-        setuplabels(lbl: recommandedlbl, text: "SORT", textcolor: .AppLabelColor, font: .LatoBold(size: 16), align: .right)
+        setuplabels(lbl: recommandedlbl, text: "SORT", textcolor: .AppLabelColor, font: .LatoRegular(size: 16), align: .right)
         setuplabels(lbl: filterlbl, text: "FILTER", textcolor: .AppLabelColor, font: .LatoRegular(size: 16), align: .left)
         
         commonTableView.backgroundColor = .WhiteColor
@@ -113,6 +103,10 @@ class SearchHotelsResultVC: BaseTableVC, UITextFieldDelegate, HotelSearchViewMod
         filterBtn.addTarget(self, action: #selector(didTapOnFilterBtnAction(_:)), for: .touchUpInside)
         recommandedbtn.addTarget(self, action: #selector(didTapOnSortBtnAction(_:)), for: .touchUpInside)
         setupDropDown()
+        
+        viewMapBtn.backgroundColor = .black.withAlphaComponent(0.5)
+        viewMapBtn.layer.cornerRadius = 4
+        viewMapBtn.addTarget(self, action: #selector(didTapOnViewMapBtnAction(_:)), for: .touchUpInside)
     }
     
     
@@ -149,17 +143,7 @@ class SearchHotelsResultVC: BaseTableVC, UITextFieldDelegate, HotelSearchViewMod
         }
     }
     
-    //    override func viewBtnAction(cell: CommonFromCityTVCell) {
-    //        print(cell.subtitlelbl.text as Any)
-    //    }
-    //
-    //    override func didTapOnDual1Btn(cell:CommonFromCityTVCell){
-    //        print(cell.dual1lbl2.text)
-    //    }
-    //    override func didTapOnDual2Btn(cell:CommonFromCityTVCell){
-    //        print(cell.dual2lbl2.text)
-    //    }
-    
+   
     
     @objc func editingTextField1(_ tf: UITextField) {
         searchText = tf.text ?? ""
@@ -174,6 +158,7 @@ class SearchHotelsResultVC: BaseTableVC, UITextFieldDelegate, HotelSearchViewMod
         }
     }
     
+    
     func filterContentForSearchText(_ searchText: String) {
         print("Filterin with:", searchText)
         filtered.removeAll()
@@ -184,10 +169,6 @@ class SearchHotelsResultVC: BaseTableVC, UITextFieldDelegate, HotelSearchViewMod
         commonTableView.reloadData()
     }
     
-    
-    //    override func mapViewBtnAction(cell:SearchLocationTFTVCell){
-    //        print("mapViewBtnAction ..")
-    //    }
     
     
     
@@ -268,35 +249,36 @@ class SearchHotelsResultVC: BaseTableVC, UITextFieldDelegate, HotelSearchViewMod
     
     
     @IBAction func didTapOnBackBtnAction(_ sender: Any) {
-        //        callapibool = false
-        //        if isvcfrom == "dashboard" {
-        //            guard let vc = DashBoaardTabbarVC.newInstance.self else {return}
-        //            vc.modalPresentationStyle = .fullScreen
-        //            vc.selectedIndex = 0
-        //            self.present(vc, animated: false)
-        //        }else {
-        //            guard let vc = SearchHotelsVC.newInstance.self else {return}
-        //            vc.modalPresentationStyle = .fullScreen
-        //            vc.isFromvc = "hotelvc"
-        //            self.present(vc, animated: false)
+        guard let vc = SearchHotelVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: false)
     }
     
     
     
     @IBAction func didTaponEditBtnAction(_ sender: Any) {
-        //        if let tabSelected = defaults.string(forKey: UserDefaultsKeys.dashboardTapSelected) {
-        //            if tabSelected == "Flights" {
-        //                guard let vc = SearchFlightsVC.newInstance.self else {return}
-        //                vc.modalPresentationStyle = .overCurrentContext
-        //                present(vc, animated: true)
-        //            }else {
-        //                guard let vc = ModifySearchHotelVC.newInstance.self else {return}
-        //                vc.modalPresentationStyle = .overCurrentContext
-        //                present(vc, animated: true)
-        //            }
-        //        }
+        guard let vc = ModifyHotelSearchVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true)
+    }
+    
+    
+    
+    //MARK: -  didTapOnViewMapBtnAction
+    @objc func didTapOnViewMapBtnAction(_ sender:UIButton) {
+        guard let vc = MapViewVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
+    }
+    
+    func didTapOnTermsAndConditionBtn(cell: HotelsTVCell) {
         
     }
+    
+    func didTapOnBookNowBtnAction(cell: HotelsTVCell) {
+        
+    }
+    
     
     
 }
@@ -307,7 +289,7 @@ extension SearchHotelsResultVC {
     
     func callActiveBookingSourceAPI() {
         loderBool = true
-        setupLoderVC()
+        showLoadera()
         
         viewModel?.CALL_GET_ACTIVE_BOOKING_SOURCE_API(dictParam: [:])
     }
@@ -359,15 +341,18 @@ extension SearchHotelsResultVC {
             
         }
         
+        
+        
     }
     
     
     func callHotelSearchAPI(bookingsource:String,searchid:String){
         payload.removeAll()
         payload["offset"] = "0"
-        payload["limit"] = "10"
+        payload["limit"] = "5"
         payload["booking_source"] = bookingsource
         payload["search_id"] = searchid
+        payload["ResultIndex"] = "1"
         
         viewModel?.CallHotelSearchAPI(dictParam: payload)
     }
@@ -461,7 +446,7 @@ extension SearchHotelsResultVC {
     func appendValues(list:[HotelSearchResult]) {
         
         // Call this when you want to remove the child view controller
-        removeLoader()
+        hideLoadera()
         loderBool = false
         
         holderView.isHidden = false
@@ -472,25 +457,25 @@ extension SearchHotelsResultVC {
         mapModelArray.removeAll()
         
         
-        //        list.forEach { i in
-        //            if let price = i.price, (Int(price) ?? 0) > 0 {
-        //                prices.append("\(price)")
-        //            }
-        //
-        //            if let hotelLocation = i.hotelLocation, !hotelLocation.isEmpty {
-        //                nearBylocationsArray.append(hotelLocation)
-        //            }
-        //
-        //            if let refund = i.refund, !refund.isEmpty {
-        //                faretypeArray.append(refund)
-        //            }
-        //
-        //            i.facility?.forEach { j in
-        //                if let facilityName = j.name, !facilityName.isEmpty {
-        //                    facilityArray.append(facilityName)
-        //                }
-        //            }
-        //        }
+        list.forEach { i in
+            if let price = i.price, (Int(price) ?? 0) > 0 {
+                prices.append("\(price)")
+            }
+            
+            //                    if let hotelLocation = i.hotelLocation, !hotelLocation.isEmpty {
+            //                        nearBylocationsArray.append(hotelLocation)
+            //                    }
+            
+            if let refund = i.refund, !refund.isEmpty {
+                faretypeArray.append(refund)
+            }
+            
+            i.facility?.forEach { j in
+                if let facilityName = j.name, !facilityName.isEmpty {
+                    facilityArray.append(facilityName)
+                }
+            }
+        }
         
         prices = Array(Set(prices))
         nearBylocationsArray = Array(Set(nearBylocationsArray))
@@ -537,7 +522,6 @@ extension SearchHotelsResultVC {
                 
                 cell.hotelNamelbl.text = dict.name
                 cell.hotelImg.sd_setImage(with: URL(string: dict.image ?? ""), placeholderImage:UIImage(contentsOfFile:"placeholder.png"))
-                cell.ratingslbl.text = String(dict.star_rating ?? 0)
                 cell.locationlbl.text = dict.address
                 setAttributedText1(str1: dict.currency ?? "", str2: dict.price ?? "", lbl: cell.kwdlbl)
                 cell.bookingsource = dict.booking_source ?? ""
@@ -547,7 +531,7 @@ extension SearchHotelsResultVC {
                 
                 cell.perNightlbl.text = "Total Price For 2 Night"
                 cell.setAttributedString1(str1:dict.currency ?? "", str2: dict.price ?? "")
-                
+                cell.ratingView.value = CGFloat(dict.star_rating ?? 0)
                 
                 cell.hotel_DescLabel = dict.hotel_desc ?? "bbbbb"
                 //                if let hotel_desc = dict.hotel_desc{
@@ -568,6 +552,13 @@ extension SearchHotelsResultVC {
                 cell.faretypelbl.text = dict.refund ?? ""
                 if cell.faretypelbl.text == "Non Refundable" {
                     cell.faretypelbl.textColor = .AppBtnColor
+                }
+                
+                
+                if dict.star_rating == 0 {
+                    cell.ratingView.isHidden = true
+                }else {
+                    cell.ratingView.isHidden = false
                 }
                 
                 ccell = cell
@@ -576,7 +567,7 @@ extension SearchHotelsResultVC {
                 
                 cell.hotelNamelbl.text = dict.name
                 cell.hotelImg.sd_setImage(with: URL(string: dict.image ?? ""), placeholderImage:UIImage(contentsOfFile:"placeholder.png"))
-                cell.ratingslbl.text = String(dict.star_rating ?? 0)
+                cell.ratingView.value = CGFloat(dict.star_rating ?? 0)
                 cell.locationlbl.text = dict.address
                 setAttributedText1(str1: dict.currency ?? "", str2: dict.price ?? "", lbl: cell.kwdlbl)
                 cell.bookingsource = dict.booking_source ?? ""
@@ -607,6 +598,12 @@ extension SearchHotelsResultVC {
                 cell.faretypelbl.text = dict.refund ?? ""
                 if cell.faretypelbl.text == "Non Refundable" {
                     cell.faretypelbl.textColor = .AppBtnColor
+                }
+                
+                if dict.star_rating == 0 {
+                    cell.ratingView.isHidden = true
+                }else {
+                    cell.ratingView.isHidden = false
                 }
                 
                 ccell = cell
@@ -856,39 +853,6 @@ extension SearchHotelsResultVC {
         vc.modalPresentationStyle = .fullScreen
         vc.key = keystr
         self.present(vc, animated: false)
-    }
-    
-}
-
-
-
-
-extension SearchHotelsResultVC {
-    
-    
-    
-    func setupLoderVC() {
-        // Instantiate LoderVC from the storyboard
-        let storyboard = UIStoryboard(name: "Main", bundle: nil) // Replace "Main" with your storyboard name
-        loaderVC = storyboard.instantiateViewController(withIdentifier: "LoderVC") as? LoderVC
-        addChild(loaderVC)
-        
-        // Set the frame or constraints for the child view controller's view
-        loaderVC.view.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height)
-        
-        // Add the child view controller's view to the parent view controller's view
-        view.addSubview(loaderVC.view)
-        
-        // Notify the child view controller that it has been added
-        loaderVC.didMove(toParent: self)
-    }
-    
-    
-    // Function to remove the child view controller
-    func removeLoader() {
-        loaderVC.willMove(toParent: nil)
-        loaderVC.view.removeFromSuperview()
-        loaderVC.removeFromParent()
     }
     
 }

@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -116,25 +115,25 @@
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="x0f-Oq-bVE">
-                                        <rect key="frame" x="0.0" y="130" width="393" height="722"/>
+                                        <rect key="frame" x="0.0" y="110" width="393" height="742"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </tableView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GvP-6f-Mnf">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="130"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="110"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reset Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bvn-2S-9LF">
-                                                <rect key="frame" x="136.66666666666666" y="78" width="119.66666666666666" height="22"/>
+                                                <rect key="frame" x="136.66666666666666" y="58" width="119.66666666666666" height="22"/>
                                                 <fontDescription key="fontDescription" name="OpenSans-Medium" family="Open Sans" pointSize="16"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="textColor" name="HeadingColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uv5-oQ-YdT">
-                                                <rect key="frame" x="15" y="77" width="24" height="24"/>
+                                                <rect key="frame" x="15" y="57" width="24" height="24"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="24" id="4lc-jd-z0k"/>
                                                     <constraint firstAttribute="width" constant="24" id="5Zm-R9-v8z"/>
                                                 </constraints>
-                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="tintColor" name="HeadingColor"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" image="back1"/>
                                                 <connections>
@@ -142,11 +141,11 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" name="Buttoncolor"/>
+                                        <color key="backgroundColor" name="LayoverColor"/>
                                         <constraints>
                                             <constraint firstItem="bvn-2S-9LF" firstAttribute="centerX" secondItem="GvP-6f-Mnf" secondAttribute="centerX" id="6Uo-Yn-fZk"/>
                                             <constraint firstItem="uv5-oQ-YdT" firstAttribute="centerY" secondItem="bvn-2S-9LF" secondAttribute="centerY" id="8O8-pC-bd0"/>
-                                            <constraint firstAttribute="height" constant="130" id="KgS-rL-Ef3"/>
+                                            <constraint firstAttribute="height" constant="110" id="KgS-rL-Ef3"/>
                                             <constraint firstItem="uv5-oQ-YdT" firstAttribute="leading" secondItem="GvP-6f-Mnf" secondAttribute="leading" constant="15" id="bj2-8u-OjR"/>
                                             <constraint firstAttribute="bottom" secondItem="bvn-2S-9LF" secondAttribute="bottom" constant="30" id="p2Z-fK-ugN"/>
                                         </constraints>
@@ -300,7 +299,7 @@ instructions to your email.</string>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B82-cP-C9P">
                                                 <rect key="frame" x="155.33333333333334" y="70" width="82.666666666666657" height="22"/>
                                                 <fontDescription key="fontDescription" name="OpenSans-Medium" family="Open Sans" pointSize="16"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="textColor" name="HeadingColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5lb-Ql-iiY">
@@ -309,7 +308,7 @@ instructions to your email.</string>
                                                     <constraint firstAttribute="height" constant="24" id="3pY-DN-h3b"/>
                                                     <constraint firstAttribute="width" constant="24" id="eRv-oz-VSM"/>
                                                 </constraints>
-                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="tintColor" name="HeadingColor"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" image="back1"/>
                                                 <connections>
@@ -317,7 +316,7 @@ instructions to your email.</string>
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" name="Buttoncolor"/>
+                                        <color key="backgroundColor" name="LayoverColor"/>
                                         <constraints>
                                             <constraint firstItem="B82-cP-C9P" firstAttribute="centerX" secondItem="JF9-6N-B3J" secondAttribute="centerX" id="0am-kq-kW2"/>
                                             <constraint firstItem="5lb-Ql-iiY" firstAttribute="leading" secondItem="JF9-6N-B3J" secondAttribute="leading" constant="15" id="Q4k-NY-WkB"/>
@@ -430,6 +429,9 @@ instructions to your email.</string>
         </namedColor>
         <namedColor name="Buttoncolor">
             <color red="0.2669999897480011" green="0.70999997854232788" blue="0.046999998390674591" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="HeadingColor">
+            <color red="0.10588235294117647" green="0.29411764705882354" blue="0.36470588235294116" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="LayoverColor">
             <color red="0.96100002527236938" green="0.98400002717971802" blue="0.94900000095367432" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

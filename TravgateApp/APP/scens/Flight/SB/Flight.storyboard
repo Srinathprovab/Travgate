@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -55,6 +54,7 @@
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back" translatesAutoresizingMaskIntoConstraints="NO" id="7fJ-X4-quG">
                                                         <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
+                                                        <color key="tintColor" name="WhiteColor"/>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C0H-V7-PFI">
                                                         <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
@@ -80,7 +80,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Rj-ej-weC" customClass="BorderedView" customModule="TravgateApp" customModuleProvider="target">
-                                                <rect key="frame" x="14" y="122" width="365" height="40"/>
+                                                <rect key="frame" x="14" y="112" width="365" height="40"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="iBt-rX-Ret">
                                                         <rect key="frame" x="12" y="6" width="341" height="28"/>
@@ -89,7 +89,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="163.66666666666666" height="28"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="One - way" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tZN-tp-bv3">
-                                                                        <rect key="frame" x="47.666666666666679" y="5.6666666666666572" width="68.333333333333314" height="17"/>
+                                                                        <rect key="frame" x="47.666666666666679" y="5.6666666666666714" width="68.333333333333314" height="17"/>
                                                                         <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="14"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -123,7 +123,7 @@
                                                                 <rect key="frame" x="177.66666666666663" y="0.0" width="163.33333333333337" height="28"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Round - Trip" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8dj-xx-obn">
-                                                                        <rect key="frame" x="40.666666666666686" y="5.6666666666666572" width="82" height="17"/>
+                                                                        <rect key="frame" x="40.666666666666686" y="5.6666666666666714" width="82" height="17"/>
                                                                         <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="14"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -157,7 +157,7 @@
                                                                 <rect key="frame" x="341" y="0.0" width="0.0" height="28"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Multi - City" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OfO-Cs-vtH">
-                                                                        <rect key="frame" x="-36.666666666666686" y="5.6666666666666572" width="73.333333333333329" height="17"/>
+                                                                        <rect key="frame" x="-36.666666666666686" y="5.6666666666666714" width="73.333333333333329" height="17"/>
                                                                         <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="14"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -238,7 +238,7 @@
                                             <constraint firstItem="ilT-BB-EA0" firstAttribute="centerY" secondItem="C0H-V7-PFI" secondAttribute="centerY" id="H20-hw-OVy"/>
                                             <constraint firstItem="T74-qI-64P" firstAttribute="leading" secondItem="Har-xg-mtw" secondAttribute="leading" constant="13" id="If2-Lk-Fhr"/>
                                             <constraint firstAttribute="height" constant="260" id="bsP-y6-de8"/>
-                                            <constraint firstItem="2Rj-ej-weC" firstAttribute="top" secondItem="ilT-BB-EA0" secondAttribute="bottom" constant="35" id="c0Z-oW-uKW"/>
+                                            <constraint firstItem="2Rj-ej-weC" firstAttribute="top" secondItem="ilT-BB-EA0" secondAttribute="bottom" constant="25" id="c0Z-oW-uKW"/>
                                             <constraint firstAttribute="bottom" secondItem="OJZ-HI-kfg" secondAttribute="bottom" id="gi1-st-Lyr"/>
                                             <constraint firstItem="ilT-BB-EA0" firstAttribute="centerX" secondItem="Har-xg-mtw" secondAttribute="centerX" id="kFx-h8-Arq"/>
                                             <constraint firstItem="OJZ-HI-kfg" firstAttribute="top" secondItem="Har-xg-mtw" secondAttribute="top" id="l12-3b-Gju"/>
@@ -308,7 +308,7 @@
                                                     <constraint firstAttribute="width" constant="24" id="oG0-ha-E17"/>
                                                     <constraint firstAttribute="height" constant="24" id="yfL-fh-gp3"/>
                                                 </constraints>
-                                                <color key="tintColor" name="WhiteColor"/>
+                                                <color key="tintColor" name="HeadingColor"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="" image="back1"/>
                                                 <connections>
@@ -318,19 +318,19 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dubai to Kuwait" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I2N-NO-1wg">
                                                 <rect key="frame" x="87" y="65" width="219" height="22"/>
                                                 <fontDescription key="fontDescription" name="OpenSans-Medium" family="Open Sans" pointSize="16"/>
-                                                <color key="textColor" name="WhiteColor"/>
+                                                <color key="textColor" name="HeadingColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jun 8 - Jun 12" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HWC-hm-FCx">
                                                 <rect key="frame" x="20" y="92" width="353" height="19.333333333333329"/>
                                                 <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="14"/>
-                                                <color key="textColor" name="WhiteColor"/>
+                                                <color key="textColor" name="HeadingColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="1 Adults | 1 child | 1 Infant" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gNV-Ss-P0D">
                                                 <rect key="frame" x="20" y="119.33333333333333" width="353" height="19.333333333333329"/>
                                                 <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="14"/>
-                                                <color key="textColor" name="WhiteColor"/>
+                                                <color key="textColor" name="HeadingColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qs5-Am-raG">
@@ -347,7 +347,7 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" name="Buttoncolor"/>
+                                        <color key="backgroundColor" red="0.96078431372549022" green="0.98431372549019602" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="I2N-NO-1wg" firstAttribute="leading" secondItem="UXo-os-VIc" secondAttribute="trailing" constant="50" id="1O9-PB-Zin"/>
                                             <constraint firstAttribute="trailing" secondItem="qs5-Am-raG" secondAttribute="trailing" constant="13" id="2So-pG-a61"/>
@@ -825,7 +825,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 Flight Found" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uBG-FV-x1w">
                                                 <rect key="frame" x="100" y="65" width="193" height="22"/>
                                                 <fontDescription key="fontDescription" name="OpenSans-Medium" family="Open Sans" pointSize="16"/>
-                                                <color key="textColor" name="WhiteColor"/>
+                                                <color key="textColor" name="HeadingColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="70d-CJ-361">
@@ -834,7 +834,7 @@
                                                     <constraint firstAttribute="width" constant="30" id="9E8-0x-RUq"/>
                                                     <constraint firstAttribute="height" constant="30" id="Pva-Ie-jTz"/>
                                                 </constraints>
-                                                <color key="tintColor" name="WhiteColor"/>
+                                                <color key="tintColor" name="HeadingColor"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="" image="close"/>
                                                 <connections>
@@ -842,7 +842,7 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" name="Buttoncolor"/>
+                                        <color key="backgroundColor" name="LayoverColor"/>
                                         <constraints>
                                             <constraint firstItem="uBG-FV-x1w" firstAttribute="centerX" secondItem="u0Y-78-d4J" secondAttribute="centerX" id="Lea-5a-C6J"/>
                                             <constraint firstAttribute="trailing" secondItem="70d-CJ-361" secondAttribute="trailing" constant="13" id="Ul8-8e-5VB"/>
@@ -904,7 +904,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flight Details" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l1H-EF-s58">
                                                 <rect key="frame" x="100" y="65" width="193" height="22"/>
                                                 <fontDescription key="fontDescription" name="OpenSans-Medium" family="Open Sans" pointSize="16"/>
-                                                <color key="textColor" name="WhiteColor"/>
+                                                <color key="textColor" name="HeadingColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A1x-jt-cU4">
@@ -913,7 +913,7 @@
                                                     <constraint firstAttribute="height" constant="30" id="H72-1m-Esp"/>
                                                     <constraint firstAttribute="width" constant="30" id="JWx-ys-wFi"/>
                                                 </constraints>
-                                                <color key="tintColor" name="WhiteColor"/>
+                                                <color key="tintColor" name="HeadingColor"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="" image="back1"/>
                                                 <connections>
@@ -921,7 +921,7 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" name="Buttoncolor"/>
+                                        <color key="backgroundColor" name="LayoverColor"/>
                                         <constraints>
                                             <constraint firstItem="A1x-jt-cU4" firstAttribute="leading" secondItem="gNc-qZ-bKr" secondAttribute="leading" constant="13" id="2gH-Dm-35I"/>
                                             <constraint firstItem="l1H-EF-s58" firstAttribute="leading" secondItem="gNc-qZ-bKr" secondAttribute="leading" constant="100" id="59e-Ng-9hv"/>
@@ -1512,7 +1512,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Booking Details" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xgy-O3-uEV">
                                                 <rect key="frame" x="100" y="65" width="193" height="22"/>
                                                 <fontDescription key="fontDescription" name="OpenSans-Medium" family="Open Sans" pointSize="16"/>
-                                                <color key="textColor" name="WhiteColor"/>
+                                                <color key="textColor" name="HeadingColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qp7-tQ-Ck9">
@@ -1521,7 +1521,7 @@
                                                     <constraint firstAttribute="width" constant="30" id="KQS-NI-Eby"/>
                                                     <constraint firstAttribute="height" constant="30" id="uuo-gh-f4Z"/>
                                                 </constraints>
-                                                <color key="tintColor" name="WhiteColor"/>
+                                                <color key="tintColor" name="HeadingColor"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="" image="back1"/>
                                                 <connections>
@@ -1529,7 +1529,7 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" name="Buttoncolor"/>
+                                        <color key="backgroundColor" name="LayoverColor"/>
                                         <constraints>
                                             <constraint firstItem="Qp7-tQ-Ck9" firstAttribute="centerY" secondItem="Xgy-O3-uEV" secondAttribute="centerY" id="0gR-Dv-tbd"/>
                                             <constraint firstAttribute="height" constant="120" id="2cR-8H-DrW"/>
@@ -1804,6 +1804,12 @@
         </namedColor>
         <namedColor name="Buttoncolor">
             <color red="0.2669999897480011" green="0.70999997854232788" blue="0.046999998390674591" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="HeadingColor">
+            <color red="0.10588235294117647" green="0.29411764705882354" blue="0.36470588235294116" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="LayoverColor">
+            <color red="0.96100002527236938" green="0.98400002717971802" blue="0.94900000095367432" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="TitleColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
