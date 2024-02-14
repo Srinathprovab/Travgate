@@ -430,16 +430,16 @@
 		65113B8D2B47C8A500C4B3E4 /* FlightResultTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FlightResultTVCell.xib; sourceTree = "<group>"; };
 		65113B912B47D5F400C4B3E4 /* FlightResultSummeryTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightResultSummeryTVCell.swift; sourceTree = "<group>"; };
 		65113B922B47D5F400C4B3E4 /* FlightResultSummeryTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FlightResultSummeryTVCell.xib; sourceTree = "<group>"; };
-		651714102B43F837003D3723 /* TravgateApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravgateApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		651714102B43F837003D3723 /* Travgate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Travgate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		651714132B43F837003D3723 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		651714152B43F837003D3723 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		651714172B43F837003D3723 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		6517141C2B43F839003D3723 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6517141F2B43F839003D3723 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		651714212B43F839003D3723 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		651714262B43F839003D3723 /* TravgateAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TravgateAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		651714262B43F839003D3723 /* TravgateTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TravgateTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6517142A2B43F839003D3723 /* TravgateAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravgateAppTests.swift; sourceTree = "<group>"; };
-		651714302B43F839003D3723 /* TravgateAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TravgateAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		651714302B43F839003D3723 /* TravgateUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TravgateUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		651714342B43F839003D3723 /* TravgateAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravgateAppUITests.swift; sourceTree = "<group>"; };
 		651714362B43F839003D3723 /* TravgateAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravgateAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		6517163F2B43F8D0003D3723 /* BaseVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
@@ -969,9 +969,9 @@
 		651714112B43F837003D3723 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				651714102B43F837003D3723 /* TravgateApp.app */,
-				651714262B43F839003D3723 /* TravgateAppTests.xctest */,
-				651714302B43F839003D3723 /* TravgateAppUITests.xctest */,
+				651714102B43F837003D3723 /* Travgate.app */,
+				651714262B43F839003D3723 /* TravgateTests.xctest */,
+				651714302B43F839003D3723 /* TravgateUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -2604,9 +2604,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6517140F2B43F837003D3723 /* TravgateApp */ = {
+		6517140F2B43F837003D3723 /* Travgate */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6517143A2B43F839003D3723 /* Build configuration list for PBXNativeTarget "TravgateApp" */;
+			buildConfigurationList = 6517143A2B43F839003D3723 /* Build configuration list for PBXNativeTarget "Travgate" */;
 			buildPhases = (
 				D916AFDE2D52E1FDEFEAC470 /* [CP] Check Pods Manifest.lock */,
 				6517140C2B43F837003D3723 /* Sources */,
@@ -2619,14 +2619,14 @@
 			);
 			dependencies = (
 			);
-			name = TravgateApp;
+			name = Travgate;
 			productName = TravgateApp;
-			productReference = 651714102B43F837003D3723 /* TravgateApp.app */;
+			productReference = 651714102B43F837003D3723 /* Travgate.app */;
 			productType = "com.apple.product-type.application";
 		};
-		651714252B43F839003D3723 /* TravgateAppTests */ = {
+		651714252B43F839003D3723 /* TravgateTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6517143D2B43F839003D3723 /* Build configuration list for PBXNativeTarget "TravgateAppTests" */;
+			buildConfigurationList = 6517143D2B43F839003D3723 /* Build configuration list for PBXNativeTarget "TravgateTests" */;
 			buildPhases = (
 				7B1C09FC8002FA551A0E9FDB /* [CP] Check Pods Manifest.lock */,
 				651714222B43F839003D3723 /* Sources */,
@@ -2638,14 +2638,14 @@
 			dependencies = (
 				651714282B43F839003D3723 /* PBXTargetDependency */,
 			);
-			name = TravgateAppTests;
+			name = TravgateTests;
 			productName = TravgateAppTests;
-			productReference = 651714262B43F839003D3723 /* TravgateAppTests.xctest */;
+			productReference = 651714262B43F839003D3723 /* TravgateTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		6517142F2B43F839003D3723 /* TravgateAppUITests */ = {
+		6517142F2B43F839003D3723 /* TravgateUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 651714402B43F839003D3723 /* Build configuration list for PBXNativeTarget "TravgateAppUITests" */;
+			buildConfigurationList = 651714402B43F839003D3723 /* Build configuration list for PBXNativeTarget "TravgateUITests" */;
 			buildPhases = (
 				BF7F0E5824898267E1930EF4 /* [CP] Check Pods Manifest.lock */,
 				6517142C2B43F839003D3723 /* Sources */,
@@ -2659,9 +2659,9 @@
 			dependencies = (
 				651714322B43F839003D3723 /* PBXTargetDependency */,
 			);
-			name = TravgateAppUITests;
+			name = TravgateUITests;
 			productName = TravgateAppUITests;
-			productReference = 651714302B43F839003D3723 /* TravgateAppUITests.xctest */;
+			productReference = 651714302B43F839003D3723 /* TravgateUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -2687,7 +2687,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 6517140B2B43F837003D3723 /* Build configuration list for PBXProject "TravgateApp" */;
+			buildConfigurationList = 6517140B2B43F837003D3723 /* Build configuration list for PBXProject "Travgate" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -2700,9 +2700,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6517140F2B43F837003D3723 /* TravgateApp */,
-				651714252B43F839003D3723 /* TravgateAppTests */,
-				6517142F2B43F839003D3723 /* TravgateAppUITests */,
+				6517140F2B43F837003D3723 /* Travgate */,
+				651714252B43F839003D3723 /* TravgateTests */,
+				6517142F2B43F839003D3723 /* TravgateUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -3261,12 +3261,12 @@
 /* Begin PBXTargetDependency section */
 		651714282B43F839003D3723 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 6517140F2B43F837003D3723 /* TravgateApp */;
+			target = 6517140F2B43F837003D3723 /* Travgate */;
 			targetProxy = 651714272B43F839003D3723 /* PBXContainerItemProxy */;
 		};
 		651714322B43F839003D3723 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 6517140F2B43F837003D3723 /* TravgateApp */;
+			target = 6517140F2B43F837003D3723 /* Travgate */;
 			targetProxy = 651714312B43F839003D3723 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -3482,7 +3482,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TravgateApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TravgateApp";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Travgate.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Travgate";
 			};
 			name = Debug;
 		};
@@ -3503,7 +3503,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TravgateApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TravgateApp";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Travgate.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Travgate";
 			};
 			name = Release;
 		};
@@ -3548,7 +3548,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6517140B2B43F837003D3723 /* Build configuration list for PBXProject "TravgateApp" */ = {
+		6517140B2B43F837003D3723 /* Build configuration list for PBXProject "Travgate" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				651714382B43F839003D3723 /* Debug */,
@@ -3557,7 +3557,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6517143A2B43F839003D3723 /* Build configuration list for PBXNativeTarget "TravgateApp" */ = {
+		6517143A2B43F839003D3723 /* Build configuration list for PBXNativeTarget "Travgate" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6517143B2B43F839003D3723 /* Debug */,
@@ -3566,7 +3566,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6517143D2B43F839003D3723 /* Build configuration list for PBXNativeTarget "TravgateAppTests" */ = {
+		6517143D2B43F839003D3723 /* Build configuration list for PBXNativeTarget "TravgateTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6517143E2B43F839003D3723 /* Debug */,
@@ -3575,7 +3575,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		651714402B43F839003D3723 /* Build configuration list for PBXNativeTarget "TravgateAppUITests" */ = {
+		651714402B43F839003D3723 /* Build configuration list for PBXNativeTarget "TravgateUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				651714412B43F839003D3723 /* Debug */,
