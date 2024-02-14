@@ -2,11 +2,9 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -23,29 +21,33 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="775" id="KGk-i7-Jjw" customClass="SignupTVCell" customModule="TravgateApp" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="425" height="775"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="960" id="KGk-i7-Jjw" customClass="SignupTVCell" customModule="Travgate" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="432" height="957"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="425" height="775"/>
+                <rect key="frame" x="0.0" y="0.0" width="432" height="957"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginbg" translatesAutoresizingMaskIntoConstraints="NO" id="Ii4-3r-ZUA">
+                        <rect key="frame" x="0.0" y="0.0" width="432" height="957"/>
+                    </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gj4-du-efA">
-                        <rect key="frame" x="0.0" y="0.0" width="425" height="775"/>
+                        <rect key="frame" x="0.0" y="0.0" width="432" height="957"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="Kw4-4s-HCm">
-                                <rect key="frame" x="147.66666666666666" y="15" width="129.99999999999997" height="45"/>
+                                <rect key="frame" x="126" y="60" width="180" height="58"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="aFI-eP-4ES"/>
-                                    <constraint firstAttribute="width" constant="130" id="cGW-Lz-PhE"/>
+                                    <constraint firstAttribute="height" constant="58" id="aFI-eP-4ES"/>
+                                    <constraint firstAttribute="width" constant="180" id="cGW-Lz-PhE"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u0V-0r-ux8">
-                                <rect key="frame" x="380" y="22.666666666666671" width="30" height="30"/>
+                                <rect key="frame" x="387" y="74" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Jht-8W-Wsv"/>
                                     <constraint firstAttribute="width" constant="30" id="TBM-pT-QWv"/>
                                 </constraints>
+                                <color key="tintColor" name="BooknowBtnColor"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Button" image="close"/>
                                 <connections>
@@ -53,19 +55,19 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="886-qG-wPm">
-                                <rect key="frame" x="28" y="80" width="369" height="82"/>
+                                <rect key="frame" x="28" y="192" width="376" height="82"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kgg-AB-az6">
-                                        <rect key="frame" x="0.0" y="0.0" width="369" height="16.666666666666668"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="376" height="16.666666666666668"/>
                                         <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NZf-MR-KY3" customClass="BorderedView" customModule="TravgateApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="31.666666666666671" width="369" height="48"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NZf-MR-KY3" customClass="BorderedView" customModule="Travgate" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="31.666666666666657" width="376" height="48"/>
                                         <subviews>
                                             <textField opaque="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First Name" textAlignment="natural" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="eOb-QG-4pj">
-                                                <rect key="frame" x="0.0" y="0.0" width="369" height="48"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="376" height="48"/>
                                                 <fontDescription key="fontDescription" name="OpenSans-Medium" family="Open Sans" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
@@ -86,7 +88,7 @@
                                                 <real key="value" value="1"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="4"/>
+                                                <real key="value" value="24"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
@@ -104,19 +106,19 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Eg-El-xso">
-                                <rect key="frame" x="28" y="182" width="369" height="82"/>
+                                <rect key="frame" x="28" y="294" width="376" height="82"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hqd-yu-dVy">
-                                        <rect key="frame" x="0.0" y="0.0" width="369" height="16.666666666666668"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="376" height="16.666666666666668"/>
                                         <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a3g-1z-IVh" customClass="BorderedView" customModule="TravgateApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="31.666666666666657" width="369" height="48"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a3g-1z-IVh" customClass="BorderedView" customModule="Travgate" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="31.666666666666686" width="376" height="48"/>
                                         <subviews>
                                             <textField opaque="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last Name" textAlignment="natural" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="2pI-Le-h84">
-                                                <rect key="frame" x="0.0" y="0.0" width="369" height="48"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="376" height="48"/>
                                                 <fontDescription key="fontDescription" name="OpenSans-Medium" family="Open Sans" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
@@ -137,7 +139,7 @@
                                                 <real key="value" value="1"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="4"/>
+                                                <real key="value" value="24"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
@@ -155,7 +157,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kbO-L1-TrX">
-                                <rect key="frame" x="50" y="702" width="325" height="48"/>
+                                <rect key="frame" x="50" y="844" width="332" height="48"/>
                                 <color key="backgroundColor" name="Buttoncolor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="92E-RX-czC"/>
@@ -170,19 +172,19 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Epv-rg-aeA">
-                                <rect key="frame" x="28" y="284" width="369" height="82"/>
+                                <rect key="frame" x="28" y="396" width="376" height="82"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mobile Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IGx-WH-2WC">
-                                        <rect key="frame" x="0.0" y="0.0" width="369" height="16.666666666666668"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="376" height="16.666666666666668"/>
                                         <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mh2-Sv-dun" customClass="BorderedView" customModule="TravgateApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="31.666666666666686" width="369" height="48"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mh2-Sv-dun" customClass="BorderedView" customModule="Travgate" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="31.666666666666686" width="376" height="48"/>
                                         <subviews>
                                             <textField opaque="NO" tag="12" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Mobile Number" textAlignment="natural" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="o92-Tw-gX1">
-                                                <rect key="frame" x="80" y="0.0" width="289" height="48"/>
+                                                <rect key="frame" x="80" y="0.0" width="296" height="48"/>
                                                 <fontDescription key="fontDescription" name="OpenSans-Medium" family="Open Sans" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                             </textField>
@@ -195,7 +197,7 @@
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstItem="3z6-8Q-KnH" firstAttribute="top" secondItem="uHB-EG-VmS" secondAttribute="top" id="14b-sV-Za0"/>
                                                     <constraint firstAttribute="bottom" secondItem="3z6-8Q-KnH" secondAttribute="bottom" id="3bN-0Y-79u"/>
@@ -224,7 +226,7 @@
                                                 <real key="value" value="1"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="4"/>
+                                                <real key="value" value="24"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
@@ -242,19 +244,19 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yJa-AI-Djg">
-                                <rect key="frame" x="28" y="386" width="369" height="82"/>
+                                <rect key="frame" x="28" y="498" width="376" height="82"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="udj-F0-9Ef">
-                                        <rect key="frame" x="0.0" y="0.0" width="369" height="16.666666666666668"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="376" height="16.666666666666668"/>
                                         <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GUV-no-EHM" customClass="BorderedView" customModule="TravgateApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="31.666666666666686" width="369" height="48"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GUV-no-EHM" customClass="BorderedView" customModule="Travgate" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="31.666666666666629" width="376" height="48"/>
                                         <subviews>
                                             <textField opaque="NO" tag="11" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email Address" textAlignment="natural" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="Hjl-s7-K8y">
-                                                <rect key="frame" x="0.0" y="0.0" width="369" height="48"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="376" height="48"/>
                                                 <fontDescription key="fontDescription" name="OpenSans-Medium" family="Open Sans" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
@@ -275,7 +277,7 @@
                                                 <real key="value" value="1"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="4"/>
+                                                <real key="value" value="24"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
@@ -293,24 +295,24 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N2M-3k-yGT">
-                                <rect key="frame" x="28" y="488" width="369" height="82"/>
+                                <rect key="frame" x="28" y="600" width="376" height="82"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="92C-34-7jt">
-                                        <rect key="frame" x="0.0" y="0.0" width="369" height="16.666666666666668"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="376" height="16.666666666666668"/>
                                         <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jOL-hF-lQn" customClass="BorderedView" customModule="TravgateApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="31.666666666666629" width="369" height="48"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jOL-hF-lQn" customClass="BorderedView" customModule="Travgate" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="31.666666666666629" width="376" height="48"/>
                                         <subviews>
                                             <textField opaque="NO" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="jZt-F0-58t">
-                                                <rect key="frame" x="0.0" y="0.0" width="369" height="48"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="376" height="48"/>
                                                 <fontDescription key="fontDescription" name="OpenSans-Medium" family="Open Sans" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" textContentType="password"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ddd-lO-Wed">
-                                                <rect key="frame" x="329" y="16.666666666666742" width="20" height="15"/>
+                                                <rect key="frame" x="336" y="16.666666666666742" width="20" height="15"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="15" id="OwS-ob-56v"/>
                                                     <constraint firstAttribute="width" constant="20" id="xZD-eU-hCg"/>
@@ -341,7 +343,7 @@
                                                 <real key="value" value="1"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="4"/>
+                                                <real key="value" value="24"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
@@ -359,24 +361,24 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xAA-V3-A08">
-                                <rect key="frame" x="28" y="590" width="369" height="82"/>
+                                <rect key="frame" x="28" y="702" width="376" height="82"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirm Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="48r-oD-AWW">
-                                        <rect key="frame" x="0.0" y="0.0" width="369" height="16.666666666666668"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="376" height="16.666666666666668"/>
                                         <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M8z-H9-4je" customClass="BorderedView" customModule="TravgateApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="31.666666666666629" width="369" height="48"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M8z-H9-4je" customClass="BorderedView" customModule="Travgate" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="31.666666666666629" width="376" height="48"/>
                                         <subviews>
                                             <textField opaque="NO" tag="4" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="sNf-KB-P7v">
-                                                <rect key="frame" x="0.0" y="0.0" width="369" height="48"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="376" height="48"/>
                                                 <fontDescription key="fontDescription" name="OpenSans-Medium" family="Open Sans" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" textContentType="password"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7w7-yA-7CN">
-                                                <rect key="frame" x="329" y="16.666666666666742" width="20" height="15"/>
+                                                <rect key="frame" x="336" y="16.666666666666742" width="20" height="15"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="20" id="LB3-qY-ZGk"/>
                                                     <constraint firstAttribute="height" constant="15" id="vcM-kJ-hrl"/>
@@ -407,7 +409,7 @@
                                                 <real key="value" value="1"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="4"/>
+                                                <real key="value" value="24"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
@@ -425,12 +427,12 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" name="WhiteColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="yJa-AI-Djg" firstAttribute="leading" secondItem="gj4-du-efA" secondAttribute="leading" constant="28" id="3ZL-iV-69d"/>
+                            <constraint firstAttribute="height" constant="957" id="4vi-Q1-En5"/>
                             <constraint firstAttribute="trailing" secondItem="kbO-L1-TrX" secondAttribute="trailing" constant="50" id="6gX-fP-1gi"/>
                             <constraint firstItem="N2M-3k-yGT" firstAttribute="leading" secondItem="gj4-du-efA" secondAttribute="leading" constant="28" id="BKN-XA-rHG"/>
-                            <constraint firstItem="Kw4-4s-HCm" firstAttribute="top" secondItem="gj4-du-efA" secondAttribute="top" constant="15" id="CIN-hB-wN7"/>
                             <constraint firstAttribute="trailing" secondItem="xAA-V3-A08" secondAttribute="trailing" constant="28" id="DLu-ms-LLi"/>
                             <constraint firstAttribute="trailing" secondItem="0Eg-El-xso" secondAttribute="trailing" constant="28" id="GXV-KZ-SDf"/>
                             <constraint firstAttribute="trailing" secondItem="Epv-rg-aeA" secondAttribute="trailing" constant="28" id="HJG-by-Nq1"/>
@@ -438,30 +440,33 @@
                             <constraint firstItem="Kw4-4s-HCm" firstAttribute="centerX" secondItem="gj4-du-efA" secondAttribute="centerX" id="LK3-nV-XrQ"/>
                             <constraint firstAttribute="trailing" secondItem="886-qG-wPm" secondAttribute="trailing" constant="28" id="PcV-4n-Pjq"/>
                             <constraint firstAttribute="trailing" secondItem="u0V-0r-ux8" secondAttribute="trailing" constant="15" id="SJS-md-hbE"/>
-                            <constraint firstItem="886-qG-wPm" firstAttribute="top" secondItem="Kw4-4s-HCm" secondAttribute="bottom" constant="20" id="Sat-Lz-pjh"/>
                             <constraint firstItem="N2M-3k-yGT" firstAttribute="top" secondItem="yJa-AI-Djg" secondAttribute="bottom" constant="20" id="UcD-LY-1OU"/>
                             <constraint firstItem="yJa-AI-Djg" firstAttribute="top" secondItem="Epv-rg-aeA" secondAttribute="bottom" constant="20" id="Uqr-7p-RZ5"/>
                             <constraint firstItem="u0V-0r-ux8" firstAttribute="leading" secondItem="xAA-V3-A08" secondAttribute="trailing" constant="-17" id="V2z-D5-hJv"/>
                             <constraint firstItem="u0V-0r-ux8" firstAttribute="centerY" secondItem="Kw4-4s-HCm" secondAttribute="centerY" id="YiQ-5P-10q"/>
+                            <constraint firstItem="Kw4-4s-HCm" firstAttribute="top" secondItem="gj4-du-efA" secondAttribute="top" constant="60" id="ajW-9l-ip7"/>
                             <constraint firstItem="kbO-L1-TrX" firstAttribute="leading" secondItem="gj4-du-efA" secondAttribute="leading" constant="50" id="eP6-MP-DuV"/>
                             <constraint firstItem="Epv-rg-aeA" firstAttribute="leading" secondItem="gj4-du-efA" secondAttribute="leading" constant="28" id="fik-HU-vis"/>
                             <constraint firstItem="0Eg-El-xso" firstAttribute="leading" secondItem="gj4-du-efA" secondAttribute="leading" constant="28" id="gSZ-5d-lvj"/>
                             <constraint firstItem="0Eg-El-xso" firstAttribute="top" secondItem="886-qG-wPm" secondAttribute="bottom" constant="20" id="kPV-TD-vCQ"/>
                             <constraint firstItem="886-qG-wPm" firstAttribute="leading" secondItem="gj4-du-efA" secondAttribute="leading" constant="28" id="lfL-HI-S2A"/>
-                            <constraint firstAttribute="height" constant="775" id="lwZ-UA-dve"/>
-                            <constraint firstAttribute="bottom" secondItem="kbO-L1-TrX" secondAttribute="bottom" constant="25" id="mwz-qq-ynY"/>
+                            <constraint firstItem="886-qG-wPm" firstAttribute="top" secondItem="Kw4-4s-HCm" secondAttribute="bottom" constant="74" id="n7H-dW-zNa"/>
                             <constraint firstItem="Epv-rg-aeA" firstAttribute="top" secondItem="0Eg-El-xso" secondAttribute="bottom" constant="20" id="obr-N7-qEd"/>
                             <constraint firstItem="xAA-V3-A08" firstAttribute="leading" secondItem="gj4-du-efA" secondAttribute="leading" constant="28" id="odJ-rY-cDE"/>
                             <constraint firstItem="xAA-V3-A08" firstAttribute="top" secondItem="N2M-3k-yGT" secondAttribute="bottom" constant="20" id="rcD-MD-LTO"/>
-                            <constraint firstItem="kbO-L1-TrX" firstAttribute="top" secondItem="xAA-V3-A08" secondAttribute="bottom" constant="30" id="wC7-2J-C2n"/>
+                            <constraint firstItem="kbO-L1-TrX" firstAttribute="top" secondItem="xAA-V3-A08" secondAttribute="bottom" constant="60" id="sZi-6j-tzI"/>
                             <constraint firstAttribute="trailing" secondItem="yJa-AI-Djg" secondAttribute="trailing" constant="28" id="z6b-2c-MGb"/>
                         </constraints>
                     </view>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="Ii4-3r-ZUA" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="2l0-4i-A5F"/>
+                    <constraint firstAttribute="trailing" secondItem="Ii4-3r-ZUA" secondAttribute="trailing" id="8eM-bQ-5Up"/>
                     <constraint firstItem="gj4-du-efA" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Hyv-QI-Eby"/>
                     <constraint firstAttribute="trailing" secondItem="gj4-du-efA" secondAttribute="trailing" id="I5Y-Wn-KeJ"/>
                     <constraint firstItem="gj4-du-efA" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="NC1-Y1-o2t"/>
+                    <constraint firstAttribute="bottom" secondItem="Ii4-3r-ZUA" secondAttribute="bottom" id="Q3H-aL-PUx"/>
+                    <constraint firstItem="Ii4-3r-ZUA" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="fXu-29-otx"/>
                     <constraint firstAttribute="bottom" secondItem="gj4-du-efA" secondAttribute="bottom" id="uAv-Fr-gxm"/>
                 </constraints>
             </tableViewCellContentView>
@@ -484,24 +489,22 @@
                 <outlet property="passview" destination="jOL-hF-lQn" id="arV-Qf-brf"/>
                 <outlet property="signupbtn" destination="kbO-L1-TrX" id="ONc-Ft-yRz"/>
             </connections>
-            <point key="canvasLocation" x="217.55725190839695" y="525"/>
+            <point key="canvasLocation" x="222.90076335877862" y="644.71830985915494"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="close" width="26" height="26"/>
         <image name="hidepass" width="512" height="512"/>
+        <image name="loginbg" width="375" height="811"/>
         <image name="logo" width="336" height="108"/>
+        <namedColor name="BooknowBtnColor">
+            <color red="0.93300002813339233" green="0.097999997437000275" blue="0.20800000429153442" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="BorderColor">
-            <color red="0.875" green="0.875" blue="0.875" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.16" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Buttoncolor">
             <color red="0.2669999897480011" green="0.70999997854232788" blue="0.046999998390674591" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="WhiteColor">
-            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

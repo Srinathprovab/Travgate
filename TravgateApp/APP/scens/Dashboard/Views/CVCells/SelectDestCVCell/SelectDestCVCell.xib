@@ -1,52 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="OpenSans-Medium.ttf">
-            <string>OpenSans-Medium</string>
+        <array key="OpenSans-Bold.ttf">
+            <string>OpenSans-Bold</string>
         </array>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="SelectDestCVCell" customModule="TravgateApp" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="SelectDestCVCell" customModule="Travgate" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="371" height="248"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="371" height="248"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pj4-Cr-zw4" customClass="BorderedView" customModule="TravgateApp" customModuleProvider="target">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pj4-Cr-zw4" customClass="BorderedView" customModule="Travgate" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="371" height="248"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dest" translatesAutoresizingMaskIntoConstraints="NO" id="Pqh-ts-uEs">
                                 <rect key="frame" x="0.0" y="0.0" width="371" height="248"/>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d0d-AA-Jw3" customClass="BorderedView" customModule="TravgateApp" customModuleProvider="target">
-                                <rect key="frame" x="10" y="10" width="120" height="30"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d0d-AA-Jw3" customClass="BorderedView" customModule="Travgate" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="218" width="371" height="30"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jw Marriott marquis" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gCW-Wt-SGK">
-                                        <rect key="frame" x="5" y="5" width="110" height="20"/>
-                                        <fontDescription key="fontDescription" name="OpenSans-Medium" family="Open Sans" pointSize="14"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jw Marriott marquis" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gCW-Wt-SGK">
+                                        <rect key="frame" x="5" y="4" width="361" height="22"/>
+                                        <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="16"/>
                                         <color key="textColor" name="WhiteColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" name="BlurColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="gCW-Wt-SGK" secondAttribute="trailing" constant="5" id="BHN-P0-3Y5"/>
-                                    <constraint firstItem="gCW-Wt-SGK" firstAttribute="leading" secondItem="d0d-AA-Jw3" secondAttribute="leading" constant="5" id="CIs-4u-s6N"/>
-                                    <constraint firstItem="gCW-Wt-SGK" firstAttribute="top" secondItem="d0d-AA-Jw3" secondAttribute="top" constant="5" id="Kcp-Wc-j1c"/>
-                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="120" id="TCo-hQ-41e"/>
-                                    <constraint firstAttribute="bottom" secondItem="gCW-Wt-SGK" secondAttribute="bottom" constant="5" id="b90-M1-OCc"/>
+                                    <constraint firstItem="gCW-Wt-SGK" firstAttribute="leading" secondItem="d0d-AA-Jw3" secondAttribute="leading" constant="5" id="JUs-Mo-8g3"/>
+                                    <constraint firstItem="gCW-Wt-SGK" firstAttribute="centerX" secondItem="d0d-AA-Jw3" secondAttribute="centerX" id="LFZ-5D-FeT"/>
+                                    <constraint firstItem="gCW-Wt-SGK" firstAttribute="centerY" secondItem="d0d-AA-Jw3" secondAttribute="centerY" id="Xef-CA-EbL"/>
+                                    <constraint firstAttribute="trailing" secondItem="gCW-Wt-SGK" secondAttribute="trailing" constant="5" id="byJ-uD-HRi"/>
                                     <constraint firstAttribute="height" constant="30" id="d7X-Ar-POr"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -59,11 +57,12 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Pqh-ts-uEs" secondAttribute="trailing" id="4LT-m4-ama"/>
+                            <constraint firstAttribute="trailing" secondItem="d0d-AA-Jw3" secondAttribute="trailing" id="Cbb-Gv-V8C"/>
                             <constraint firstItem="Pqh-ts-uEs" firstAttribute="top" secondItem="Pj4-Cr-zw4" secondAttribute="top" id="UA7-by-5iB"/>
                             <constraint firstAttribute="bottom" secondItem="Pqh-ts-uEs" secondAttribute="bottom" id="VV9-2B-4Si"/>
                             <constraint firstItem="Pqh-ts-uEs" firstAttribute="leading" secondItem="Pj4-Cr-zw4" secondAttribute="leading" id="ilZ-3D-uAZ"/>
-                            <constraint firstItem="d0d-AA-Jw3" firstAttribute="leading" secondItem="Pj4-Cr-zw4" secondAttribute="leading" constant="10" id="mJS-Hh-0wI"/>
-                            <constraint firstItem="d0d-AA-Jw3" firstAttribute="top" secondItem="Pj4-Cr-zw4" secondAttribute="top" constant="10" id="vCx-48-xJN"/>
+                            <constraint firstItem="d0d-AA-Jw3" firstAttribute="leading" secondItem="Pj4-Cr-zw4" secondAttribute="leading" id="mJS-Hh-0wI"/>
+                            <constraint firstAttribute="bottom" secondItem="d0d-AA-Jw3" secondAttribute="bottom" id="uxG-Wu-11e"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -90,6 +89,9 @@
     </objects>
     <resources>
         <image name="dest" width="190" height="125"/>
+        <namedColor name="BlurColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.28999999165534973" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="WhiteColor">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

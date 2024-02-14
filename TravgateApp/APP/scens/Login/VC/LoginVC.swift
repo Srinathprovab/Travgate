@@ -35,7 +35,7 @@ class LoginVC: BaseTableVC, LoginViewModelDelegate {
         commonTableView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner] // Top left corner, Top right corner respectively
         commonTableView.layer.cornerRadius = 10
         commonTableView.clipsToBounds = true
-        commonTableView.backgroundColor = .WhiteColor
+       
         commonTableView.registerTVCells(["LoginTVCell"])
         setupTVCells()
     }

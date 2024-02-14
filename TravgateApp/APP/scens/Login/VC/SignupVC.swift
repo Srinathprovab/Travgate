@@ -39,7 +39,7 @@ class SignupVC: BaseTableVC, RegisterViewModelDelegate {
         view.backgroundColor = .black.withAlphaComponent(0.5)
         commonTableView.layer.cornerRadius = 10
         commonTableView.clipsToBounds = true
-        commonTableView.backgroundColor = .WhiteColor
+       
         commonTableView.registerTVCells(["SignupTVCell"])
         setupTVCells()
     }

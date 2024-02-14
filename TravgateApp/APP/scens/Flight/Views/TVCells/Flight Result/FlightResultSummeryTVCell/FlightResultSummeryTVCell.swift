@@ -22,6 +22,7 @@ class FlightResultSummeryTVCell: UITableViewCell {
     @IBOutlet weak var worklbl: UILabel!
     @IBOutlet weak var classlbl: UILabel!
     @IBOutlet weak var baggageView: UIStackView!
+    @IBOutlet weak var flightDetailsTapBtn: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()

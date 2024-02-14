@@ -10,6 +10,8 @@ import UIKit
 protocol ResetPasswordTVCellDelegate {
     func didTapOnSendEmailBtnAction(cell:ResetPasswordTVCell)
     func editingTextField(tf:UITextField)
+    func didTapOnRestPasswordBackBtnAction(cell:ResetPasswordTVCell)
+    
 }
 
 class ResetPasswordTVCell: TableViewCell {
@@ -58,6 +60,11 @@ class ResetPasswordTVCell: TableViewCell {
     
     @IBAction func didTapOnSendEmailBtnAction(_ sender: Any) {
         delegate?.didTapOnSendEmailBtnAction(cell: self)
+    }
+    
+    
+    @IBAction func didTapOnRestPasswordBackBtnAction(_ sender: Any) {
+        delegate?.didTapOnRestPasswordBackBtnAction(cell: self)
     }
     
     

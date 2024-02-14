@@ -20,7 +20,7 @@
         <!--Side Menu View Controller-->
         <scene sceneID="Jdp-1K-QCG">
             <objects>
-                <viewController storyboardIdentifier="SideMenuViewController" id="KPW-mR-vuc" customClass="SideMenuViewController" customModule="TravgateApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SideMenuViewController" id="KPW-mR-vuc" customClass="SideMenuViewController" customModule="Travgate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wWs-9W-pxO">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -62,7 +62,7 @@
         <!--LoginVC-->
         <scene sceneID="4Is-yb-D1v">
             <objects>
-                <viewController storyboardIdentifier="LoginVC" id="OBe-gs-2ww" customClass="LoginVC" customModule="TravgateApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginVC" id="OBe-gs-2ww" customClass="LoginVC" customModule="Travgate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="n43-hE-Umh">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -70,17 +70,22 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kni-tt-XeM">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                 <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginbg" translatesAutoresizingMaskIntoConstraints="NO" id="xor-8t-67Y">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                    </imageView>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="SG9-zS-GXj">
-                                        <rect key="frame" x="0.0" y="332" width="393" height="520"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="520" id="9sF-J8-cBG"/>
-                                        </constraints>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="xor-8t-67Y" firstAttribute="leading" secondItem="kni-tt-XeM" secondAttribute="leading" id="HHD-74-Lh5"/>
                                     <constraint firstAttribute="trailing" secondItem="SG9-zS-GXj" secondAttribute="trailing" id="KnN-vW-TQJ"/>
+                                    <constraint firstItem="xor-8t-67Y" firstAttribute="top" secondItem="kni-tt-XeM" secondAttribute="top" id="MJQ-qG-tpE"/>
+                                    <constraint firstAttribute="bottom" secondItem="xor-8t-67Y" secondAttribute="bottom" id="QqE-hx-mo5"/>
+                                    <constraint firstItem="SG9-zS-GXj" firstAttribute="top" secondItem="kni-tt-XeM" secondAttribute="top" id="kEG-FM-8hg"/>
+                                    <constraint firstAttribute="trailing" secondItem="xor-8t-67Y" secondAttribute="trailing" id="kgv-uF-Epj"/>
                                     <constraint firstItem="SG9-zS-GXj" firstAttribute="leading" secondItem="kni-tt-XeM" secondAttribute="leading" id="oHC-wI-Q9O"/>
                                     <constraint firstAttribute="bottom" secondItem="SG9-zS-GXj" secondAttribute="bottom" id="oTa-JE-oS7"/>
                                 </constraints>
@@ -106,7 +111,7 @@
         <!--Reset PasswordVC-->
         <scene sceneID="yTC-QD-VPg">
             <objects>
-                <viewController storyboardIdentifier="ResetPasswordVC" id="yP3-eM-x8F" customClass="ResetPasswordVC" customModule="TravgateApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ResetPasswordVC" id="yP3-eM-x8F" customClass="ResetPasswordVC" customModule="Travgate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xDJ-BA-fUk">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -115,50 +120,15 @@
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="x0f-Oq-bVE">
-                                        <rect key="frame" x="0.0" y="110" width="393" height="742"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </tableView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GvP-6f-Mnf">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="110"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reset Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bvn-2S-9LF">
-                                                <rect key="frame" x="136.66666666666666" y="58" width="119.66666666666666" height="22"/>
-                                                <fontDescription key="fontDescription" name="OpenSans-Medium" family="Open Sans" pointSize="16"/>
-                                                <color key="textColor" name="HeadingColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uv5-oQ-YdT">
-                                                <rect key="frame" x="15" y="57" width="24" height="24"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="24" id="4lc-jd-z0k"/>
-                                                    <constraint firstAttribute="width" constant="24" id="5Zm-R9-v8z"/>
-                                                </constraints>
-                                                <color key="tintColor" name="HeadingColor"/>
-                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" image="back1"/>
-                                                <connections>
-                                                    <action selector="didTapOnBackBtnAction:" destination="yP3-eM-x8F" eventType="touchUpInside" id="bgC-Vs-WgA"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                        <color key="backgroundColor" name="LayoverColor"/>
-                                        <constraints>
-                                            <constraint firstItem="bvn-2S-9LF" firstAttribute="centerX" secondItem="GvP-6f-Mnf" secondAttribute="centerX" id="6Uo-Yn-fZk"/>
-                                            <constraint firstItem="uv5-oQ-YdT" firstAttribute="centerY" secondItem="bvn-2S-9LF" secondAttribute="centerY" id="8O8-pC-bd0"/>
-                                            <constraint firstAttribute="height" constant="110" id="KgS-rL-Ef3"/>
-                                            <constraint firstItem="uv5-oQ-YdT" firstAttribute="leading" secondItem="GvP-6f-Mnf" secondAttribute="leading" constant="15" id="bj2-8u-OjR"/>
-                                            <constraint firstAttribute="bottom" secondItem="bvn-2S-9LF" secondAttribute="bottom" constant="30" id="p2Z-fK-ugN"/>
-                                        </constraints>
-                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="x0f-Oq-bVE" firstAttribute="leading" secondItem="zda-4f-Fpm" secondAttribute="leading" id="AqG-W1-z6d"/>
-                                    <constraint firstItem="GvP-6f-Mnf" firstAttribute="top" secondItem="zda-4f-Fpm" secondAttribute="top" id="CWa-J2-nTE"/>
-                                    <constraint firstItem="x0f-Oq-bVE" firstAttribute="top" secondItem="GvP-6f-Mnf" secondAttribute="bottom" id="CoV-1Z-S6E"/>
-                                    <constraint firstItem="GvP-6f-Mnf" firstAttribute="leading" secondItem="zda-4f-Fpm" secondAttribute="leading" id="Jmi-5O-EKb"/>
                                     <constraint firstAttribute="bottom" secondItem="x0f-Oq-bVE" secondAttribute="bottom" id="bLa-Hm-Jxd"/>
-                                    <constraint firstAttribute="trailing" secondItem="GvP-6f-Mnf" secondAttribute="trailing" id="c1E-8o-4pX"/>
+                                    <constraint firstItem="x0f-Oq-bVE" firstAttribute="top" secondItem="zda-4f-Fpm" secondAttribute="top" id="cGa-h3-eHG"/>
                                     <constraint firstAttribute="trailing" secondItem="x0f-Oq-bVE" secondAttribute="trailing" id="eMt-5u-Ngc"/>
                                 </constraints>
                             </view>
@@ -183,7 +153,7 @@
         <!--Check MailVC-->
         <scene sceneID="cEL-fR-zYi">
             <objects>
-                <viewController storyboardIdentifier="CheckMailVC" id="X19-eE-ObJ" customClass="CheckMailVC" customModule="TravgateApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CheckMailVC" id="X19-eE-ObJ" customClass="CheckMailVC" customModule="Travgate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JAt-uh-C92">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -243,7 +213,7 @@ instructions to your email.</string>
         <!--SignupVC-->
         <scene sceneID="rKA-Vm-4XC">
             <objects>
-                <viewController storyboardIdentifier="SignupVC" id="EtZ-sF-i3v" customClass="SignupVC" customModule="TravgateApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignupVC" id="EtZ-sF-i3v" customClass="SignupVC" customModule="Travgate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4Q0-qB-dk5">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -252,7 +222,7 @@ instructions to your email.</string>
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="GaD-vg-6Bd">
-                                        <rect key="frame" x="0.0" y="90" width="393" height="762"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </tableView>
                                 </subviews>
@@ -261,7 +231,7 @@ instructions to your email.</string>
                                     <constraint firstAttribute="bottom" secondItem="GaD-vg-6Bd" secondAttribute="bottom" id="BaE-cE-4eo"/>
                                     <constraint firstItem="GaD-vg-6Bd" firstAttribute="leading" secondItem="WdO-vS-8bg" secondAttribute="leading" id="Rnd-KS-kAg"/>
                                     <constraint firstAttribute="trailing" secondItem="GaD-vg-6Bd" secondAttribute="trailing" id="lHO-1l-4kD"/>
-                                    <constraint firstItem="GaD-vg-6Bd" firstAttribute="top" secondItem="WdO-vS-8bg" secondAttribute="top" constant="90" id="q13-MW-7mf"/>
+                                    <constraint firstItem="GaD-vg-6Bd" firstAttribute="top" secondItem="WdO-vS-8bg" secondAttribute="top" id="q13-MW-7mf"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -285,7 +255,7 @@ instructions to your email.</string>
         <!--Edit ProfileVC-->
         <scene sceneID="2FR-VL-Dak">
             <objects>
-                <viewController storyboardIdentifier="EditProfileVC" id="HNQ-SI-0Ej" customClass="EditProfileVC" customModule="TravgateApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EditProfileVC" id="HNQ-SI-0Ej" customClass="EditProfileVC" customModule="Travgate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Srf-LA-95u">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -328,7 +298,7 @@ instructions to your email.</string>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="WPb-DC-Qcm">
                                         <rect key="frame" x="138" y="100" width="117" height="113"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VtH-IP-sXs" customClass="BorderedView" customModule="TravgateApp" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VtH-IP-sXs" customClass="BorderedView" customModule="Travgate" customModuleProvider="target">
                                                 <rect key="frame" x="18.666666666666657" y="0.0" width="80" height="80"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tab3" translatesAutoresizingMaskIntoConstraints="NO" id="duR-SU-70a">
@@ -423,15 +393,16 @@ instructions to your email.</string>
     <resources>
         <image name="back1" width="20" height="20"/>
         <image name="checkmail" width="100" height="100"/>
+        <image name="loginbg" width="375" height="811"/>
         <image name="tab3" width="28" height="28"/>
         <namedColor name="BorderColor">
-            <color red="0.875" green="0.875" blue="0.875" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.16" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Buttoncolor">
             <color red="0.2669999897480011" green="0.70999997854232788" blue="0.046999998390674591" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="HeadingColor">
-            <color red="0.10588235294117647" green="0.29411764705882354" blue="0.36470588235294116" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.10599999874830246" green="0.29399999976158142" blue="0.36500000953674316" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="LayoverColor">
             <color red="0.96100002527236938" green="0.98400002717971802" blue="0.94900000095367432" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

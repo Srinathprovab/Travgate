@@ -50,8 +50,8 @@ class PopularDestinationsTVCell: TableViewCell {
         citySelectCV.delegate = self
         citySelectCV.dataSource = self
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: calculateCellWidth(), height: 34)
-        layout.scrollDirection = .vertical
+        layout.itemSize = CGSize(width: 100 , height: 34)
+        layout.scrollDirection = .horizontal
         layout.minimumInteritemSpacing = 3
         layout.minimumLineSpacing = 3
         layout.sectionInset = UIEdgeInsets(top: 0, left: 2, bottom: 0, right: 2)
@@ -62,18 +62,7 @@ class PopularDestinationsTVCell: TableViewCell {
         
     }
     
-    func calculateCellWidth() -> CGFloat {
-        // You should replace this string with the actual label text you plan to use
-        let sampleText = "Dubai"
-        
-        let label = UILabel()
-        label.text = sampleText
-        label.sizeToFit()
-        
-        
-        
-        return label.frame.width + 25
-    }
+   
     
     func setupselectDestCV() {
         
@@ -105,7 +94,7 @@ extension PopularDestinationsTVCell:UICollectionViewDelegate,UICollectionViewDat
         
         
         if collectionView == citySelectCV {
-            return 3
+            return flightlist.count
         }else {
             return flightlist.count
         }
@@ -118,7 +107,7 @@ extension PopularDestinationsTVCell:UICollectionViewDelegate,UICollectionViewDat
         if collectionView == citySelectCV {
             if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell1", for: indexPath) as? SelectCityCVCell {
                 
-                
+                cell.titlelbl.text = flightlist[indexPath.row].to_city_name
                 
                 commonCell = cell
             }
@@ -133,9 +122,6 @@ extension PopularDestinationsTVCell:UICollectionViewDelegate,UICollectionViewDat
         }
         return commonCell
     }
-    
-    
-    
     
     
 }

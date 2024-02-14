@@ -29,17 +29,17 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="830" id="KGk-i7-Jjw" customClass="FlightSearchTVCell" customModule="TravgateApp" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="830" id="KGk-i7-Jjw" customClass="FlightSearchTVCell" customModule="Travgate" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="404" height="1043"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="404" height="1043"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7eB-Fp-qkP" customClass="BorderedView" customModule="TravgateApp" customModuleProvider="target">
+                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7eB-Fp-qkP" customClass="BorderedView" customModule="Travgate" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="404" height="1016"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="huY-kN-cmK" customClass="BorderedView" customModule="TravgateApp" customModuleProvider="target">
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="huY-kN-cmK" customClass="BorderedView" customModule="Travgate" customModuleProvider="target">
                                 <rect key="frame" x="24" y="941" width="356" height="60"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flight Search" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RuK-tz-jKb">
@@ -73,7 +73,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I9g-dC-gbt" customClass="BorderedView" customModule="TravgateApp" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I9g-dC-gbt" customClass="BorderedView" customModule="Travgate" customModuleProvider="target">
                                 <rect key="frame" x="12" y="16" width="380" height="70"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RrD-eq-CUP">
@@ -231,7 +231,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="laL-7q-pIO" customClass="BorderedView" customModule="TravgateApp" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="laL-7q-pIO" customClass="BorderedView" customModule="Travgate" customModuleProvider="target">
                                 <rect key="frame" x="12" y="94" width="380" height="70"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BGl-7o-ni9">
@@ -389,7 +389,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m2B-Ho-uwt" customClass="BorderedView" customModule="TravgateApp" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m2B-Ho-uwt" customClass="BorderedView" customModule="Travgate" customModuleProvider="target">
                                 <rect key="frame" x="170" y="73" width="32" height="32"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="swap" translatesAutoresizingMaskIntoConstraints="NO" id="gif-FY-BzH">
@@ -434,7 +434,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="F12-gK-2lN">
                                 <rect key="frame" x="12" y="172" width="380" height="70"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VSd-Iq-RnT" customClass="BorderedView" customModule="TravgateApp" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VSd-Iq-RnT" customClass="BorderedView" customModule="Travgate" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="187.66666666666666" height="70"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="eGX-cL-Bv3">
@@ -507,7 +507,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="obe-Yl-rPE" customClass="BorderedView" customModule="TravgateApp" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="obe-Yl-rPE" customClass="BorderedView" customModule="Travgate" customModuleProvider="target">
                                         <rect key="frame" x="192.66666666666663" y="0.0" width="187.33333333333337" height="70"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="SdZ-1m-yoi">
@@ -619,17 +619,17 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="J72-AQ-zhF">
                                 <rect key="frame" x="12" y="250" width="380" height="74"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f8h-UR-RJA" customClass="BorderedView" customModule="TravgateApp" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f8h-UR-RJA" customClass="BorderedView" customModule="Travgate" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="187.66666666666666" height="74"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adult(12+)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O6D-Eh-qfA">
-                                                <rect key="frame" x="15" y="10" width="157.66666666666666" height="18"/>
+                                                <rect key="frame" x="15" y="7" width="157.66666666666666" height="18"/>
                                                 <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="13"/>
                                                 <color key="textColor" name="fromcolor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E8s-uv-esP" customClass="BorderedView" customModule="TravgateApp" customModuleProvider="target">
-                                                <rect key="frame" x="13" y="34" width="36" height="36"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E8s-uv-esP" customClass="BorderedView" customModule="Travgate" customModuleProvider="target">
+                                                <rect key="frame" x="13" y="31" width="36" height="36"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sub" translatesAutoresizingMaskIntoConstraints="NO" id="Lai-Db-B9Q">
                                                         <rect key="frame" x="6" y="6" width="24" height="24"/>
@@ -667,8 +667,8 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="35u-es-q61" customClass="BorderedView" customModule="TravgateApp" customModuleProvider="target">
-                                                <rect key="frame" x="64" y="34" width="36" height="36"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="35u-es-q61" customClass="BorderedView" customModule="Travgate" customModuleProvider="target">
+                                                <rect key="frame" x="64" y="31" width="36" height="36"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gyG-XV-gmM">
                                                         <rect key="frame" x="10.333333333333329" y="9.6666666666666856" width="15.666666666666664" height="17"/>
@@ -696,8 +696,8 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VVD-Kd-gE4" customClass="BorderedView" customModule="TravgateApp" customModuleProvider="target">
-                                                <rect key="frame" x="115" y="34" width="36" height="36"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VVD-Kd-gE4" customClass="BorderedView" customModule="Travgate" customModuleProvider="target">
+                                                <rect key="frame" x="115" y="31" width="36" height="36"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add" translatesAutoresizingMaskIntoConstraints="NO" id="qhJ-IS-QJe">
                                                         <rect key="frame" x="6" y="6" width="24" height="24"/>
@@ -745,7 +745,7 @@
                                             <constraint firstAttribute="trailing" secondItem="O6D-Eh-qfA" secondAttribute="trailing" constant="15" id="fTe-zJ-iYd"/>
                                             <constraint firstItem="35u-es-q61" firstAttribute="leading" secondItem="E8s-uv-esP" secondAttribute="trailing" constant="15" id="hg4-Vx-sVb"/>
                                             <constraint firstAttribute="height" constant="74" id="krL-5I-Iig"/>
-                                            <constraint firstItem="O6D-Eh-qfA" firstAttribute="top" secondItem="f8h-UR-RJA" secondAttribute="top" constant="10" id="nte-RI-Cqn"/>
+                                            <constraint firstItem="O6D-Eh-qfA" firstAttribute="top" secondItem="f8h-UR-RJA" secondAttribute="top" constant="7" id="nte-RI-Cqn"/>
                                             <constraint firstItem="VVD-Kd-gE4" firstAttribute="centerY" secondItem="35u-es-q61" secondAttribute="centerY" id="qaM-1k-zA5"/>
                                             <constraint firstItem="VVD-Kd-gE4" firstAttribute="leading" secondItem="35u-es-q61" secondAttribute="trailing" constant="15" id="sb9-pg-pOG"/>
                                         </constraints>
@@ -761,17 +761,17 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2hh-hL-JPy" customClass="BorderedView" customModule="TravgateApp" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2hh-hL-JPy" customClass="BorderedView" customModule="Travgate" customModuleProvider="target">
                                         <rect key="frame" x="192.66666666666663" y="0.0" width="187.33333333333337" height="74"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Child(12+11)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3r0-UQ-eas">
-                                                <rect key="frame" x="15" y="10" width="157.33333333333334" height="18"/>
+                                                <rect key="frame" x="15" y="7" width="157.33333333333334" height="18"/>
                                                 <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="13"/>
                                                 <color key="textColor" name="fromcolor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FMN-aj-6Al" customClass="BorderedView" customModule="TravgateApp" customModuleProvider="target">
-                                                <rect key="frame" x="13" y="34" width="36" height="36"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FMN-aj-6Al" customClass="BorderedView" customModule="Travgate" customModuleProvider="target">
+                                                <rect key="frame" x="13" y="31" width="36" height="36"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sub" translatesAutoresizingMaskIntoConstraints="NO" id="Xu4-qI-pyT">
                                                         <rect key="frame" x="6" y="6" width="24" height="24"/>
@@ -809,8 +809,8 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v5m-Us-weg" customClass="BorderedView" customModule="TravgateApp" customModuleProvider="target">
-                                                <rect key="frame" x="64.000000000000028" y="34" width="36" height="36"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v5m-Us-weg" customClass="BorderedView" customModule="Travgate" customModuleProvider="target">
+                                                <rect key="frame" x="64.000000000000028" y="31" width="36" height="36"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6XE-B7-emW">
                                                         <rect key="frame" x="10" y="9.6666666666666856" width="15.666666666666664" height="17"/>
@@ -838,8 +838,8 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9bk-Xb-hjW" customClass="BorderedView" customModule="TravgateApp" customModuleProvider="target">
-                                                <rect key="frame" x="115.00000000000003" y="34" width="36" height="36"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9bk-Xb-hjW" customClass="BorderedView" customModule="Travgate" customModuleProvider="target">
+                                                <rect key="frame" x="115.00000000000003" y="31" width="36" height="36"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add" translatesAutoresizingMaskIntoConstraints="NO" id="6o9-N3-CP2">
                                                         <rect key="frame" x="6" y="6" width="24" height="24"/>
@@ -882,7 +882,7 @@
                                         <constraints>
                                             <constraint firstItem="9bk-Xb-hjW" firstAttribute="centerY" secondItem="v5m-Us-weg" secondAttribute="centerY" id="01P-KV-mGs"/>
                                             <constraint firstItem="v5m-Us-weg" firstAttribute="centerY" secondItem="Ttj-ZB-FuE" secondAttribute="centerY" id="0gw-LY-qGF"/>
-                                            <constraint firstItem="3r0-UQ-eas" firstAttribute="top" secondItem="2hh-hL-JPy" secondAttribute="top" constant="10" id="7ws-6c-aNP"/>
+                                            <constraint firstItem="3r0-UQ-eas" firstAttribute="top" secondItem="2hh-hL-JPy" secondAttribute="top" constant="7" id="7ws-6c-aNP"/>
                                             <constraint firstItem="9bk-Xb-hjW" firstAttribute="leading" secondItem="v5m-Us-weg" secondAttribute="trailing" constant="15" id="Fph-ai-P8t"/>
                                             <constraint firstItem="3r0-UQ-eas" firstAttribute="leading" secondItem="2hh-hL-JPy" secondAttribute="leading" constant="15" id="MEm-Jj-P0h"/>
                                             <constraint firstItem="v5m-Us-weg" firstAttribute="leading" secondItem="FMN-aj-6Al" secondAttribute="trailing" constant="15" id="Rlw-Sh-4th"/>
@@ -908,17 +908,17 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="pNI-6H-l9w">
                                 <rect key="frame" x="12" y="332" width="380" height="74"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lzu-dU-ILg" customClass="BorderedView" customModule="TravgateApp" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lzu-dU-ILg" customClass="BorderedView" customModule="Travgate" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="187.66666666666666" height="74"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Infants(0+2)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iG1-L5-c9h">
-                                                <rect key="frame" x="15" y="10" width="157.66666666666666" height="18"/>
+                                                <rect key="frame" x="15" y="7" width="157.66666666666666" height="18"/>
                                                 <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="13"/>
                                                 <color key="textColor" name="fromcolor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bmO-UI-PcF" customClass="BorderedView" customModule="TravgateApp" customModuleProvider="target">
-                                                <rect key="frame" x="13" y="34" width="36" height="36"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bmO-UI-PcF" customClass="BorderedView" customModule="Travgate" customModuleProvider="target">
+                                                <rect key="frame" x="13" y="31" width="36" height="36"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sub" translatesAutoresizingMaskIntoConstraints="NO" id="9tc-em-z4H">
                                                         <rect key="frame" x="6" y="6" width="24" height="24"/>
@@ -956,8 +956,8 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vxq-cP-0In" customClass="BorderedView" customModule="TravgateApp" customModuleProvider="target">
-                                                <rect key="frame" x="64" y="34" width="36" height="36"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vxq-cP-0In" customClass="BorderedView" customModule="Travgate" customModuleProvider="target">
+                                                <rect key="frame" x="64" y="31" width="36" height="36"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aJO-6i-oPI">
                                                         <rect key="frame" x="10.333333333333329" y="9.6666666666666856" width="15.666666666666664" height="17"/>
@@ -985,8 +985,8 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B3p-mG-dUI" customClass="BorderedView" customModule="TravgateApp" customModuleProvider="target">
-                                                <rect key="frame" x="115" y="34" width="36" height="36"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B3p-mG-dUI" customClass="BorderedView" customModule="Travgate" customModuleProvider="target">
+                                                <rect key="frame" x="115" y="31" width="36" height="36"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add" translatesAutoresizingMaskIntoConstraints="NO" id="tGl-W5-e7g">
                                                         <rect key="frame" x="6" y="6" width="24" height="24"/>
@@ -1027,7 +1027,7 @@
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstItem="iG1-L5-c9h" firstAttribute="top" secondItem="lzu-dU-ILg" secondAttribute="top" constant="10" id="1zO-94-6B5"/>
+                                            <constraint firstItem="iG1-L5-c9h" firstAttribute="top" secondItem="lzu-dU-ILg" secondAttribute="top" constant="7" id="1zO-94-6B5"/>
                                             <constraint firstItem="Vxq-cP-0In" firstAttribute="leading" secondItem="bmO-UI-PcF" secondAttribute="trailing" constant="15" id="3mv-AQ-Gav"/>
                                             <constraint firstItem="Vxq-cP-0In" firstAttribute="centerY" secondItem="HWy-0Q-ca9" secondAttribute="centerY" id="4G2-is-9Mt"/>
                                             <constraint firstItem="iG1-L5-c9h" firstAttribute="leading" secondItem="lzu-dU-ILg" secondAttribute="leading" constant="15" id="4JK-W1-gWL"/>
@@ -1050,7 +1050,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3ob-XM-hPO" customClass="BorderedView" customModule="TravgateApp" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3ob-XM-hPO" customClass="BorderedView" customModule="Travgate" customModuleProvider="target">
                                         <rect key="frame" x="192.66666666666663" y="0.0" width="187.33333333333337" height="74"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bQh-Pz-JYU">
@@ -1136,7 +1136,7 @@
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mjY-5f-x7V">
                                         <rect key="frame" x="0.0" y="21" width="404" height="245"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WaR-qi-woe" customClass="BorderedView" customModule="TravgateApp" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WaR-qi-woe" customClass="BorderedView" customModule="Travgate" customModuleProvider="target">
                                                 <rect key="frame" x="12" y="8" width="380" height="70"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time Of Outward Journey" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EPA-fl-F7f">
@@ -1195,7 +1195,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o1n-ez-ari" customClass="BorderedView" customModule="TravgateApp" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o1n-ez-ari" customClass="BorderedView" customModule="Travgate" customModuleProvider="target">
                                                 <rect key="frame" x="12" y="86" width="380" height="70"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time Of Return Journey" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2xh-xY-HZl">
@@ -1254,7 +1254,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dNH-RB-gPb" customClass="BorderedView" customModule="TravgateApp" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dNH-RB-gPb" customClass="BorderedView" customModule="Travgate" customModuleProvider="target">
                                                 <rect key="frame" x="12" y="164" width="380" height="70"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Airline" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yMz-E2-jAe">
@@ -1345,14 +1345,14 @@
                                 </constraints>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="4Kc-eq-oTY">
-                                <rect key="frame" x="12" y="86" width="380" height="0.0"/>
+                                <rect key="frame" x="12" y="89" width="380" height="0.0"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" id="hys-pk-RuQ"/>
                                 </constraints>
                             </tableView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="6KK-rm-HNf">
-                                <rect key="frame" x="12" y="164" width="380" height="0.0"/>
+                                <rect key="frame" x="12" y="167" width="380" height="0.0"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" id="rao-AT-nzx"/>
@@ -1417,7 +1417,7 @@
                         <color key="backgroundColor" red="0.96078431372549022" green="0.98431372549019602" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="m2B-Ho-uwt" firstAttribute="top" secondItem="7eB-Fp-qkP" secondAttribute="top" constant="73" id="0or-fw-TZ8"/>
-                            <constraint firstItem="6KK-rm-HNf" firstAttribute="top" secondItem="laL-7q-pIO" secondAttribute="bottom" id="3ff-HL-0wz"/>
+                            <constraint firstItem="6KK-rm-HNf" firstAttribute="top" secondItem="laL-7q-pIO" secondAttribute="bottom" constant="3" id="3ff-HL-0wz"/>
                             <constraint firstItem="kIK-8T-7Bh" firstAttribute="top" secondItem="pNI-6H-l9w" secondAttribute="bottom" constant="18" id="4e4-HV-iCj"/>
                             <constraint firstItem="6KK-rm-HNf" firstAttribute="trailing" secondItem="laL-7q-pIO" secondAttribute="trailing" id="98x-Qv-NGe"/>
                             <constraint firstItem="huY-kN-cmK" firstAttribute="top" secondItem="TsD-Il-vGh" secondAttribute="bottom" constant="19" id="ANJ-A2-1Q8"/>
@@ -1446,7 +1446,7 @@
                             <constraint firstItem="laL-7q-pIO" firstAttribute="leading" secondItem="7eB-Fp-qkP" secondAttribute="leading" constant="12" id="ra5-gX-uIx"/>
                             <constraint firstAttribute="trailing" secondItem="pNI-6H-l9w" secondAttribute="trailing" constant="12" id="wJb-nl-JXQ"/>
                             <constraint firstItem="pNI-6H-l9w" firstAttribute="leading" secondItem="7eB-Fp-qkP" secondAttribute="leading" constant="12" id="wja-y6-Pao"/>
-                            <constraint firstItem="4Kc-eq-oTY" firstAttribute="top" secondItem="I9g-dC-gbt" secondAttribute="bottom" id="wkW-cT-Qdw"/>
+                            <constraint firstItem="4Kc-eq-oTY" firstAttribute="top" secondItem="I9g-dC-gbt" secondAttribute="bottom" constant="3" id="wkW-cT-Qdw"/>
                             <constraint firstItem="F12-gK-2lN" firstAttribute="leading" secondItem="7eB-Fp-qkP" secondAttribute="leading" constant="12" id="y3Z-OE-Nb6"/>
                             <constraint firstAttribute="trailing" secondItem="F12-gK-2lN" secondAttribute="trailing" constant="12" id="yyF-TB-7nt"/>
                         </constraints>

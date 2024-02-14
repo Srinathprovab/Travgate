@@ -11,7 +11,6 @@ class FlightSearchVC: BaseTableVC, SearchDataViewModelDelegate, GetAirlineViewMo
     
     
     
-    
     @IBOutlet weak var logoimg: UIImageView!
     @IBOutlet weak var onewayView: BorderedView!
     @IBOutlet weak var onewaylbl: UILabel!
@@ -26,9 +25,7 @@ class FlightSearchVC: BaseTableVC, SearchDataViewModelDelegate, GetAirlineViewMo
         let vc = storyboard.instantiateViewController(withIdentifier: self.className()) as? FlightSearchVC
         return vc
     }
-    
-    
-    
+     
     
     override func viewWillAppear(_ animated: Bool) {
         callGetRecentSearchAPI()
@@ -45,16 +42,12 @@ class FlightSearchVC: BaseTableVC, SearchDataViewModelDelegate, GetAirlineViewMo
         MySingleton.shared.airlinevm = GetAirlineViewModel(self)
     }
     
-    
-    
-    
-    
     func onewayTap() {
-        logoimg.image = UIImage(named: "onewayimg")
+      //  logoimg.image = UIImage(named: "onewayimg")
         onewayView.backgroundColor = .Buttoncolor
         roundtripView.backgroundColor = .WhiteColor
         multicityView.backgroundColor = .WhiteColor
-        onewaylbl.textColor = .WhiteColor
+        onewaylbl.textColor = .TitleColor
         roundtriplbl.textColor = .TitleColor
         multicitylbl.textColor = .TitleColor
         
@@ -63,12 +56,12 @@ class FlightSearchVC: BaseTableVC, SearchDataViewModelDelegate, GetAirlineViewMo
     }
     
     func roundtripTap() {
-        logoimg.image = UIImage(named: "circleimg")
+      //  logoimg.image = UIImage(named: "circleimg")
         onewayView.backgroundColor = .WhiteColor
         roundtripView.backgroundColor = .Buttoncolor
         multicityView.backgroundColor = .WhiteColor
         onewaylbl.textColor = .TitleColor
-        roundtriplbl.textColor = .WhiteColor
+        roundtriplbl.textColor = .TitleColor
         multicitylbl.textColor = .TitleColor
         
         defaults.set("circle", forKey: UserDefaultsKeys.journeyType)
@@ -81,7 +74,7 @@ class FlightSearchVC: BaseTableVC, SearchDataViewModelDelegate, GetAirlineViewMo
         multicityView.backgroundColor = .Buttoncolor
         onewaylbl.textColor = .TitleColor
         roundtriplbl.textColor = .TitleColor
-        multicitylbl.textColor = .WhiteColor
+        multicitylbl.textColor = .TitleColor
         
         // setupOnewayTVCells()
     }

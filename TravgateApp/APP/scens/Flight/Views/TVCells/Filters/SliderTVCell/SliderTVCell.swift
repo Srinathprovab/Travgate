@@ -63,7 +63,7 @@ class SliderTVCell: TableViewCell, TTRangeSliderDelegate {
         sliderHolderView.backgroundColor = .WhiteColor
         downImg.image = UIImage(named: "downarrow")
         downBtn.setTitle("", for: .normal)
-        setupLabels(lbl: titlelbl, text: "", textcolor: .TitleColor, font: .OpenSansBold(size: 16))
+        setupLabels(lbl: titlelbl, text: "", textcolor: .TitleColor, font: .OpenSansRegular(size: 16))
         setuplabels(lbl: minlbl, text: "", textcolor: .TitleColor, font: .OpenSansBold(size: 16), align: .center)
         setuplabels(lbl: maxlbl, text: "", textcolor: .TitleColor, font: .OpenSansBold(size: 16), align: .center)
         rangeSlider.isHidden = true

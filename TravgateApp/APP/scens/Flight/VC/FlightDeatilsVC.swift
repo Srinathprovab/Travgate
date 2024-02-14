@@ -56,6 +56,8 @@ class FlightDeatilsVC: BaseTableVC, FlightDetailsViewModelDelegate {
         commonTableView.registerTVCells(["TicketIssuingTimeTVCell",
                                          "ItineraryTVCell",
                                          "EmptyTVCell",
+                                         "BaggageInfoTVCell",
+                                         "FareRulesTVCell",
                                          "FareBreakdownTVCell"])
         
         
@@ -173,6 +175,7 @@ extension FlightDeatilsVC {
     
     func callAPI() {
         holderView.isHidden = true
+        
         MySingleton.shared.afterResultsBool = true
         loderBool = true
         showLoadera()
@@ -251,7 +254,9 @@ extension FlightDeatilsVC {
     func setupFareRulesTVCell() {
         
         MySingleton.shared.tablerow.removeAll()
-        
+        MySingleton.shared.tablerow.append(TableRow(height:10,cellType:.EmptyTVCell))
+        MySingleton.shared.tablerow.append(TableRow(key:"hide",cellType: .FareRulesTVCell))
+        MySingleton.shared.tablerow.append(TableRow(key:"show",cellType: .FareRulesTVCell))
         
         commonTVData = MySingleton.shared.tablerow
         commonTableView.reloadData()
@@ -262,6 +267,18 @@ extension FlightDeatilsVC {
     func setupBaggageTVCell() {
         
         MySingleton.shared.tablerow.removeAll()
+        
+        
+        if defaults.string(forKey: UserDefaultsKeys.journeyType) == "oneway" {
+            MySingleton.shared.tablerow.append(TableRow(title:"Departure",cellType:.BaggageInfoTVCell))
+        }else {
+            MySingleton.shared.tablerow.append(TableRow(title:"Departure",cellType:.BaggageInfoTVCell))
+            MySingleton.shared.tablerow.append(TableRow(height:10,cellType:.EmptyTVCell))
+            MySingleton.shared.tablerow.append(TableRow(title:"Return",cellType:.BaggageInfoTVCell))
+        }
+        
+        
+        MySingleton.shared.tablerow.append(TableRow(height:50,cellType:.EmptyTVCell))
         
         commonTVData = MySingleton.shared.tablerow
         commonTableView.reloadData()

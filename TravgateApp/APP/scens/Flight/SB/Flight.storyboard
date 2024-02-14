@@ -35,7 +35,7 @@
         <!--Flight SearchVC-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="FlightSearchVC" id="Y6W-OH-hqX" customClass="FlightSearchVC" customModule="TravgateApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FlightSearchVC" id="Y6W-OH-hqX" customClass="FlightSearchVC" customModule="Travgate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -46,7 +46,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Har-xg-mtw">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="260"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onewayimg" translatesAutoresizingMaskIntoConstraints="NO" id="OJZ-HI-kfg">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="searchbg" translatesAutoresizingMaskIntoConstraints="NO" id="OJZ-HI-kfg">
                                                 <rect key="frame" x="0.0" y="0.0" width="393" height="260"/>
                                             </imageView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T74-qI-64P">
@@ -79,13 +79,13 @@
                                                     <constraint firstAttribute="height" constant="24" id="ogk-u8-sMo"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Rj-ej-weC" customClass="BorderedView" customModule="TravgateApp" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Rj-ej-weC" customClass="BorderedView" customModule="Travgate" customModuleProvider="target">
                                                 <rect key="frame" x="14" y="112" width="365" height="40"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="iBt-rX-Ret">
                                                         <rect key="frame" x="12" y="6" width="341" height="28"/>
                                                         <subviews>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eVb-YQ-jpO" customClass="BorderedView" customModule="TravgateApp" customModuleProvider="target">
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eVb-YQ-jpO" customClass="BorderedView" customModule="Travgate" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="163.66666666666666" height="28"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="One - way" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tZN-tp-bv3">
@@ -119,7 +119,7 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GMI-5q-a8n" customClass="BorderedView" customModule="TravgateApp" customModuleProvider="target">
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GMI-5q-a8n" customClass="BorderedView" customModule="Travgate" customModuleProvider="target">
                                                                 <rect key="frame" x="177.66666666666663" y="0.0" width="163.33333333333337" height="28"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Round - Trip" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8dj-xx-obn">
@@ -153,7 +153,7 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
-                                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UcF-e3-iYI" customClass="BorderedView" customModule="TravgateApp" customModuleProvider="target">
+                                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UcF-e3-iYI" customClass="BorderedView" customModule="Travgate" customModuleProvider="target">
                                                                 <rect key="frame" x="341" y="0.0" width="0.0" height="28"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Multi - City" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OfO-Cs-vtH">
@@ -204,7 +204,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ilT-BB-EA0" customClass="BorderedView" customModule="TravgateApp" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ilT-BB-EA0" customClass="BorderedView" customModule="Travgate" customModuleProvider="target">
                                                 <rect key="frame" x="136.66666666666666" y="57" width="119.99999999999997" height="30"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flight Search" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mSg-oG-cSG">
@@ -215,7 +215,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
-                                                <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="backgroundColor" name="BlurColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="1Dn-4T-nbu"/>
                                                     <constraint firstItem="mSg-oG-cSG" firstAttribute="top" secondItem="ilT-BB-EA0" secondAttribute="top" id="1ZM-sz-qGo"/>
@@ -291,7 +291,7 @@
         <!--Flight ResultVC-->
         <scene sceneID="1j5-C9-HPx">
             <objects>
-                <viewController storyboardIdentifier="FlightResultVC" id="lH4-Ti-SxC" customClass="FlightResultVC" customModule="TravgateApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FlightResultVC" id="lH4-Ti-SxC" customClass="FlightResultVC" customModule="Travgate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="C82-gJ-7jo">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -339,7 +339,7 @@
                                                     <constraint firstAttribute="height" constant="30" id="8Zt-Fx-MUG"/>
                                                     <constraint firstAttribute="width" constant="80" id="l6L-Sz-ZTL"/>
                                                 </constraints>
-                                                <color key="tintColor" name="WhiteColor"/>
+                                                <color key="tintColor" name="HeadingColor"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="" image="Group 18076"/>
                                                 <connections>
@@ -366,13 +366,13 @@
                                             <constraint firstItem="UXo-os-VIc" firstAttribute="leading" secondItem="pi5-wu-IiL" secondAttribute="leading" constant="13" id="ytK-FZ-lct"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dpp-2E-w0X" customClass="BorderedView" customModule="TravgateApp" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dpp-2E-w0X" customClass="BorderedView" customModule="Travgate" customModuleProvider="target">
                                         <rect key="frame" x="16" y="160" width="361" height="38.333333333333343"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="NVe-2h-Qwd">
                                                 <rect key="frame" x="149" y="5" width="63" height="16.666666666666668"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30-08-2023" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xDH-KM-mZb">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30-08-2023" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xDH-KM-mZb">
                                                         <rect key="frame" x="0.0" y="0.0" width="63" height="16.666666666666668"/>
                                                         <fontDescription key="fontDescription" name="OpenSans-Medium" family="Open Sans" pointSize="12"/>
                                                         <nil key="textColor"/>
@@ -385,9 +385,13 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="xDH-KM-mZb" secondAttribute="bottom" id="TPB-Eb-OSC"/>
+                                                    <constraint firstItem="xDH-KM-mZb" firstAttribute="top" secondItem="p0F-aB-ht3" secondAttribute="bottom" id="m0l-pe-NCf"/>
+                                                </constraints>
                                             </stackView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(DXB - KWI)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QIs-de-aGU">
-                                                <rect key="frame" x="154" y="22.666666666666657" width="53" height="13.666666666666664"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(DXB - KWI)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QIs-de-aGU">
+                                                <rect key="frame" x="149" y="22.666666666666657" width="63" height="13.666666666666664"/>
                                                 <fontDescription key="fontDescription" name="OpenSans-Medium" family="Open Sans" pointSize="10"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -512,7 +516,9 @@
                                             <constraint firstItem="NVe-2h-Qwd" firstAttribute="top" secondItem="Dpp-2E-w0X" secondAttribute="top" constant="5" id="Hym-fc-0WR"/>
                                             <constraint firstItem="NVe-2h-Qwd" firstAttribute="leading" secondItem="C2c-IE-ci9" secondAttribute="trailing" constant="20" id="Jcx-qj-e8K"/>
                                             <constraint firstItem="0hG-Np-etu" firstAttribute="leading" secondItem="2bW-2f-SS1" secondAttribute="trailing" constant="20" id="P3T-Yo-LZE"/>
+                                            <constraint firstItem="QIs-de-aGU" firstAttribute="leading" secondItem="xDH-KM-mZb" secondAttribute="leading" id="WCY-77-4el"/>
                                             <constraint firstAttribute="trailing" secondItem="0hG-Np-etu" secondAttribute="trailing" constant="15" id="bcO-mt-R4E"/>
+                                            <constraint firstItem="QIs-de-aGU" firstAttribute="trailing" secondItem="xDH-KM-mZb" secondAttribute="trailing" id="eaY-I3-zF2"/>
                                             <constraint firstItem="NVe-2h-Qwd" firstAttribute="centerX" secondItem="Dpp-2E-w0X" secondAttribute="centerX" id="g1h-Bm-e4V"/>
                                             <constraint firstItem="C2c-IE-ci9" firstAttribute="leading" secondItem="9BY-lD-AnW" secondAttribute="trailing" constant="23" id="gUp-cI-fVp"/>
                                             <constraint firstItem="QIs-de-aGU" firstAttribute="top" secondItem="NVe-2h-Qwd" secondAttribute="bottom" constant="1" id="ood-uf-uiA"/>
@@ -570,7 +576,7 @@
         <!--Modify SearchVC-->
         <scene sceneID="IDi-3v-M01">
             <objects>
-                <viewController storyboardIdentifier="ModifySearchVC" id="JiC-hh-SZ5" customClass="ModifySearchVC" customModule="TravgateApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ModifySearchVC" id="JiC-hh-SZ5" customClass="ModifySearchVC" customModule="Travgate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wn8-He-GHz">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -584,13 +590,13 @@
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fsearch" translatesAutoresizingMaskIntoConstraints="NO" id="fsJ-CZ-x4C">
                                                 <rect key="frame" x="0.0" y="0.0" width="393" height="260"/>
                                             </imageView>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="soU-S2-9EU" customClass="BorderedView" customModule="TravgateApp" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="soU-S2-9EU" customClass="BorderedView" customModule="Travgate" customModuleProvider="target">
                                                 <rect key="frame" x="14" y="122" width="365" height="40"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="qwF-ED-9TQ">
                                                         <rect key="frame" x="12" y="6" width="341" height="28"/>
                                                         <subviews>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V38-MT-ZRE" customClass="BorderedView" customModule="TravgateApp" customModuleProvider="target">
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V38-MT-ZRE" customClass="BorderedView" customModule="Travgate" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="163.66666666666666" height="28"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="One - way" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eet-tf-ig4">
@@ -624,7 +630,7 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t5E-AE-1F9" customClass="BorderedView" customModule="TravgateApp" customModuleProvider="target">
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t5E-AE-1F9" customClass="BorderedView" customModule="Travgate" customModuleProvider="target">
                                                                 <rect key="frame" x="177.66666666666663" y="0.0" width="163.33333333333337" height="28"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Round - Trip" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OfF-gZ-CBj">
@@ -658,7 +664,7 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
-                                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jsS-XC-YXi" customClass="BorderedView" customModule="TravgateApp" customModuleProvider="target">
+                                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jsS-XC-YXi" customClass="BorderedView" customModule="Travgate" customModuleProvider="target">
                                                                 <rect key="frame" x="341" y="0.0" width="0.0" height="28"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Multi - City" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BFh-9Y-Dxc">
@@ -722,7 +728,7 @@
                                                     <action selector="didTapOnBackBtnAction:" destination="JiC-hh-SZ5" eventType="touchUpInside" id="oGT-L8-wud"/>
                                                 </connections>
                                             </button>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h3J-a0-wZ6" customClass="BorderedView" customModule="TravgateApp" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h3J-a0-wZ6" customClass="BorderedView" customModule="Travgate" customModuleProvider="target">
                                                 <rect key="frame" x="136.66666666666666" y="52" width="119.99999999999997" height="30"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Modify Search" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tfe-6o-wQR">
@@ -733,7 +739,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
-                                                <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="backgroundColor" name="BlurColor"/>
                                                 <constraints>
                                                     <constraint firstItem="Tfe-6o-wQR" firstAttribute="leading" secondItem="h3J-a0-wZ6" secondAttribute="leading" id="9Oq-cN-ybx"/>
                                                     <constraint firstAttribute="trailing" secondItem="Tfe-6o-wQR" secondAttribute="trailing" id="MEQ-zb-a32"/>
@@ -811,7 +817,7 @@
         <!--Similar FlightsVC-->
         <scene sceneID="LFp-JK-syD">
             <objects>
-                <viewController storyboardIdentifier="SimilarFlightsVC" id="pzb-nJ-CNC" customClass="SimilarFlightsVC" customModule="TravgateApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SimilarFlightsVC" id="pzb-nJ-CNC" customClass="SimilarFlightsVC" customModule="Travgate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OBn-hc-Trz">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -885,12 +891,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cVg-L5-gVR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1535" y="-2"/>
+            <point key="canvasLocation" x="1503" y="-2"/>
         </scene>
         <!--Flight DeatilsVC-->
         <scene sceneID="aNA-y6-C4I">
             <objects>
-                <viewController storyboardIdentifier="FlightDeatilsVC" id="clN-4d-beo" customClass="FlightDeatilsVC" customModule="TravgateApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FlightDeatilsVC" id="clN-4d-beo" customClass="FlightDeatilsVC" customModule="Travgate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LbY-Pp-Jf2">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -935,7 +941,7 @@
                                         <rect key="frame" x="0.0" y="215" width="393" height="537"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </tableView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RUG-PL-ib6" customClass="BorderedView" customModule="TravgateApp" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RUG-PL-ib6" customClass="BorderedView" customModule="Travgate" customModuleProvider="target">
                                         <rect key="frame" x="16" y="762" width="361" height="65"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Book Now" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xJK-EF-mfb">
@@ -977,173 +983,94 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sIM-b1-28v" customClass="BorderedView" customModule="TravgateApp" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sIM-b1-28v" customClass="BorderedView" customModule="Travgate" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="120" width="393" height="95"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x7K-lv-tDq" customClass="BorderedView" customModule="TravgateApp" customModuleProvider="target">
-                                                <rect key="frame" x="10" y="16" width="120" height="30"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ZZB-0i-qCz">
+                                                <rect key="frame" x="10" y="16" width="373" height="30"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flight Itinerary" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v02-9m-cxM">
-                                                        <rect key="frame" x="10.333333333333336" y="5.3333333333333428" width="99.666666666666657" height="19.333333333333332"/>
-                                                        <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="14"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aLT-Ok-523">
-                                                        <rect key="frame" x="0.0" y="0.0" width="120" height="30"/>
-                                                        <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain"/>
-                                                        <connections>
-                                                            <action selector="didTapOnIttnaryBtnAction:" destination="clN-4d-beo" eventType="touchUpInside" id="1a0-A0-wXL"/>
-                                                        </connections>
-                                                    </button>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x7K-lv-tDq" customClass="BorderedView" customModule="Travgate" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="176.66666666666666" height="30"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Itinerary" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v02-9m-cxM">
+                                                                <rect key="frame" x="54.666666666666671" y="4" width="67" height="22"/>
+                                                                <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="16"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aLT-Ok-523">
+                                                                <rect key="frame" x="0.0" y="0.0" width="176.66666666666666" height="30"/>
+                                                                <state key="normal" title="Button"/>
+                                                                <buttonConfiguration key="configuration" style="plain"/>
+                                                                <connections>
+                                                                    <action selector="didTapOnIttnaryBtnAction:" destination="clN-4d-beo" eventType="touchUpInside" id="1a0-A0-wXL"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="trailing" secondItem="aLT-Ok-523" secondAttribute="trailing" id="A1n-9V-aQL"/>
+                                                            <constraint firstItem="v02-9m-cxM" firstAttribute="centerX" secondItem="x7K-lv-tDq" secondAttribute="centerX" id="Ixg-wK-8Pf"/>
+                                                            <constraint firstAttribute="bottom" secondItem="aLT-Ok-523" secondAttribute="bottom" id="P4Q-mo-5gb"/>
+                                                            <constraint firstItem="aLT-Ok-523" firstAttribute="leading" secondItem="x7K-lv-tDq" secondAttribute="leading" id="b9j-gd-noH"/>
+                                                            <constraint firstAttribute="height" constant="30" id="pDN-8f-ELT"/>
+                                                            <constraint firstItem="aLT-Ok-523" firstAttribute="top" secondItem="x7K-lv-tDq" secondAttribute="top" id="puG-Eu-Sd9"/>
+                                                            <constraint firstItem="v02-9m-cxM" firstAttribute="centerY" secondItem="x7K-lv-tDq" secondAttribute="centerY" id="qwt-h5-UZH"/>
+                                                        </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                <color key="value" name="BorderColor"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                <real key="value" value="1"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="4"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QN1-CP-XlP" customClass="BorderedView" customModule="Travgate" customModuleProvider="target">
+                                                        <rect key="frame" x="196.66666666666663" y="0.0" width="176.33333333333337" height="30"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Baggage Info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h5R-gh-OD4">
+                                                                <rect key="frame" x="38" y="4" width="100" height="22"/>
+                                                                <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="16"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EkS-Ml-g4J">
+                                                                <rect key="frame" x="0.0" y="0.0" width="176.33333333333334" height="30"/>
+                                                                <state key="normal" title="Button"/>
+                                                                <buttonConfiguration key="configuration" style="plain"/>
+                                                                <connections>
+                                                                    <action selector="didTapOnBaggageBtnAction:" destination="clN-4d-beo" eventType="touchUpInside" id="gPn-H9-J6E"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstItem="h5R-gh-OD4" firstAttribute="centerX" secondItem="QN1-CP-XlP" secondAttribute="centerX" id="I7J-j3-tZW"/>
+                                                            <constraint firstAttribute="trailing" secondItem="EkS-Ml-g4J" secondAttribute="trailing" id="KQH-fB-jLx"/>
+                                                            <constraint firstItem="EkS-Ml-g4J" firstAttribute="leading" secondItem="QN1-CP-XlP" secondAttribute="leading" id="Pk2-4Z-nu2"/>
+                                                            <constraint firstAttribute="height" constant="30" id="V5C-RK-U73"/>
+                                                            <constraint firstItem="h5R-gh-OD4" firstAttribute="centerY" secondItem="QN1-CP-XlP" secondAttribute="centerY" id="fEW-uF-GzV"/>
+                                                            <constraint firstItem="EkS-Ml-g4J" firstAttribute="top" secondItem="QN1-CP-XlP" secondAttribute="top" id="urW-dc-InU"/>
+                                                            <constraint firstAttribute="bottom" secondItem="EkS-Ml-g4J" secondAttribute="bottom" id="xci-wC-Jaz"/>
+                                                        </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                <color key="value" name="BorderColor"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                <real key="value" value="1"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="4"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="120" id="7Lk-8z-L3O"/>
-                                                    <constraint firstAttribute="trailing" secondItem="aLT-Ok-523" secondAttribute="trailing" id="A1n-9V-aQL"/>
-                                                    <constraint firstItem="v02-9m-cxM" firstAttribute="centerX" secondItem="x7K-lv-tDq" secondAttribute="centerX" id="Ixg-wK-8Pf"/>
-                                                    <constraint firstAttribute="bottom" secondItem="aLT-Ok-523" secondAttribute="bottom" id="P4Q-mo-5gb"/>
-                                                    <constraint firstItem="aLT-Ok-523" firstAttribute="leading" secondItem="x7K-lv-tDq" secondAttribute="leading" id="b9j-gd-noH"/>
-                                                    <constraint firstAttribute="height" constant="30" id="pDN-8f-ELT"/>
-                                                    <constraint firstItem="aLT-Ok-523" firstAttribute="top" secondItem="x7K-lv-tDq" secondAttribute="top" id="puG-Eu-Sd9"/>
-                                                    <constraint firstItem="v02-9m-cxM" firstAttribute="centerY" secondItem="x7K-lv-tDq" secondAttribute="centerY" id="qwt-h5-UZH"/>
-                                                </constraints>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                        <color key="value" name="BorderColor"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                        <real key="value" value="1"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="4"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1gm-hW-VgR" customClass="BorderedView" customModule="TravgateApp" customModuleProvider="target">
-                                                <rect key="frame" x="136" y="16" width="125" height="30"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fare Breakdown" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yjQ-3g-ShA">
-                                                        <rect key="frame" x="7.3333333333333428" y="5.3333333333333428" width="110.66666666666667" height="19.333333333333332"/>
-                                                        <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="14"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Bg-Vo-rqd">
-                                                        <rect key="frame" x="0.0" y="0.0" width="125" height="30"/>
-                                                        <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain"/>
-                                                        <connections>
-                                                            <action selector="didTapOnFareBreakDownBtnAction:" destination="clN-4d-beo" eventType="touchUpInside" id="hAq-Uz-y3w"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="bottom" secondItem="1Bg-Vo-rqd" secondAttribute="bottom" id="8eG-t3-kpj"/>
-                                                    <constraint firstItem="1Bg-Vo-rqd" firstAttribute="leading" secondItem="1gm-hW-VgR" secondAttribute="leading" id="MIo-Sg-UqH"/>
-                                                    <constraint firstItem="1Bg-Vo-rqd" firstAttribute="top" secondItem="1gm-hW-VgR" secondAttribute="top" id="QiS-2r-j60"/>
-                                                    <constraint firstItem="yjQ-3g-ShA" firstAttribute="centerY" secondItem="1gm-hW-VgR" secondAttribute="centerY" id="f3J-GE-tBM"/>
-                                                    <constraint firstAttribute="trailing" secondItem="1Bg-Vo-rqd" secondAttribute="trailing" id="gSy-fq-C3Z"/>
-                                                    <constraint firstAttribute="height" constant="30" id="gSz-2L-Azd"/>
-                                                    <constraint firstItem="yjQ-3g-ShA" firstAttribute="centerX" secondItem="1gm-hW-VgR" secondAttribute="centerX" id="hpR-Ys-CDS"/>
-                                                    <constraint firstAttribute="width" constant="125" id="jJ1-6E-7M0"/>
-                                                </constraints>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                        <color key="value" name="BorderColor"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                        <real key="value" value="1"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="4"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PAb-4r-cb5" customClass="BorderedView" customModule="TravgateApp" customModuleProvider="target">
-                                                <rect key="frame" x="267" y="16" width="90" height="30"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fare Rules" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RCQ-Jn-yOh">
-                                                        <rect key="frame" x="10" y="5.3333333333333428" width="70" height="19.333333333333332"/>
-                                                        <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="14"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vg9-rh-JFr">
-                                                        <rect key="frame" x="0.0" y="0.0" width="90" height="30"/>
-                                                        <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain"/>
-                                                        <connections>
-                                                            <action selector="didTapOnFareRulesBtnAction:" destination="clN-4d-beo" eventType="touchUpInside" id="dA0-wD-6TF"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <constraints>
-                                                    <constraint firstItem="RCQ-Jn-yOh" firstAttribute="centerY" secondItem="PAb-4r-cb5" secondAttribute="centerY" id="AvP-U2-5ca"/>
-                                                    <constraint firstItem="Vg9-rh-JFr" firstAttribute="top" secondItem="PAb-4r-cb5" secondAttribute="top" id="BCb-Ph-Dx5"/>
-                                                    <constraint firstItem="RCQ-Jn-yOh" firstAttribute="centerX" secondItem="PAb-4r-cb5" secondAttribute="centerX" id="GJ5-RP-3D9"/>
-                                                    <constraint firstAttribute="trailing" secondItem="Vg9-rh-JFr" secondAttribute="trailing" id="O4O-A9-ydf"/>
-                                                    <constraint firstAttribute="height" constant="30" id="Sat-yU-uv2"/>
-                                                    <constraint firstAttribute="bottom" secondItem="Vg9-rh-JFr" secondAttribute="bottom" id="ZFn-1o-d0q"/>
-                                                    <constraint firstItem="Vg9-rh-JFr" firstAttribute="leading" secondItem="PAb-4r-cb5" secondAttribute="leading" id="cIK-Ox-oVB"/>
-                                                    <constraint firstAttribute="width" constant="90" id="jxp-5T-tfK"/>
-                                                </constraints>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                        <color key="value" name="BorderColor"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                        <real key="value" value="1"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="4"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QN1-CP-XlP" customClass="BorderedView" customModule="TravgateApp" customModuleProvider="target">
-                                                <rect key="frame" x="10" y="58" width="107" height="30"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Baggage Info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h5R-gh-OD4">
-                                                        <rect key="frame" x="10" y="5.3333333333333428" width="87.333333333333329" height="19.333333333333332"/>
-                                                        <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="14"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EkS-Ml-g4J">
-                                                        <rect key="frame" x="0.0" y="0.0" width="107" height="30"/>
-                                                        <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain"/>
-                                                        <connections>
-                                                            <action selector="didTapOnBaggageBtnAction:" destination="clN-4d-beo" eventType="touchUpInside" id="gPn-H9-J6E"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <constraints>
-                                                    <constraint firstItem="h5R-gh-OD4" firstAttribute="centerX" secondItem="QN1-CP-XlP" secondAttribute="centerX" id="I7J-j3-tZW"/>
-                                                    <constraint firstAttribute="trailing" secondItem="EkS-Ml-g4J" secondAttribute="trailing" id="KQH-fB-jLx"/>
-                                                    <constraint firstItem="EkS-Ml-g4J" firstAttribute="leading" secondItem="QN1-CP-XlP" secondAttribute="leading" id="Pk2-4Z-nu2"/>
-                                                    <constraint firstAttribute="height" constant="30" id="V5C-RK-U73"/>
-                                                    <constraint firstAttribute="width" constant="107" id="Yl8-BJ-9fT"/>
-                                                    <constraint firstItem="h5R-gh-OD4" firstAttribute="centerY" secondItem="QN1-CP-XlP" secondAttribute="centerY" id="fEW-uF-GzV"/>
-                                                    <constraint firstItem="EkS-Ml-g4J" firstAttribute="top" secondItem="QN1-CP-XlP" secondAttribute="top" id="urW-dc-InU"/>
-                                                    <constraint firstAttribute="bottom" secondItem="EkS-Ml-g4J" secondAttribute="bottom" id="xci-wC-Jaz"/>
-                                                </constraints>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                        <color key="value" name="BorderColor"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                        <real key="value" value="1"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="4"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </view>
+                                            </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7T7-nj-Qw2">
                                                 <rect key="frame" x="0.0" y="94" width="393" height="1"/>
                                                 <color key="backgroundColor" name="BorderColor"/>
@@ -1151,20 +1078,103 @@
                                                     <constraint firstAttribute="height" constant="1" id="6Dd-0M-DMv"/>
                                                 </constraints>
                                             </view>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="sQV-Ed-1we">
+                                                <rect key="frame" x="10" y="56" width="373" height="30"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1gm-hW-VgR" customClass="BorderedView" customModule="Travgate" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="176.66666666666666" height="30"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fare Breakdown" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yjQ-3g-ShA">
+                                                                <rect key="frame" x="24.999999999999993" y="4" width="126.33333333333331" height="22"/>
+                                                                <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="16"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Bg-Vo-rqd">
+                                                                <rect key="frame" x="0.0" y="0.0" width="176.66666666666666" height="30"/>
+                                                                <state key="normal" title="Button"/>
+                                                                <buttonConfiguration key="configuration" style="plain"/>
+                                                                <connections>
+                                                                    <action selector="didTapOnFareBreakDownBtnAction:" destination="clN-4d-beo" eventType="touchUpInside" id="hAq-Uz-y3w"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="bottom" secondItem="1Bg-Vo-rqd" secondAttribute="bottom" id="8eG-t3-kpj"/>
+                                                            <constraint firstItem="1Bg-Vo-rqd" firstAttribute="leading" secondItem="1gm-hW-VgR" secondAttribute="leading" id="MIo-Sg-UqH"/>
+                                                            <constraint firstItem="1Bg-Vo-rqd" firstAttribute="top" secondItem="1gm-hW-VgR" secondAttribute="top" id="QiS-2r-j60"/>
+                                                            <constraint firstItem="yjQ-3g-ShA" firstAttribute="centerY" secondItem="1gm-hW-VgR" secondAttribute="centerY" id="f3J-GE-tBM"/>
+                                                            <constraint firstAttribute="trailing" secondItem="1Bg-Vo-rqd" secondAttribute="trailing" id="gSy-fq-C3Z"/>
+                                                            <constraint firstAttribute="height" constant="30" id="gSz-2L-Azd"/>
+                                                            <constraint firstItem="yjQ-3g-ShA" firstAttribute="centerX" secondItem="1gm-hW-VgR" secondAttribute="centerX" id="hpR-Ys-CDS"/>
+                                                        </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                <color key="value" name="BorderColor"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                <real key="value" value="1"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="4"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PAb-4r-cb5" customClass="BorderedView" customModule="Travgate" customModuleProvider="target">
+                                                        <rect key="frame" x="196.66666666666663" y="0.0" width="176.33333333333337" height="30"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fare Rules" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RCQ-Jn-yOh">
+                                                                <rect key="frame" x="48" y="4" width="80" height="22"/>
+                                                                <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="16"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vg9-rh-JFr">
+                                                                <rect key="frame" x="0.0" y="0.0" width="176.33333333333334" height="30"/>
+                                                                <state key="normal" title="Button"/>
+                                                                <buttonConfiguration key="configuration" style="plain"/>
+                                                                <connections>
+                                                                    <action selector="didTapOnFareRulesBtnAction:" destination="clN-4d-beo" eventType="touchUpInside" id="dA0-wD-6TF"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstItem="RCQ-Jn-yOh" firstAttribute="centerY" secondItem="PAb-4r-cb5" secondAttribute="centerY" id="AvP-U2-5ca"/>
+                                                            <constraint firstItem="Vg9-rh-JFr" firstAttribute="top" secondItem="PAb-4r-cb5" secondAttribute="top" id="BCb-Ph-Dx5"/>
+                                                            <constraint firstItem="RCQ-Jn-yOh" firstAttribute="centerX" secondItem="PAb-4r-cb5" secondAttribute="centerX" id="GJ5-RP-3D9"/>
+                                                            <constraint firstAttribute="trailing" secondItem="Vg9-rh-JFr" secondAttribute="trailing" id="O4O-A9-ydf"/>
+                                                            <constraint firstAttribute="height" constant="30" id="Sat-yU-uv2"/>
+                                                            <constraint firstAttribute="bottom" secondItem="Vg9-rh-JFr" secondAttribute="bottom" id="ZFn-1o-d0q"/>
+                                                            <constraint firstItem="Vg9-rh-JFr" firstAttribute="leading" secondItem="PAb-4r-cb5" secondAttribute="leading" id="cIK-Ox-oVB"/>
+                                                        </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                <color key="value" name="BorderColor"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                <real key="value" value="1"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="4"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="sQV-Ed-1we" secondAttribute="trailing" constant="10" id="1vp-Tq-Nbf"/>
                                             <constraint firstAttribute="bottom" secondItem="7T7-nj-Qw2" secondAttribute="bottom" id="7R9-N1-bi6"/>
-                                            <constraint firstItem="1gm-hW-VgR" firstAttribute="leading" secondItem="x7K-lv-tDq" secondAttribute="trailing" constant="6" id="ALs-VF-20Z"/>
-                                            <constraint firstItem="PAb-4r-cb5" firstAttribute="centerY" secondItem="x7K-lv-tDq" secondAttribute="centerY" id="BL1-aZ-axW"/>
-                                            <constraint firstItem="x7K-lv-tDq" firstAttribute="top" secondItem="sIM-b1-28v" secondAttribute="top" constant="16" id="Dwp-4d-eyh"/>
-                                            <constraint firstItem="QN1-CP-XlP" firstAttribute="top" secondItem="x7K-lv-tDq" secondAttribute="bottom" constant="12" id="IhK-d7-QOB"/>
+                                            <constraint firstItem="ZZB-0i-qCz" firstAttribute="leading" secondItem="sIM-b1-28v" secondAttribute="leading" constant="10" id="Bcb-2E-5YV"/>
+                                            <constraint firstItem="sQV-Ed-1we" firstAttribute="leading" secondItem="sIM-b1-28v" secondAttribute="leading" constant="10" id="Hs4-oL-jBt"/>
+                                            <constraint firstAttribute="trailing" secondItem="ZZB-0i-qCz" secondAttribute="trailing" constant="10" id="LDr-el-zTM"/>
+                                            <constraint firstItem="ZZB-0i-qCz" firstAttribute="top" secondItem="sIM-b1-28v" secondAttribute="top" constant="16" id="POd-Fa-btr"/>
                                             <constraint firstItem="7T7-nj-Qw2" firstAttribute="leading" secondItem="sIM-b1-28v" secondAttribute="leading" id="TvS-yc-zLv"/>
-                                            <constraint firstItem="x7K-lv-tDq" firstAttribute="leading" secondItem="sIM-b1-28v" secondAttribute="leading" constant="10" id="X2k-yy-pra"/>
-                                            <constraint firstItem="PAb-4r-cb5" firstAttribute="leading" secondItem="1gm-hW-VgR" secondAttribute="trailing" constant="6" id="fCx-Vm-EqE"/>
+                                            <constraint firstItem="sQV-Ed-1we" firstAttribute="top" secondItem="ZZB-0i-qCz" secondAttribute="bottom" constant="10" id="Xo3-3O-ZCq"/>
                                             <constraint firstAttribute="height" constant="95" id="hXR-Rl-c81"/>
-                                            <constraint firstItem="QN1-CP-XlP" firstAttribute="leading" secondItem="x7K-lv-tDq" secondAttribute="leading" id="k6y-xc-lW7"/>
-                                            <constraint firstItem="1gm-hW-VgR" firstAttribute="centerY" secondItem="x7K-lv-tDq" secondAttribute="centerY" id="pg6-Tl-0Yt"/>
                                             <constraint firstAttribute="trailing" secondItem="7T7-nj-Qw2" secondAttribute="trailing" id="wHt-X9-A8K"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
@@ -1226,7 +1236,7 @@
         <!--No Internet ConnectionVC-->
         <scene sceneID="dpq-FV-F58">
             <objects>
-                <viewController storyboardIdentifier="NoInternetConnectionVC" id="m6i-9e-0B8" customClass="NoInternetConnectionVC" customModule="TravgateApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NoInternetConnectionVC" id="m6i-9e-0B8" customClass="NoInternetConnectionVC" customModule="Travgate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XzT-gC-uUs">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1320,7 +1330,7 @@
         <!--FilterVC-->
         <scene sceneID="VlY-bi-eFJ">
             <objects>
-                <viewController storyboardIdentifier="FilterVC" id="h93-nL-B3h" customClass="FilterVC" customModule="TravgateApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FilterVC" id="h93-nL-B3h" customClass="FilterVC" customModule="Travgate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5Ha-gZ-sts">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1498,7 +1508,7 @@
         <!--Booking DetailsVC-->
         <scene sceneID="Cqq-Jo-PH6">
             <objects>
-                <viewController storyboardIdentifier="BookingDetailsVC" id="3Gt-cw-9Tc" customClass="BookingDetailsVC" customModule="TravgateApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BookingDetailsVC" id="3Gt-cw-9Tc" customClass="BookingDetailsVC" customModule="Travgate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="X4L-g4-J5h">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1543,7 +1553,7 @@
                                         <rect key="frame" x="0.0" y="167" width="393" height="585"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </tableView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aYg-86-XBA" customClass="BorderedView" customModule="TravgateApp" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aYg-86-XBA" customClass="BorderedView" customModule="Travgate" customModuleProvider="target">
                                         <rect key="frame" x="16" y="762" width="361" height="65"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Continue To Payment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fCB-vU-W82">
@@ -1624,7 +1634,7 @@
         <!--View Flight DetailsVC-->
         <scene sceneID="UpT-FB-Z7b">
             <objects>
-                <viewController storyboardIdentifier="ViewFlightDetailsVC" id="NLF-OE-D7E" customClass="ViewFlightDetailsVC" customModule="TravgateApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewFlightDetailsVC" id="NLF-OE-D7E" customClass="ViewFlightDetailsVC" customModule="Travgate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="J2g-6C-bya">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1703,7 +1713,7 @@
         <!--PopupVC-->
         <scene sceneID="fRM-te-0gV">
             <objects>
-                <viewController storyboardIdentifier="PopupVC" id="ETX-1p-4gM" customClass="PopupVC" customModule="TravgateApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PopupVC" id="ETX-1p-4gM" customClass="PopupVC" customModule="Travgate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0al-gb-VxS">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1778,6 +1788,66 @@
             </objects>
             <point key="canvasLocation" x="1679" y="796"/>
         </scene>
+        <!--Flight Itinarry PopupVC-->
+        <scene sceneID="dD8-HC-ov4">
+            <objects>
+                <viewController storyboardIdentifier="FlightItinarryPopupVC" id="NWR-WO-YNR" customClass="FlightItinarryPopupVC" customModule="Travgate" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pgL-Qz-s4A">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lR0-UT-qqZ">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="H1J-5H-1JH">
+                                        <rect key="frame" x="15" y="176" width="363" height="500"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="500" id="PUU-oL-Ifl"/>
+                                        </constraints>
+                                    </tableView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ni2-5k-LqC">
+                                        <rect key="frame" x="348" y="141" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="3ZL-vE-xg6"/>
+                                            <constraint firstAttribute="height" constant="30" id="sID-6Z-2AP"/>
+                                        </constraints>
+                                        <color key="tintColor" red="0.96078431369999995" green="0.98431372549999996" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="close"/>
+                                        <connections>
+                                            <action selector="didTapOnBackBtnAction:" destination="NWR-WO-YNR" eventType="touchUpInside" id="AI8-tg-fuh"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="H1J-5H-1JH" firstAttribute="centerY" secondItem="lR0-UT-qqZ" secondAttribute="centerY" id="2Ax-hH-cte"/>
+                                    <constraint firstItem="H1J-5H-1JH" firstAttribute="centerX" secondItem="lR0-UT-qqZ" secondAttribute="centerX" id="9Zg-Sz-Frs"/>
+                                    <constraint firstAttribute="trailing" secondItem="H1J-5H-1JH" secondAttribute="trailing" constant="15" id="HAg-2t-X4g"/>
+                                    <constraint firstItem="ni2-5k-LqC" firstAttribute="trailing" secondItem="H1J-5H-1JH" secondAttribute="trailing" id="RLJ-v2-dtP"/>
+                                    <constraint firstItem="H1J-5H-1JH" firstAttribute="leading" secondItem="lR0-UT-qqZ" secondAttribute="leading" constant="15" id="YH2-VZ-9yh"/>
+                                    <constraint firstItem="H1J-5H-1JH" firstAttribute="top" secondItem="ni2-5k-LqC" secondAttribute="bottom" constant="5" id="eDt-QB-xll"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="UQy-E4-MlA"/>
+                        <color key="backgroundColor" name="BlurColor"/>
+                        <constraints>
+                            <constraint firstItem="lR0-UT-qqZ" firstAttribute="top" secondItem="pgL-Qz-s4A" secondAttribute="top" id="ZDl-oO-dTz"/>
+                            <constraint firstAttribute="bottom" secondItem="lR0-UT-qqZ" secondAttribute="bottom" id="aoa-Ew-qtg"/>
+                            <constraint firstItem="UQy-E4-MlA" firstAttribute="trailing" secondItem="lR0-UT-qqZ" secondAttribute="trailing" id="bB3-xI-I9S"/>
+                            <constraint firstItem="lR0-UT-qqZ" firstAttribute="leading" secondItem="UQy-E4-MlA" secondAttribute="leading" id="gJb-PN-ekg"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="commonTableView" destination="H1J-5H-1JH" id="nK4-7K-9Ck"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PvM-BC-UnD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2425" y="796"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Group 18076" width="79" height="30"/>
@@ -1787,14 +1857,17 @@
         <image name="filter" width="22" height="22"/>
         <image name="fsearch" width="427" height="267"/>
         <image name="left" width="28" height="28"/>
-        <image name="onewayimg" width="427" height="267"/>
         <image name="right" width="28" height="28"/>
+        <image name="searchbg" width="429" height="268.33334350585938"/>
         <image name="sort" width="26" height="26"/>
         <namedColor name="AppBtnColor">
             <color red="0.32899999618530273" green="0.32400000095367432" blue="0.4779999852180481" alpha="0.33000001311302185" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="BackBtnColor">
             <color red="0.10599999874830246" green="0.29399999976158142" blue="0.36500000953674316" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="BlurColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="BooknowBtnColor">
             <color red="0.93300002813339233" green="0.097999997437000275" blue="0.20800000429153442" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1806,7 +1879,7 @@
             <color red="0.2669999897480011" green="0.70999997854232788" blue="0.046999998390674591" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="HeadingColor">
-            <color red="0.10588235294117647" green="0.29411764705882354" blue="0.36470588235294116" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.10599999874830246" green="0.29399999976158142" blue="0.36500000953674316" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="LayoverColor">
             <color red="0.96100002527236938" green="0.98400002717971802" blue="0.94900000095367432" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1821,13 +1894,13 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemCyanColor">
-            <color red="0.1960784314" green="0.67843137249999996" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.19607843137254902" green="0.67843137254901964" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray3Color">
-            <color red="0.78039215689999997" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

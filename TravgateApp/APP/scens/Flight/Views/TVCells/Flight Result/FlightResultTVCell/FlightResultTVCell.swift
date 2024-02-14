@@ -11,6 +11,8 @@ protocol FlightResultTVCellDelegate {
     func didTapOnFlightDetails(cell:FlightResultTVCell)
     func didTapOnBookNowBtnAction(cell:FlightResultTVCell)
     func didTapOnMoreSimilarFlightBtnAction(cell:FlightResultTVCell)
+    func didTapFlightDetailsPopupBrtnBtnAction(cell:FlightResultTVCell)
+    
 }
 
 class FlightResultTVCell: TableViewCell {
@@ -97,6 +99,11 @@ class FlightResultTVCell: TableViewCell {
     }
     
     
+    
+    @objc func didTapFlightDetailsPopupBrtnBtnAction(_ sender: UIButton) {
+        delegate?.didTapFlightDetailsPopupBrtnBtnAction(cell: self)
+    }
+    
 }
 
 
@@ -130,7 +137,7 @@ extension FlightResultTVCell:UITableViewDelegate,UITableViewDataSource {
             cell.selectionStyle = .none
             let data = flightsummery[indexPath.row]
             
-            
+            cell.flightDetailsTapBtn.addTarget(self, action: #selector(didTapFlightDetailsPopupBrtnBtnAction(_:)), for: .touchUpInside)
             cell.fromCityTimelbl.text = data.origin?.time
             cell.fromCityNamelbl.text = "\(data.origin?.city ?? "")(\(data.origin?.loc ?? ""))"
             cell.toCityTimelbl.text = data.destination?.time

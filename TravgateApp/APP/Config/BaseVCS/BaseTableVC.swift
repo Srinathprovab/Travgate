@@ -97,7 +97,7 @@ class BaseTableVC: UIViewController, TabSelectTVCellDelegate, FlightSearchTVCell
         
     }
     
-    
+   
     
     func didTapOnMenuBtnAction(cell: TabSelectTVCell) {}
     func didTapOnSelectCurrencyBtnAction(cell: TabSelectTVCell) {}
@@ -121,6 +121,7 @@ class BaseTableVC: UIViewController, TabSelectTVCellDelegate, FlightSearchTVCell
     func didTapOnFlightSearchBtnAction(cell:FlightSearchTVCell) {}
     func didTapOnReturnDateBtnAction(cell:FlightSearchTVCell) {}
     
+    func didTapFlightDetailsPopupBrtnBtnAction(cell:FlightResultTVCell){}
     func didTapOnFlightDetails(cell: FlightResultTVCell) {}
     func didTapOnBookNowBtnAction(cell: FlightResultTVCell) {}
     func didTapOnMoreSimilarFlightBtnAction(cell:FlightResultTVCell){}
@@ -183,6 +184,7 @@ class BaseTableVC: UIViewController, TabSelectTVCellDelegate, FlightSearchTVCell
     func didTapOnLoginBtnAction(cell: LoginTVCell) {}
     func didTapOnForgetPasswordBtnAction(cell: LoginTVCell) {}
     func didTapOnSendEmailBtnAction(cell: ResetPasswordTVCell) {}
+    func didTapOnRestPasswordBackBtnAction(cell:ResetPasswordTVCell){}
     func didTapOnRegisterCloseBtnAction(cell: SignupTVCell) {}
     func didTapOnSignupBtnAction(cell: SignupTVCell) {}
     func didTapOnUpdateProfileBtnAction(cell: EditProfileTVCell) {}
@@ -562,6 +564,15 @@ extension BaseTableVC: UITableViewDataSource {
                 commonCell = cell
                 
                 
+                
+            case .BaggageInfoTVCell:
+                let cell: BaggageInfoTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                commonCell = cell
+                
+                
+            case .FareRulesTVCell:
+                let cell: FareRulesTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                commonCell = cell
                 
                 
                 

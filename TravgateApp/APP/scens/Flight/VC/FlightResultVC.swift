@@ -71,6 +71,16 @@ class FlightResultVC: BaseTableVC {
     }
     
     
+    //MARK: - didTapFlightDetailsPopupBrtnBtnAction
+    override func didTapFlightDetailsPopupBrtnBtnAction(cell:FlightResultTVCell){
+        MySingleton.shared.callboolapi = true
+        MySingleton.shared.selectedResult = cell.selectedResult
+        guard let vc = FlightItinarryPopupVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .overCurrentContext
+        present(vc, animated: false)
+    }
+    
+    
     //MARK: - didTapOnBookNowBtnAction
     override func didTapOnBookNowBtnAction(cell: FlightResultTVCell) {
         MySingleton.shared.callboolapi = true

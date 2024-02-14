@@ -156,6 +156,15 @@ class FlightSearchTVCell: TableViewCell, SelectCityViewModelProtocal {
         airlineTF.addTarget(self, action: #selector(searchTextChanged(textField:)), for: .editingChanged)
         airlineTF.addTarget(self, action: #selector(searchTextBegin(textField:)), for: .editingDidBegin)
         
+        
+        
+        fromtv.layer.borderWidth = 1
+        fromtv.layer.borderColor = UIColor.AppBorderColor.cgColor
+        
+        
+        totv.layer.borderWidth = 1
+        totv.layer.borderColor = UIColor.AppBorderColor.cgColor
+        
     }
     
     override func updateUI() {

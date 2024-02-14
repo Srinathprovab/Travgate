@@ -32,7 +32,6 @@ class ResetPasswordVC: BaseTableVC, ResetPasswordViewModelDelegate {
     
     
     func setupUI() {
-        commonTableView.backgroundColor = .WhiteColor
         commonTableView.registerTVCells(["ResetPasswordTVCell"])
         setupTVCells()
     }
@@ -73,10 +72,10 @@ class ResetPasswordVC: BaseTableVC, ResetPasswordViewModelDelegate {
     }
     
     
-
-    @IBAction func didTapOnBackBtnAction(_ sender: Any) {
+    override func didTapOnRestPasswordBackBtnAction(cell:ResetPasswordTVCell){
         dismiss(animated: true)
     }
+
     
 }
 
