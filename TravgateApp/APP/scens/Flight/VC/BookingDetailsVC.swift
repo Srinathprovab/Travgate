@@ -47,6 +47,7 @@ class BookingDetailsVC: BaseTableVC, MPBViewModelDelegate {
                                          "AddDeatilsOfTravellerTVCell",
                                          "ContactInformationTVCell",
                                          "UsePromoCodesTVCell",
+                                         "RegisterSelectionLoginTableViewCell",
                                          "BookingDetailsFlightDataTVCell"])
     }
     
@@ -126,6 +127,10 @@ class BookingDetailsVC: BaseTableVC, MPBViewModelDelegate {
     }
     
     
+    
+    
+    
+    
     //MARK: - didTapOnBackBtnAction
     @IBAction func didTapOnBackBtnAction(_ sender: Any) {
 //        MySingleton.shared.callboolapi = false
@@ -199,6 +204,8 @@ extension BookingDetailsVC {
         
         MySingleton.shared.tablerow.append(TableRow(cellType:.BookingDetailsFlightDataTVCell,
                                                     data1: MySingleton.shared.mpbFlightData?.summary))
+        
+        
         
         
         MySingleton.shared.passengertypeArray.removeAll()

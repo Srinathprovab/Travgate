@@ -17,6 +17,11 @@ extension UIColor {
         }
     }
     
+    public static var AppHolderViewColor: UIColor {
+        get {
+            return HexColor("#F1F3F2")
+        }
+    }
     
     
     public static var BooknowBtnColor : UIColor {

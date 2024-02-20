@@ -62,6 +62,7 @@ enum TVCellType {
     case BookingConfirmedTVCell
     case BCFlightDetailsTVCell
     case BookedTravelDetailsTVCell
+    case RegisterSelectionLoginTableViewCell
     
     
     //FILTER

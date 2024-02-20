@@ -16,6 +16,10 @@ class LoginVC: BaseTableVC, LoginViewModelDelegate {
         let vc = storyboard.instantiateViewController(withIdentifier: self.className()) as? LoginVC
         return vc
     }
+    var email = String()
+    var password = String()
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,15 +31,9 @@ class LoginVC: BaseTableVC, LoginViewModelDelegate {
         
     }
     
-    var email = String()
-    var password = String()
-    
+   
     func setupUI() {
-        self.view.backgroundColor = .black.withAlphaComponent(0.5)
-        commonTableView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner] // Top left corner, Top right corner respectively
-        commonTableView.layer.cornerRadius = 10
-        commonTableView.clipsToBounds = true
-       
+        commonTableView.isScrollEnabled = false
         commonTableView.registerTVCells(["LoginTVCell"])
         setupTVCells()
     }

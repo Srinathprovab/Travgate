@@ -135,6 +135,9 @@
 		654D87182B513D8000256B47 /* EditProfileTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654D87162B513D7F00256B47 /* EditProfileTVCell.swift */; };
 		654D87192B513D8000256B47 /* EditProfileTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 654D87172B513D8000256B47 /* EditProfileTVCell.xib */; };
 		654D871B2B51598F00256B47 /* MyAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654D871A2B51598F00256B47 /* MyAccountVC.swift */; };
+		654FCA622B80CBFC00307ADE /* RegisterSelectionLoginTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654FCA602B80CBFC00307ADE /* RegisterSelectionLoginTableViewCell.swift */; };
+		654FCA632B80CBFC00307ADE /* RegisterSelectionLoginTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 654FCA612B80CBFC00307ADE /* RegisterSelectionLoginTableViewCell.xib */; };
+		654FCA652B80CD1900307ADE /* MBViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654FCA642B80CD1900307ADE /* MBViewModel.swift */; };
 		655FC4A32B731E060019D997 /* AutoPaymentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655FC4A22B731E060019D997 /* AutoPaymentVC.swift */; };
 		658B37052B4BB28C0011932C /* FareBreakdownTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658B37032B4BB28C0011932C /* FareBreakdownTVCell.swift */; };
 		658B37062B4BB28C0011932C /* FareBreakdownTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 658B37042B4BB28C0011932C /* FareBreakdownTVCell.xib */; };
@@ -538,6 +541,9 @@
 		654D87162B513D7F00256B47 /* EditProfileTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileTVCell.swift; sourceTree = "<group>"; };
 		654D87172B513D8000256B47 /* EditProfileTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditProfileTVCell.xib; sourceTree = "<group>"; };
 		654D871A2B51598F00256B47 /* MyAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccountVC.swift; sourceTree = "<group>"; };
+		654FCA602B80CBFC00307ADE /* RegisterSelectionLoginTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterSelectionLoginTableViewCell.swift; sourceTree = "<group>"; };
+		654FCA612B80CBFC00307ADE /* RegisterSelectionLoginTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterSelectionLoginTableViewCell.xib; sourceTree = "<group>"; };
+		654FCA642B80CD1900307ADE /* MBViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBViewModel.swift; sourceTree = "<group>"; };
 		655FC4A22B731E060019D997 /* AutoPaymentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoPaymentVC.swift; sourceTree = "<group>"; };
 		658B37032B4BB28C0011932C /* FareBreakdownTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FareBreakdownTVCell.swift; sourceTree = "<group>"; };
 		658B37042B4BB28C0011932C /* FareBreakdownTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FareBreakdownTVCell.xib; sourceTree = "<group>"; };
@@ -1403,6 +1409,15 @@
 			path = EditProfileTVCell;
 			sourceTree = "<group>";
 		};
+		654FCA5F2B80CBEE00307ADE /* RegisterSelectionLoginTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				654FCA602B80CBFC00307ADE /* RegisterSelectionLoginTableViewCell.swift */,
+				654FCA612B80CBFC00307ADE /* RegisterSelectionLoginTableViewCell.xib */,
+			);
+			path = RegisterSelectionLoginTableViewCell;
+			sourceTree = "<group>";
+		};
 		658B37022B4BB2720011932C /* FareBreakdownTVCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -1415,6 +1430,7 @@
 		658B37072B4BDAC50011932C /* BookingDetails */ = {
 			isa = PBXGroup;
 			children = (
+				654FCA5F2B80CBEE00307ADE /* RegisterSelectionLoginTableViewCell */,
 				658B37472B4D56C80011932C /* RadioButtonTVCell */,
 				658B373E2B4D54EB0011932C /* UsePromoCodesTVCell */,
 				658B373D2B4D54E40011932C /* ContactInformationTVCell */,
@@ -2052,6 +2068,7 @@
 				65220A932B7493FA0010654E /* SearchDataViewModel.swift */,
 				659CE6732B7653C800D2BEBE /* SearchLoaderViewModel.swift */,
 				65D39CF12B7B7D6700917F74 /* GetAirlineViewModel.swift */,
+				654FCA642B80CD1900307ADE /* MBViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -2853,6 +2870,7 @@
 				651717FA2B43F8D4003D3723 /* Lato-Light.ttf in Resources */,
 				659CE68D2B76586F00D2BEBE /* AmenitiesCVCell.xib in Resources */,
 				651718002B43F8D4003D3723 /* Poppins-ExtraBold.ttf in Resources */,
+				654FCA632B80CBFC00307ADE /* RegisterSelectionLoginTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3137,6 +3155,7 @@
 				65CB2D112B49542D009B5B2E /* Baggage_details.swift in Sources */,
 				651717E92B43F8D4003D3723 /* BorderView.swift in Sources */,
 				658B379A2B4D77BF0011932C /* BookingConfirmedTVCell.swift in Sources */,
+				654FCA652B80CD1900307ADE /* MBViewModel.swift in Sources */,
 				65F253122B57E40A00ECD22A /* SearchHotelVC.swift in Sources */,
 				659CE6582B76321400D2BEBE /* Format_desc.swift in Sources */,
 				6532717E2B73397100D52486 /* VisaTVCell.swift in Sources */,
@@ -3151,6 +3170,7 @@
 				658B37612B4D72A10011932C /* UIButtonExtension.swift in Sources */,
 				65CB7A4A2B67669600A2E110 /* HotelSearchNewModel.swift in Sources */,
 				653E2D2A2B47EB650082AFF6 /* FlightClass.swift in Sources */,
+				654FCA622B80CBFC00307ADE /* RegisterSelectionLoginTableViewCell.swift in Sources */,
 				65220A8E2B7493520010654E /* SearchDataModel.swift in Sources */,
 				65220A9A2B74BA870010654E /* LoderVC.swift in Sources */,
 				654D870F2B50FA8800256B47 /* SignupTVCell.swift in Sources */,
@@ -3440,7 +3460,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = 5TLY5PME9K;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TravgateApp/Info.plist;
@@ -3474,7 +3494,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = 5TLY5PME9K;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TravgateApp/Info.plist;

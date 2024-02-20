@@ -32,6 +32,7 @@ class ResetPasswordVC: BaseTableVC, ResetPasswordViewModelDelegate {
     
     
     func setupUI() {
+        commonTableView.isScrollEnabled = false
         commonTableView.registerTVCells(["ResetPasswordTVCell"])
         setupTVCells()
     }
