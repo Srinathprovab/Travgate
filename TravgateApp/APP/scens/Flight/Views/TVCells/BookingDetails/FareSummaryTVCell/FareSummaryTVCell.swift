@@ -29,9 +29,12 @@ class FareSummaryTVCell: TableViewCell {
     @IBOutlet weak var check1img: UIImageView!
     @IBOutlet weak var check2img: UIImageView!
     @IBOutlet weak var totalAmount: UILabel!
+    @IBOutlet weak var addonView: UIView!
+    @IBOutlet weak var addonValue: UILabel!
     
     var check1bool = false
     var check2bool = false
+    var totalkwdvalue: Decimal = 0
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -87,6 +90,23 @@ class FareSummaryTVCell: TableViewCell {
             show(v: infantview)
         }
         
+        
+        if MySingleton.shared.addonSelectedArray.count > 0 {
+            addonView.isHidden = false
+        }else {
+            addonView.isHidden = true
+            totalkwdvalue = 0
+        }
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(addon(_:)), name: NSNotification.Name("addon"), object: nil)
+    }
+    
+   
+
+    @objc func addon(_ ns: NSNotification) {
+        
+        totalkwdvalue = Decimal(MySingleton.shared.selectedAddonTotalPrice)
+        addonValue.text = "\(defaults.string(forKey: UserDefaultsKeys.selectedCurrency) ?? ""): \(totalkwdvalue)"
     }
     
     

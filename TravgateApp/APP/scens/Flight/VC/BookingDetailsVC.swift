@@ -10,8 +10,6 @@ import UIKit
 class BookingDetailsVC: BaseTableVC, MPBViewModelDelegate {
     
     
-    
-    
     @IBOutlet weak var sessionlbl: UILabel!
     @IBOutlet weak var holderView: UIView!
     static var newInstance: BookingDetailsVC? {
@@ -48,6 +46,9 @@ class BookingDetailsVC: BaseTableVC, MPBViewModelDelegate {
                                          "ContactInformationTVCell",
                                          "UsePromoCodesTVCell",
                                          "RegisterSelectionLoginTableViewCell",
+                                         "InternationalTravelInsuranceTVCell",
+                                         "SpecialAssistanceTVCell",
+                                         "AddonTVCell",
                                          "BookingDetailsFlightDataTVCell"])
     }
     
@@ -119,7 +120,6 @@ class BookingDetailsVC: BaseTableVC, MPBViewModelDelegate {
         }
     }
     
-    
    
     override func didTapOnDropDownBtn(cell: ContactInformationTVCell) {
         MySingleton.shared.nationalityCode = cell.isoCountryCode
@@ -128,8 +128,19 @@ class BookingDetailsVC: BaseTableVC, MPBViewModelDelegate {
     
     
     
+    //MARK: - didTapOnAddonServiceBtnAction
+    override func didTapOnAddonServiceBtnAction(cell: AddonTVCell) {
+        reloadFareSummaryCell()
+    }
     
     
+    func reloadFareSummaryCell() {
+        if let fareSummaryCellIndex = MySingleton.shared.tablerow.firstIndex(where: { $0.cellType == .FareSummaryTVCell }) {
+            let indexPath = IndexPath(row: fareSummaryCellIndex, section: 0)
+            commonTableView.reloadRows(at: [indexPath], with: .none)
+        }
+    }
+
     
     //MARK: - didTapOnBackBtnAction
     @IBAction func didTapOnBackBtnAction(_ sender: Any) {
@@ -180,7 +191,7 @@ extension BookingDetailsVC {
         MySingleton.shared.mpbpriceDetails = response.pre_booking_params?.priceDetails
         MySingleton.shared.mpbFlightData = response.flight_data?[0].flight_details
         MySingleton.shared.frequent_flyersArray = response.frequent_flyers ?? []
-        
+        MySingleton.shared.addonServices = response.pre_booking_params?.addon_services ?? []
         MySingleton.shared.tmpFlightPreBookingId = response.pre_booking_params?.transaction_id ?? ""
         MySingleton.shared.accesskeytp = response.access_key_tp ?? ""
         
@@ -256,6 +267,11 @@ extension BookingDetailsVC {
         MySingleton.shared.tablerow.append(TableRow(cellType:.ContactInformationTVCell))
         MySingleton.shared.tablerow.append(TableRow(height:10,cellType:.EmptyTVCell))
         MySingleton.shared.tablerow.append(TableRow(cellType:.UsePromoCodesTVCell))
+        MySingleton.shared.tablerow.append(TableRow(cellType:.InternationalTravelInsuranceTVCell))
+        MySingleton.shared.tablerow.append(TableRow(cellType:.SpecialAssistanceTVCell))
+        MySingleton.shared.tablerow.append(TableRow(height:10,cellType:.EmptyTVCell))
+        MySingleton.shared.tablerow.append(TableRow(cellType:.AddonTVCell))
+        MySingleton.shared.tablerow.append(TableRow(height:10,cellType:.EmptyTVCell))
         MySingleton.shared.tablerow.append(TableRow(height:10,cellType:.EmptyTVCell))
         MySingleton.shared.tablerow.append(TableRow(cellType:.FareSummaryTVCell))
         MySingleton.shared.tablerow.append(TableRow(height:50,cellType:.EmptyTVCell))
@@ -673,7 +689,7 @@ extension BookingDetailsVC:TimerManagerDelegate {
     
     
     func timerDidFinish() {
-        print("timerDidFinish")
+       // gotoPopupScreen()
     }
     
     

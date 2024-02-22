@@ -13,6 +13,7 @@ struct Pre_booking_params : Codable {
 	let user_id : String?
 	let transaction_id : String?
 	let priceDetails : PriceDetails?
+    let addon_services : [Addon_services]?
 
 	enum CodingKeys: String, CodingKey {
 
@@ -27,6 +28,7 @@ struct Pre_booking_params : Codable {
 		case user_id = "user_id"
 		case transaction_id = "transaction_id"
 		case priceDetails = "priceDetails"
+        case addon_services = "addon_services"
 	}
 
 	init(from decoder: Decoder) throws {
@@ -42,6 +44,7 @@ struct Pre_booking_params : Codable {
 		user_id = try values.decodeIfPresent(String.self, forKey: .user_id)
 		transaction_id = try values.decodeIfPresent(String.self, forKey: .transaction_id)
 		priceDetails = try values.decodeIfPresent(PriceDetails.self, forKey: .priceDetails)
+        addon_services = try values.decodeIfPresent([Addon_services].self, forKey: .addon_services)
 	}
 
 }

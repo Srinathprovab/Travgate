@@ -75,6 +75,7 @@ class MySingleton {
     var mpbFlightData : MPBFlightDetails?
     var travelerArray: [Traveler] = []
     var frequent_flyersArray = [Frequent_flyers]()
+    var addonServices = [Addon_services]()
     var ageCategory: AgeCategory = .adult
     var passportExpireDateBool = false
     var passengertypeArray = [String]()
@@ -83,7 +84,7 @@ class MySingleton {
     var payemail = String()
     var paymobile = String()
     var paymobilecountrycode = String()
-    var viewmodel1:MobileSecureBookingViewModel?
+   
     var nationalityCode = String()
     var email = String()
     var password = String()
@@ -95,7 +96,9 @@ class MySingleton {
     var Recentsearches = [Recent_searches]()
     var clist = [All_country_code_list]()
     var airlinelist = [AirlineDate]()
-    
+    var addson:Addson = .nothing
+    var addonSelectedArray = [String]()
+    var selectedAddonTotalPrice = 0
     var loginvm:LoginViewModel?
     var resetpasswordvm:ResetPasswordViewModel?
     var registervm:RegisterViewModel?
@@ -107,6 +110,7 @@ class MySingleton {
     var lodervm:SearchLoaderViewModel?
     var hotellodervm:SearchHotelLoderViewModel?
     var airlinevm:GetAirlineViewModel?
+    var viewmodel1:MobileSecureBookingViewModel?
     
     
     

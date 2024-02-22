@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="OpenSans-SemiBold.ttf">
+            <string>OpenSans-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="71" id="KGk-i7-Jjw" customClass="AddonTVCell" customModule="Travgate" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="401" height="71"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="401" height="71"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yeb-8E-CtV" customClass="BorderedView" customModule="Travgate" customModuleProvider="target">
+                        <rect key="frame" x="16" y="0.0" width="369" height="71"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add on" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="baN-ej-JU8">
+                                <rect key="frame" x="15" y="15.000000000000002" width="339" height="24.666666666666671"/>
+                                <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="tod-gh-WJP">
+                                <rect key="frame" x="15" y="54.666666666666664" width="339" height="1"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="Q96-wZ-MFO"/>
+                                </constraints>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="baN-ej-JU8" firstAttribute="leading" secondItem="yeb-8E-CtV" secondAttribute="leading" constant="15" id="9f5-j0-biX"/>
+                            <constraint firstAttribute="trailing" secondItem="baN-ej-JU8" secondAttribute="trailing" constant="15" id="H15-QP-Dr7"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="71" id="IfP-h9-jmT"/>
+                            <constraint firstItem="tod-gh-WJP" firstAttribute="leading" secondItem="yeb-8E-CtV" secondAttribute="leading" constant="15" id="KA8-zT-436"/>
+                            <constraint firstAttribute="bottom" secondItem="tod-gh-WJP" secondAttribute="bottom" constant="15.33" id="dHQ-hb-cvn"/>
+                            <constraint firstAttribute="trailing" secondItem="tod-gh-WJP" secondAttribute="trailing" constant="15" id="dk4-JM-Zve"/>
+                            <constraint firstItem="baN-ej-JU8" firstAttribute="top" secondItem="yeb-8E-CtV" secondAttribute="top" constant="15" id="ogv-AP-yaG"/>
+                            <constraint firstItem="tod-gh-WJP" firstAttribute="top" secondItem="baN-ej-JU8" secondAttribute="bottom" constant="15" id="uRV-iN-SZV"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" name="BorderColor"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="6"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="yeb-8E-CtV" secondAttribute="trailing" constant="16" id="czC-ny-8iG"/>
+                    <constraint firstAttribute="bottom" secondItem="yeb-8E-CtV" secondAttribute="bottom" id="fYW-IB-oSw"/>
+                    <constraint firstItem="yeb-8E-CtV" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="j0I-5D-Lp9"/>
+                    <constraint firstItem="yeb-8E-CtV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="vHv-H2-nIQ"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="addsonTV" destination="tod-gh-WJP" id="QDq-n0-kwV"/>
+                <outlet property="tvHeight" destination="Q96-wZ-MFO" id="HmF-1g-MHo"/>
+            </connections>
+            <point key="canvasLocation" x="130.53435114503816" y="120.77464788732395"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="BorderColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.14999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
