@@ -225,6 +225,8 @@ extension BookingDetailsVC {
                                                     subTitle: defaults.string(forKey: UserDefaultsKeys.totalTravellerCount),
                                                     cellType:.TotalNoofTravellerTVCell))
         
+        
+        
         for i in 1...Int(MySingleton.shared.adultsCount) {
             MySingleton.shared.positionsCount += 1
             MySingleton.shared.passengertypeArray.append("Adult")

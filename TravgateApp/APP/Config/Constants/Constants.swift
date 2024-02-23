@@ -162,6 +162,9 @@ struct ApiEndpoints {
     static let hotelmobiledetails = "mobile_details"
     
     
+    //VISA
+    static let visa_enquiry_form = "visa/visa_enquiry_form"
+    
 }
 
 /*App messages*/
@@ -208,10 +211,10 @@ struct UserDefaultsKeys {
     static var toCity = "toCity"
     static var calDepDate = "calDepDate"
     static var calRetDate = "calRetDate"
-    static var adultCount = "Adult_Count"
-    static var childCount = "Child_Count"
     static var hadultCount = "HAdult_Count"
     static var hchildCount = "HChild_Count"
+    static var adultCount = "Adult_Count"
+    static var childCount = "Child_Count"
     static var infantsCount = "Infants_Count"
     static var selectClass = "select_class"
     static var rselectClass = "rselect_class"
@@ -288,6 +291,13 @@ struct UserDefaultsKeys {
     static var selectPersons = "selectPersons"
     static var kwdprice = "kwdprice"
     
+    
+    //visa
+    static var travelDate = "travelDate"
+    static var visaadultCount = "visaadultCount"
+    static var visachildCount = "visachildCount"
+    static var visainfantsCount = "visainfantsCount"
+    static var visatotalpassengercount = "visatotalpassengercount"
 }
 
 

@@ -178,11 +178,12 @@ class FlightSearchTVCell: TableViewCell, SelectCityViewModelProtocal {
         totvHeight.constant = 0
         CallShowCityListAPI(str: "")
         
+       
         adultCountlbl.text = defaults.string(forKey: UserDefaultsKeys.adultCount) ?? "1"
         childCountlbl.text = defaults.string(forKey: UserDefaultsKeys.childCount) ?? "0"
         infantCountlbl.text = defaults.string(forKey: UserDefaultsKeys.infantsCount) ?? "0"
         
-        MySingleton.shared.adultsCount = Int(defaults.string(forKey: UserDefaultsKeys.adultCount) ?? "") ?? 0
+        MySingleton.shared.adultsCount = Int(defaults.string(forKey: UserDefaultsKeys.adultCount) ?? "") ?? 1
         MySingleton.shared.childCount = Int(defaults.string(forKey: UserDefaultsKeys.childCount) ?? "") ?? 0
         MySingleton.shared.infantsCount = Int(defaults.string(forKey: UserDefaultsKeys.infantsCount) ?? "") ?? 0
         

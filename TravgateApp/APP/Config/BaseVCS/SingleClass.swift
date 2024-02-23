@@ -91,6 +91,12 @@ class MySingleton {
     var mobile = String()
     var fname = String()
     var lname = String()
+    
+    var visaNationalityCode = String()
+    var visaResidencyCode = String()
+    var visaDestinationCode = String()
+    var visaCountryCode = String()
+    
     var confpassword = String()
     var recentData:[Recent_searches]?
     var Recentsearches = [Recent_searches]()
@@ -111,6 +117,7 @@ class MySingleton {
     var hotellodervm:SearchHotelLoderViewModel?
     var airlinevm:GetAirlineViewModel?
     var viewmodel1:MobileSecureBookingViewModel?
+    var visavm:VisaEnquireyViewModel?
     
     
     

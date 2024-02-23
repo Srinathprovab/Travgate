@@ -91,6 +91,7 @@ enum TVCellType {
     //VISA
     case VisaTVCell
     case AutoPaymentTVCell
+    case TravellerEconomyTVCell
   
     
     

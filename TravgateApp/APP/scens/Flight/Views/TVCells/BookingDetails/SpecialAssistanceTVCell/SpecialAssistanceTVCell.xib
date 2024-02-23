@@ -61,7 +61,7 @@
                             <constraint firstAttribute="bottom" secondItem="S1o-oO-lr2" secondAttribute="bottom" id="Aly-pC-pNX"/>
                             <constraint firstItem="Rbg-95-xpf" firstAttribute="top" secondItem="xqD-yv-XBt" secondAttribute="bottom" constant="30" id="L2s-dF-QGg"/>
                             <constraint firstItem="S1o-oO-lr2" firstAttribute="leading" secondItem="Gah-vo-ErQ" secondAttribute="leading" constant="8" id="SJP-FG-nTb"/>
-                            <constraint firstAttribute="height" constant="166" id="Y2M-FP-pPi"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="166" id="Y2M-FP-pPi"/>
                             <constraint firstItem="gDZ-kN-S58" firstAttribute="top" secondItem="xqD-yv-XBt" secondAttribute="bottom" constant="15" id="aJi-9f-2G5"/>
                             <constraint firstItem="xqD-yv-XBt" firstAttribute="leading" secondItem="Gah-vo-ErQ" secondAttribute="leading" constant="15" id="dOU-iy-1uJ"/>
                             <constraint firstAttribute="trailing" secondItem="S1o-oO-lr2" secondAttribute="trailing" constant="15" id="eRk-Ds-zgb"/>
@@ -101,7 +101,7 @@
     <resources>
         <image name="uncheck" width="28" height="30"/>
         <namedColor name="BorderColor">
-            <color red="0.0" green="0.0" blue="0.0" alpha="0.15999999642372131" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.15000000596046448" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
