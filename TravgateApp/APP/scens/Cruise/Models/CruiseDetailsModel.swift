@@ -10,17 +10,19 @@ import Foundation
 struct CruiseDetailsModel : Codable {
     let status : String?
     let cruise_data : Cruise_data?
-
+    let message : String?
     enum CodingKeys: String, CodingKey {
 
         case status = "status"
         case cruise_data = "cruise_data"
+        case message = "message"
     }
 
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         status = try values.decodeIfPresent(String.self, forKey: .status)
         cruise_data = try values.decodeIfPresent(Cruise_data.self, forKey: .cruise_data)
+        message = try values.decodeIfPresent(String.self, forKey: .message)
     }
 
 }

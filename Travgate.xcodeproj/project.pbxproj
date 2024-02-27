@@ -323,6 +323,7 @@
 		65BFE1DC2B8DE93800CE27B2 /* CruisePassengerSelectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BFE1DB2B8DE93800CE27B2 /* CruisePassengerSelectVC.swift */; };
 		65BFE1E02B8DF64600CE27B2 /* HolidayContactdetailsTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BFE1DE2B8DF64600CE27B2 /* HolidayContactdetailsTVCell.swift */; };
 		65BFE1E12B8DF64600CE27B2 /* HolidayContactdetailsTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65BFE1DF2B8DF64600CE27B2 /* HolidayContactdetailsTVCell.xib */; };
+		65BFE1E72B8DFD2E00CE27B2 /* CruiseEnquireySucessVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BFE1E62B8DFD2E00CE27B2 /* CruiseEnquireySucessVC.swift */; };
 		65C5900D2B60FB3C00BF7DB9 /* NewDepartureTimeTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C5900B2B60FB3C00BF7DB9 /* NewDepartureTimeTVCell.swift */; };
 		65C5900E2B60FB3C00BF7DB9 /* NewDepartureTimeTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65C5900C2B60FB3C00BF7DB9 /* NewDepartureTimeTVCell.xib */; };
 		65C590102B63C9CE00BF7DB9 /* LogoutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C5900F2B63C9CE00BF7DB9 /* LogoutViewModel.swift */; };
@@ -773,6 +774,7 @@
 		65BFE1DB2B8DE93800CE27B2 /* CruisePassengerSelectVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CruisePassengerSelectVC.swift; sourceTree = "<group>"; };
 		65BFE1DE2B8DF64600CE27B2 /* HolidayContactdetailsTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidayContactdetailsTVCell.swift; sourceTree = "<group>"; };
 		65BFE1DF2B8DF64600CE27B2 /* HolidayContactdetailsTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HolidayContactdetailsTVCell.xib; sourceTree = "<group>"; };
+		65BFE1E62B8DFD2E00CE27B2 /* CruiseEnquireySucessVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CruiseEnquireySucessVC.swift; sourceTree = "<group>"; };
 		65C5900B2B60FB3C00BF7DB9 /* NewDepartureTimeTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDepartureTimeTVCell.swift; sourceTree = "<group>"; };
 		65C5900C2B60FB3C00BF7DB9 /* NewDepartureTimeTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewDepartureTimeTVCell.xib; sourceTree = "<group>"; };
 		65C5900F2B63C9CE00BF7DB9 /* LogoutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutViewModel.swift; sourceTree = "<group>"; };
@@ -1568,6 +1570,7 @@
 			children = (
 				654242F22B8CA39100434876 /* CruiseVC.swift */,
 				65BFE1C62B8DA97800CE27B2 /* CruiseDetailsVC.swift */,
+				65BFE1E62B8DFD2E00CE27B2 /* CruiseEnquireySucessVC.swift */,
 				65BFE1DB2B8DE93800CE27B2 /* CruisePassengerSelectVC.swift */,
 			);
 			path = VC;
@@ -3667,6 +3670,7 @@
 				65C590102B63C9CE00BF7DB9 /* LogoutViewModel.swift in Sources */,
 				6517182A2B441630003D3723 /* TripsVC.swift in Sources */,
 				653B3E0F2B8893C200328B35 /* VisaPassengerSelectVC.swift in Sources */,
+				65BFE1E72B8DFD2E00CE27B2 /* CruiseEnquireySucessVC.swift in Sources */,
 				654D87142B511CF900256B47 /* EditProfileVC.swift in Sources */,
 				65DA1C102B7362890053D519 /* AutopayTabCVCell.swift in Sources */,
 				65BFE1D92B8DC34800CE27B2 /* CruiseContactdetailsTVCell.swift in Sources */,

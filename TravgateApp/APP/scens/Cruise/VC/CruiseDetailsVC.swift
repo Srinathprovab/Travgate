@@ -11,6 +11,7 @@ class CruiseDetailsVC: BaseTableVC, CruiseDetailsViewModelDelegate {
     
     
     
+    
     static var newInstance: CruiseDetailsVC? {
         let storyboard = UIStoryboard(name: Storyboard.Cruise.name,
                                       bundle: nil)
@@ -32,6 +33,7 @@ class CruiseDetailsVC: BaseTableVC, CruiseDetailsViewModelDelegate {
         // Do any additional setup after loading the view.
         setupUI()
         
+        MySingleton.shared.cruisedetailsvm = CruiseDetailsViewModel(self)
         MySingleton.shared.cruisedetailsvm = CruiseDetailsViewModel(self)
     }
     
@@ -70,14 +72,12 @@ class CruiseDetailsVC: BaseTableVC, CruiseDetailsViewModelDelegate {
     //MARK: -  donedatePicker  cancelDatePicker
     override func donedatePicker(cell:CruiseContactdetailsTVCell){
         
-        
         let formatter = DateFormatter()
-        formatter.dateFormat = "dd-MM-yyyy"
+        formatter.dateFormat = "dd/MM/yyyy"
+        
         defaults.set(formatter.string(from: cell.travelFromDatePicker.date), forKey: UserDefaultsKeys.fromtravelDate)
         
         defaults.set(formatter.string(from: cell.travelToDatePicker.date), forKey: UserDefaultsKeys.totravelDate)
-        
-        
         
         
         commonTableView.reloadData()
@@ -91,29 +91,25 @@ class CruiseDetailsVC: BaseTableVC, CruiseDetailsViewModelDelegate {
     
     //MARK: -  didTapOnSubmitEnquiryBtnAction
     override func didTapOnSubmitEnquiryBtnAction(cell:CruiseContactdetailsTVCell){
-        print(MySingleton.shared.mrtitle)
-        print(fname)
-        print(MySingleton.shared.cruiseCountryCode)
-        print(mobile)
-        print(emailid)
-        print(defaults.string(forKey: UserDefaultsKeys.cruisadultCount))
-        print(defaults.string(forKey: UserDefaultsKeys.cruischildCount))
-        print(defaults.string(forKey: UserDefaultsKeys.cruisinfantsCount))
-        print(MySingleton.shared.travelfrom)
-        print(MySingleton.shared.travelto)
         
         
-//    title:Mr
-//    full_name:Anuj Kumar
-//    email:anuj.kumar@provabtechnosoft.com
-//    country_id:91
-//    adult_count:1
-//    child_count:1
-//    infant_count:1
-//    travel_date:28/02/2024
-//    contact_number:9873655626
-//    created_for_cruise_id:5
-//    request_type:1
+        if MySingleton.shared.mrtitle.isEmpty == true {
+            showToast(message: "Select Title For Your Name")
+        }else if fname.isEmpty == true {
+            showToast(message: "Enter First Name")
+        }else if emailid.isEmpty == true {
+            showToast(message: "Enter Email Address")
+        }else if emailid.isValidEmail() == false {
+            showToast(message: "Enter Valid Email Address")
+        }else if MySingleton.shared.cruiseCountryCode.isEmpty == true {
+            showToast(message: "Select Country Code")
+        }else if mobile.isEmpty == true {
+            showToast(message: "Enter Mobile Number")
+        }else if MySingleton.shared.travelfrom.isEmpty == true {
+            showToast(message: "Enter travel Date")
+        }else {
+            callCruiseEnquireyAPI()
+        }
         
         
     }
@@ -186,6 +182,47 @@ extension CruiseDetailsVC {
     }
     
     
+    
+}
+
+
+
+extension CruiseDetailsVC {
+    
+    func callCruiseEnquireyAPI() {
+        
+        MySingleton.shared.payload.removeAll()
+        MySingleton.shared.payload["title"] = MySingleton.shared.mrtitle
+        MySingleton.shared.payload["full_name"] = fname
+        MySingleton.shared.payload["email"] = emailid
+        MySingleton.shared.payload["country_id"] = MySingleton.shared.cruiseCountryCode
+        MySingleton.shared.payload["contact_number"] = mobile
+        MySingleton.shared.payload["adult_count"] = defaults.string(forKey: UserDefaultsKeys.cruisadultCount)
+        MySingleton.shared.payload["child_count"] = defaults.string(forKey: UserDefaultsKeys.cruischildCount)
+        MySingleton.shared.payload["infant_count"] = defaults.string(forKey: UserDefaultsKeys.cruisinfantsCount)
+        MySingleton.shared.payload["travel_date"] = defaults.string(forKey: UserDefaultsKeys.fromtravelDate)
+        
+        MySingleton.shared.payload["created_for_cruise_id"] = "5"
+        MySingleton.shared.payload["request_type"] = "1"
+        
+        MySingleton.shared.cruisedetailsvm?.CALL_CRUISE_ENQUIREY_API(dictParam: MySingleton.shared.payload)
+    }
+    
+    
+    func cruiseEnquireyDetails(response: LoginModel) {
+       
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            self.gotoCruiseEnquireySucessVC()
+         }
+        
+    }
+    
+    
+    func gotoCruiseEnquireySucessVC() {
+        guard let vc = CruiseEnquireySucessVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .overCurrentContext
+        present(vc, animated: false)
+    }
     
 }
 

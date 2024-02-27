@@ -9,6 +9,7 @@ import Foundation
 
 protocol CruiseDetailsViewModelDelegate : BaseViewModelProtocol {
     func cruiseDetails(response : CruiseDetailsModel)
+    func cruiseEnquireyDetails(response : LoginModel)
 
 }
 
@@ -40,5 +41,30 @@ class CruiseDetailsViewModel {
             }
         }
     }
+    
+    
+    
+    func CALL_CRUISE_ENQUIREY_API(dictParam: [String: Any]){
+        let parms = NSDictionary(dictionary:dictParam)
+        print("Parameters = \(parms)")
+
+        self.view?.showLoader()
+
+        ServiceManager.postOrPutApiCall(endPoint: ApiEndpoints.cruise_cruise_enquiry_form, parameters: parms, resultType: LoginModel.self, p:dictParam) { sucess, result, errorMessage in
+
+            DispatchQueue.main.async {
+                self.view?.hideLoader()
+                if sucess {
+                    guard let response = result else {return}
+                    self.view.cruiseEnquireyDetails(response: response)
+                } else {
+                   
+                    self.view.showToast(message: errorMessage ?? "")
+                }
+            }
+        }
+    }
+    
+    
 
 }

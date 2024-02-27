@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -180,10 +181,60 @@
             </objects>
             <point key="canvasLocation" x="1642" y="-2"/>
         </scene>
+        <!--Cruise Enquirey SucessVC-->
+        <scene sceneID="FS8-RT-HXO">
+            <objects>
+                <viewController storyboardIdentifier="CruiseEnquireySucessVC" id="Rq1-fk-gCV" customClass="CruiseEnquireySucessVC" customModule="Travgate" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eXD-X9-VhV">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fUR-5q-Ldd" customClass="BorderedView" customModule="Travgate" customModuleProvider="target">
+                                <rect key="frame" x="16.666666666666657" y="296" width="360" height="260"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="thankyou" translatesAutoresizingMaskIntoConstraints="NO" id="nsX-D9-Ghj">
+                                        <rect key="frame" x="0.0" y="0.0" width="360" height="260"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="260" id="5Gz-QK-XVe"/>
+                                    <constraint firstItem="nsX-D9-Ghj" firstAttribute="leading" secondItem="fUR-5q-Ldd" secondAttribute="leading" id="NqJ-fh-ZZk"/>
+                                    <constraint firstAttribute="trailing" secondItem="nsX-D9-Ghj" secondAttribute="trailing" id="QHX-EP-G56"/>
+                                    <constraint firstAttribute="bottom" secondItem="nsX-D9-Ghj" secondAttribute="bottom" id="UBK-0f-XnU"/>
+                                    <constraint firstItem="nsX-D9-Ghj" firstAttribute="top" secondItem="fUR-5q-Ldd" secondAttribute="top" id="qbn-9I-j7E"/>
+                                    <constraint firstAttribute="width" constant="360" id="sRH-7g-TS9"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="xnZ-Ub-USq"/>
+                        <color key="backgroundColor" name="BlurColor"/>
+                        <constraints>
+                            <constraint firstItem="fUR-5q-Ldd" firstAttribute="centerX" secondItem="eXD-X9-VhV" secondAttribute="centerX" id="QkG-XB-K19"/>
+                            <constraint firstItem="fUR-5q-Ldd" firstAttribute="centerY" secondItem="eXD-X9-VhV" secondAttribute="centerY" id="yFK-Ls-vMV"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="img" destination="nsX-D9-Ghj" id="Cll-id-fGi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MWv-02-xNg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2608" y="10"/>
+        </scene>
     </scenes>
     <resources>
         <image name="back1" width="20" height="20"/>
         <image name="close" width="26" height="26"/>
+        <image name="thankyou" width="379" height="257"/>
+        <namedColor name="BlurColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.40000000596046448" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

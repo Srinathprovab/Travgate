@@ -166,6 +166,7 @@ struct ApiEndpoints {
     static let visa_enquiry_form = "visa/visa_enquiry_form"
     static let cruise_get_cruise_list = "cruise/get_cruise_list"
     static let cruise_get_more_info = "cruise/get_more_info/"
+    static let cruise_cruise_enquiry_form = "cruise/cruise_enquiry_form"
     
     
 }

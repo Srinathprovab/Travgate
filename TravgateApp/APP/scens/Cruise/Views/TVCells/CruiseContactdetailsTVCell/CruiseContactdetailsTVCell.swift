@@ -266,7 +266,7 @@ extension CruiseContactdetailsTVCell {
         travelFromDatePicker.preferredDatePickerStyle = .wheels
         
         let formter = DateFormatter()
-        formter.dateFormat = "dd-MM-yyyy"
+        formter.dateFormat = "dd/MM/yyyy"
         
         
         if let calDepDate = formter.date(from: defaults.string(forKey: UserDefaultsKeys.calDepDate) ?? "") {
@@ -303,7 +303,7 @@ extension CruiseContactdetailsTVCell {
         travelToDatePicker.preferredDatePickerStyle = .wheels
         
         let formter = DateFormatter()
-        formter.dateFormat = "dd-MM-yyyy"
+        formter.dateFormat = "dd/MM/yyyy"
         
         
         

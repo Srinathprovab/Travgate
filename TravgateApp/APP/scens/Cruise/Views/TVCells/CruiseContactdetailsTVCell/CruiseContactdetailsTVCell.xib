@@ -382,10 +382,10 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="393" height="55"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5OV-uS-9LD" customClass="BorderedView" customModule="Travgate" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="191.66666666666666" height="55"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="393" height="55"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cal" translatesAutoresizingMaskIntoConstraints="NO" id="fFV-Zv-bm9">
-                                                                <rect key="frame" x="157.66666666666666" y="15.333333333333371" width="24" height="24"/>
+                                                                <rect key="frame" x="359" y="15.333333333333371" width="24" height="24"/>
                                                                 <color key="tintColor" name="Buttoncolor"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="24" id="25K-Sp-4Rl"/>
@@ -393,7 +393,7 @@
                                                                 </constraints>
                                                             </imageView>
                                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Select Date" placeholder="From" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yce-1u-jC5">
-                                                                <rect key="frame" x="0.0" y="0.0" width="157.66666666666666" height="55"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="359" height="55"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
@@ -420,11 +420,11 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1CG-34-ace" customClass="BorderedView" customModule="Travgate" customModuleProvider="target">
-                                                        <rect key="frame" x="201.66666666666663" y="0.0" width="191.33333333333337" height="55"/>
+                                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1CG-34-ace" customClass="BorderedView" customModule="Travgate" customModuleProvider="target">
+                                                        <rect key="frame" x="393" y="0.0" width="34" height="55"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cal" translatesAutoresizingMaskIntoConstraints="NO" id="Ek8-6t-fTS">
-                                                                <rect key="frame" x="157.33333333333334" y="15.333333333333371" width="24" height="24"/>
+                                                                <rect key="frame" x="0.0" y="15.333333333333371" width="24" height="24"/>
                                                                 <color key="tintColor" name="Buttoncolor"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="24" id="LBS-d0-JOe"/>
@@ -432,7 +432,7 @@
                                                                 </constraints>
                                                             </imageView>
                                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Select Date" placeholder="To" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QuG-z9-Kvk">
-                                                                <rect key="frame" x="0.0" y="0.0" width="157.33333333333334" height="55"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="55"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
