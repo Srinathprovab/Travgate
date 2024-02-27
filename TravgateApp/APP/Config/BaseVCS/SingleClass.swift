@@ -42,7 +42,9 @@ class MySingleton {
     var topHotelDetails = [TopHotelDetails]()
     var deail_code_list = [Deal_code_list]()
     var currencyListArray = [SelectCurrencyData]()
-    
+    var cruiseList = [CruiseData]()
+    var cruise : CruiseModel?
+    var cruiseDetails : CruiseDetailsModel?
     
   
     
@@ -91,11 +93,16 @@ class MySingleton {
     var mobile = String()
     var fname = String()
     var lname = String()
+    var travelfrom = String()
+    var travelto = String()
+    var mrtitle = String()
     
     var visaNationalityCode = String()
     var visaResidencyCode = String()
     var visaDestinationCode = String()
     var visaCountryCode = String()
+    var cruiseKeyStr = String()
+    var cruiseCountryCode = String()
     
     var confpassword = String()
     var recentData:[Recent_searches]?
@@ -118,6 +125,8 @@ class MySingleton {
     var airlinevm:GetAirlineViewModel?
     var viewmodel1:MobileSecureBookingViewModel?
     var visavm:VisaEnquireyViewModel?
+    var cruisevm:CruiseViewModel?
+    var cruisedetailsvm:CruiseDetailsViewModel?
     
     
     

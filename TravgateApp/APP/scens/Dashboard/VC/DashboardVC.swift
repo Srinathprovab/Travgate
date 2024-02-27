@@ -103,8 +103,8 @@ class DashboardVC: BaseTableVC, AllCountryCodeListViewModelDelegate {
         gotoVisaVC()
     }
     
-    override func didTapOnInsurancebtnAction(cell: TabSelectTVCell) {
-        print("didTapOnInsurancebtnAction")
+    override func didTapOnHolidaysbtnAction(cell: TabSelectTVCell) {
+        gotoHolidaysVC()
     }
     
     override func didTapOnTransfersbtnAction(cell: TabSelectTVCell) {
@@ -116,7 +116,7 @@ class DashboardVC: BaseTableVC, AllCountryCodeListViewModelDelegate {
     }
     
     override func didTapOnCruisebtnAction(cell: TabSelectTVCell) {
-        print("didTapOnCruisebtnAction")
+        gotoCruiseVC()
     }
     
     override func didTapOnAutopaybtnAction(cell: TabSelectTVCell) {
@@ -180,6 +180,22 @@ extension DashboardVC {
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)
     }
+    
+    
+    func gotoHolidaysVC() {
+        callapibool = true
+        guard let vc = HolidaysVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
+    }
+    
+    func gotoCruiseVC() {
+        callapibool = true
+        guard let vc = CruiseVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
+    }
+    
     
     
     func gotoAutoPaymentVC() {

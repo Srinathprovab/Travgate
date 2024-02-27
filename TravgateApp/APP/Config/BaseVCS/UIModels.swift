@@ -92,8 +92,15 @@ enum TVCellType {
     case VisaTVCell
     case AutoPaymentTVCell
     case TravellerEconomyTVCell
-  
     
+    
+    //HOLIODAYS Cruise
+    case HolidayPackagesTVCell
+    case HolidayItineraryTVCell
+    case HolidayContactdetailsTVCell
+    case CruisePackegesTVCell
+    case CruiseItineraryTVCell
+    case CruiseContactdetailsTVCell
     
 }
 

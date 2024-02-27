@@ -128,6 +128,25 @@
 		653E2D342B47FDEF0082AFF6 /* FlightViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653E2D332B47FDEF0082AFF6 /* FlightViewModel.swift */; };
 		653E2D362B4831690082AFF6 /* ModifySearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653E2D352B4831690082AFF6 /* ModifySearchVC.swift */; };
 		653E2D382B48393A0082AFF6 /* SimilarFlightsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653E2D372B48393A0082AFF6 /* SimilarFlightsVC.swift */; };
+		654242DB2B8C960800434876 /* Holidays.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 654242DA2B8C960800434876 /* Holidays.storyboard */; };
+		654242DD2B8C961B00434876 /* HolidaysVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654242DC2B8C961B00434876 /* HolidaysVC.swift */; };
+		654242E12B8C96F600434876 /* HolidayPackagesTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654242DF2B8C96F600434876 /* HolidayPackagesTVCell.swift */; };
+		654242E22B8C96F600434876 /* HolidayPackagesTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 654242E02B8C96F600434876 /* HolidayPackagesTVCell.xib */; };
+		654242E62B8C998700434876 /* HolidaysInfoTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654242E42B8C998700434876 /* HolidaysInfoTVCell.swift */; };
+		654242E72B8C998700434876 /* HolidaysInfoTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 654242E52B8C998700434876 /* HolidaysInfoTVCell.xib */; };
+		654242F12B8CA37B00434876 /* Cruise.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 654242F02B8CA37B00434876 /* Cruise.storyboard */; };
+		654242F32B8CA39100434876 /* CruiseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654242F22B8CA39100434876 /* CruiseVC.swift */; };
+		654242F72B8CA42700434876 /* CruisePackegesTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654242F52B8CA42700434876 /* CruisePackegesTVCell.swift */; };
+		654242F82B8CA42700434876 /* CruisePackegesTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 654242F62B8CA42700434876 /* CruisePackegesTVCell.xib */; };
+		654242FC2B8CAAFD00434876 /* HolidayItineraryTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654242FA2B8CAAFD00434876 /* HolidayItineraryTVCell.swift */; };
+		654242FD2B8CAAFD00434876 /* HolidayItineraryTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 654242FB2B8CAAFD00434876 /* HolidayItineraryTVCell.xib */; };
+		654243032B8CB0C800434876 /* HolidaysImagesCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654243012B8CB0C800434876 /* HolidaysImagesCVCell.swift */; };
+		654243042B8CB0C800434876 /* HolidaysImagesCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 654243022B8CB0C800434876 /* HolidaysImagesCVCell.xib */; };
+		654243082B8CC20900434876 /* HolidayAddItineraryTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654243062B8CC20900434876 /* HolidayAddItineraryTVCell.swift */; };
+		654243092B8CC20900434876 /* HolidayAddItineraryTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 654243072B8CC20900434876 /* HolidayAddItineraryTVCell.xib */; };
+		6542430B2B8CC24E00434876 /* SelectedHolidayPackageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6542430A2B8CC24E00434876 /* SelectedHolidayPackageVC.swift */; };
+		6542430D2B8CC5F400434876 /* CruiseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6542430C2B8CC5F400434876 /* CruiseModel.swift */; };
+		654243102B8CC65D00434876 /* CruiseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6542430F2B8CC65D00434876 /* CruiseViewModel.swift */; };
 		6545544C2B5F97D5008CE6FD /* ResetPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6545544B2B5F97D5008CE6FD /* ResetPasswordViewModel.swift */; };
 		6545544E2B5F9EA8008CE6FD /* RegisterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6545544D2B5F9EA8008CE6FD /* RegisterModel.swift */; };
 		654554502B5FA060008CE6FD /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6545544F2B5FA060008CE6FD /* RegisterViewModel.swift */; };
@@ -292,6 +311,18 @@
 		65B959312B468F8000A4EAE7 /* SelectCityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B959302B468F8000A4EAE7 /* SelectCityViewModel.swift */; };
 		65B959342B468F9B00A4EAE7 /* SelectCityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B959332B468F9B00A4EAE7 /* SelectCityModel.swift */; };
 		65B959382B46DD7E00A4EAE7 /* CountrylistModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B959372B46DD7E00A4EAE7 /* CountrylistModel.swift */; };
+		65BFE1C72B8DA97800CE27B2 /* CruiseDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BFE1C62B8DA97800CE27B2 /* CruiseDetailsVC.swift */; };
+		65BFE1CB2B8DACDD00CE27B2 /* CruiseItineraryTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BFE1C92B8DACDD00CE27B2 /* CruiseItineraryTVCell.swift */; };
+		65BFE1CC2B8DACDD00CE27B2 /* CruiseItineraryTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65BFE1CA2B8DACDD00CE27B2 /* CruiseItineraryTVCell.xib */; };
+		65BFE1D02B8DAEDE00CE27B2 /* CruiseAddItineraryTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BFE1CE2B8DAEDE00CE27B2 /* CruiseAddItineraryTVCell.swift */; };
+		65BFE1D12B8DAEDE00CE27B2 /* CruiseAddItineraryTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65BFE1CF2B8DAEDE00CE27B2 /* CruiseAddItineraryTVCell.xib */; };
+		65BFE1D32B8DB43700CE27B2 /* CruiseDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BFE1D22B8DB43700CE27B2 /* CruiseDetailsModel.swift */; };
+		65BFE1D52B8DB47200CE27B2 /* CruiseDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BFE1D42B8DB47200CE27B2 /* CruiseDetailsViewModel.swift */; };
+		65BFE1D92B8DC34800CE27B2 /* CruiseContactdetailsTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BFE1D72B8DC34800CE27B2 /* CruiseContactdetailsTVCell.swift */; };
+		65BFE1DA2B8DC34800CE27B2 /* CruiseContactdetailsTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65BFE1D82B8DC34800CE27B2 /* CruiseContactdetailsTVCell.xib */; };
+		65BFE1DC2B8DE93800CE27B2 /* CruisePassengerSelectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BFE1DB2B8DE93800CE27B2 /* CruisePassengerSelectVC.swift */; };
+		65BFE1E02B8DF64600CE27B2 /* HolidayContactdetailsTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BFE1DE2B8DF64600CE27B2 /* HolidayContactdetailsTVCell.swift */; };
+		65BFE1E12B8DF64600CE27B2 /* HolidayContactdetailsTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65BFE1DF2B8DF64600CE27B2 /* HolidayContactdetailsTVCell.xib */; };
 		65C5900D2B60FB3C00BF7DB9 /* NewDepartureTimeTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C5900B2B60FB3C00BF7DB9 /* NewDepartureTimeTVCell.swift */; };
 		65C5900E2B60FB3C00BF7DB9 /* NewDepartureTimeTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65C5900C2B60FB3C00BF7DB9 /* NewDepartureTimeTVCell.xib */; };
 		65C590102B63C9CE00BF7DB9 /* LogoutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C5900F2B63C9CE00BF7DB9 /* LogoutViewModel.swift */; };
@@ -547,6 +578,25 @@
 		653E2D332B47FDEF0082AFF6 /* FlightViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightViewModel.swift; sourceTree = "<group>"; };
 		653E2D352B4831690082AFF6 /* ModifySearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifySearchVC.swift; sourceTree = "<group>"; };
 		653E2D372B48393A0082AFF6 /* SimilarFlightsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimilarFlightsVC.swift; sourceTree = "<group>"; };
+		654242DA2B8C960800434876 /* Holidays.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Holidays.storyboard; sourceTree = "<group>"; };
+		654242DC2B8C961B00434876 /* HolidaysVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidaysVC.swift; sourceTree = "<group>"; };
+		654242DF2B8C96F600434876 /* HolidayPackagesTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidayPackagesTVCell.swift; sourceTree = "<group>"; };
+		654242E02B8C96F600434876 /* HolidayPackagesTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HolidayPackagesTVCell.xib; sourceTree = "<group>"; };
+		654242E42B8C998700434876 /* HolidaysInfoTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidaysInfoTVCell.swift; sourceTree = "<group>"; };
+		654242E52B8C998700434876 /* HolidaysInfoTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HolidaysInfoTVCell.xib; sourceTree = "<group>"; };
+		654242F02B8CA37B00434876 /* Cruise.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Cruise.storyboard; sourceTree = "<group>"; };
+		654242F22B8CA39100434876 /* CruiseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CruiseVC.swift; sourceTree = "<group>"; };
+		654242F52B8CA42700434876 /* CruisePackegesTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CruisePackegesTVCell.swift; sourceTree = "<group>"; };
+		654242F62B8CA42700434876 /* CruisePackegesTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CruisePackegesTVCell.xib; sourceTree = "<group>"; };
+		654242FA2B8CAAFD00434876 /* HolidayItineraryTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidayItineraryTVCell.swift; sourceTree = "<group>"; };
+		654242FB2B8CAAFD00434876 /* HolidayItineraryTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HolidayItineraryTVCell.xib; sourceTree = "<group>"; };
+		654243012B8CB0C800434876 /* HolidaysImagesCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidaysImagesCVCell.swift; sourceTree = "<group>"; };
+		654243022B8CB0C800434876 /* HolidaysImagesCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HolidaysImagesCVCell.xib; sourceTree = "<group>"; };
+		654243062B8CC20900434876 /* HolidayAddItineraryTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidayAddItineraryTVCell.swift; sourceTree = "<group>"; };
+		654243072B8CC20900434876 /* HolidayAddItineraryTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HolidayAddItineraryTVCell.xib; sourceTree = "<group>"; };
+		6542430A2B8CC24E00434876 /* SelectedHolidayPackageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedHolidayPackageVC.swift; sourceTree = "<group>"; };
+		6542430C2B8CC5F400434876 /* CruiseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CruiseModel.swift; sourceTree = "<group>"; };
+		6542430F2B8CC65D00434876 /* CruiseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CruiseViewModel.swift; sourceTree = "<group>"; };
 		6545544B2B5F97D5008CE6FD /* ResetPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewModel.swift; sourceTree = "<group>"; };
 		6545544D2B5F9EA8008CE6FD /* RegisterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterModel.swift; sourceTree = "<group>"; };
 		6545544F2B5FA060008CE6FD /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
@@ -711,6 +761,18 @@
 		65B959302B468F8000A4EAE7 /* SelectCityViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectCityViewModel.swift; sourceTree = "<group>"; };
 		65B959332B468F9B00A4EAE7 /* SelectCityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCityModel.swift; sourceTree = "<group>"; };
 		65B959372B46DD7E00A4EAE7 /* CountrylistModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountrylistModel.swift; sourceTree = "<group>"; };
+		65BFE1C62B8DA97800CE27B2 /* CruiseDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CruiseDetailsVC.swift; sourceTree = "<group>"; };
+		65BFE1C92B8DACDD00CE27B2 /* CruiseItineraryTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CruiseItineraryTVCell.swift; sourceTree = "<group>"; };
+		65BFE1CA2B8DACDD00CE27B2 /* CruiseItineraryTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CruiseItineraryTVCell.xib; sourceTree = "<group>"; };
+		65BFE1CE2B8DAEDE00CE27B2 /* CruiseAddItineraryTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CruiseAddItineraryTVCell.swift; sourceTree = "<group>"; };
+		65BFE1CF2B8DAEDE00CE27B2 /* CruiseAddItineraryTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CruiseAddItineraryTVCell.xib; sourceTree = "<group>"; };
+		65BFE1D22B8DB43700CE27B2 /* CruiseDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CruiseDetailsModel.swift; sourceTree = "<group>"; };
+		65BFE1D42B8DB47200CE27B2 /* CruiseDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CruiseDetailsViewModel.swift; sourceTree = "<group>"; };
+		65BFE1D72B8DC34800CE27B2 /* CruiseContactdetailsTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CruiseContactdetailsTVCell.swift; sourceTree = "<group>"; };
+		65BFE1D82B8DC34800CE27B2 /* CruiseContactdetailsTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CruiseContactdetailsTVCell.xib; sourceTree = "<group>"; };
+		65BFE1DB2B8DE93800CE27B2 /* CruisePassengerSelectVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CruisePassengerSelectVC.swift; sourceTree = "<group>"; };
+		65BFE1DE2B8DF64600CE27B2 /* HolidayContactdetailsTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidayContactdetailsTVCell.swift; sourceTree = "<group>"; };
+		65BFE1DF2B8DF64600CE27B2 /* HolidayContactdetailsTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HolidayContactdetailsTVCell.xib; sourceTree = "<group>"; };
 		65C5900B2B60FB3C00BF7DB9 /* NewDepartureTimeTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDepartureTimeTVCell.swift; sourceTree = "<group>"; };
 		65C5900C2B60FB3C00BF7DB9 /* NewDepartureTimeTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewDepartureTimeTVCell.xib; sourceTree = "<group>"; };
 		65C5900F2B63C9CE00BF7DB9 /* LogoutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutViewModel.swift; sourceTree = "<group>"; };
@@ -1213,6 +1275,8 @@
 		651718142B43F901003D3723 /* scens */ = {
 			isa = PBXGroup;
 			children = (
+				654242E82B8CA31700434876 /* Cruise */,
+				654242D22B8C959C00434876 /* Holidays */,
 				65D39CA02B7A487A00917F74 /* Insurance */,
 				65E894062B72312F0043F403 /* Visa */,
 				658B376A2B4D75280011932C /* Booking Confirmed */,
@@ -1395,6 +1459,207 @@
 				653E2D312B47EBFB0082AFF6 /* Price.swift */,
 			);
 			path = FlightModel;
+			sourceTree = "<group>";
+		};
+		654242D22B8C959C00434876 /* Holidays */ = {
+			isa = PBXGroup;
+			children = (
+				654242D92B8C95F600434876 /* SB */,
+				654242D82B8C95DE00434876 /* Model */,
+				654242D72B8C95CF00434876 /* ViewModels */,
+				654242D42B8C95B000434876 /* Views */,
+				654242D32B8C95AA00434876 /* VC */,
+			);
+			path = Holidays;
+			sourceTree = "<group>";
+		};
+		654242D32B8C95AA00434876 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				654242DC2B8C961B00434876 /* HolidaysVC.swift */,
+				6542430A2B8CC24E00434876 /* SelectedHolidayPackageVC.swift */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		654242D42B8C95B000434876 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				654242D62B8C95C200434876 /* TVCells */,
+				654242D52B8C95B900434876 /* CVCells */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		654242D52B8C95B900434876 /* CVCells */ = {
+			isa = PBXGroup;
+			children = (
+				654242FE2B8CB07D00434876 /* HolidaysImagesCVCell */,
+			);
+			path = CVCells;
+			sourceTree = "<group>";
+		};
+		654242D62B8C95C200434876 /* TVCells */ = {
+			isa = PBXGroup;
+			children = (
+				65BFE1DD2B8DF62F00CE27B2 /* HolidayContactdetailsTVCell */,
+				654243052B8CC1E700434876 /* HolidayAddItineraryTVCell */,
+				654242F92B8CAA7200434876 /* HolidayItineraryTVCell */,
+				654242E32B8C996B00434876 /* HolidaysInfoTVCell */,
+				654242DE2B8C96E100434876 /* HolidayPackagesTVCell */,
+			);
+			path = TVCells;
+			sourceTree = "<group>";
+		};
+		654242D72B8C95CF00434876 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		654242D82B8C95DE00434876 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		654242D92B8C95F600434876 /* SB */ = {
+			isa = PBXGroup;
+			children = (
+				654242DA2B8C960800434876 /* Holidays.storyboard */,
+			);
+			path = SB;
+			sourceTree = "<group>";
+		};
+		654242DE2B8C96E100434876 /* HolidayPackagesTVCell */ = {
+			isa = PBXGroup;
+			children = (
+				654242DF2B8C96F600434876 /* HolidayPackagesTVCell.swift */,
+				654242E02B8C96F600434876 /* HolidayPackagesTVCell.xib */,
+			);
+			path = HolidayPackagesTVCell;
+			sourceTree = "<group>";
+		};
+		654242E32B8C996B00434876 /* HolidaysInfoTVCell */ = {
+			isa = PBXGroup;
+			children = (
+				654242E42B8C998700434876 /* HolidaysInfoTVCell.swift */,
+				654242E52B8C998700434876 /* HolidaysInfoTVCell.xib */,
+			);
+			path = HolidaysInfoTVCell;
+			sourceTree = "<group>";
+		};
+		654242E82B8CA31700434876 /* Cruise */ = {
+			isa = PBXGroup;
+			children = (
+				654242EF2B8CA36E00434876 /* SB */,
+				654242EE2B8CA36500434876 /* Models */,
+				654242ED2B8CA35400434876 /* ViewModels */,
+				654242EA2B8CA33300434876 /* Views */,
+				654242E92B8CA32D00434876 /* VC */,
+			);
+			path = Cruise;
+			sourceTree = "<group>";
+		};
+		654242E92B8CA32D00434876 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				654242F22B8CA39100434876 /* CruiseVC.swift */,
+				65BFE1C62B8DA97800CE27B2 /* CruiseDetailsVC.swift */,
+				65BFE1DB2B8DE93800CE27B2 /* CruisePassengerSelectVC.swift */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		654242EA2B8CA33300434876 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				654242EC2B8CA34500434876 /* TVCells */,
+				654242EB2B8CA33B00434876 /* CVCells */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		654242EB2B8CA33B00434876 /* CVCells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CVCells;
+			sourceTree = "<group>";
+		};
+		654242EC2B8CA34500434876 /* TVCells */ = {
+			isa = PBXGroup;
+			children = (
+				65BFE1D62B8DC2D000CE27B2 /* CruiseContactdetailsTVCell */,
+				65BFE1CD2B8DAEA300CE27B2 /* CruiseAddItineraryTVCell */,
+				65BFE1C82B8DACAC00CE27B2 /* CruiseItineraryTVCell */,
+				654242F42B8CA40700434876 /* CruisePackegesTVCell */,
+			);
+			path = TVCells;
+			sourceTree = "<group>";
+		};
+		654242ED2B8CA35400434876 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				6542430F2B8CC65D00434876 /* CruiseViewModel.swift */,
+				65BFE1D42B8DB47200CE27B2 /* CruiseDetailsViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		654242EE2B8CA36500434876 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6542430C2B8CC5F400434876 /* CruiseModel.swift */,
+				65BFE1D22B8DB43700CE27B2 /* CruiseDetailsModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		654242EF2B8CA36E00434876 /* SB */ = {
+			isa = PBXGroup;
+			children = (
+				654242F02B8CA37B00434876 /* Cruise.storyboard */,
+			);
+			path = SB;
+			sourceTree = "<group>";
+		};
+		654242F42B8CA40700434876 /* CruisePackegesTVCell */ = {
+			isa = PBXGroup;
+			children = (
+				654242F52B8CA42700434876 /* CruisePackegesTVCell.swift */,
+				654242F62B8CA42700434876 /* CruisePackegesTVCell.xib */,
+			);
+			path = CruisePackegesTVCell;
+			sourceTree = "<group>";
+		};
+		654242F92B8CAA7200434876 /* HolidayItineraryTVCell */ = {
+			isa = PBXGroup;
+			children = (
+				654242FA2B8CAAFD00434876 /* HolidayItineraryTVCell.swift */,
+				654242FB2B8CAAFD00434876 /* HolidayItineraryTVCell.xib */,
+			);
+			path = HolidayItineraryTVCell;
+			sourceTree = "<group>";
+		};
+		654242FE2B8CB07D00434876 /* HolidaysImagesCVCell */ = {
+			isa = PBXGroup;
+			children = (
+				654243012B8CB0C800434876 /* HolidaysImagesCVCell.swift */,
+				654243022B8CB0C800434876 /* HolidaysImagesCVCell.xib */,
+			);
+			path = HolidaysImagesCVCell;
+			sourceTree = "<group>";
+		};
+		654243052B8CC1E700434876 /* HolidayAddItineraryTVCell */ = {
+			isa = PBXGroup;
+			children = (
+				654243062B8CC20900434876 /* HolidayAddItineraryTVCell.swift */,
+				654243072B8CC20900434876 /* HolidayAddItineraryTVCell.xib */,
+			);
+			path = HolidayAddItineraryTVCell;
 			sourceTree = "<group>";
 		};
 		654554512B5FCD62008CE6FD /* Profile */ = {
@@ -2166,6 +2431,42 @@
 			path = SelectCityModel;
 			sourceTree = "<group>";
 		};
+		65BFE1C82B8DACAC00CE27B2 /* CruiseItineraryTVCell */ = {
+			isa = PBXGroup;
+			children = (
+				65BFE1C92B8DACDD00CE27B2 /* CruiseItineraryTVCell.swift */,
+				65BFE1CA2B8DACDD00CE27B2 /* CruiseItineraryTVCell.xib */,
+			);
+			path = CruiseItineraryTVCell;
+			sourceTree = "<group>";
+		};
+		65BFE1CD2B8DAEA300CE27B2 /* CruiseAddItineraryTVCell */ = {
+			isa = PBXGroup;
+			children = (
+				65BFE1CE2B8DAEDE00CE27B2 /* CruiseAddItineraryTVCell.swift */,
+				65BFE1CF2B8DAEDE00CE27B2 /* CruiseAddItineraryTVCell.xib */,
+			);
+			path = CruiseAddItineraryTVCell;
+			sourceTree = "<group>";
+		};
+		65BFE1D62B8DC2D000CE27B2 /* CruiseContactdetailsTVCell */ = {
+			isa = PBXGroup;
+			children = (
+				65BFE1D72B8DC34800CE27B2 /* CruiseContactdetailsTVCell.swift */,
+				65BFE1D82B8DC34800CE27B2 /* CruiseContactdetailsTVCell.xib */,
+			);
+			path = CruiseContactdetailsTVCell;
+			sourceTree = "<group>";
+		};
+		65BFE1DD2B8DF62F00CE27B2 /* HolidayContactdetailsTVCell */ = {
+			isa = PBXGroup;
+			children = (
+				65BFE1DE2B8DF64600CE27B2 /* HolidayContactdetailsTVCell.swift */,
+				65BFE1DF2B8DF64600CE27B2 /* HolidayContactdetailsTVCell.xib */,
+			);
+			path = HolidayContactdetailsTVCell;
+			sourceTree = "<group>";
+		};
 		65C5900A2B60FAF000BF7DB9 /* NewDepartureTimeTVCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -2850,6 +3151,7 @@
 				659CE6662B7632ED00D2BEBE /* HotelImagesTVCell.xib in Resources */,
 				65C5900E2B60FB3C00BF7DB9 /* NewDepartureTimeTVCell.xib in Resources */,
 				65B679792B44238B00E5D1C3 /* Inter-Bold.ttf in Resources */,
+				654242F12B8CA37B00434876 /* Cruise.storyboard in Resources */,
 				65D85C112B4A47A700D939D0 /* FilterDepartureTVCell.xib in Resources */,
 				65E8940F2B72317C0043F403 /* Visa.storyboard in Resources */,
 				65B6797A2B44238B00E5D1C3 /* Inter-Medium.ttf in Resources */,
@@ -2886,6 +3188,7 @@
 				65B6799C2B44465800E5D1C3 /* TopcityGuidesCVCell.xib in Resources */,
 				651717F62B43F8D4003D3723 /* Oswald-SemiBold.ttf in Resources */,
 				651717F82B43F8D4003D3723 /* Lato-Semibold.ttf in Resources */,
+				654242F82B8CA42700434876 /* CruisePackegesTVCell.xib in Resources */,
 				650DBA272B451A390052294A /* SpecialOffersCVCell.xib in Resources */,
 				65139CE32B7CA10300B175B1 /* BaggageInfoTVCell.xib in Resources */,
 				659CE66B2B76330E00D2BEBE /* RoomsTVcell.xib in Resources */,
@@ -2897,17 +3200,22 @@
 				659CE6612B76328500D2BEBE /* NewRoomDetailsTVCell.xib in Resources */,
 				650DBA302B451D7E0052294A /* EmptyTVCell.xib in Resources */,
 				65B679662B441DE800E5D1C3 /* Main.storyboard in Resources */,
+				65BFE1DA2B8DC34800CE27B2 /* CruiseContactdetailsTVCell.xib in Resources */,
 				65113B8F2B47C8A500C4B3E4 /* FlightResultTVCell.xib in Resources */,
+				65BFE1E12B8DF64600CE27B2 /* HolidayContactdetailsTVCell.xib in Resources */,
 				658B372B2B4D00FC0011932C /* BookingDetailsFlightDataTVCell.xib in Resources */,
+				65BFE1D12B8DAEDE00CE27B2 /* CruiseAddItineraryTVCell.xib in Resources */,
 				65D85C1D2B4A54FA00D939D0 /* ButtonTVCell.xib in Resources */,
 				65D85C212B4A55CB00D939D0 /* DepartureTimeCVCell.xib in Resources */,
 				65B6798D2B443AE500E5D1C3 /* PopularDestinationsTVCell.xib in Resources */,
 				651714202B43F839003D3723 /* LaunchScreen.storyboard in Resources */,
 				658B37262B4C2E2F0011932C /* Login.storyboard in Resources */,
 				658B373B2B4D4E270011932C /* TotalNoofTravellerTVCell.xib in Resources */,
+				654242FD2B8CAAFD00434876 /* HolidayItineraryTVCell.xib in Resources */,
 				651718112B43F8D4003D3723 /* clist.json in Resources */,
 				651717FF2B43F8D4003D3723 /* Oswald-Medium.ttf in Resources */,
 				65B9592E2B468DFD00A4EAE7 /* FromCityTVCell.xib in Resources */,
+				654242E72B8C998700434876 /* HolidaysInfoTVCell.xib in Resources */,
 				651717FE2B43F8D4003D3723 /* Poppins-Medium.ttf in Resources */,
 				654D87192B513D8000256B47 /* EditProfileTVCell.xib in Resources */,
 				65DA1C1D2B73852A0053D519 /* YourRecentSearchesTVCell.xib in Resources */,
@@ -2920,6 +3228,7 @@
 				65DA1C222B73874E0053D519 /* YourRecentSearchesCVCell.xib in Resources */,
 				65CB7A4F2B6769C600A2E110 /* HotelsTVCell.xib in Resources */,
 				658B37322B4D20070011932C /* TDetailsLoginTVCell.xib in Resources */,
+				654242E22B8C96F600434876 /* HolidayPackagesTVCell.xib in Resources */,
 				65B679972B443D9200E5D1C3 /* SelectDestCVCell.xib in Resources */,
 				65CB2D082B494771009B5B2E /* AddItineraryTVCell.xib in Resources */,
 				65D85BFD2B4A471F00D939D0 /* checkOptionsTVCell.xib in Resources */,
@@ -2943,6 +3252,7 @@
 				65CB2CF92B49328A009B5B2E /* SideMenuTitleTVCell.xib in Resources */,
 				65EC43742B5D3E6A003B4C05 /* TitleLblTVCell.xib in Resources */,
 				65F253172B5805B100ECD22A /* HotelSearchTVCell.xib in Resources */,
+				654243042B8CB0C800434876 /* HolidaysImagesCVCell.xib in Resources */,
 				6517141D2B43F839003D3723 /* Assets.xcassets in Resources */,
 				65CB2CF32B493268009B5B2E /* QuickLinkTableViewCell.xib in Resources */,
 				659CE6822B76576E00D2BEBE /* TitleLabelTVCell.xib in Resources */,
@@ -2952,14 +3262,17 @@
 				651717F92B43F8D4003D3723 /* Oswald-Regular.ttf in Resources */,
 				658B37932B4D75280011932C /* BCFlightDetailsTVCell.xib in Resources */,
 				658B37642B4D72A10011932C /* PaymentGateway.storyboard in Resources */,
+				65BFE1CC2B8DACDD00CE27B2 /* CruiseItineraryTVCell.xib in Resources */,
 				655AFBD32B8721470071C869 /* AddonTVCell.xib in Resources */,
 				655AFBCE2B871A040071C869 /* AddsOnInfoTVCell.xib in Resources */,
 				658B371D2B4BFA580011932C /* FareSummaryTVCell.xib in Resources */,
+				654243092B8CC20900434876 /* HolidayAddItineraryTVCell.xib in Resources */,
 				651717F52B43F8D4003D3723 /* Oswald-Bold.ttf in Resources */,
 				651718042B43F8D4003D3723 /* Poppins-SemiBold.ttf in Resources */,
 				659CE6882B76578500D2BEBE /* AmenitiesTVCell.xib in Resources */,
 				651717FA2B43F8D4003D3723 /* Lato-Light.ttf in Resources */,
 				659CE68D2B76586F00D2BEBE /* AmenitiesCVCell.xib in Resources */,
+				654242DB2B8C960800434876 /* Holidays.storyboard in Resources */,
 				651718002B43F8D4003D3723 /* Poppins-ExtraBold.ttf in Resources */,
 				654FCA632B80CBFC00307ADE /* RegisterSelectionLoginTableViewCell.xib in Resources */,
 				655AFBC32B86FB770071C869 /* InternationalTravelInsuranceTVCell.xib in Resources */,
@@ -3164,14 +3477,18 @@
 				658B374D2B4D71350011932C /* PopupVC.swift in Sources */,
 				653E2D282B47EB290082AFF6 /* FlightSummery.swift in Sources */,
 				65CB2CFE2B493294009B5B2E /* MenuBGTVCell.swift in Sources */,
+				65BFE1D52B8DB47200CE27B2 /* CruiseDetailsViewModel.swift in Sources */,
 				65B6799B2B44465800E5D1C3 /* TopcityGuidesCVCell.swift in Sources */,
 				651717DF2B43F8D4003D3723 /* TableViewCell.swift in Sources */,
+				6542430D2B8CC5F400434876 /* CruiseModel.swift in Sources */,
 				65CB2D0D2B4953B0009B5B2E /* JourneySummary.swift in Sources */,
 				658B379F2B4D78400011932C /* BookedTravelDetailsTVCell.swift in Sources */,
 				650DBA2F2B451D7E0052294A /* EmptyTVCell.swift in Sources */,
 				658B378A2B4D75280011932C /* VocherModelDetails.swift in Sources */,
+				654243102B8CC65D00434876 /* CruiseViewModel.swift in Sources */,
 				659CE6592B76321400D2BEBE /* Hotel_search_params.swift in Sources */,
 				651717E12B43F8D4003D3723 /* UIModels.swift in Sources */,
+				654242E62B8C998700434876 /* HolidaysInfoTVCell.swift in Sources */,
 				658B37872B4D75280011932C /* Booking_details.swift in Sources */,
 				651717E52B43F8D4003D3723 /* SessionManager.swift in Sources */,
 				65B959312B468F8000A4EAE7 /* SelectCityViewModel.swift in Sources */,
@@ -3192,6 +3509,7 @@
 				659CE6552B76321400D2BEBE /* Params.swift in Sources */,
 				65C5900D2B60FB3C00BF7DB9 /* NewDepartureTimeTVCell.swift in Sources */,
 				65D39CF22B7B7D6700917F74 /* GetAirlineViewModel.swift in Sources */,
+				654243032B8CB0C800434876 /* HolidaysImagesCVCell.swift in Sources */,
 				659CE6572B76321400D2BEBE /* Hotel_details.swift in Sources */,
 				650DBA572B4562920052294A /* FlightSearchVC.swift in Sources */,
 				65D85BF72B4A46FF00D939D0 /* CheckBoxTVCell.swift in Sources */,
@@ -3204,6 +3522,7 @@
 				65B6798C2B443AE500E5D1C3 /* PopularDestinationsTVCell.swift in Sources */,
 				658B37822B4D75280011932C /* Booking_itinerary_summary.swift in Sources */,
 				65CB2D0F2B4953D8009B5B2E /* ItinearyFlightDetails.swift in Sources */,
+				65BFE1E02B8DF64600CE27B2 /* HolidayContactdetailsTVCell.swift in Sources */,
 				65CB2D1B2B49552F009B5B2E /* FlightDetailsViewModel.swift in Sources */,
 				650DBA492B453EA80052294A /* IndexPageViewmodel.swift in Sources */,
 				65DA1C152B736B7D0053D519 /* TripsTVCell.swift in Sources */,
@@ -3226,6 +3545,7 @@
 				653E2D242B47E9D10082AFF6 /* FlightList.swift in Sources */,
 				651717E02B43F8D4003D3723 /* BaseTableVC.swift in Sources */,
 				65EC436B2B5D3CF2003B4C05 /* NationalityVC.swift in Sources */,
+				65BFE1D32B8DB43700CE27B2 /* CruiseDetailsModel.swift in Sources */,
 				658B373C2B4D4E270011932C /* TotalNoofTravellerTVCell.swift in Sources */,
 				650DBA5C2B456CE90052294A /* FlightSearchTVCell.swift in Sources */,
 				65CB2D072B494771009B5B2E /* AddItineraryTVCell.swift in Sources */,
@@ -3235,6 +3555,7 @@
 				653E2D2C2B47EB830082AFF6 /* Origin.swift in Sources */,
 				655AFBC72B870D450071C869 /* SpecialAssistanceTVCell.swift in Sources */,
 				65063D0A2B58F8E800BF159A /* HotelCityListModel.swift in Sources */,
+				654242E12B8C96F600434876 /* HolidayPackagesTVCell.swift in Sources */,
 				65CB7A402B67669600A2E110 /* Near_by.swift in Sources */,
 				655AFBC22B86FB770071C869 /* InternationalTravelInsuranceTVCell.swift in Sources */,
 				650DBA392B4528410052294A /* MoreServiceCVCell.swift in Sources */,
@@ -3243,8 +3564,10 @@
 				650DBA442B453E680052294A /* TopHotelDetails.swift in Sources */,
 				655AFBD52B875CA80071C869 /* Addon_services.swift in Sources */,
 				65CB7A3E2B67669600A2E110 /* HFacility.swift in Sources */,
+				6542430B2B8CC24E00434876 /* SelectedHolidayPackageVC.swift in Sources */,
 				650DBA2A2B451B840052294A /* SpecialOffersTVCell.swift in Sources */,
 				659CE68C2B76586F00D2BEBE /* AmenitiesCVCell.swift in Sources */,
+				654242DD2B8C961B00434876 /* HolidaysVC.swift in Sources */,
 				658B37842B4D75280011932C /* Booking_transaction_details.swift in Sources */,
 				65AD14ED2B4E54A10064E8B0 /* MobilePreBookingModel.swift in Sources */,
 				65CB2D152B49546A009B5B2E /* Custom_farerules.swift in Sources */,
@@ -3258,6 +3581,7 @@
 				6532717E2B73397100D52486 /* VisaTVCell.swift in Sources */,
 				659CE6742B7653C800D2BEBE /* SearchLoaderViewModel.swift in Sources */,
 				652379CC2B5E956F0067E84A /* LoginModel.swift in Sources */,
+				654243082B8CC20900434876 /* HolidayAddItineraryTVCell.swift in Sources */,
 				65DB284A2B7608B300AC528D /* RatingCVCell.swift in Sources */,
 				65D85C002B4A473800D939D0 /* SortbyTVCell.swift in Sources */,
 				659CE6602B76328500D2BEBE /* NewRoomDetailsTVCell.swift in Sources */,
@@ -3290,6 +3614,7 @@
 				65D85C182B4A486F00D939D0 /* NoInternetConnectionVC.swift in Sources */,
 				658B370F2B4BDF900011932C /* MPBFlightDetails.swift in Sources */,
 				658B37922B4D75280011932C /* BCFlightDetailsTVCell.swift in Sources */,
+				65BFE1DC2B8DE93800CE27B2 /* CruisePassengerSelectVC.swift in Sources */,
 				65AD15002B4E9C200064E8B0 /* ResetPasswordVC.swift in Sources */,
 				658B37172B4BE0DA0011932C /* Frequent_flyers.swift in Sources */,
 				65AD14F92B4E7F260064E8B0 /* LoginVC.swift in Sources */,
@@ -3324,6 +3649,7 @@
 				65220A942B7493FA0010654E /* SearchDataViewModel.swift in Sources */,
 				65CB7A2C2B67668000A2E110 /* HotelSearchViewModel.swift in Sources */,
 				659CE6722B76532200D2BEBE /* SearchLoaderModel.swift in Sources */,
+				65BFE1CB2B8DACDD00CE27B2 /* CruiseItineraryTVCell.swift in Sources */,
 				653E2D202B47E94D0082AFF6 /* FlightDataModel.swift in Sources */,
 				65113B932B47D5F400C4B3E4 /* FlightResultSummeryTVCell.swift in Sources */,
 				659CE6542B76321400D2BEBE /* Format_rm_comb_list.swift in Sources */,
@@ -3343,6 +3669,7 @@
 				653B3E0F2B8893C200328B35 /* VisaPassengerSelectVC.swift in Sources */,
 				654D87142B511CF900256B47 /* EditProfileVC.swift in Sources */,
 				65DA1C102B7362890053D519 /* AutopayTabCVCell.swift in Sources */,
+				65BFE1D92B8DC34800CE27B2 /* CruiseContactdetailsTVCell.swift in Sources */,
 				65CB7A462B67669600A2E110 /* Discount.swift in Sources */,
 				658B37892B4D75280011932C /* VocherModel.swift in Sources */,
 				6517180C2B43F8D4003D3723 /* Decodable.swift in Sources */,
@@ -3351,6 +3678,7 @@
 				658B374B2B4D56D50011932C /* RadioButtonTVCell.swift in Sources */,
 				659CE65C2B76321400D2BEBE /* CancellationPolicies.swift in Sources */,
 				659CE65A2B76321400D2BEBE /* HotelSelectedDetailsModel.swift in Sources */,
+				65BFE1D02B8DAEDE00CE27B2 /* CruiseAddItineraryTVCell.swift in Sources */,
 				65CB7A3D2B67669600A2E110 /* Loc.swift in Sources */,
 				658B37132B4BE0200011932C /* MPBFormParams.swift in Sources */,
 				65CB7A442B67669600A2E110 /* Dis_mar.swift in Sources */,
@@ -3358,6 +3686,7 @@
 				65220A902B74937C0010654E /* RecentSearches.swift in Sources */,
 				658B37112B4BDFD60011932C /* Pre_booking_params.swift in Sources */,
 				650DBA532B4549950052294A /* SelectCurrencyModel.swift in Sources */,
+				654242F72B8CA42700434876 /* CruisePackegesTVCell.swift in Sources */,
 				658B37692B4D72A10011932C /* ViewController+CollectionViewDelegateAndDatSource.swift in Sources */,
 				65D85BFC2B4A471F00D939D0 /* checkOptionsTVCell.swift in Sources */,
 				6517182C2B44163F003D3723 /* ProfileVC.swift in Sources */,
@@ -3373,9 +3702,11 @@
 				659CE67D2B76572000D2BEBE /* NewRoomTVCell.swift in Sources */,
 				658B37662B4D72A10011932C /* updatePaymentFlightModel.swift in Sources */,
 				658B372A2B4D00FC0011932C /* BookingDetailsFlightDataTVCell.swift in Sources */,
+				65BFE1C72B8DA97800CE27B2 /* CruiseDetailsVC.swift in Sources */,
 				650DBA4B2B4547170052294A /* SelectLanguageVC.swift in Sources */,
 				655FC4A32B731E060019D997 /* AutoPaymentVC.swift in Sources */,
 				65B959382B46DD7E00A4EAE7 /* CountrylistModel.swift in Sources */,
+				654242FC2B8CAAFD00434876 /* HolidayItineraryTVCell.swift in Sources */,
 				651717F02B43F8D4003D3723 /* TextFieldExtension.swift in Sources */,
 				659CE65B2B76321400D2BEBE /* Images.swift in Sources */,
 				654554532B5FCD7B008CE6FD /* ProfileModel.swift in Sources */,
@@ -3390,6 +3721,7 @@
 				651718092B43F8D4003D3723 /* ColorManager.swift in Sources */,
 				65D39CED2B7B35D300917F74 /* MapViewVC.swift in Sources */,
 				65D39CF02B7B7C6100917F74 /* GetAirlineModel.swift in Sources */,
+				654242F32B8CA39100434876 /* CruiseVC.swift in Sources */,
 				654D87182B513D8000256B47 /* EditProfileTVCell.swift in Sources */,
 				659CE6902B765C6F00D2BEBE /* SearchHotelLoderModel.swift in Sources */,
 			);

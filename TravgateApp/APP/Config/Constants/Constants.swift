@@ -164,6 +164,9 @@ struct ApiEndpoints {
     
     //VISA
     static let visa_enquiry_form = "visa/visa_enquiry_form"
+    static let cruise_get_cruise_list = "cruise/get_cruise_list"
+    static let cruise_get_more_info = "cruise/get_more_info/"
+    
     
 }
 
@@ -298,6 +301,15 @@ struct UserDefaultsKeys {
     static var visachildCount = "visachildCount"
     static var visainfantsCount = "visainfantsCount"
     static var visatotalpassengercount = "visatotalpassengercount"
+    
+    
+    //Cruise
+    static var fromtravelDate = "fromtravelDate"
+    static var totravelDate = "totravelDate"
+    static var cruisadultCount = "cruisadultCount"
+    static var cruischildCount = "cruischildCount"
+    static var cruisinfantsCount = "cruisinfantsCount"
+    static var cruistotalpassengercount = "cruistotalpassengercount"
 }
 
 

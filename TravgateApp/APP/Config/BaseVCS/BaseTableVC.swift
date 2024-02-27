@@ -8,10 +8,7 @@
 import UIKit
 import MaterialComponents
 
-class BaseTableVC: UIViewController, TabSelectTVCellDelegate, FlightSearchTVCellDelegate, FlightResultTVCellDelegate, SideMenuTitleTVCellDelegate, MenuBGTVCellDelegate, SliderTVCellDelegate, CheckBoxTVCellDelegate, FilterDepartureTVCellDelegate, LabelTVCellDelegate, PopularFiltersTVCellDelegate,DepartureTimeTVCellDelegate, ButtonTVCellDelegate, SortbyTVCellDelegate, BookingDetailsFlightDataTVCellDelegate, TDetailsLoginTVCellDelegate, AddDeatilsOfTravellerTVCellDelegate, ContactInformationTVCellDelegate, UsePromoCodesTVCellDelegate, LoginTVCellDelegate, ResetPasswordTVCellDelegate, SignupTVCellDelegate, EditProfileTVCellDelegate, HotelSearchTVCellDelegate, AddRoomsGuestsTVCellDelegate, NewDepartureTimeTVCellDelegate, VisaTVCellDelegate, AutoPaymentTVCellDelegate, TripsTVCellDelegate, YourRecentSearchesTVCellDelegate, RoomsTVcellDelegate, RegisterSelectionLoginTableViewCellDelegate, AddonTVCellDelegate, TravellerEconomyTVCellDelegate {
-    
-    
-    
+class BaseTableVC: UIViewController, TabSelectTVCellDelegate, FlightSearchTVCellDelegate, FlightResultTVCellDelegate, SideMenuTitleTVCellDelegate, MenuBGTVCellDelegate, SliderTVCellDelegate, CheckBoxTVCellDelegate, FilterDepartureTVCellDelegate, LabelTVCellDelegate, PopularFiltersTVCellDelegate,DepartureTimeTVCellDelegate, ButtonTVCellDelegate, SortbyTVCellDelegate, BookingDetailsFlightDataTVCellDelegate, TDetailsLoginTVCellDelegate, AddDeatilsOfTravellerTVCellDelegate, ContactInformationTVCellDelegate, UsePromoCodesTVCellDelegate, LoginTVCellDelegate, ResetPasswordTVCellDelegate, SignupTVCellDelegate, EditProfileTVCellDelegate, HotelSearchTVCellDelegate, AddRoomsGuestsTVCellDelegate, NewDepartureTimeTVCellDelegate, VisaTVCellDelegate, AutoPaymentTVCellDelegate, TripsTVCellDelegate, YourRecentSearchesTVCellDelegate, RoomsTVcellDelegate, RegisterSelectionLoginTableViewCellDelegate, AddonTVCellDelegate, TravellerEconomyTVCellDelegate, HolidayPackagesTVCellDelegate, CruisePackegesTVCellDelegate, CruiseContactdetailsTVCellDelegate, HolidayContactdetailsTVCellDelegate {
     
     
     
@@ -97,7 +94,7 @@ class BaseTableVC: UIViewController, TabSelectTVCellDelegate, FlightSearchTVCell
         
     }
     
-   
+    
     
     func didTapOnMenuBtnAction(cell: TabSelectTVCell) {}
     func didTapOnSelectCurrencyBtnAction(cell: TabSelectTVCell) {}
@@ -106,7 +103,7 @@ class BaseTableVC: UIViewController, TabSelectTVCellDelegate, FlightSearchTVCell
     func didTapOnMoreServiceBtnAction(cell: TabSelectTVCell) {}
     func didTapOnClosebtnAction(cell: TabSelectTVCell) {}
     func didTapOnVisabtnAction(cell: TabSelectTVCell) {}
-    func didTapOnInsurancebtnAction(cell: TabSelectTVCell) {}
+    func didTapOnHolidaysbtnAction(cell: TabSelectTVCell) {}
     func didTapOnTransfersbtnAction(cell: TabSelectTVCell) {}
     func didTapOnActivitiesbtnAction(cell: TabSelectTVCell) {}
     func didTapOnCruisebtnAction(cell: TabSelectTVCell) {}
@@ -233,8 +230,23 @@ class BaseTableVC: UIViewController, TabSelectTVCellDelegate, FlightSearchTVCell
     func didTapOnDecrementButton(cell: TravellerEconomyTVCell) {}
     func didTapOnIncrementButton(cell: TravellerEconomyTVCell) {}
     
+    func didTapOnCruisePackageBtnAction(cell: CruisePackegesTVCell) {}
+    func didTapOnSubmitEnquiryBtnAction(cell:CruiseContactdetailsTVCell){}
+    func didTapOnRequestCallBackBtnAction(cell:CruiseContactdetailsTVCell){}
+    func didTapOnAddPeopleBtnAction(cell:CruiseContactdetailsTVCell){}
+    func donedatePicker(cell:CruiseContactdetailsTVCell){}
+    func cancelDatePicker(cell:CruiseContactdetailsTVCell){}
     
-   
+    func didTapOnHolidayPackage(cell:HolidayPackagesTVCell){}
+    func didTapOnSubmitEnquiryBtnAction(cell: HolidayContactdetailsTVCell) {}
+    func didTapOnRequestCallBackBtnAction(cell: HolidayContactdetailsTVCell) {}
+    func didTapOnAddPeopleBtnAction(cell: HolidayContactdetailsTVCell) {}
+    func donedatePicker(cell: HolidayContactdetailsTVCell) {}
+    func cancelDatePicker(cell: HolidayContactdetailsTVCell) {}
+    
+    
+    
+    
 }
 
 extension BaseTableVC: UITableViewDelegate {
@@ -615,6 +627,44 @@ extension BaseTableVC: UITableViewDataSource {
                 let cell: TravellerEconomyTVCell = commonTV.dequeTVCell(indexPath: indexPath)
                 cell.delegate = self
                 commonCell = cell
+                
+                
+                
+            case .HolidayPackagesTVCell :
+                let cell: HolidayPackagesTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                cell.delegate = self
+                commonCell = cell
+                
+                
+                
+            case .CruisePackegesTVCell :
+                let cell: CruisePackegesTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                cell.delegate = self
+                commonCell = cell
+                
+                
+            case .HolidayItineraryTVCell :
+                let cell: HolidayItineraryTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                commonCell = cell
+                
+                
+                
+            case .CruiseItineraryTVCell :
+                let cell: CruiseItineraryTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                commonCell = cell
+                
+                
+            case .CruiseContactdetailsTVCell :
+                let cell: CruiseContactdetailsTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                cell.delegate = self
+                commonCell = cell
+                
+               
+            case .HolidayContactdetailsTVCell :
+                let cell: HolidayContactdetailsTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                cell.delegate = self
+                commonCell = cell
+                
                 
                 
             default:

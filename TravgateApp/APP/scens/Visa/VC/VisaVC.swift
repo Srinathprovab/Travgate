@@ -158,6 +158,9 @@ class VisaVC: BaseTableVC, VisaEnquireyViewModelDelegate {
         
         travelDateString =  cell.dateoftravelTF.text ?? ""
         cell.dateoftravelView.layer.borderColor = UIColor.AppBorderColor.cgColor
+        
+        
+       
         commonTableView.reloadData()
         self.view.endEditing(true)
         

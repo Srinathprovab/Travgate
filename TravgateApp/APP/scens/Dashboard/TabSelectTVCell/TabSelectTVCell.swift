@@ -21,7 +21,7 @@ protocol TabSelectTVCellDelegate {
     
     func didTapOnClosebtnAction(cell:TabSelectTVCell)
     func didTapOnVisabtnAction(cell:TabSelectTVCell)
-    func didTapOnInsurancebtnAction(cell:TabSelectTVCell)
+    func didTapOnHolidaysbtnAction(cell:TabSelectTVCell)
     func didTapOnTransfersbtnAction(cell:TabSelectTVCell)
     func didTapOnActivitiesbtnAction(cell:TabSelectTVCell)
     func didTapOnCruisebtnAction(cell:TabSelectTVCell)
@@ -39,7 +39,7 @@ class TabSelectTVCell: TableViewCell {
     @IBOutlet weak var moreServiceCV: UICollectionView!
     @IBOutlet weak var titlelbl: UILabel!
     
-    var serviceArray = ["Visa","Insurance","Transfers","Activities","Cruise","Auto pay"]
+    var serviceArray = ["Visa","Holidays","Transfers","Activities","Cruise","Auto pay"]
     var serviceImgsArray = ["s1","s2","s3","s4","s5","s6"]
     var delegate:TabSelectTVCellDelegate?
     override func awakeFromNib() {
@@ -138,8 +138,8 @@ extension TabSelectTVCell:UICollectionViewDelegate,UICollectionViewDataSource {
                 delegate?.didTapOnVisabtnAction(cell: self)
                 break
                 
-            case "Insurance":
-                delegate?.didTapOnInsurancebtnAction(cell: self)
+            case "Holidays":
+                delegate?.didTapOnHolidaysbtnAction(cell: self)
                 break
                 
             case "Transfers":
