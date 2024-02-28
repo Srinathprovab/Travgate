@@ -57,7 +57,6 @@ class BookingSucessVC: UIViewController {
     func gotoBookingConfirmedVC() {
         guard let vc = BookingConfirmedVC.newInstance.self else {return}
         vc.modalPresentationStyle = .fullScreen
-        urlString = self.voucherUrl
         callapibool = true
         present(vc, animated: true)
     }

@@ -32,11 +32,22 @@ class NoInternetConnectionVC: UIViewController {
         if key == "noresult" {
             noresultSetup()
         }
+        
+        if key == "noseat" {
+            noSeatAvaliableSetup()
+        }
     }
     
     func noresultSetup(){
         wifiImg.image = UIImage(named: "oops")
         setupLabels(lbl: titlelbl, text: "No Results Found", textcolor: .TitleColor, font: .OpenSansMedium(size: 16))
+        setupLabels(lbl: subTitlelbl, text: "Please Search Again", textcolor: .TitleColor, font: .OpenSansLight(size: 14))
+        setupLabels(lbl: btnlbl, text: "Search Again", textcolor: .WhiteColor, font: .OpenSansBold(size: 18))
+    }
+    
+    func noSeatAvaliableSetup(){
+        wifiImg.image = UIImage(named: "oops")
+        setupLabels(lbl: titlelbl, text: "Seat is not available!", textcolor: .TitleColor, font: .OpenSansMedium(size: 16))
         setupLabels(lbl: subTitlelbl, text: "Please Search Again", textcolor: .TitleColor, font: .OpenSansLight(size: 14))
         setupLabels(lbl: btnlbl, text: "Search Again", textcolor: .WhiteColor, font: .OpenSansBold(size: 18))
     }

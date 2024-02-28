@@ -10,19 +10,19 @@ import UIKit
 
 class BookingConfirmedVC: BaseTableVC, VocherDetailsViewModelDelegate {
     
-
+    
     
     static var newInstance: BookingConfirmedVC? {
-        let storyboard = UIStoryboard(name: Storyboard.Main.name,
+        let storyboard = UIStoryboard(name: Storyboard.Calender.name,
                                       bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: self.className()) as? BookingConfirmedVC
         return vc
     }
     
-
+    
     override func viewWillAppear(_ animated: Bool) {
         addObserver()
-      
+        
         if callapibool == true {
             callAPI()
         }
@@ -48,8 +48,8 @@ class BookingConfirmedVC: BaseTableVC, VocherDetailsViewModelDelegate {
     }
     
     func setupUI() {
-//        navBar.titlelbl.text = "Booking Confirmed"
-//        navBar.backBtn.addTarget(self, action: #selector(didTapOnBackButton(_:)), for: .touchUpInside)
+        //        navBar.titlelbl.text = "Booking Confirmed"
+        //        navBar.backBtn.addTarget(self, action: #selector(didTapOnBackButton(_:)), for: .touchUpInside)
         setupTV()
         commonTableView.registerTVCells(["BookingConfirmedTVCell",
                                          "EmptyTVCell",
@@ -91,11 +91,11 @@ class BookingConfirmedVC: BaseTableVC, VocherDetailsViewModelDelegate {
     
     func gotoAboutUsVC(title:String,url:String) {
         callapibool = false
-//        guard let vc = AboutUsVC.newInstance.self else {return}
-//        vc.urlString = url
-//        vc.titleString = title
-//        vc.modalPresentationStyle = .fullScreen
-//        self.present(vc, animated: true)
+        //        guard let vc = AboutUsVC.newInstance.self else {return}
+        //        vc.urlString = url
+        //        vc.titleString = title
+        //        vc.modalPresentationStyle = .fullScreen
+        //        self.present(vc, animated: true)
         
     }
     
@@ -168,8 +168,8 @@ extension BookingConfirmedVC {
         
         tablerow.append(TableRow(title:"Lead Passenger",moreData:Customerdetails,cellType:.BookedTravelDetailsTVCell))
         tablerow.append(TableRow(height:35,cellType:.EmptyTVCell))
-        tablerow.append(TableRow(title:"Thank you for booking with bab safar Your attraction voucher has been shared on the confirmed email.",key: "booked",cellType:.LabelTVCell))
-       // tablerow.append(TableRow(title:"Download E - Ticket",key:"booked",cellType:.ButtonTVCell))
+        tablerow.append(TableRow(title:"Thank you for booking with Travgate Your attraction voucher has been shared on the confirmed email.",key: "booked",cellType:.LabelTVCell))
+        // tablerow.append(TableRow(title:"Download E - Ticket",key:"booked",cellType:.ButtonTVCell))
         tablerow.append(TableRow(height:60,cellType:.EmptyTVCell))
         
         commonTVData = tablerow

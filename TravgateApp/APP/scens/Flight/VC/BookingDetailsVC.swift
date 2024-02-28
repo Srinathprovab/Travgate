@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BookingDetailsVC: BaseTableVC, MPBViewModelDelegate {
+class BookingDetailsVC: BaseTableVC, MPBViewModelDelegate, MobileSecureBookingViewModelDelegate {
     
     
     @IBOutlet weak var sessionlbl: UILabel!
@@ -34,6 +34,7 @@ class BookingDetailsVC: BaseTableVC, MPBViewModelDelegate {
         setupUI()
         MySingleton.shared.delegate = self
         MySingleton.shared.mpbvm = MPBViewModel(self)
+        MySingleton.shared.viewmodel1 = MobileSecureBookingViewModel(self)
     }
     
     
@@ -110,7 +111,7 @@ class BookingDetailsVC: BaseTableVC, MPBViewModelDelegate {
         MySingleton.shared.paymobilecountrycode = cell.countrycodeTF.text ?? ""
     }
     
-  
+    
     override func editingTextField(tf:UITextField){
         
         if tf.tag == 1 {
@@ -120,7 +121,7 @@ class BookingDetailsVC: BaseTableVC, MPBViewModelDelegate {
         }
     }
     
-   
+    
     override func didTapOnDropDownBtn(cell: ContactInformationTVCell) {
         MySingleton.shared.nationalityCode = cell.isoCountryCode
         MySingleton.shared.paymobilecountrycode = cell.countrycodeTF.text ?? ""
@@ -140,12 +141,13 @@ class BookingDetailsVC: BaseTableVC, MPBViewModelDelegate {
             commonTableView.reloadRows(at: [indexPath], with: .none)
         }
     }
-
+    
     
     //MARK: - didTapOnBackBtnAction
     @IBAction func didTapOnBackBtnAction(_ sender: Any) {
-//        MySingleton.shared.callboolapi = false
-//        dismiss(animated: true)
+        travelerArray.removeAll()
+        MySingleton.shared.positionsCount = 0
+        
         sameInputs_Again_CallSaerchAPI()
     }
     
@@ -155,7 +157,7 @@ class BookingDetailsVC: BaseTableVC, MPBViewModelDelegate {
         ContinueToPaymentBtnTap()
     }
     
-
+    
     
 }
 
@@ -166,9 +168,11 @@ extension BookingDetailsVC {
     func callAPI() {
         holderView.isHidden = true
         
+        
         MySingleton.shared.afterResultsBool = true
         loderBool = true
         showLoadera()
+      
         
         if MySingleton.shared.callboolapi == true {
             MySingleton.shared.payload.removeAll()
@@ -187,20 +191,33 @@ extension BookingDetailsVC {
         holderView.isHidden = false
         loderBool = false
         hideLoadera()
-        MySingleton.shared.afterResultsBool = false
-        MySingleton.shared.mpbpriceDetails = response.pre_booking_params?.priceDetails
-        MySingleton.shared.mpbFlightData = response.flight_data?[0].flight_details
-        MySingleton.shared.frequent_flyersArray = response.frequent_flyers ?? []
-        MySingleton.shared.addonServices = response.pre_booking_params?.addon_services ?? []
-        MySingleton.shared.tmpFlightPreBookingId = response.pre_booking_params?.transaction_id ?? ""
-        MySingleton.shared.accesskeytp = response.access_key_tp ?? ""
         
-        MySingleton.shared.stopTimer()
-        MySingleton.shared.startTimer(time: 900)
+       
         
-        DispatchQueue.main.async {[self] in
-            setupTVCell()
+        if response.status == 0 {
+            
+            self.gotoNoInternetScreen(keystr: "noseat")
+            
+        }else {
+            MySingleton.shared.afterResultsBool = false
+            MySingleton.shared.mpbpriceDetails = response.pre_booking_params?.priceDetails
+            MySingleton.shared.mpbFlightData = response.flight_data?[0].flight_details
+            MySingleton.shared.frequent_flyersArray = response.frequent_flyers ?? []
+            MySingleton.shared.addonServices = response.pre_booking_params?.addon_services ?? []
+            MySingleton.shared.tmpFlightPreBookingId = response.pre_booking_params?.transaction_id ?? ""
+            MySingleton.shared.accesskeytp = response.access_key_tp ?? ""
+            MySingleton.shared.bookingsource = response.booking_source ?? ""
+            
+            
+            MySingleton.shared.stopTimer()
+            MySingleton.shared.startTimer(time: 900)
+            
+            DispatchQueue.main.async {[self] in
+                setupTVCell()
+            }
         }
+        
+        
     }
     
     
@@ -305,7 +322,7 @@ extension BookingDetailsVC {
         var lnameCharBool = true
         
         
-        for traveler in   MySingleton.shared.travelerArray {
+        for traveler in travelerArray {
             
             if traveler.firstName == nil  || traveler.firstName?.isEmpty == true{
                 callpaymentbool = false
@@ -422,17 +439,19 @@ extension BookingDetailsVC {
             }
         }
         
-        let laedpassengerArray = MySingleton.shared.travelerArray.compactMap({$0.laedpassenger})
-        let mrtitleArray = MySingleton.shared.travelerArray.compactMap({$0.mrtitle})
-        let genderArray = MySingleton.shared.travelerArray.compactMap({$0.gender})
-        let firstnameArray = MySingleton.shared.travelerArray.compactMap({$0.firstName})
-        let lastNameArray = MySingleton.shared.travelerArray.compactMap({$0.lastName})
-        let middlenameArray = MySingleton.shared.travelerArray.compactMap({$0.middlename})
-        let dobArray = MySingleton.shared.travelerArray.compactMap({$0.dob})
-        let passportnoArray = MySingleton.shared.travelerArray.compactMap({$0.passportno})
+        
+        
+        let laedpassengerArray = travelerArray.compactMap({$0.laedpassenger})
+        let mrtitleArray = travelerArray.compactMap({$0.mrtitle})
+        let genderArray = travelerArray.compactMap({$0.gender})
+        let firstnameArray = travelerArray.compactMap({$0.firstName})
+        let lastNameArray = travelerArray.compactMap({$0.lastName})
+        let middlenameArray = travelerArray.compactMap({$0.middlename})
+        let dobArray = travelerArray.compactMap({$0.dob})
+        let passportnoArray = travelerArray.compactMap({$0.passportno})
         //   let nationalityArray = travelerArray.compactMap({$0.nationality})
-        let passportIssuingCountryArray = MySingleton.shared.travelerArray.compactMap({$0.passportIssuingCountry})
-        let passportExpireDateArray = MySingleton.shared.travelerArray.compactMap({$0.passportExpireDate})
+        let passportIssuingCountryArray = travelerArray.compactMap({$0.passportIssuingCountry})
+        let passportExpireDateArray = travelerArray.compactMap({$0.passportExpireDate})
         // let passengertypeArray = travelerArray.compactMap({$0.passengertype})
         
         
@@ -449,10 +468,10 @@ extension BookingDetailsVC {
         let passportExpireDateString = "[\"" + passportExpireDateArray.joined(separator: "\",\"") + "\"]"
         let passengertypeArrayString = "[\"" + MySingleton.shared.passengertypeArray.joined(separator: "\",\"") + "\"]"
         
-        
+
         MySingleton.shared.payload["search_id"] = MySingleton.shared.searchid
         MySingleton.shared.payload["tmp_flight_pre_booking_id"] = MySingleton.shared.tmpFlightPreBookingId
-        //  MySingleton.shared.payload["access_key"] = MySingleton.shared.accesskey
+        MySingleton.shared.payload["access_key"] = MySingleton.shared.accesskeytp
         MySingleton.shared.payload["access_key_tp"] =  MySingleton.shared.accesskeytp
         MySingleton.shared.payload["insurance_policy_type"] = "0"
         MySingleton.shared.payload["insurance_policy_option"] = "0"
@@ -496,7 +515,7 @@ extension BookingDetailsVC {
         MySingleton.shared.payload["passenger_contact"] = MySingleton.shared.paymobile
         MySingleton.shared.payload["billing_country"] = MySingleton.shared.nationalityCode
         MySingleton.shared.payload["country_mobile_code"] = MySingleton.shared.paymobilecountrycode
-        MySingleton.shared.payload["insurance"] = "1"
+        MySingleton.shared.payload["insurance"] = "0"
         MySingleton.shared.payload["tc"] = "on"
         MySingleton.shared.payload["booking_step"] = "book"
         MySingleton.shared.payload["payment_method"] = "PNHB1"
@@ -531,6 +550,11 @@ extension BookingDetailsVC {
         }else if mobilenoMaxLengthBool == false {
             showToast(message: "Enter Valid Mobile No")
         }else {
+            
+            MySingleton.shared.afterResultsBool = true
+            loderBool = true
+            showLoadera()
+            
             MySingleton.shared.mpbvm?.CALL_MOBILE_PROCESS_PASSENGER_DETAIL_API(dictParam:MySingleton.shared.payload)
         }
     }
@@ -540,31 +564,45 @@ extension BookingDetailsVC {
     //MARK: mobile process passenger Details
     func mobileprocesspassengerDetails(response: MobilePassengerdetailsModel) {
         
-        BASE_URL = ""
-        MySingleton.shared.viewmodel1?.Call_mobile_secure_booking_API(dictParam: [:], url: "\(response.url ?? "")")
-    
+        DispatchQueue.main.async {
+            BASE_URL = ""
+            MySingleton.shared.viewmodel1?.Call_mobile_secure_booking_API(dictParam: [:], url: "\(response.url ?? "")")
+        }
+        
     }
     
     
     
     func mobilesecurebookingDetails(response: MobilePrePaymentModel) {
         
-        
         loderBool = false
+        hideLoadera()
+        
+        
         if response.status == false {
             showToast(message: response.message ?? "")
         }else {
-            MySingleton.shared.stopTimer()
-            guard let vc = PaymentGatewayVC.newInstance.self else {return}
-            vc.modalPresentationStyle = .fullScreen
-            vc.payload = MySingleton.shared.payload
-            vc.grandTotalamount = "\(MySingleton.shared.flightPriceDetails?.api_currency ?? ""):\(MySingleton.shared.flightPriceDetails?.grand_total ?? "")"
-            vc.grand_total_Price = "\(MySingleton.shared.flightPriceDetails?.grand_total ?? "")"
-            vc.tmpFlightPreBookingId = MySingleton.shared.tmpFlightPreBookingId
-            present(vc, animated: true)
+//            MySingleton.shared.stopTimer()
+//            guard let vc = PaymentGatewayVC.newInstance.self else {return}
+//            vc.modalPresentationStyle = .fullScreen
+//            vc.payload = MySingleton.shared.payload
+//            vc.grandTotalamount = "\(MySingleton.shared.flightPriceDetails?.api_currency ?? ""):\(MySingleton.shared.flightPriceDetails?.grand_total ?? "")"
+//            vc.grand_total_Price = "\(MySingleton.shared.flightPriceDetails?.grand_total ?? "")"
+//            vc.tmpFlightPreBookingId = MySingleton.shared.tmpFlightPreBookingId
+//            present(vc, animated: true)
+            
+            gotoBookingSucessVC(url: response.url ?? "")
         }
         
         
+    }
+    
+    
+    func gotoBookingSucessVC(url:String) {
+        guard let vc = BookingSucessVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .fullScreen
+        urlString = url
+        present(vc, animated: true)
     }
     
     
@@ -627,6 +665,8 @@ extension BookingDetailsVC:TimerManagerDelegate {
     
     func addObserver() {
         
+        
+        
         NotificationCenter.default.addObserver(self, selector: #selector(nointernet), name: Notification.Name("offline"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(resultnil), name: NSNotification.Name("resultnil"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(nointrnetreload), name: Notification.Name("nointrnetreload"), object: nil)
@@ -669,6 +709,14 @@ extension BookingDetailsVC:TimerManagerDelegate {
         self.present(vc, animated: true)
     }
     
+    //MARK: - gotoNoInternetScreen
+    func gotoNoInternetScreen(keystr:String) {
+        callapibool = true
+        guard let vc = NoInternetConnectionVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .fullScreen
+        vc.key = keystr
+        self.present(vc, animated: false)
+    }
     
     //MARK: - updateTimer
     func updateTimer() {
@@ -691,7 +739,7 @@ extension BookingDetailsVC:TimerManagerDelegate {
     
     
     func timerDidFinish() {
-       // gotoPopupScreen()
+         gotoPopupScreen()
     }
     
     
@@ -708,63 +756,63 @@ extension BookingDetailsVC {
     
     
     func sameInputs_Again_CallSaerchAPI() {
-       
-            MySingleton.shared.payload.removeAll()
+        
+        MySingleton.shared.payload.removeAll()
+        
+        
+        
+        MySingleton.shared.payload["trip_type"] = defaults.string(forKey: UserDefaultsKeys.journeyType)
+        MySingleton.shared.payload["adult"] = defaults.string(forKey: UserDefaultsKeys.adultCount) ?? "1"
+        MySingleton.shared.payload["child"] = defaults.string(forKey: UserDefaultsKeys.childCount) ?? "0"
+        MySingleton.shared.payload["infant"] = defaults.string(forKey: UserDefaultsKeys.infantsCount) ?? "0"
+        MySingleton.shared.payload["from"] = defaults.string(forKey: UserDefaultsKeys.fromCity)
+        MySingleton.shared.payload["from_loc_id"] = defaults.string(forKey: UserDefaultsKeys.fromlocid)
+        MySingleton.shared.payload["to"] = defaults.string(forKey: UserDefaultsKeys.toCity)
+        MySingleton.shared.payload["to_loc_id"] = defaults.string(forKey: UserDefaultsKeys.tolocid)
+        MySingleton.shared.payload["depature"] = MySingleton.shared.convertDateFormat(inputDate: defaults.string(forKey: UserDefaultsKeys.calDepDate) ?? "", f1: "dd-MM-yyyy", f2: "dd/MM/yyyy")
+        MySingleton.shared.payload["out_jrn"] = "All Times"
+        MySingleton.shared.payload["ret_jrn"] = "All Times"
+        MySingleton.shared.payload["direct_flight"] = ""
+        MySingleton.shared.payload["carrier"] = ""
+        MySingleton.shared.payload["psscarrier"] = defaults.string(forKey: UserDefaultsKeys.fcariercode) ?? "ALL"
+        MySingleton.shared.payload["search_flight"] = "Search"
+        MySingleton.shared.payload["search_source"] = "Mobile_IOS"
+        MySingleton.shared.payload["currency"] = defaults.string(forKey: UserDefaultsKeys.selectedCurrency)
+        MySingleton.shared.payload["user_id"] = defaults.string(forKey: UserDefaultsKeys.userid) ?? "0"
+        
+        
+        if defaults.string(forKey: UserDefaultsKeys.journeyType) == "oneway" {
             
+            MySingleton.shared.payload["v_class"] = defaults.string(forKey: UserDefaultsKeys.selectClass)
+            MySingleton.shared.payload["return"] = ""
             
-            
-            MySingleton.shared.payload["trip_type"] = defaults.string(forKey: UserDefaultsKeys.journeyType)
-            MySingleton.shared.payload["adult"] = defaults.string(forKey: UserDefaultsKeys.adultCount) ?? "1"
-            MySingleton.shared.payload["child"] = defaults.string(forKey: UserDefaultsKeys.childCount) ?? "0"
-            MySingleton.shared.payload["infant"] = defaults.string(forKey: UserDefaultsKeys.infantsCount) ?? "0"
-            MySingleton.shared.payload["from"] = defaults.string(forKey: UserDefaultsKeys.fromCity)
-            MySingleton.shared.payload["from_loc_id"] = defaults.string(forKey: UserDefaultsKeys.fromlocid)
-            MySingleton.shared.payload["to"] = defaults.string(forKey: UserDefaultsKeys.toCity)
-            MySingleton.shared.payload["to_loc_id"] = defaults.string(forKey: UserDefaultsKeys.tolocid)
-            MySingleton.shared.payload["depature"] = MySingleton.shared.convertDateFormat(inputDate: defaults.string(forKey: UserDefaultsKeys.calDepDate) ?? "", f1: "dd-MM-yyyy", f2: "dd/MM/yyyy")
-            MySingleton.shared.payload["out_jrn"] = "All Times"
-            MySingleton.shared.payload["ret_jrn"] = "All Times"
-            MySingleton.shared.payload["direct_flight"] = ""
-            MySingleton.shared.payload["carrier"] = ""
-            MySingleton.shared.payload["psscarrier"] = defaults.string(forKey: UserDefaultsKeys.fcariercode) ?? "ALL"
-            MySingleton.shared.payload["search_flight"] = "Search"
-            MySingleton.shared.payload["search_source"] = "Mobile_IOS"
-            MySingleton.shared.payload["currency"] = defaults.string(forKey: UserDefaultsKeys.selectedCurrency)
-            MySingleton.shared.payload["user_id"] = defaults.string(forKey: UserDefaultsKeys.userid) ?? "0"
-            
-            
-            if defaults.string(forKey: UserDefaultsKeys.journeyType) == "oneway" {
-                
-                MySingleton.shared.payload["v_class"] = defaults.string(forKey: UserDefaultsKeys.selectClass)
-                MySingleton.shared.payload["return"] = ""
-                
-                if defaults.string(forKey: UserDefaultsKeys.fromCity) == nil {
-                    showToast(message: "Enter From City")
-                }else if defaults.string(forKey: UserDefaultsKeys.toCity) == nil {
-                    showToast(message: "Enter To City")
-                }else if defaults.string(forKey: UserDefaultsKeys.calDepDate) == "Add Date" || defaults.string(forKey: UserDefaultsKeys.calDepDate) == nil {
-                    showToast(message: "Add Departure Date")
-                }else {
-                    gotoFlightResultVC()
-                }
-                
+            if defaults.string(forKey: UserDefaultsKeys.fromCity) == nil {
+                showToast(message: "Enter From City")
+            }else if defaults.string(forKey: UserDefaultsKeys.toCity) == nil {
+                showToast(message: "Enter To City")
+            }else if defaults.string(forKey: UserDefaultsKeys.calDepDate) == "Add Date" || defaults.string(forKey: UserDefaultsKeys.calDepDate) == nil {
+                showToast(message: "Add Departure Date")
             }else {
-                MySingleton.shared.payload["v_class"] = defaults.string(forKey: UserDefaultsKeys.selectClass)
-                // MySingleton.shared.payload["v_class"] = defaults.string(forKey: UserDefaultsKeys.selectClass)
-                MySingleton.shared.payload["return"] = MySingleton.shared.convertDateFormat(inputDate: defaults.string(forKey: UserDefaultsKeys.calRetDate) ?? "", f1: "dd-MM-yyyy", f2: "dd/MM/yyyy")
-                
-                if defaults.string(forKey: UserDefaultsKeys.fromCity) == nil {
-                    showToast(message: "Enter From City")
-                }else if defaults.string(forKey: UserDefaultsKeys.toCity) == nil {
-                    showToast(message: "Enter To City")
-                }else if defaults.string(forKey: UserDefaultsKeys.calDepDate) == "Add Date" || defaults.string(forKey: UserDefaultsKeys.calDepDate) == nil {
-                    showToast(message: "Add Departure Date")
-                }else if defaults.string(forKey: UserDefaultsKeys.calRetDate) == "Add Date" || defaults.string(forKey: UserDefaultsKeys.calRetDate) == nil {
-                    showToast(message: "Add Return Date")
-                }else {
-                    gotoFlightResultVC()
-                }
-                
+                gotoFlightResultVC()
+            }
+            
+        }else {
+            MySingleton.shared.payload["v_class"] = defaults.string(forKey: UserDefaultsKeys.selectClass)
+            // MySingleton.shared.payload["v_class"] = defaults.string(forKey: UserDefaultsKeys.selectClass)
+            MySingleton.shared.payload["return"] = MySingleton.shared.convertDateFormat(inputDate: defaults.string(forKey: UserDefaultsKeys.calRetDate) ?? "", f1: "dd-MM-yyyy", f2: "dd/MM/yyyy")
+            
+            if defaults.string(forKey: UserDefaultsKeys.fromCity) == nil {
+                showToast(message: "Enter From City")
+            }else if defaults.string(forKey: UserDefaultsKeys.toCity) == nil {
+                showToast(message: "Enter To City")
+            }else if defaults.string(forKey: UserDefaultsKeys.calDepDate) == "Add Date" || defaults.string(forKey: UserDefaultsKeys.calDepDate) == nil {
+                showToast(message: "Add Departure Date")
+            }else if defaults.string(forKey: UserDefaultsKeys.calRetDate) == "Add Date" || defaults.string(forKey: UserDefaultsKeys.calRetDate) == nil {
+                showToast(message: "Add Return Date")
+            }else {
+                gotoFlightResultVC()
+            }
+            
             
             
             

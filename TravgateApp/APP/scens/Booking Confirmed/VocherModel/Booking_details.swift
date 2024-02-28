@@ -28,7 +28,6 @@ struct Booking_details : Codable {
     let discount : String?
     let total_price_attributes : String?
     let attributes : String?
-    let api_token : String?
     let seat_information : String?
     let seat_price : String?
     let booking_billing_type : String?
@@ -81,8 +80,6 @@ struct Booking_details : Codable {
     let cancellation_details : String?
     let booking_itinerary_summary : [Booking_itinerary_summary]?
 
-  
-
     enum CodingKeys: String, CodingKey {
 
         case origin = "origin"
@@ -111,7 +108,6 @@ struct Booking_details : Codable {
         case discount = "discount"
         case total_price_attributes = "total_price_attributes"
         case attributes = "attributes"
-        case api_token = "api_token"
         case seat_information = "seat_information"
         case seat_price = "seat_price"
         case booking_billing_type = "booking_billing_type"
@@ -193,7 +189,6 @@ struct Booking_details : Codable {
         discount = try values.decodeIfPresent(String.self, forKey: .discount)
         total_price_attributes = try values.decodeIfPresent(String.self, forKey: .total_price_attributes)
         attributes = try values.decodeIfPresent(String.self, forKey: .attributes)
-        api_token = try values.decodeIfPresent(String.self, forKey: .api_token)
         seat_information = try values.decodeIfPresent(String.self, forKey: .seat_information)
         seat_price = try values.decodeIfPresent(String.self, forKey: .seat_price)
         booking_billing_type = try values.decodeIfPresent(String.self, forKey: .booking_billing_type)
@@ -245,7 +240,6 @@ struct Booking_details : Codable {
         customer_details = try values.decodeIfPresent([Customer_details].self, forKey: .customer_details)
         cancellation_details = try values.decodeIfPresent(String.self, forKey: .cancellation_details)
         booking_itinerary_summary = try values.decodeIfPresent([Booking_itinerary_summary].self, forKey: .booking_itinerary_summary)
-
     }
 
 }

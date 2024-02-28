@@ -174,33 +174,33 @@ class AddDeatilsOfTravellerTVCell: TableViewCell {
         
         if let cellInfo = cellInfo {
             if cellInfo.key == "adult" {
-                if MySingleton.shared.travelerArray.count <= self.indexposition {
-                    MySingleton.shared.travelerArray += Array(repeating: Traveler(), count: (self.indexposition ) - MySingleton.shared.travelerArray.count + 1)
+                if travelerArray.count <= self.indexposition {
+                    travelerArray += Array(repeating: Traveler(), count: (self.indexposition ) - travelerArray.count + 1)
                 }
                 
                 // Update the gender property of the Traveler object at the specified index
-                MySingleton.shared.travelerArray[self.indexposition ].middlename = ""
-                MySingleton.shared.travelerArray[self.indexposition ].laedpassenger = "0"
+                travelerArray[self.indexposition ].middlename = ""
+                travelerArray[self.indexposition ].laedpassenger = "0"
                 titledropDown.dataSource = ["Mr","Ms","Mrs"]
                 
             } else if cellInfo.key == "child" {
-                if MySingleton.shared.travelerArray.count <= self.indexposition {
-                    MySingleton.shared.travelerArray += Array(repeating: Traveler(), count: (self.indexposition ) - MySingleton.shared.travelerArray.count + 1)
+                if travelerArray.count <= self.indexposition {
+                    travelerArray += Array(repeating: Traveler(), count: (self.indexposition ) - travelerArray.count + 1)
                 }
                 
                 // Update the gender property of the Traveler object at the specified index
-                MySingleton.shared.travelerArray[self.indexposition ].middlename = ""
-                MySingleton.shared.travelerArray[self.indexposition ].laedpassenger = "0"
+                travelerArray[self.indexposition ].middlename = ""
+                travelerArray[self.indexposition ].laedpassenger = "0"
                 titledropDown.dataSource = ["Master","Miss"]
                 
             } else {
-                if MySingleton.shared.travelerArray.count <= self.indexposition {
-                    MySingleton.shared.travelerArray += Array(repeating: Traveler(), count: (self.indexposition ) - MySingleton.shared.travelerArray.count + 1)
+                if travelerArray.count <= self.indexposition {
+                    travelerArray += Array(repeating: Traveler(), count: (self.indexposition ) - travelerArray.count + 1)
                 }
                 
                 // Update the gender property of the Traveler object at the specified index
-                MySingleton.shared.travelerArray[self.indexposition ].middlename = ""
-                MySingleton.shared.travelerArray[self.indexposition ].laedpassenger = "0"
+                travelerArray[self.indexposition ].middlename = ""
+                travelerArray[self.indexposition ].laedpassenger = "0"
                 titledropDown.dataSource = ["Master","Miss"]
                 
             }
@@ -210,7 +210,7 @@ class AddDeatilsOfTravellerTVCell: TableViewCell {
         
         if cellInfo?.title == "Adult 1" {
             setAttributedText(str1: "Adult 1", str2: "  Lead Passanger")
-            MySingleton.shared.travelerArray[self.indexposition ].laedpassenger = "1"
+            travelerArray[self.indexposition ].laedpassenger = "1"
             expandView()
             expandViewBool = false
         }
@@ -323,36 +323,36 @@ class AddDeatilsOfTravellerTVCell: TableViewCell {
         titledropDown.selectionAction = { [weak self] (index: Int, item: String) in
             self?.titleTF.text = item
             
-            if MySingleton.shared.travelerArray.count <= self?.indexposition ?? 0 {
-                MySingleton.shared.travelerArray += Array(repeating: Traveler(), count: (self?.indexposition ?? 0) - MySingleton.shared.travelerArray.count + 1)
+            if travelerArray.count <= self?.indexposition ?? 0 {
+                travelerArray += Array(repeating: Traveler(), count: (self?.indexposition ?? 0) - travelerArray.count + 1)
             }
             
             switch item {
             case "Mr":
-                MySingleton.shared.travelerArray[self?.indexposition ?? 0].mrtitle = "1"
-                MySingleton.shared.travelerArray[self?.indexposition ?? 0].gender = "1"
+                travelerArray[self?.indexposition ?? 0].mrtitle = "1"
+                travelerArray[self?.indexposition ?? 0].gender = "1"
                 break
                 
                 
             case "Master":
-                MySingleton.shared.travelerArray[self?.indexposition ?? 0].mrtitle = "4"
-                MySingleton.shared.travelerArray[self?.indexposition ?? 0].gender = "1"
+                travelerArray[self?.indexposition ?? 0].mrtitle = "4"
+                travelerArray[self?.indexposition ?? 0].gender = "1"
                 break
                 
             case "Ms":
-                MySingleton.shared.travelerArray[self?.indexposition ?? 0].mrtitle = "2"
-                MySingleton.shared.travelerArray[self?.indexposition ?? 0].gender = "2"
+                travelerArray[self?.indexposition ?? 0].mrtitle = "2"
+                travelerArray[self?.indexposition ?? 0].gender = "2"
                 break
                 
                 
             case "Miss":
-                MySingleton.shared.travelerArray[self?.indexposition ?? 0].mrtitle = "3"
-                MySingleton.shared.travelerArray[self?.indexposition ?? 0].gender = "2"
+                travelerArray[self?.indexposition ?? 0].mrtitle = "3"
+                travelerArray[self?.indexposition ?? 0].gender = "2"
                 break
                 
             case "Mrs":
-                MySingleton.shared.travelerArray[self?.indexposition ?? 0].mrtitle = "5"
-                MySingleton.shared.travelerArray[self?.indexposition ?? 0].gender = "2"
+                travelerArray[self?.indexposition ?? 0].mrtitle = "5"
+                travelerArray[self?.indexposition ?? 0].gender = "2"
                 break
                 
             default:
@@ -393,13 +393,13 @@ class AddDeatilsOfTravellerTVCell: TableViewCell {
             self?.passportIssuingCountryTF.text = self?.countryNames[index] ?? ""
             
             
-            if MySingleton.shared.travelerArray.count <= self?.indexposition ?? 0 {
-                MySingleton.shared.travelerArray += Array(repeating: Traveler(), count: (self?.indexposition ?? 0) - MySingleton.shared.travelerArray.count + 1)
+            if travelerArray.count <= self?.indexposition ?? 0 {
+                travelerArray += Array(repeating: Traveler(), count: (self?.indexposition ?? 0) - travelerArray.count + 1)
             }
             
             // Update the gender property of the Traveler object at the specified index
-            MySingleton.shared.travelerArray[self?.indexposition ?? 0].passportIssuingCountry = self?.originArray[index] ?? ""
-            MySingleton.shared.travelerArray[self?.indexposition ?? 0].passportIssuingCountryName = self?.countryNames[index] ?? ""
+            travelerArray[self?.indexposition ?? 0].passportIssuingCountry = self?.originArray[index] ?? ""
+            travelerArray[self?.indexposition ?? 0].passportIssuingCountryName = self?.countryNames[index] ?? ""
             
             self?.issuecountryView.layer.borderColor = UIColor.AppBorderColor.cgColor
             self?.passportExpireDateTF.becomeFirstResponder()
@@ -568,12 +568,12 @@ class AddDeatilsOfTravellerTVCell: TableViewCell {
         
         if dobTF.isFirstResponder {
             dobTF.text = formatter.string(from: dobDatePicker.date)
-            if MySingleton.shared.travelerArray.count <= indexposition {
-                MySingleton.shared.travelerArray += Array(repeating: Traveler(), count: indexposition - MySingleton.shared.travelerArray.count + 1)
+            if travelerArray.count <= indexposition {
+                travelerArray += Array(repeating: Traveler(), count: indexposition - travelerArray.count + 1)
             }
             
             // Update the gender property of the Traveler object at the specified index
-            MySingleton.shared.travelerArray[indexposition].dob = dobTF.text
+            travelerArray[indexposition].dob = dobTF.text
             self.dobTF.resignFirstResponder()
             self.dobView.layer.borderColor = UIColor.AppBorderColor.cgColor
             self.passportnoTF.becomeFirstResponder()
@@ -591,12 +591,12 @@ class AddDeatilsOfTravellerTVCell: TableViewCell {
             
             
             
-            if MySingleton.shared.travelerArray.count <= indexposition {
-                MySingleton.shared.travelerArray += Array(repeating: Traveler(), count: indexposition - MySingleton.shared.travelerArray.count + 1)
+            if travelerArray.count <= indexposition {
+                travelerArray += Array(repeating: Traveler(), count: indexposition - travelerArray.count + 1)
             }
             
             // Update the gender property of the Traveler object at the specified index
-            MySingleton.shared.travelerArray[indexposition].passportExpireDate = passportExpireDateTF.text
+            travelerArray[indexposition].passportExpireDate = passportExpireDateTF.text
             self.passportexpireView.layer.borderColor = UIColor.AppBorderColor.cgColor
             self.passportExpireDateTF.resignFirstResponder()
             
@@ -679,8 +679,8 @@ class AddDeatilsOfTravellerTVCell: TableViewCell {
     
     @objc func editingTextField1(textField: UITextField) {
         
-        if MySingleton.shared.travelerArray.count <= indexposition {
-            MySingleton.shared.travelerArray += Array(repeating: Traveler(), count: indexposition - MySingleton.shared.travelerArray.count + 1)
+        if travelerArray.count <= indexposition {
+            travelerArray += Array(repeating: Traveler(), count: indexposition - travelerArray.count + 1)
         }
         
         if let text = textField.text, !text.isEmpty {
@@ -688,7 +688,7 @@ class AddDeatilsOfTravellerTVCell: TableViewCell {
             switch textField {
             case fnameTF:
                 fnameView.layer.borderColor = UIColor.AppBorderColor.cgColor
-                MySingleton.shared.travelerArray[indexposition].firstName = text
+                travelerArray[indexposition].firstName = text
                 
                 
                 
@@ -696,13 +696,13 @@ class AddDeatilsOfTravellerTVCell: TableViewCell {
                 
             case lnameTF:
                 lnameView.layer.borderColor = UIColor.AppBorderColor.cgColor
-                MySingleton.shared.travelerArray[indexposition].lastName = text
+                travelerArray[indexposition].lastName = text
                 break
                 
                 
             case passportnoTF:
                 passportnoView.layer.borderColor = UIColor.AppBorderColor.cgColor
-                MySingleton.shared.travelerArray[indexposition].passportno = text
+                travelerArray[indexposition].passportno = text
                 break
                 
                 

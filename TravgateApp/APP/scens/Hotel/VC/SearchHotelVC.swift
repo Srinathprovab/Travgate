@@ -48,7 +48,6 @@ class SearchHotelVC: BaseTableVC {
     }
     
     
-    
     override func didTapOnFlightSearchBtnAction(cell:FlightSearchTVCell) {
         didTapOnHotelSearchBtnAction()
     }

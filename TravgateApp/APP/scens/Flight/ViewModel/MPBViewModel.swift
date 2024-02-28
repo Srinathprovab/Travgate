@@ -64,7 +64,7 @@ class MPBViewModel {
         ServiceManager.postOrPutApiCall(endPoint: "flight/\(ApiEndpoints.mobileprocesspassengerdetail)" , parameters: parms, resultType: MobilePassengerdetailsModel.self, p:dictParam) { sucess, result, errorMessage in
             
             DispatchQueue.main.async {
-                self.view?.hideLoader()
+               // self.view?.hideLoader()
                 if sucess {
                     guard let response = result else {return}
                     self.view.mobileprocesspassengerDetails(response: response)

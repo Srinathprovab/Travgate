@@ -324,6 +324,8 @@
 		65BFE1E02B8DF64600CE27B2 /* HolidayContactdetailsTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BFE1DE2B8DF64600CE27B2 /* HolidayContactdetailsTVCell.swift */; };
 		65BFE1E12B8DF64600CE27B2 /* HolidayContactdetailsTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65BFE1DF2B8DF64600CE27B2 /* HolidayContactdetailsTVCell.xib */; };
 		65BFE1E72B8DFD2E00CE27B2 /* CruiseEnquireySucessVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BFE1E62B8DFD2E00CE27B2 /* CruiseEnquireySucessVC.swift */; };
+		65BFE1EB2B8F22DD00CE27B2 /* Citydatalist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BFE1EA2B8F22DD00CE27B2 /* Citydatalist.swift */; };
+		65BFE1ED2B8F6C8900CE27B2 /* sucessful.gif in Resources */ = {isa = PBXBuildFile; fileRef = 65BFE1EC2B8F6C8900CE27B2 /* sucessful.gif */; };
 		65C5900D2B60FB3C00BF7DB9 /* NewDepartureTimeTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C5900B2B60FB3C00BF7DB9 /* NewDepartureTimeTVCell.swift */; };
 		65C5900E2B60FB3C00BF7DB9 /* NewDepartureTimeTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65C5900C2B60FB3C00BF7DB9 /* NewDepartureTimeTVCell.xib */; };
 		65C590102B63C9CE00BF7DB9 /* LogoutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C5900F2B63C9CE00BF7DB9 /* LogoutViewModel.swift */; };
@@ -775,6 +777,8 @@
 		65BFE1DE2B8DF64600CE27B2 /* HolidayContactdetailsTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidayContactdetailsTVCell.swift; sourceTree = "<group>"; };
 		65BFE1DF2B8DF64600CE27B2 /* HolidayContactdetailsTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HolidayContactdetailsTVCell.xib; sourceTree = "<group>"; };
 		65BFE1E62B8DFD2E00CE27B2 /* CruiseEnquireySucessVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CruiseEnquireySucessVC.swift; sourceTree = "<group>"; };
+		65BFE1EA2B8F22DD00CE27B2 /* Citydatalist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Citydatalist.swift; sourceTree = "<group>"; };
+		65BFE1EC2B8F6C8900CE27B2 /* sucessful.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = sucessful.gif; sourceTree = "<group>"; };
 		65C5900B2B60FB3C00BF7DB9 /* NewDepartureTimeTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDepartureTimeTVCell.swift; sourceTree = "<group>"; };
 		65C5900C2B60FB3C00BF7DB9 /* NewDepartureTimeTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewDepartureTimeTVCell.xib; sourceTree = "<group>"; };
 		65C5900F2B63C9CE00BF7DB9 /* LogoutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutViewModel.swift; sourceTree = "<group>"; };
@@ -1160,6 +1164,7 @@
 		651716432B43F8D0003D3723 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
+				65BFE1EC2B8F6C8900CE27B2 /* sucessful.gif */,
 				651716442B43F8D0003D3723 /* Constants.swift */,
 				65220A972B74B46A0010654E /* loder.gif */,
 				651716472B43F8D0003D3723 /* SessionManager.swift */,
@@ -2031,6 +2036,7 @@
 				658B37712B4D75280011932C /* Booking_details.swift */,
 				658B37732B4D75280011932C /* VocherModel.swift */,
 				658B37742B4D75280011932C /* VocherModelDetails.swift */,
+				65BFE1EA2B8F22DD00CE27B2 /* Citydatalist.swift */,
 			);
 			path = VocherModel;
 			sourceTree = "<group>";
@@ -3162,6 +3168,7 @@
 				65D39CA92B7A48D200917F74 /* Insurance.storyboard in Resources */,
 				658B37412B4D54FA0011932C /* UsePromoCodesTVCell.xib in Resources */,
 				65AD14FE2B4E80340064E8B0 /* LoginTVCell.xib in Resources */,
+				65BFE1ED2B8F6C8900CE27B2 /* sucessful.gif in Resources */,
 				658B37992B4D77BF0011932C /* BookingConfirmedTVCell.xib in Resources */,
 				65B6797C2B44238B00E5D1C3 /* Inter-SemiBold.ttf in Resources */,
 				65B6796F2B44229C00E5D1C3 /* OpenSans-Bold.ttf in Resources */,
@@ -3687,6 +3694,7 @@
 				658B37132B4BE0200011932C /* MPBFormParams.swift in Sources */,
 				65CB7A442B67669600A2E110 /* Dis_mar.swift in Sources */,
 				65CB2D022B49469C009B5B2E /* ItineraryTVCell.swift in Sources */,
+				65BFE1EB2B8F22DD00CE27B2 /* Citydatalist.swift in Sources */,
 				65220A902B74937C0010654E /* RecentSearches.swift in Sources */,
 				658B37112B4BDFD60011932C /* Pre_booking_params.swift in Sources */,
 				650DBA532B4549950052294A /* SelectCurrencyModel.swift in Sources */,

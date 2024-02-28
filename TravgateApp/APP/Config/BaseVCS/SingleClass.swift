@@ -76,7 +76,6 @@ class MySingleton {
     var baggageDetails = [Baggage_details]()
     var mpbpriceDetails: PriceDetails?
     var mpbFlightData : MPBFlightDetails?
-    var travelerArray: [Traveler] = []
     var frequent_flyersArray = [Frequent_flyers]()
     var addonServices = [Addon_services]()
     var ageCategory: AgeCategory = .adult

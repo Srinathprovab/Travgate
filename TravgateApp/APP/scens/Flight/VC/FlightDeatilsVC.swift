@@ -269,7 +269,7 @@ extension FlightDeatilsVC {
         
         MySingleton.shared.tablerow.removeAll()
         
-
+        
         
         for (index,value) in MySingleton.shared.baggageDetails.enumerated() {
             
@@ -278,15 +278,7 @@ extension FlightDeatilsVC {
                                                         subTitle: "\(value.origin_loc ?? "")-\(value.destination_loc ?? "")",
                                                         cellType:.BaggageInfoTVCell))
         }
- 
-//        
-//        if defaults.string(forKey: UserDefaultsKeys.journeyType) == "oneway" {
-//            MySingleton.shared.tablerow.append(TableRow(title:"Departure",cellType:.BaggageInfoTVCell))
-//        }else {
-//            MySingleton.shared.tablerow.append(TableRow(title:"Departure",cellType:.BaggageInfoTVCell))
-//            MySingleton.shared.tablerow.append(TableRow(height:10,cellType:.EmptyTVCell))
-//            MySingleton.shared.tablerow.append(TableRow(title:"Return",cellType:.BaggageInfoTVCell))
-//        }
+        
         
         
         MySingleton.shared.tablerow.append(TableRow(height:50,cellType:.EmptyTVCell))

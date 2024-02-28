@@ -11,6 +11,20 @@ import MFSDK
 
 class PaymentGatewayVC: UIViewController, updatePaymentFlightViewModelDelegate {
     
+   
+    //MARK: Outlet
+    @IBOutlet weak var payButton: UIButton!
+    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet var cardInfoStackViews: [UIStackView]!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var cardNumberTextField: UITextField!
+    @IBOutlet weak var cardHolderNameTextField: UITextField!
+    @IBOutlet weak var monthTextField: UITextField!
+    @IBOutlet weak var yearTextField: UITextField!
+    @IBOutlet weak var secureCodeTextField: UITextField!
+    @IBOutlet weak var kwdpricelbl: UILabel!
+    
+    
     //MARK: Variables
     var paymentMethods: [MFPaymentMethod]?
     var selectedPaymentMethodIndex: Int?
@@ -24,21 +38,6 @@ class PaymentGatewayVC: UIViewController, updatePaymentFlightViewModelDelegate {
     var paymentResponse = String()
     var form_url_paymentSucess = ""
     var searchid = ""
-    //MARK: Outlet
-    //    @IBOutlet weak var errorCodeLabel : UILabel!
-    @IBOutlet weak var payButton: UIButton!
-    //    @IBOutlet weak var resultTextView: UITextView!
-    @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet var cardInfoStackViews: [UIStackView]!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    @IBOutlet weak var cardNumberTextField: UITextField!
-    @IBOutlet weak var cardHolderNameTextField: UITextField!
-    @IBOutlet weak var monthTextField: UITextField!
-    @IBOutlet weak var yearTextField: UITextField!
-    @IBOutlet weak var secureCodeTextField: UITextField!
-    
-    @IBOutlet weak var kwdpricelbl: UILabel!
-    
     
     
     static var newInstance: PaymentGatewayVC? {

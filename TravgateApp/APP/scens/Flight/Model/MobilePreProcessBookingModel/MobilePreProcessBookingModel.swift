@@ -17,7 +17,8 @@ struct MobilePreProcessBookingModel : Codable {
     let pre_booking_params : Pre_booking_params?
     let search_data : MPBSearchData?
     let frequent_flyers : [Frequent_flyers]?
-
+    let status : Int?
+    let msg : String?
     enum CodingKeys: String, CodingKey {
 
         case access_key_tp = "access_key_tp"
@@ -28,6 +29,8 @@ struct MobilePreProcessBookingModel : Codable {
         case pre_booking_params = "pre_booking_params"
         case search_data = "search_data"
         case frequent_flyers = "frequent_flyers"
+        case status = "status"
+        case msg = "msg"
     }
 
     init(from decoder: Decoder) throws {
@@ -40,6 +43,9 @@ struct MobilePreProcessBookingModel : Codable {
         pre_booking_params = try values.decodeIfPresent(Pre_booking_params.self, forKey: .pre_booking_params)
         search_data = try values.decodeIfPresent(MPBSearchData.self, forKey: .search_data)
         frequent_flyers = try values.decodeIfPresent([Frequent_flyers].self, forKey: .frequent_flyers)
+        status = try values.decodeIfPresent(Int.self, forKey: .status)
+        msg = try values.decodeIfPresent(String.self, forKey: .msg)
+
     }
 
 }
