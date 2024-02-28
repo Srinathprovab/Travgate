@@ -60,7 +60,7 @@
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="4"/>
+                                        <real key="value" value="6"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
@@ -79,7 +79,7 @@
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                <real key="value" value="4"/>
+                                <real key="value" value="6"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
@@ -93,6 +93,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="bottomView" destination="P33-QS-k51" id="MBV-gx-fa4"/>
                 <outlet property="img" destination="9iT-fh-4f1" id="c7L-Au-YwN"/>
                 <outlet property="subtitlelbl" destination="H7J-6q-eUB" id="Fno-MP-Yba"/>
                 <outlet property="titlelbl" destination="qkp-z9-Xud" id="BPT-36-Aq4"/>

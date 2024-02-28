@@ -46,7 +46,7 @@
                             </label>
                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TT5-cw-N0t">
                                 <rect key="frame" x="0.0" y="76.333333333333329" width="423" height="1"/>
-                                <color key="backgroundColor" name="fromcolor"/>
+                                <color key="backgroundColor" name="BorderColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="elh-Rz-5bN"/>
                                 </constraints>
@@ -663,9 +663,6 @@
         </namedColor>
         <namedColor name="Buttoncolor">
             <color red="0.2669999897480011" green="0.70999997854232788" blue="0.046999998390674591" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="fromcolor">
-            <color red="0.3880000114440918" green="0.3880000114440918" blue="0.3880000114440918" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="subtitleNewcolor">
             <color red="0.34509803921568627" green="0.34509803921568627" blue="0.34509803921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

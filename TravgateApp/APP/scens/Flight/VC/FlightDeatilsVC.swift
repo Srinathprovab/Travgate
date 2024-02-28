@@ -199,6 +199,7 @@ extension FlightDeatilsVC {
         holderView.isHidden = false
         self.fd = response.flightDetails ?? [[]]
         MySingleton.shared.flightPriceDetails = response.priceDetails
+        MySingleton.shared.baggageDetails = response.baggage_details ?? []
         MySingleton.shared.setAttributedTextnew(str1: "\(response.priceDetails?.api_currency ?? "")",
                                                 str2: "\(response.priceDetails?.grand_total ?? "")",
                                                 lbl: kwdlbl,
@@ -268,14 +269,24 @@ extension FlightDeatilsVC {
         
         MySingleton.shared.tablerow.removeAll()
         
+
         
-        if defaults.string(forKey: UserDefaultsKeys.journeyType) == "oneway" {
-            MySingleton.shared.tablerow.append(TableRow(title:"Departure",cellType:.BaggageInfoTVCell))
-        }else {
-            MySingleton.shared.tablerow.append(TableRow(title:"Departure",cellType:.BaggageInfoTVCell))
-            MySingleton.shared.tablerow.append(TableRow(height:10,cellType:.EmptyTVCell))
-            MySingleton.shared.tablerow.append(TableRow(title:"Return",cellType:.BaggageInfoTVCell))
+        for (index,value) in MySingleton.shared.baggageDetails.enumerated() {
+            
+            
+            MySingleton.shared.tablerow.append(TableRow(title:"\(index)",
+                                                        subTitle: "\(value.origin_loc ?? "")-\(value.destination_loc ?? "")",
+                                                        cellType:.BaggageInfoTVCell))
         }
+ 
+//        
+//        if defaults.string(forKey: UserDefaultsKeys.journeyType) == "oneway" {
+//            MySingleton.shared.tablerow.append(TableRow(title:"Departure",cellType:.BaggageInfoTVCell))
+//        }else {
+//            MySingleton.shared.tablerow.append(TableRow(title:"Departure",cellType:.BaggageInfoTVCell))
+//            MySingleton.shared.tablerow.append(TableRow(height:10,cellType:.EmptyTVCell))
+//            MySingleton.shared.tablerow.append(TableRow(title:"Return",cellType:.BaggageInfoTVCell))
+//        }
         
         
         MySingleton.shared.tablerow.append(TableRow(height:50,cellType:.EmptyTVCell))

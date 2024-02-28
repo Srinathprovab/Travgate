@@ -73,6 +73,7 @@ class MySingleton {
     let dateFormatter = DateFormatter()
     var similarflightList = [[FlightList]]()
     var flightPriceDetails: PriceDetails?
+    var baggageDetails = [Baggage_details]()
     var mpbpriceDetails: PriceDetails?
     var mpbFlightData : MPBFlightDetails?
     var travelerArray: [Traveler] = []

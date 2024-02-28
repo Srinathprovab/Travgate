@@ -166,6 +166,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="bannerImage" destination="P56-Uy-Bc3" id="eKM-gY-tdh"/>
+                <outlet property="contactusBtn" destination="Co7-LE-Jqx" id="bB9-VD-zLM"/>
                 <outlet property="itineraryTV" destination="nnc-EP-2c5" id="P33-J7-mUi"/>
                 <outlet property="packegeImagesCV" destination="F6t-mq-u8X" id="kLa-HW-2ak"/>
                 <outlet property="tvHeight" destination="QeI-6E-PFy" id="lT5-cZ-UnP"/>

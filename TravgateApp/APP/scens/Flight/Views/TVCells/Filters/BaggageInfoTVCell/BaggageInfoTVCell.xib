@@ -197,6 +197,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="cityslbl" destination="Hix-Fh-X7b" id="uuI-yD-g8i"/>
                 <outlet property="titlelbl" destination="Iyb-f4-L04" id="zXg-Xt-MAm"/>
             </connections>
             <point key="canvasLocation" x="413.74045801526717" y="158.80281690140845"/>
@@ -206,7 +207,7 @@
         <image name="bag1" width="33" height="33"/>
         <image name="bag2" width="27" height="32.333332061767578"/>
         <namedColor name="BorderColor">
-            <color red="0.875" green="0.875" blue="0.875" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.15000000596046448" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Buttoncolor">
             <color red="0.2669999897480011" green="0.70999997854232788" blue="0.046999998390674591" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

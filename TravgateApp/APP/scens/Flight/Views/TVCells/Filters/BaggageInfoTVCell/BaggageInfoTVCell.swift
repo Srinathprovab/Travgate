@@ -11,6 +11,7 @@ class BaggageInfoTVCell: TableViewCell {
     
     
     @IBOutlet weak var titlelbl: UILabel!
+    @IBOutlet weak var cityslbl: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,7 +26,16 @@ class BaggageInfoTVCell: TableViewCell {
     
     
     override func updateUI() {
-        titlelbl.text = cellInfo?.title ?? ""
+       
+        
+        if cellInfo?.title == "0" {
+            titlelbl.text = "Departure"
+        }else {
+            titlelbl.text = "Return"
+        }
+        
+        
+        cityslbl.text = cellInfo?.subTitle ?? ""
     }
     
 }

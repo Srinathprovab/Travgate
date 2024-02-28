@@ -10,6 +10,7 @@ import UIKit
 class CruiseItineraryTVCell: TableViewCell {
     
     @IBOutlet weak var bannerImage: UIImageView!
+    @IBOutlet weak var contactusBtn: UIButton!
     @IBOutlet weak var packegeImagesCV: UICollectionView!
     @IBOutlet weak var tvHeight: NSLayoutConstraint!
     @IBOutlet weak var itineraryTV: UITableView!
@@ -41,6 +42,11 @@ class CruiseItineraryTVCell: TableViewCell {
     }
     
     func setupUI() {
+        
+        contactusBtn.layer.borderWidth = 1.5
+        contactusBtn.layer.borderColor = UIColor.BooknowBtnColor.cgColor
+        contactusBtn.layer.cornerRadius = 15
+        
         setupCV()
         setupTV()
     }

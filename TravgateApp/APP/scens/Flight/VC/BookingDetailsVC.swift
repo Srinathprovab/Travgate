@@ -196,7 +196,7 @@ extension BookingDetailsVC {
         MySingleton.shared.accesskeytp = response.access_key_tp ?? ""
         
         MySingleton.shared.stopTimer()
-        MySingleton.shared.startTimer(time: 10)
+        MySingleton.shared.startTimer(time: 900)
         
         DispatchQueue.main.async {[self] in
             setupTVCell()
