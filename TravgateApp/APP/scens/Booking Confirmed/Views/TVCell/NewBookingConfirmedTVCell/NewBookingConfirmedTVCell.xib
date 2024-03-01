@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="OpenSans-Bold.ttf">
+            <string>OpenSans-Bold</string>
+        </array>
+        <array key="OpenSans-Medium.ttf">
+            <string>OpenSans-Medium</string>
+        </array>
+        <array key="OpenSans-SemiBold.ttf">
+            <string>OpenSans-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="272" id="KGk-i7-Jjw" customClass="NewBookingConfirmedTVCell" customModule="Travgate" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="620" height="272"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="620" height="272"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nVJ-UF-0wj">
+                        <rect key="frame" x="0.0" y="0.0" width="620" height="272"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bookingconfbg" translatesAutoresizingMaskIntoConstraints="NO" id="04n-OX-eiJ">
+                                <rect key="frame" x="0.0" y="0.0" width="620" height="272"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="272" id="bTg-R6-LxP"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="cwq-bu-0kR">
+                                <rect key="frame" x="212.66666666666663" y="206.33333333333334" width="195" height="22"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="GDS Reference: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fRl-wk-L0A">
+                                        <rect key="frame" x="0.0" y="0.0" width="106.33333333333333" height="22"/>
+                                        <fontDescription key="fontDescription" name="OpenSans-Medium" family="Open Sans" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="BW-54F4G4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SNO-pM-2Eq">
+                                        <rect key="frame" x="107.33333333333334" y="0.0" width="87.666666666666657" height="22"/>
+                                        <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="DfK-t5-8IY">
+                                <rect key="frame" x="215" y="179.33333333333334" width="190.33333333333337" height="22"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Booking id: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="viz-tZ-2VU">
+                                        <rect key="frame" x="0.0" y="0.0" width="77.333333333333329" height="22"/>
+                                        <fontDescription key="fontDescription" name="OpenSans-Medium" family="Open Sans" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="TR-64522-8457" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Avm-h0-Bh0">
+                                        <rect key="frame" x="78.333333333333314" y="0.0" width="112" height="22"/>
+                                        <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thanks for booking with us" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vtr-0Y-97D">
+                                <rect key="frame" x="205.66666666666663" y="152.33333333333334" width="209" height="22"/>
+                                <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bcbg" translatesAutoresizingMaskIntoConstraints="NO" id="OU8-2h-SCY">
+                                <rect key="frame" x="275.66666666666669" y="55" width="69" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="3Ep-eB-mnp"/>
+                                    <constraint firstAttribute="width" constant="69" id="J2Z-tH-yCb"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YEh-J8-yF7">
+                                <rect key="frame" x="10" y="60" width="35" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="35" id="Ac4-7v-SxJ"/>
+                                    <constraint firstAttribute="height" constant="35" id="mRc-cY-sb2"/>
+                                </constraints>
+                                <color key="tintColor" name="TitleColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="back"/>
+                                <connections>
+                                    <action selector="didTapOnBackBtnAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="b8K-bU-ztC"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Booking confirmation Receipt" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VhS-JS-LlU">
+                                <rect key="frame" x="161.66666666666663" y="119.99999999999999" width="297" height="27.333333333333329"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="H30-W1-EYy">
+                                <rect key="frame" x="215.66666666666669" y="233.33333333333334" width="188.66666666666669" height="22"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Booking Date : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ag4-cu-Cx0">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="22"/>
+                                        <fontDescription key="fontDescription" name="OpenSans-Medium" family="Open Sans" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="BW-54F4G4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nXt-XK-0fK">
+                                        <rect key="frame" x="101.00000000000003" y="0.0" width="87.666666666666657" height="22"/>
+                                        <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.87450980392156863" green="1" blue="0.81176470588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="OU8-2h-SCY" firstAttribute="top" secondItem="nVJ-UF-0wj" secondAttribute="top" constant="55" id="11E-jc-cqB"/>
+                            <constraint firstAttribute="bottom" secondItem="04n-OX-eiJ" secondAttribute="bottom" id="1B0-Rj-NbJ"/>
+                            <constraint firstItem="VhS-JS-LlU" firstAttribute="top" secondItem="OU8-2h-SCY" secondAttribute="bottom" constant="20" id="34N-mq-8vA"/>
+                            <constraint firstItem="OU8-2h-SCY" firstAttribute="centerX" secondItem="nVJ-UF-0wj" secondAttribute="centerX" id="5gf-jW-hwL"/>
+                            <constraint firstItem="YEh-J8-yF7" firstAttribute="leading" secondItem="nVJ-UF-0wj" secondAttribute="leading" constant="10" id="98D-Fw-1Ki"/>
+                            <constraint firstItem="DfK-t5-8IY" firstAttribute="top" secondItem="Vtr-0Y-97D" secondAttribute="bottom" constant="5" id="9mm-rk-sfc"/>
+                            <constraint firstItem="04n-OX-eiJ" firstAttribute="top" secondItem="nVJ-UF-0wj" secondAttribute="top" id="D1E-qm-LrG"/>
+                            <constraint firstItem="Vtr-0Y-97D" firstAttribute="top" secondItem="VhS-JS-LlU" secondAttribute="bottom" constant="5" id="Edg-ei-mAs"/>
+                            <constraint firstItem="cwq-bu-0kR" firstAttribute="top" secondItem="DfK-t5-8IY" secondAttribute="bottom" constant="5" id="Hkl-nS-MiO"/>
+                            <constraint firstItem="OU8-2h-SCY" firstAttribute="centerX" secondItem="nVJ-UF-0wj" secondAttribute="centerX" id="OHr-VB-AVE"/>
+                            <constraint firstAttribute="trailing" secondItem="04n-OX-eiJ" secondAttribute="trailing" id="QKJ-gA-ehR"/>
+                            <constraint firstItem="YEh-J8-yF7" firstAttribute="centerY" secondItem="OU8-2h-SCY" secondAttribute="centerY" id="ZQs-sy-yg8"/>
+                            <constraint firstAttribute="bottom" secondItem="H30-W1-EYy" secondAttribute="bottom" constant="16.670000000000002" id="aAs-Ra-84u"/>
+                            <constraint firstItem="cwq-bu-0kR" firstAttribute="centerX" secondItem="Vtr-0Y-97D" secondAttribute="centerX" id="gQS-Hv-I28"/>
+                            <constraint firstItem="H30-W1-EYy" firstAttribute="top" secondItem="cwq-bu-0kR" secondAttribute="bottom" constant="5" id="grw-ML-UQa"/>
+                            <constraint firstItem="VhS-JS-LlU" firstAttribute="centerX" secondItem="OU8-2h-SCY" secondAttribute="centerX" id="jam-lx-NhE"/>
+                            <constraint firstItem="DfK-t5-8IY" firstAttribute="centerX" secondItem="Vtr-0Y-97D" secondAttribute="centerX" id="kWJ-xi-sva"/>
+                            <constraint firstItem="Vtr-0Y-97D" firstAttribute="centerX" secondItem="VhS-JS-LlU" secondAttribute="centerX" id="m0r-RC-arl"/>
+                            <constraint firstItem="04n-OX-eiJ" firstAttribute="leading" secondItem="nVJ-UF-0wj" secondAttribute="leading" id="wEq-kb-cfa"/>
+                            <constraint firstItem="H30-W1-EYy" firstAttribute="centerX" secondItem="VhS-JS-LlU" secondAttribute="centerX" id="wPg-pL-WBc"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="nVJ-UF-0wj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="WoI-Jf-zf2"/>
+                    <constraint firstAttribute="bottom" secondItem="nVJ-UF-0wj" secondAttribute="bottom" id="b9S-TZ-zd1"/>
+                    <constraint firstAttribute="trailing" secondItem="nVJ-UF-0wj" secondAttribute="trailing" id="qf9-h1-aU4"/>
+                    <constraint firstItem="nVJ-UF-0wj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="qy5-e8-lxT"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="bookingIdlbl" destination="Avm-h0-Bh0" id="laS-s8-oyH"/>
+                <outlet property="datelbl" destination="nXt-XK-0fK" id="I3Y-Hy-lWc"/>
+                <outlet property="referencelbl" destination="SNO-pM-2Eq" id="489-Q6-ici"/>
+            </connections>
+            <point key="canvasLocation" x="366.41221374045801" y="213.38028169014086"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="back" width="20" height="20"/>
+        <image name="bcbg" width="69" height="45"/>
+        <image name="bookingconfbg" width="428" height="248"/>
+        <namedColor name="TitleColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

@@ -522,6 +522,7 @@
                                             <constraint firstItem="NVe-2h-Qwd" firstAttribute="centerX" secondItem="Dpp-2E-w0X" secondAttribute="centerX" id="g1h-Bm-e4V"/>
                                             <constraint firstItem="C2c-IE-ci9" firstAttribute="leading" secondItem="9BY-lD-AnW" secondAttribute="trailing" constant="23" id="gUp-cI-fVp"/>
                                             <constraint firstItem="QIs-de-aGU" firstAttribute="top" secondItem="NVe-2h-Qwd" secondAttribute="bottom" constant="1" id="ood-uf-uiA"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="38.329999999999998" id="qLI-L1-2zu"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -1858,7 +1859,7 @@
         <image name="fsearch" width="427" height="267"/>
         <image name="left" width="28" height="28"/>
         <image name="right" width="28" height="28"/>
-        <image name="searchbg" width="429" height="268.33334350585938"/>
+        <image name="searchbg" width="427" height="267"/>
         <image name="sort" width="26" height="26"/>
         <namedColor name="AppBtnColor">
             <color red="0.32899999618530273" green="0.32400000095367432" blue="0.4779999852180481" alpha="0.33000001311302185" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1867,13 +1868,13 @@
             <color red="0.10599999874830246" green="0.29399999976158142" blue="0.36500000953674316" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="BlurColor">
-            <color red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.40000000596046448" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="BooknowBtnColor">
             <color red="0.93300002813339233" green="0.097999997437000275" blue="0.20800000429153442" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="BorderColor">
-            <color red="0.875" green="0.875" blue="0.875" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.15000000596046448" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Buttoncolor">
             <color red="0.2669999897480011" green="0.70999997854232788" blue="0.046999998390674591" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -166,10 +166,13 @@ extension FlightResultVC: FlightListModelProtocal {
     
     func callAPI() {
         self.holderView.isHidden = true
-        MySingleton.shared.vm?.CALL_FLIGHT_SEARCH_API(dictParam: MySingleton.shared.payload)
         
         loderBool = true
         showLoadera()
+        
+        MySingleton.shared.vm?.CALL_FLIGHT_SEARCH_API(dictParam: MySingleton.shared.payload)
+        
+        
     }
     
     func flightList(response: FlightModel) {
@@ -309,7 +312,12 @@ extension FlightResultVC {
                 let previousDayString = dateFormatter.string(from: previousDay!)
                 print("previousDayString ==== > \(previousDayString)")
                 defaults.set(previousDayString, forKey: UserDefaultsKeys.calDepDate)
-                MySingleton.shared.payload["depature"] = defaults.string(forKey:UserDefaultsKeys.calDepDate)
+              //  MySingleton.shared.payload["depature"] = defaults.string(forKey:UserDefaultsKeys.calDepDate)
+                
+                
+                MySingleton.shared.payload["depature"] = MySingleton.shared.convertDateFormat(inputDate: defaults.string(forKey: UserDefaultsKeys.calDepDate) ?? "", f1: "dd-MM-yyyy", f2: "dd/MM/yyyy")
+                
+                
                 self.datelbl.text = previousDayString
                 
                 callAPI()
@@ -336,7 +344,8 @@ extension FlightResultVC {
                     
                     print("nextDayString ==== > \(nextDayString)")
                     defaults.set(nextDayString, forKey: UserDefaultsKeys.calDepDate)
-                    MySingleton.shared.payload["depature"] = defaults.string(forKey:UserDefaultsKeys.calDepDate)
+                 //   MySingleton.shared.payload["depature"] = defaults.string(forKey:UserDefaultsKeys.calDepDate)
+                    MySingleton.shared.payload["depature"] = MySingleton.shared.convertDateFormat(inputDate: defaults.string(forKey: UserDefaultsKeys.calDepDate) ?? "", f1: "dd-MM-yyyy", f2: "dd/MM/yyyy")
                     self.datelbl.text = nextDayString
                     
                     callAPI()
@@ -370,7 +379,8 @@ extension FlightResultVC {
                 let nextDayString = dateFormatter.string(from: nextDay!)
                 print("nextDayString ==== > \(nextDayString)")
                 defaults.set(nextDayString, forKey: UserDefaultsKeys.calDepDate)
-                MySingleton.shared.payload["depature"] = defaults.string(forKey:UserDefaultsKeys.calDepDate)
+             //   MySingleton.shared.payload["depature"] = defaults.string(forKey:UserDefaultsKeys.calDepDate)
+                MySingleton.shared.payload["depature"] = MySingleton.shared.convertDateFormat(inputDate: defaults.string(forKey: UserDefaultsKeys.calDepDate) ?? "", f1: "dd-MM-yyyy", f2: "dd/MM/yyyy")
                 self.datelbl.text = nextDayString
                 
                 callAPI()
@@ -397,7 +407,8 @@ extension FlightResultVC {
                     
                     
                     defaults.set(nextDayString, forKey: UserDefaultsKeys.calDepDate)
-                    MySingleton.shared.payload["depature"] = defaults.string(forKey:UserDefaultsKeys.calDepDate)
+                  //  MySingleton.shared.payload["depature"] = defaults.string(forKey:UserDefaultsKeys.calDepDate)
+                    MySingleton.shared.payload["depature"] = MySingleton.shared.convertDateFormat(inputDate: defaults.string(forKey: UserDefaultsKeys.calDepDate) ?? "", f1: "dd-MM-yyyy", f2: "dd/MM/yyyy")
                     self.datelbl.text = nextDayString
                     
                     callAPI()

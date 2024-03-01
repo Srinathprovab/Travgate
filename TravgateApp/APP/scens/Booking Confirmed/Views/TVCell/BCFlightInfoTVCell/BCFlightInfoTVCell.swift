@@ -26,7 +26,7 @@ class BCFlightInfoTVCell: UITableViewCell {
     @IBOutlet weak var fromTerminallbl: UILabel!
     @IBOutlet weak var toTerminallbl: UILabel!
     @IBOutlet weak var layoverView: UIView!
-    @IBOutlet weak var layoverTimelbl: UILabel!
+   // @IBOutlet weak var layoverTimelbl: UILabel!
     @IBOutlet weak var layoverHeight: NSLayoutConstraint!
     
     

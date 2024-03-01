@@ -79,7 +79,7 @@ var fl : [[FlightList]]?
 
 
 
-
+var bookedjurnycitys = String()
 var lastContentOffset: CGFloat = 0
 var urlString = String()
 var tablerow = [TableRow]()
@@ -100,7 +100,7 @@ var hotel_address = ""
 var total_rooms = ""
 var adult_count = ""
 var vocherpdf = ""
-var bookingitinerarydetails = [Booking_itinerary_details]()
+var bookingitinerarydetails = [Booking_itinerary_summary]()
 var Customerdetails = [Customer_details]()
 var currency = ""
 var totalPrice = ""

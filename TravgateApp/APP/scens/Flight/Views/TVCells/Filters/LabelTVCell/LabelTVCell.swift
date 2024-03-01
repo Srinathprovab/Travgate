@@ -63,8 +63,8 @@ class LabelTVCell: TableViewCell {
             
             
         case "bc":
-            titlelbl.textColor = .AppTabSelectColor
-            titlelbl.textAlignment = .center
+            titlelbl.textColor = .AppLabelColor
+            titlelbl.textAlignment = .left
             titlelbl.font = .LatoBold(size: 16)
             break
             

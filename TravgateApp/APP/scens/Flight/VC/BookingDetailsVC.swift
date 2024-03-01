@@ -158,6 +158,16 @@ class BookingDetailsVC: BaseTableVC, MPBViewModelDelegate, MobileSecureBookingVi
     }
     
     
+    override func didTapOnLoginBtn(cell:TDetailsLoginTVCell){
+        gotoLoginVC()
+    }
+    
+    
+    func gotoLoginVC() {
+        guard let vc = LoginVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .overCurrentContext
+        self.present(vc, animated: true)
+    }
     
 }
 

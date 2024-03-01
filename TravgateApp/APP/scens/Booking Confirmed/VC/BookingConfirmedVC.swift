@@ -19,7 +19,7 @@ class BookingConfirmedVC: BaseTableVC, VocherDetailsViewModelDelegate {
         return vc
     }
     
-    
+   
     override func viewWillAppear(_ animated: Bool) {
         addObserver()
         
@@ -33,7 +33,6 @@ class BookingConfirmedVC: BaseTableVC, VocherDetailsViewModelDelegate {
     func callAPI() {
         BASE_URL = ""
         callGetFlightVoucherAPI()
-        
     }
     
     
@@ -43,28 +42,43 @@ class BookingConfirmedVC: BaseTableVC, VocherDetailsViewModelDelegate {
         
         // Do any additional setup after loading the view.
         setupUI()
-        
         viewModel = VocherDetailsViewModel(self)
     }
     
     func setupUI() {
-        //        navBar.titlelbl.text = "Booking Confirmed"
-        //        navBar.backBtn.addTarget(self, action: #selector(didTapOnBackButton(_:)), for: .touchUpInside)
+       
         setupTV()
-        commonTableView.registerTVCells(["BookingConfirmedTVCell",
+        commonTableView.registerTVCells(["ImportentInfoTableViewCell",
+                                         "NewBookingConfirmedTVCell",
+                                         "HeaderTableViewCell",
                                          "EmptyTVCell",
                                          "LabelTVCell",
                                          "ButtonTVCell",
                                          "BCFlightDetailsTVCell",
-                                         "BookedTravelDetailsTVCell",
-                                         "VoucherHotelDetailsTVCell",
-                                         "InsurenceResultTVCell"])
+                                         "BookedTravelDetailsTVCell"])
         
     }
     
     
+    //MARK: - didTapOnViewVoucherBtnAction
+    override func didTapOnViewVoucherBtnAction(cell:BCFlightDetailsTVCell){
+        vocherpdf = "https://provab.net/travgate/pro_new/mobile/index.php/voucher/flight/\(bookingRefrence)/\(bookingsource)/\(bookingStatus)/show_pdf"
+        
+        
+        
+      //  vocherpdf = "https://www.facebook.com"
+        
+        let seconds = 1.0
+        DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+            self.gotoLoadWebViewVC(str: vocherpdf)
+        }
+        
+        
+    }
     
-    @objc func didTapOnBackButton(_ sender:UIButton) {
+    
+    //MARK: - didTapOnBackBtnAction
+    override func didTapOnBackBtnAction(cell: NewBookingConfirmedTVCell) {
         BASE_URL = BASE_URL1
         guard let vc = DashBoardTBVC.newInstance.self else {return}
         vc.modalPresentationStyle = .fullScreen
@@ -74,30 +88,14 @@ class BookingConfirmedVC: BaseTableVC, VocherDetailsViewModelDelegate {
     }
     
     
-    override func btnAction(cell: ButtonTVCell) {
-        
-        vocherpdf = "https://provabdevelopment.com/pro_new/mobile/index.php/voucher/flight/\(bookingRefrence)/\(bookingsource)/\(bookingStatus)/show_pdf"
-        
-        
-        downloadAndSavePDF(showpdfurl: vocherpdf)
-        
-        let seconds = 1.0
-        DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
-            self.gotoAboutUsVC(title: "Vocher Details", url: vocherpdf)
-        }
-        
+    
+    func gotoLoadWebViewVC(str:String) {
+        guard let vc = LoadWebViewVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .fullScreen
+        vc.urlString = str
+        present(vc, animated: true)
     }
     
-    
-    func gotoAboutUsVC(title:String,url:String) {
-        callapibool = false
-        //        guard let vc = AboutUsVC.newInstance.self else {return}
-        //        vc.urlString = url
-        //        vc.titleString = title
-        //        vc.modalPresentationStyle = .fullScreen
-        //        self.present(vc, animated: true)
-        
-    }
     
 }
 
@@ -112,7 +110,10 @@ extension BookingConfirmedVC {
     
     func vocherdetails(response: VocherModel) {
         BASE_URL = BASE_URL1
-        print(" ===== vocherdetails ====== \n \(response)")
+        
+        
+        bookedjurnycitys = "\(response.data?.booking_details?[0].journey_from ?? "")-\(response.data?.booking_details?[0].journey_to ?? "")"
+        
         response.data?.booking_details?.forEach({ i in
             bookedDate = i.booked_date ?? ""
             bookingsource = i.booking_source ?? ""
@@ -122,7 +123,7 @@ extension BookingConfirmedVC {
         })
         
         response.data?.booking_details?.forEach({ j in
-            bookingitinerarydetails = j.booking_itinerary_details ?? []
+            bookingitinerarydetails = j.booking_itinerary_summary ?? []
             Customerdetails = j.customer_details ?? []
             
             
@@ -149,27 +150,23 @@ extension BookingConfirmedVC {
     func setupTV() {
         tablerow.removeAll()
         
-        tablerow.append(TableRow(title:"Booking Confirmed",
-                                 subTitle: bookingId,
+        tablerow.append(TableRow(title:bookingId,
+                                 subTitle: bookingRefrence,
                                  key: "flight",
-                                 text: bookedDate,
-                                 buttonTitle: bookingRefrence,
+                                 buttonTitle: bookedDate,
                                  tempText: pnrNo,
-                                 cellType:.BookingConfirmedTVCell))
+                                 cellType:.NewBookingConfirmedTVCell))
         
-        tablerow.append(TableRow(title:"Flight Details",key: "bc",cellType:.LabelTVCell))
-        
-        
+        tablerow.append(TableRow(title:"\(bookedjurnycitys)",key: "bc",cellType:.LabelTVCell))
         tablerow.append(TableRow(moreData: bookingitinerarydetails,cellType:.BCFlightDetailsTVCell))
-        
-        
-        
         tablerow.append(TableRow(title:"Passenger Details",key: "bc",cellType:.LabelTVCell))
-        
         tablerow.append(TableRow(title:"Lead Passenger",moreData:Customerdetails,cellType:.BookedTravelDetailsTVCell))
+        tablerow.append(TableRow(height:10,cellType:.EmptyTVCell))
+        tablerow.append(TableRow(title:"Important Information",key: "bc",cellType:.LabelTVCell))
+        tablerow.append(TableRow(cellType:.ImportentInfoTableViewCell))
+        tablerow.append(TableRow(height:10,cellType:.EmptyTVCell))
+        tablerow.append(TableRow(cellType:.HeaderTableViewCell))
         tablerow.append(TableRow(height:35,cellType:.EmptyTVCell))
-        tablerow.append(TableRow(title:"Thank you for booking with Travgate Your attraction voucher has been shared on the confirmed email.",key: "booked",cellType:.LabelTVCell))
-        // tablerow.append(TableRow(title:"Download E - Ticket",key:"booked",cellType:.ButtonTVCell))
         tablerow.append(TableRow(height:60,cellType:.EmptyTVCell))
         
         commonTVData = tablerow
@@ -179,16 +176,6 @@ extension BookingConfirmedVC {
     
     
 }
-
-
-
-
-
-
-
-
-
-
 
 
 
