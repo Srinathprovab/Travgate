@@ -91,13 +91,28 @@ class FlightDeatilsVC: BaseTableVC, FlightDetailsViewModelDelegate {
     
     
     @IBAction func didTapOnBookNowBtnAction(_ sender: Any) {
+        
+        gotoBookingDetailsVC()
+        // gotoBookingConfirmedVC()
+    }
+    
+    
+    
+    func gotoBookingDetailsVC() {
         MySingleton.shared.callboolapi = true
         guard let vc = BookingDetailsVC.newInstance.self else {return}
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: false)
     }
     
-    
+    func gotoBookingConfirmedVC() {
+        
+        guard let vc = BookingConfirmedVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .fullScreen
+        urlString = "https://provab.net/travgate/pro_new/mobile/index.php/voucher/flight/BAS-F-TP-0305-1709641808/212"
+        callapibool = true
+        present(vc, animated: true)
+    }
     
     
     

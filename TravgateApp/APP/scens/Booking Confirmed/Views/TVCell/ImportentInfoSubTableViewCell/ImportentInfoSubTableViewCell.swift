@@ -9,6 +9,15 @@ import UIKit
 
 class ImportentInfoSubTableViewCell: UITableViewCell {
 
+    
+    @IBOutlet weak var departurelbl: UILabel!
+    
+    @IBOutlet weak var baggarelbl: UILabel!
+    @IBOutlet weak var durationlbl: UILabel!
+    
+    @IBOutlet weak var classlbl: UILabel!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

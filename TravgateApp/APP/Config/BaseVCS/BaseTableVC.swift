@@ -8,8 +8,7 @@
 import UIKit
 import MaterialComponents
 
-class BaseTableVC: UIViewController, TabSelectTVCellDelegate, FlightSearchTVCellDelegate, FlightResultTVCellDelegate, SideMenuTitleTVCellDelegate, MenuBGTVCellDelegate, SliderTVCellDelegate, CheckBoxTVCellDelegate, FilterDepartureTVCellDelegate, LabelTVCellDelegate, PopularFiltersTVCellDelegate,DepartureTimeTVCellDelegate, ButtonTVCellDelegate, SortbyTVCellDelegate, BookingDetailsFlightDataTVCellDelegate, TDetailsLoginTVCellDelegate, AddDeatilsOfTravellerTVCellDelegate, ContactInformationTVCellDelegate, UsePromoCodesTVCellDelegate, LoginTVCellDelegate, ResetPasswordTVCellDelegate, SignupTVCellDelegate, EditProfileTVCellDelegate, HotelSearchTVCellDelegate, AddRoomsGuestsTVCellDelegate, NewDepartureTimeTVCellDelegate, VisaTVCellDelegate, AutoPaymentTVCellDelegate, TripsTVCellDelegate, YourRecentSearchesTVCellDelegate, RoomsTVcellDelegate, RegisterSelectionLoginTableViewCellDelegate, AddonTVCellDelegate, TravellerEconomyTVCellDelegate, HolidayPackagesTVCellDelegate, CruisePackegesTVCellDelegate, CruiseContactdetailsTVCellDelegate, HolidayContactdetailsTVCellDelegate, BCFlightDetailsTVCellDelegate, NewBookingConfirmedTVCellDelegate {
-    
+class BaseTableVC: UIViewController, TabSelectTVCellDelegate, FlightSearchTVCellDelegate, FlightResultTVCellDelegate, SideMenuTitleTVCellDelegate, MenuBGTVCellDelegate, SliderTVCellDelegate, CheckBoxTVCellDelegate, FilterDepartureTVCellDelegate, LabelTVCellDelegate, PopularFiltersTVCellDelegate,DepartureTimeTVCellDelegate, ButtonTVCellDelegate, SortbyTVCellDelegate, BookingDetailsFlightDataTVCellDelegate, TDetailsLoginTVCellDelegate, AddDeatilsOfTravellerTVCellDelegate, ContactInformationTVCellDelegate, UsePromoCodesTVCellDelegate, LoginTVCellDelegate, ResetPasswordTVCellDelegate, SignupTVCellDelegate, EditProfileTVCellDelegate, HotelSearchTVCellDelegate, AddRoomsGuestsTVCellDelegate, NewDepartureTimeTVCellDelegate, VisaTVCellDelegate, AutoPaymentTVCellDelegate, TripsTVCellDelegate, YourRecentSearchesTVCellDelegate, RoomsTVcellDelegate, RegisterSelectionLoginTableViewCellDelegate, AddonTVCellDelegate, TravellerEconomyTVCellDelegate, HolidayPackagesTVCellDelegate, CruisePackegesTVCellDelegate, CruiseContactdetailsTVCellDelegate, HolidayContactdetailsTVCellDelegate, BCFlightDetailsTVCellDelegate, NewBookingConfirmedTVCellDelegate, HeaderTableViewCellDelegate {
     
     
     
@@ -246,6 +245,12 @@ class BaseTableVC: UIViewController, TabSelectTVCellDelegate, FlightSearchTVCell
     func cancelDatePicker(cell: HolidayContactdetailsTVCell) {}
     func didTapOnViewVoucherBtnAction(cell:BCFlightDetailsTVCell){}
     func didTapOnBackBtnAction(cell: NewBookingConfirmedTVCell) {}
+    
+    func didTapOnFacebookLinkBtnAction(cell: HeaderTableViewCell) {}
+    func didTapOnTwitterLinkBtnAction(cell: HeaderTableViewCell) {}
+    func didTapOnLinkedlnLinkBtnAction(cell: HeaderTableViewCell) {}
+    func didTapOnInstagramLinkBtnAction(cell: HeaderTableViewCell) {}
+    
     
     
     
@@ -686,6 +691,7 @@ extension BaseTableVC: UITableViewDataSource {
                 
             case .HeaderTableViewCell :
                 let cell: HeaderTableViewCell = commonTV.dequeTVCell(indexPath: indexPath)
+                cell.delegate = self
                 commonCell = cell
                 
                 

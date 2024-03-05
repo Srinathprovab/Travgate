@@ -15,6 +15,7 @@ class LoadWebViewVC: UIViewController, WKNavigationDelegate {
     
     
     @IBOutlet weak var holderView: UIView!
+    @IBOutlet weak var titlelbl: UILabel!
     @IBOutlet weak var webview: WKWebView!
     
     
@@ -27,7 +28,7 @@ class LoadWebViewVC: UIViewController, WKNavigationDelegate {
     
     
     var urlString = String()
-   
+    var keystr = String()
   
     
     
@@ -60,6 +61,12 @@ class LoadWebViewVC: UIViewController, WKNavigationDelegate {
         webview.navigationDelegate = self
         webview.isUserInteractionEnabled = true
         
+        
+        if keystr == "voucher" {
+            titlelbl.text = "Voucher Details"
+        }else {
+            titlelbl.text = ""
+        }
     }
     
    

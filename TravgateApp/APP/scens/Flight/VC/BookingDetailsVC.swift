@@ -240,10 +240,12 @@ extension BookingDetailsVC {
             MySingleton.shared.tablerow.append(TableRow(cellType:.TDetailsLoginTVCell))
         }
         
-        MySingleton.shared.tablerow.append(TableRow(cellType:.BookingDetailsFlightDataTVCell,
-                                                    data1: MySingleton.shared.mpbFlightData?.summary))
         
-        
+        if (MySingleton.shared.mpbFlightData?.summary?.count ?? 0) > 0 {
+            MySingleton.shared.tablerow.append(TableRow(cellType:.BookingDetailsFlightDataTVCell,
+                                                        data1: MySingleton.shared.mpbFlightData?.summary))
+            
+        }
         
         
         MySingleton.shared.passengertypeArray.removeAll()

@@ -13,6 +13,9 @@ struct VocherModelDetails : Codable {
     let v_class : String?
     let insurance : String?
     let insurance_totalprice : [String]?
+    let voucher_pdf : String?
+    let social_links : [Social_links]?
+    let bottom_text_info : [Bottom_text_info]?
 
     enum CodingKeys: String, CodingKey {
 
@@ -20,6 +23,9 @@ struct VocherModelDetails : Codable {
         case v_class = "v_class"
         case insurance = "insurance"
         case insurance_totalprice = "insurance_totalprice"
+        case voucher_pdf = "voucher_pdf"
+        case social_links = "social_links"
+        case bottom_text_info = "bottom_text_info"
     }
 
     init(from decoder: Decoder) throws {
@@ -28,6 +34,9 @@ struct VocherModelDetails : Codable {
         v_class = try values.decodeIfPresent(String.self, forKey: .v_class)
         insurance = try values.decodeIfPresent(String.self, forKey: .insurance)
         insurance_totalprice = try values.decodeIfPresent([String].self, forKey: .insurance_totalprice)
+        voucher_pdf = try values.decodeIfPresent(String.self, forKey: .voucher_pdf)
+        social_links = try values.decodeIfPresent([Social_links].self, forKey: .social_links)
+        bottom_text_info = try values.decodeIfPresent([Bottom_text_info].self, forKey: .bottom_text_info)
     }
 
 }

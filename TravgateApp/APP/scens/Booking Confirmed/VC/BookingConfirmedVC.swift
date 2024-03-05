@@ -19,7 +19,7 @@ class BookingConfirmedVC: BaseTableVC, VocherDetailsViewModelDelegate {
         return vc
     }
     
-   
+    
     override func viewWillAppear(_ animated: Bool) {
         addObserver()
         
@@ -46,8 +46,8 @@ class BookingConfirmedVC: BaseTableVC, VocherDetailsViewModelDelegate {
     }
     
     func setupUI() {
-       
-        setupTV()
+        
+        
         commonTableView.registerTVCells(["ImportentInfoTableViewCell",
                                          "NewBookingConfirmedTVCell",
                                          "HeaderTableViewCell",
@@ -62,18 +62,10 @@ class BookingConfirmedVC: BaseTableVC, VocherDetailsViewModelDelegate {
     
     //MARK: - didTapOnViewVoucherBtnAction
     override func didTapOnViewVoucherBtnAction(cell:BCFlightDetailsTVCell){
-        vocherpdf = "https://provab.net/travgate/pro_new/mobile/index.php/voucher/flight/\(bookingRefrence)/\(bookingsource)/\(bookingStatus)/show_pdf"
-        
-        
-        
-      //  vocherpdf = "https://www.facebook.com"
-        
         let seconds = 1.0
         DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
-            self.gotoLoadWebViewVC(str: vocherpdf)
+            self.gotoLoadWebViewVC(str: vocherpdf, keystr: "voucher")
         }
-        
-        
     }
     
     
@@ -89,12 +81,33 @@ class BookingConfirmedVC: BaseTableVC, VocherDetailsViewModelDelegate {
     
     
     
-    func gotoLoadWebViewVC(str:String) {
+    func gotoLoadWebViewVC(str:String,keystr:String) {
         guard let vc = LoadWebViewVC.newInstance.self else {return}
         vc.modalPresentationStyle = .fullScreen
         vc.urlString = str
+        vc.keystr = keystr
         present(vc, animated: true)
     }
+    
+    
+   //MARK: - HeaderTableViewCell Delegate Methodes
+    override func didTapOnFacebookLinkBtnAction(cell: HeaderTableViewCell) {
+        gotoLoadWebViewVC(str: social_linksArray[0].url_link ?? "", keystr: "link")
+    }
+    
+    override func didTapOnTwitterLinkBtnAction(cell: HeaderTableViewCell) {
+        gotoLoadWebViewVC(str: social_linksArray[1].url_link ?? "", keystr: "link")
+    }
+    
+    override func didTapOnLinkedlnLinkBtnAction(cell: HeaderTableViewCell) {
+        gotoLoadWebViewVC(str: social_linksArray[2].url_link ?? "", keystr: "link")
+    }
+    
+    override func didTapOnInstagramLinkBtnAction(cell: HeaderTableViewCell) {
+        gotoLoadWebViewVC(str: social_linksArray[4].url_link ?? "", keystr: "link")
+    }
+    
+    
     
     
 }
@@ -111,7 +124,9 @@ extension BookingConfirmedVC {
     func vocherdetails(response: VocherModel) {
         BASE_URL = BASE_URL1
         
-        
+        social_linksArray = response.data?.social_links ?? []
+        bottom_text_info = response.data?.bottom_text_info ?? []
+        vocherpdf = response.data?.voucher_pdf ?? ""
         bookedjurnycitys = "\(response.data?.booking_details?[0].journey_from ?? "")-\(response.data?.booking_details?[0].journey_to ?? "")"
         
         response.data?.booking_details?.forEach({ i in
@@ -165,7 +180,7 @@ extension BookingConfirmedVC {
         tablerow.append(TableRow(title:"Important Information",key: "bc",cellType:.LabelTVCell))
         tablerow.append(TableRow(cellType:.ImportentInfoTableViewCell))
         tablerow.append(TableRow(height:10,cellType:.EmptyTVCell))
-        tablerow.append(TableRow(cellType:.HeaderTableViewCell))
+        tablerow.append(TableRow(title:"",cellType:.HeaderTableViewCell))
         tablerow.append(TableRow(height:35,cellType:.EmptyTVCell))
         tablerow.append(TableRow(height:60,cellType:.EmptyTVCell))
         

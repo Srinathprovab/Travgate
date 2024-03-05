@@ -103,6 +103,7 @@ class MySingleton {
     var visaCountryCode = String()
     var cruiseKeyStr = String()
     var cruiseCountryCode = String()
+    var selectedResultStr = String()
     
     var confpassword = String()
     var recentData:[Recent_searches]?

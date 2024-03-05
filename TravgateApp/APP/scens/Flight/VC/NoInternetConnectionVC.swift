@@ -87,7 +87,10 @@ class NoInternetConnectionVC: UIViewController {
     }
     
     @IBAction func didTapOnTryAgainBtn(_ sender: Any) {
-        if key == "noresult" {
+        
+        BASE_URL = BASE_URL1
+        
+        if key == "noresult" || key == "noseat"{
             let tabselect = defaults.string(forKey: UserDefaultsKeys.tabselect)
             if tabselect == "Flight" {
                 guard let vc = FlightSearchVC.newInstance.self else {return}

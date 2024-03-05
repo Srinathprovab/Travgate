@@ -37,8 +37,8 @@ class ViewController: UIViewController {
         
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.0, execute: {
-            self.gotodashBoardScreen()
-           // self.gotoBookingConfirmedVC()
+           self.gotodashBoardScreen()
+          //  self.gotoBookingConfirmedVC()
         })
     }
     
@@ -57,7 +57,7 @@ class ViewController: UIViewController {
        
         guard let vc = BookingConfirmedVC.newInstance.self else {return}
         vc.modalPresentationStyle = .fullScreen
-        urlString = "https://provab.net/travgate/pro_new/mobile/index.php/voucher/flight/BAS-F-TP-0228-1709127138/3617"
+        urlString = "https://provab.net/travgate/pro_new/mobile/index.php/voucher/flight/BAS-F-TP-0305-1709641808/212"
         callapibool = true
         present(vc, animated: true)
     }

@@ -7,7 +7,9 @@
 
 import UIKit
 
-class FlightResultVC: BaseTableVC {
+class FlightResultVC: BaseTableVC, FlightDetailsViewModelDelegate {
+    
+    
     
     @IBOutlet weak var holderView: UIView!
     @IBOutlet weak var cityslbl: UILabel!
@@ -40,6 +42,7 @@ class FlightResultVC: BaseTableVC {
         setupUI()
         MySingleton.shared.dateFormatter.dateFormat = "HH:mm"
         MySingleton.shared.vm = FlightListViewModel(self)
+        MySingleton.shared.fdvm = FlightDetailsViewModel(self)
     }
     
     
@@ -85,9 +88,9 @@ class FlightResultVC: BaseTableVC {
     override func didTapOnBookNowBtnAction(cell: FlightResultTVCell) {
         MySingleton.shared.callboolapi = true
         MySingleton.shared.selectedResult = cell.selectedResult
-        guard let vc = BookingDetailsVC.newInstance.self else {return}
-        vc.modalPresentationStyle = .fullScreen
-        present(vc, animated: false)
+       
+        gotoBookingDetailsVC()
+        //callFlightDeatilsAPI()
     }
     
     
@@ -180,7 +183,7 @@ extension FlightResultVC: FlightListModelProtocal {
         // Call this when you want to remove the child view controller
         hideLoadera()
         loderBool = false
-      
+        
         
         self.holderView.isHidden = false
         MySingleton.shared.searchid = "\(response.data?.search_id ?? 0)"
@@ -231,6 +234,11 @@ extension FlightResultVC: FlightListModelProtocal {
                 
                 let similarFlights1 = similar(fare: Double(String(format: "%.2f", j.price?.api_total_display_fare ?? "")) ?? 0.0)
                 
+                
+                
+                j.flight_details?.summary?.forEach({ k in
+                    print("\(k.operator_name) : \(j.selectedResult)")
+                })
                 
                 MySingleton.shared.tablerow.append(TableRow(title: j.selectedResult,
                                                             refundable:j.fareType,
@@ -312,7 +320,7 @@ extension FlightResultVC {
                 let previousDayString = dateFormatter.string(from: previousDay!)
                 print("previousDayString ==== > \(previousDayString)")
                 defaults.set(previousDayString, forKey: UserDefaultsKeys.calDepDate)
-              //  MySingleton.shared.payload["depature"] = defaults.string(forKey:UserDefaultsKeys.calDepDate)
+                //  MySingleton.shared.payload["depature"] = defaults.string(forKey:UserDefaultsKeys.calDepDate)
                 
                 
                 MySingleton.shared.payload["depature"] = MySingleton.shared.convertDateFormat(inputDate: defaults.string(forKey: UserDefaultsKeys.calDepDate) ?? "", f1: "dd-MM-yyyy", f2: "dd/MM/yyyy")
@@ -344,7 +352,7 @@ extension FlightResultVC {
                     
                     print("nextDayString ==== > \(nextDayString)")
                     defaults.set(nextDayString, forKey: UserDefaultsKeys.calDepDate)
-                 //   MySingleton.shared.payload["depature"] = defaults.string(forKey:UserDefaultsKeys.calDepDate)
+                    //   MySingleton.shared.payload["depature"] = defaults.string(forKey:UserDefaultsKeys.calDepDate)
                     MySingleton.shared.payload["depature"] = MySingleton.shared.convertDateFormat(inputDate: defaults.string(forKey: UserDefaultsKeys.calDepDate) ?? "", f1: "dd-MM-yyyy", f2: "dd/MM/yyyy")
                     self.datelbl.text = nextDayString
                     
@@ -379,7 +387,7 @@ extension FlightResultVC {
                 let nextDayString = dateFormatter.string(from: nextDay!)
                 print("nextDayString ==== > \(nextDayString)")
                 defaults.set(nextDayString, forKey: UserDefaultsKeys.calDepDate)
-             //   MySingleton.shared.payload["depature"] = defaults.string(forKey:UserDefaultsKeys.calDepDate)
+                //   MySingleton.shared.payload["depature"] = defaults.string(forKey:UserDefaultsKeys.calDepDate)
                 MySingleton.shared.payload["depature"] = MySingleton.shared.convertDateFormat(inputDate: defaults.string(forKey: UserDefaultsKeys.calDepDate) ?? "", f1: "dd-MM-yyyy", f2: "dd/MM/yyyy")
                 self.datelbl.text = nextDayString
                 
@@ -407,7 +415,7 @@ extension FlightResultVC {
                     
                     
                     defaults.set(nextDayString, forKey: UserDefaultsKeys.calDepDate)
-                  //  MySingleton.shared.payload["depature"] = defaults.string(forKey:UserDefaultsKeys.calDepDate)
+                    //  MySingleton.shared.payload["depature"] = defaults.string(forKey:UserDefaultsKeys.calDepDate)
                     MySingleton.shared.payload["depature"] = MySingleton.shared.convertDateFormat(inputDate: defaults.string(forKey: UserDefaultsKeys.calDepDate) ?? "", f1: "dd-MM-yyyy", f2: "dd/MM/yyyy")
                     self.datelbl.text = nextDayString
                     
@@ -618,9 +626,6 @@ extension FlightResultVC:AppliedFilters {
         print(" ===== connectingFlightsFilterArray ====== \n\(connectingFlightsFilterArray)")
         print(" ===== ConnectingAirportsFilterArray ====== \n\(ConnectingAirportsFilterArray)")
         print(" ===== luggageFilterArray ====== \n\(luggageFilterArray)")
-        
-        
-        
         
         
         
@@ -835,9 +840,6 @@ extension FlightResultVC:AppliedFilters {
     }
     
     
-    
-    
-    
 }
 
 
@@ -846,8 +848,6 @@ extension FlightResultVC:AppliedFilters {
 extension FlightResultVC {
     
     func addObserver() {
-        
-        
         
         NotificationCenter.default.addObserver(self, selector: #selector(nointernet), name: Notification.Name("offline"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(resultnil), name: NSNotification.Name("resultnil"), object: nil)
@@ -897,32 +897,37 @@ extension FlightResultVC {
 
 
 
-//extension FlightResultVC {
-//    
-//    
-//    
-//    func setupLoderVC() {
-//        // Instantiate LoderVC from the storyboard
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil) // Replace "Main" with your storyboard name
-//        loaderVC = storyboard.instantiateViewController(withIdentifier: "LoderVC") as? LoderVC
-//        addChild(loaderVC)
-//        
-//        // Set the frame or constraints for the child view controller's view
-//        loaderVC.view.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height)
-//        
-//        // Add the child view controller's view to the parent view controller's view
-//        view.addSubview(loaderVC.view)
-//        
-//        // Notify the child view controller that it has been added
-//        loaderVC.didMove(toParent: self)
-//    }
-//    
-//    
-//    // Function to remove the child view controller
-//    func removeLoader() {
-//        loaderVC.willMove(toParent: nil)
-//        loaderVC.view.removeFromSuperview()
-//        loaderVC.removeFromParent()
-//    }
-//    
-//}
+//MARK: - Call Flight Details when book now btn tap
+extension FlightResultVC {
+    
+    func callFlightDeatilsAPI() {
+        self.holderView.isHidden = true
+        
+        MySingleton.shared.afterResultsBool = true
+        showLoadera()
+        loderBool = false
+        
+        
+        MySingleton.shared.payload.removeAll()
+        MySingleton.shared.payload["search_id"] = MySingleton.shared.searchid
+        MySingleton.shared.payload["booking_source"] = MySingleton.shared.bookingsource
+        MySingleton.shared.payload["selectedResultindex"] = MySingleton.shared.selectedResult
+        MySingleton.shared.payload["user_id"] = defaults.string(forKey: UserDefaultsKeys.userid) ?? "0"
+        MySingleton.shared.fdvm?.CALL_FLIGHT_DETAILS_API(dictParam: MySingleton.shared.payload)
+    }
+    
+    func flightDetails(response: FlightDetailsModel) {
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            self.gotoBookingDetailsVC()
+        }
+        
+    }
+    
+    func gotoBookingDetailsVC() {
+        guard let vc = BookingDetailsVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: false)
+    }
+    
+}

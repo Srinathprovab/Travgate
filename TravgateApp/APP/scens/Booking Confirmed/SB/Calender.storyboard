@@ -383,7 +383,7 @@
         <!--Load Web ViewVC-->
         <scene sceneID="8V2-se-s54">
             <objects>
-                <viewController storyboardIdentifier="LoadWebViewVC" id="UUo-u7-9Wn" customClass="LoadWebViewVC" customModule="HolidaysCenterApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoadWebViewVC" id="UUo-u7-9Wn" customClass="LoadWebViewVC" customModule="Travgate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EA6-7N-e6j">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -392,7 +392,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ye4-5m-Kye">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="90"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="100"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="scD-eY-fs8">
                                                 <rect key="frame" x="10" y="55" width="35" height="35"/>
@@ -419,12 +419,12 @@
                                             <constraint firstItem="o5G-7z-cDg" firstAttribute="centerY" secondItem="scD-eY-fs8" secondAttribute="centerY" id="JYV-mf-V1s"/>
                                             <constraint firstItem="scD-eY-fs8" firstAttribute="top" secondItem="ye4-5m-Kye" secondAttribute="top" constant="55" id="QhY-t5-IxK"/>
                                             <constraint firstItem="o5G-7z-cDg" firstAttribute="centerX" secondItem="ye4-5m-Kye" secondAttribute="centerX" id="haV-IR-vKy"/>
-                                            <constraint firstAttribute="height" constant="90" id="hmn-0G-eL3"/>
+                                            <constraint firstAttribute="height" constant="100" id="hmn-0G-eL3"/>
                                             <constraint firstItem="scD-eY-fs8" firstAttribute="leading" secondItem="ye4-5m-Kye" secondAttribute="leading" constant="10" id="peO-3O-MUX"/>
                                         </constraints>
                                     </view>
                                     <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ppj-DZ-eyc">
-                                        <rect key="frame" x="0.0" y="90" width="393" height="762"/>
+                                        <rect key="frame" x="0.0" y="100" width="393" height="752"/>
                                         <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <wkWebViewConfiguration key="configuration">
                                             <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
@@ -455,6 +455,7 @@
                     </view>
                     <connections>
                         <outlet property="holderView" destination="EZ7-cb-ywQ" id="DiA-pu-lGh"/>
+                        <outlet property="titlelbl" destination="o5G-7z-cDg" id="0ra-vX-edm"/>
                         <outlet property="webview" destination="Ppj-DZ-eyc" id="5HX-yW-46X"/>
                     </connections>
                 </viewController>
