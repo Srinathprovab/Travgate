@@ -62,6 +62,7 @@ enum TVCellType {
     case AddonTVCell
     case FRulesTVCell
     case ContactUsTVCell
+    case MoreDetailsTVCell
     
     //Booking
     case BookingConfirmedTVCell

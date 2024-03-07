@@ -113,7 +113,14 @@ class MySingleton {
     var addson:Addson = .nothing
     var addonSelectedArray = [String]()
     var selectedAddonTotalPrice = 0
+    var moreDetailsData : MoreDetailsData?
+    
+    
+    //View Models
     var loginvm:LoginViewModel?
+    var vm:FlightListViewModel?
+    var fdvm:FlightDetailsViewModel?
+    var mpbvm:MPBViewModel?
     var resetpasswordvm:ResetPasswordViewModel?
     var registervm:RegisterViewModel?
     var profilevm:ProfileViewModel?
@@ -128,6 +135,7 @@ class MySingleton {
     var visavm:VisaEnquireyViewModel?
     var cruisevm:CruiseViewModel?
     var cruisedetailsvm:CruiseDetailsViewModel?
+    var moredetailsvm:MoreDetailsViewModel?
     
     
     
@@ -139,10 +147,7 @@ class MySingleton {
     private var backgroundTask: UIBackgroundTaskIdentifier = .invalid
 
 
-    //View Models
-    var vm:FlightListViewModel?
-    var fdvm:FlightDetailsViewModel?
-    var mpbvm:MPBViewModel?
+   
     
     
     // Private initializer to prevent multiple instances

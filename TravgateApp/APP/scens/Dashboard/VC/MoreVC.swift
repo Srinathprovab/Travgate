@@ -48,16 +48,16 @@ class MoreVC: BaseTableVC {
         switch cell.titlelbl.text {
             
         case "About Us":
-            print("About Us")
+            gotoMoreDetailsVC(str: "About Us")
             break
             
         case "Terms & Conditions":
-            print("Terms & Conditions")
+            gotoMoreDetailsVC(str: "Terms & Conditions")
             break
             
             
         case "Privacy Policy":
-            print("Privacy Policy")
+            gotoMoreDetailsVC(str: "Privacy Policy")
             break
             
         case "Contact Us":
@@ -77,6 +77,14 @@ class MoreVC: BaseTableVC {
     func gotoContactUsVC() {
         guard let vc = ContactUsVC.newInstance.self else {return}
         vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
+    }
+    
+    
+    func gotoMoreDetailsVC(str:String) {
+        guard let vc = MoreDetailsVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .fullScreen
+        vc.titleString = str
         present(vc, animated: true)
     }
     
