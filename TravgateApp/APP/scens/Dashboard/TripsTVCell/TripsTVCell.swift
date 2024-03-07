@@ -40,6 +40,11 @@ class TripsTVCell: TableViewCell {
     override func updateUI() {
         titlelbl.text = cellInfo?.title ?? ""
         logoimg.image = UIImage(named: cellInfo?.image ?? "")
+        
+        if cellInfo?.key == "more" {
+            logoimg.isHidden = true
+        }
+        
     }
     
     

@@ -266,6 +266,29 @@ class FlightSearchTVCell: TableViewCell, SelectCityViewModelProtocal {
         defaults.set(fromlbl.text, forKey: UserDefaultsKeys.fromcityname)
         defaults.set(tolbl.text, forKey: UserDefaultsKeys.tocityname)
         
+        
+        
+        let m = defaults.string(forKey: UserDefaultsKeys.fromCity)
+        let n = defaults.string(forKey: UserDefaultsKeys.toCity)
+        
+        defaults.setValue(m, forKey: UserDefaultsKeys.toCity)
+        defaults.setValue(n, forKey: UserDefaultsKeys.fromCity)
+        
+        let y = defaults.string(forKey: UserDefaultsKeys.fromlocid)
+        let z = defaults.string(forKey: UserDefaultsKeys.tolocid)
+        
+
+        defaults.setValue(y, forKey: UserDefaultsKeys.tolocid)
+        defaults.setValue(z, forKey: UserDefaultsKeys.fromlocid)
+        
+        let c = "\(defaults.string(forKey: UserDefaultsKeys.fcity) ?? "")"
+        let d = "\(defaults.string(forKey: UserDefaultsKeys.tcity) ?? "")"
+        
+        defaults.setValue(d, forKey: UserDefaultsKeys.fcity)
+        defaults.setValue(c, forKey: UserDefaultsKeys.tcity)
+        
+        
+      
     }
     
     @IBAction func didTapOnFlightSearchBtnAction(_ sender: Any) {

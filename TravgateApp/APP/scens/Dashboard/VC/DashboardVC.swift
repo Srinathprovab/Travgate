@@ -128,7 +128,6 @@ class DashboardVC: BaseTableVC, AllCountryCodeListViewModelDelegate {
 
 extension DashboardVC:IndexPageViewModelDelegate {
     
-    
     func callIndexPageAPI() {
         MySingleton.shared.indexpagevm?.CALL_INDEX_PAGE_API(dictParam: [:])
     }

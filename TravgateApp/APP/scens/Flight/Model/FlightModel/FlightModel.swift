@@ -9,6 +9,7 @@ import Foundation
 
 
 struct FlightModel : Codable {
+    
     let data : FlightDataModel?
     let msg : String?
     let status : Int?

@@ -913,7 +913,7 @@ extension FlightResultVC {
         MySingleton.shared.payload["booking_source"] = MySingleton.shared.bookingsource
         MySingleton.shared.payload["selectedResultindex"] = MySingleton.shared.selectedResult
         MySingleton.shared.payload["user_id"] = defaults.string(forKey: UserDefaultsKeys.userid) ?? "0"
-        MySingleton.shared.fdvm?.CALL_FLIGHT_DETAILS_API(dictParam: MySingleton.shared.payload)
+       // MySingleton.shared.fdvm?.CALL_FLIGHT_DETAILS_API(dictParam: MySingleton.shared.payload)
     }
     
     func flightDetails(response: FlightDetailsModel) {

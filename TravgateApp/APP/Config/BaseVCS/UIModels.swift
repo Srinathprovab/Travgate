@@ -60,6 +60,8 @@ enum TVCellType {
     case InternationalTravelInsuranceTVCell
     case SpecialAssistanceTVCell
     case AddonTVCell
+    case FRulesTVCell
+    case ContactUsTVCell
     
     //Booking
     case BookingConfirmedTVCell

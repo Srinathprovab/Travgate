@@ -55,6 +55,7 @@ class FlightDeatilsVC: BaseTableVC, FlightDetailsViewModelDelegate {
         
         commonTableView.registerTVCells(["TicketIssuingTimeTVCell",
                                          "ItineraryTVCell",
+                                         "FRulesTVCell",
                                          "EmptyTVCell",
                                          "BaggageInfoTVCell",
                                          "FareRulesTVCell",
@@ -271,8 +272,11 @@ extension FlightDeatilsVC {
         
         MySingleton.shared.tablerow.removeAll()
         MySingleton.shared.tablerow.append(TableRow(height:10,cellType:.EmptyTVCell))
-        MySingleton.shared.tablerow.append(TableRow(key:"hide",cellType: .FareRulesTVCell))
-        MySingleton.shared.tablerow.append(TableRow(key:"show",cellType: .FareRulesTVCell))
+//        MySingleton.shared.tablerow.append(TableRow(key:"hide",cellType: .FareRulesTVCell))
+//        MySingleton.shared.tablerow.append(TableRow(key:"show",cellType: .FareRulesTVCell))
+        MySingleton.shared.tablerow.append(TableRow(key:"show",cellType: .FRulesTVCell))
+
+        
         
         commonTVData = MySingleton.shared.tablerow
         commonTableView.reloadData()

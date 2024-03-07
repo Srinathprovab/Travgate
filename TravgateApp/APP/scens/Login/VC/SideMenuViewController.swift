@@ -88,6 +88,8 @@ class SideMenuViewController: BaseTableVC, ProfileViewModelDelegate, LogoutViewM
         present(vc, animated: true)
     }
     
+    //   var links = ["Flight", "Hotel", "Visa", "Auto Payment"]
+    
     override func didTaponCell(cell: SideMenuTitleTVCell) {
         switch cell.menuTitlelbl.text {
         case "Flight":
@@ -97,10 +99,10 @@ class SideMenuViewController: BaseTableVC, ProfileViewModelDelegate, LogoutViewM
             print("Hotel")
             break
         case "Visa":
-            print("Visa")
+            gotoCVisaVC()
             break
         case "Auto Payment":
-            print("Auto Payment")
+            gotoCAutoPaymentVC()
             break
         case "My Bookings":
             print("My Bookings")
@@ -125,8 +127,23 @@ class SideMenuViewController: BaseTableVC, ProfileViewModelDelegate, LogoutViewM
         }
     }
     
+    
+    
     func showFlightSearchVC() {
         guard let vc = FlightSearchVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
+    }
+    
+    func gotoCVisaVC() {
+        guard let vc = VisaVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
+    }
+    
+    
+    func gotoCAutoPaymentVC() {
+        guard let vc = AutoPaymentVC.newInstance.self else {return}
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)
     }

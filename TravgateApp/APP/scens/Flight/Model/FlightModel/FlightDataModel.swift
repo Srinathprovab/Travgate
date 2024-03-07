@@ -16,6 +16,7 @@ struct FlightDataModel : Codable {
     let journey_id : Int?
     let pxtrip_type : String?
     let traceId : String?
+    let firstDataForEachGroup : [FirstDataForEachGroup]?
     
     enum CodingKeys: String, CodingKey {
         
@@ -27,6 +28,8 @@ struct FlightDataModel : Codable {
         case journey_id = "journey_id"
         case pxtrip_type = "pxtrip_type"
         case traceId = "traceId"
+        case firstDataForEachGroup = "firstDataForEachGroup"
+        
     }
     
     init(from decoder: Decoder) throws {
@@ -39,6 +42,7 @@ struct FlightDataModel : Codable {
         journey_id = try values.decodeIfPresent(Int.self, forKey: .journey_id)
         pxtrip_type = try values.decodeIfPresent(String.self, forKey: .pxtrip_type)
         traceId = try values.decodeIfPresent(String.self, forKey: .traceId)
+        firstDataForEachGroup = try values.decodeIfPresent([FirstDataForEachGroup].self, forKey: .firstDataForEachGroup)
     }
     
 }
