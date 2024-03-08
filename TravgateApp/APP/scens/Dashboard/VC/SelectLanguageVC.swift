@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SelectLanguageVC: BaseTableVC {
+class SelectLanguageVC: BaseTableVC, CurrencyListViewModelDelegate {
     
     
     @IBOutlet weak var holderView: UIView!
@@ -33,7 +33,7 @@ class SelectLanguageVC: BaseTableVC {
     
     
     override func viewWillAppear(_ animated: Bool) {
-        getCurrencyList()
+        callGetCurrencyListAPI()
     }
     
     
@@ -41,6 +41,7 @@ class SelectLanguageVC: BaseTableVC {
         super.viewDidLoad()
         
         self.view.backgroundColor = .black.withAlphaComponent(0.5)
+        MySingleton.shared.currencylistvm = CurrencyListViewModel(self)
         setupUI()
         
     }
@@ -69,24 +70,7 @@ class SelectLanguageVC: BaseTableVC {
     }
     
     
-    func setupCurencyTVCell() {
-        MySingleton.shared.tablerow.removeAll()
-        
-        MySingleton.shared.currencyListArray.forEach { i in
-            MySingleton.shared.tablerow.append(TableRow(title:"\(i.name ?? "")",
-                                                        subTitle: "\(i.symbol ?? "")",
-                                                        key:"lang1",
-                                                        text:  i.type,
-                                                        image: i.icon,
-                                                        cellType: .SelectLanguageTVCell))
-            
-        }
-        
-        MySingleton.shared.tablerow.append(TableRow(height:50,cellType:.EmptyTVCell))
-        
-        commonTVData = MySingleton.shared.tablerow
-        commonTableView.reloadData()
-    }
+    
     
     
     @IBAction func closeBtnAction(_ sender: Any) {
@@ -115,11 +99,53 @@ class SelectLanguageVC: BaseTableVC {
     }
     
     
+}
+
+
+
+
+extension SelectLanguageVC {
+    
+    
+    
+    func callGetCurrencyListAPI() {
+        MySingleton.shared.currencylistvm?.CALL_GET_CURRENCY_LIST_API(dictParam: [:])
+    }
+    
+    
+    func currencylist(response: CurrencyListModel) {
+        MySingleton.shared.currencyListArray = response.currency_list ?? []
+        
+        
+        DispatchQueue.main.async {
+            self.setupCurencyTVCell()
+        }
+    }
+    
+    func setupCurencyTVCell() {
+        MySingleton.shared.tablerow.removeAll()
+        
+        MySingleton.shared.currencyListArray.forEach { i in
+            MySingleton.shared.tablerow.append(TableRow(title:"\(i.name ?? "")",
+                                                        subTitle: "\(i.code ?? "")",
+                                                        key:"lang1",
+                                                        cellType: .SelectLanguageTVCell))
+            
+        }
+        
+        MySingleton.shared.tablerow.append(TableRow(height:50,cellType:.EmptyTVCell))
+        
+        commonTVData = MySingleton.shared.tablerow
+        commonTableView.reloadData()
+    }
+    
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let cell = tableView.cellForRow(at: indexPath) as? SelectLanguageTVCell {
             cell.selected()
             defaults.set(cell.subTitlelbl.text, forKey: UserDefaultsKeys.selectedCurrency)
             defaults.set(cell.type, forKey: UserDefaultsKeys.selectedCurrencyType)
+            
             NotificationCenter.default.post(name: NSNotification.Name("selectedCurrency"), object: nil)
             dismiss(animated: true)
         }
@@ -131,41 +157,6 @@ class SelectLanguageVC: BaseTableVC {
         if let cell = tableView.cellForRow(at: indexPath) as? SelectLanguageTVCell {
             cell.unselected()
         }
-    }
-    
-    
-    
-    func getCurrencyList() {
-        
-        // Get the path to the clist.json file in the Xcode project
-        if let jsonFilePath = Bundle.main.path(forResource: "currencylist", ofType: "json") {
-            do {
-                // Read the data from the file
-                let jsonData = try Data(contentsOf: URL(fileURLWithPath: jsonFilePath))
-                
-                // Decode the JSON data into a dictionary
-                let jsonDictionary = try JSONDecoder().decode([String: [SelectCurrencyData]].self, from: jsonData)
-                
-                // Access the array of currency using the "data" key
-                if let currencyList = jsonDictionary["data"] {
-                    MySingleton.shared.currencyListArray = currencyList
-                    
-                    
-                    DispatchQueue.main.async {[self] in
-                        setupCurencyTVCell()
-                    }
-                } else {
-                    print("Unable to find 'data' key in the JSON dictionary.")
-                }
-                
-                
-            } catch let error {
-                print("Error decoding JSON: \(error)")
-            }
-        } else {
-            print("Unable to find clist.json in the Xcode project.")
-        }
-        
     }
     
 }

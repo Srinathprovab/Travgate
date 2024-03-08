@@ -24,6 +24,7 @@ class LabelTVCell: TableViewCell {
     @IBOutlet weak var viewHeight: NSLayoutConstraint!
     @IBOutlet weak var logoimg: UIImageView!
     
+    var airlinecode = String()
     var delegate:LabelTVCellDelegate?
     var showMoreBool = true
     var titleKey = String()
@@ -162,6 +163,16 @@ class LabelTVCell: TableViewCell {
             closeButton.setImage(UIImage(named: "down"), for: .normal)
             closeButton.setTitle("", for: .normal)
             break
+            
+            
+        case "airlines":
+            airlinecode = cellInfo?.subTitle ?? ""
+            titlelbl.textColor = .TitleColor
+            titlelbl.textAlignment = .left
+            titlelbl.font = .OpenSansMedium(size: 14)
+            break
+            
+            
             
         default:
             break

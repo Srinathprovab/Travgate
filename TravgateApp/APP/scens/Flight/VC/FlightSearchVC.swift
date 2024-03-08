@@ -29,6 +29,8 @@ class FlightSearchVC: BaseTableVC, SearchDataViewModelDelegate, GetAirlineViewMo
     
     override func viewWillAppear(_ animated: Bool) {
         callGetRecentSearchAPI()
+        addObserver()
+        
     }
     
     
@@ -190,18 +192,32 @@ class FlightSearchVC: BaseTableVC, SearchDataViewModelDelegate, GetAirlineViewMo
     
     
     
+    //MARK: - didTapOnAirlineTimeBtnAction
+    override func didTapOnAirlineTimeBtnAction(cell:FlightSearchTVCell){
+        gotoAirlineSelectVC()
+    }
     
     
+    func gotoAirlineSelectVC() {
+        guard let vc = AirlineSelectVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .overCurrentContext
+        present(vc, animated: false)
+    }
+    
+    
+    
+    //MARK: - didTapOnOnewayBtnAction
     @IBAction func didTapOnOnewayBtnAction(_ sender: Any) {
         onewayTap()
     }
     
     
+    //MARK: - didTapOnRoundTripBtnAction
     @IBAction func didTapOnRoundTripBtnAction(_ sender: Any) {
         roundtripTap()
     }
     
-    
+    //MARK: - didTapOnMulticityBtnAction
     @IBAction func didTapOnMulticityBtnAction(_ sender: Any) {
         multicityTap()
     }
@@ -441,5 +457,55 @@ extension FlightSearchVC {
     func airlinesList(response: GetAirlineModel) {
         MySingleton.shared.airlinelist = response.data ?? []
     }
+    
+}
+
+
+
+//MARK: - addObserver
+extension FlightSearchVC {
+    
+    func addObserver() {
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(nointernet), name: Notification.Name("offline"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(resultnil), name: NSNotification.Name("resultnil"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(nointrnetreload), name: Notification.Name("nointrnetreload"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reload), name: Notification.Name("reload"), object: nil)
+        
+
+    }
+    
+    
+    @objc func reload() {
+        DispatchQueue.main.async {[self] in
+            commonTableView.reloadData()
+        }
+    }
+    
+    @objc func nointrnetreload() {
+        
+        DispatchQueue.main.async {[self] in
+            commonTableView.reloadData()
+        }
+    }
+    
+    //MARK: - resultnil
+    @objc func resultnil() {
+        guard let vc = NoInternetConnectionVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .overCurrentContext
+        vc.key = "noresult"
+        self.present(vc, animated: true)
+    }
+    
+    
+    //MARK: - nointernet
+    @objc func nointernet() {
+        
+        guard let vc = NoInternetConnectionVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .overCurrentContext
+        vc.key = "nointernet"
+        self.present(vc, animated: true)
+    }
+    
     
 }

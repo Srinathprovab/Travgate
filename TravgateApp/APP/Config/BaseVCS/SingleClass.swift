@@ -41,7 +41,7 @@ class MySingleton {
     var topFlightDetails = [TopFlightDetails]()
     var topHotelDetails = [TopHotelDetails]()
     var deail_code_list = [Deal_code_list]()
-    var currencyListArray = [SelectCurrencyData]()
+    var currencyListArray = [Currency_list]()
     var cruiseList = [CruiseData]()
     var cruise : CruiseModel?
     var cruiseDetails : CruiseDetailsModel?
@@ -136,7 +136,7 @@ class MySingleton {
     var cruisevm:CruiseViewModel?
     var cruisedetailsvm:CruiseDetailsViewModel?
     var moredetailsvm:MoreDetailsViewModel?
-    
+    var currencylistvm:CurrencyListViewModel?
     
     
     //TIMER

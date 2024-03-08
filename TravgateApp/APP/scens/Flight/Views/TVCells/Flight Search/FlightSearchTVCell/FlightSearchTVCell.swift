@@ -17,6 +17,7 @@ protocol FlightSearchTVCellDelegate {
     func didTapOnHideReturnDateBtnAction(cell:FlightSearchTVCell)
     func didTapOnFlightSearchBtnAction(cell:FlightSearchTVCell)
     func didTapOnReturnDateBtnAction(cell:FlightSearchTVCell)
+    func didTapOnAirlineTimeBtnAction(cell:FlightSearchTVCell)
 }
 
 class FlightSearchTVCell: TableViewCell, SelectCityViewModelProtocal {
@@ -165,6 +166,8 @@ class FlightSearchTVCell: TableViewCell, SelectCityViewModelProtocal {
         totv.layer.borderWidth = 1
         totv.layer.borderColor = UIColor.AppBorderColor.cgColor
         
+        
+        airlineTF.isHidden = true
     }
     
     override func updateUI() {
@@ -228,7 +231,7 @@ class FlightSearchTVCell: TableViewCell, SelectCityViewModelProtocal {
         }
         
         
-        airlinelbl.text = defaults.string(forKey: UserDefaultsKeys.fcariername)
+        airlinelbl.text = defaults.string(forKey: UserDefaultsKeys.fcariername) ?? "ALL"
         
     }
     
@@ -377,7 +380,7 @@ class FlightSearchTVCell: TableViewCell, SelectCityViewModelProtocal {
     }
     
     @IBAction func didTapOnAirlineTimeBtnAction(_ sender: Any) {
-        // airlinetimeDropdown.show()
+        delegate?.didTapOnAirlineTimeBtnAction(cell: self)
     }
     
     

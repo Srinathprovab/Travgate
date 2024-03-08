@@ -1855,7 +1855,122 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PvM-BC-UnD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2425" y="796"/>
+            <point key="canvasLocation" x="2444" y="796"/>
+        </scene>
+        <!--Airline SelectVC-->
+        <scene sceneID="7eZ-GZ-GQB">
+            <objects>
+                <viewController storyboardIdentifier="AirlineSelectVC" id="30R-lD-qHY" customClass="AirlineSelectVC" customModule="Travgate" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tgh-UQ-7OP">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tZ8-lS-3tj">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="prr-aN-5BF">
+                                        <rect key="frame" x="348" y="191" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="XWu-U4-up7"/>
+                                            <constraint firstAttribute="width" constant="30" id="lFy-zW-WQe"/>
+                                        </constraints>
+                                        <color key="tintColor" red="0.96078431369999995" green="0.98431372549999996" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="close"/>
+                                        <connections>
+                                            <action selector="didTapOnCloseBtnAction:" destination="30R-lD-qHY" eventType="touchUpInside" id="vbB-y0-pAX"/>
+                                        </connections>
+                                    </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NPl-R2-2CS" customClass="BorderedView" customModule="Travgate" customModuleProvider="target">
+                                        <rect key="frame" x="15" y="226" width="363" height="400"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DPW-W9-DHQ" customClass="BorderedView" customModule="Travgate" customModuleProvider="target">
+                                                <rect key="frame" x="10" y="10" width="343" height="45"/>
+                                                <subviews>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IRg-4d-AuU">
+                                                        <rect key="frame" x="0.0" y="0.0" width="343" height="45"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="45" id="D8j-Iy-yUH"/>
+                                                    <constraint firstItem="IRg-4d-AuU" firstAttribute="top" secondItem="DPW-W9-DHQ" secondAttribute="top" id="QvK-29-wML"/>
+                                                    <constraint firstAttribute="bottom" secondItem="IRg-4d-AuU" secondAttribute="bottom" id="S1h-Do-HUv"/>
+                                                    <constraint firstAttribute="trailing" secondItem="IRg-4d-AuU" secondAttribute="trailing" id="eed-Jw-WdK"/>
+                                                    <constraint firstItem="IRg-4d-AuU" firstAttribute="leading" secondItem="DPW-W9-DHQ" secondAttribute="leading" id="y4F-Zl-waT"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" name="BorderColor"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="4"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="LKD-rE-vv1">
+                                                <rect key="frame" x="10" y="65" width="343" height="325"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            </tableView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="DPW-W9-DHQ" firstAttribute="top" secondItem="NPl-R2-2CS" secondAttribute="top" constant="10" id="4oC-cB-fj6"/>
+                                            <constraint firstAttribute="height" constant="400" id="NR0-ae-1hP"/>
+                                            <constraint firstItem="LKD-rE-vv1" firstAttribute="leading" secondItem="NPl-R2-2CS" secondAttribute="leading" constant="10" id="Vpx-va-CE7"/>
+                                            <constraint firstItem="LKD-rE-vv1" firstAttribute="top" secondItem="DPW-W9-DHQ" secondAttribute="bottom" constant="10" id="aoW-Rt-eHC"/>
+                                            <constraint firstAttribute="trailing" secondItem="DPW-W9-DHQ" secondAttribute="trailing" constant="10" id="cVb-ZC-4we"/>
+                                            <constraint firstAttribute="bottom" secondItem="LKD-rE-vv1" secondAttribute="bottom" constant="10" id="f7M-2B-6fL"/>
+                                            <constraint firstAttribute="trailing" secondItem="LKD-rE-vv1" secondAttribute="trailing" constant="10" id="ntx-7Z-CYF"/>
+                                            <constraint firstItem="DPW-W9-DHQ" firstAttribute="leading" secondItem="NPl-R2-2CS" secondAttribute="leading" constant="10" id="yfR-aR-O8J"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" name="BorderColor"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="NPl-R2-2CS" secondAttribute="trailing" constant="15" id="930-3s-AU3"/>
+                                    <constraint firstItem="NPl-R2-2CS" firstAttribute="leading" secondItem="tZ8-lS-3tj" secondAttribute="leading" constant="15" id="LmS-UN-4H0"/>
+                                    <constraint firstItem="NPl-R2-2CS" firstAttribute="centerY" secondItem="tZ8-lS-3tj" secondAttribute="centerY" id="NgN-Yv-KiY"/>
+                                    <constraint firstItem="NPl-R2-2CS" firstAttribute="top" secondItem="prr-aN-5BF" secondAttribute="bottom" constant="5" id="Z10-5X-lCW"/>
+                                    <constraint firstItem="NPl-R2-2CS" firstAttribute="centerX" secondItem="tZ8-lS-3tj" secondAttribute="centerX" id="iIa-iR-aQo"/>
+                                    <constraint firstAttribute="trailing" secondItem="prr-aN-5BF" secondAttribute="trailing" constant="15" id="uSm-YC-7eM"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ibN-Ox-IPD"/>
+                        <color key="backgroundColor" name="BlurColor"/>
+                        <constraints>
+                            <constraint firstItem="ibN-Ox-IPD" firstAttribute="trailing" secondItem="tZ8-lS-3tj" secondAttribute="trailing" id="Ut9-Un-ZSK"/>
+                            <constraint firstAttribute="bottom" secondItem="tZ8-lS-3tj" secondAttribute="bottom" id="df9-AO-Esx"/>
+                            <constraint firstItem="tZ8-lS-3tj" firstAttribute="top" secondItem="tgh-UQ-7OP" secondAttribute="top" id="pz6-H1-UwV"/>
+                            <constraint firstItem="tZ8-lS-3tj" firstAttribute="leading" secondItem="ibN-Ox-IPD" secondAttribute="leading" id="yNx-QF-fy2"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="airlineTV" destination="LKD-rE-vv1" id="wV2-3S-Qre"/>
+                        <outlet property="searchTF" destination="IRg-4d-AuU" id="GUl-do-Kzx"/>
+                        <outlet property="searchTextfieldHolderView" destination="DPW-W9-DHQ" id="2A3-7R-kid"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FKS-HZ-P9H" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3227" y="796"/>
         </scene>
     </scenes>
     <resources>
@@ -1882,7 +1997,7 @@
             <color red="0.93300002813339233" green="0.097999997437000275" blue="0.20800000429153442" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="BorderColor">
-            <color red="0.0" green="0.0" blue="0.0" alpha="0.15000000596046448" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.90200001001358032" green="0.9100000262260437" blue="0.90600001811981201" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Buttoncolor">
             <color red="0.2669999897480011" green="0.70999997854232788" blue="0.046999998390674591" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

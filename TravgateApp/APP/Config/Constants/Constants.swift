@@ -146,6 +146,9 @@ struct ApiEndpoints {
     static let general_mobile_pre_flight_search_loader = "general/mobile_pre_flight_search_loader"
     static let general_mobile_pre_hotel_search_loader = "general/mobile_pre_hotel_search_loader"
     static let general_get_airlines_list = "general/get_airlines_list"
+    static let general_getMobileCurrency = "general/getMobileCurrency"
+    
+    
     
     //LOGIN
     static let auth_mobile_login = "auth/mobile_login"

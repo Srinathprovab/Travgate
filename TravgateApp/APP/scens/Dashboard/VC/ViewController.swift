@@ -14,6 +14,10 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         if !UserDefaults.standard.bool(forKey: "ExecuteOnce") {
             
+            defaults.set("KWD", forKey: UserDefaultsKeys.selectedCurrency)
+            defaults.set("ALL", forKey: UserDefaultsKeys.fcariername)
+            defaults.set("ALL", forKey: UserDefaultsKeys.fcariercode)
+            
             defaults.set("1", forKey: UserDefaultsKeys.adultCount)
             defaults.set("0", forKey: UserDefaultsKeys.childCount)
             defaults.set("0", forKey: UserDefaultsKeys.infantsCount)

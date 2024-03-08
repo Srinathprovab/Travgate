@@ -8,7 +8,7 @@
 import Foundation
 protocol AirlineListViewModelDelegate : BaseViewModelProtocol {
     func airlinelist(response : AirlineListModel)
-   
+    
 }
 
 class AirlineListViewModel {
@@ -23,12 +23,12 @@ class AirlineListViewModel {
         let parms = NSDictionary(dictionary:dictParam)
         print("Parameters = \(parms)")
         
-          self.view?.showLoader()
+        //  self.view?.showLoader()
         
         ServiceManager.postOrPutApiCall(endPoint: ApiEndpoints.getAirlineList , urlParams: parms as? Dictionary<String, String>, parameters: parms, resultType: AirlineListModel.self, p:dictParam) { sucess, result, errorMessage in
             
             DispatchQueue.main.async {
-                   self.view?.hideLoader()
+                //     self.view?.hideLoader()
                 if sucess {
                     guard let response = result else {return}
                     self.view.airlinelist(response: response)
@@ -41,8 +41,8 @@ class AirlineListViewModel {
     }
     
     
-  
     
-   
+    
+    
     
 }

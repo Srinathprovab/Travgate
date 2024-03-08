@@ -28,20 +28,20 @@ struct AirlineListModel : Codable {
 struct Airline_list : Codable {
     let id : String?
     let airline_name : String?
-    let airline_logo : String?
+    let airline_code : String?
 
     enum CodingKeys: String, CodingKey {
 
         case id = "id"
         case airline_name = "airline_name"
-        case airline_logo = "airline_logo"
+        case airline_code = "airline_code"
     }
 
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         id = try values.decodeIfPresent(String.self, forKey: .id)
         airline_name = try values.decodeIfPresent(String.self, forKey: .airline_name)
-        airline_logo = try values.decodeIfPresent(String.self, forKey: .airline_logo)
+        airline_code = try values.decodeIfPresent(String.self, forKey: .airline_code)
     }
 
 }

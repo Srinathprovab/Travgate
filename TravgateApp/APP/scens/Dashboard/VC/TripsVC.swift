@@ -59,36 +59,37 @@ class TripsVC: BaseTableVC {
             break
             
         case "Hotel":
-            gotoBookingsVC(str: "Hotel")
+            // gotoBookingsVC(str: "Hotel")
             break
             
             
         case "Visa":
-            gotoBookingsVC(str: "Visa")
+            // gotoBookingsVC(str: "Visa")
             break
             
         case "Insurance":
-            gotoBookingsVC(str: "Insurance")
+            //  gotoBookingsVC(str: "Insurance")
             break
             
             
         case "Transfers":
-            gotoBookingsVC(str: "Transfers")
+            //  gotoBookingsVC(str: "Transfers")
             break
             
             
         case "Activities":
-            gotoBookingsVC(str: "Activities")
+            //   gotoBookingsVC(str: "Activities")
             break
             
             
         case "Cruise":
-            gotoBookingsVC(str: "Cruise")
+            //   gotoBookingsVC(str: "Cruise")
             break
             
         case "Auto Pay":
-            gotoBookingsVC(str: "Auto Pay")
+            //   gotoBookingsVC(str: "Auto Pay")
             break
+            
             
             
             

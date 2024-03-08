@@ -30,6 +30,7 @@ enum TVCellType {
     case EmptyTVCell
     case SelectLanguageTVCell
     case TripsTVCell
+    case FlightUpcomingTVCell
     
     //LOGIN
     case LoginTVCell
@@ -72,6 +73,7 @@ enum TVCellType {
     case ImportentInfoTableViewCell
     case NewBookingConfirmedTVCell
     case HeaderTableViewCell
+   
     
     
     //FILTER

@@ -56,7 +56,7 @@ class TabSelectTVCell: TableViewCell {
     }
     
     override func updateUI() {
-        currencylbl.text = defaults.string(forKey: UserDefaultsKeys.selectedCurrencyType) ?? "KWD"
+        currencylbl.text = defaults.string(forKey: UserDefaultsKeys.selectedCurrency) ?? "KWD"
     }
     
     
