@@ -8,7 +8,8 @@
 import UIKit
 import MaterialComponents
 
-class BaseTableVC: UIViewController, TabSelectTVCellDelegate, FlightSearchTVCellDelegate, FlightResultTVCellDelegate, SideMenuTitleTVCellDelegate, MenuBGTVCellDelegate, SliderTVCellDelegate, CheckBoxTVCellDelegate, FilterDepartureTVCellDelegate, LabelTVCellDelegate, PopularFiltersTVCellDelegate,DepartureTimeTVCellDelegate, ButtonTVCellDelegate, SortbyTVCellDelegate, BookingDetailsFlightDataTVCellDelegate, TDetailsLoginTVCellDelegate, AddDeatilsOfTravellerTVCellDelegate, ContactInformationTVCellDelegate, UsePromoCodesTVCellDelegate, LoginTVCellDelegate, ResetPasswordTVCellDelegate, SignupTVCellDelegate, EditProfileTVCellDelegate, HotelSearchTVCellDelegate, AddRoomsGuestsTVCellDelegate, NewDepartureTimeTVCellDelegate, VisaTVCellDelegate, AutoPaymentTVCellDelegate, TripsTVCellDelegate, YourRecentSearchesTVCellDelegate, RoomsTVcellDelegate, RegisterSelectionLoginTableViewCellDelegate, AddonTVCellDelegate, TravellerEconomyTVCellDelegate, HolidayPackagesTVCellDelegate, CruisePackegesTVCellDelegate, CruiseContactdetailsTVCellDelegate, HolidayContactdetailsTVCellDelegate, BCFlightDetailsTVCellDelegate, NewBookingConfirmedTVCellDelegate, HeaderTableViewCellDelegate, QuickLinkTableViewCellDelegate, FlightUpcomingTVCellDelegate {
+class BaseTableVC: UIViewController, TabSelectTVCellDelegate, FlightSearchTVCellDelegate, FlightResultTVCellDelegate, SideMenuTitleTVCellDelegate, MenuBGTVCellDelegate, SliderTVCellDelegate, CheckBoxTVCellDelegate, FilterDepartureTVCellDelegate, LabelTVCellDelegate, PopularFiltersTVCellDelegate,DepartureTimeTVCellDelegate, ButtonTVCellDelegate, SortbyTVCellDelegate, BookingDetailsFlightDataTVCellDelegate, TDetailsLoginTVCellDelegate, AddDeatilsOfTravellerTVCellDelegate, ContactInformationTVCellDelegate, UsePromoCodesTVCellDelegate, LoginTVCellDelegate, ResetPasswordTVCellDelegate, SignupTVCellDelegate, EditProfileTVCellDelegate, HotelSearchTVCellDelegate, AddRoomsGuestsTVCellDelegate, NewDepartureTimeTVCellDelegate, VisaTVCellDelegate, AutoPaymentTVCellDelegate, TripsTVCellDelegate, YourRecentSearchesTVCellDelegate, RoomsTVcellDelegate, RegisterSelectionLoginTableViewCellDelegate, AddonTVCellDelegate, TravellerEconomyTVCellDelegate, HolidayPackagesTVCellDelegate, CruisePackegesTVCellDelegate, CruiseContactdetailsTVCellDelegate, HolidayContactdetailsTVCellDelegate, BCFlightDetailsTVCellDelegate, NewBookingConfirmedTVCellDelegate, HeaderTableViewCellDelegate, QuickLinkTableViewCellDelegate, FlightUpcomingTVCellDelegate, LoginDetailsTableViewCellDelegate, RegisterNowTableViewCellDelegate, GuestTVCellDelegate {
+    
    
     
     
@@ -224,9 +225,6 @@ class BaseTableVC: UIViewController, TabSelectTVCellDelegate, FlightSearchTVCell
     func didTapOnAmenitiesBtn(cell: RoomsTVcell) {}
     func didTapOnCancellationPolicyBtnAction(cell: NewRoomDetailsTVCell) {}
     func didTapOnSelectRoomBtnAction(cell: NewRoomDetailsTVCell) {}
-    func didTapOnguestButton(cell: RegisterSelectionLoginTableViewCell) {}
-    func registerButton(cell: RegisterSelectionLoginTableViewCell) {}
-    func loginButton(cell: RegisterSelectionLoginTableViewCell) {}
     func didTapOnAddonServiceBtnAction(cell: AddonTVCell) {}
     
     func didTapOnDecrementButton(cell: TravellerEconomyTVCell) {}
@@ -254,7 +252,12 @@ class BaseTableVC: UIViewController, TabSelectTVCellDelegate, FlightSearchTVCell
     func didTapOnInstagramLinkBtnAction(cell: HeaderTableViewCell) {}
     func didTapOnViewVoucherBtnAction(cell: FlightUpcomingTVCell) {}
     
-    
+    func GuestRegisterNowButtonAction(cell: GuestTVCell, email: String, pass: String, phone: String, countryCode: String) {}
+    func loginNowButtonAction(cell: RegisterNowTableViewCell, email: String, pass: String) {}
+    func RegisterNowButtonAction(cell: LoginDetailsTableViewCell, email: String, pass: String, phone: String, countryCode: String) {}
+    func didTapOnguestButton(cell: RegisterSelectionLoginTableViewCell) {}
+    func registerButton(cell: RegisterSelectionLoginTableViewCell) {}
+    func loginButton(cell: RegisterSelectionLoginTableViewCell) {}
    
     
 }
@@ -611,13 +614,6 @@ extension BaseTableVC: UITableViewDataSource {
                 commonCell = cell
                 
                 
-            case .RegisterSelectionLoginTableViewCell :
-                let cell: RegisterSelectionLoginTableViewCell = commonTV.dequeTVCell(indexPath: indexPath)
-                cell.delegate = self
-                commonCell = cell
-                
-                
-                
             case .InternationalTravelInsuranceTVCell :
                 let cell: InternationalTravelInsuranceTVCell = commonTV.dequeTVCell(indexPath: indexPath)
                 commonCell = cell
@@ -721,6 +717,33 @@ extension BaseTableVC: UITableViewDataSource {
                 
                 
                 
+            case .LoginDetailsTableViewCell :
+                let cell: LoginDetailsTableViewCell = commonTV.dequeTVCell(indexPath: indexPath)
+                cell.delegate = self
+                commonCell = cell
+                
+                
+            case .RegisterSelectionLoginTableViewCell :
+                let cell: RegisterSelectionLoginTableViewCell = commonTV.dequeTVCell(indexPath: indexPath)
+                cell.delegate = self
+                commonCell = cell
+                
+                
+            case .RegisterNowTableViewCell :
+                let cell: RegisterNowTableViewCell = commonTV.dequeTVCell(indexPath: indexPath)
+                cell.delegate = self
+                commonCell = cell
+                
+                
+            case .GuestTVCell :
+                let cell: GuestTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                cell.delegate = self
+                commonCell = cell
+                
+                
+                
+                
+         
             default:
                 print("handle this case in getCurrentCellAt")
             }

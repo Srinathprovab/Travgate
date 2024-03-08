@@ -64,15 +64,19 @@ enum TVCellType {
     case FRulesTVCell
     case ContactUsTVCell
     case MoreDetailsTVCell
+   
     
     //Booking
     case BookingConfirmedTVCell
     case BCFlightDetailsTVCell
     case BookedTravelDetailsTVCell
-    case RegisterSelectionLoginTableViewCell
     case ImportentInfoTableViewCell
     case NewBookingConfirmedTVCell
     case HeaderTableViewCell
+    case LoginDetailsTableViewCell
+    case RegisterSelectionLoginTableViewCell
+    case RegisterNowTableViewCell
+    case GuestTVCell
    
     
     

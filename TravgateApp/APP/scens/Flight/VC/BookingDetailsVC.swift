@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BookingDetailsVC: BaseTableVC, MPBViewModelDelegate, MobileSecureBookingViewModelDelegate {
+class BookingDetailsVC: BaseTableVC, MPBViewModelDelegate, MobileSecureBookingViewModelDelegate, LoginViewModelDelegate, RegisterViewModelDelegate {
     
     
     @IBOutlet weak var sessionlbl: UILabel!
@@ -20,7 +20,7 @@ class BookingDetailsVC: BaseTableVC, MPBViewModelDelegate, MobileSecureBookingVi
     }
     
     
-    
+    var regViewModel: RegisterViewModel?
     
     //MARK: - Loading Functions
     override func viewWillAppear(_ animated: Bool) {
@@ -35,6 +35,12 @@ class BookingDetailsVC: BaseTableVC, MPBViewModelDelegate, MobileSecureBookingVi
         MySingleton.shared.delegate = self
         MySingleton.shared.mpbvm = MPBViewModel(self)
         MySingleton.shared.viewmodel1 = MobileSecureBookingViewModel(self)
+        
+        
+        MySingleton.shared.loginvm = LoginViewModel(self)
+        MySingleton.shared.registervm = RegisterViewModel(self)
+        
+        
     }
     
     
@@ -50,6 +56,9 @@ class BookingDetailsVC: BaseTableVC, MPBViewModelDelegate, MobileSecureBookingVi
                                          "InternationalTravelInsuranceTVCell",
                                          "SpecialAssistanceTVCell",
                                          "AddonTVCell",
+                                         "RegisterNowTableViewCell",
+                                         "LoginDetailsTableViewCell",
+                                         "GuestRegisterTableViewCell", "RegisterSelectionLoginTableViewCell",
                                          "BookingDetailsFlightDataTVCell"])
     }
     
@@ -169,6 +178,57 @@ class BookingDetailsVC: BaseTableVC, MPBViewModelDelegate, MobileSecureBookingVi
         self.present(vc, animated: true)
     }
     
+    
+    
+    override func GuestRegisterNowButtonAction(cell: GuestTVCell, email: String, pass: String, phone: String, countryCode: String) {
+        defaults.set(true, forKey: UserDefaultsKeys.regStatus)
+        defaults.set(email, forKey: UserDefaultsKeys.useremail)
+        defaults.set(countryCode, forKey: UserDefaultsKeys.countryCode)
+        defaults.set(phone, forKey: UserDefaultsKeys.usermobile)
+        showToast(message: "Sucessfully Registered!..")
+        commonTableView.reloadData()
+        //        callRegisterAPI(email: email, pass: pass, mobile: phone, countryCode: countryCode)
+    }
+    override func loginNowButtonAction(cell: RegisterNowTableViewCell, email: String, pass: String) {
+        print("loginNowButtonAction")
+        callLoginAPI(email: email, pass: pass)
+    }
+    override func RegisterNowButtonAction(cell: LoginDetailsTableViewCell, email: String, pass: String, phone: String, countryCode: String) {
+        defaults.set(true, forKey: UserDefaultsKeys.regStatus)
+        defaults.set(email, forKey: UserDefaultsKeys.useremail)
+        defaults.set(countryCode, forKey: UserDefaultsKeys.countryCode)
+        defaults.set(phone, forKey: UserDefaultsKeys.usermobile)
+        showToast(message: "Sucessfully Registered!..")
+        commonTableView.reloadData()
+        //        callRegisterAPI(email: email, pass: pass, mobile: phone, countryCode: countryCode)
+    }
+    override func didTapOnguestButton(cell: RegisterSelectionLoginTableViewCell) {
+        cell.registerRadioImage.image = UIImage(named: "radioUnselect")
+        cell.loginRadioImage.image = UIImage(named: "radioUnselect")
+        cell.guestRadioImage.image = UIImage(named: "radioSelect")
+        MySingleton.shared.mbviewmodel?.section = .guestLogin
+        
+        setupTVCell()
+        //        commonTableView.reloadData()
+        
+    }
+    override func registerButton(cell: RegisterSelectionLoginTableViewCell) {
+        cell.registerRadioImage.image = UIImage(named: "radioSelect")
+        cell.loginRadioImage.image = UIImage(named: "radioUnselect")
+        cell.guestRadioImage.image = UIImage(named: "radioUnselect")
+        MySingleton.shared.mbviewmodel?.section = .register
+        setupTVCell()
+        //        commonTableView.reloadData()
+    }
+    override func loginButton(cell: RegisterSelectionLoginTableViewCell) {
+        cell.registerRadioImage.image = UIImage(named: "radioUnselect")
+        cell.loginRadioImage.image = UIImage(named: "radioSelect")
+        cell.guestRadioImage.image = UIImage(named: "radioUnselect")
+        MySingleton.shared.mbviewmodel?.section = .login
+        setupTVCell()
+        //        commonTableView.reloadData()
+    }
+    
 }
 
 
@@ -182,7 +242,7 @@ extension BookingDetailsVC {
         MySingleton.shared.afterResultsBool = true
         loderBool = true
         showLoadera()
-      
+        
         
         if MySingleton.shared.callboolapi == true {
             MySingleton.shared.payload.removeAll()
@@ -202,7 +262,7 @@ extension BookingDetailsVC {
         loderBool = false
         hideLoadera()
         
-       
+        
         
         if response.status == 0 {
             
@@ -236,9 +296,29 @@ extension BookingDetailsVC {
         MySingleton.shared.tablerow.removeAll()
         
         
-        if defaults.bool(forKey: UserDefaultsKeys.loggedInStatus) == false {
-            MySingleton.shared.tablerow.append(TableRow(cellType:.TDetailsLoginTVCell))
-        }
+                if defaults.bool(forKey: UserDefaultsKeys.loggedInStatus) == false {
+                  //  MySingleton.shared.tablerow.append(TableRow(cellType:.TDetailsLoginTVCell))
+                    
+                    MySingleton.shared.tablerow.append(TableRow(height: 14,bgColor:.AppHolderViewColor, cellType:.EmptyTVCell))
+                    MySingleton.shared.tablerow.append(TableRow(cellType: .RegisterSelectionLoginTableViewCell))
+                    MySingleton.shared.tablerow.append(TableRow(height: 12,bgColor:.AppHolderViewColor, cellType:.EmptyTVCell))
+                    if MySingleton.shared.mbviewmodel?.section == .guestLogin {
+                        MySingleton.shared.tablerow.append(TableRow(cellType: .GuestTVCell))
+                        MySingleton.shared.tablerow.append(TableRow(height: 12,bgColor:.AppHolderViewColor, cellType:.EmptyTVCell))
+                    }  else if MySingleton.shared.mbviewmodel?.section == .login {
+                        MySingleton.shared.tablerow.append(TableRow(key: "register",cellType: .RegisterNowTableViewCell))
+                        MySingleton.shared.tablerow.append(TableRow(height: 12,bgColor:.AppHolderViewColor, cellType:.EmptyTVCell))
+                    } else if MySingleton.shared.mbviewmodel?.section == .register {
+                        MySingleton.shared.tablerow.append(TableRow(cellType: .LoginDetailsTableViewCell))
+                        MySingleton.shared.tablerow.append(TableRow(height: 12,bgColor:.AppHolderViewColor, cellType:.EmptyTVCell))
+                    }
+                    
+                }else {
+                    MySingleton.shared.tablerow.append(TableRow(height: 12,bgColor:.AppHolderViewColor, cellType:.EmptyTVCell))
+                }
+        
+        
+        
         
         
         if (MySingleton.shared.mpbFlightData?.summary?.count ?? 0) > 0 {
@@ -480,7 +560,7 @@ extension BookingDetailsVC {
         let passportExpireDateString = "[\"" + passportExpireDateArray.joined(separator: "\",\"") + "\"]"
         let passengertypeArrayString = "[\"" + MySingleton.shared.passengertypeArray.joined(separator: "\",\"") + "\"]"
         
-
+        
         MySingleton.shared.payload["search_id"] = MySingleton.shared.searchid
         MySingleton.shared.payload["tmp_flight_pre_booking_id"] = MySingleton.shared.tmpFlightPreBookingId
         MySingleton.shared.payload["access_key"] = MySingleton.shared.accesskeytp
@@ -594,14 +674,14 @@ extension BookingDetailsVC {
         if response.status == false {
             showToast(message: response.message ?? "")
         }else {
-//            MySingleton.shared.stopTimer()
-//            guard let vc = PaymentGatewayVC.newInstance.self else {return}
-//            vc.modalPresentationStyle = .fullScreen
-//            vc.payload = MySingleton.shared.payload
-//            vc.grandTotalamount = "\(MySingleton.shared.flightPriceDetails?.api_currency ?? ""):\(MySingleton.shared.flightPriceDetails?.grand_total ?? "")"
-//            vc.grand_total_Price = "\(MySingleton.shared.flightPriceDetails?.grand_total ?? "")"
-//            vc.tmpFlightPreBookingId = MySingleton.shared.tmpFlightPreBookingId
-//            present(vc, animated: true)
+            //            MySingleton.shared.stopTimer()
+            //            guard let vc = PaymentGatewayVC.newInstance.self else {return}
+            //            vc.modalPresentationStyle = .fullScreen
+            //            vc.payload = MySingleton.shared.payload
+            //            vc.grandTotalamount = "\(MySingleton.shared.flightPriceDetails?.api_currency ?? ""):\(MySingleton.shared.flightPriceDetails?.grand_total ?? "")"
+            //            vc.grand_total_Price = "\(MySingleton.shared.flightPriceDetails?.grand_total ?? "")"
+            //            vc.tmpFlightPreBookingId = MySingleton.shared.tmpFlightPreBookingId
+            //            present(vc, animated: true)
             
             gotoBookingSucessVC(url: response.url ?? "")
         }
@@ -751,7 +831,7 @@ extension BookingDetailsVC:TimerManagerDelegate {
     
     
     func timerDidFinish() {
-         gotoPopupScreen()
+        gotoPopupScreen()
     }
     
     
@@ -845,4 +925,83 @@ extension BookingDetailsVC {
     
     
     
+}
+
+
+//MARK: - call Profile Details API
+
+extension BookingDetailsVC {
+    func callLoginAPI(email: String, pass: String) {
+        MySingleton.shared.payload["username"] = email
+        MySingleton.shared.payload["password"] = pass
+        MySingleton.shared.loginvm?.CALL_USER_LOGIN_API(dictParam:  MySingleton.shared.payload)
+        // callProfileDetailsAPI()
+    }
+    
+    func callRegisterAPI(email: String, pass: String, mobile: String, countryCode: String) {
+        MySingleton.shared.payload["email"] = email
+        MySingleton.shared.payload["password"] = pass
+        MySingleton.shared.payload["phone"] = mobile
+        MySingleton.shared.payload["country_code"] = countryCode
+        MySingleton.shared.registervm?.CALL_USER_REGISTER_API(dictParam:  MySingleton.shared.payload)
+        // callProfileDetailsAPI()
+    }
+    
+    
+    
+    //    func callProfileDetailsAPI() {
+    //        MySingleton.shared.payload["user_id"] = defaults.string(forKey: UserDefaultsKeys.userid) ?? "0"
+    //        MySingleton.shared.profilevm?.CALL_SHOW_PROFILE_DETAILS_API(dictParam:  MySingleton.shared.payload)
+    //    }
+    //
+    //
+    //    func getProfileDetails(response: Profil) {
+    //
+    //        MySingleton.shared.profiledata = response.data
+    //
+    //        DispatchQueue.main.async {[self] in
+    //           // callAllAPIS()
+    //        }
+    //    }
+    
+    
+}
+
+
+extension BookingDetailsVC {
+    func registerSucess(response: RegisterModel) {
+        print(response)
+        if response.status == false {
+            showToast(message: response.msg ?? "")
+        } else {
+            showToast(message: "Register Sucess")
+            defaults.set(true, forKey: UserDefaultsKeys.regStatus)
+            defaults.set(response.data?.user_id, forKey: UserDefaultsKeys.userid)
+            let seconds = 2.0
+            DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {[self] in
+                setupTVCell()
+            }
+        }
+    }
+    
+    
+    func loginSucess(response: LoginModel) {
+        print(response)
+        if response.status == false {
+            showToast(message: response.data ?? "")
+        }else {
+            defaults.set(true, forKey: UserDefaultsKeys.loggedInStatus)
+            //  defaults.set(response.email, forKey: UserDefaultsKeys.useremail)
+            defaults.set(response.user_id, forKey: UserDefaultsKeys.userid)
+            //            defaults.set(response.contry_code, forKey: UserDefaultsKeys.countryCode)
+            //            defaults.set(response.contact, forKey: UserDefaultsKeys.usermobile)
+            
+            showToast(message: response.data ?? "")
+            let seconds = 2.0
+            DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {[self] in
+                setupTVCell()
+                //                reloadAfterLogin()
+            }
+        }
+    }
 }

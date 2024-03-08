@@ -146,8 +146,8 @@ struct ApiEndpoints {
     static let general_mobile_pre_flight_search_loader = "general/mobile_pre_flight_search_loader"
     static let general_mobile_pre_hotel_search_loader = "general/mobile_pre_hotel_search_loader"
     static let general_get_airlines_list = "general/get_airlines_list"
+    static let mobilepreprocessbooking = "mobile_pre_process_booking"
     static let general_getMobileCurrency = "general/getMobileCurrency"
-    
     
     
     //LOGIN
@@ -200,6 +200,8 @@ struct UserDefaultsKeys {
     static var username = "username"
     static var userimg = "userimg"
     static var useremail = "useremail"
+    static var countryCode = "countryCode"
+    static var regStatus = "regStatus"
     static var usermobile = "usermobile"
     static var usermobilecode = "usermobilecode"
     static var journeyType = "Journey_Type"
