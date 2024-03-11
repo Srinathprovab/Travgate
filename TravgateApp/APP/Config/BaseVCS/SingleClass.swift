@@ -137,7 +137,7 @@ class MySingleton {
     var cruisedetailsvm:CruiseDetailsViewModel?
     var moredetailsvm:MoreDetailsViewModel?
     var currencylistvm:CurrencyListViewModel?
-    var mbviewmodel:MBViewModel?
+ //   var mbviewmodel:MBViewModel?
     
     //TIMER
     weak var delegate: TimerManagerDelegate?

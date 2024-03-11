@@ -7,7 +7,16 @@
 
 import UIKit
 
-class BookingDetailsVC: BaseTableVC, MPBViewModelDelegate, MobileSecureBookingViewModelDelegate, LoginViewModelDelegate, RegisterViewModelDelegate {
+class BookingDetailsVC: BaseTableVC, MPBViewModelDelegate, MobileSecureBookingViewModelDelegate, LoginViewModelDelegate, RegisterViewModelDelegate, MBViewModelDelegate {
+    
+    func mobilepreprocessbookingDetails(response: MobilePreProcessBookingModel) {
+        
+    }
+    
+    func mobileprocesspassengerDetails(response: MBPModel) {
+        
+    }
+    
     
     
     @IBOutlet weak var sessionlbl: UILabel!
@@ -21,6 +30,7 @@ class BookingDetailsVC: BaseTableVC, MPBViewModelDelegate, MobileSecureBookingVi
     
     
     var regViewModel: RegisterViewModel?
+    var mbviewmodel:MBViewModel?
     
     //MARK: - Loading Functions
     override func viewWillAppear(_ animated: Bool) {
@@ -40,7 +50,7 @@ class BookingDetailsVC: BaseTableVC, MPBViewModelDelegate, MobileSecureBookingVi
         MySingleton.shared.loginvm = LoginViewModel(self)
         MySingleton.shared.registervm = RegisterViewModel(self)
         
-        
+        self.mbviewmodel = MBViewModel(self)
     }
     
     
@@ -59,7 +69,7 @@ class BookingDetailsVC: BaseTableVC, MPBViewModelDelegate, MobileSecureBookingVi
                                          "RegisterNowTableViewCell",
                                          "LoginDetailsTableViewCell",
                                          "GuestRegisterTableViewCell", "RegisterSelectionLoginTableViewCell",
-                                         "BookingDetailsFlightDataTVCell"])
+                                         "BookingDetailsFlightDataTVCell", "GuestTVCell"])
     }
     
     
@@ -181,11 +191,13 @@ class BookingDetailsVC: BaseTableVC, MPBViewModelDelegate, MobileSecureBookingVi
     
     
     override func GuestRegisterNowButtonAction(cell: GuestTVCell, email: String, pass: String, phone: String, countryCode: String) {
+        
         defaults.set(true, forKey: UserDefaultsKeys.regStatus)
         defaults.set(email, forKey: UserDefaultsKeys.useremail)
         defaults.set(countryCode, forKey: UserDefaultsKeys.countryCode)
         defaults.set(phone, forKey: UserDefaultsKeys.usermobile)
         showToast(message: "Sucessfully Registered!..")
+        
         commonTableView.reloadData()
         //        callRegisterAPI(email: email, pass: pass, mobile: phone, countryCode: countryCode)
     }
@@ -193,40 +205,64 @@ class BookingDetailsVC: BaseTableVC, MPBViewModelDelegate, MobileSecureBookingVi
         print("loginNowButtonAction")
         callLoginAPI(email: email, pass: pass)
     }
+    
+    
+//    override func RegisterNowButtonAction(cell: LoginDetailsTableViewCell, email: String, pass: String, phone: String, countryCode: String) {
+//        
+//        defaults.set(true, forKey: UserDefaultsKeys.regStatus)
+//        defaults.set(email, forKey: UserDefaultsKeys.useremail)
+//        defaults.set(countryCode, forKey: UserDefaultsKeys.countryCode)
+//        defaults.set(phone, forKey: UserDefaultsKeys.usermobile)
+//        showToast(message: "Sucessfully Registered!..")
+//        
+//        commonTableView.reloadData()
+//        //        callRegisterAPI(email: email, pass: pass, mobile: phone, countryCode: countryCode)
+//    }
+    
+    
     override func RegisterNowButtonAction(cell: LoginDetailsTableViewCell, email: String, pass: String, phone: String, countryCode: String) {
+            
         defaults.set(true, forKey: UserDefaultsKeys.regStatus)
         defaults.set(email, forKey: UserDefaultsKeys.useremail)
         defaults.set(countryCode, forKey: UserDefaultsKeys.countryCode)
         defaults.set(phone, forKey: UserDefaultsKeys.usermobile)
-        showToast(message: "Sucessfully Registered!..")
-        commonTableView.reloadData()
-        //        callRegisterAPI(email: email, pass: pass, mobile: phone, countryCode: countryCode)
-    }
-    override func didTapOnguestButton(cell: RegisterSelectionLoginTableViewCell) {
-        cell.registerRadioImage.image = UIImage(named: "radioUnselect")
-        cell.loginRadioImage.image = UIImage(named: "radioUnselect")
-        cell.guestRadioImage.image = UIImage(named: "radioSelect")
-        MySingleton.shared.mbviewmodel?.section = .guestLogin
+        showToast(message: "Successfully Registered!..")
         
-        setupTVCell()
-        //        commonTableView.reloadData()
+       // reloadRows(rowIndex: 0)
+      //  reloadRows(rowIndex: 1)
+            
+    }
+    
+    func reloadRows(rowIndex:Int) {
+        commonTableView.reloadData()
+    }
+
+    
+    override func didTapOnguestButton(cell: RegisterSelectionLoginTableViewCell) {
+        cell.registerRadioImage.image = UIImage(named: "radiounselected")
+        cell.loginRadioImage.image = UIImage(named: "radiounselected")
+        cell.guestRadioImage.image = UIImage(named: "radioSelected1")?.withRenderingMode(.alwaysOriginal).withTintColor(.AppBtnColor)
+        self.mbviewmodel?.section = .guestLogin
+        
+        reloadRows(rowIndex: 1)
         
     }
     override func registerButton(cell: RegisterSelectionLoginTableViewCell) {
-        cell.registerRadioImage.image = UIImage(named: "radioSelect")
-        cell.loginRadioImage.image = UIImage(named: "radioUnselect")
-        cell.guestRadioImage.image = UIImage(named: "radioUnselect")
-        MySingleton.shared.mbviewmodel?.section = .register
-        setupTVCell()
-        //        commonTableView.reloadData()
+        cell.registerRadioImage.image = UIImage(named: "radioSelected1")?.withRenderingMode(.alwaysOriginal).withTintColor(.AppBtnColor)
+        cell.loginRadioImage.image = UIImage(named: "radiounselected")
+        cell.guestRadioImage.image = UIImage(named: "radiounselected")
+        self.mbviewmodel?.section = .register
+      
+        reloadRows(rowIndex: 1)
     }
     override func loginButton(cell: RegisterSelectionLoginTableViewCell) {
-        cell.registerRadioImage.image = UIImage(named: "radioUnselect")
-        cell.loginRadioImage.image = UIImage(named: "radioSelect")
-        cell.guestRadioImage.image = UIImage(named: "radioUnselect")
-        MySingleton.shared.mbviewmodel?.section = .login
-        setupTVCell()
-        //        commonTableView.reloadData()
+        cell.registerRadioImage.image = UIImage(named: "radiounselected")
+        cell.loginRadioImage.image = UIImage(named: "radioSelected1")?.withRenderingMode(.alwaysOriginal).withTintColor(.AppBtnColor)
+        cell.guestRadioImage.image = UIImage(named: "radiounselected")
+        self.mbviewmodel?.section = .login
+       
+        
+        reloadRows(rowIndex: 1)
     }
     
 }
@@ -298,22 +334,24 @@ extension BookingDetailsVC {
         
                 if defaults.bool(forKey: UserDefaultsKeys.loggedInStatus) == false {
                   //  MySingleton.shared.tablerow.append(TableRow(cellType:.TDetailsLoginTVCell))
-                    
+        
                     MySingleton.shared.tablerow.append(TableRow(height: 14,bgColor:.AppHolderViewColor, cellType:.EmptyTVCell))
                     MySingleton.shared.tablerow.append(TableRow(cellType: .RegisterSelectionLoginTableViewCell))
                     MySingleton.shared.tablerow.append(TableRow(height: 12,bgColor:.AppHolderViewColor, cellType:.EmptyTVCell))
-                    if MySingleton.shared.mbviewmodel?.section == .guestLogin {
+                    if self.mbviewmodel?.section == .guestLogin {
                         MySingleton.shared.tablerow.append(TableRow(cellType: .GuestTVCell))
                         MySingleton.shared.tablerow.append(TableRow(height: 12,bgColor:.AppHolderViewColor, cellType:.EmptyTVCell))
-                    }  else if MySingleton.shared.mbviewmodel?.section == .login {
+                    }  else if self.mbviewmodel?.section == .login {
                         MySingleton.shared.tablerow.append(TableRow(key: "register",cellType: .RegisterNowTableViewCell))
                         MySingleton.shared.tablerow.append(TableRow(height: 12,bgColor:.AppHolderViewColor, cellType:.EmptyTVCell))
-                    } else if MySingleton.shared.mbviewmodel?.section == .register {
+                    } else if self.mbviewmodel?.section == .register {
                         MySingleton.shared.tablerow.append(TableRow(cellType: .LoginDetailsTableViewCell))
                         MySingleton.shared.tablerow.append(TableRow(height: 12,bgColor:.AppHolderViewColor, cellType:.EmptyTVCell))
                     }
                     
                 }else {
+                    
+                    
                     MySingleton.shared.tablerow.append(TableRow(height: 12,bgColor:.AppHolderViewColor, cellType:.EmptyTVCell))
                 }
         

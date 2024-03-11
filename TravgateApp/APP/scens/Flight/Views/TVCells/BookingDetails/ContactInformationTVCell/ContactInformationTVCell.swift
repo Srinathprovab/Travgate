@@ -87,6 +87,27 @@ class ContactInformationTVCell: TableViewCell {
             }
             
         }
+        
+        
+        if let usersignIn = defaults.object(forKey: UserDefaultsKeys.regStatus) as? Bool ,usersignIn == true
+               {
+                   if let email = defaults.string(forKey: UserDefaultsKeys.useremail) {
+                       MySingleton.shared.payemail = email
+                       emailTF.text =  MySingleton.shared.payemail
+                   }
+                   
+                   if let mobile = defaults.string(forKey: UserDefaultsKeys.usermobile) {
+                       MySingleton.shared.paymobile = mobile
+                       mobileTF.text = MySingleton.shared.paymobile
+                   }
+                   
+                   if let code = defaults.string(forKey: UserDefaultsKeys.countryCode) {
+                       MySingleton.shared.paymobilecountrycode = code
+                       countrycodeTF.text =  MySingleton.shared.paymobilecountrycode
+                   }
+               }
+        
+        
     }
     
     

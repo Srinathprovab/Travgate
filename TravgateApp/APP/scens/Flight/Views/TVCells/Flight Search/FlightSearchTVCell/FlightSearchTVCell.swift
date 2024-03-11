@@ -289,9 +289,6 @@ class FlightSearchTVCell: TableViewCell, SelectCityViewModelProtocal {
         
         defaults.setValue(d, forKey: UserDefaultsKeys.fcity)
         defaults.setValue(c, forKey: UserDefaultsKeys.tcity)
-        
-        
-      
     }
     
     @IBAction func didTapOnFlightSearchBtnAction(_ sender: Any) {
