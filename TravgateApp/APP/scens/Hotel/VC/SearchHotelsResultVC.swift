@@ -9,7 +9,7 @@ import UIKit
 import DropDown
 
 class SearchHotelsResultVC: BaseTableVC, UITextFieldDelegate, HotelSearchViewModelDelegate, HotelsTVCellelegate {
-
+    
     
     @IBOutlet weak var holderView: UIView!
     @IBOutlet weak var cvHolderView: UIView!
@@ -25,7 +25,7 @@ class SearchHotelsResultVC: BaseTableVC, UITextFieldDelegate, HotelSearchViewMod
     @IBOutlet weak var paxlbl: UILabel!
     @IBOutlet weak var viewMapBtn: UIButton!
     
-   // var loaderVC: LoderVC!
+    // var loaderVC: LoderVC!
     var bookingSourceDataArrayCount = Int()
     let dropDown = DropDown()
     var lastContentOffset: CGFloat = 0
@@ -143,7 +143,7 @@ class SearchHotelsResultVC: BaseTableVC, UITextFieldDelegate, HotelSearchViewMod
         }
     }
     
-   
+    
     
     @objc func editingTextField1(_ tf: UITextField) {
         searchText = tf.text ?? ""
@@ -172,10 +172,6 @@ class SearchHotelsResultVC: BaseTableVC, UITextFieldDelegate, HotelSearchViewMod
     
     
     
-    // MARK: - didTapOnTermsAndConditionBtn HotelsTVCell
-    //        override func didTapOnTermsAndConditionBtn(cell: HotelsTVCell) {
-    //           // goToTermsPopupVC(titlestr: cell.hotelNamelbl.text ?? "", hoteldesc: cell.hotel_DescLabel)
-    //        }
     
     
     func goToTermsPopupVC(titlestr:String,hoteldesc:String) {
@@ -188,21 +184,9 @@ class SearchHotelsResultVC: BaseTableVC, UITextFieldDelegate, HotelSearchViewMod
     
     
     
-    //MARK: - didTapOnBookNowBtnAction HotelsTVCell
-    //    override func didTapOnBookNowBtnAction(cell: HotelsTVCell){
-    //        self.goToHotelDetailsVC(hid: cell.hotelid, bs: cell.bookingsource, kwdprice: cell.kwdlbl.text ?? "")
-    //    }
     
     
-    func goToHotelDetailsVC(hid:String,bs:String,kwdprice:String) {
-        //        guard let vc = HotelDetailsVC.newInstance.self else {return}
-        //        vc.modalPresentationStyle = .fullScreen
-        //        vc.hotelid = hid
-        //        vc.bookingsource = bs
-        //        vc.kwdprice = kwdprice
-        //        callapibool = true
-        //        present(vc, animated: true)
-    }
+    
     
     
     
@@ -271,14 +255,33 @@ class SearchHotelsResultVC: BaseTableVC, UITextFieldDelegate, HotelSearchViewMod
         present(vc, animated: true)
     }
     
+    
+    //MARK: -  HotelsTVCell Delegate Methods
     func didTapOnTermsAndConditionBtn(cell: HotelsTVCell) {
-        
+        print("didTapOnTermsAndConditionBtn")
     }
     
     func didTapOnBookNowBtnAction(cell: HotelsTVCell) {
+        print(cell.hotelid)
+        print(cell.bookingsource)
+        print(hsearchid)
+        
+        goToHotelDetailsVC(hid: cell.hotelid,
+                           bs: cell.bookingsource,
+                           kwdprice: cell.kwdlbl.text ?? "")
         
     }
     
+    
+    func goToHotelDetailsVC(hid:String,bs:String,kwdprice:String) {
+        guard let vc = HotelDetailsVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .fullScreen
+        vc.hotelid = hid
+        vc.bookingsource = bs
+        vc.kwdprice = kwdprice
+        callapibool = true
+        present(vc, animated: true)
+    }
     
     
 }
@@ -369,10 +372,11 @@ extension SearchHotelsResultVC {
         loderBool = false
         holderView.isHidden = false
         
+        hsearchid = response.search_id ?? ""
         
         // Stop the timer if it's running
-        //        MySingleton.shared.TimerManager.shared.stopTimer()
-        //        MySingleton.shared.TimerManager.shared.startTimer(time: 900) // Set your desired total time
+        MySingleton.shared.stopTimer()
+        MySingleton.shared.startTimer(time: 900) // Set your desired total time
         
         if let newResults = response.data?.hotelSearchResult, !newResults.isEmpty {
             // Append the new data to the existing data
@@ -399,45 +403,6 @@ extension SearchHotelsResultVC {
         }
         
         
-        
-        
-        
-        //        hotelSearchId = (response.search_id ?? "0")
-        //        hsearchid = (response.search_id ?? "0")
-        //        hbookingsource = response.data?.hotelSearchResult?[0].booking_source ?? ""
-        //        hotelSearchResult = response.data?.hotelSearchResult ?? []
-        //       //    hotel_filtersumry = response.filter_sumry
-        //         hotelSearchResult.append(response.data?.hotelSearchResult ?? [])
-        //
-        //
-        //        response.data?.hotelSearchResult?.forEach { i in
-        //            prices.append(i.price ?? "")
-        //            let mapModel = MapModel(
-        //                longitude: i.longitude ?? "",
-        //                latitude: i.latitude ?? "",
-        //                hotelname: i.name ?? ""
-        //            )
-        //            mapModelArray.append(mapModel)
-        //        }
-        
-        //
-        //        //        response.filter_sumry?.loc?.forEach({ i in
-        //        //            nearBylocationsArray.append(i.v ?? "")
-        //        //        })
-        //        //
-        //        //        response.filter_sumry?.near_by?.forEach({ i in
-        //        //            neighbourwoodArray.append(i.v ?? "")
-        //        //        })
-        //        //
-        //        //        response.filter_sumry?.facility?.forEach({ i in
-        //        //            amenitiesArray.append(i.v ?? "")
-        //        //        })
-        //        //
-        //
-        //
-        //        DispatchQueue.main.async {[self] in
-        //            commonTableView.reloadData()
-        //        }
         
         
     }
@@ -530,7 +495,7 @@ extension SearchHotelsResultVC {
                 cell.long = dict.longitude ?? ""
                 
                 cell.perNightlbl.text = "Total Price For 2 Night"
-                cell.setAttributedString1(str1:dict.currency ?? "", str2: dict.price ?? "")
+                //   cell.setAttributedString1(str1:dict.currency ?? "", str2: dict.price ?? "")
                 cell.ratingView.value = CGFloat(dict.star_rating ?? 0)
                 
                 cell.hotel_DescLabel = dict.hotel_desc ?? "bbbbb"
@@ -549,10 +514,10 @@ extension SearchHotelsResultVC {
                 }
                 
                 
-                cell.faretypelbl.text = dict.refund ?? ""
-                if cell.faretypelbl.text == "Non Refundable" {
-                    cell.faretypelbl.textColor = .AppBtnColor
-                }
+                //                cell.faretypelbl.text = dict.refund ?? ""
+                //                if cell.faretypelbl.text == "Non Refundable" {
+                //                    cell.faretypelbl.textColor = .AppBtnColor
+                //                }
                 
                 
                 if dict.star_rating == 0 {
@@ -575,7 +540,7 @@ extension SearchHotelsResultVC {
                 cell.lat = dict.latitude ?? ""
                 cell.long = dict.longitude ?? ""
                 cell.perNightlbl.text = "Total Price For 2 Night"
-                cell.setAttributedString1(str1:dict.currency ?? "", str2: dict.price ?? "")
+                //      cell.setAttributedString1(str1:dict.currency ?? "", str2: dict.price ?? "")
                 
                 
                 cell.hotel_DescLabel = dict.hotel_desc ?? "bbbbb"
@@ -595,10 +560,10 @@ extension SearchHotelsResultVC {
                 
                 
                 
-                cell.faretypelbl.text = dict.refund ?? ""
-                if cell.faretypelbl.text == "Non Refundable" {
-                    cell.faretypelbl.textColor = .AppBtnColor
-                }
+                //                cell.faretypelbl.text = dict.refund ?? ""
+                //                if cell.faretypelbl.text == "Non Refundable" {
+                //                    cell.faretypelbl.textColor = .AppBtnColor
+                //                }
                 
                 if dict.star_rating == 0 {
                     cell.ratingView.isHidden = true

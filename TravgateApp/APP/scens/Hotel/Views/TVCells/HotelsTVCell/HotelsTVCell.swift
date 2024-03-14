@@ -26,13 +26,12 @@ class HotelsTVCell: TableViewCell {
     @IBOutlet weak var refundableView: UIView!
     @IBOutlet weak var termsAndConditionlbl: UILabel!
     @IBOutlet weak var refundableBtn: UIButton!
-    @IBOutlet weak var faretypelbl: UILabel!
     @IBOutlet weak var markupPricelbl: UILabel!
-    @IBOutlet weak var refundView: BorderedView!
     
     var bookingsource = String()
     var hotelid = String()
     var searchid = String()
+    
     var lat = String()
     var long = String()
     var hotelDesc :Hotel_desc?
@@ -57,25 +56,10 @@ class HotelsTVCell: TableViewCell {
     
     
     
-    override func prepareForReuse() {
-        faretypelbl.textColor = .AppCalenderDateSelectColor
-    }
-    
+  
     override func updateUI() {
-        hotelNamelbl.text = cellInfo?.title ?? ""
-        self.hotelImg.sd_setImage(with: URL(string: cellInfo?.image ?? ""), placeholderImage:UIImage(contentsOfFile:"placeholder.png"))
-        ratingView.value = CGFloat(cellInfo?.characterLimit ?? 0)
-        locationlbl.text = cellInfo?.buttonTitle
-        kwdlbl.text = cellInfo?.text
+
         
-        
-        setAttributedString1(str1: "\(cellInfo?.text ?? ""):", str2: "\(cellInfo?.price ?? "")")
-        
-        if cellInfo?.characterLimit == 0 {
-            ratingView.isHidden = true
-        }else {
-            ratingView.isHidden = false
-        }
     }
     
     
@@ -98,11 +82,7 @@ class HotelsTVCell: TableViewCell {
         v.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.4).cgColor
     }
     
-    
-    func changeFareTypeColor(){
-        faretypelbl.textColor = .AppBtnColor
-    }
-    
+  
     
     
     @IBAction func didTapOnTermsAndConditionBtn(_ sender: Any) {

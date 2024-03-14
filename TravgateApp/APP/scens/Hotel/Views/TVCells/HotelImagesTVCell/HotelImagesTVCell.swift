@@ -41,6 +41,7 @@ class HotelImagesTVCell: TableViewCell {
     override func updateUI() {
         
         hotelImg.sd_setImage(with: URL(string: cellInfo?.image ?? ""), placeholderImage:UIImage(contentsOfFile:"placeholder.png"))
+        
         hotelNamelbl.text = cellInfo?.title ?? ""
         locNamelbl.text = cellInfo?.subTitle ?? ""
         

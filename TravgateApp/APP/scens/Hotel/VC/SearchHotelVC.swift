@@ -209,6 +209,8 @@ extension SearchHotelVC {
         
         
         MySingleton.shared.payload["nationality"] = defaults.string(forKey: UserDefaultsKeys.hnationalitycode)
+        
+        
 //        MySingleton.shared.payload["language"] = "english"
 //        MySingleton.shared.payload["search_source"] = "Mobile_IOS"
 //        MySingleton.shared.payload["currency"] = defaults.string(forKey: UserDefaultsKeys.selectedCurrency) ?? "KWD"
@@ -224,7 +226,7 @@ extension SearchHotelVC {
             showToast(message: "Enter Different Dates")
         }else if defaults.string(forKey: UserDefaultsKeys.roomcount) == "" {
             showToast(message: "Add Rooms For Booking")
-        }else if defaults.string(forKey: UserDefaultsKeys.hnationalitycode) == "Select Nationality" {
+        }else if defaults.string(forKey: UserDefaultsKeys.hnationalitycode) == "Nationality" {
             showToast(message: "Please Select Nationality.")
         }else {
             

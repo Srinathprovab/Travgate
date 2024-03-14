@@ -222,7 +222,11 @@ class HotelDetailsVC: BaseTableVC, HotelDetailsViewModelDelegate {
     
     
     @IBAction func didTapOnBackBtnAction(_ sender: Any) {
+        callapibool = false
+        dismiss(animated: true)
     }
+    
+    
 }
 
 
@@ -234,7 +238,8 @@ extension HotelDetailsVC {
     func callAPI() {
         payload["booking_source"] = bookingsource
         payload["hotel_id"] = hotelid
-        payload["search_id"] = hotelSearchId
+        payload["search_id"] = hsearchid
+        
         viewmodel?.CALL_HOTEL_DETAILS_API(dictParam: payload)
     }
     

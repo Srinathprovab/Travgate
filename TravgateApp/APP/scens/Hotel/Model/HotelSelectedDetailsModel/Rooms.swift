@@ -6,17 +6,17 @@ struct Rooms : Codable {
     let currency : String?
     let cancellationPolicies : [CancellationPolicies]?
     let rooms : Int?
-    let adults : Int?
+    let adults : String?
     let net : String?
     let xml_currency : String?
     let booking_reference : String?
     let rateKey : String?
     let code : String?
     let image : String?
-    let children : Int?
+    let children : String?
     let childrenAges : String?
     let promotions : String?
-    let refund : Int?
+    let refund : String?
     let name : String?
     let xml_net : String?
 
@@ -47,17 +47,17 @@ struct Rooms : Codable {
         currency = try values.decodeIfPresent(String.self, forKey: .currency)
         cancellationPolicies = try values.decodeIfPresent([CancellationPolicies].self, forKey: .cancellationPolicies)
         rooms = try values.decodeIfPresent(Int.self, forKey: .rooms)
-        adults = try values.decodeIfPresent(Int.self, forKey: .adults)
+        adults = try values.decodeIfPresent(String.self, forKey: .adults)
         net = try values.decodeIfPresent(String.self, forKey: .net)
         xml_currency = try values.decodeIfPresent(String.self, forKey: .xml_currency)
         booking_reference = try values.decodeIfPresent(String.self, forKey: .booking_reference)
         rateKey = try values.decodeIfPresent(String.self, forKey: .rateKey)
         code = try values.decodeIfPresent(String.self, forKey: .code)
         image = try values.decodeIfPresent(String.self, forKey: .image)
-        children = try values.decodeIfPresent(Int.self, forKey: .children)
+        children = try values.decodeIfPresent(String.self, forKey: .children)
         childrenAges = try values.decodeIfPresent(String.self, forKey: .childrenAges)
         promotions = try values.decodeIfPresent(String.self, forKey: .promotions)
-        refund = try values.decodeIfPresent(Int.self, forKey: .refund)
+        refund = try values.decodeIfPresent(String.self, forKey: .refund)
         name = try values.decodeIfPresent(String.self, forKey: .name)
         xml_net = try values.decodeIfPresent(String.self, forKey: .xml_net)
     }
