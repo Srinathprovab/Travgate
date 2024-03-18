@@ -163,6 +163,8 @@ extension NewRoomTVCell: UITableViewDataSource ,UITableViewDelegate {
             //            cell.isSelectedCell = selectedCellStates[indexPath, default: false]
             
             
+            
+            
             cell.ratekey = data.rateKey ?? ""
             ccell = cell
         }

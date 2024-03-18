@@ -98,6 +98,7 @@ enum TVCellType {
     case TitleLblTVCell
     case HotelImagesTVCell
     case RoomsTVcell
+    case TermsPopupTVCell
     
     
     //VISA

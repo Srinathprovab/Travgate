@@ -232,6 +232,10 @@ extension HotelSearchTVCell {
         
         if let checkindate = formter.date(from: defaults.string(forKey: UserDefaultsKeys.checkin) ?? "") {
             checkinDatePicker.date = checkindate
+            
+            if self.checkoutlbl.text == "Add Date" {
+                checkoutDatePicker.date = checkindate
+            }
         }
         
         
@@ -271,9 +275,26 @@ extension HotelSearchTVCell {
         formter.dateFormat = "dd-MM-yyyy"
         
         
-        if let checkoutDate = formter.date(from: defaults.string(forKey: UserDefaultsKeys.checkout) ?? "") {
-            checkoutDatePicker.date = checkoutDate
+//        if let checkoutDate = formter.date(from: defaults.string(forKey: UserDefaultsKeys.checkout) ?? "") {
+//            checkoutDatePicker.date = checkoutDate
+//            
+//
+//        }
+        
+        
+        if let checkindate = formter.date(from: defaults.string(forKey: UserDefaultsKeys.checkin) ?? "") {
+            
+            if self.checkoutlbl.text == "Add Date" {
+                checkoutDatePicker.date = checkindate
+                
+            }else {
+                if let checkoutdate = formter.date(from: defaults.string(forKey: UserDefaultsKeys.checkout) ?? "") {
+                    checkoutDatePicker.date = checkoutdate
+                }
+            }
         }
+        
+        
         
         //ToolBar
         let toolbar = UIToolbar();

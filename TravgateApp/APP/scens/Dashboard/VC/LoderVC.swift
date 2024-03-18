@@ -91,7 +91,7 @@ class LoderVC: UIViewController, SearchLoaderViewModelDelegate, SearchHotelLoder
             
             img.sd_setImage(with: URL(string: searchHoteldata?.image ?? ""), placeholderImage:UIImage(contentsOfFile:"placeholder.png"))
             
-            locationslbl.text = searchHoteldata?.city_name ?? ""
+            locationslbl.text = defaults.string(forKey: UserDefaultsKeys.locationcity) ?? searchHoteldata?.city_name ?? ""
             checkinlbl.text = searchHoteldata?.check_in ?? ""
             checkoutlbl.text = searchHoteldata?.check_out ?? ""
             guestlbl.text = searchHoteldata?.adult?[0] ?? ""

@@ -8,7 +8,7 @@
 import UIKit
 import DropDown
 
-class SearchHotelsResultVC: BaseTableVC, UITextFieldDelegate, HotelSearchViewModelDelegate, HotelsTVCellelegate {
+class SearchHotelsResultVC: BaseTableVC, UITextFieldDelegate, HotelSearchViewModelDelegate, HotelsTVCellelegate, TimerManagerDelegate {
     
     
     @IBOutlet weak var holderView: UIView!
@@ -24,6 +24,8 @@ class SearchHotelsResultVC: BaseTableVC, UITextFieldDelegate, HotelSearchViewMod
     @IBOutlet weak var dateslbl: UILabel!
     @IBOutlet weak var paxlbl: UILabel!
     @IBOutlet weak var viewMapBtn: UIButton!
+    @IBOutlet weak var sessionTimelbl: UILabel!
+    @IBOutlet weak var hotelsCountlbl: UILabel!
     
     // var loaderVC: LoderVC!
     var bookingSourceDataArrayCount = Int()
@@ -75,7 +77,8 @@ class SearchHotelsResultVC: BaseTableVC, UITextFieldDelegate, HotelSearchViewMod
         // Do any additional setup after loading the view.
         setupinitialView()
         viewModel = HotelSearchViewModel(self)
-        //setuptv()
+        MySingleton.shared.delegate = self
+      
         
     }
     
@@ -86,6 +89,8 @@ class SearchHotelsResultVC: BaseTableVC, UITextFieldDelegate, HotelSearchViewMod
         
         self.cittlbl.text = defaults.string(forKey: UserDefaultsKeys.locationcity) ?? ""
         self.dateslbl.text = "\(MySingleton.shared.convertDateFormat(inputDate: defaults.string(forKey: UserDefaultsKeys.checkin) ?? "", f1: "dd-MM-yyyy", f2: "MMM dd")) - \(MySingleton.shared.convertDateFormat(inputDate: defaults.string(forKey: UserDefaultsKeys.checkout) ?? "", f1: "dd-MM-yyyy", f2: "MMM dd"))"
+        
+        paxlbl.text = "Room \(defaults.string(forKey: UserDefaultsKeys.roomcount) ?? "1") | Adults \(defaults.string(forKey: UserDefaultsKeys.hoteladultscount) ?? "2")"
         
         cvHolderView.isHidden = true
         
@@ -172,26 +177,6 @@ class SearchHotelsResultVC: BaseTableVC, UITextFieldDelegate, HotelSearchViewMod
     
     
     
-    
-    
-    func goToTermsPopupVC(titlestr:String,hoteldesc:String) {
-        //        guard let vc = TermsPopupVC.newInstance.self else {return}
-        //        vc.modalPresentationStyle = .overCurrentContext
-        //        vc.titlestr = titlestr
-        //        vc.hotel_desc = hoteldesc
-        //        present(vc, animated: false)
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     @objc func didTapOnFilterBtnAction(_ sender:UIButton) {
         gotoFilterVC(strkey: "hotelfilter")
     }
@@ -258,13 +243,23 @@ class SearchHotelsResultVC: BaseTableVC, UITextFieldDelegate, HotelSearchViewMod
     
     //MARK: -  HotelsTVCell Delegate Methods
     func didTapOnTermsAndConditionBtn(cell: HotelsTVCell) {
-        print("didTapOnTermsAndConditionBtn")
+        print(cell.hotel_DescLabel)
+        goToTermsPopupVC(titlestr: cell.hotelNamelbl.text ?? "",
+                         hoteldesc: cell.hotel_DescLabel)
     }
     
+    
+    func goToTermsPopupVC(titlestr:String,hoteldesc:String) {
+        guard let vc = TermsPopupVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .overCurrentContext
+        vc.titlestr = titlestr
+        vc.subtitlestr = hoteldesc
+        present(vc, animated: false)
+    }
+    
+    
+    
     func didTapOnBookNowBtnAction(cell: HotelsTVCell) {
-        print(cell.hotelid)
-        print(cell.bookingsource)
-        print(hsearchid)
         
         goToHotelDetailsVC(hid: cell.hotelid,
                            bs: cell.bookingsource,
@@ -352,11 +347,12 @@ extension SearchHotelsResultVC {
     func callHotelSearchAPI(bookingsource:String,searchid:String){
         payload.removeAll()
         payload["offset"] = "0"
-        payload["limit"] = "5"
+        payload["limit"] = "10"
         payload["booking_source"] = bookingsource
         payload["search_id"] = searchid
         payload["ResultIndex"] = "1"
         
+        hbookingsource = bookingsource
         viewModel?.CallHotelSearchAPI(dictParam: payload)
     }
     
@@ -373,6 +369,7 @@ extension SearchHotelsResultVC {
         holderView.isHidden = false
         
         hsearchid = response.search_id ?? ""
+        
         
         // Stop the timer if it's running
         MySingleton.shared.stopTimer()
@@ -421,6 +418,7 @@ extension SearchHotelsResultVC {
         facilityArray.removeAll()
         mapModelArray.removeAll()
         
+        hotelsCountlbl.text = "\(list.count)"
         
         list.forEach { i in
             if let price = i.price, (Int(price) ?? 0) > 0 {
@@ -610,7 +608,7 @@ extension SearchHotelsResultVC {
         payload["limit"] = "10"
         payload["no_of_nights"] = "1"
         
-        //  viewModel?.CallHotelSearchPagenationAPI(dictParam: payload)
+        viewModel?.CallHotelSearchPagenationAPI(dictParam: payload)
         
     }
     
@@ -632,7 +630,7 @@ extension SearchHotelsResultVC {
             // Append the new data to the existing data
             hotelSearchResult.append(contentsOf: newResults)
             DispatchQueue.main.async {
-                self.commonTableView.reloadData()
+                self.appendValues(list: hotelSearchResult)
             }
         } else {
             // No more items to load, update UI accordingly
@@ -787,6 +785,9 @@ extension SearchHotelsResultVC {
         NotificationCenter.default.addObserver(self, selector: #selector(resultnil), name: NSNotification.Name("resultnil"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(reload), name: Notification.Name("reload"), object: nil)
         
+        NotificationCenter.default.addObserver(self, selector: #selector(nointrnetreload), name: Notification.Name("nointrnetreload"), object: nil)
+        
+        
     }
     
     
@@ -820,4 +821,49 @@ extension SearchHotelsResultVC {
         self.present(vc, animated: false)
     }
     
+    
+    @objc func nointrnetreload() {
+        
+        DispatchQueue.main.async {[self] in
+            commonTableView.reloadData()
+        }
+    }
+    
+    
+    
+    //MARK: - updateTimer
+    func updateTimer() {
+        let totalTime = MySingleton.shared.totalTime
+        let minutes =  totalTime / 60
+        let seconds = totalTime % 60
+        let formattedTime = String(format: "%02d:%02d", minutes, seconds)
+        
+        
+        MySingleton.shared.setAttributedTextnew(str1: "\(formattedTime)",
+                                                str2: "",
+                                                lbl: sessionTimelbl,
+                                                str1font: .OpenSansMedium(size: 12),
+                                                str2font: .OpenSansMedium(size: 12),
+                                                str1Color: .BooknowBtnColor,
+                                                str2Color: .BooknowBtnColor)
+        
+        
+    }
+    
+    
+    func timerDidFinish() {
+        gotoPopupScreen()
+    }
+    
+    
+    func gotoPopupScreen() {
+        guard let vc = PopupVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .overCurrentContext
+        self.present(vc, animated: true)
+    }
+    
 }
+
+
+
+

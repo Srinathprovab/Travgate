@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol HotelImagesTVCellDelegate {
+    func didTapOnMoreBtnAction(cell:HotelImagesTVCell)
+}
+
 class HotelImagesTVCell: TableViewCell {
     
     @IBOutlet weak var holderView: UIView!
@@ -20,6 +24,7 @@ class HotelImagesTVCell: TableViewCell {
     var itemCount = Int()
     var autoScrollTimer: Timer?
     var hotelImagesArray = [String]()
+    var delegate:HotelImagesTVCellDelegate?
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -45,10 +50,10 @@ class HotelImagesTVCell: TableViewCell {
         hotelNamelbl.text = cellInfo?.title ?? ""
         locNamelbl.text = cellInfo?.subTitle ?? ""
         
-        itemCount = images.count
-        startAutoScroll()
-        
-        autoScrollImagesCV.reloadData()
+        itemCount = imagesArray.count
+//        startAutoScroll()
+//        
+//        autoScrollImagesCV.reloadData()
         imagesCV.reloadData()
     }
     
@@ -56,13 +61,13 @@ class HotelImagesTVCell: TableViewCell {
         contentView.backgroundColor = HexColor("#E6E8E7")
         holderView.addCornerRadiusWithShadow(color: .clear, borderColor: UIColor.lightGray.withAlphaComponent(0.4), cornerRadius: 10)
         
-        hotelImg.isHidden = true
+       
         hotelImg.layer.cornerRadius = 8
         hotelImg.clipsToBounds = true
         hotelImg.contentMode = .scaleToFill
         
         setupCV()
-        setupSCrollImagesCV()
+      //  setupSCrollImagesCV()
     }
     
     
@@ -91,10 +96,15 @@ class HotelImagesTVCell: TableViewCell {
     func setupCV() {
         let nib = UINib(nibName: "HotelImagesCVCell", bundle: nil)
         imagesCV.register(nib, forCellWithReuseIdentifier: "cell")
+        
+        let nib1 = UINib(nibName: "ButtonCollectionViewCell", bundle: nil)
+        imagesCV.register(nib1, forCellWithReuseIdentifier: "buttonCell")
+        
+        
         imagesCV.delegate = self
         imagesCV.dataSource = self
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: 70, height: 70)
+        layout.itemSize = CGSize(width: 82, height: 80)
         layout.scrollDirection = .horizontal
         layout.minimumInteritemSpacing = 6
         layout.minimumLineSpacing = 6
@@ -112,46 +122,43 @@ class HotelImagesTVCell: TableViewCell {
 
 
 
-extension HotelImagesTVCell:UICollectionViewDelegate,UICollectionViewDataSource {
+
+extension HotelImagesTVCell: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-        if collectionView == autoScrollImagesCV {
-            return images.count
-        }else {
-            return images.count
-        }
+        // If there are more than 4 images, return 5 (4 images + 1 button)
+        return min(imagesArray.count, 3) + (imagesArray.count > 3 ? 1 : 0)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        var commonCell = UICollectionViewCell()
-        
-        
-        if collectionView == autoScrollImagesCV {
-            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell1", for: indexPath) as? HotelImagesCVCell {
-                
-                cell.hotelImg.sd_setImage(with: URL(string: images[indexPath.row].img ?? ""), placeholderImage:UIImage(contentsOfFile:"placeholder.png"))
-                
-                commonCell = cell
-            }
-        }else {
-            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? HotelImagesCVCell {
-                cell.hotelImg.sd_setImage(with: URL(string: images[indexPath.row].img ?? ""), placeholderImage:UIImage(contentsOfFile:"placeholder.png"))
-                
-                commonCell = cell
-            }
+        if indexPath.row < 3 { // For the first 4 images
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! HotelImagesCVCell
+            cell.hotelImg.sd_setImage(with: URL(string: imagesArray[indexPath.row].img ?? ""), placeholderImage: UIImage(named: "placeholder"))
+            return cell
+        } else { // For the button cell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "buttonCell", for: indexPath) as! ButtonCollectionViewCell
+            // Set the thumbnail image for the button
+            cell.moreBtn.setImage(UIImage(named: "thumbImage"), for: .normal)
+            cell.img.sd_setImage(with: URL(string: imagesArray[3].img ?? ""), placeholderImage: UIImage(named: "placeholder"))
+            cell.moreBtn.backgroundColor = .black.withAlphaComponent(0.5)
+            cell.moreBtn.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+            return cell
         }
-        
-        return commonCell
     }
-    
-    
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        //  self.hotelImg.sd_setImage(with: URL(string: images[indexPath.row].img ?? ""), placeholderImage:UIImage(contentsOfFile:"placeholder.png"))
-        
+        if indexPath.row < 3 {
+            self.hotelImg.sd_setImage(with: URL(string: imagesArray[indexPath.row].img ?? ""), placeholderImage: UIImage(named: "placeholder"))
+        } else {
+            // Handle button tap action if needed
+            buttonTapped()
+        }
     }
     
+    @objc func buttonTapped() {
+        delegate?.didTapOnMoreBtnAction(cell: self)
+    }
 }
+
 
 
 

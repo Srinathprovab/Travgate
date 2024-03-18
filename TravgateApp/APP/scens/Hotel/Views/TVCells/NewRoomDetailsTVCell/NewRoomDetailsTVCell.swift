@@ -54,7 +54,7 @@ class NewRoomDetailsTVCell: UITableViewCell {
     
     
     func updateButtonColor() {
-        selectRoomBtnView.backgroundColor = isSelectedCell ? .AppCalenderDateSelectColor : unselectedBackgroundColor
+        selectRoomBtnView.backgroundColor = isSelectedCell ? .BooknowBtnColor : .AppBtnColor
     }
     
     

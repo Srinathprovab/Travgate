@@ -74,7 +74,13 @@ class HotelDetailsVC: BaseTableVC, HotelDetailsViewModelDelegate {
     
     //MARK: - setupUI
     func setupUI() {
+        
         holderView.backgroundColor = .AppBorderColor
+        self.citylbl.text = defaults.string(forKey: UserDefaultsKeys.locationcity) ?? ""
+        self.datelbl.text = "\(MySingleton.shared.convertDateFormat(inputDate: defaults.string(forKey: UserDefaultsKeys.checkin) ?? "", f1: "dd-MM-yyyy", f2: "MMM dd")) - \(MySingleton.shared.convertDateFormat(inputDate: defaults.string(forKey: UserDefaultsKeys.checkout) ?? "", f1: "dd-MM-yyyy", f2: "MMM dd"))"
+        
+        paxlbl.text = "Room \(defaults.string(forKey: UserDefaultsKeys.roomcount) ?? "1") | Adults \(defaults.string(forKey: UserDefaultsKeys.hoteladultscount) ?? "2")"
+        
         
         bookNowView.backgroundColor = .AppBtnColor
         setuplabels(lbl: kwdlbl, text: "Book Now", textcolor: .WhiteColor, font: .LatoMedium(size: 18), align: .right)
@@ -164,7 +170,6 @@ class HotelDetailsVC: BaseTableVC, HotelDetailsViewModelDelegate {
     }
     
     //MARK: - didTapOnCancellationPolicyBtnAction
-    
     override func didTapOnCancellationPolicyBtnAction(cell:NewRoomDetailsTVCell){
         
 //        guard let vc = CancellationPolicyPopupVC.newInstance.self else {return}
@@ -178,7 +183,6 @@ class HotelDetailsVC: BaseTableVC, HotelDetailsViewModelDelegate {
     
     
     //MARK: - didTapOnSelectRoomBtnAction
-    
     override func didTapOnSelectRoomBtnAction(cell:NewRoomDetailsTVCell){
         selectedrRateKeyArray.removeAll()
         bookNowlbl.isHidden = false
@@ -221,11 +225,23 @@ class HotelDetailsVC: BaseTableVC, HotelDetailsViewModelDelegate {
     }
     
     
+    //MARK: - didTapOnBackBtnAction
     @IBAction func didTapOnBackBtnAction(_ sender: Any) {
         callapibool = false
         dismiss(animated: true)
     }
     
+    
+    //MARK: - didTapOnMoreBtnAction HotelImagesTVCell
+    override func didTapOnMoreBtnAction(cell: HotelImagesTVCell) {
+        
+        if imagesArray.count > 0 {
+            guard let vc = HotelImagesVC.newInstance.self else {return}
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true)
+        }
+        
+    }
     
 }
 
@@ -253,7 +269,7 @@ extension HotelDetailsVC {
         
         hotelDetails = response.hotel_details
         roomsDetails = response.hotel_details?.rooms ?? [[]]
-        images = response.hotel_details?.images ?? []
+        imagesArray = response.hotel_details?.images ?? []
         formatAmeArray = response.hotel_details?.format_ame ?? []
         formatDesc = response.hotel_details?.format_desc ?? []
         img = response.hotel_details?.image ?? ""

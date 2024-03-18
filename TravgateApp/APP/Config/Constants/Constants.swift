@@ -115,7 +115,7 @@ var mbviewmodel:MPBViewModel?
 //MARK: - Hotel
 var hotelSearchId = String()
 var roomsDetails = [[Rooms]]()
-var images = [Images]()
+var imagesArray = [Images]()
 var formatAmeArray = [Format_ame]()
 var formatDesc = [Format_desc]()
 var hotel_filtersumry : Filter_sumry?

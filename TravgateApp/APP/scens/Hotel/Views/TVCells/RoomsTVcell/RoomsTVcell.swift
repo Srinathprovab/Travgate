@@ -27,12 +27,6 @@ class RoomsTVcell: TableViewCell, NewRoomTVCellDelegate {
     @IBOutlet weak var roomsUL: UIView!
     @IBOutlet weak var roomsBtn: UIButton!
     
-    @IBOutlet weak var googleMapView: UIView!
-    @IBOutlet weak var mapView: UIView!
-    @IBOutlet weak var maplbl: UILabel!
-    @IBOutlet weak var mapUL: UIView!
-    @IBOutlet weak var mapBtn: UIButton!
-    
     @IBOutlet weak var hotelsDetailsView: UIView!
     @IBOutlet weak var hotelsDetailslbl: UILabel!
     @IBOutlet weak var hotelsDetailsUL: UIView!
@@ -43,6 +37,9 @@ class RoomsTVcell: TableViewCell, NewRoomTVCellDelegate {
     @IBOutlet weak var amenitiesUL: UIView!
     @IBOutlet weak var amenitiesBtn: UIButton!
     @IBOutlet weak var roomDetailsTV: UITableView!
+    @IBOutlet weak var tvHeight: NSLayoutConstraint!
+    @IBOutlet weak var viewHeight: NSLayoutConstraint!
+    
     
     var latString = ""
     var longString = ""
@@ -56,7 +53,7 @@ class RoomsTVcell: TableViewCell, NewRoomTVCellDelegate {
         super.awakeFromNib()
         // Initialization code
         setupUI()
-        setupMapView()
+        
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -72,7 +69,22 @@ class RoomsTVcell: TableViewCell, NewRoomTVCellDelegate {
         latString = cellInfo?.title ?? ""
         longString = cellInfo?.subTitle ?? ""
         locname = cellInfo?.buttonTitle ?? ""
-        roomDetailsTV.reloadData()
+        
+        
+        updateHeight(height: 188)
+        
+        
+    }
+    
+    func updateHeight(height:Int) {
+        
+        if self.key == "rooms" {
+            tvHeight.constant = CGFloat(height * roomsDetails.count)
+            roomDetailsTV.reloadData()
+        }else {
+            viewHeight.constant = 356
+        }
+        
     }
     
     @objc func gotoroom(){
@@ -87,8 +99,7 @@ class RoomsTVcell: TableViewCell, NewRoomTVCellDelegate {
         setupViews(v: roomsView, radius: 0, color: .WhiteColor)
         roomsView.layer.borderColor = UIColor.WhiteColor.cgColor
         
-        setupViews(v: mapView, radius: 0, color: .WhiteColor)
-        mapView.layer.borderColor = UIColor.WhiteColor.cgColor
+        
         
         setupViews(v: hotelsDetailsView, radius: 0, color: .WhiteColor)
         hotelsDetailsView.layer.borderColor = UIColor.WhiteColor.cgColor
@@ -97,22 +108,19 @@ class RoomsTVcell: TableViewCell, NewRoomTVCellDelegate {
         amenitiesView.layer.borderColor = UIColor.WhiteColor.cgColor
         
         roomsUL.backgroundColor = .AppTabSelectColor
-        mapUL.backgroundColor = .WhiteColor
         hotelsDetailsUL.backgroundColor = .WhiteColor
         amenitiesUL.backgroundColor = .WhiteColor
         
         setuplabels(lbl: roomslbl, text: "Rooms", textcolor: .AppTabSelectColor, font: .LatoBold(size: 14), align: .center)
-        setuplabels(lbl: maplbl, text: "Map", textcolor: .AppLabelColor.withAlphaComponent(0.5), font: .LatoBold(size: 14), align: .center)
         
         setuplabels(lbl: hotelsDetailslbl, text: "Hotels Details", textcolor: .AppLabelColor.withAlphaComponent(0.5), font: .LatoBold(size: 14), align: .center)
         setuplabels(lbl: amenitieslbl, text: "Amenities", textcolor: .AppLabelColor.withAlphaComponent(0.5), font: .LatoBold(size: 14), align: .center)
         
         roomsBtn.setTitle("", for: .normal)
-        mapBtn.setTitle("", for: .normal)
+        
         hotelsDetailsBtn.setTitle("", for: .normal)
         amenitiesBtn.setTitle("", for: .normal)
         
-        googleMapView.isHidden = true
         
         setuTV()
     }
@@ -132,7 +140,7 @@ class RoomsTVcell: TableViewCell, NewRoomTVCellDelegate {
         roomDetailsTV.register(UINib(nibName: "AmenitiesTVCell", bundle: nil), forCellReuseIdentifier: "amenities")
         
         
-        
+        roomDetailsTV.isScrollEnabled = false
         roomDetailsTV.delegate = self
         roomDetailsTV.dataSource = self
         roomDetailsTV.tableFooterView = UIView()
@@ -147,13 +155,10 @@ class RoomsTVcell: TableViewCell, NewRoomTVCellDelegate {
     }
     
     func roomtaped() {
-        googleMapView.isHidden = true
         roomDetailsTV.isHidden = false
         roomslbl.textColor = .AppTabSelectColor
         roomsUL.backgroundColor = .AppTabSelectColor
         
-        maplbl.textColor = .AppLabelColor.withAlphaComponent(0.5)
-        mapUL.backgroundColor = .WhiteColor
         
         hotelsDetailslbl.textColor = .AppLabelColor.withAlphaComponent(0.5)
         hotelsDetailsUL.backgroundColor = .WhiteColor
@@ -162,12 +167,13 @@ class RoomsTVcell: TableViewCell, NewRoomTVCellDelegate {
         
         NotificationCenter.default.post(name: NSNotification.Name("roomtapbool"), object: true)
         
+        updateHeight(height: 188)
         delegate?.didTapOnRoomsBtn(cell:self)
     }
     
     
     @IBAction func didTapOnHotelsDetailsBtn(_ sender: Any) {
-        googleMapView.isHidden = true
+        
         roomDetailsTV.isHidden = false
         hotelsDetailslbl.textColor = .AppTabSelectColor
         hotelsDetailsUL.backgroundColor = .AppTabSelectColor
@@ -175,17 +181,14 @@ class RoomsTVcell: TableViewCell, NewRoomTVCellDelegate {
         roomsUL.backgroundColor = .WhiteColor
         amenitieslbl.textColor = .AppLabelColor.withAlphaComponent(0.5)
         amenitiesUL.backgroundColor = .WhiteColor
-        maplbl.textColor = .AppLabelColor.withAlphaComponent(0.5)
-        mapUL.backgroundColor = .WhiteColor
         
         NotificationCenter.default.post(name: NSNotification.Name("roomtapbool"), object: false)
-        
+        tvHeight.constant = 356
         delegate?.didTapOnHotelsDetailsBtn(cell:self)
     }
     
     
     @IBAction func didTapOnAmenitiesBtn(_ sender: Any) {
-        googleMapView.isHidden = true
         roomDetailsTV.isHidden = false
         amenitieslbl.textColor = .AppTabSelectColor
         amenitiesUL.backgroundColor = .AppTabSelectColor
@@ -193,15 +196,14 @@ class RoomsTVcell: TableViewCell, NewRoomTVCellDelegate {
         roomsUL.backgroundColor = .WhiteColor
         hotelsDetailslbl.textColor = .AppLabelColor.withAlphaComponent(0.5)
         hotelsDetailsUL.backgroundColor = .WhiteColor
-        maplbl.textColor = .AppLabelColor.withAlphaComponent(0.5)
-        mapUL.backgroundColor = .WhiteColor
+        
         NotificationCenter.default.post(name: NSNotification.Name("roomtapbool"), object: false)
         
+        tvHeight.constant = 356
         delegate?.didTapOnAmenitiesBtn(cell:self)
     }
     
     @IBAction func didTapOnMapBtnAction(_ sender: Any) {
-        googleMapView.isHidden = false
         roomDetailsTV.isHidden = true
         amenitieslbl.textColor = .AppLabelColor.withAlphaComponent(0.5)
         amenitiesUL.backgroundColor = .WhiteColor
@@ -209,8 +211,7 @@ class RoomsTVcell: TableViewCell, NewRoomTVCellDelegate {
         roomsUL.backgroundColor = .WhiteColor
         hotelsDetailslbl.textColor = .AppLabelColor.withAlphaComponent(0.5)
         hotelsDetailsUL.backgroundColor = .WhiteColor
-        maplbl.textColor = .AppTabSelectColor
-        mapUL.backgroundColor = .AppTabSelectColor
+        
         hotelDetailsTapBool = false
         NotificationCenter.default.post(name: NSNotification.Name("roomtapbool"), object: false)
         
@@ -237,11 +238,7 @@ extension RoomsTVcell: UITableViewDataSource ,UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         if self.key == "rooms" {
             return roomsDetails.count
-        }
-        //        else if self.key == "hotels details"{
-        //            return formatDesc.count
-        //        }
-        else {
+        }else {
             return 1
         }
         
@@ -283,6 +280,9 @@ extension RoomsTVcell: UITableViewDataSource ,UITableViewDelegate {
                 }
                 
                 
+             
+                
+                
                 ccell = cell
             }
         }else if self.key == "hotels details"{
@@ -314,54 +314,3 @@ extension RoomsTVcell: UITableViewDataSource ,UITableViewDelegate {
 }
 
 
-
-extension RoomsTVcell:CLLocationManagerDelegate {
-    
-    func setupMapView(){
-        locationManager.delegate = self
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.startUpdatingLocation()
-    }
-    
-    
-    @objc func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let location = locations.last {
-            // Center the map on Dubai's coordinates
-            let camera = GMSCameraPosition.camera(withLatitude: Double(latString) ?? 0.0, longitude: Double(longString) ?? 0.0, zoom: 17.0)
-            
-            let gmsView = GMSMapView.map(withFrame: googleMapView.bounds, camera: camera)
-            googleMapView.addSubview(gmsView)
-            addMarkersToMap(gmsView)
-            
-            locationManager.stopUpdatingLocation() // You may want to stop updates after you have the user's location
-        }
-    }
-    
-    
-    func addMarkersToMap(_ mapView: GMSMapView) {
-        
-        if let latitude = Double(latString), let longitude = Double(longString) {
-            let marker = GMSMarker()
-            marker.position = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-            marker.title = locname
-            
-            // Create a custom marker icon with an image
-            if let markerImage = UIImage(named: "loc1")?.withRenderingMode(.alwaysOriginal).withTintColor(.AppBtnColor) {
-                let markerView = UIImageView(image: markerImage)
-                marker.iconView = markerView
-            } else {
-                print("Error: Marker image not found or is nil.")
-            }
-            
-            marker.map = mapView
-            
-            
-            // Select the marker to show its title by default
-            mapView.selectedMarker = marker
-            
-        } else {
-            print("Error: Invalid latitude or longitude values at index \(index).")
-        }
-        
-    }
-}

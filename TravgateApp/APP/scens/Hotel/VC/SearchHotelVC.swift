@@ -226,7 +226,7 @@ extension SearchHotelVC {
             showToast(message: "Enter Different Dates")
         }else if defaults.string(forKey: UserDefaultsKeys.roomcount) == "" {
             showToast(message: "Add Rooms For Booking")
-        }else if defaults.string(forKey: UserDefaultsKeys.hnationalitycode) == "Nationality" {
+        }else if defaults.string(forKey: UserDefaultsKeys.hnationalitycode) == nil {
             showToast(message: "Please Select Nationality.")
         }else {
             
@@ -254,6 +254,7 @@ extension SearchHotelVC {
         loderBool = true
         callapibool = true
         defaults.set(false, forKey: "hoteltfilteronce")
+        MySingleton.shared.afterResultsBool = false
         guard let vc = SearchHotelsResultVC.newInstance.self else {return}
         vc.modalPresentationStyle = .fullScreen
         vc.countrycode = self.countrycode
