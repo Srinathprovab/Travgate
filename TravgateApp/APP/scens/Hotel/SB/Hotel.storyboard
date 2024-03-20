@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -1059,7 +1060,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wcq-1V-K5F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4020.6106870229005" y="-2.1126760563380285"/>
+            <point key="canvasLocation" x="4842" y="754"/>
         </scene>
         <!--Hotel ImagesVC-->
         <scene sceneID="OAB-Da-Vfz">
@@ -1209,6 +1210,88 @@
             </objects>
             <point key="canvasLocation" x="4047" y="754"/>
         </scene>
+        <!--Hotel Booking DetailsVC-->
+        <scene sceneID="1Vn-2Y-al6">
+            <objects>
+                <viewController storyboardIdentifier="HotelBookingDetailsVC" id="4QP-ZJ-8b2" customClass="HotelBookingDetailsVC" customModule="Travgate" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Gku-NW-RJi">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T6e-qn-DT7">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wum-jG-lBh">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="100"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="BVV-pw-o6Y">
+                                                <rect key="frame" x="134" y="54.999999999999993" width="125" height="21.666666666666664"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Booking Details" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7vv-f1-mRn">
+                                                        <rect key="frame" x="0.0" y="0.0" width="125" height="21.666666666666668"/>
+                                                        <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="18"/>
+                                                        <color key="textColor" name="HeadingColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bAH-gZ-LWl">
+                                                <rect key="frame" x="15" y="46" width="40" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="40" id="XaA-hu-a7T"/>
+                                                    <constraint firstAttribute="height" constant="40" id="n4R-1j-hac"/>
+                                                </constraints>
+                                                <color key="tintColor" name="HeadingColor"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" image="back"/>
+                                                <connections>
+                                                    <action selector="didTapOnBackBtnAction:" destination="4QP-ZJ-8b2" eventType="touchUpInside" id="LCV-FU-fl9"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" name="LayoverColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="3sc-7v-7mb"/>
+                                            <constraint firstItem="BVV-pw-o6Y" firstAttribute="top" secondItem="Wum-jG-lBh" secondAttribute="top" constant="55" id="Mwp-Xq-VC7"/>
+                                            <constraint firstItem="bAH-gZ-LWl" firstAttribute="centerY" secondItem="7vv-f1-mRn" secondAttribute="centerY" id="RJN-Op-qll"/>
+                                            <constraint firstItem="bAH-gZ-LWl" firstAttribute="leading" secondItem="Wum-jG-lBh" secondAttribute="leading" constant="15" id="Zyy-Sx-98O"/>
+                                            <constraint firstItem="BVV-pw-o6Y" firstAttribute="centerX" secondItem="Wum-jG-lBh" secondAttribute="centerX" id="moM-px-5pZ"/>
+                                        </constraints>
+                                    </view>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="8ef-9W-17H">
+                                        <rect key="frame" x="0.0" y="100" width="393" height="752"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="Wum-jG-lBh" firstAttribute="top" secondItem="T6e-qn-DT7" secondAttribute="top" id="Czo-TW-1ew"/>
+                                    <constraint firstAttribute="trailing" secondItem="8ef-9W-17H" secondAttribute="trailing" id="Fkt-FE-VQg"/>
+                                    <constraint firstAttribute="bottom" secondItem="8ef-9W-17H" secondAttribute="bottom" id="S4D-yU-HK1"/>
+                                    <constraint firstItem="8ef-9W-17H" firstAttribute="leading" secondItem="T6e-qn-DT7" secondAttribute="leading" id="fNf-Id-QJ1"/>
+                                    <constraint firstItem="Wum-jG-lBh" firstAttribute="leading" secondItem="T6e-qn-DT7" secondAttribute="leading" id="mo8-49-LBF"/>
+                                    <constraint firstAttribute="trailing" secondItem="Wum-jG-lBh" secondAttribute="trailing" id="ogo-5q-Lhe"/>
+                                    <constraint firstItem="8ef-9W-17H" firstAttribute="top" secondItem="Wum-jG-lBh" secondAttribute="bottom" id="xPK-eI-bCp"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Ua3-0D-ofP"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="T6e-qn-DT7" firstAttribute="leading" secondItem="Ua3-0D-ofP" secondAttribute="leading" id="DXN-Mc-KFF"/>
+                            <constraint firstAttribute="bottom" secondItem="T6e-qn-DT7" secondAttribute="bottom" id="HV2-sI-7US"/>
+                            <constraint firstItem="T6e-qn-DT7" firstAttribute="top" secondItem="Gku-NW-RJi" secondAttribute="top" id="Hrk-Jq-b4i"/>
+                            <constraint firstItem="Ua3-0D-ofP" firstAttribute="trailing" secondItem="T6e-qn-DT7" secondAttribute="trailing" id="ZKO-TM-SDa"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="commonTableView" destination="8ef-9W-17H" id="Rtd-oJ-ulE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="adf-rH-Rk0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4031" y="-2"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Group 18076" width="79" height="30"/>
@@ -1216,9 +1299,9 @@
         <image name="close" width="26" height="26"/>
         <image name="filter" width="22" height="22"/>
         <image name="hotelim" width="427" height="268"/>
-        <image name="magnifyingglass" catalog="system" width="128" height="117"/>
+        <image name="magnifyingglass" catalog="system" width="32" height="32"/>
         <image name="mapview" width="196" height="52.333332061767578"/>
-        <image name="multiply" catalog="system" width="128" height="111"/>
+        <image name="multiply" catalog="system" width="32" height="32"/>
         <image name="sort" width="26" height="26"/>
         <namedColor name="BackBtnColor">
             <color red="0.10599999874830246" green="0.29399999976158142" blue="0.36500000953674316" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

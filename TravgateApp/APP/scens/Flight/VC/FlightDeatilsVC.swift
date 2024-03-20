@@ -305,6 +305,7 @@ extension FlightDeatilsVC {
         commonTVData = MySingleton.shared.tablerow
         commonTableView.reloadData()
         
+        
     }
     
     

@@ -123,7 +123,7 @@ var hsearchid = String()
 var hbookingsource = String()
 var htoken = String()
 var htokenkey = String()
-var selectedrRateKeyArray = [String]()
+var selectedrRateKeyArray = String()
 var hotelSearchResult = [HotelSearchResult]()
 var selectedCellStates: [IndexPath: Bool] = [:]
 var grandTotal = String()
@@ -168,6 +168,8 @@ struct ApiEndpoints {
     static let mobileprehotelsearch = "mobile_pre_hotel_search"
     static let general_mobileHotelSearch = "general/mobileHotelSearch"
     static let hotelmobiledetails = "mobile_details"
+    static let hotel_mobile_booking = "hotel/mobile_booking"
+    
     
     
     //VISA

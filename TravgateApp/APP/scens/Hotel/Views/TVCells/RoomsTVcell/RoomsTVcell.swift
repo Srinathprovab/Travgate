@@ -45,6 +45,10 @@ class RoomsTVcell: TableViewCell, NewRoomTVCellDelegate {
     var longString = ""
     var locname = ""
     
+    var bookingsrc = String()
+    var htoken = String()
+    var htokenkey = String()
+    
     let locationManager = CLLocationManager()
     var selectedCell: NewRoomDetailsTVCell?
     var delegate:RoomsTVcellDelegate?

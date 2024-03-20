@@ -68,8 +68,10 @@ class BookingDetailsVC: BaseTableVC, MPBViewModelDelegate, MobileSecureBookingVi
                                          "AddonTVCell",
                                          "RegisterNowTableViewCell",
                                          "LoginDetailsTableViewCell",
-                                         "GuestRegisterTableViewCell", "RegisterSelectionLoginTableViewCell",
-                                         "BookingDetailsFlightDataTVCell", "GuestTVCell"])
+                                         "GuestRegisterTableViewCell", 
+                                         "RegisterSelectionLoginTableViewCell",
+                                         "BookingDetailsFlightDataTVCell", 
+                                         "GuestTVCell"])
     }
     
     
@@ -187,6 +189,8 @@ class BookingDetailsVC: BaseTableVC, MPBViewModelDelegate, MobileSecureBookingVi
         vc.modalPresentationStyle = .overCurrentContext
         self.present(vc, animated: true)
     }
+    
+    
     
     
     

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="OpenSans-Bold.ttf">
+            <string>OpenSans-Bold</string>
+        </array>
+        <array key="OpenSans-Medium.ttf">
+            <string>OpenSans-Medium</string>
+        </array>
+        <array key="OpenSans-Regular.ttf">
+            <string>OpenSans-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="188" id="KGk-i7-Jjw" customClass="HotelBookingCancellationpolicyTVCell" customModule="Travgate" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="489" height="188"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="489" height="188"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pb7-mK-XwF" customClass="BorderedView" customModule="Travgate" customModuleProvider="target">
+                        <rect key="frame" x="10" y="5" width="469" height="178"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" text="Cancellation policy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bx2-EH-lDu">
+                                <rect key="frame" x="15" y="10" width="444" height="22"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" text="Room 1: STANDARD (Room Only)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p4p-ei-blz">
+                                <rect key="frame" x="15" y="42" width="439" height="22"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Medium" family="Open Sans" pointSize="16"/>
+                                <color key="textColor" name="BooknowBtnColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Cancellation made till Wed 24 Apr, 2024 12:59:59 (Based on destination time) would be charge KWD 0.000." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3YU-Rt-dqB">
+                                <rect key="frame" x="15" y="74" width="439" height="33"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="12"/>
+                                <color key="textColor" red="0.396078431372549" green="0.396078431372549" blue="0.396078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vt2-0k-jOh">
+                                <rect key="frame" x="15" y="112" width="439" height="33"/>
+                                <string key="text">Cancellation made between Wed 24 Apr, 2024 13:00:00 to Wed 24 Apr, 2024 22:59:59 (Based on destination time) would be charge KWD 17.620.</string>
+                                <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="12"/>
+                                <color key="textColor" red="0.39607843139999999" green="0.39607843139999999" blue="0.39607843139999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" text="For more information please contact us on the travgate.info@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YKa-mx-tGe">
+                                <rect key="frame" x="15" y="150" width="439" height="16.666666666666657"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="12"/>
+                                <color key="textColor" red="0.39607843139999999" green="0.39607843139999999" blue="0.39607843139999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Bx2-EH-lDu" firstAttribute="top" secondItem="pb7-mK-XwF" secondAttribute="top" constant="10" id="4rB-KI-uc0"/>
+                            <constraint firstAttribute="bottom" secondItem="YKa-mx-tGe" secondAttribute="bottom" constant="11.33" id="5Dc-KC-4Dk"/>
+                            <constraint firstItem="3YU-Rt-dqB" firstAttribute="leading" secondItem="pb7-mK-XwF" secondAttribute="leading" constant="15" id="75G-ax-dzk"/>
+                            <constraint firstItem="3YU-Rt-dqB" firstAttribute="top" secondItem="p4p-ei-blz" secondAttribute="bottom" constant="10" id="Ar4-8h-eG2"/>
+                            <constraint firstItem="YKa-mx-tGe" firstAttribute="top" secondItem="vt2-0k-jOh" secondAttribute="bottom" constant="5" id="BNd-9V-Qfv"/>
+                            <constraint firstItem="p4p-ei-blz" firstAttribute="top" secondItem="Bx2-EH-lDu" secondAttribute="bottom" constant="10" id="LLc-sa-I7B"/>
+                            <constraint firstAttribute="trailing" secondItem="p4p-ei-blz" secondAttribute="trailing" constant="15" id="RzA-WF-QDa"/>
+                            <constraint firstAttribute="trailing" secondItem="Bx2-EH-lDu" secondAttribute="trailing" constant="10" id="TTu-Hb-ubH"/>
+                            <constraint firstAttribute="trailing" secondItem="YKa-mx-tGe" secondAttribute="trailing" constant="15" id="VLs-Bp-o5m"/>
+                            <constraint firstItem="p4p-ei-blz" firstAttribute="leading" secondItem="pb7-mK-XwF" secondAttribute="leading" constant="15" id="YVr-fc-Zut"/>
+                            <constraint firstItem="vt2-0k-jOh" firstAttribute="top" secondItem="3YU-Rt-dqB" secondAttribute="bottom" constant="5" id="azI-nN-FdH"/>
+                            <constraint firstItem="Bx2-EH-lDu" firstAttribute="leading" secondItem="pb7-mK-XwF" secondAttribute="leading" constant="15" id="bgj-na-jTv"/>
+                            <constraint firstAttribute="trailing" secondItem="vt2-0k-jOh" secondAttribute="trailing" constant="15" id="d2P-5s-6uW"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="178" id="gas-Nc-h9p"/>
+                            <constraint firstAttribute="trailing" secondItem="3YU-Rt-dqB" secondAttribute="trailing" constant="15" id="ige-9p-Z4W"/>
+                            <constraint firstItem="YKa-mx-tGe" firstAttribute="leading" secondItem="pb7-mK-XwF" secondAttribute="leading" constant="15" id="rcJ-jM-xtA"/>
+                            <constraint firstItem="vt2-0k-jOh" firstAttribute="leading" secondItem="pb7-mK-XwF" secondAttribute="leading" constant="15" id="z3d-Nl-bRg"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="8"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" name="BorderColor"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="pb7-mK-XwF" secondAttribute="trailing" constant="10" id="23x-AX-JRn"/>
+                    <constraint firstItem="pb7-mK-XwF" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="Ck8-pX-g9H"/>
+                    <constraint firstAttribute="bottom" secondItem="pb7-mK-XwF" secondAttribute="bottom" constant="5" id="uru-9C-l8Y"/>
+                    <constraint firstItem="pb7-mK-XwF" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="vyk-jQ-Gnm"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <point key="canvasLocation" x="148.85496183206106" y="119.01408450704226"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="BooknowBtnColor">
+            <color red="0.93300002813339233" green="0.097999997437000275" blue="0.20800000429153442" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="BorderColor">
+            <color red="0.90200001001358032" green="0.9100000262260437" blue="0.90600001811981201" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

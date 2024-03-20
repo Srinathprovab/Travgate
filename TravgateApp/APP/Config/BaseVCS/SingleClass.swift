@@ -105,6 +105,10 @@ class MySingleton {
     var cruiseCountryCode = String()
     var selectedResultStr = String()
     
+    var bookingsrc = String()
+    var htoken = String()
+    var htokenkey = String()
+    
     var confpassword = String()
     var recentData:[Recent_searches]?
     var Recentsearches = [Recent_searches]()

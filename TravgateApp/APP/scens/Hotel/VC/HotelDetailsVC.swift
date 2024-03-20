@@ -18,9 +18,7 @@ class HotelDetailsVC: BaseTableVC, HotelDetailsViewModelDelegate {
     @IBOutlet weak var datelbl: UILabel!
     @IBOutlet weak var paxlbl: UILabel!
     
-    var selectedCell: NewRoomDetailsTVCell?
-    var imgArray = ["img1","img2","img3","img4","img2","img1","img4","img3","img1","img2","img3","img4","img2","img1","img4","img3"]
-    var tablerow = [TableRow]()
+  
     static var newInstance: HotelDetailsVC? {
         let storyboard = UIStoryboard(name: Storyboard.Hotel.name,
                                       bundle: nil)
@@ -28,6 +26,8 @@ class HotelDetailsVC: BaseTableVC, HotelDetailsViewModelDelegate {
         return vc
     }
     
+    var selectedCell: NewRoomDetailsTVCell?
+    var tablerow = [TableRow]()
     var viewmodel:HotelDetailsViewModel?
     var payload = [String:Any]()
     var bookingsource = String()
@@ -98,15 +98,16 @@ class HotelDetailsVC: BaseTableVC, HotelDetailsViewModelDelegate {
         
         tablerow.append(TableRow(title:hotelDetails?.name ?? "",
                                  subTitle: "\(hotelDetails?.address ?? "")|\(hotelDetails?.city_name ?? "")",
-                                 data:imgArray,
                                  image:img,
                                  cellType:.HotelImagesTVCell))
         
         
         tablerow.append(TableRow(title:hotelDetails?.latitude ?? "",
                                  subTitle: hotelDetails?.longitude ?? "",
+                                 text: hotelDetails?.token,
                                  buttonTitle: hotelDetails?.name ?? "",
-                                 moreData:roomsDetails,
+                                 moreData:roomsDetails, 
+                                 tempText: hotelDetails?.tokenKey,
                                  cellType:.RoomsTVcell))
         
         tablerow.append(TableRow(height:50,cellType:.EmptyTVCell))
@@ -126,7 +127,7 @@ class HotelDetailsVC: BaseTableVC, HotelDetailsViewModelDelegate {
         
         if hotelDetailsTapBool == true {
             if selectedrRateKeyArray.isEmpty == false {
-                gotoAddContactAndGuestDetailsVC()
+                gotoHotelBookingDetailsVC()
             }else {
                 showToast(message: "Select Room")
             }
@@ -137,12 +138,11 @@ class HotelDetailsVC: BaseTableVC, HotelDetailsViewModelDelegate {
     }
     
     
-    func gotoAddContactAndGuestDetailsVC(){
-//        guard let vc = AddContactAndGuestDetailsVC.newInstance.self else {return}
-//        vc.modalPresentationStyle = .fullScreen
-//        callapibool = true
-//        vc.kwdprice = kwdprice
-//        self.present(vc, animated: true)
+    func gotoHotelBookingDetailsVC(){
+        guard let vc = HotelBookingDetailsVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .fullScreen
+        callapibool = true
+        self.present(vc, animated: true)
     }
     
     
@@ -184,7 +184,7 @@ class HotelDetailsVC: BaseTableVC, HotelDetailsViewModelDelegate {
     
     //MARK: - didTapOnSelectRoomBtnAction
     override func didTapOnSelectRoomBtnAction(cell:NewRoomDetailsTVCell){
-        selectedrRateKeyArray.removeAll()
+       
         bookNowlbl.isHidden = false
         
         // Toggle the selected state
@@ -211,7 +211,9 @@ class HotelDetailsVC: BaseTableVC, HotelDetailsViewModelDelegate {
         bookNowView.alpha = 1
         grandTotal = cell.pricelbl.text ?? ""
         setuplabels(lbl: bookNowlbl, text: cell.pricelbl.text ?? "" , textcolor: .WhiteColor, font: .LatoMedium(size: 18), align: .left)
-        selectedrRateKeyArray.append(cell.ratekey)
+        
+        selectedrRateKeyArray = cell.ratekey
+        
         MySingleton.shared.setAttributedTextnew(str1: "\(cell.currency )",
                              str2: "\(cell.exactprice )",
                              lbl: bookNowlbl,
@@ -219,6 +221,8 @@ class HotelDetailsVC: BaseTableVC, HotelDetailsViewModelDelegate {
                              str2font: .LatoBold(size: 18),
                              str1Color: .WhiteColor,
                              str2Color: .WhiteColor)
+        
+        
         
         
         
@@ -260,11 +264,11 @@ extension HotelDetailsVC {
     }
     
     func hotelDetails(response: HotelSelectedDetailsModel) {
+        
         holderView.isHidden = false
         hsearchid = response.params?.search_id ?? ""
         htoken = response.hotel_details?.token ?? ""
         htokenkey = response.hotel_details?.tokenKey ?? ""
-        hbookingsource = response.hotel_details?.booking_source ?? ""
         
         
         hotelDetails = response.hotel_details
@@ -273,7 +277,7 @@ extension HotelDetailsVC {
         formatAmeArray = response.hotel_details?.format_ame ?? []
         formatDesc = response.hotel_details?.format_desc ?? []
         img = response.hotel_details?.image ?? ""
-        
+       
         bookNowlbl.isHidden = true
         
         DispatchQueue.main.async {[self] in

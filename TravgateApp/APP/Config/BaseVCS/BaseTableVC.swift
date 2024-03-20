@@ -758,6 +758,29 @@ extension BaseTableVC: UITableViewDataSource {
                 let cell: TermsPopupTVCell = commonTV.dequeTVCell(indexPath: indexPath)
                 commonCell = cell
                 
+                
+                
+            case .BookingHotelDetailsTVCell :
+                let cell: BookingHotelDetailsTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                commonCell = cell
+                
+                
+            case .HotelBookingCancellationpolicyTVCell :
+                let cell: HotelBookingCancellationpolicyTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                commonCell = cell
+                
+                
+            case .HotelFareSummaryTVCell :
+                let cell: HotelFareSummaryTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                commonCell = cell
+                
+                
+                
+            case .UserSpecificationTVCell :
+                let cell: UserSpecificationTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                commonCell = cell
+                
+                
             default:
                 print("handle this case in getCurrentCellAt")
             }

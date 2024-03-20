@@ -99,6 +99,10 @@ enum TVCellType {
     case HotelImagesTVCell
     case RoomsTVcell
     case TermsPopupTVCell
+    case BookingHotelDetailsTVCell
+    case HotelBookingCancellationpolicyTVCell
+    case HotelFareSummaryTVCell
+    case UserSpecificationTVCell
     
     
     //VISA
