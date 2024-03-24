@@ -866,7 +866,7 @@ extension BookingDetailsVC:TimerManagerDelegate {
     func gotoPopupScreen() {
         guard let vc = PopupVC.newInstance.self else {return}
         vc.modalPresentationStyle = .overCurrentContext
-        self.present(vc, animated: true)
+        self.present(vc, animated: false)
     }
 }
 

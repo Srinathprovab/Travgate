@@ -33,7 +33,7 @@ class PopupVC: UIViewController {
         self.view.backgroundColor = .black.withAlphaComponent(0.4)
         holderView.backgroundColor = .WhiteColor
         holderView.addCornerRadiusWithShadow(color: .clear, borderColor: .clear, cornerRadius: 5)
-        setuplabels(lbl: titlelbl, text: "Your session expired. Your booking wont be completed. Please search again.", textcolor: .AppLabelColor, font: .LatoRegular(size: 16), align: .center)
+        setuplabels(lbl: titlelbl, text: "Your session expired. Your booking wont be completed.Please search again.", textcolor: .AppLabelColor, font: .LatoRegular(size: 16), align: .center)
         searchBtnView.addCornerRadiusWithShadow(color: .clear, borderColor: .clear, cornerRadius: 5)
         searchBtnView.backgroundColor = .Buttoncolor
         setuplabels(lbl: searchlbl, text: "Search Again", textcolor: .WhiteColor, font: .LatoBold(size: 15), align: .center)
@@ -44,10 +44,12 @@ class PopupVC: UIViewController {
     
     
     @objc func didTapOnSearchFlightAgainBtn(_ sender:UIButton) {
-        if let tabselect = defaults.string(forKey: UserDefaultsKeys.tabselect),tabselect == "Flight" {
-            gotoSearchFlightsVC()
-        }else {
-            gotoSearchHotelsVC()
+        if let tabselect = defaults.string(forKey: UserDefaultsKeys.tabselect){
+            if tabselect == "Flight" {
+                gotoSearchFlightsVC()
+            }else {
+                gotoSearchHotelsVC()
+            }
         }
     }
     
@@ -59,7 +61,9 @@ class PopupVC: UIViewController {
     }
     
     func gotoSearchHotelsVC() {
-       
+        guard let vc = SearchHotelVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: false)
     }
     
     

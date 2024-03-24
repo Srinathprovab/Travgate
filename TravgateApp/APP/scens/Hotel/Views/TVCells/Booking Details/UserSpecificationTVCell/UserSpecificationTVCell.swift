@@ -17,7 +17,7 @@ class UserSpecificationTVCell: TableViewCell {
     
     var specificationArray = ["Please note early airrival","Please note late arrival","Please note late check out","If possible please provide adjoining rooms","If possible please provide adjoining rooms","Please note early airrival"]
     
-    var selectedSpecificatonArray = [String]()
+   
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -35,7 +35,7 @@ class UserSpecificationTVCell: TableViewCell {
     }
     
     func updateHeight() {
-        tvHeight.constant = CGFloat(specificationArray.count * 40)
+        tvHeight.constant = CGFloat(MySingleton.shared.user_specification.count * 40)
         userSpecificationTV.reloadData()
     }
     
@@ -66,14 +66,14 @@ extension UserSpecificationTVCell:UITableViewDelegate,UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return specificationArray.count
+        return MySingleton.shared.user_specification.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var c = UITableViewCell()
         if let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? AddUserSpecificationTVCell {
             
-            cell.titlelbl.text = specificationArray[indexPath.row]
+            cell.titlelbl.text = MySingleton.shared.user_specification[indexPath.row]
             
             c = cell
             

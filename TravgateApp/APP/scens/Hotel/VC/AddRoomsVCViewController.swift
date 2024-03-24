@@ -459,6 +459,8 @@ class AddRoomsVCViewController: UIViewController, UITableViewDelegate, UITableVi
         defaults.set(totalAdults, forKey: UserDefaultsKeys.hoteladultscount)
         defaults.set(totalChildren, forKey: UserDefaultsKeys.hotelchildcount)
         
+        MySingleton.shared.hoteladultscount = totalAdults
+        MySingleton.shared.hotelchildcount = totalChildren
         
         
         

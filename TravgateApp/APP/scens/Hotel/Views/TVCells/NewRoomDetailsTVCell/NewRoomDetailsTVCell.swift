@@ -21,7 +21,7 @@ class NewRoomDetailsTVCell: UITableViewCell {
     @IBOutlet weak var bablbl: UILabel!
     @IBOutlet weak var selectRoomBtnView: BorderedView!
     
-    
+    var selectedRoom = String()
     var currency = ""
     var exactprice = ""
     var isSelectedCell: Bool = false {

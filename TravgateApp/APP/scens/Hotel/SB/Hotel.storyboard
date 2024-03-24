@@ -19,6 +19,9 @@
         <array key="Lato-Medium.ttf">
             <string>Lato-Medium</string>
         </array>
+        <array key="OpenSans-Bold.ttf">
+            <string>OpenSans-Bold</string>
+        </array>
         <array key="OpenSans-Regular.ttf">
             <string>OpenSans-Regular</string>
         </array>
@@ -1259,18 +1262,69 @@
                                         </constraints>
                                     </view>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="8ef-9W-17H">
-                                        <rect key="frame" x="0.0" y="100" width="393" height="752"/>
+                                        <rect key="frame" x="0.0" y="100" width="393" height="687"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </tableView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rFA-RA-qAm">
+                                        <rect key="frame" x="0.0" y="787" width="393" height="65"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Continue to Payment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="30J-kn-gNy">
+                                                <rect key="frame" x="15" y="21.666666666666629" width="169.66666666666666" height="22"/>
+                                                <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="16"/>
+                                                <color key="textColor" red="0.83137254900000002" green="0.83137254900000002" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Fe-En-zCP">
+                                                <rect key="frame" x="327.66666666666669" y="21.666666666666629" width="50.333333333333314" height="22"/>
+                                                <subviews>
+                                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="usd" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FET-rr-kZs">
+                                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="22"/>
+                                                        <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="13"/>
+                                                        <color key="textColor" red="0.83137254900000002" green="0.83137254900000002" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="180.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5E6-wF-h4X">
+                                                        <rect key="frame" x="0.0" y="0.0" width="50.333333333333336" height="22"/>
+                                                        <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="16"/>
+                                                        <color key="textColor" red="0.83137254900000002" green="0.83137254900000002" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vRS-nd-E5Z">
+                                                <rect key="frame" x="0.0" y="0.0" width="393" height="65"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain"/>
+                                                <connections>
+                                                    <action selector="tapOnContinuetoPaymentBtnAction:" destination="4QP-ZJ-8b2" eventType="touchUpInside" id="FZp-7d-uf3"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" name="BooknowBtnColor"/>
+                                        <constraints>
+                                            <constraint firstItem="30J-kn-gNy" firstAttribute="leading" secondItem="rFA-RA-qAm" secondAttribute="leading" constant="15" id="91j-39-Wwl"/>
+                                            <constraint firstAttribute="trailing" secondItem="4Fe-En-zCP" secondAttribute="trailing" constant="15" id="CX1-zt-4mJ"/>
+                                            <constraint firstItem="30J-kn-gNy" firstAttribute="centerY" secondItem="rFA-RA-qAm" secondAttribute="centerY" id="Lfe-Og-LQP"/>
+                                            <constraint firstAttribute="height" constant="65" id="Nbg-TE-tnj"/>
+                                            <constraint firstItem="4Fe-En-zCP" firstAttribute="centerY" secondItem="rFA-RA-qAm" secondAttribute="centerY" id="PVH-aI-oPl"/>
+                                            <constraint firstItem="vRS-nd-E5Z" firstAttribute="top" secondItem="rFA-RA-qAm" secondAttribute="top" id="SAF-CE-TVJ"/>
+                                            <constraint firstAttribute="bottom" secondItem="vRS-nd-E5Z" secondAttribute="bottom" id="dqu-Yr-Zy9"/>
+                                            <constraint firstItem="vRS-nd-E5Z" firstAttribute="leading" secondItem="rFA-RA-qAm" secondAttribute="leading" id="hHx-TM-vSc"/>
+                                            <constraint firstAttribute="trailing" secondItem="vRS-nd-E5Z" secondAttribute="trailing" id="ht8-k4-JaR"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="Wum-jG-lBh" firstAttribute="top" secondItem="T6e-qn-DT7" secondAttribute="top" id="Czo-TW-1ew"/>
                                     <constraint firstAttribute="trailing" secondItem="8ef-9W-17H" secondAttribute="trailing" id="Fkt-FE-VQg"/>
-                                    <constraint firstAttribute="bottom" secondItem="8ef-9W-17H" secondAttribute="bottom" id="S4D-yU-HK1"/>
+                                    <constraint firstItem="rFA-RA-qAm" firstAttribute="leading" secondItem="T6e-qn-DT7" secondAttribute="leading" id="bLr-YX-Qii"/>
+                                    <constraint firstItem="rFA-RA-qAm" firstAttribute="top" secondItem="8ef-9W-17H" secondAttribute="bottom" id="cU5-rL-5HV"/>
                                     <constraint firstItem="8ef-9W-17H" firstAttribute="leading" secondItem="T6e-qn-DT7" secondAttribute="leading" id="fNf-Id-QJ1"/>
+                                    <constraint firstAttribute="bottom" secondItem="rFA-RA-qAm" secondAttribute="bottom" id="lvW-UG-XUH"/>
                                     <constraint firstItem="Wum-jG-lBh" firstAttribute="leading" secondItem="T6e-qn-DT7" secondAttribute="leading" id="mo8-49-LBF"/>
                                     <constraint firstAttribute="trailing" secondItem="Wum-jG-lBh" secondAttribute="trailing" id="ogo-5q-Lhe"/>
+                                    <constraint firstAttribute="trailing" secondItem="rFA-RA-qAm" secondAttribute="trailing" id="pUZ-7T-HKu"/>
                                     <constraint firstItem="8ef-9W-17H" firstAttribute="top" secondItem="Wum-jG-lBh" secondAttribute="bottom" id="xPK-eI-bCp"/>
                                 </constraints>
                             </view>
@@ -1286,11 +1340,12 @@
                     </view>
                     <connections>
                         <outlet property="commonTableView" destination="8ef-9W-17H" id="Rtd-oJ-ulE"/>
+                        <outlet property="kwdlbl" destination="5E6-wF-h4X" id="6xy-dc-UQl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="adf-rH-Rk0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4031" y="-2"/>
+            <point key="canvasLocation" x="4029.770992366412" y="-2.1126760563380285"/>
         </scene>
     </scenes>
     <resources>
@@ -1299,9 +1354,9 @@
         <image name="close" width="26" height="26"/>
         <image name="filter" width="22" height="22"/>
         <image name="hotelim" width="427" height="268"/>
-        <image name="magnifyingglass" catalog="system" width="32" height="32"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <image name="mapview" width="196" height="52.333332061767578"/>
-        <image name="multiply" catalog="system" width="32" height="32"/>
+        <image name="multiply" catalog="system" width="128" height="111"/>
         <image name="sort" width="26" height="26"/>
         <namedColor name="BackBtnColor">
             <color red="0.10599999874830246" green="0.29399999976158142" blue="0.36500000953674316" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

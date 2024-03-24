@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import AARatingBar
+
 
 class BookingHotelDetailsTVCell: TableViewCell {
     
@@ -16,6 +18,8 @@ class BookingHotelDetailsTVCell: TableViewCell {
     @IBOutlet weak var chickinlbl: UILabel!
     @IBOutlet weak var checkoutlbl: UILabel!
     @IBOutlet weak var guestlbl: UILabel!
+    @IBOutlet weak var ratingView: AARatingBar!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,9 +33,28 @@ class BookingHotelDetailsTVCell: TableViewCell {
         // Configure the view for the selected state
     }
     
+    
+    override func updateUI() {
+        
+        
+        hotelnamelbl.text = MySingleton.shared.bhotelDetials?.name ?? ""
+        hotellocationlbl.text = MySingleton.shared.bhotelDetials?.address ?? ""
+        chickinlbl.text = defaults.string(forKey: UserDefaultsKeys.checkin)
+        checkoutlbl.text = defaults.string(forKey: UserDefaultsKeys.checkout)
+        guestlbl.text = defaults.string(forKey: UserDefaultsKeys.hoteladultscount)
+        ratingView.value = CGFloat(MySingleton.shared.bhotelDetials?.star_rating ?? 0)
+        
+        
+        
+        self.hotelimage.sd_setImage(with: URL(string: MySingleton.shared.bhotelDetials?.image ?? ""), placeholderImage:UIImage(contentsOfFile:"placeholder.png"))
+        
+    }
+    
     func setupui(){
         hotelimage.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         hotelimage.layer.cornerRadius = 8
     }
+    
+    
     
 }

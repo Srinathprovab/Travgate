@@ -103,6 +103,7 @@ enum TVCellType {
     case HotelBookingCancellationpolicyTVCell
     case HotelFareSummaryTVCell
     case UserSpecificationTVCell
+    case AddDeatilsOfGuestTVCell
     
     
     //VISA

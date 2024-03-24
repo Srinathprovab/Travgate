@@ -48,7 +48,7 @@ var totalRooms = 0
 var totalAdults = 0
 var totalChildren = 0
 var oldjournyType = ""
-
+var selectedSpecificatonArray = [String]()
 
 
 //DASHBOARD
@@ -123,6 +123,7 @@ var hsearchid = String()
 var hbookingsource = String()
 var htoken = String()
 var htokenkey = String()
+var roomselected = String()
 var selectedrRateKeyArray = String()
 var hotelSearchResult = [HotelSearchResult]()
 var selectedCellStates: [IndexPath: Bool] = [:]
@@ -169,6 +170,7 @@ struct ApiEndpoints {
     static let general_mobileHotelSearch = "general/mobileHotelSearch"
     static let hotelmobiledetails = "mobile_details"
     static let hotel_mobile_booking = "hotel/mobile_booking"
+    static let hotel_mobile_hotel_pre_booking = "hotel/mobile_hotel_pre_booking"
     
     
     

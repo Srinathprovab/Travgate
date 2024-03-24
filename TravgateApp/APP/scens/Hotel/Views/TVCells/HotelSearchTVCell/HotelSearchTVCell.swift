@@ -236,6 +236,15 @@ extension HotelSearchTVCell {
             if self.checkoutlbl.text == "Add Date" {
                 checkoutDatePicker.date = checkindate
             }
+            
+            // Check if checkout date is smaller than checkin date
+            if let checkoutDate = formter.date(from: self.checkoutlbl.text ?? ""),
+               checkoutDate < checkindate {
+                checkoutDatePicker.date = checkindate
+                
+                // Also update the label to reflect the change
+                self.checkoutlbl.text = formter.string(from: checkindate)
+            }
         }
         
         
@@ -275,11 +284,11 @@ extension HotelSearchTVCell {
         formter.dateFormat = "dd-MM-yyyy"
         
         
-//        if let checkoutDate = formter.date(from: defaults.string(forKey: UserDefaultsKeys.checkout) ?? "") {
-//            checkoutDatePicker.date = checkoutDate
-//            
-//
-//        }
+        //        if let checkoutDate = formter.date(from: defaults.string(forKey: UserDefaultsKeys.checkout) ?? "") {
+        //            checkoutDatePicker.date = checkoutDate
+        //
+        //
+        //        }
         
         
         if let checkindate = formter.date(from: defaults.string(forKey: UserDefaultsKeys.checkin) ?? "") {

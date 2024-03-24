@@ -40,7 +40,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saffron Boutique Hotel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MJP-ao-WMt">
-                                <rect key="frame" x="15" y="235" width="183.66666666666666" height="22"/>
+                                <rect key="frame" x="15" y="235" width="351" height="22"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -116,6 +116,20 @@ burj nahar intersection</string>
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QcT-Fc-vxL" customClass="AARatingBar" customModule="AARatingBar">
+                                <rect key="frame" x="381" y="238.66666666666666" width="80" height="15"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="tintColor" systemColor="systemYellowColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="15" id="n2q-QB-Lqk"/>
+                                    <constraint firstAttribute="width" constant="80" id="pqg-o7-dWC"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                        <color key="value" systemColor="systemYellowColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
@@ -125,7 +139,10 @@ burj nahar intersection</string>
                             <constraint firstItem="QTK-fA-CrD" firstAttribute="top" secondItem="ymT-AR-NGb" secondAttribute="top" id="GFD-dr-CsK"/>
                             <constraint firstItem="yNZ-vk-6Jp" firstAttribute="leading" secondItem="ymT-AR-NGb" secondAttribute="leading" constant="15" id="PcI-Kh-qxU"/>
                             <constraint firstItem="aKZ-CS-nDr" firstAttribute="centerY" secondItem="yNZ-vk-6Jp" secondAttribute="centerY" id="UOO-a0-Gwb"/>
+                            <constraint firstItem="QcT-Fc-vxL" firstAttribute="leading" secondItem="MJP-ao-WMt" secondAttribute="trailing" constant="15" id="Y4C-qm-tTF"/>
+                            <constraint firstAttribute="trailing" secondItem="QcT-Fc-vxL" secondAttribute="trailing" constant="10" id="cho-3C-lg4"/>
                             <constraint firstItem="Mt9-b7-YhI" firstAttribute="top" secondItem="aKZ-CS-nDr" secondAttribute="bottom" constant="20" id="d6q-c2-gbb"/>
+                            <constraint firstItem="QcT-Fc-vxL" firstAttribute="centerY" secondItem="MJP-ao-WMt" secondAttribute="centerY" id="dwF-ch-nH6"/>
                             <constraint firstAttribute="bottom" secondItem="Mt9-b7-YhI" secondAttribute="bottom" constant="17.670000000000002" id="fiM-na-E1A"/>
                             <constraint firstItem="Mt9-b7-YhI" firstAttribute="leading" secondItem="ymT-AR-NGb" secondAttribute="leading" constant="15" id="hhQ-pM-JfT"/>
                             <constraint firstAttribute="trailing" secondItem="aKZ-CS-nDr" secondAttribute="trailing" constant="50" id="jYu-Zm-B6K"/>
@@ -162,6 +179,7 @@ burj nahar intersection</string>
                 <outlet property="hotelimage" destination="QTK-fA-CrD" id="sCD-nR-pYs"/>
                 <outlet property="hotellocationlbl" destination="aKZ-CS-nDr" id="s8x-PP-uJY"/>
                 <outlet property="hotelnamelbl" destination="MJP-ao-WMt" id="RRh-u5-OuW"/>
+                <outlet property="ratingView" destination="QcT-Fc-vxL" id="LEA-n3-zOD"/>
             </connections>
             <point key="canvasLocation" x="229.00763358778624" y="69.366197183098592"/>
         </tableViewCell>
@@ -177,6 +195,9 @@ burj nahar intersection</string>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

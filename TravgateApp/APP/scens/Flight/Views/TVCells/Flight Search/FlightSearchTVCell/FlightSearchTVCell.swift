@@ -181,7 +181,7 @@ class FlightSearchTVCell: TableViewCell, SelectCityViewModelProtocal {
         totvHeight.constant = 0
         CallShowCityListAPI(str: "")
         
-       
+        
         adultCountlbl.text = defaults.string(forKey: UserDefaultsKeys.adultCount) ?? "1"
         childCountlbl.text = defaults.string(forKey: UserDefaultsKeys.childCount) ?? "0"
         infantCountlbl.text = defaults.string(forKey: UserDefaultsKeys.infantsCount) ?? "0"
@@ -280,7 +280,7 @@ class FlightSearchTVCell: TableViewCell, SelectCityViewModelProtocal {
         let y = defaults.string(forKey: UserDefaultsKeys.fromlocid)
         let z = defaults.string(forKey: UserDefaultsKeys.tolocid)
         
-
+        
         defaults.setValue(y, forKey: UserDefaultsKeys.tolocid)
         defaults.setValue(z, forKey: UserDefaultsKeys.fromlocid)
         
@@ -705,9 +705,21 @@ extension FlightSearchTVCell {
         if let calDepDate = formter.date(from: defaults.string(forKey: UserDefaultsKeys.calDepDate) ?? "") {
             depDatePicker.date = calDepDate
             
-            if self.retlbl.text == "Select Date" {
+            if self.retlbl.text == "Add Date" {
                 retdepDatePicker.date = calDepDate
             }
+            
+            
+            // Check if returnDate date is smaller than calDepDate date
+            if let returnDate = formter.date(from: self.retlbl.text ?? ""),
+               returnDate < calDepDate {
+                retdepDatePicker.date = calDepDate
+                
+                // Also update the label to reflect the change
+                self.retlbl.text = formter.string(from: calDepDate)
+            }
+            
+            
         }
         
         
@@ -744,9 +756,21 @@ extension FlightSearchTVCell {
             retdepDatePicker.date = rcalDepDate
             
             
-            if defaults.string(forKey: UserDefaultsKeys.calRetDate) == nil || self.retlbl.text == "Select Date" {
+            if defaults.string(forKey: UserDefaultsKeys.calRetDate) == nil || self.retlbl.text == "Add Date" {
                 retdepDatePicker.date = rcalDepDate
             }
+            
+            
+            // Check if returnDate date is smaller than calDepDate date
+            if let returnDate = formter.date(from: self.retlbl.text ?? ""),
+               returnDate < rcalDepDate {
+                retdepDatePicker.date = rcalDepDate
+                
+                // Also update the label to reflect the change
+                self.retlbl.text = formter.string(from: rcalDepDate)
+            }
+            
+            
         }
         
         
@@ -791,7 +815,7 @@ extension FlightSearchTVCell {
             
             if let calDepDate = formter.date(from: defaults.string(forKey: UserDefaultsKeys.calDepDate) ?? "") {
                 
-                if self.retlbl.text == "Select Date" {
+                if self.retlbl.text == "Add Date" {
                     retDatePicker.date = calDepDate
                     
                 }else {
@@ -1016,7 +1040,7 @@ extension FlightSearchTVCell {
     func loadCountryNamesAndCode(){
         countryNames.removeAll()
         countrycodesArray.removeAll()
-      
+        
         
         countryNames.append("ALL")
         countrycodesArray.append("ALL")

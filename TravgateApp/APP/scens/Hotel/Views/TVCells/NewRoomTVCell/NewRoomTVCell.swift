@@ -166,6 +166,7 @@ extension NewRoomTVCell: UITableViewDataSource ,UITableViewDelegate {
             
             
             cell.ratekey = data.rateKey ?? ""
+            cell.selectedRoom = "\(data.room_selected ?? 0)"
             ccell = cell
         }
         

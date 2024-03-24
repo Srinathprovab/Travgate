@@ -164,6 +164,9 @@ extension SearchHotelVC {
         defaults.set("2", forKey: UserDefaultsKeys.hoteladultscount)
         defaults.set("0", forKey: UserDefaultsKeys.hotelchildcount)
         
+        MySingleton.shared.hoteladultscount = 2
+        MySingleton.shared.hotelchildcount = 0
+        
         defaults.set("Rooms \(defaults.string(forKey: UserDefaultsKeys.roomcount) ?? ""),Adults \(defaults.string(forKey: UserDefaultsKeys.hoteladultscount) ?? "")", forKey: UserDefaultsKeys.selectPersons)
         
     }
@@ -251,10 +254,11 @@ extension SearchHotelVC {
     
     func gotoHotelResultVC() {
         
+        MySingleton.shared.afterResultsBool = false
+        
         loderBool = true
         callapibool = true
         defaults.set(false, forKey: "hoteltfilteronce")
-        MySingleton.shared.afterResultsBool = false
         guard let vc = SearchHotelsResultVC.newInstance.self else {return}
         vc.modalPresentationStyle = .fullScreen
         vc.countrycode = self.countrycode

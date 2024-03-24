@@ -45,7 +45,9 @@ class MySingleton {
     var cruiseList = [CruiseData]()
     var cruise : CruiseModel?
     var cruiseDetails : CruiseDetailsModel?
-    
+    var bhotelDetials:Hotel_details?
+    var user_specification = [String]()
+    var roompaxesdetails = [Room_paxes_details]()
   
     
     //Flight Search
@@ -86,6 +88,8 @@ class MySingleton {
     var payemail = String()
     var paymobile = String()
     var paymobilecountrycode = String()
+    var hotelcountrycode = String()
+    var checkTermsAndCondationStatus = false
    
     var nationalityCode = String()
     var email = String()
@@ -108,6 +112,9 @@ class MySingleton {
     var bookingsrc = String()
     var htoken = String()
     var htokenkey = String()
+    var hoteladultscount = Int()
+    var hotelchildcount = Int()
+    
     
     var confpassword = String()
     var recentData:[Recent_searches]?

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HotelDetailsVC: BaseTableVC, HotelDetailsViewModelDelegate {
+class HotelDetailsVC: BaseTableVC, HotelDetailsViewModelDelegate, TimerManagerDelegate {
     
     @IBOutlet weak var holderView: UIView!
     @IBOutlet weak var kwdlbl: UILabel!
@@ -18,7 +18,7 @@ class HotelDetailsVC: BaseTableVC, HotelDetailsViewModelDelegate {
     @IBOutlet weak var datelbl: UILabel!
     @IBOutlet weak var paxlbl: UILabel!
     
-  
+    
     static var newInstance: HotelDetailsVC? {
         let storyboard = UIStoryboard(name: Storyboard.Hotel.name,
                                       bundle: nil)
@@ -42,10 +42,10 @@ class HotelDetailsVC: BaseTableVC, HotelDetailsViewModelDelegate {
     override func viewWillAppear(_ animated: Bool) {
         selectedCellStates = [:]
         addObserver()
-      
+        
         
         if callapibool == true{
-   
+            
             holderView.isHidden = true
             callAPI()
         }
@@ -58,7 +58,7 @@ class HotelDetailsVC: BaseTableVC, HotelDetailsViewModelDelegate {
         bookNowView.isUserInteractionEnabled = true
         bookNowView.alpha = 1
     }
-
+    
     
     //MARK: - Loading function
     override func viewDidLoad() {
@@ -67,6 +67,7 @@ class HotelDetailsVC: BaseTableVC, HotelDetailsViewModelDelegate {
         // Do any additional setup after loading the view.
         setupUI()
         viewmodel = HotelDetailsViewModel(self)
+        MySingleton.shared.delegate = self
         
     }
     
@@ -106,7 +107,7 @@ class HotelDetailsVC: BaseTableVC, HotelDetailsViewModelDelegate {
                                  subTitle: hotelDetails?.longitude ?? "",
                                  text: hotelDetails?.token,
                                  buttonTitle: hotelDetails?.name ?? "",
-                                 moreData:roomsDetails, 
+                                 moreData:roomsDetails,
                                  tempText: hotelDetails?.tokenKey,
                                  cellType:.RoomsTVcell))
         
@@ -139,6 +140,7 @@ class HotelDetailsVC: BaseTableVC, HotelDetailsViewModelDelegate {
     
     
     func gotoHotelBookingDetailsVC(){
+        MySingleton.shared.callboolapi = true
         guard let vc = HotelBookingDetailsVC.newInstance.self else {return}
         vc.modalPresentationStyle = .fullScreen
         callapibool = true
@@ -172,19 +174,19 @@ class HotelDetailsVC: BaseTableVC, HotelDetailsViewModelDelegate {
     //MARK: - didTapOnCancellationPolicyBtnAction
     override func didTapOnCancellationPolicyBtnAction(cell:NewRoomDetailsTVCell){
         
-//        guard let vc = CancellationPolicyPopupVC.newInstance.self else {return}
-//        vc.modalPresentationStyle = .overCurrentContext
-//        vc.amount = cell.CancellationPolicyAmount
-//        vc.datetime = cell.CancellationPolicyFromDate
-//        vc.fartType = cell.fareTypeString
-//        self.present(vc, animated: false)
+        //        guard let vc = CancellationPolicyPopupVC.newInstance.self else {return}
+        //        vc.modalPresentationStyle = .overCurrentContext
+        //        vc.amount = cell.CancellationPolicyAmount
+        //        vc.datetime = cell.CancellationPolicyFromDate
+        //        vc.fartType = cell.fareTypeString
+        //        self.present(vc, animated: false)
         
     }
     
     
     //MARK: - didTapOnSelectRoomBtnAction
     override func didTapOnSelectRoomBtnAction(cell:NewRoomDetailsTVCell){
-       
+        
         bookNowlbl.isHidden = false
         
         // Toggle the selected state
@@ -215,15 +217,16 @@ class HotelDetailsVC: BaseTableVC, HotelDetailsViewModelDelegate {
         selectedrRateKeyArray = cell.ratekey
         
         MySingleton.shared.setAttributedTextnew(str1: "\(cell.currency )",
-                             str2: "\(cell.exactprice )",
-                             lbl: bookNowlbl,
-                             str1font: .LatoBold(size: 12),
-                             str2font: .LatoBold(size: 18),
-                             str1Color: .WhiteColor,
-                             str2Color: .WhiteColor)
+                                                str2: "\(cell.exactprice )",
+                                                lbl: bookNowlbl,
+                                                str1font: .LatoBold(size: 12),
+                                                str2font: .LatoBold(size: 18),
+                                                str1Color: .WhiteColor,
+                                                str2Color: .WhiteColor)
         
         
-        
+        roomselected = cell.selectedRoom
+        print("roomselected : \(roomselected)")
         
         
     }
@@ -256,6 +259,12 @@ extension HotelDetailsVC {
     
     //MARK: - CALL HOTEL DETAILS API
     func callAPI() {
+        
+        MySingleton.shared.afterResultsBool = true
+        loderBool = true
+        showLoadera()
+        
+        
         payload["booking_source"] = bookingsource
         payload["hotel_id"] = hotelid
         payload["search_id"] = hsearchid
@@ -264,6 +273,10 @@ extension HotelDetailsVC {
     }
     
     func hotelDetails(response: HotelSelectedDetailsModel) {
+        
+        
+        loderBool = false
+        hideLoadera()
         
         holderView.isHidden = false
         hsearchid = response.params?.search_id ?? ""
@@ -277,7 +290,7 @@ extension HotelDetailsVC {
         formatAmeArray = response.hotel_details?.format_ame ?? []
         formatDesc = response.hotel_details?.format_desc ?? []
         img = response.hotel_details?.image ?? ""
-       
+        
         bookNowlbl.isHidden = true
         
         DispatchQueue.main.async {[self] in
@@ -295,7 +308,7 @@ extension HotelDetailsVC {
         NotificationCenter.default.addObserver(self, selector: #selector(resultnil), name: NSNotification.Name("resultnil"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(reload), name: Notification.Name("reload"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(roomtapbool), name: Notification.Name("roomtapbool"), object: nil)
-
+        
     }
     
     @objc func roomtapbool(notify:NSNotification) {
@@ -330,5 +343,38 @@ extension HotelDetailsVC {
         vc.key = "nointernet"
         self.present(vc, animated: true)
     }
+    
+    
+    //MARK: - updateTimer
+    func updateTimer() {
+        let totalTime = MySingleton.shared.totalTime
+        let minutes =  totalTime / 60
+        let seconds = totalTime % 60
+        let formattedTime = String(format: "%02d:%02d", minutes, seconds)
+        
+        
+        //        MySingleton.shared.setAttributedTextnew(str1: "\(formattedTime)",
+        //                                                str2: "",
+        //                                                lbl: sessionTimelbl,
+        //                                                str1font: .OpenSansMedium(size: 12),
+        //                                                str2font: .OpenSansMedium(size: 12),
+        //                                                str1Color: .BooknowBtnColor,
+        //                                                str2Color: .BooknowBtnColor)
+        
+        
+    }
+    
+    
+    func timerDidFinish() {
+        gotoPopupScreen()
+    }
+    
+    
+    func gotoPopupScreen() {
+        guard let vc = PopupVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .overCurrentContext
+        self.present(vc, animated: true)
+    }
+    
     
 }

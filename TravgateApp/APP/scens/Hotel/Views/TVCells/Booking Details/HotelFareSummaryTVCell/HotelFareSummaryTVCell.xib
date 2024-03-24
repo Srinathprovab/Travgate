@@ -204,6 +204,7 @@ burj nahar intersection</string>
                                         <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="14"/>
                                         <color key="textColor" name="BooknowBtnColor"/>
                                         <nil key="highlightedColor"/>
+                                        <string key="userLabel">By booking this item, you agree to pay the total amount shown, which includes Service Fees, on the right and to the , User Terms, Privacy policy .</string>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SQx-Am-arw">
                                         <rect key="frame" x="0.0" y="0.0" width="497" height="82"/>
@@ -228,7 +229,7 @@ burj nahar intersection</string>
                                     <constraint firstItem="e2u-cC-2hH" firstAttribute="leading" secondItem="0BZ-ex-5Lw" secondAttribute="trailing" constant="10" id="SVl-xj-JeP"/>
                                     <constraint firstAttribute="trailing" secondItem="e2u-cC-2hH" secondAttribute="trailing" constant="10" id="XUd-Wp-nnA"/>
                                     <constraint firstItem="e2u-cC-2hH" firstAttribute="top" secondItem="0BZ-ex-5Lw" secondAttribute="top" id="aba-xc-XAf"/>
-                                    <constraint firstAttribute="bottom" secondItem="e2u-cC-2hH" secondAttribute="bottom" id="fim-QE-lKo"/>
+                                    <constraint firstItem="e2u-cC-2hH" firstAttribute="top" secondItem="5nc-Od-PUS" secondAttribute="top" constant="10" id="cdQ-gE-mQu"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -252,7 +253,7 @@ burj nahar intersection</string>
                 <outlet property="faresummeryView" destination="REs-5C-E1o" id="DGo-uN-M6x"/>
                 <outlet property="hotellocationlbl" destination="DEi-2Q-fjv" id="thH-zs-7NV"/>
                 <outlet property="hotelnamelbl" destination="tDx-Ml-q53" id="a3B-mO-9xh"/>
-                <outlet property="kedlbl" destination="pga-4K-vJF" id="kCt-HM-dVH"/>
+                <outlet property="kwdpricelbl" destination="pga-4K-vJF" id="kCt-HM-dVH"/>
                 <outlet property="roomlbl" destination="3SN-Ux-SkT" id="dlF-IE-hiQ"/>
             </connections>
             <point key="canvasLocation" x="231.29770992366412" y="270.42253521126764"/>

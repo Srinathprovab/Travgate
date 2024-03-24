@@ -286,6 +286,7 @@ extension SearchHotelsResultVC {
     
     
     func callActiveBookingSourceAPI() {
+        
         loderBool = true
         showLoadera()
         
@@ -309,7 +310,7 @@ extension SearchHotelsResultVC {
     
     func callHotelPreSearchAPI() {
         
-        loderBool = true
+       
         do {
             
             let arrJson = try JSONSerialization.data(withJSONObject: payload, options: JSONSerialization.WritingOptions.prettyPrinted)

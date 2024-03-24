@@ -86,6 +86,8 @@ class ContactInformationTVCell: TableViewCell {
                 
             }
             
+        }else {
+            defaults.setValue(false, forKey: UserDefaultsKeys.regStatus)
         }
         
         
