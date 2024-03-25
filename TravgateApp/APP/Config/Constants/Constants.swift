@@ -59,6 +59,7 @@ var travelerArray: [Traveler] = []
 var filterTap = String()
 var filterPrice = String()
 var prices = [String]()
+var hotelprices = [String]()
 var filterModel = FlightFilterModel()
 var sortBy: SortParameter = .nothing
 var hotelfiltermodel = HotelFilterModel()

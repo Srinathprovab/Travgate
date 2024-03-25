@@ -413,7 +413,7 @@ extension SearchHotelsResultVC {
         loderBool = false
         
         holderView.isHidden = false
-        prices.removeAll()
+        hotelprices.removeAll()
         nearBylocationsArray.removeAll()
         faretypeArray .removeAll()
         facilityArray.removeAll()
@@ -422,9 +422,11 @@ extension SearchHotelsResultVC {
         hotelsCountlbl.text = "\(list.count)"
         
         list.forEach { i in
-            if let price = i.price, (Int(price) ?? 0) > 0 {
-                prices.append("\(price)")
-            }
+//            if let price = i.price, (Int(price) ?? 0) > 0 {
+//                hotelprices.append("\(price)")
+//            }
+            
+            hotelprices.append(i.price ?? "0")
             
             //                    if let hotelLocation = i.hotelLocation, !hotelLocation.isEmpty {
             //                        nearBylocationsArray.append(hotelLocation)
@@ -441,7 +443,7 @@ extension SearchHotelsResultVC {
             }
         }
         
-        prices = Array(Set(prices))
+        hotelprices = Array(Set(hotelprices))
         nearBylocationsArray = Array(Set(nearBylocationsArray))
         faretypeArray = Array(Set(faretypeArray))
         facilityArray = Array(Set(facilityArray))
@@ -485,7 +487,23 @@ extension SearchHotelsResultVC {
                 let dict = filtered[indexPath.row]
                 
                 cell.hotelNamelbl.text = dict.name
-                cell.hotelImg.sd_setImage(with: URL(string: dict.image ?? ""), placeholderImage:UIImage(contentsOfFile:"placeholder.png"))
+                
+                cell.hotelImg.sd_setImage(with: URL(string: dict.image ?? ""), placeholderImage:UIImage(contentsOfFile:"placeholder.png"), options: [.retryFailed], completed: { (image, error, cacheType, imageURL) in
+                    if let error = error {
+                        // Handle error loading image
+                        print("Error loading image: \(error.localizedDescription)")
+                        // Check if the error is due to a 404 Not Found response
+                        if (error as NSError).code == NSURLErrorBadServerResponse {
+                            // Set placeholder image for 404 error
+                            cell.hotelImg.image = UIImage(named: "noimage")
+                        } else {
+                            // Set placeholder image for other errors
+                            cell.hotelImg.image = UIImage(named: "noimage")
+                        }
+                    }
+                })
+                
+                
                 cell.locationlbl.text = dict.address
                 setAttributedText1(str1: dict.currency ?? "", str2: dict.price ?? "", lbl: cell.kwdlbl)
                 cell.bookingsource = dict.booking_source ?? ""
@@ -530,7 +548,21 @@ extension SearchHotelsResultVC {
                 let dict = hotelSearchResult[indexPath.row]
                 
                 cell.hotelNamelbl.text = dict.name
-                cell.hotelImg.sd_setImage(with: URL(string: dict.image ?? ""), placeholderImage:UIImage(contentsOfFile:"placeholder.png"))
+                cell.hotelImg.sd_setImage(with: URL(string: dict.image ?? ""), placeholderImage:UIImage(contentsOfFile:"placeholder.png"), options: [.retryFailed], completed: { (image, error, cacheType, imageURL) in
+                    if let error = error {
+                        // Handle error loading image
+                        print("Error loading image: \(error.localizedDescription)")
+                        // Check if the error is due to a 404 Not Found response
+                        if (error as NSError).code == NSURLErrorBadServerResponse {
+                            // Set placeholder image for 404 error
+                            cell.hotelImg.image = UIImage(named: "noimage")
+                        } else {
+                            // Set placeholder image for other errors
+                            cell.hotelImg.image = UIImage(named: "noimage")
+                        }
+                    }
+                })
+                
                 cell.ratingView.value = CGFloat(dict.star_rating ?? 0)
                 cell.locationlbl.text = dict.address
                 setAttributedText1(str1: dict.currency ?? "", str2: dict.price ?? "", lbl: cell.kwdlbl)
@@ -594,7 +626,9 @@ extension SearchHotelsResultVC {
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let lastRowIndex = tableView.numberOfRows(inSection: 0) - 1
-        if indexPath.row == lastRowIndex && !isLoadingData {
+        
+        
+        if indexPath.row == lastRowIndex && !isLoadingData && lastRowIndex != 0{
             callHotelSearchPaginationAPI()
         }
     }
@@ -617,7 +651,9 @@ extension SearchHotelsResultVC {
         
         loderBool = true
         response.data?.hotelSearchResult?.forEach { i in
-            prices.append(i.price ?? "")
+            
+            hotelprices.append(i.price ?? "")
+            
             let mapModel = MapModel(
                 longitude: i.longitude ?? "",
                 latitude: i.latitude ?? "",

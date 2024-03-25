@@ -31,8 +31,25 @@ class CruiseItineraryTVCell: TableViewCell {
     
     override func updateUI() {
         
-        self.bannerImage.sd_setImage(with: URL(string: MySingleton.shared.cruiseDetails?.cruise_data?.image_url ?? ""), placeholderImage:UIImage(contentsOfFile:"placeholder.png"))
-
+    //    self.bannerImage.sd_setImage(with: URL(string: MySingleton.shared.cruiseDetails?.cruise_data?.image_url ?? ""), placeholderImage:UIImage(contentsOfFile:"placeholder.png"))
+        
+        
+        // Load banner image
+        self.bannerImage.sd_setImage(with: URL(string: MySingleton.shared.cruiseDetails?.cruise_data?.image_url ?? ""),
+                                      placeholderImage: UIImage(named: "placeholder.png"), options: [.retryFailed], completed: { (image, error, cacheType, imageURL) in
+            if let error = error {
+                // Handle error loading image
+                print("Error loading banner image: \(error.localizedDescription)")
+                // Check if the error is due to a 404 Not Found response
+                if (error as NSError).code == NSURLErrorBadServerResponse {
+                    // Set placeholder image for 404 error
+                    self.bannerImage.image = UIImage(named: "noimage")
+                } else {
+                    // Set placeholder image for other errors
+                    self.bannerImage.image = UIImage(named: "noimage")
+                }
+            }
+        })
         
         updateHeight()
     }

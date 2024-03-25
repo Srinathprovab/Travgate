@@ -43,6 +43,9 @@ class SelectLanguageTVCell: TableViewCell {
         type = cellInfo?.text ?? ""
         
         self.iconImg.sd_setImage(with: URL(string: "\(cellInfo?.image ?? "")"), placeholderImage:UIImage(contentsOfFile:"placeholder.png"))
+        
+        
+        
         logoimg = cellInfo?.image ?? ""
         
         subTitlelbl.isHidden = true

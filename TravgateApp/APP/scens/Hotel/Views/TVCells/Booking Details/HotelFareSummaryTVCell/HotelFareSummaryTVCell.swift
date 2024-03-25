@@ -42,7 +42,7 @@ class HotelFareSummaryTVCell: TableViewCell {
         
         
         MySingleton.shared.setAttributedTextnew(str1: defaults.string(forKey: UserDefaultsKeys.selectedCurrency) ?? "",
-                                                str2: String(format: "%.2f", pricewithcurrency ?? 0.0) ,
+                                                str2: "\(String(format: "%.2f", Double(pricewithcurrency ?? "0.0") ?? 0.0))" ,
                                                 lbl: kwdpricelbl,
                                                 str1font: .LatoBold(size: 12),
                                                 str2font: .LatoBold(size: 18),

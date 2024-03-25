@@ -1471,12 +1471,13 @@ extension FilterVC {
         
         
         if hotelfiltermodel.minPriceRange != 0.0 {
-            minpricerangefilter = hotelfiltermodel.minPriceRange ?? Double(prices.compactMap { Float($0) }.min()!)
+            minpricerangefilter = hotelfiltermodel.minPriceRange ?? Double(hotelprices.compactMap { Float($0) }.min()!)
         }
         
         if hotelfiltermodel.maxPriceRange != 0.0 {
-            maxpricerangefilter = hotelfiltermodel.maxPriceRange ?? Double(prices.compactMap { Float($0) }.max()!)
+            maxpricerangefilter = hotelfiltermodel.maxPriceRange ?? Double(hotelprices.compactMap { Float($0) }.max()!)
         }
+        
         
         
         
@@ -1501,14 +1502,16 @@ extension FilterVC {
     func resetHotelFilter() {
         // Reset all values in the FilterModel
         
-        let pricesFloat = prices.compactMap { Float($0) }
-        hotelfiltermodel.minPriceRange = Double((pricesFloat.min() ?? prices.compactMap { Float($0) }.min()) ?? 0.0)
-        hotelfiltermodel.maxPriceRange = Double((pricesFloat.max() ?? prices.compactMap { Float($0) }.max()) ?? 0.0)
+        let pricesFloat = hotelprices.compactMap { Float($0) }
+        hotelfiltermodel.minPriceRange = Double((pricesFloat.min() ?? hotelprices.compactMap { Float($0) }.min()) ?? 0.0)
+        hotelfiltermodel.maxPriceRange = Double((pricesFloat.max() ?? hotelprices.compactMap { Float($0) }.max()) ?? 0.0)
         if let cell = commonTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? SliderTVCell {
             cell.setupUI()
         }
         minpricerangefilter = hotelfiltermodel.minPriceRange ?? 0.0
         maxpricerangefilter = hotelfiltermodel.maxPriceRange ?? 0.0
+        
+        
         
         hotelfiltermodel.refundableTypes.removeAll()
         hotelfiltermodel.aminitiesA.removeAll()

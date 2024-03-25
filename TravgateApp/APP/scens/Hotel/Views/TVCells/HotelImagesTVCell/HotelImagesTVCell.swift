@@ -45,7 +45,22 @@ class HotelImagesTVCell: TableViewCell {
     
     override func updateUI() {
         
-        hotelImg.sd_setImage(with: URL(string: cellInfo?.image ?? ""), placeholderImage:UIImage(contentsOfFile:"placeholder.png"))
+        hotelImg.sd_setImage(with: URL(string: cellInfo?.image ?? ""), placeholderImage:UIImage(contentsOfFile:"placeholder.png"), options: [.retryFailed], completed: { (image, error, cacheType, imageURL) in
+            if let error = error {
+                // Handle error loading image
+                print("Error loading image: \(error.localizedDescription)")
+                // Check if the error is due to a 404 Not Found response
+                if (error as NSError).code == NSURLErrorBadServerResponse {
+                    // Set placeholder image for 404 error
+                    self.hotelImg.image = UIImage(named: "noimage")
+                } else {
+                    // Set placeholder image for other errors
+                    self.hotelImg.image = UIImage(named: "noimage")
+                }
+            }
+        })
+        
+        
         
         hotelNamelbl.text = cellInfo?.title ?? ""
         locNamelbl.text = cellInfo?.subTitle ?? ""
@@ -93,6 +108,33 @@ class HotelImagesTVCell: TableViewCell {
     
     
     
+//    func setupCV() {
+//        let nib = UINib(nibName: "HotelImagesCVCell", bundle: nil)
+//        imagesCV.register(nib, forCellWithReuseIdentifier: "cell")
+//        
+//        let nib1 = UINib(nibName: "ButtonCollectionViewCell", bundle: nil)
+//        imagesCV.register(nib1, forCellWithReuseIdentifier: "buttonCell")
+//        
+//        
+//        imagesCV.delegate = self
+//        imagesCV.dataSource = self
+//        let layout = UICollectionViewFlowLayout()
+//        layout.itemSize = CGSize(width: 82, height: 80)
+//       
+//        layout.scrollDirection = .horizontal
+//        layout.minimumInteritemSpacing = 6
+//        layout.minimumLineSpacing = 6
+//        // layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+//        imagesCV.collectionViewLayout = layout
+//        imagesCV.backgroundColor = .clear
+//        imagesCV.layer.cornerRadius = 4
+//        imagesCV.clipsToBounds = true
+//        imagesCV.showsHorizontalScrollIndicator = false
+//        imagesCV.bounces = false
+//        
+//    }
+    
+    
     func setupCV() {
         let nib = UINib(nibName: "HotelImagesCVCell", bundle: nil)
         imagesCV.register(nib, forCellWithReuseIdentifier: "cell")
@@ -103,20 +145,25 @@ class HotelImagesTVCell: TableViewCell {
         
         imagesCV.delegate = self
         imagesCV.dataSource = self
+        
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: 82, height: 80)
         layout.scrollDirection = .horizontal
         layout.minimumInteritemSpacing = 6
         layout.minimumLineSpacing = 6
-        // layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        
+        // Calculate the cell width dynamically based on the collection view width
+        let collectionViewWidth = imagesCV.frame.width
+        let cellWidth = (collectionViewWidth - 6 * 3) / 4 // Assuming 4 cells with 6 spacing in between
+        layout.itemSize = CGSize(width: cellWidth, height: 80)
+        
         imagesCV.collectionViewLayout = layout
         imagesCV.backgroundColor = .clear
         imagesCV.layer.cornerRadius = 4
         imagesCV.clipsToBounds = true
         imagesCV.showsHorizontalScrollIndicator = false
         imagesCV.bounces = false
-        
     }
+
     
 }
 
@@ -132,13 +179,39 @@ extension HotelImagesTVCell: UICollectionViewDelegate, UICollectionViewDataSourc
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.row < 3 { // For the first 4 images
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! HotelImagesCVCell
-            cell.hotelImg.sd_setImage(with: URL(string: imagesArray[indexPath.row].img ?? ""), placeholderImage: UIImage(named: "placeholder"))
+            cell.hotelImg.sd_setImage(with: URL(string: imagesArray[indexPath.row].img ?? ""), placeholderImage: UIImage(named: "placeholder"), options: [.retryFailed], completed: { (image, error, cacheType, imageURL) in
+                if let error = error {
+                    // Handle error loading image
+                    print("Error loading image: \(error.localizedDescription)")
+                    // Check if the error is due to a 404 Not Found response
+                    if (error as NSError).code == NSURLErrorBadServerResponse {
+                        // Set placeholder image for 404 error
+                        cell.hotelImg.image = UIImage(named: "noimage")
+                    } else {
+                        // Set placeholder image for other errors
+                        cell.hotelImg.image = UIImage(named: "noimage")
+                    }
+                }
+            })
             return cell
         } else { // For the button cell
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "buttonCell", for: indexPath) as! ButtonCollectionViewCell
             // Set the thumbnail image for the button
             cell.moreBtn.setImage(UIImage(named: "thumbImage"), for: .normal)
-            cell.img.sd_setImage(with: URL(string: imagesArray[3].img ?? ""), placeholderImage: UIImage(named: "placeholder"))
+            cell.img.sd_setImage(with: URL(string: imagesArray[3].img ?? ""), placeholderImage: UIImage(named: "placeholder"), options: [.retryFailed], completed: { (image, error, cacheType, imageURL) in
+                if let error = error {
+                    // Handle error loading image
+                    print("Error loading image: \(error.localizedDescription)")
+                    // Check if the error is due to a 404 Not Found response
+                    if (error as NSError).code == NSURLErrorBadServerResponse {
+                        // Set placeholder image for 404 error
+                        cell.img.image = UIImage(named: "noimage")
+                    } else {
+                        // Set placeholder image for other errors
+                        cell.img.image = UIImage(named: "noimage")
+                    }
+                }
+            })
             cell.moreBtn.backgroundColor = .black.withAlphaComponent(0.5)
             cell.moreBtn.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
             return cell

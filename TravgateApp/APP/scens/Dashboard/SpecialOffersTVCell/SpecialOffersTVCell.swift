@@ -79,7 +79,20 @@ extension SpecialOffersTVCell:UICollectionViewDelegate,UICollectionViewDataSourc
             
           //  cell.titlelbl.text = offerlist[indexPath.row].room_type
             cell.codelbl.text = offerlist[indexPath.row].promo_code
-            cell.img.sd_setImage(with: URL(string:  offerlist[indexPath.row].topDealImg ?? ""), placeholderImage:UIImage(contentsOfFile:"placeholder.png"))
+            cell.img.sd_setImage(with: URL(string:  offerlist[indexPath.row].topDealImg ?? ""), placeholderImage:UIImage(contentsOfFile:"placeholder.png"), options: [.retryFailed], completed: { (image, error, cacheType, imageURL) in
+                if let error = error {
+                    // Handle error loading image
+                    print("Error loading banner image: \(error.localizedDescription)")
+                    // Check if the error is due to a 404 Not Found response
+                    if (error as NSError).code == NSURLErrorBadServerResponse {
+                        // Set placeholder image for 404 error
+                        cell.img.image = UIImage(named: "noimage")
+                    } else {
+                        // Set placeholder image for other errors
+                        cell.img.image = UIImage(named: "noimage")
+                    }
+                }
+            })
             
             
             commonCell = cell

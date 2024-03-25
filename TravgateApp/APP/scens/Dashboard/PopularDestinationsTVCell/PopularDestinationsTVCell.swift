@@ -62,7 +62,7 @@ class PopularDestinationsTVCell: TableViewCell {
         
     }
     
-   
+    
     
     func setupselectDestCV() {
         
@@ -115,7 +115,25 @@ extension PopularDestinationsTVCell:UICollectionViewDelegate,UICollectionViewDat
             if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell2", for: indexPath) as? SelectDestCVCell {
                 
                 cell.titlelbl.text = flightlist[indexPath.row].to_city_name
-                cell.img.sd_setImage(with: URL(string:  flightlist[indexPath.row].topFlightImg ?? ""), placeholderImage:UIImage(contentsOfFile:"placeholder.png"))
+               // cell.img.sd_setImage(with: URL(string:  flightlist[indexPath.row].topFlightImg ?? ""), placeholderImage:UIImage(contentsOfFile:"placeholder.png"))
+                
+                
+                if flightlist[indexPath.row].topFlightImg == nil || flightlist[indexPath.row].topFlightImg?.isEmpty == true {
+                    cell.img.image = UIImage(named: "noimage")
+                }else {
+                    // Assuming mg is a UIImageView instance
+                    cell.img.sd_setImage(with: URL(string: flightlist[indexPath.row].topFlightImg ?? ""),
+                                         placeholderImage: UIImage(named: "placeholder.png"),
+                                         completed: { (image, error, cacheType, imageURL) in
+                        
+                        if let error = error {
+                            // Handle error, image couldn't be loaded
+                            print("Error loading image: \(error.localizedDescription)")
+                            // Set your placeholder image or default image here
+                            cell.img.image = UIImage(named: "noimage1")
+                        }
+                    })
+                }
                 
                 commonCell = cell
             }
