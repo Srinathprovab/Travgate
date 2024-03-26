@@ -23,6 +23,7 @@ target 'TravgateApp' do
   pod 'Toast-Swift', '~> 5.0.1'
   pod 'SwiftRangeSlider', '~> 2.0'
   pod 'MyFatoorah'
+  pod 'Ottu'
 
 
   target 'TravgateAppTests' do
