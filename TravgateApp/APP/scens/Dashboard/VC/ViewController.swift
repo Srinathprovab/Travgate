@@ -32,7 +32,7 @@ class ViewController: UIViewController {
             
             UserDefaults.standard.set(true, forKey: "ExecuteOnce")
         }
-    
+        
         
         
         MySingleton.shared.callonce()
@@ -41,8 +41,9 @@ class ViewController: UIViewController {
         
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.0, execute: {
-           self.gotodashBoardScreen()
-           // self.gotoBookingConfirmedVC()
+            self.gotodashBoardScreen()
+            // self.gotoBookingConfirmedVC()
+            //self.gotoOttuPaymentGatewayVC()
         })
     }
     
@@ -58,14 +59,22 @@ class ViewController: UIViewController {
     
     
     func gotoBookingConfirmedVC() {
-       
+        
         guard let vc = BookingConfirmedVC.newInstance.self else {return}
         vc.modalPresentationStyle = .fullScreen
         urlString = "https://provab.net/travgate/pro_new/mobile/index.php/voucher/flight/BAS-F-TP-0305-1709641808/212"
         callapibool = true
         present(vc, animated: true)
     }
-   
+    
+    
+    func gotoOttuPaymentGatewayVC() {
+        
+        guard let vc = OttuPaymentGatewayVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
+    }
+    
     
     
 }

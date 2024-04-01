@@ -42,6 +42,7 @@ class BookingDetailsVC: BaseTableVC, MPBViewModelDelegate, MobileSecureBookingVi
         
         // Do any additional setup after loading the view.
         setupUI()
+        // defaults.setValue(false, forKey: UserDefaultsKeys.regStatus)
         MySingleton.shared.delegate = self
         MySingleton.shared.mpbvm = MPBViewModel(self)
         MySingleton.shared.viewmodel1 = MobileSecureBookingViewModel(self)
@@ -68,9 +69,9 @@ class BookingDetailsVC: BaseTableVC, MPBViewModelDelegate, MobileSecureBookingVi
                                          "AddonTVCell",
                                          "RegisterNowTableViewCell",
                                          "LoginDetailsTableViewCell",
-                                         "GuestRegisterTableViewCell", 
+                                         "GuestRegisterTableViewCell",
                                          "RegisterSelectionLoginTableViewCell",
-                                         "BookingDetailsFlightDataTVCell", 
+                                         "BookingDetailsFlightDataTVCell",
                                          "GuestTVCell"])
     }
     
@@ -220,6 +221,8 @@ class BookingDetailsVC: BaseTableVC, MPBViewModelDelegate, MobileSecureBookingVi
         defaults.set(countryCode, forKey: UserDefaultsKeys.countryCode)
         defaults.set(phone, forKey: UserDefaultsKeys.usermobile)
         showToast(message: "Successfully Registered!..")
+        mobilenoMaxLengthBool = true
+        
         
         commonTableView.reloadData()
         
@@ -303,6 +306,7 @@ extension BookingDetailsVC {
             MySingleton.shared.accesskeytp = response.access_key_tp ?? ""
             MySingleton.shared.bookingsource = response.booking_source ?? ""
             
+            MySingleton.shared.afterAddonAmountAdded = Int(response.pre_booking_params?.priceDetails?.grand_total ?? "0") ?? 0
             
             MySingleton.shared.stopTimer()
             MySingleton.shared.startTimer(time: 900)
@@ -320,6 +324,13 @@ extension BookingDetailsVC {
     func setupTVCell() {
         MySingleton.shared.tablerow.removeAll()
         MySingleton.shared.positionsCount = 0
+        
+        
+        if (MySingleton.shared.mpbFlightData?.summary?.count ?? 0) > 0 {
+            MySingleton.shared.tablerow.append(TableRow(cellType:.BookingDetailsFlightDataTVCell,
+                                                        data1: MySingleton.shared.mpbFlightData?.summary))
+            
+        }
         
         if defaults.bool(forKey: UserDefaultsKeys.loggedInStatus) == false {
             //  MySingleton.shared.tablerow.append(TableRow(cellType:.TDetailsLoginTVCell))
@@ -339,19 +350,7 @@ extension BookingDetailsVC {
             }
             
         }else {
-            
-            
             MySingleton.shared.tablerow.append(TableRow(height: 12,bgColor:.AppHolderViewColor, cellType:.EmptyTVCell))
-        }
-        
-        
-        
-        
-        
-        if (MySingleton.shared.mpbFlightData?.summary?.count ?? 0) > 0 {
-            MySingleton.shared.tablerow.append(TableRow(cellType:.BookingDetailsFlightDataTVCell,
-                                                        data1: MySingleton.shared.mpbFlightData?.summary))
-            
         }
         
         
@@ -441,123 +440,113 @@ extension BookingDetailsVC {
         var lnameCharBool = true
         
         
+     
+        
+        // Check if there are any rows in section 0
+        if commonTableView.numberOfRows(inSection: 0) == 0 {
+            callpaymentbool = false
+        } else {
+            // Iterate over the cells if there are rows in section 0
+            
+            let positionsCount = commonTableView.numberOfRows(inSection: 0)
+            for position in 0..<positionsCount {
+                // Fetch the cell for the given position
+                if let cell = commonTableView.cellForRow(at: IndexPath(row: position, section: 0)) as? AddDeatilsOfTravellerTVCell {
+                    
+                    if cell.titleTF.text?.isEmpty == true {
+                        // Textfield is empty
+                        cell.titleView.layer.borderColor = UIColor.red.cgColor
+                        callpaymentbool = false
+                        
+                    } else {
+                        // Textfield is not empty
+                    }
+                    
+                    if cell.fnameTF.text?.isEmpty == true {
+                        // Textfield is empty
+                        cell.fnameView.layer.borderColor = UIColor.red.cgColor
+                        callpaymentbool = false
+                    }else if (cell.fnameTF.text?.count ?? 0) <= 3{
+                        cell.fnameView.layer.borderColor = UIColor.red.cgColor
+                        fnameCharBool = false
+                    }else {
+                        fnameCharBool = true
+                    }
+                    
+                    if cell.lnameTF.text?.isEmpty == true {
+                        // Textfield is empty
+                        cell.lnameView.layer.borderColor = UIColor.red.cgColor
+                        callpaymentbool = false
+                    }else if (cell.lnameTF.text?.count ?? 0) <= 3{
+                        cell.lnameView.layer.borderColor = UIColor.red.cgColor
+                        lnameCharBool = false
+                    } else {
+                        // Textfield is not empty
+                        lnameCharBool = true
+                    }
+                    
+                    
+                    if cell.dobTF.text?.isEmpty == true {
+                        // Textfield is empty
+                        cell.dobView.layer.borderColor = UIColor.red.cgColor
+                        callpaymentbool = false
+                    } else {
+                        // Textfield is not empty
+                    }
+                    
+                    
+                    if cell.passportnoTF.text?.isEmpty == true {
+                        // Textfield is empty
+                        cell.passportnoView.layer.borderColor = UIColor.red.cgColor
+                        callpaymentbool = false
+                    } else {
+                        // Textfield is not empty
+                    }
+                    
+                    
+                    if cell.passportIssuingCountryTF.text?.isEmpty == true {
+                        // Textfield is empty
+                        cell.issuecountryView.layer.borderColor = UIColor.red.cgColor
+                        callpaymentbool = false
+                    } else {
+                        // Textfield is not empty
+                    }
+                    
+                    
+                    if cell.passportExpireDateTF.text?.isEmpty == true {
+                        // Textfield is empty
+                        cell.passportexpireView.layer.borderColor = UIColor.red.cgColor
+                        callpaymentbool = false
+                    } else {
+                        // Textfield is not empty
+                    }
+                    
+                }
+            }
+            
+            // Check if there are any rows in section 0
+                if positionsCount == 0 {
+                    callpaymentbool = false
+                }
+        }
+        
+        
+        // Iterate over travelerArray to check if any required field is empty
         for traveler in travelerArray {
-            
-            if traveler.firstName == nil  || traveler.firstName?.isEmpty == true{
+            if traveler.firstName == nil || traveler.firstName?.isEmpty == true ||
+                traveler.lastName == nil || traveler.lastName?.isEmpty == true ||
+                traveler.dob == nil || traveler.dob?.isEmpty == true ||
+                traveler.passportno == nil || traveler.passportno?.isEmpty == true ||
+                traveler.passportIssuingCountry == nil || traveler.passportIssuingCountry?.isEmpty == true ||
+                traveler.passportExpireDate == nil || traveler.passportExpireDate?.isEmpty == true {
                 callpaymentbool = false
-                
-            }
-            
-            if (traveler.firstName?.count ?? 0) <= 3 {
+                break // Exit loop if any field is empty
+            } else if (traveler.firstName?.count ?? 0) <= 3 {
                 fnameCharBool = false
-            }
-            
-            if traveler.lastName == nil || traveler.firstName?.isEmpty == true{
-                callpaymentbool = false
-            }
-            
-            if (traveler.lastName?.count ?? 0) <= 3 {
+            }  else if (traveler.lastName?.count ?? 0) <= 3 {
                 lnameCharBool = false
             }
-            
-            if traveler.dob == nil || traveler.dob?.isEmpty == true{
-                callpaymentbool = false
-            }
-            
-            if traveler.passportno == nil || traveler.passportno?.isEmpty == true{
-                callpaymentbool = false
-            }
-            
-            if traveler.passportIssuingCountry == nil || traveler.passportIssuingCountry?.isEmpty == true{
-                callpaymentbool = false
-            }
-            
-            if traveler.passportExpireDate == nil || traveler.passportExpireDate?.isEmpty == true{
-                callpaymentbool = false
-            }
-            
-            
-            // Continue checking other fields
         }
-        
-        
-        
-        let positionsCount = commonTableView.numberOfRows(inSection: 0)
-        for position in 0..<positionsCount {
-            // Fetch the cell for the given position
-            if let cell = commonTableView.cellForRow(at: IndexPath(row: position, section: 0)) as? AddDeatilsOfTravellerTVCell {
-                
-                if cell.titleTF.text?.isEmpty == true {
-                    // Textfield is empty
-                    cell.titleView.layer.borderColor = UIColor.red.cgColor
-                    callpaymentbool = false
-                    
-                } else {
-                    // Textfield is not empty
-                }
-                
-                if cell.fnameTF.text?.isEmpty == true {
-                    // Textfield is empty
-                    cell.fnameView.layer.borderColor = UIColor.red.cgColor
-                    callpaymentbool = false
-                }else if (cell.fnameTF.text?.count ?? 0) <= 3{
-                    cell.fnameView.layer.borderColor = UIColor.red.cgColor
-                    fnameCharBool = false
-                }else {
-                    fnameCharBool = true
-                }
-                
-                if cell.lnameTF.text?.isEmpty == true {
-                    // Textfield is empty
-                    cell.lnameView.layer.borderColor = UIColor.red.cgColor
-                    callpaymentbool = false
-                }else if (cell.lnameTF.text?.count ?? 0) <= 3{
-                    cell.lnameView.layer.borderColor = UIColor.red.cgColor
-                    lnameCharBool = false
-                } else {
-                    // Textfield is not empty
-                    lnameCharBool = true
-                }
-                
-                
-                if cell.dobTF.text?.isEmpty == true {
-                    // Textfield is empty
-                    cell.dobView.layer.borderColor = UIColor.red.cgColor
-                    callpaymentbool = false
-                } else {
-                    // Textfield is not empty
-                }
-                
-                
-                if cell.passportnoTF.text?.isEmpty == true {
-                    // Textfield is empty
-                    cell.passportnoView.layer.borderColor = UIColor.red.cgColor
-                    callpaymentbool = false
-                } else {
-                    // Textfield is not empty
-                }
-                
-                
-                if cell.passportIssuingCountryTF.text?.isEmpty == true {
-                    // Textfield is empty
-                    cell.issuecountryView.layer.borderColor = UIColor.red.cgColor
-                    callpaymentbool = false
-                } else {
-                    // Textfield is not empty
-                }
-                
-                
-                if cell.passportExpireDateTF.text?.isEmpty == true {
-                    // Textfield is empty
-                    cell.passportexpireView.layer.borderColor = UIColor.red.cgColor
-                    callpaymentbool = false
-                } else {
-                    // Textfield is not empty
-                }
-                
-            }
-        }
-        
         
         
         let laedpassengerArray = travelerArray.compactMap({$0.laedpassenger})
@@ -650,24 +639,33 @@ extension BookingDetailsVC {
         
         
         // Check additional conditions
-        if callpaymentbool == false {
+        if !callpaymentbool {
             showToast(message: "Add Details")
+            return
         }else if MySingleton.shared.passportExpireDateBool == false {
             showToast(message: "Invalid expiry. Passport expires within the next 3 months.")
+            return
         }else if !fnameCharBool {
             showToast(message: "First name should have more than 3 characters")
+            return
         }else if !lnameCharBool {
             showToast(message: "Last name should have more than 3 characters")
+            return
         }else if MySingleton.shared.payemail == "" {
             showToast(message: "Enter Email Address")
+            return
         }else if MySingleton.shared.payemail.isValidEmail() == false {
             showToast(message: "Enter Valid Email Addreess")
+            return
         }else if MySingleton.shared.paymobile == "" {
             showToast(message: "Enter Mobile No")
+            return
         }else if MySingleton.shared.paymobilecountrycode == "" {
             showToast(message: "Enter Country Code")
+            return
         }else if mobilenoMaxLengthBool == false {
             showToast(message: "Enter Valid Mobile No")
+            return
         }else {
             
             MySingleton.shared.afterResultsBool = true
@@ -785,7 +783,7 @@ extension BookingDetailsVC:TimerManagerDelegate {
     func addObserver() {
         
         
-        defaults.set(false, forKey: UserDefaultsKeys.regStatus)
+        
         
         NotificationCenter.default.addObserver(self, selector: #selector(nointernet), name: Notification.Name("offline"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(resultnil), name: NSNotification.Name("resultnil"), object: nil)

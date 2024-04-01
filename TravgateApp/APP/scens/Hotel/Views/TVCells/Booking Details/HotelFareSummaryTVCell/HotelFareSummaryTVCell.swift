@@ -17,13 +17,15 @@ class HotelFareSummaryTVCell: TableViewCell {
     @IBOutlet weak var roomlbl: UILabel!
     @IBOutlet weak var kwdpricelbl: UILabel!
     @IBOutlet weak var checkboximg: UIImageView!
-    
+    @IBOutlet weak var addonView: UIView!
+    @IBOutlet weak var addonValue: UILabel!
     
     
     var checkBool = false
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        setupUI()
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -34,26 +36,37 @@ class HotelFareSummaryTVCell: TableViewCell {
     
     
     override func updateUI() {
+        
+       
+        
         hotelnamelbl.text = MySingleton.shared.roompaxesdetails[0].room_name
         chickinlbl.text = defaults.string(forKey: UserDefaultsKeys.checkin)
         checkoutlbl.text = defaults.string(forKey: UserDefaultsKeys.checkout)
         roomlbl.text = "\(MySingleton.shared.roompaxesdetails[0].no_of_rooms ?? 0)"
-        let pricewithcurrency = MySingleton.shared.roompaxesdetails[0].net
+    
         
         
-        MySingleton.shared.setAttributedTextnew(str1: defaults.string(forKey: UserDefaultsKeys.selectedCurrency) ?? "",
-                                                str2: "\(String(format: "%.2f", Double(pricewithcurrency ?? "0.0") ?? 0.0))" ,
-                                                lbl: kwdpricelbl,
-                                                str1font: .LatoBold(size: 12),
-                                                str2font: .LatoBold(size: 18),
-                                                str1Color: .AppBtnColor,
-                                                str2Color: .AppBtnColor)
+        if MySingleton.shared.addonSelectedArray.count > 0 {
+            addonView.isHidden = false
+        }else {
+            addonView.isHidden = true
+        }
+        
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(addon(_:)), name: NSNotification.Name("addon"), object: nil)
     }
     
     
     func setupUI() {
         faresummeryView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         faresummeryView.layer.cornerRadius = 8
+        
+       
+        let grandTotalString =  MySingleton.shared.roompaxesdetails[0].net
+        let grandTotalDecimal = Decimal(string: grandTotalString ?? "0.0") ?? Decimal(0.0)
+        
+        updateTotalAmount(updatedGrandTotal: grandTotalDecimal)
+
     }
     
     
@@ -72,5 +85,34 @@ class HotelFareSummaryTVCell: TableViewCell {
         }
     }
     
+    
+    func updateTotalAmount(updatedGrandTotal:Decimal) {
+        // Update totalAmount label
+        kwdpricelbl.text = "\(MySingleton.shared.roompaxesdetails[0].currency ?? ""):\(updatedGrandTotal)"
+        
+        
+    }
+    
+    
+    @objc func addon(_ ns: NSNotification) {
+        
+        // Convert selectedAddonTotalPrice to Decimal
+        let selectedAddonTotalPriceDecimal = Decimal(MySingleton.shared.selectedAddonTotalPrice)
+        
+        // Convert grand total to Decimal
+        guard let grandTotalString = MySingleton.shared.roompaxesdetails[0].net,
+              let grandTotalDecimal = Decimal(string: grandTotalString) else {
+            return // Handle the case where grand total cannot be converted to Decimal
+        }
+        
+        // Add totalkwdvalue to grand total
+        let updatedGrandTotal = grandTotalDecimal + selectedAddonTotalPriceDecimal
+        
+        // Update addonValue label
+        addonValue.text = "\(defaults.string(forKey: UserDefaultsKeys.selectedCurrency) ?? ""): \(selectedAddonTotalPriceDecimal)"
+        
+        updateTotalAmount(updatedGrandTotal: updatedGrandTotal)
+        
+    }
     
 }

@@ -13,6 +13,7 @@ class AddsOnInfoTVCell: UITableViewCell {
     @IBOutlet weak var addonLogo: UIImageView!
     @IBOutlet weak var checkimg: UIImageView!
     @IBOutlet weak var titlelbl: UILabel!
+    @IBOutlet weak var subtitlelbl: UILabel!
     @IBOutlet weak var kwdlbl: UILabel!
     
     

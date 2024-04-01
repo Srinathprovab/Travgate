@@ -13,9 +13,13 @@ extension HotelBookingDetailsVC {
     
     func addObserver() {
         
+        NotificationCenter.default.addObserver(self, selector: #selector(addon(_:)), name: NSNotification.Name("addon"), object: nil)
+        
         NotificationCenter.default.addObserver(self, selector: #selector(nointernet), name: Notification.Name("offline"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(resultnil), name: NSNotification.Name("resultnil"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(reload), name: Notification.Name("reload"), object: nil)
+        
+        
 
     }
     
@@ -72,6 +76,34 @@ extension HotelBookingDetailsVC {
         self.present(vc, animated: false)
     }
     
+    
+    @objc func addon(_ ns: NSNotification) {
+        
+        // Convert selectedAddonTotalPrice to Decimal
+        let selectedAddonTotalPriceDecimal = Decimal(MySingleton.shared.selectedAddonTotalPrice)
+        
+        // Convert grand total to Decimal
+        guard let grandTotalString = MySingleton.shared.roompaxesdetails[0].net,
+              let grandTotalDecimal = Decimal(string: grandTotalString) else {
+            return // Handle the case where grand total cannot be converted to Decimal
+        }
+        
+        // Add totalkwdvalue to grand total
+        let updatedGrandTotal = grandTotalDecimal + selectedAddonTotalPriceDecimal
+        
+        
+        updateTotalAmount(updatedGrandTotal: updatedGrandTotal)
+        
+    }
+   
+    func updateTotalAmount(updatedGrandTotal:Decimal) {
+        
+        // Update totalAmount label
+        kwdlbl.text = "\(MySingleton.shared.roompaxesdetails[0].currency ?? ""):\(updatedGrandTotal)"
+        
+        
+    }
+    
 }
 
 
@@ -123,6 +155,7 @@ class HotelBookingDetailsVC: BaseTableVC, LoginViewModelDelegate, RegisterViewMo
                                          "HotelBookingCancellationpolicyTVCell",
                                          "RegisterSelectionLoginTableViewCell",
                                          "GuestTVCell",
+                                         "AddonTVCell",
                                          "RegisterNowTableViewCell",
                                          "LoginDetailsTableViewCell",
                                          "HotelFareSummaryTVCell",
@@ -281,6 +314,18 @@ class HotelBookingDetailsVC: BaseTableVC, LoginViewModelDelegate, RegisterViewMo
     }
     
     
+    //MARK: - didTapOnAddonServiceBtnAction
+    override func didTapOnAddonServiceBtnAction(cell: AddonTVCell) {
+        reloadFareSummaryCell()
+    }
+    
+    
+    func reloadFareSummaryCell() {
+        if let fareSummaryCellIndex = MySingleton.shared.tablerow.firstIndex(where: { $0.cellType == .HotelFareSummaryTVCell }) {
+            let indexPath = IndexPath(row: fareSummaryCellIndex, section: 0)
+            commonTableView.reloadRows(at: [indexPath], with: .none)
+        }
+    }
 }
 
 //MARK: - setupUI
@@ -347,6 +392,8 @@ extension HotelBookingDetailsVC {
         
         MySingleton.shared.tablerow.append(TableRow(cellType:.UserSpecificationTVCell))
         MySingleton.shared.tablerow.append(TableRow(cellType:.ContactInformationTVCell))
+        MySingleton.shared.tablerow.append(TableRow(height:10,cellType:.EmptyTVCell))
+        MySingleton.shared.tablerow.append(TableRow(cellType:.AddonTVCell))
         MySingleton.shared.tablerow.append(TableRow(cellType:.HotelFareSummaryTVCell))
         MySingleton.shared.tablerow.append(TableRow(height: 30, cellType:.EmptyTVCell))
         
@@ -426,11 +473,14 @@ extension HotelBookingDetailsVC {
         
         loderBool = false
         hideLoadera()
+        MySingleton.shared.user_specification.removeAll()
         
         MySingleton.shared.bhotelDetials = response.data?.hotel_details
         MySingleton.shared.user_specification = response.data?.user_specification ?? []
         MySingleton.shared.roompaxesdetails = response.data?.room_paxes_details ?? []
+        MySingleton.shared.hotelAddonServices = response.data?.addon_services ?? []
        
+        
         MySingleton.shared.setAttributedTextnew(str1: defaults.string(forKey: UserDefaultsKeys.selectedCurrency) ?? "",
                                                 str2: String(format: "%.2f", response.data?.hotel_total_price ?? 0.0) ,
                                                 lbl: kwdlbl,
@@ -532,7 +582,6 @@ extension HotelBookingDetailsVC {
     }
     
     
-    
     func gotoHotelResultVC() {
         
         loderBool = true
@@ -544,7 +593,6 @@ extension HotelBookingDetailsVC {
         vc.payload =  MySingleton.shared.payload
         present(vc, animated: true)
     }
-    
     
 }
 

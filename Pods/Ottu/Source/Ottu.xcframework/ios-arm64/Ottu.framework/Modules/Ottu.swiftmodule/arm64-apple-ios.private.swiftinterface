@@ -1,0 +1,41 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.9 (swiftlang-5.9.0.128.108 clang-1500.0.40.1)
+// swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name Ottu
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import Foundation
+@_exported import Ottu
+import PassKit
+import Swift
+import UIKit
+import WebKit
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+public enum NetworkErrorReason : Swift.Error {
+  case FailureErrorCode(code: Swift.Int, message: Swift.String, userInfo: [Swift.String : Any]?)
+  case InternetNotReachable
+  case UnAuthorizedAccess
+  case Other
+}
+public protocol Check_JB : AnyObject {
+  func sendTheStatusOfJailBreak(value: Swift.Bool)
+}
+public protocol OttuDelegate {
+  func errorCallback(message: Swift.String, response: [Swift.String : Any]?)
+  func cancelCallback(message: Swift.String, response: [Swift.String : Any]?)
+  func successCallback(message: Swift.String, response: [Swift.String : Any]?)
+  func beforeRedirect()
+  func dismissed()
+}
+public class Ottu {
+  public init(_ session_id: Swift.String, merchant_id: Swift.String, apiKey: Swift.String, lang: Swift.String = "en", formsOfPayment: [Swift.String]? = nil, viewController: UIKit.UIViewController, delegate: any OttuDelegate)
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class HeaderView : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) public init(frame: CoreFoundation.CGRect, params: OttuParameters, merchant_id: Swift.String, apiKey: Swift.String, lang: Swift.String = "en", formsOfPayment: [Swift.String]? = nil, viewController: UIKit.UIViewController, delegate: any OttuDelegate)
+  @objc deinit
+}
+public class OttuParameters {
+  public init(type: Swift.String = "", pg_codes: [Swift.String] = [String](), amount: Swift.String = "", currency_code: Swift.String = "", disclosure_url: Swift.String = "", redirect_url: Swift.String = "", customer_id: Swift.String = "", expiration_time: Swift.String = "")
+  @objc deinit
+}

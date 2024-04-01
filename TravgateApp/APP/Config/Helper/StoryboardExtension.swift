@@ -19,6 +19,7 @@ enum Storyboard: String {
     case Visa
     case Holidays
     case Cruise
+    case Ottu
    
     
     var name: String {

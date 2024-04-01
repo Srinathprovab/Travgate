@@ -191,6 +191,9 @@ extension FlightResultVC: FlightListModelProtocal {
         MySingleton.shared.bookingsourcekey = response.data?.j_flight_list?[0][0].booking_source ?? ""
         MySingleton.shared.traceid = response.data?.traceId ?? ""
         
+        MySingleton.shared.payemail = ""
+        MySingleton.shared.paymobile = ""
+        MySingleton.shared.paymobilecountrycode = ""
         
         cityslbl.text = "\(defaults.string(forKey: UserDefaultsKeys.fcity) ?? "") - \(defaults.string(forKey: UserDefaultsKeys.tcity) ?? "")"
         paxlbl.text = "\(MySingleton.shared.adultsCount) Adults | \(MySingleton.shared.childCount) Child | \(MySingleton.shared.infantsCount) Infant | \(defaults.string(forKey: UserDefaultsKeys.selectClass) ?? "")"
@@ -589,6 +592,29 @@ extension FlightResultVC:AppliedFilters {
     
     
     // Create a function to check if a given time string is within a time range
+//    func isTimeInRange(time: String, range: String) -> Bool {
+//        guard let departureDate = MySingleton.shared.dateFormatter.date(from: time) else {
+//            return false
+//        }
+//        
+//        let calendar = Calendar.current
+//        let hour = calendar.component(.hour, from: departureDate)
+//        
+//        switch range {
+//        case "12 am - 6 am":
+//            return hour >= 0 && hour < 6
+//        case "06 am - 12 pm":
+//            return hour >= 6 && hour < 12
+//        case "12 pm - 06 pm":
+//            return hour >= 12 && hour < 18
+//        case "06 pm - 12 am":
+//            return hour >= 18 && hour < 24
+//        default:
+//            return false
+//        }
+//    }
+    
+    
     func isTimeInRange(time: String, range: String) -> Bool {
         guard let departureDate = MySingleton.shared.dateFormatter.date(from: time) else {
             return false
@@ -597,20 +623,20 @@ extension FlightResultVC:AppliedFilters {
         let calendar = Calendar.current
         let hour = calendar.component(.hour, from: departureDate)
         
-        switch range {
-        case "12 am - 6 am":
-            return hour >= 0 && hour < 6
-        case "06 am - 12 pm":
-            return hour >= 6 && hour < 12
-        case "12 pm - 06 pm":
-            return hour >= 12 && hour < 18
-        case "06 pm - 12 am":
-            return hour >= 18 && hour < 24
-        default:
+        // Convert the 12-hour format to 24-hour format
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "hh a"
+        guard let startDate = dateFormatter.date(from: range.components(separatedBy: " - ")[0]),
+              let endDate = dateFormatter.date(from: range.components(separatedBy: " - ")[1]) else {
             return false
         }
+        
+        let startHour = calendar.component(.hour, from: startDate)
+        let endHour = calendar.component(.hour, from: endDate)
+        
+        // Check if the hour falls within the range
+        return hour >= startHour && hour < endHour
     }
-    
     
     
     func filtersByApplied(minpricerange: Double, maxpricerange: Double, noofStopsArray: [String], refundableTypeArray: [String], departureTime: [String], arrivalTime: [String], noOvernightFlight: [String], airlinesFilterArray: [String], luggageFilterArray: [String], connectingFlightsFilterArray: [String], ConnectingAirportsFilterArray: [String]) {
@@ -687,7 +713,7 @@ extension FlightResultVC:AppliedFilters {
                 
                 
                 
-                let depMatch = departureTime.isEmpty || summary.first?.origin?.datetime.flatMap { departureDateTime in
+                let depMatch = departureTime.isEmpty || summary.first?.origin?.time.flatMap { departureDateTime in
                     return departureTime.contains { departureTimeRange in
                         let timeIsInRange = isTimeInRange(time: departureDateTime, range: String(departureTimeRange))
                         return timeIsInRange
@@ -696,7 +722,7 @@ extension FlightResultVC:AppliedFilters {
                 
                 
                 // Filter by arrival time
-                let arrMatch = arrivalTime.isEmpty || summary.first?.destination?.datetime.flatMap { arrivalDateTime in
+                let arrMatch = arrivalTime.isEmpty || summary.first?.destination?.time.flatMap { arrivalDateTime in
                     return arrivalTime.contains { arrivalTimeRange in
                         let timeIsInRange = isTimeInRange(time: arrivalDateTime, range: String(arrivalTimeRange)) // Convert Character to String
                         return timeIsInRange

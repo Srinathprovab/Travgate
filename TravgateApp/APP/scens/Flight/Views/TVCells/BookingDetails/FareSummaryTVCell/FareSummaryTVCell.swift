@@ -35,6 +35,7 @@ class FareSummaryTVCell: TableViewCell {
     var check1bool = false
     var check2bool = false
     var totalkwdvalue: Decimal = 0
+    var afteraddontotalamount : Decimal = 0
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -54,12 +55,19 @@ class FareSummaryTVCell: TableViewCell {
         topview.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner] // Top left corner, Top right corner respectively
         topview.layer.cornerRadius = 8
         topview.clipsToBounds = true
+        
+        let grandTotalString = MySingleton.shared.mpbpriceDetails?.grand_total ?? ""
+        let grandTotalDecimal = Decimal(string: grandTotalString) ?? Decimal(0.0)
+
+        updateTotalAmount(updatedGrandTotal: grandTotalDecimal)
 
     }
     
     
     override func updateUI() {
         
+        NotificationCenter.default.addObserver(self, selector: #selector(addon(_:)), name: NSNotification.Name("addon"), object: nil)
+
         
         adultPasslbl.text = "Traveller x\(MySingleton.shared.adultsCount) Adult"
         childPasslbl.text = "Traveller x\(MySingleton.shared.childCount) Child"
@@ -76,7 +84,7 @@ class FareSummaryTVCell: TableViewCell {
         infantValuelbl.text = "\(MySingleton.shared.mpbpriceDetails?.api_currency ?? ""):\(MySingleton.shared.mpbpriceDetails?.infantTotalPrice ?? "")"
         infantfare.text = "\(MySingleton.shared.mpbpriceDetails?.infantBasePrice ?? "")"
         infanttax.text = "\(MySingleton.shared.mpbpriceDetails?.infantTaxPrice ?? "")"
-        totalAmount.text = "\(MySingleton.shared.mpbpriceDetails?.api_currency ?? ""):\(MySingleton.shared.mpbpriceDetails?.grand_total ?? "")"
+        
         
         if MySingleton.shared.childCount == 0 {
             hide(v: childView)
@@ -98,17 +106,38 @@ class FareSummaryTVCell: TableViewCell {
             totalkwdvalue = 0
         }
         
-        NotificationCenter.default.addObserver(self, selector: #selector(addon(_:)), name: NSNotification.Name("addon"), object: nil)
     }
     
-   
-
+    
+    
+    func updateTotalAmount(updatedGrandTotal:Decimal) {
+        // Update totalAmount label
+        totalAmount.text = "\(MySingleton.shared.mpbpriceDetails?.api_currency ?? ""):\(updatedGrandTotal)"
+        
+    }
+    
+    
     @objc func addon(_ ns: NSNotification) {
         
-        totalkwdvalue = Decimal(MySingleton.shared.selectedAddonTotalPrice)
-        addonValue.text = "\(defaults.string(forKey: UserDefaultsKeys.selectedCurrency) ?? ""): \(totalkwdvalue)"
+        // Convert selectedAddonTotalPrice to Decimal
+        let selectedAddonTotalPriceDecimal = Decimal(MySingleton.shared.selectedAddonTotalPrice)
+        
+        // Convert grand total to Decimal
+        guard let grandTotalString = MySingleton.shared.mpbpriceDetails?.grand_total,
+              let grandTotalDecimal = Decimal(string: grandTotalString) else {
+            return // Handle the case where grand total cannot be converted to Decimal
+        }
+
+        // Add totalkwdvalue to grand total
+        let updatedGrandTotal = grandTotalDecimal + selectedAddonTotalPriceDecimal
+
+        // Update addonValue label
+        addonValue.text = "\(defaults.string(forKey: UserDefaultsKeys.selectedCurrency) ?? ""): \(selectedAddonTotalPriceDecimal)"
+        
+        updateTotalAmount(updatedGrandTotal: updatedGrandTotal)
+        
     }
-    
+
     
     func hide(v:UIView){
         v.isHidden = true
@@ -127,6 +156,7 @@ class FareSummaryTVCell: TableViewCell {
             check1img.image = UIImage(named: "uncheck")
         }
     }
+    
     
     @IBAction func didTapOnPaymentCeheckBoxBtnAction(_ sender: Any) {
         check2bool.toggle()

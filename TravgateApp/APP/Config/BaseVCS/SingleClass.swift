@@ -48,6 +48,7 @@ class MySingleton {
     var bhotelDetials:Hotel_details?
     var user_specification = [String]()
     var roompaxesdetails = [Room_paxes_details]()
+    var hotelAddonServices = [HotelAddonModel]()
   
     
     //Flight Search
@@ -124,6 +125,7 @@ class MySingleton {
     var addson:Addson = .nothing
     var addonSelectedArray = [String]()
     var selectedAddonTotalPrice = 0
+    var afterAddonAmountAdded = 0
     var moreDetailsData : MoreDetailsData?
     
     

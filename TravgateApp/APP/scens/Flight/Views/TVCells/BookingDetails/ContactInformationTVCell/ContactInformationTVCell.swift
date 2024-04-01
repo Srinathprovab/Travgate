@@ -63,13 +63,32 @@ class ContactInformationTVCell: TableViewCell {
     }
     
     override func updateUI() {
-       
+        
         filterdcountrylist =  MySingleton.shared.countrylist
         loadCountryNamesAndCode()
         
+        let usersignIn = defaults.object(forKey: UserDefaultsKeys.regStatus) as? Bool
+        if usersignIn == true {
+            if let email = defaults.string(forKey: UserDefaultsKeys.useremail) {
+                MySingleton.shared.payemail = email
+                emailTF.text =  MySingleton.shared.payemail
+            }
+            
+            if let mobile = defaults.string(forKey: UserDefaultsKeys.usermobile) {
+                MySingleton.shared.paymobile = mobile
+                mobileTF.text = MySingleton.shared.paymobile
+            }
+            
+            if let code = defaults.string(forKey: UserDefaultsKeys.countryCode) {
+                MySingleton.shared.paymobilecountrycode = code
+                countrycodeTF.text =  MySingleton.shared.paymobilecountrycode
+            }
+            
+            mobilenoMaxLengthBool = true
+        }
         
-        
-        if let userLoggedIn = defaults.object(forKey: UserDefaultsKeys.loggedInStatus) as? Bool ,userLoggedIn == true{
+        let userLoggedIn1 = defaults.object(forKey: UserDefaultsKeys.loggedInStatus) as? Bool
+        if userLoggedIn1 == true{
             if let email = defaults.string(forKey: UserDefaultsKeys.useremail) {
                 MySingleton.shared.payemail = email
                 emailTF.text = MySingleton.shared.payemail
@@ -86,28 +105,15 @@ class ContactInformationTVCell: TableViewCell {
                 
             }
             
+          
+            
         }else {
             defaults.setValue(false, forKey: UserDefaultsKeys.regStatus)
         }
         
         
-        if let usersignIn = defaults.object(forKey: UserDefaultsKeys.regStatus) as? Bool ,usersignIn == true
-               {
-                   if let email = defaults.string(forKey: UserDefaultsKeys.useremail) {
-                       MySingleton.shared.payemail = email
-                       emailTF.text =  MySingleton.shared.payemail
-                   }
-                   
-                   if let mobile = defaults.string(forKey: UserDefaultsKeys.usermobile) {
-                       MySingleton.shared.paymobile = mobile
-                       mobileTF.text = MySingleton.shared.paymobile
-                   }
-                   
-                   if let code = defaults.string(forKey: UserDefaultsKeys.countryCode) {
-                       MySingleton.shared.paymobilecountrycode = code
-                       countrycodeTF.text =  MySingleton.shared.paymobilecountrycode
-                   }
-               }
+       
+        
         
         
     }
@@ -115,7 +121,7 @@ class ContactInformationTVCell: TableViewCell {
     
     
     func setupUI() {
-       
+        
         
         contactImg.image = UIImage(named: "contact")?.withRenderingMode(.alwaysOriginal)
         
@@ -143,7 +149,7 @@ class ContactInformationTVCell: TableViewCell {
         countryCodeBtn.isHidden = true
         countrycodeTF.addTarget(self, action: #selector(searchTextChanged(textField:)), for: .editingChanged)
         countrycodeTF.addTarget(self, action: #selector(searchTextBegin(textField:)), for: .editingDidBegin)
-      
+        
         
     }
     
@@ -184,7 +190,7 @@ class ContactInformationTVCell: TableViewCell {
                     mobileNoView.layer.borderColor = UIColor.AppBorderColor.cgColor
                     mobilenoMaxLengthBool = true
                 }
-               
+                
             } else {
                 mobileNoView.layer.borderColor = UIColor.red.cgColor
                 mobilenoMaxLengthBool = false
@@ -293,7 +299,7 @@ extension ContactInformationTVCell {
     override func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         //For mobile numer validation
         if textField == mobileTF {
-             maxLength = self.billingCountryName.getMobileNumberMaxLength() ?? 8
+            maxLength = self.billingCountryName.getMobileNumberMaxLength() ?? 8
             let currentString: NSString = textField.text! as NSString
             let newString: NSString =  currentString.replacingCharacters(in: range, with: string) as NSString
             
@@ -301,7 +307,7 @@ extension ContactInformationTVCell {
             let characterSet = CharacterSet(charactersIn: string)
             return allowedCharacters.isSuperset(of: characterSet) && newString.length <= maxLength
         }else {
-             maxLength = 30
+            maxLength = 30
             let currentString: NSString = textField.text! as NSString
             let newString: NSString =  currentString.replacingCharacters(in: range, with: string) as NSString
             return newString.length <= maxLength

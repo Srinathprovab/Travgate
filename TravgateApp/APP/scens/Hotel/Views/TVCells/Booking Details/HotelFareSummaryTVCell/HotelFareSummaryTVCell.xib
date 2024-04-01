@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -10,6 +9,12 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Inter-Regular.ttf">
+            <string>Inter-Regular</string>
+        </array>
+        <array key="Inter-SemiBold.ttf">
+            <string>Inter-SemiBold</string>
+        </array>
         <array key="OpenSans-Bold.ttf">
             <string>OpenSans-Bold</string>
         </array>
@@ -20,27 +25,27 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="396" id="KGk-i7-Jjw" customClass="HotelFareSummaryTVCell" customModule="Travgate" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="517" height="398"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="426" id="KGk-i7-Jjw" customClass="HotelFareSummaryTVCell" customModule="Travgate" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="507" height="428"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="517" height="398"/>
+                <rect key="frame" x="0.0" y="0.0" width="507" height="428"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="SlQ-Ed-MAd">
-                        <rect key="frame" x="10" y="10" width="497" height="388"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v6l-8g-pOZ">
+                        <rect key="frame" x="0.0" y="0.0" width="507" height="428"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wrr-yF-VXS" customClass="BorderedView" customModule="Travgate" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="497" height="296"/>
+                                <rect key="frame" x="10" y="10" width="487" height="326"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="saffron Boutique hotel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tDx-Ml-q53">
-                                        <rect key="frame" x="10" y="70" width="472" height="22"/>
+                                        <rect key="frame" x="10" y="70" width="462" height="22"/>
                                         <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DEi-2Q-fjv">
-                                        <rect key="frame" x="10" y="97" width="477" height="38.333333333333343"/>
+                                        <rect key="frame" x="10" y="97" width="467" height="38.333333333333343"/>
                                         <string key="text">burj nahar intersection al murar 7 
 burj nahar intersection</string>
                                         <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="14"/>
@@ -48,79 +53,72 @@ burj nahar intersection</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Check in" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1jz-Wl-Uv8">
-                                        <rect key="frame" x="10.000000000000004" y="150.33333333333334" width="57.333333333333343" height="19.333333333333343"/>
+                                        <rect key="frame" x="10.000000000000004" y="150.33333333333334" width="57.333333333333343" height="49.333333333333343"/>
                                         <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="14"/>
                                         <color key="textColor" red="0.31764705882352939" green="0.31764705882352939" blue="0.31764705882352939" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="24-8-2022" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S3J-IB-6bI">
-                                        <rect key="frame" x="421.66666666666669" y="150.33333333333334" width="65.333333333333314" height="19.333333333333343"/>
+                                        <rect key="frame" x="411.66666666666669" y="165.33333333333334" width="65.333333333333314" height="19.333333333333343"/>
                                         <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="14"/>
                                         <color key="textColor" red="0.31764705879999999" green="0.31764705879999999" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ywC-xA-GHX">
-                                        <rect key="frame" x="0.0" y="174.66666666666666" width="497" height="1"/>
+                                        <rect key="frame" x="0.0" y="204.66666666666666" width="487" height="1"/>
                                         <color key="backgroundColor" name="BorderColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="IIC-gc-0oY"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Check out" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MKc-nO-KTw">
-                                        <rect key="frame" x="10" y="185.66666666666666" width="67.666666666666671" height="19.333333333333343"/>
+                                        <rect key="frame" x="10" y="215.66666666666666" width="67.666666666666671" height="19.333333333333343"/>
                                         <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="14"/>
                                         <color key="textColor" red="0.31764705879999999" green="0.31764705879999999" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="24-8-2022" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iuN-8f-gWE">
-                                        <rect key="frame" x="421.66666666666669" y="185.66666666666666" width="65.333333333333314" height="19.333333333333343"/>
+                                        <rect key="frame" x="411.66666666666669" y="215.66666666666666" width="65.333333333333314" height="19.333333333333343"/>
                                         <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="14"/>
                                         <color key="textColor" red="0.31764705879999999" green="0.31764705879999999" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uTs-2S-oPC">
-                                        <rect key="frame" x="0.0" y="215" width="497" height="1"/>
+                                        <rect key="frame" x="0.0" y="245" width="487" height="1"/>
                                         <color key="backgroundColor" name="BorderColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="Aei-PI-OO7"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Room" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6xB-3C-Jf4">
-                                        <rect key="frame" x="10" y="226" width="39.666666666666664" height="19.333333333333343"/>
+                                        <rect key="frame" x="10" y="256" width="39.666666666666664" height="19.333333333333314"/>
                                         <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="14"/>
                                         <color key="textColor" red="0.31764705879999999" green="0.31764705879999999" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3SN-Ux-SkT">
-                                        <rect key="frame" x="421.66666666666669" y="226" width="65.333333333333314" height="19.333333333333343"/>
+                                        <rect key="frame" x="411.66666666666669" y="256" width="65.333333333333314" height="19.333333333333314"/>
                                         <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="14"/>
                                         <color key="textColor" red="0.31764705879999999" green="0.31764705879999999" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y2c-Cv-5fN">
-                                        <rect key="frame" x="0.0" y="255.33333333333331" width="497" height="1"/>
-                                        <color key="backgroundColor" name="BorderColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="1" id="sw0-0n-JpT"/>
-                                        </constraints>
-                                    </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Amount" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Avf-bI-pAW">
-                                        <rect key="frame" x="10" y="266.33333333333331" width="92.333333333333329" height="19.333333333333314"/>
+                                        <rect key="frame" x="10" y="296.33333333333331" width="92.333333333333329" height="19.333333333333314"/>
                                         <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="14"/>
                                         <color key="textColor" red="0.31764705879999999" green="0.31764705879999999" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AED180.00" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pga-4K-vJF">
-                                        <rect key="frame" x="415.66666666666669" y="266.33333333333331" width="71.333333333333314" height="19.333333333333314"/>
+                                        <rect key="frame" x="405.66666666666669" y="296.33333333333331" width="71.333333333333314" height="19.333333333333314"/>
                                         <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="14"/>
                                         <color key="textColor" red="0.31764705879999999" green="0.31764705879999999" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="REs-5C-E1o">
-                                        <rect key="frame" x="0.0" y="0.0" width="497" height="55"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="487" height="55"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fare Summary" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uf9-kZ-QKv">
-                                                <rect key="frame" x="190.33333333333334" y="16.666666666666668" width="116.33333333333334" height="22.000000000000004"/>
+                                                <rect key="frame" x="185.33333333333334" y="16.666666666666668" width="116.33333333333334" height="22.000000000000004"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="16"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -134,12 +132,55 @@ burj nahar intersection</string>
                                             <constraint firstAttribute="height" constant="55" id="fi3-L4-XXk"/>
                                         </constraints>
                                     </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="7NM-Vq-cbl">
+                                        <rect key="frame" x="0.0" y="285.33333333333331" width="487" height="1"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mji-70-D4e">
+                                                <rect key="frame" x="0.0" y="0.0" width="487" height="1"/>
+                                                <color key="backgroundColor" name="BorderColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="1" id="FTE-SQ-3Ce"/>
+                                                </constraints>
+                                            </view>
+                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Kx-oz-o8u">
+                                                <rect key="frame" x="0.0" y="1" width="487" height="30"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add On Service" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uoc-td-Bf9">
+                                                        <rect key="frame" x="10" y="5.3333333333333712" width="118" height="19.666666666666668"/>
+                                                        <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="16"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="KWD +5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lcU-zs-Lhq">
+                                                        <rect key="frame" x="408.33333333333331" y="5.3333333333333712" width="63.666666666666686" height="19.666666666666668"/>
+                                                        <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="16"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="2Q4-m2-qtQ"/>
+                                                    <constraint firstItem="Uoc-td-Bf9" firstAttribute="leading" secondItem="7Kx-oz-o8u" secondAttribute="leading" constant="10" id="Rca-Ed-1FS"/>
+                                                    <constraint firstItem="lcU-zs-Lhq" firstAttribute="centerY" secondItem="Uoc-td-Bf9" secondAttribute="centerY" id="Z9k-6Q-jla"/>
+                                                    <constraint firstItem="Uoc-td-Bf9" firstAttribute="centerY" secondItem="7Kx-oz-o8u" secondAttribute="centerY" id="m8F-om-fdw"/>
+                                                    <constraint firstAttribute="trailing" secondItem="lcU-zs-Lhq" secondAttribute="trailing" constant="15" id="xOu-1H-Bx0"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="mji-70-D4e" firstAttribute="leading" secondItem="7NM-Vq-cbl" secondAttribute="leading" id="DEQ-ZC-HLe"/>
+                                            <constraint firstAttribute="trailing" secondItem="mji-70-D4e" secondAttribute="trailing" id="VSG-uU-lAT"/>
+                                            <constraint firstItem="mji-70-D4e" firstAttribute="top" secondItem="7NM-Vq-cbl" secondAttribute="top" id="qjj-fg-HPJ"/>
+                                        </constraints>
+                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="7NM-Vq-cbl" secondAttribute="trailing" id="0F7-Gg-eiA"/>
                                     <constraint firstItem="S3J-IB-6bI" firstAttribute="centerY" secondItem="1jz-Wl-Uv8" secondAttribute="centerY" id="1fW-h0-Am6"/>
                                     <constraint firstItem="1jz-Wl-Uv8" firstAttribute="leading" secondItem="Wrr-yF-VXS" secondAttribute="leading" constant="10" id="1l0-b3-y7l"/>
-                                    <constraint firstItem="Y2c-Cv-5fN" firstAttribute="leading" secondItem="Wrr-yF-VXS" secondAttribute="leading" id="3CC-3L-Nzk"/>
+                                    <constraint firstItem="Avf-bI-pAW" firstAttribute="top" secondItem="7NM-Vq-cbl" secondAttribute="bottom" constant="10" id="2iO-II-6LM"/>
                                     <constraint firstItem="uTs-2S-oPC" firstAttribute="top" secondItem="MKc-nO-KTw" secondAttribute="bottom" constant="10" id="5PV-Wb-YgG"/>
                                     <constraint firstAttribute="bottom" secondItem="Avf-bI-pAW" secondAttribute="bottom" constant="10.33" id="69F-9E-Yn1"/>
                                     <constraint firstItem="1jz-Wl-Uv8" firstAttribute="top" secondItem="DEi-2Q-fjv" secondAttribute="bottom" constant="15" id="Cjq-Wd-RDz"/>
@@ -148,23 +189,22 @@ burj nahar intersection</string>
                                     <constraint firstItem="Avf-bI-pAW" firstAttribute="leading" secondItem="Wrr-yF-VXS" secondAttribute="leading" constant="10" id="KAj-Vi-0kY"/>
                                     <constraint firstItem="tDx-Ml-q53" firstAttribute="top" secondItem="REs-5C-E1o" secondAttribute="bottom" constant="15" id="KQU-cu-00N"/>
                                     <constraint firstItem="REs-5C-E1o" firstAttribute="top" secondItem="Wrr-yF-VXS" secondAttribute="top" id="LA7-I1-YDq"/>
+                                    <constraint firstItem="7NM-Vq-cbl" firstAttribute="leading" secondItem="Wrr-yF-VXS" secondAttribute="leading" id="Lfj-NT-Nsc"/>
                                     <constraint firstItem="3SN-Ux-SkT" firstAttribute="leading" secondItem="iuN-8f-gWE" secondAttribute="leading" id="MDv-69-abx"/>
-                                    <constraint firstAttribute="height" constant="296" id="OJM-9i-YtQ"/>
                                     <constraint firstAttribute="trailing" secondItem="3SN-Ux-SkT" secondAttribute="trailing" constant="10" id="Q4l-zS-YsN"/>
                                     <constraint firstItem="tDx-Ml-q53" firstAttribute="leading" secondItem="Wrr-yF-VXS" secondAttribute="leading" constant="10" id="SdN-wo-ZvR"/>
                                     <constraint firstItem="DEi-2Q-fjv" firstAttribute="top" secondItem="tDx-Ml-q53" secondAttribute="bottom" constant="5" id="TRs-rh-cXe"/>
-                                    <constraint firstAttribute="trailing" secondItem="Y2c-Cv-5fN" secondAttribute="trailing" id="TiH-xR-eAF"/>
                                     <constraint firstItem="6xB-3C-Jf4" firstAttribute="top" secondItem="uTs-2S-oPC" secondAttribute="bottom" constant="10" id="UjT-R4-es9"/>
+                                    <constraint firstItem="7NM-Vq-cbl" firstAttribute="top" secondItem="6xB-3C-Jf4" secondAttribute="bottom" constant="10" id="WbU-OP-PyP"/>
                                     <constraint firstItem="iuN-8f-gWE" firstAttribute="centerY" secondItem="MKc-nO-KTw" secondAttribute="centerY" id="Zo1-Yg-vYg"/>
                                     <constraint firstAttribute="trailing" secondItem="uTs-2S-oPC" secondAttribute="trailing" id="akj-Xl-NFB"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="297" id="ba3-47-jSi"/>
                                     <constraint firstAttribute="trailing" secondItem="tDx-Ml-q53" secondAttribute="trailing" constant="15" id="d9i-2C-bg5"/>
                                     <constraint firstAttribute="trailing" secondItem="pga-4K-vJF" secondAttribute="trailing" constant="10" id="eqG-YZ-6NM"/>
                                     <constraint firstItem="MKc-nO-KTw" firstAttribute="leading" secondItem="Wrr-yF-VXS" secondAttribute="leading" constant="10" id="f17-9a-BIw"/>
                                     <constraint firstAttribute="trailing" secondItem="iuN-8f-gWE" secondAttribute="trailing" constant="10" id="fZs-v0-NNZ"/>
                                     <constraint firstItem="3SN-Ux-SkT" firstAttribute="centerY" secondItem="6xB-3C-Jf4" secondAttribute="centerY" id="gb7-pb-Jg1"/>
                                     <constraint firstAttribute="trailing" secondItem="S3J-IB-6bI" secondAttribute="trailing" constant="10" id="jz3-sB-Vf3"/>
-                                    <constraint firstItem="Y2c-Cv-5fN" firstAttribute="top" secondItem="6xB-3C-Jf4" secondAttribute="bottom" constant="10" id="k0M-LG-0bt"/>
-                                    <constraint firstItem="Avf-bI-pAW" firstAttribute="top" secondItem="Y2c-Cv-5fN" secondAttribute="bottom" constant="10" id="kBH-OY-1kr"/>
                                     <constraint firstItem="pga-4K-vJF" firstAttribute="centerY" secondItem="Avf-bI-pAW" secondAttribute="centerY" id="khf-Oz-u52"/>
                                     <constraint firstItem="MKc-nO-KTw" firstAttribute="top" secondItem="ywC-xA-GHX" secondAttribute="bottom" constant="10" id="mqa-0i-x6D"/>
                                     <constraint firstAttribute="trailing" secondItem="DEi-2Q-fjv" secondAttribute="trailing" constant="10" id="nPI-Tg-mTg"/>
@@ -188,7 +228,7 @@ burj nahar intersection</string>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5nc-Od-PUS">
-                                <rect key="frame" x="0.0" y="306" width="497" height="82"/>
+                                <rect key="frame" x="0.0" y="346" width="507" height="82"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="uncheck" translatesAutoresizingMaskIntoConstraints="NO" id="0BZ-ex-5Lw">
                                         <rect key="frame" x="10" y="10" width="24" height="24"/>
@@ -199,7 +239,7 @@ burj nahar intersection</string>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e2u-cC-2hH">
-                                        <rect key="frame" x="44" y="10.000000000000004" width="443" height="57.333333333333343"/>
+                                        <rect key="frame" x="44" y="10.000000000000004" width="453" height="57.333333333333343"/>
                                         <string key="text">By booking this item, you agree to pay the total amount shown, which includes Service Fees, on the right and to the , User Terms, Privacy policy .</string>
                                         <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="14"/>
                                         <color key="textColor" name="BooknowBtnColor"/>
@@ -207,7 +247,7 @@ burj nahar intersection</string>
                                         <string key="userLabel">By booking this item, you agree to pay the total amount shown, which includes Service Fees, on the right and to the , User Terms, Privacy policy .</string>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SQx-Am-arw">
-                                        <rect key="frame" x="0.0" y="0.0" width="497" height="82"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="507" height="82"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="82" id="h7K-rb-fG0"/>
                                         </constraints>
@@ -233,20 +273,30 @@ burj nahar intersection</string>
                                 </constraints>
                             </view>
                         </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="388" id="FtB-TD-YjY"/>
+                            <constraint firstItem="Wrr-yF-VXS" firstAttribute="top" secondItem="v6l-8g-pOZ" secondAttribute="top" constant="10" id="PLb-8A-odw"/>
+                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="428" id="Qoo-4m-jpc"/>
+                            <constraint firstAttribute="trailing" secondItem="5nc-Od-PUS" secondAttribute="trailing" id="ZrL-BG-6yQ"/>
+                            <constraint firstItem="Wrr-yF-VXS" firstAttribute="leading" secondItem="v6l-8g-pOZ" secondAttribute="leading" constant="10" id="cfV-4K-yjW"/>
+                            <constraint firstAttribute="trailing" secondItem="Wrr-yF-VXS" secondAttribute="trailing" constant="10" id="oEY-Sz-r6f"/>
+                            <constraint firstItem="5nc-Od-PUS" firstAttribute="top" secondItem="Wrr-yF-VXS" secondAttribute="bottom" constant="10" id="ooK-P7-8QF"/>
+                            <constraint firstItem="5nc-Od-PUS" firstAttribute="leading" secondItem="v6l-8g-pOZ" secondAttribute="leading" id="qyo-Js-Jsi"/>
+                            <constraint firstAttribute="bottom" secondItem="5nc-Od-PUS" secondAttribute="bottom" id="sSZ-im-cTS"/>
                         </constraints>
-                    </stackView>
+                    </view>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="SlQ-Ed-MAd" secondAttribute="bottom" id="Pas-MU-usQ"/>
-                    <constraint firstItem="SlQ-Ed-MAd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="VtX-nU-z5O"/>
-                    <constraint firstAttribute="trailing" secondItem="SlQ-Ed-MAd" secondAttribute="trailing" constant="10" id="sDR-vS-e4s"/>
-                    <constraint firstItem="SlQ-Ed-MAd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="yyU-fa-a5D"/>
+                    <constraint firstItem="v6l-8g-pOZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="07L-EI-yfP"/>
+                    <constraint firstAttribute="bottom" secondItem="v6l-8g-pOZ" secondAttribute="bottom" id="MUO-bR-xUM"/>
+                    <constraint firstAttribute="trailing" secondItem="v6l-8g-pOZ" secondAttribute="trailing" id="Orf-zy-SbR"/>
+                    <constraint firstItem="v6l-8g-pOZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Twc-RW-3CS"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="addonValue" destination="lcU-zs-Lhq" id="YYZ-KL-TGc"/>
+                <outlet property="addonView" destination="7Kx-oz-o8u" id="zro-gg-fJ2"/>
                 <outlet property="checkboximg" destination="0BZ-ex-5Lw" id="V4v-vf-XZv"/>
                 <outlet property="checkoutlbl" destination="iuN-8f-gWE" id="SO1-3h-DRM"/>
                 <outlet property="chickinlbl" destination="S3J-IB-6bI" id="U1U-tU-gkK"/>
@@ -256,7 +306,7 @@ burj nahar intersection</string>
                 <outlet property="kwdpricelbl" destination="pga-4K-vJF" id="kCt-HM-dVH"/>
                 <outlet property="roomlbl" destination="3SN-Ux-SkT" id="dlF-IE-hiQ"/>
             </connections>
-            <point key="canvasLocation" x="231.29770992366412" y="270.42253521126764"/>
+            <point key="canvasLocation" x="240.45801526717557" y="434.50704225352115"/>
         </tableViewCell>
     </objects>
     <resources>

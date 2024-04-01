@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D4399F2D5F824276500CF4B /* Pods_Travgate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58AFC5B25C731A190ED92EA4 /* Pods_Travgate.framework */; };
+		20D2286AF5388C34AC702D60 /* Pods_TravgateTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07E864764FDA0E0C74C91F41 /* Pods_TravgateTests.framework */; };
+		2CAA0E6D6AA7C7A1852F1AE6 /* Pods_Travgate_TravgateUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD11CBD8C3FF3C5773D58BD0 /* Pods_Travgate_TravgateUITests.framework */; };
 		6501F3642B485CD900F4625B /* FlightDeatilsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6501F3632B485CD900F4625B /* FlightDeatilsVC.swift */; };
 		6501F3692B48619C00F4625B /* TicketIssuingTimeTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6501F3672B48619C00F4625B /* TicketIssuingTimeTVCell.swift */; };
 		6501F36A2B48619C00F4625B /* TicketIssuingTimeTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6501F3682B48619C00F4625B /* TicketIssuingTimeTVCell.xib */; };
@@ -346,6 +349,9 @@
 		65B6799C2B44465800E5D1C3 /* TopcityGuidesCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65B6799A2B44465800E5D1C3 /* TopcityGuidesCVCell.xib */; };
 		65B679A42B44475A00E5D1C3 /* TopcityGuidesTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B679A22B44475A00E5D1C3 /* TopcityGuidesTVCell.swift */; };
 		65B679A52B44475A00E5D1C3 /* TopcityGuidesTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65B679A32B44475A00E5D1C3 /* TopcityGuidesTVCell.xib */; };
+		65B753B62BB28441008E090F /* Ottu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65B753B52BB28441008E090F /* Ottu.storyboard */; };
+		65B753B82BB28475008E090F /* OttuPaymentGatewayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B753B72BB28475008E090F /* OttuPaymentGatewayVC.swift */; };
+		65B753BA2BB2AF40008E090F /* HotelAddonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B753B92BB2AF40008E090F /* HotelAddonModel.swift */; };
 		65B959252B466F1400A4EAE7 /* InfoCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B959232B466F1400A4EAE7 /* InfoCVCell.swift */; };
 		65B959262B466F1400A4EAE7 /* InfoCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65B959242B466F1400A4EAE7 /* InfoCVCell.xib */; };
 		65B959282B4687F300A4EAE7 /* SingleClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B959272B4687F300A4EAE7 /* SingleClass.swift */; };
@@ -491,9 +497,6 @@
 		65F253122B57E40A00ECD22A /* SearchHotelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F253112B57E40A00ECD22A /* SearchHotelVC.swift */; };
 		65F253162B5805B100ECD22A /* HotelSearchTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F253142B5805B100ECD22A /* HotelSearchTVCell.swift */; };
 		65F253172B5805B100ECD22A /* HotelSearchTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65F253152B5805B100ECD22A /* HotelSearchTVCell.xib */; };
-		A49629B2BC0298903ECB14C9 /* Pods_TravgateApp_TravgateAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CD57DADF2827CC7315F9E10 /* Pods_TravgateApp_TravgateAppUITests.framework */; };
-		B0DAB0DBB63A478E83F5291D /* Pods_TravgateAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 634B61CF8AE4096700985889 /* Pods_TravgateAppTests.framework */; };
-		F35DB7DEE4FE2CEB1228C68B /* Pods_TravgateApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C1727B54071D4A493CAF226 /* Pods_TravgateApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -514,10 +517,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		07E864764FDA0E0C74C91F41 /* Pods_TravgateTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TravgateTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		173615B4431BC0F07E07FBA9 /* Pods-Travgate-TravgateUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Travgate-TravgateUITests.debug.xcconfig"; path = "Target Support Files/Pods-Travgate-TravgateUITests/Pods-Travgate-TravgateUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		240F8178E18EDE58F85041CA /* Pods-TravgateAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravgateAppTests.release.xcconfig"; path = "Target Support Files/Pods-TravgateAppTests/Pods-TravgateAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		3C751BD1AF769704CFE02F44 /* Pods-TravgateApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravgateApp.release.xcconfig"; path = "Target Support Files/Pods-TravgateApp/Pods-TravgateApp.release.xcconfig"; sourceTree = "<group>"; };
-		3CD57DADF2827CC7315F9E10 /* Pods_TravgateApp_TravgateAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TravgateApp_TravgateAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		634B61CF8AE4096700985889 /* Pods_TravgateAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TravgateAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D4DA4963EA1FD01B09D00B0 /* Pods-TravgateTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravgateTests.release.xcconfig"; path = "Target Support Files/Pods-TravgateTests/Pods-TravgateTests.release.xcconfig"; sourceTree = "<group>"; };
+		58AFC5B25C731A190ED92EA4 /* Pods_Travgate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Travgate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6501F3632B485CD900F4625B /* FlightDeatilsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightDeatilsVC.swift; sourceTree = "<group>"; };
 		6501F3672B48619C00F4625B /* TicketIssuingTimeTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketIssuingTimeTVCell.swift; sourceTree = "<group>"; };
 		6501F3682B48619C00F4625B /* TicketIssuingTimeTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TicketIssuingTimeTVCell.xib; sourceTree = "<group>"; };
@@ -862,6 +867,9 @@
 		65B6799A2B44465800E5D1C3 /* TopcityGuidesCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopcityGuidesCVCell.xib; sourceTree = "<group>"; };
 		65B679A22B44475A00E5D1C3 /* TopcityGuidesTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopcityGuidesTVCell.swift; sourceTree = "<group>"; };
 		65B679A32B44475A00E5D1C3 /* TopcityGuidesTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopcityGuidesTVCell.xib; sourceTree = "<group>"; };
+		65B753B52BB28441008E090F /* Ottu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Ottu.storyboard; sourceTree = "<group>"; };
+		65B753B72BB28475008E090F /* OttuPaymentGatewayVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OttuPaymentGatewayVC.swift; sourceTree = "<group>"; };
+		65B753B92BB2AF40008E090F /* HotelAddonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelAddonModel.swift; sourceTree = "<group>"; };
 		65B959232B466F1400A4EAE7 /* InfoCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCVCell.swift; sourceTree = "<group>"; };
 		65B959242B466F1400A4EAE7 /* InfoCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoCVCell.xib; sourceTree = "<group>"; };
 		65B959272B4687F300A4EAE7 /* SingleClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleClass.swift; sourceTree = "<group>"; };
@@ -1007,10 +1015,14 @@
 		65F253112B57E40A00ECD22A /* SearchHotelVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHotelVC.swift; sourceTree = "<group>"; };
 		65F253142B5805B100ECD22A /* HotelSearchTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelSearchTVCell.swift; sourceTree = "<group>"; };
 		65F253152B5805B100ECD22A /* HotelSearchTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HotelSearchTVCell.xib; sourceTree = "<group>"; };
-		8C1727B54071D4A493CAF226 /* Pods_TravgateApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TravgateApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92CCA4D767899C0947F898F0 /* Pods-TravgateAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravgateAppTests.debug.xcconfig"; path = "Target Support Files/Pods-TravgateAppTests/Pods-TravgateAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A833FE625AA0EA62C12BEE47 /* Pods-TravgateApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravgateApp.debug.xcconfig"; path = "Target Support Files/Pods-TravgateApp/Pods-TravgateApp.debug.xcconfig"; sourceTree = "<group>"; };
 		BBDE2F58F72AA616EC567804 /* Pods-TravgateApp-TravgateAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravgateApp-TravgateAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-TravgateApp-TravgateAppUITests/Pods-TravgateApp-TravgateAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		C2B6AF9B632313B2F9BC04C5 /* Pods-TravgateTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravgateTests.debug.xcconfig"; path = "Target Support Files/Pods-TravgateTests/Pods-TravgateTests.debug.xcconfig"; sourceTree = "<group>"; };
+		CD11CBD8C3FF3C5773D58BD0 /* Pods_Travgate_TravgateUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Travgate_TravgateUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA1B8463B8D0EA8482F5637D /* Pods-Travgate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Travgate.release.xcconfig"; path = "Target Support Files/Pods-Travgate/Pods-Travgate.release.xcconfig"; sourceTree = "<group>"; };
+		EE7B57CE5933B6E97DE773D3 /* Pods-Travgate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Travgate.debug.xcconfig"; path = "Target Support Files/Pods-Travgate/Pods-Travgate.debug.xcconfig"; sourceTree = "<group>"; };
+		F088E96C465BFEFC5F8F5307 /* Pods-Travgate-TravgateUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Travgate-TravgateUITests.release.xcconfig"; path = "Target Support Files/Pods-Travgate-TravgateUITests/Pods-Travgate-TravgateUITests.release.xcconfig"; sourceTree = "<group>"; };
 		FFE627D4634869D92FB4547E /* Pods-TravgateApp-TravgateAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravgateApp-TravgateAppUITests.release.xcconfig"; path = "Target Support Files/Pods-TravgateApp-TravgateAppUITests/Pods-TravgateApp-TravgateAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1019,7 +1031,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F35DB7DEE4FE2CEB1228C68B /* Pods_TravgateApp.framework in Frameworks */,
+				0D4399F2D5F824276500CF4B /* Pods_Travgate.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1027,7 +1039,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B0DAB0DBB63A478E83F5291D /* Pods_TravgateAppTests.framework in Frameworks */,
+				20D2286AF5388C34AC702D60 /* Pods_TravgateTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1035,7 +1047,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A49629B2BC0298903ECB14C9 /* Pods_TravgateApp_TravgateAppUITests.framework in Frameworks */,
+				2CAA0E6D6AA7C7A1852F1AE6 /* Pods_Travgate_TravgateUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1045,9 +1057,9 @@
 		5BEC774A3992231C55B33CA6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8C1727B54071D4A493CAF226 /* Pods_TravgateApp.framework */,
-				3CD57DADF2827CC7315F9E10 /* Pods_TravgateApp_TravgateAppUITests.framework */,
-				634B61CF8AE4096700985889 /* Pods_TravgateAppTests.framework */,
+				58AFC5B25C731A190ED92EA4 /* Pods_Travgate.framework */,
+				CD11CBD8C3FF3C5773D58BD0 /* Pods_Travgate_TravgateUITests.framework */,
+				07E864764FDA0E0C74C91F41 /* Pods_TravgateTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1500,6 +1512,7 @@
 		651718142B43F901003D3723 /* scens */ = {
 			isa = PBXGroup;
 			children = (
+				65B753AF2BB283E2008E090F /* OttuPaymentgateway */,
 				654242E82B8CA31700434876 /* Cruise */,
 				654242D22B8C959C00434876 /* Holidays */,
 				65D39CA02B7A487A00917F74 /* Insurance */,
@@ -2704,6 +2717,55 @@
 			path = TopcityGuidesTVCell;
 			sourceTree = "<group>";
 		};
+		65B753AF2BB283E2008E090F /* OttuPaymentgateway */ = {
+			isa = PBXGroup;
+			children = (
+				65B753B42BB2842A008E090F /* SB */,
+				65B753B12BB2840C008E090F /* Views */,
+				65B753B02BB28402008E090F /* ViewController */,
+			);
+			path = OttuPaymentgateway;
+			sourceTree = "<group>";
+		};
+		65B753B02BB28402008E090F /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				65B753B72BB28475008E090F /* OttuPaymentGatewayVC.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		65B753B12BB2840C008E090F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				65B753B32BB2841C008E090F /* TVCells */,
+				65B753B22BB28416008E090F /* CVCells */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		65B753B22BB28416008E090F /* CVCells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CVCells;
+			sourceTree = "<group>";
+		};
+		65B753B32BB2841C008E090F /* TVCells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TVCells;
+			sourceTree = "<group>";
+		};
+		65B753B42BB2842A008E090F /* SB */ = {
+			isa = PBXGroup;
+			children = (
+				65B753B52BB28441008E090F /* Ottu.storyboard */,
+			);
+			path = SB;
+			sourceTree = "<group>";
+		};
 		65B959222B466EFA00A4EAE7 /* InfoCVCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -3048,6 +3110,7 @@
 				65D571562BAAEAA60093E4EA /* HotelBookingData.swift */,
 				65D571582BAAEADE0093E4EA /* HSearch_data.swift */,
 				65CE394D2BAFD9420087DE7A /* Room_paxes_details.swift */,
+				65B753B92BB2AF40008E090F /* HotelAddonModel.swift */,
 			);
 			path = HotelBookingModel;
 			sourceTree = "<group>";
@@ -3455,6 +3518,12 @@
 				FFE627D4634869D92FB4547E /* Pods-TravgateApp-TravgateAppUITests.release.xcconfig */,
 				92CCA4D767899C0947F898F0 /* Pods-TravgateAppTests.debug.xcconfig */,
 				240F8178E18EDE58F85041CA /* Pods-TravgateAppTests.release.xcconfig */,
+				EE7B57CE5933B6E97DE773D3 /* Pods-Travgate.debug.xcconfig */,
+				DA1B8463B8D0EA8482F5637D /* Pods-Travgate.release.xcconfig */,
+				173615B4431BC0F07E07FBA9 /* Pods-Travgate-TravgateUITests.debug.xcconfig */,
+				F088E96C465BFEFC5F8F5307 /* Pods-Travgate-TravgateUITests.release.xcconfig */,
+				C2B6AF9B632313B2F9BC04C5 /* Pods-TravgateTests.debug.xcconfig */,
+				4D4DA4963EA1FD01B09D00B0 /* Pods-TravgateTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -3716,6 +3785,7 @@
 				651717FA2B43F8D4003D3723 /* Lato-Light.ttf in Resources */,
 				659CE68D2B76586F00D2BEBE /* AmenitiesCVCell.xib in Resources */,
 				654242DB2B8C960800434876 /* Holidays.storyboard in Resources */,
+				65B753B62BB28441008E090F /* Ottu.storyboard in Resources */,
 				6509F7D72B91D2D200DDAB7F /* ImportentInfoTableViewCell.xib in Resources */,
 				651718002B43F8D4003D3723 /* Poppins-ExtraBold.ttf in Resources */,
 				655AFBC32B86FB770071C869 /* InternationalTravelInsuranceTVCell.xib in Resources */,
@@ -3745,15 +3815,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TravgateApp-TravgateAppUITests/Pods-TravgateApp-TravgateAppUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Travgate-TravgateUITests/Pods-Travgate-TravgateUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TravgateApp-TravgateAppUITests/Pods-TravgateApp-TravgateAppUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Travgate-TravgateUITests/Pods-Travgate-TravgateUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TravgateApp-TravgateAppUITests/Pods-TravgateApp-TravgateAppUITests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Travgate-TravgateUITests/Pods-Travgate-TravgateUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		7B1C09FC8002FA551A0E9FDB /* [CP] Check Pods Manifest.lock */ = {
@@ -3771,7 +3841,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-TravgateAppTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-TravgateTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -3784,15 +3854,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TravgateApp/Pods-TravgateApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Travgate/Pods-Travgate-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TravgateApp/Pods-TravgateApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Travgate/Pods-Travgate-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TravgateApp/Pods-TravgateApp-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Travgate/Pods-Travgate-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		BF7F0E5824898267E1930EF4 /* [CP] Check Pods Manifest.lock */ = {
@@ -3810,7 +3880,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-TravgateApp-TravgateAppUITests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Travgate-TravgateUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -3823,15 +3893,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TravgateApp-TravgateAppUITests/Pods-TravgateApp-TravgateAppUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Travgate-TravgateUITests/Pods-Travgate-TravgateUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TravgateApp-TravgateAppUITests/Pods-TravgateApp-TravgateAppUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Travgate-TravgateUITests/Pods-Travgate-TravgateUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TravgateApp-TravgateAppUITests/Pods-TravgateApp-TravgateAppUITests-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Travgate-TravgateUITests/Pods-Travgate-TravgateUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D916AFDE2D52E1FDEFEAC470 /* [CP] Check Pods Manifest.lock */ = {
@@ -3849,7 +3919,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-TravgateApp-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Travgate-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -3862,15 +3932,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TravgateApp/Pods-TravgateApp-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Travgate/Pods-Travgate-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TravgateApp/Pods-TravgateApp-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Travgate/Pods-Travgate-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TravgateApp/Pods-TravgateApp-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Travgate/Pods-Travgate-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -3888,6 +3958,7 @@
 				653E2D342B47FDEF0082AFF6 /* FlightViewModel.swift in Sources */,
 				65F253162B5805B100ECD22A /* HotelSearchTVCell.swift in Sources */,
 				653E2D2E2B47EB910082AFF6 /* Destination.swift in Sources */,
+				65B753B82BB28475008E090F /* OttuPaymentGatewayVC.swift in Sources */,
 				655AFBCD2B871A040071C869 /* AddsOnInfoTVCell.swift in Sources */,
 				651717E82B43F8D4003D3723 /* ServiceManager.swift in Sources */,
 				659CE6422B7626BD00D2BEBE /* SearchHotelsResultVC.swift in Sources */,
@@ -3998,6 +4069,7 @@
 				65D85C222B4A55CB00D939D0 /* DepartureTimeCVCell.swift in Sources */,
 				65B959252B466F1400A4EAE7 /* InfoCVCell.swift in Sources */,
 				65AD14F12B4E553A0064E8B0 /* MobilePaymentModel.swift in Sources */,
+				65B753BA2BB2AF40008E090F /* HotelAddonModel.swift in Sources */,
 				65DA1C0B2B735CC30053D519 /* AutoPaymentTVCell.swift in Sources */,
 				651714162B43F837003D3723 /* SceneDelegate.swift in Sources */,
 				65F2165C2BA1C43E00D04274 /* mobilecontactusViewModel.swift in Sources */,
@@ -4375,12 +4447,12 @@
 		};
 		6517143B2B43F839003D3723 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A833FE625AA0EA62C12BEE47 /* Pods-TravgateApp.debug.xcconfig */;
+			baseConfigurationReference = EE7B57CE5933B6E97DE773D3 /* Pods-Travgate.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 15;
 				DEVELOPMENT_TEAM = 5TLY5PME9K;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TravgateApp/Info.plist;
@@ -4390,7 +4462,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -4409,12 +4481,12 @@
 		};
 		6517143C2B43F839003D3723 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3C751BD1AF769704CFE02F44 /* Pods-TravgateApp.release.xcconfig */;
+			baseConfigurationReference = DA1B8463B8D0EA8482F5637D /* Pods-Travgate.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 15;
 				DEVELOPMENT_TEAM = 5TLY5PME9K;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TravgateApp/Info.plist;
@@ -4424,7 +4496,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -4443,7 +4515,7 @@
 		};
 		6517143E2B43F839003D3723 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 92CCA4D767899C0947F898F0 /* Pods-TravgateAppTests.debug.xcconfig */;
+			baseConfigurationReference = C2B6AF9B632313B2F9BC04C5 /* Pods-TravgateTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -4464,7 +4536,7 @@
 		};
 		6517143F2B43F839003D3723 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 240F8178E18EDE58F85041CA /* Pods-TravgateAppTests.release.xcconfig */;
+			baseConfigurationReference = 4D4DA4963EA1FD01B09D00B0 /* Pods-TravgateTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -4485,7 +4557,7 @@
 		};
 		651714412B43F839003D3723 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BBDE2F58F72AA616EC567804 /* Pods-TravgateApp-TravgateAppUITests.debug.xcconfig */;
+			baseConfigurationReference = 173615B4431BC0F07E07FBA9 /* Pods-Travgate-TravgateUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -4504,7 +4576,7 @@
 		};
 		651714422B43F839003D3723 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FFE627D4634869D92FB4547E /* Pods-TravgateApp-TravgateAppUITests.release.xcconfig */;
+			baseConfigurationReference = F088E96C465BFEFC5F8F5307 /* Pods-Travgate-TravgateUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

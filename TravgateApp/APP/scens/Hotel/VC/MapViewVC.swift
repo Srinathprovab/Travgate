@@ -23,7 +23,7 @@ class MapViewVC: UIViewController, CLLocationManagerDelegate {
     
     
     @IBOutlet weak var googleMapView: UIView!
-    @IBOutlet weak var navHeight: NSLayoutConstraint!
+    @IBOutlet weak var closebtn: UIButton!
     
     
     static var newInstance: MapViewVC? {
@@ -48,8 +48,9 @@ class MapViewVC: UIViewController, CLLocationManagerDelegate {
     
     func setupUI() {
         
-        self.googleMapView.backgroundColor = .WhiteColor
+        self.googleMapView.backgroundColor = .clear
         
+        closebtn.addTarget(self, action: #selector(backbtnAction), for: .touchUpInside)
     }
     
     
@@ -72,38 +73,39 @@ class MapViewVC: UIViewController, CLLocationManagerDelegate {
     
     
     
+    
+    
     func addMarkersToMap(_ mapView: GMSMapView) {
         for mapModel in mapModelArray {
             if let latitude = Double(mapModel.latitude), let longitude = Double(mapModel.longitude) {
                 // Create and configure markers based on the mapModel data
+                
                 let marker = GMSMarker()
                 marker.position = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
                 marker.title = mapModel.hotelname
-                // Customize the marker as needed
+               
                 
-                // Create a custom marker icon with an image
-                if let markerImage = UIImage(named: "loc1")?.withRenderingMode(.alwaysOriginal).withTintColor(.AppBtnColor) {
-                    let markerView = UIImageView(image: markerImage)
-                    marker.iconView = markerView
-                } else {
-                    print("Error: Marker image not found or is nil.")
-                }
+                // Set a custom icon for the marker
+                let customMarkerImage = UIImage(named: "mapicon")
+                marker.icon = customMarkerImage
+                
+
+                
                 
                 // Add the marker to the map
                 marker.map = mapView
-                
-                mapView.selectedMarker = marker
-                
             } else {
                 print("Error: Invalid latitude or longitude values in mapModel.")
             }
         }
     }
     
- 
-    @IBAction func didTapOnBackBtnAction(_ sender: Any) {callapibool = false
+    
+    @objc func backbtnAction() {
+        callapibool = false
         dismiss(animated: true)
     }
+    
     
     
 }

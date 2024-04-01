@@ -1,0 +1,6 @@
+framework module Pods_Travgate {
+  umbrella header "Pods-Travgate-umbrella.h"
+
+  export *
+  module * { export * }
+}
