@@ -356,7 +356,8 @@ class ServiceManager {
         
         
         let headers: HTTPHeaders = [
-            "Token":"\(accessToken)"
+            "Token":"\(accessToken)",
+            "Authorization":"\(authorizationkey)"
         ]
         
         AF.request(

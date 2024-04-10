@@ -31,10 +31,11 @@ var loderBool = false
 var basicloderBool = false
 
 
-var BASE_URL = "https://provab.net/travgate/pro_new/mobile/index.php/"
-var BASE_URL1 = "https://provab.net/travgate/pro_new/mobile/index.php/"
-var accessToken = "e3VzZXJuYW1lOmFudWpob29kYSxwYXNzd29yZDp0cmF2Z2F0ZUBtb2JpbGVhcHAsYXV0aHR5cGU6dGVzdH0="
+var BASE_URL = "https://provab.net/travgate/android_ios_webservices/mobile/index.php/"
+var BASE_URL1 = "https://provab.net/travgate/android_ios_webservices/mobile/index.php/"
 
+var accessToken = "e3VzZXJuYW1lOmFudWpob29kYSxwYXNzd29yZDp0cmF2Z2F0ZUBtb2JpbGVhcHAsYXV0aHR5cGU6dGVzdH0="
+var authorizationkey = "Api-Key mXSkj6CS.hXxp9suftZUk7X8zagbA9GhQnhQL9KOh"
 
 var defaultCountryCode = "+91"
 var mobilenoMaxLength = Int()
@@ -151,7 +152,7 @@ struct ApiEndpoints {
     static let mobilepreprocessbooking = "mobile_pre_process_booking"
     static let general_getMobileCurrency = "general/getMobileCurrency"
     static let general_mobile_contact_us = "general/mobile_contact_us"
-    
+    static let ajax_mobile_get_fare_rules = "ajax/mobile_get_fare_rules"
     
     //LOGIN
     static let auth_mobile_login = "auth/mobile_login"

@@ -239,6 +239,10 @@ class RoomsTVcell: TableViewCell, NewRoomTVCellDelegate {
 extension RoomsTVcell: UITableViewDataSource ,UITableViewDelegate {
     
     
+    
+    
+    
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         if self.key == "rooms" {
             return roomsDetails.count

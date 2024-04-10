@@ -7,8 +7,7 @@
 
 import UIKit
 
-class FlightResultVC: BaseTableVC, FlightDetailsViewModelDelegate {
-    
+class FlightResultVC: BaseTableVC {
     
     
     @IBOutlet weak var holderView: UIView!
@@ -42,7 +41,7 @@ class FlightResultVC: BaseTableVC, FlightDetailsViewModelDelegate {
         setupUI()
         MySingleton.shared.dateFormatter.dateFormat = "HH:mm"
         MySingleton.shared.vm = FlightListViewModel(self)
-        MySingleton.shared.fdvm = FlightDetailsViewModel(self)
+    
     }
     
     
@@ -68,9 +67,15 @@ class FlightResultVC: BaseTableVC, FlightDetailsViewModelDelegate {
     override func didTapOnFlightDetails(cell: FlightResultTVCell) {
         MySingleton.shared.callboolapi = true
         MySingleton.shared.selectedResult = cell.selectedResult
+        MySingleton.shared.farerulesrefKey = cell.farerulesrefKey
+        MySingleton.shared.farerulesrefContent = cell.farerulesrefContent
         guard let vc = FlightDeatilsVC.newInstance.self else {return}
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: false)
+        
+        
+        
+       
     }
     
     
@@ -238,18 +243,15 @@ extension FlightResultVC: FlightListModelProtocal {
                 let similarFlights1 = similar(fare: Double(String(format: "%.2f", j.price?.api_total_display_fare ?? "")) ?? 0.0)
                 
                 
-                
-                j.flight_details?.summary?.forEach({ k in
-                    print("\(k.operator_name) : \(j.selectedResult)")
-                })
-                
                 MySingleton.shared.tablerow.append(TableRow(title: j.selectedResult,
                                                             refundable:j.fareType,
                                                             key: "fl",
                                                             data: similarFlights1,
                                                             moreData: j,
+                                                            tempInfo: j.farerulesref_Key,
                                                             cellType:.FlightResultTVCell,
-                                                            data1: j.flight_details?.summary))
+                                                            data1: j.flight_details?.summary, 
+                                                            data2: j.farerulesref_content))
             }
         }
         
@@ -284,8 +286,11 @@ extension FlightResultVC: FlightListModelProtocal {
                                                         key: "fl",
                                                         data: similarFlights1,
                                                         moreData: j,
+                                                        tempInfo: j.farerulesref_Key,
                                                         cellType:.FlightResultTVCell,
-                                                        data1: j.flight_details?.summary))
+                                                        data1: j.flight_details?.summary,
+                                                        data2: j.farerulesref_content))
+            
         }
         
         
@@ -926,29 +931,6 @@ extension FlightResultVC {
 //MARK: - Call Flight Details when book now btn tap
 extension FlightResultVC {
     
-    func callFlightDeatilsAPI() {
-        self.holderView.isHidden = true
-        
-        MySingleton.shared.afterResultsBool = true
-        showLoadera()
-        loderBool = false
-        
-        
-        MySingleton.shared.payload.removeAll()
-        MySingleton.shared.payload["search_id"] = MySingleton.shared.searchid
-        MySingleton.shared.payload["booking_source"] = MySingleton.shared.bookingsource
-        MySingleton.shared.payload["selectedResultindex"] = MySingleton.shared.selectedResult
-        MySingleton.shared.payload["user_id"] = defaults.string(forKey: UserDefaultsKeys.userid) ?? "0"
-       // MySingleton.shared.fdvm?.CALL_FLIGHT_DETAILS_API(dictParam: MySingleton.shared.payload)
-    }
-    
-    func flightDetails(response: FlightDetailsModel) {
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            self.gotoBookingDetailsVC()
-        }
-        
-    }
     
     func gotoBookingDetailsVC() {
         guard let vc = BookingDetailsVC.newInstance.self else {return}

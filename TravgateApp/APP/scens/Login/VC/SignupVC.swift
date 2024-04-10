@@ -17,7 +17,7 @@ class SignupVC: BaseTableVC, RegisterViewModelDelegate {
         return vc
     }
     
-    
+    var countrycode = String()
     var fname = String()
     var lname = String()
     var email = String()
@@ -121,6 +121,11 @@ class SignupVC: BaseTableVC, RegisterViewModelDelegate {
     
     func errorTextField(v:UIView) {
         v.layer.borderColor = UIColor.BooknowBtnColor.cgColor
+    }
+    
+    
+    override func didTapOnCountryCodeBtn(cell:SignupTVCell) {
+        countrycode = cell.countrycodeTF.text ?? ""
     }
     
     

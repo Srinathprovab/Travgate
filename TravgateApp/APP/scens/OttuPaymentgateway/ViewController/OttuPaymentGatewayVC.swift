@@ -22,17 +22,34 @@ class OttuPaymentGatewayVC: UIViewController, OttuDelegate {
     var responseDict : [String:Any]?
     var message = ""
     
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        callPaymentGateway()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+       
+    }
+    
+    
+    
+    func callPaymentGateway() {
+        
         //Intiate the SDK accordingly after getting session id from the public API documentation.
         //session_id - It is generated when payment was created. See API documentation
         //merchant_id - Merchant domain. See API documentation.
         //apiKey - API Public key should be used. See API documentation.
         //lang - You can use it to change the language. We support two languages english and arabic. You can use "en" for english and "ar" for arabic.
-        let session_id = "ENTER_YOUR_SESSION_ID"
-        _ = Ottu.init(session_id, 
-                      merchant_id: "MERCHANT_ID",
-                      apiKey: "API_KEY" ,
+       
+       
+        
+        
+        let session_id = "\(MySingleton.shared.sessionid)"
+        _ = Ottu.init(session_id,
+                      merchant_id: "\(MySingleton.shared.merchantid)",
+                      apiKey: "\(authorizationkey)",
                       lang: "en",
                       viewController: self,
                       delegate: self)
@@ -57,6 +74,7 @@ class OttuPaymentGatewayVC: UIViewController, OttuDelegate {
     //Called when the payment completed successfully.
     func successCallback(message: String, response: [String : Any]?) {
         responseDict = response
+        print(response)
         self.message = "Success"
         self.dismissed()
     }

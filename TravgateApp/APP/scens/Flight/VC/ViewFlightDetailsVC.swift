@@ -8,6 +8,10 @@
 import UIKit
 
 class ViewFlightDetailsVC: BaseTableVC,FlightDetailsViewModelDelegate {
+    func farerulesList(response: FareRulesModel) {
+        
+    }
+    
     
     
     

@@ -39,9 +39,13 @@ class SimilarFlightsVC: BaseTableVC {
     override func didTapOnFlightDetails(cell: FlightResultTVCell) {
         MySingleton.shared.callboolapi = true
         MySingleton.shared.selectedResult = cell.selectedResult
+        MySingleton.shared.farerulesrefKey = cell.farerulesrefKey
+        MySingleton.shared.farerulesrefContent = cell.farerulesrefContent
         guard let vc = FlightDeatilsVC.newInstance.self else {return}
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: false)
+        
+        
     }
     
     
@@ -82,8 +86,10 @@ extension SimilarFlightsVC {
                                                             refundable:j.fareType,
                                                             key: "similar",
                                                             moreData: j,
+                                                            tempInfo: j.farerulesref_Key,
                                                             cellType:.FlightResultTVCell,
-                                                            data1: j.flight_details?.summary))
+                                                            data1: j.flight_details?.summary,
+                                                            data2: j.farerulesref_content))
             }
         }
         

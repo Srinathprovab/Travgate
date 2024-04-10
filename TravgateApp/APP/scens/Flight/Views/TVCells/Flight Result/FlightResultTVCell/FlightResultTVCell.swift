@@ -32,6 +32,10 @@ class FlightResultTVCell: TableViewCell {
     var delegate:FlightResultTVCellDelegate?
     var flightsummery = [Summary]()
     var flightlist :FlightList?
+    var farerulesrefKey = [[String]]()
+    var farerulesrefContent = [[String]]()
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -55,7 +59,8 @@ class FlightResultTVCell: TableViewCell {
         selectedResult = cellInfo?.title ?? ""
         flightsummery = cellInfo?.data1 as! [Summary]
         flightlist = cellInfo?.moreData as? FlightList
-        
+        farerulesrefKey = cellInfo?.tempInfo as? [[String]] ?? [[]]
+        farerulesrefContent = cellInfo?.data2 as? [[String]] ?? [[]]
         fareTypelbl.text = flightlist?.fareType ?? ""
         let kwdprice = String(format: "%.2f", flightlist?.price?.api_total_display_fare ?? 0.0)
         let strikekwdprice = String(format: "%.2f", flightlist?.price?.api_total_display_fare_withoutmarkup ?? 0.0)

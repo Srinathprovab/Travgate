@@ -228,6 +228,7 @@ extension VisaVC {
         MySingleton.shared.payload["child"] = defaults.string(forKey: UserDefaultsKeys.visachildCount)
         MySingleton.shared.payload["infant"] = defaults.string(forKey: UserDefaultsKeys.visainfantsCount)
         MySingleton.shared.payload["remark"] = remarks
+        MySingleton.shared.payload["travel_date"] = travelDateString
         
         MySingleton.shared.visavm?.CALL_VISA_ENQUIREY_API(dictParam: MySingleton.shared.payload)
         

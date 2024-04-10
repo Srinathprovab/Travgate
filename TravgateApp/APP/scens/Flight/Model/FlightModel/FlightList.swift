@@ -17,6 +17,8 @@ struct FlightList : Codable {
     let selectedResult : String?
     let booking_source : String?
     let booking_source_key : String?
+    let farerulesref_Key : [[String]]?
+    let farerulesref_content : [[String]]?
 
     enum CodingKeys: String, CodingKey {
 
@@ -28,6 +30,8 @@ struct FlightList : Codable {
         case selectedResult = "selectedResult"
         case booking_source = "booking_source"
         case booking_source_key = "booking_source_key"
+        case farerulesref_Key = "Farerulesref_Key"
+        case farerulesref_content = "Farerulesref_content"
         
     }
 
@@ -41,6 +45,8 @@ struct FlightList : Codable {
         selectedResult = try values.decodeIfPresent(String.self, forKey: .selectedResult)
         booking_source = try values.decodeIfPresent(String.self, forKey: .booking_source)
         booking_source_key = try values.decodeIfPresent(String.self, forKey: .booking_source_key)
+        farerulesref_Key = try values.decodeIfPresent([[String]].self, forKey: .farerulesref_Key)
+        farerulesref_content = try values.decodeIfPresent([[String]].self, forKey: .farerulesref_content)
         
     }
 

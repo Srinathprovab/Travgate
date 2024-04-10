@@ -249,12 +249,12 @@ class FilterVC: BaseTableVC{
         //                tablerow.append(TableRow(title:"Arrival Time",cellType:.DepartureTimeTVCell))
         
         
-        //        tablerow.append(TableRow(title:"Departurn Time",key:"time", data: departurnTimeArray,cellType:.CheckBoxTVCell))
-        //        tablerow.append(TableRow(title:"Arrival Time",key:"time", data: departurnTimeArray,cellType:.CheckBoxTVCell))
+        tablerow.append(TableRow(title:"Departurn Time",key:"time", data: departurnTimeArray,cellType:.CheckBoxTVCell))
+        tablerow.append(TableRow(title:"Arrival Time",key:"time", data: departurnTimeArray,cellType:.CheckBoxTVCell))
         
         
-        tablerow.append(TableRow(title:"Departure Time",cellType:.NewDepartureTimeTVCell))
-        tablerow.append(TableRow(title:"Arrival Time",cellType:.NewDepartureTimeTVCell))
+        //        tablerow.append(TableRow(title:"Departure Time",cellType:.NewDepartureTimeTVCell))
+        //        tablerow.append(TableRow(title:"Arrival Time",cellType:.NewDepartureTimeTVCell))
         
         
         tablerow.append(TableRow(title:"No Overnight Flight",data: noOverNightFlightArray,cellType:.CheckBoxTVCell))

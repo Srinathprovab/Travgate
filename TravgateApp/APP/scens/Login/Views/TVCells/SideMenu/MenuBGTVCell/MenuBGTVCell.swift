@@ -43,7 +43,20 @@ class MenuBGTVCell: TableViewCell {
             editProfileView.isHidden = false
             
             if MySingleton.shared.profiledata?.image != "" {
-                profileImage.sd_setImage(with: URL(string: MySingleton.shared.profiledata?.image ?? ""), placeholderImage:UIImage(contentsOfFile:"placeholder.png"))
+                profileImage.sd_setImage(with: URL(string: MySingleton.shared.profiledata?.image ?? ""), placeholderImage:UIImage(contentsOfFile:"placeholder.png"),options: [.retryFailed], completed: { (image, error, cacheType, imageURL) in
+                    if let error = error {
+                        // Handle error loading image
+                        print("Error loading image: \(error.localizedDescription)")
+                        // Check if the error is due to a 404 Not Found response
+                        if (error as NSError).code == NSURLErrorBadServerResponse {
+                            // Set placeholder image for 404 error
+                            self.profileImage.image = UIImage(named: "noimage")
+                        } else {
+                            // Set placeholder image for other errors
+                            self.profileImage.image = UIImage(named: "noimage")
+                        }
+                    }
+                })
             }else {
                 profileImage.image = UIImage(named: "noprofile")?.withRenderingMode(.alwaysOriginal)
             }

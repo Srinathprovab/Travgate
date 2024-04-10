@@ -22,6 +22,8 @@ class FlightDeatilsVC: BaseTableVC, FlightDetailsViewModelDelegate {
     @IBOutlet weak var holderView: UIView!
     @IBOutlet weak var kwdlbl: UILabel!
     
+    
+    
     var fd = [[ItinearyFlightDetails]]()
     
     static var newInstance: FlightDeatilsVC? {
@@ -43,6 +45,7 @@ class FlightDeatilsVC: BaseTableVC, FlightDetailsViewModelDelegate {
         setUI()
         
         MySingleton.shared.fdvm = FlightDetailsViewModel(self)
+        
     }
     
     
@@ -94,7 +97,7 @@ class FlightDeatilsVC: BaseTableVC, FlightDetailsViewModelDelegate {
     @IBAction func didTapOnBookNowBtnAction(_ sender: Any) {
         
         gotoBookingDetailsVC()
-        // gotoBookingConfirmedVC()
+        
     }
     
     
@@ -106,15 +109,23 @@ class FlightDeatilsVC: BaseTableVC, FlightDetailsViewModelDelegate {
         present(vc, animated: false)
     }
     
-    func gotoBookingConfirmedVC() {
-        
-        guard let vc = BookingConfirmedVC.newInstance.self else {return}
-        vc.modalPresentationStyle = .fullScreen
-        urlString = "https://provab.net/travgate/pro_new/mobile/index.php/voucher/flight/BAS-F-TP-0305-1709641808/212"
-        callapibool = true
-        present(vc, animated: true)
-    }
     
+    
+    //MARK: - show FARE RULES Content Btn Action
+    override func showContentBtnAction(cell: FareRulesTVCell) {
+        
+        cell.dropdownBool.toggle()
+        if cell.dropdownBool  {
+            cell.show()
+        }else {
+            cell.hide()
+        }
+        
+        
+        
+        commonTableView.beginUpdates()
+        commonTableView.endUpdates()
+    }
     
     
 }
@@ -165,7 +176,7 @@ extension FlightDeatilsVC {
         fareRuleslbl.textColor = .WhiteColor
         baggagelbl.textColor = .TitleColor
         
-        setupFareRulesTVCell()
+        callgetFarerulesAPI()
     }
     
     func baggageTap(){
@@ -268,20 +279,6 @@ extension FlightDeatilsVC {
     }
     
     
-    func setupFareRulesTVCell() {
-        
-        MySingleton.shared.tablerow.removeAll()
-        MySingleton.shared.tablerow.append(TableRow(height:10,cellType:.EmptyTVCell))
-//        MySingleton.shared.tablerow.append(TableRow(key:"hide",cellType: .FareRulesTVCell))
-//        MySingleton.shared.tablerow.append(TableRow(key:"show",cellType: .FareRulesTVCell))
-        MySingleton.shared.tablerow.append(TableRow(key:"show",cellType: .FRulesTVCell))
-
-        
-        
-        commonTVData = MySingleton.shared.tablerow
-        commonTableView.reloadData()
-        
-    }
     
     
     func setupBaggageTVCell() {
@@ -310,6 +307,91 @@ extension FlightDeatilsVC {
     
     
 }
+
+
+
+//MARK: - callgetFarerulesAPI farerulesList
+extension FlightDeatilsVC {
+    
+    
+    func callgetFarerulesAPI() {
+        MySingleton.shared.payload.removeAll()
+        MySingleton.shared.payload["search_id"] =  MySingleton.shared.searchid
+        
+        
+        do {
+            let jsonData = try JSONSerialization.data(withJSONObject: MySingleton.shared.farerulesrefKey)
+            if let farerulesrefKeyString = String(data: jsonData, encoding: .utf8) {
+                MySingleton.shared.payload["fare_rules_key"] = farerulesrefKeyString
+            } else {
+                print("Error: Unable to convert JSON data to string")
+            }
+        } catch {
+            print("Error: \(error)")
+        }
+        
+        
+        do {
+            let jsonData = try JSONSerialization.data(withJSONObject: MySingleton.shared.farerulesrefContent)
+            if let farerulesrefContentString = String(data: jsonData, encoding: .utf8) {
+                MySingleton.shared.payload["fare_rules_content"] = farerulesrefContentString
+            } else {
+                print("Error: Unable to convert JSON data to string")
+            }
+        } catch {
+            print("Error: \(error)")
+        }
+        
+        MySingleton.shared.payload["booking_source"] =  MySingleton.shared.bookingsource
+        MySingleton.shared.fdvm?.CALL_GET_FARERULES_API(dictParam: MySingleton.shared.payload)
+        
+    }
+    
+    func farerulesList(response: FareRulesModel) {
+        
+        MySingleton.shared.fareRulesData = response.data ?? []
+        
+        DispatchQueue.main.async {
+            self.setupFareRulesTVCell()
+        }
+        
+    }
+    
+    func setupFareRulesTVCell() {
+        
+        MySingleton.shared.tablerow.removeAll()
+        
+        
+        if MySingleton.shared.fareRulesData.count > 0 {
+            
+            self.commonTableView.estimatedRowHeight = 500
+            self.commonTableView.rowHeight = 40
+            TableViewHelper.EmptyMessage(message: "", tableview: commonTableView, vc: self)
+            
+            
+            MySingleton.shared.fareRulesData.forEach { i in
+                MySingleton.shared.tablerow.append(TableRow(title:i.rule_heading,
+                                                            subTitle: i.rule_content?.htmlToString,
+                                                            cellType:.FareRulesTVCell))
+            }
+            
+            
+            
+        }else {
+            
+            
+            TableViewHelper.EmptyMessage(message: "No Data Found", tableview: commonTableView, vc: self)
+        }
+        
+        
+        
+        commonTVData = MySingleton.shared.tablerow
+        commonTableView.reloadData()
+        
+    }
+    
+}
+
 
 
 

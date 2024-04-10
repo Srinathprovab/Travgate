@@ -233,6 +233,12 @@ class FlightSearchTVCell: TableViewCell, SelectCityViewModelProtocal {
         
         airlinelbl.text = defaults.string(forKey: UserDefaultsKeys.fcariername) ?? "ALL"
         
+        
+        if MySingleton.shared.directflightString == "on" {
+            directFlightCheckImg.image = UIImage(named: "check")?.withRenderingMode(.alwaysOriginal).withTintColor(.Buttoncolor)
+        }else {
+            directFlightCheckImg.image = UIImage(named: "uncheck")
+        }
     }
     
     
@@ -251,9 +257,11 @@ class FlightSearchTVCell: TableViewCell, SelectCityViewModelProtocal {
     @IBAction func didTapOnDirectFlightCheckBtnAction(_ sender: Any) {
         MySingleton.shared.directFlightBool.toggle()
         if MySingleton.shared.directFlightBool {
-            directFlightCheckImg.image = UIImage(named: "uncheck")
-        }else {
             directFlightCheckImg.image = UIImage(named: "check")?.withRenderingMode(.alwaysOriginal).withTintColor(.Buttoncolor)
+            MySingleton.shared.directflightString = "on"
+        }else {
+            directFlightCheckImg.image = UIImage(named: "uncheck")
+            MySingleton.shared.directflightString = ""
         }
     }
     

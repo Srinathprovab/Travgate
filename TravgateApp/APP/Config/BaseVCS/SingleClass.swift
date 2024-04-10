@@ -49,7 +49,9 @@ class MySingleton {
     var user_specification = [String]()
     var roompaxesdetails = [Room_paxes_details]()
     var hotelAddonServices = [HotelAddonModel]()
-  
+    var fareRulesData = [FareRulesData]()
+    var selectedAddonServices: [SelectedAddonService] = []
+
     
     //Flight Search
     var loderimgurl = String()
@@ -87,11 +89,14 @@ class MySingleton {
     var positionsCount = 0
     var searchTextArray = [String]()
     var payemail = String()
+    var regpassword = String()
     var paymobile = String()
     var paymobilecountrycode = String()
     var hotelcountrycode = String()
     var checkTermsAndCondationStatus = false
+    var directflightString = String()
    
+    var guestbool = false
     var nationalityCode = String()
     var email = String()
     var password = String()
@@ -116,6 +121,11 @@ class MySingleton {
     var hoteladultscount = Int()
     var hotelchildcount = Int()
     
+    var merchantid = String()
+    var sessionid = String()
+    var farerulesrefKey = [[String]]()
+    var farerulesrefContent = [[String]]()
+    
     
     var confpassword = String()
     var recentData:[Recent_searches]?
@@ -127,6 +137,7 @@ class MySingleton {
     var selectedAddonTotalPrice = 0
     var afterAddonAmountAdded = 0
     var moreDetailsData : MoreDetailsData?
+   
     
     
     //View Models

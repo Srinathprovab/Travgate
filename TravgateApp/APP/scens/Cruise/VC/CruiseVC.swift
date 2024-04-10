@@ -75,10 +75,14 @@ extension CruiseVC {
     
     
     func callAPI() {
+        
+        MySingleton.shared.afterResultsBool = true
+       
         MySingleton.shared.cruisevm?.CALL_CRUISE_LIST_API(dictParam: [:])
     }
     
     func cruiseList(response: CruiseModel) {
+        
         MySingleton.shared.cruiseList = response.data ?? []
         MySingleton.shared.cruise = response
         DispatchQueue.main.async {

@@ -30,7 +30,7 @@ protocol MBViewModelDelegate : BaseViewModelProtocol {
     func mobilePreBookingModelDetails(response:MobilePreBookingModel)
     func mobileprepaymentconfirmationDetails(response:MobilePrePaymentModel)
     func mobilesendtopaymentDetails(response:MobilePrePaymentModel)
-//    func mobolePaymentDetails(response:MobilePaymentModel)
+    func paymentDetails(response:PaymentModel)
     
     
 }
@@ -160,32 +160,32 @@ class MBViewModel: MBInfoOutput {
             }
         }
     }
-//
-//
-//
-//
-//
-//    //MARK:  CALL_MOBILE_PAYMENT_API
-//    func CALL_MOBILE_PAYMENT_API(dictParam: [String: Any],url:String){
-//        let parms = NSDictionary(dictionary:dictParam)
-//        print("Parameters = \(parms)")
-//
-//        self.view?.showLoader()
-//
-//        ServiceManager.postOrPutApiCall(endPoint: url , parameters: parms, resultType: MobilePaymentModel.self, p:dictParam) { sucess, result, errorMessage in
-//
-//            DispatchQueue.main.async {
-//                self.view?.hideLoader()
-//                if sucess {
-//                    guard let response = result else {return}
-//                    self.view.mobolePaymentDetails(response: response)
-//                } else {
-//                    // Show alert
-//                    self.view.showToast(message: errorMessage ?? "")
-//                }
-//            }
-//        }
-//    }
-//
-//
+
+
+
+
+
+    //MARK:  CALL_MOBILE_PAYMENT_API
+    func CALL_MOBILE_PAYMENT_API(dictParam: [String: Any],url:String){
+        let parms = NSDictionary(dictionary:dictParam)
+        print("Parameters = \(parms)")
+
+        self.view?.showLoader()
+
+        ServiceManager.postOrPutApiCall(endPoint: url , parameters: parms, resultType: PaymentModel.self, p:dictParam) { sucess, result, errorMessage in
+
+            DispatchQueue.main.async {
+                self.view?.hideLoader()
+                if sucess {
+                    guard let response = result else {return}
+                    self.view.paymentDetails(response: response)
+                } else {
+                    // Show alert
+                    self.view.showToast(message: errorMessage ?? "")
+                }
+            }
+        }
+    }
+
+
 }

@@ -228,7 +228,7 @@ extension ModifySearchVC {
         MySingleton.shared.payload["depature"] = MySingleton.shared.convertDateFormat(inputDate: defaults.string(forKey: UserDefaultsKeys.calDepDate) ?? "", f1: "dd-MM-yyyy", f2: "dd/MM/yyyy")
         MySingleton.shared.payload["out_jrn"] = "All Times"
         MySingleton.shared.payload["ret_jrn"] = "All Times"
-        MySingleton.shared.payload["direct_flight"] = ""
+        MySingleton.shared.payload["direct_flight"] = MySingleton.shared.directflightString
         MySingleton.shared.payload["carrier"] = ""
         MySingleton.shared.payload["psscarrier"] = defaults.string(forKey: UserDefaultsKeys.fcariercode) ?? "ALL"
         MySingleton.shared.payload["search_flight"] = "Search"

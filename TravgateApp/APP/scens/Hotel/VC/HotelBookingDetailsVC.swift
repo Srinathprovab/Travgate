@@ -109,6 +109,14 @@ extension HotelBookingDetailsVC {
 
 
 class HotelBookingDetailsVC: BaseTableVC, LoginViewModelDelegate, RegisterViewModelDelegate, MBViewModelDelegate, HotelBookingViewModelDelegate, TimerManagerDelegate {
+    func paymentDetails(response: PaymentModel) {
+        
+    }
+    
+    func mobolePaymentDetails(response: PaymentModel) {
+        
+    }
+    
    
     @IBOutlet weak var kwdlbl: UILabel!
     

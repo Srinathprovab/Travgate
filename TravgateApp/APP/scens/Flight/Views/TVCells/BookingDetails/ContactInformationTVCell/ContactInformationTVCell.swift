@@ -67,6 +67,13 @@ class ContactInformationTVCell: TableViewCell {
         filterdcountrylist =  MySingleton.shared.countrylist
         loadCountryNamesAndCode()
         
+        
+        if MySingleton.shared.guestbool == true {
+            emailTF.text =  MySingleton.shared.payemail
+            mobileTF.text = MySingleton.shared.paymobile
+            countrycodeTF.text =  MySingleton.shared.paymobilecountrycode
+        }
+        
         let usersignIn = defaults.object(forKey: UserDefaultsKeys.regStatus) as? Bool
         if usersignIn == true {
             if let email = defaults.string(forKey: UserDefaultsKeys.useremail) {
@@ -105,7 +112,7 @@ class ContactInformationTVCell: TableViewCell {
                 
             }
             
-          
+            mobilenoMaxLengthBool = true
             
         }else {
             defaults.setValue(false, forKey: UserDefaultsKeys.regStatus)

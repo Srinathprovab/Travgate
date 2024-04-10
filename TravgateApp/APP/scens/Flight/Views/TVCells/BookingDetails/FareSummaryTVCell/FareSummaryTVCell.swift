@@ -26,15 +26,17 @@ class FareSummaryTVCell: TableViewCell {
     @IBOutlet weak var adultPasslbl: UILabel!
     @IBOutlet weak var childPasslbl: UILabel!
     @IBOutlet weak var infantPasslbl: UILabel!
-    @IBOutlet weak var check1img: UIImageView!
-    @IBOutlet weak var check2img: UIImageView!
+    
     @IBOutlet weak var totalAmount: UILabel!
     @IBOutlet weak var addonView: UIView!
     @IBOutlet weak var addonValue: UILabel!
+    @IBOutlet weak var addonView1: UIView!
+    @IBOutlet weak var addonserviceTV: UITableView!
+    @IBOutlet weak var tvHeight: NSLayoutConstraint!
     
-    var check1bool = false
-    var check2bool = false
-    var totalkwdvalue: Decimal = 0
+    
+   
+   
     var afteraddontotalamount : Decimal = 0
     
     override func awakeFromNib() {
@@ -52,6 +54,7 @@ class FareSummaryTVCell: TableViewCell {
     
     
     func setupUI() {
+        setupTV()
         topview.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner] // Top left corner, Top right corner respectively
         topview.layer.cornerRadius = 8
         topview.clipsToBounds = true
@@ -99,11 +102,19 @@ class FareSummaryTVCell: TableViewCell {
         }
         
         
-        if MySingleton.shared.addonSelectedArray.count > 0 {
+       
+        
+        
+        if MySingleton.shared.selectedAddonServices.count > 0 {
+            tvHeight.constant = CGFloat((MySingleton.shared.selectedAddonServices.count * 30))
             addonView.isHidden = false
+            addonView1.isHidden = false
+            addonserviceTV.reloadData()
         }else {
+            tvHeight.constant = 0
             addonView.isHidden = true
-            totalkwdvalue = 0
+            addonView1.isHidden = true
+            addonserviceTV.reloadData()
         }
         
     }
@@ -119,6 +130,12 @@ class FareSummaryTVCell: TableViewCell {
     
     @objc func addon(_ ns: NSNotification) {
         
+        
+        addonValue.text = ""
+        
+        // Update addonValue label
+        addonValue.text = "\(defaults.string(forKey: UserDefaultsKeys.selectedCurrency) ?? ""): \(MySingleton.shared.selectedAddonTotalPrice)"
+        
         // Convert selectedAddonTotalPrice to Decimal
         let selectedAddonTotalPriceDecimal = Decimal(MySingleton.shared.selectedAddonTotalPrice)
         
@@ -130,10 +147,6 @@ class FareSummaryTVCell: TableViewCell {
 
         // Add totalkwdvalue to grand total
         let updatedGrandTotal = grandTotalDecimal + selectedAddonTotalPriceDecimal
-
-        // Update addonValue label
-        addonValue.text = "\(defaults.string(forKey: UserDefaultsKeys.selectedCurrency) ?? ""): \(selectedAddonTotalPriceDecimal)"
-        
         updateTotalAmount(updatedGrandTotal: updatedGrandTotal)
         
     }
@@ -148,23 +161,45 @@ class FareSummaryTVCell: TableViewCell {
     }
     
     
-    @IBAction func didTapOnMultipleOperatoreBtnAction(_ sender: Any) {
-        check1bool.toggle()
-        if check1bool {
-            check1img.image = UIImage(named: "check")
-        }else {
-            check1img.image = UIImage(named: "uncheck")
-        }
+    
+    
+}
+
+
+
+extension FareSummaryTVCell:UITableViewDelegate,UITableViewDataSource {
+    
+    
+    
+    func setupTV() {
+        addonserviceTV.register(UINib(nibName: "AddOnTitleTVCell", bundle: nil), forCellReuseIdentifier: "cell")
+        addonserviceTV.delegate = self
+        addonserviceTV.dataSource = self
+        addonserviceTV.tableFooterView = UIView()
+        addonserviceTV.showsHorizontalScrollIndicator = false
+        addonserviceTV.separatorStyle = .singleLine
+        addonserviceTV.isScrollEnabled = false
+        addonserviceTV.separatorStyle = .none
+        
     }
     
     
-    @IBAction func didTapOnPaymentCeheckBoxBtnAction(_ sender: Any) {
-        check2bool.toggle()
-        if check2bool {
-            check2img.image = UIImage(named: "check")
-        }else {
-            check2img.image = UIImage(named: "uncheck")
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return MySingleton.shared.selectedAddonServices.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var c = UITableViewCell()
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? AddOnTitleTVCell {
+            
+            cell.selectionStyle = .none
+            cell.titlelbl.text = MySingleton.shared.selectedAddonServices[indexPath.row].title
+            cell.pricelbl.text = MySingleton.shared.selectedAddonServices[indexPath.row].price
+            
+            c = cell
+            
         }
+        return c
     }
     
 }

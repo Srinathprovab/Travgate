@@ -6,12 +6,13 @@
 //
 
 import UIKit
-
+import DropDown
 
 protocol SignupTVCellDelegate {
     func didTapOnRegisterCloseBtnAction(cell:SignupTVCell)
     func didTapOnSignupBtnAction(cell:SignupTVCell)
     func editingTextField(tf:UITextField)
+    func didTapOnCountryCodeBtn(cell:SignupTVCell)
 }
 
 class SignupTVCell: TableViewCell {
@@ -35,6 +36,22 @@ class SignupTVCell: TableViewCell {
     @IBOutlet weak var passview: UIView!
     @IBOutlet weak var confPassview: UIView!
     
+    
+    var cname = String()
+    var maxLength = 8
+    var isSearchBool = Bool()
+    var searchText = String()
+    var filterdcountrylist = [Country_list]()
+    var countryNames = [String]()
+    var countrycodesArray = [String]()
+    var originArray = [String]()
+    var isocountrycodeArray = [String]()
+    
+    var nationalityCode = String()
+    let dropDown = DropDown()
+    var countryNameArray = [String]()
+    var isoCountryCode = String()
+    var billingCountryName = String()
     
     var showbool1 = false
     var showbool2 = false
@@ -67,6 +84,11 @@ class SignupTVCell: TableViewCell {
         setupTF(tf: passTF)
         setupTF(tf: confPassTF)
         setupTF(tf: countrycodeTF)
+        
+        setupDropDown()
+        
+        countrycodeTF.addTarget(self, action: #selector(searchTextChanged(textField:)), for: .editingChanged)
+        countrycodeTF.addTarget(self, action: #selector(searchTextBegin(textField:)), for: .editingDidBegin)
         
     }
     
@@ -165,8 +187,88 @@ class SignupTVCell: TableViewCell {
         delegate?.didTapOnSignupBtnAction(cell: self)
     }
     
+    @objc func searchTextBegin(textField: UITextField) {
+        textField.text = ""
+        filterdcountrylist.removeAll()
+        filterdcountrylist =  MySingleton.shared.countrylist
+        loadCountryNamesAndCode()
+        dropDown.show()
+    }
     
+    
+    @objc func searchTextChanged(textField: UITextField) {
+        searchText = textField.text ?? ""
+        if searchText == "" {
+            isSearchBool = false
+            filterContentForSearchText(searchText)
+        }else {
+            isSearchBool = true
+            filterContentForSearchText(searchText)
+        }
+        
+        
+    }
+    
+    func filterContentForSearchText(_ searchText: String) {
+        print("Filterin with:", searchText)
+        
+        filterdcountrylist.removeAll()
+        filterdcountrylist =  MySingleton.shared.countrylist.filter { thing in
+            return "\(thing.name?.lowercased() ?? "")".contains(searchText.lowercased())
+        }
+        
+        loadCountryNamesAndCode()
+        dropDown.show()
+        
+    }
+    
+    func loadCountryNamesAndCode(){
+        countryNames.removeAll()
+        countrycodesArray.removeAll()
+        isocountrycodeArray.removeAll()
+        originArray.removeAll()
+        
+        filterdcountrylist.forEach { i in
+            countryNames.append(i.name ?? "")
+            countrycodesArray.append(i.country_code ?? "")
+            isocountrycodeArray.append(i.iso_country_code ?? "")
+            originArray.append(i.origin ?? "")
+        }
+        
+        DispatchQueue.main.async {[self] in
+            dropDown.dataSource = countryNames
+        }
+    }
+    
+    
+    func setupDropDown() {
+        
+        dropDown.direction = .bottom
+        dropDown.backgroundColor = .WhiteColor
+        dropDown.anchorView = self.countrycodeTF
+        dropDown.bottomOffset = CGPoint(x: 0, y: countrycodeTF.frame.size.height + 10)
+        dropDown.selectionAction = { [weak self] (index: Int, item: String) in
+            
+            
+            self?.countrycodeTF.text = self?.countrycodesArray[index]
+            self?.isoCountryCode = self?.isocountrycodeArray[index] ?? ""
+            self?.billingCountryName = self?.countryNames[index] ?? ""
+            self?.nationalityCode = self?.originArray[index] ?? ""
+           
+            
+            self?.countrycodeTF.text = self?.countrycodesArray[index] ?? ""
+            MySingleton.shared.paymobilecountrycode = self?.countrycodesArray[index] ?? ""
+            self?.countrycodeTF.resignFirstResponder()
+            self?.mobileTF.text = ""
+            self?.mobileTF.becomeFirstResponder()
+            self?.cname = self?.countryNames[index] ?? ""
+            self?.delegate?.didTapOnCountryCodeBtn(cell: self!)
+            
+        }
+    }
 }
+
+
 
 
 
@@ -179,7 +281,7 @@ extension SignupTVCell {
         
         
         if textField == mobileTF {
-            let maxLength = 10
+            let maxLength = cname.getMobileNumberMaxLength() ?? 8
             let currentString: NSString = textField.text! as NSString
             let newString: NSString =  currentString.replacingCharacters(in: range, with: string) as NSString
             

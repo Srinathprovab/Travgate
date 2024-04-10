@@ -15,7 +15,7 @@ protocol MPBViewModelDelegate : BaseViewModelProtocol {
     func mobilePreBookingModelDetails(response:MobilePreBookingModel)
     func mobileprepaymentconfirmationDetails(response:MobilePrePaymentModel)
     func mobilesendtopaymentDetails(response:MobilePrePaymentModel)
-    func mobolePaymentDetails(response:MobilePaymentModel)
+    func mobolePaymentDetails(response:PaymentModel)
     
 }
 
@@ -158,7 +158,7 @@ class MPBViewModel {
         
         self.view?.showLoader()
         
-        ServiceManager.postOrPutApiCall(endPoint: url , parameters: parms, resultType: MobilePaymentModel.self, p:dictParam) { sucess, result, errorMessage in
+        ServiceManager.postOrPutApiCall(endPoint: url , parameters: parms, resultType: PaymentModel.self, p:dictParam) { sucess, result, errorMessage in
             
             DispatchQueue.main.async {
                 self.view?.hideLoader()

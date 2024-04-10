@@ -9,14 +9,6 @@ import UIKit
 
 class BookingDetailsVC: BaseTableVC, MPBViewModelDelegate, MobileSecureBookingViewModelDelegate, LoginViewModelDelegate, RegisterViewModelDelegate, MBViewModelDelegate {
     
-    func mobilepreprocessbookingDetails(response: MobilePreProcessBookingModel) {
-        
-    }
-    
-    func mobileprocesspassengerDetails(response: MBPModel) {
-        
-    }
-    
     
     
     @IBOutlet weak var sessionlbl: UILabel!
@@ -42,7 +34,6 @@ class BookingDetailsVC: BaseTableVC, MPBViewModelDelegate, MobileSecureBookingVi
         
         // Do any additional setup after loading the view.
         setupUI()
-        // defaults.setValue(false, forKey: UserDefaultsKeys.regStatus)
         MySingleton.shared.delegate = self
         MySingleton.shared.mpbvm = MPBViewModel(self)
         MySingleton.shared.viewmodel1 = MobileSecureBookingViewModel(self)
@@ -72,6 +63,8 @@ class BookingDetailsVC: BaseTableVC, MPBViewModelDelegate, MobileSecureBookingVi
                                          "GuestRegisterTableViewCell",
                                          "RegisterSelectionLoginTableViewCell",
                                          "BookingDetailsFlightDataTVCell",
+                                         "OperatorsCheckBoxTVCell",
+                                         "PrimaryContactInfoTVCell",
                                          "GuestTVCell"])
     }
     
@@ -136,10 +129,25 @@ class BookingDetailsVC: BaseTableVC, MPBViewModelDelegate, MobileSecureBookingVi
     
     override func editingTextField(tf:UITextField){
         
-        if tf.tag == 1 {
+        
+        
+        switch tf.tag {
+        case 1:
             MySingleton.shared.payemail = tf.text ?? ""
-        }else {
+            break
+            
+        case 2:
             MySingleton.shared.paymobile = tf.text ?? ""
+            break
+            
+        case 3:
+            MySingleton.shared.regpassword = tf.text ?? ""
+            break
+            
+            
+            
+        default:
+            break
         }
     }
     
@@ -192,70 +200,44 @@ class BookingDetailsVC: BaseTableVC, MPBViewModelDelegate, MobileSecureBookingVi
     }
     
     
-    
-    
-    
-    override func GuestRegisterNowButtonAction(cell: GuestTVCell, email: String, pass: String, phone: String, countryCode: String) {
-        
-        defaults.set(true, forKey: UserDefaultsKeys.regStatus)
-        defaults.set(email, forKey: UserDefaultsKeys.useremail)
-        defaults.set(countryCode, forKey: UserDefaultsKeys.countryCode)
-        defaults.set(phone, forKey: UserDefaultsKeys.usermobile)
-        showToast(message: "Sucessfully Registered!..")
-        
-        commonTableView.reloadData()
-        
-        
-    }
-    override func loginNowButtonAction(cell: RegisterNowTableViewCell, email: String, pass: String) {
-        print("loginNowButtonAction")
-        callLoginAPI(email: email, pass: pass)
+    //MARK: - PrimaryContactInfoTVCell Delegate Methods
+    override func didTapOnCountryCodeBtn(cell: PrimaryContactInfoTVCell) {
+        MySingleton.shared.nationalityCode = cell.isoCountryCode
+        MySingleton.shared.paymobilecountrycode = cell.countrycodeTF.text ?? ""
     }
     
     
-    
-    override func RegisterNowButtonAction(cell: LoginDetailsTableViewCell, email: String, pass: String, phone: String, countryCode: String) {
-        
-        defaults.set(true, forKey: UserDefaultsKeys.regStatus)
-        defaults.set(email, forKey: UserDefaultsKeys.useremail)
-        defaults.set(countryCode, forKey: UserDefaultsKeys.countryCode)
-        defaults.set(phone, forKey: UserDefaultsKeys.usermobile)
+    override func didTapOnGuestBtnAction(cell:PrimaryContactInfoTVCell) {
+        MySingleton.shared.guestbool = true
         showToast(message: "Successfully Registered!..")
-        mobilenoMaxLengthBool = true
-        
-        
-        commonTableView.reloadData()
-        
-    }
-    
-    
-    
-    override func didTapOnguestButton(cell: RegisterSelectionLoginTableViewCell) {
-        cell.registerRadioImage.image = UIImage(named: "radiounselected")
-        cell.loginRadioImage.image = UIImage(named: "radiounselected")
-        cell.guestRadioImage.image = UIImage(named: "radioSelected1")?.withRenderingMode(.alwaysOriginal).withTintColor(.AppBtnColor)
-        self.mbviewmodel?.section = .guestLogin
-        
-        setupTVCell()
-        
-    }
-    override func registerButton(cell: RegisterSelectionLoginTableViewCell) {
-        cell.registerRadioImage.image = UIImage(named: "radioSelected1")?.withRenderingMode(.alwaysOriginal).withTintColor(.AppBtnColor)
-        cell.loginRadioImage.image = UIImage(named: "radiounselected")
-        cell.guestRadioImage.image = UIImage(named: "radiounselected")
-        self.mbviewmodel?.section = .register
         
         setupTVCell()
     }
-    override func loginButton(cell: RegisterSelectionLoginTableViewCell) {
-        cell.registerRadioImage.image = UIImage(named: "radiounselected")
-        cell.loginRadioImage.image = UIImage(named: "radioSelected1")?.withRenderingMode(.alwaysOriginal).withTintColor(.AppBtnColor)
-        cell.guestRadioImage.image = UIImage(named: "radiounselected")
-        self.mbviewmodel?.section = .login
-        
-        
-        setupTVCell()
+    
+    
+    override func didTapOnLoginBtnAction(cell:PrimaryContactInfoTVCell) {
+        callLoginAPI()
     }
+    
+    
+    override func didTapOnRegisterBtnAction(cell:PrimaryContactInfoTVCell) {
+        callRegisterAPI()
+    }
+    
+    
+    //MARK: - PaymentModel
+    func paymentDetails(response: PaymentModel) {
+        
+    }
+    
+    func mobilepreprocessbookingDetails(response: MobilePreProcessBookingModel) {
+        
+    }
+    
+    func mobileprocesspassengerDetails(response: MBPModel) {
+        
+    }
+    
     
 }
 
@@ -332,26 +314,12 @@ extension BookingDetailsVC {
             
         }
         
-        if defaults.bool(forKey: UserDefaultsKeys.loggedInStatus) == false {
-            //  MySingleton.shared.tablerow.append(TableRow(cellType:.TDetailsLoginTVCell))
-            
-            MySingleton.shared.tablerow.append(TableRow(height: 14,bgColor:.AppHolderViewColor, cellType:.EmptyTVCell))
-            MySingleton.shared.tablerow.append(TableRow(cellType: .RegisterSelectionLoginTableViewCell))
-            MySingleton.shared.tablerow.append(TableRow(height: 12,bgColor:.AppHolderViewColor, cellType:.EmptyTVCell))
-            if self.mbviewmodel?.section == .guestLogin {
-                MySingleton.shared.tablerow.append(TableRow(cellType: .GuestTVCell))
-                MySingleton.shared.tablerow.append(TableRow(height: 12,bgColor:.AppHolderViewColor, cellType:.EmptyTVCell))
-            }  else if self.mbviewmodel?.section == .login {
-                MySingleton.shared.tablerow.append(TableRow(key: "register",cellType: .RegisterNowTableViewCell))
-                MySingleton.shared.tablerow.append(TableRow(height: 12,bgColor:.AppHolderViewColor, cellType:.EmptyTVCell))
-            } else if self.mbviewmodel?.section == .register {
-                MySingleton.shared.tablerow.append(TableRow(cellType: .LoginDetailsTableViewCell))
-                MySingleton.shared.tablerow.append(TableRow(height: 12,bgColor:.AppHolderViewColor, cellType:.EmptyTVCell))
-            }
-            
-        }else {
-            MySingleton.shared.tablerow.append(TableRow(height: 12,bgColor:.AppHolderViewColor, cellType:.EmptyTVCell))
+        
+        
+        if MySingleton.shared.guestbool == false {
+            MySingleton.shared.tablerow.append(TableRow(cellType:.PrimaryContactInfoTVCell))
         }
+        
         
         
         MySingleton.shared.passengertypeArray.removeAll()
@@ -401,7 +369,11 @@ extension BookingDetailsVC {
         
         
         
+        
         MySingleton.shared.tablerow.append(TableRow(cellType:.ContactInformationTVCell))
+        
+        
+        
         MySingleton.shared.tablerow.append(TableRow(height:10,cellType:.EmptyTVCell))
         MySingleton.shared.tablerow.append(TableRow(cellType:.UsePromoCodesTVCell))
         MySingleton.shared.tablerow.append(TableRow(cellType:.InternationalTravelInsuranceTVCell))
@@ -409,11 +381,9 @@ extension BookingDetailsVC {
         MySingleton.shared.tablerow.append(TableRow(height:10,cellType:.EmptyTVCell))
         MySingleton.shared.tablerow.append(TableRow(cellType:.AddonTVCell))
         MySingleton.shared.tablerow.append(TableRow(height:10,cellType:.EmptyTVCell))
-        MySingleton.shared.tablerow.append(TableRow(height:10,cellType:.EmptyTVCell))
         MySingleton.shared.tablerow.append(TableRow(cellType:.FareSummaryTVCell))
-        MySingleton.shared.tablerow.append(TableRow(height:50,cellType:.EmptyTVCell))
-        
-        
+        MySingleton.shared.tablerow.append(TableRow(cellType:.OperatorsCheckBoxTVCell))
+        MySingleton.shared.tablerow.append(TableRow(height:20,cellType:.EmptyTVCell))
         
         commonTVData = MySingleton.shared.tablerow
         commonTableView.reloadData()
@@ -440,7 +410,7 @@ extension BookingDetailsVC {
         var lnameCharBool = true
         
         
-     
+        
         
         // Check if there are any rows in section 0
         if commonTableView.numberOfRows(inSection: 0) == 0 {
@@ -525,9 +495,9 @@ extension BookingDetailsVC {
             }
             
             // Check if there are any rows in section 0
-                if positionsCount == 0 {
-                    callpaymentbool = false
-                }
+            if positionsCount == 0 {
+                callpaymentbool = false
+            }
         }
         
         
@@ -699,26 +669,68 @@ extension BookingDetailsVC {
         if response.status == false {
             showToast(message: response.message ?? "")
         }else {
-            //            MySingleton.shared.stopTimer()
-            //            guard let vc = PaymentGatewayVC.newInstance.self else {return}
-            //            vc.modalPresentationStyle = .fullScreen
-            //            vc.payload = MySingleton.shared.payload
-            //            vc.grandTotalamount = "\(MySingleton.shared.flightPriceDetails?.api_currency ?? ""):\(MySingleton.shared.flightPriceDetails?.grand_total ?? "")"
-            //            vc.grand_total_Price = "\(MySingleton.shared.flightPriceDetails?.grand_total ?? "")"
-            //            vc.tmpFlightPreBookingId = MySingleton.shared.tmpFlightPreBookingId
-            //            present(vc, animated: true)
             
-            gotoBookingSucessVC(url: response.url ?? "")
+            MySingleton.shared.payload.removeAll()
+            
+            //        amount:100.00
+            //        currency_code:KWD
+            //        pg_codes:knet-test
+            //        type:e_commerce
+            //        mailto:customer_email:s@provab.com
+            //        customer_first_name:Sudhir
+            //        customer_last_name:Singh
+            //        customer_phone:8840955727
+            //        language:en
+            //        extra:"full_name":"Kamran","ticket_information":"Tciket-1"
+            //        order_no:SSA3312348
+            //payment_type:one_off
+            
+            
+            MySingleton.shared.payload["amount"] = String(format: "%.2f", Double(MySingleton.shared.mpbpriceDetails?.grand_total ?? "") ?? 0.0)
+            MySingleton.shared.payload["currency_code"] = defaults.string(forKey: UserDefaultsKeys.selectedCurrency)
+            MySingleton.shared.payload["pg_codes"] = "knet-test"
+            MySingleton.shared.payload["type"] = "e_commerce"
+            MySingleton.shared.payload["customer_email"] = MySingleton.shared.payemail
+            MySingleton.shared.payload["customer_first_name"] = "srinath"
+            MySingleton.shared.payload["customer_last_name"] = "provab"
+            MySingleton.shared.payload["customer_phone"] = MySingleton.shared.paymobile
+            MySingleton.shared.payload["language"] = "en"
+            MySingleton.shared.payload["extra"] = ""
+            
+            
+            let random5DigitNumber = generateRandomNumber()
+            MySingleton.shared.payload["order_no"] = "\(random5DigitNumber)"
+            
+            MySingleton.shared.mpbvm?.CALL_MOBILE_PAYMENT_API(dictParam: MySingleton.shared.payload, url: response.pay_url ?? "")
         }
         
         
     }
     
     
-    func gotoBookingSucessVC(url:String) {
-        guard let vc = BookingSucessVC.newInstance.self else {return}
+    
+    func mobolePaymentDetails(response: PaymentModel) {
+        
+        
+        MySingleton.shared.merchantid = response.order_no ?? ""
+        MySingleton.shared.sessionid = response.session_id ?? ""
+        
+        DispatchQueue.main.async {
+            self.gotoOttuPaymentGatewayVC()
+        }
+        
+        
+    }
+    
+    
+    func generateRandomNumber() -> Int {
+        let randomNumber = Int.random(in: 10000...99999)
+        return randomNumber
+    }
+    
+    func gotoOttuPaymentGatewayVC() {
+        guard let vc = OttuPaymentGatewayVC.newInstance.self else {return}
         vc.modalPresentationStyle = .fullScreen
-        urlString = url
         present(vc, animated: true)
     }
     
@@ -767,10 +779,6 @@ extension BookingDetailsVC {
     }
     
     
-    func mobolePaymentDetails(response: MobilePaymentModel) {
-        
-    }
-    
     
 }
 
@@ -782,8 +790,8 @@ extension BookingDetailsVC:TimerManagerDelegate {
     
     func addObserver() {
         
-        
-        
+        MySingleton.shared.guestbool = false
+        MySingleton.shared.selectedAddonServices.removeAll()
         
         NotificationCenter.default.addObserver(self, selector: #selector(nointernet), name: Notification.Name("offline"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(resultnil), name: NSNotification.Name("resultnil"), object: nil)
@@ -890,7 +898,7 @@ extension BookingDetailsVC {
         MySingleton.shared.payload["depature"] = MySingleton.shared.convertDateFormat(inputDate: defaults.string(forKey: UserDefaultsKeys.calDepDate) ?? "", f1: "dd-MM-yyyy", f2: "dd/MM/yyyy")
         MySingleton.shared.payload["out_jrn"] = "All Times"
         MySingleton.shared.payload["ret_jrn"] = "All Times"
-        MySingleton.shared.payload["direct_flight"] = ""
+        MySingleton.shared.payload["direct_flight"] = MySingleton.shared.directflightString
         MySingleton.shared.payload["carrier"] = ""
         MySingleton.shared.payload["psscarrier"] = defaults.string(forKey: UserDefaultsKeys.fcariercode) ?? "ALL"
         MySingleton.shared.payload["search_flight"] = "Search"
@@ -954,55 +962,37 @@ extension BookingDetailsVC {
 }
 
 
-//MARK: - call Profile Details API
 
 extension BookingDetailsVC {
-    func callLoginAPI(email: String, pass: String) {
-        MySingleton.shared.payload["username"] = email
-        MySingleton.shared.payload["password"] = pass
-        MySingleton.shared.loginvm?.CALL_USER_LOGIN_API(dictParam:  MySingleton.shared.payload)
-        // callProfileDetailsAPI()
-    }
     
-    func callRegisterAPI(email: String, pass: String, mobile: String, countryCode: String) {
-        MySingleton.shared.payload["email"] = email
-        MySingleton.shared.payload["password"] = pass
-        MySingleton.shared.payload["phone"] = mobile
-        MySingleton.shared.payload["country_code"] = countryCode
+    //MARK: - callRegisterAPI registerSucess
+    
+    func callRegisterAPI() {
+        
+        MySingleton.shared.payload.removeAll()
+        MySingleton.shared.payload["email"] = MySingleton.shared.payemail
+        MySingleton.shared.payload["password"] = MySingleton.shared.regpassword
+        MySingleton.shared.payload["phone"] = MySingleton.shared.paymobile
+        MySingleton.shared.payload["country_code"] = MySingleton.shared.paymobilecountrycode
+        
+        print( MySingleton.shared.payload)
+        
+        
         MySingleton.shared.registervm?.CALL_USER_REGISTER_API(dictParam:  MySingleton.shared.payload)
-        // callProfileDetailsAPI()
+        
     }
     
     
-    
-    //    func callProfileDetailsAPI() {
-    //        MySingleton.shared.payload["user_id"] = defaults.string(forKey: UserDefaultsKeys.userid) ?? "0"
-    //        MySingleton.shared.profilevm?.CALL_SHOW_PROFILE_DETAILS_API(dictParam:  MySingleton.shared.payload)
-    //    }
-    //
-    //
-    //    func getProfileDetails(response: Profil) {
-    //
-    //        MySingleton.shared.profiledata = response.data
-    //
-    //        DispatchQueue.main.async {[self] in
-    //           // callAllAPIS()
-    //        }
-    //    }
-    
-    
-}
-
-
-extension BookingDetailsVC {
     func registerSucess(response: RegisterModel) {
         print(response)
         if response.status == false {
             showToast(message: response.msg ?? "")
         } else {
+            
+            //            defaults.set(true, forKey: UserDefaultsKeys.regStatus)
+            //            defaults.set(response.data?.user_id, forKey: UserDefaultsKeys.userid)
+            MySingleton.shared.guestbool = true
             showToast(message: "Register Sucess")
-            defaults.set(true, forKey: UserDefaultsKeys.regStatus)
-            defaults.set(response.data?.user_id, forKey: UserDefaultsKeys.userid)
             let seconds = 2.0
             DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {[self] in
                 setupTVCell()
@@ -1010,6 +1000,17 @@ extension BookingDetailsVC {
         }
     }
     
+    
+    
+    //MARK: - callLoginAPI loginSucess
+    
+    func callLoginAPI() {
+        MySingleton.shared.payload.removeAll()
+        MySingleton.shared.payload["username"] = MySingleton.shared.payemail
+        MySingleton.shared.payload["password"] = MySingleton.shared.regpassword
+        MySingleton.shared.loginvm?.CALL_USER_LOGIN_API(dictParam:  MySingleton.shared.payload)
+        
+    }
     
     func loginSucess(response: LoginModel) {
         print(response)

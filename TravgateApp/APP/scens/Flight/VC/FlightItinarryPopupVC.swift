@@ -8,6 +8,10 @@
 import UIKit
 
 class FlightItinarryPopupVC: BaseTableVC, FlightDetailsViewModelDelegate {
+    func farerulesList(response: FareRulesModel) {
+        
+    }
+    
     
     
     var fd = [[ItinearyFlightDetails]]()

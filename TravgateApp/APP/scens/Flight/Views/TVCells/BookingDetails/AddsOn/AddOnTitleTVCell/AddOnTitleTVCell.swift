@@ -1,17 +1,17 @@
 //
-//  FareRulesTVCell.swift
+//  AddOnTitleTVCell.swift
 //  Travgate
 //
-//  Created by FCI on 14/02/24.
+//  Created by FCI on 04/04/24.
 //
 
 import UIKit
 
-class FareRulesTVCell: TableViewCell {
+class AddOnTitleTVCell: UITableViewCell {
+    
+    @IBOutlet weak var titlelbl: UILabel!
+    @IBOutlet weak var pricelbl: UILabel!
 
-    
-    
-    @IBOutlet weak var infoView: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -21,15 +21,6 @@ class FareRulesTVCell: TableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
-    }
-    
-    
-    override func updateUI() {
-        if cellInfo?.key == "show" {
-            infoView.isHidden = false
-        }else {
-            infoView.isHidden = true
-        }
     }
     
 }
