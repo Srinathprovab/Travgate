@@ -688,7 +688,8 @@ extension BookingDetailsVC {
             
             MySingleton.shared.payload["amount"] = String(format: "%.2f", Double(MySingleton.shared.mpbpriceDetails?.grand_total ?? "") ?? 0.0)
             MySingleton.shared.payload["currency_code"] = defaults.string(forKey: UserDefaultsKeys.selectedCurrency)
-            MySingleton.shared.payload["pg_codes"] = "knet-test"
+            MySingleton.shared.payload["pg_codes[0]"] = "knet-test"
+            MySingleton.shared.payload["pg_codes[1]"] = "credit-card-test"
             MySingleton.shared.payload["type"] = "e_commerce"
             MySingleton.shared.payload["customer_email"] = MySingleton.shared.payemail
             MySingleton.shared.payload["customer_first_name"] = "srinath"
@@ -716,10 +717,18 @@ extension BookingDetailsVC {
         MySingleton.shared.sessionid = response.session_id ?? ""
         
         DispatchQueue.main.async {
-            self.gotoOttuPaymentGatewayVC()
+            //self.gotoOttuPaymentGatewayVC()
+            self.gotoLoadWebViewVC(urlStr1: response.checkout_url ?? "")
         }
         
         
+    }
+    
+    func gotoLoadWebViewVC(urlStr1:String) {
+        guard let vc = LoadWebViewVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .fullScreen
+        vc.urlString = urlStr1
+        present(vc, animated: true)
     }
     
     

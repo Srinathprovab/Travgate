@@ -72,10 +72,17 @@ class LoadWebViewVC: UIViewController, WKNavigationDelegate {
    
     
     @IBAction func didTapOnBackBtnAction(_ sender: Any) {
-        callapibool = false
-        dismiss(animated: true)
+        gotoDashboard()
     }
     
+    
+    func gotoDashboard() {
+        BASE_URL = BASE_URL1
+        guard let vc = DashBoardTBVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .fullScreen
+        vc.selectedIndex = 0
+        present(vc, animated: true)
+    }
     
 }
 

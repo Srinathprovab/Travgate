@@ -86,6 +86,9 @@ class PrimaryContactInfoTVCell: TableViewCell {
     
     
     func setupTF(textfield:UITextField) {
+        textfield.layer.borderWidth = 1
+        textfield.layer.borderColor = UIColor.BorderColor.cgColor
+        textfield.layer.cornerRadius = 4
         textfield.delegate = self
         textfield.setLeftPaddingPoints(15)
         textfield.font = UIFont.OpenSansRegular(size: 14)

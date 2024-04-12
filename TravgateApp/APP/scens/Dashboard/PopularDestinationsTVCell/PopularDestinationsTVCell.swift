@@ -107,22 +107,22 @@ extension PopularDestinationsTVCell:UICollectionViewDelegate,UICollectionViewDat
         if collectionView == citySelectCV {
             if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell1", for: indexPath) as? SelectCityCVCell {
                 
-                cell.titlelbl.text = flightlist[indexPath.row].to_city_name
+                cell.titlelbl.text = flightlist[indexPath.row].country
                 
                 commonCell = cell
             }
         }else {
             if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell2", for: indexPath) as? SelectDestCVCell {
                 
-                cell.titlelbl.text = flightlist[indexPath.row].to_city_name
+                cell.titlelbl.text = flightlist[indexPath.row].country
                // cell.img.sd_setImage(with: URL(string:  flightlist[indexPath.row].topFlightImg ?? ""), placeholderImage:UIImage(contentsOfFile:"placeholder.png"))
                 
                 
-                if flightlist[indexPath.row].topFlightImg == nil || flightlist[indexPath.row].topFlightImg?.isEmpty == true {
+                if flightlist[indexPath.row].image == nil || flightlist[indexPath.row].image?.isEmpty == true {
                     cell.img.image = UIImage(named: "noimage")
                 }else {
                     // Assuming mg is a UIImageView instance
-                    cell.img.sd_setImage(with: URL(string: flightlist[indexPath.row].topFlightImg ?? ""),
+                    cell.img.sd_setImage(with: URL(string: flightlist[indexPath.row].image ?? ""),
                                          placeholderImage: UIImage(named: "placeholder.png"),
                                          completed: { (image, error, cacheType, imageURL) in
                         

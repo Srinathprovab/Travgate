@@ -72,34 +72,15 @@ extension TopcityGuidesTVCell:UICollectionViewDelegate,UICollectionViewDataSourc
         
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell1", for: indexPath) as? TopcityGuidesCVCell {
             
-            cell.titlelbl.text = hotellist[indexPath.row].city_name
-       //     cell.img.sd_setImage(with: URL(string:  hotellist[indexPath.row].topHotelImg ?? ""), placeholderImage:UIImage(contentsOfFile:"placeholder.png"))
+            cell.titlelbl.text = hotellist[indexPath.row].country
+       
             
-            
-//            if hotellist[indexPath.row].topHotelImg == nil || hotellist[indexPath.row].topHotelImg?.isEmpty == true {
-//                cell.img.image = UIImage(named: "noimage")
-//            }else {
-//                // Assuming mg is a UIImageView instance
-//                cell.img.sd_setImage(with: URL(string: hotellist[indexPath.row].topHotelImg ?? ""),
-//                                     placeholderImage: UIImage(named: "placeholder.png"),
-//                                     completed: { (image, error, cacheType, imageURL) in
-//                    
-//                    if let error = error {
-//                        // Handle error, image couldn't be loaded
-//                        print("Error loading image: \(error.localizedDescription)")
-//                        // Set your placeholder image or default image here
-//                        cell.img.image = UIImage(named: "noimage1")
-//                    }
-//                })
-//            }
-            
-            
-            if hotellist[indexPath.row].topHotelImg == nil || hotellist[indexPath.row].topHotelImg!.isEmpty {
+            if hotellist[indexPath.row].image == nil || hotellist[indexPath.row].image!.isEmpty {
                 // If the image URL is nil or empty, set placeholder image
                 cell.img.image = UIImage(named: "noimage")
             } else {
                 // If the image URL is not nil or empty, attempt to load the image using SDWebImage
-                cell.img.sd_setImage(with: URL(string: hotellist[indexPath.row].topHotelImg!), placeholderImage: UIImage(named: "placeholder.png"), options: [.retryFailed], completed: { (image, error, cacheType, imageURL) in
+                cell.img.sd_setImage(with: URL(string: hotellist[indexPath.row].image!), placeholderImage: UIImage(named: "placeholder.png"), options: [.retryFailed], completed: { (image, error, cacheType, imageURL) in
                     if let error = error {
                         // Handle error loading image
                         print("Error loading image: \(error.localizedDescription)")
