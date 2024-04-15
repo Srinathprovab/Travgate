@@ -20,9 +20,6 @@ protocol PrimaryContactInfoTVCellDelegate {
 
 class PrimaryContactInfoTVCell: TableViewCell {
     
-    
-    @IBOutlet weak var regRadioImg: UIImageView!
-    @IBOutlet weak var loginRadioImg: UIImageView!
     @IBOutlet weak var mobileHolderView: UIView!
     @IBOutlet weak var passTF: UITextField!
     @IBOutlet weak var emailTF: UITextField!
@@ -52,7 +49,7 @@ class PrimaryContactInfoTVCell: TableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        setuUI()
+         setuUI()
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -70,18 +67,44 @@ class PrimaryContactInfoTVCell: TableViewCell {
         countrycodeTF.addTarget(self, action: #selector(searchTextChanged(textField:)), for: .editingChanged)
         countrycodeTF.addTarget(self, action: #selector(searchTextBegin(textField:)), for: .editingDidBegin)
         
+        regBtn.setTitle("Register", for: .normal)
+        guestBtn.setTitle("Continue as Guest", for: .normal)
+        
+        if MySingleton.shared.tapRegorLogonBool == false {
+            mobileHolderView.isHidden = false
+            guestBtn.isHidden = false
+            regBtn.setTitle("Register", for: .normal)
+            guestBtn.setTitle("Continue as Guest", for: .normal)
+        }else {
+           
+            mobileHolderView.isHidden = true
+            guestBtn.isHidden = true
+            regBtn.setTitle("Login", for: .normal)
+        }
+        
     }
     
     
     func setuUI() {
-        regBtn.layer.cornerRadius = 4
-        guestBtn.layer.cornerRadius = 4
+        regBtn.layer.cornerRadius = 6
+        guestBtn.layer.cornerRadius = 6
         setupTF(textfield: countrycodeTF)
         setupTF(textfield: mobileTF)
         setupTF(textfield: emailTF)
         setupTF(textfield: passTF)
         mobileHolderView.isHidden = false
         passTF.isSecureTextEntry = true
+        
+        countrycodeTF.delegate = self
+        countrycodeTF.setLeftPaddingPoints(15)
+        countrycodeTF.font = UIFont.OpenSansRegular(size: 14)
+        countrycodeTF.addTarget(self, action: #selector(editingText(textField:)), for: .editingChanged)
+        
+        countrycodeTF.keyboardType = .default
+        emailTF.keyboardType = .emailAddress
+        mobileTF.keyboardType = .numberPad
+        passTF.keyboardType = .default
+        
     }
     
     
@@ -115,30 +138,21 @@ class PrimaryContactInfoTVCell: TableViewCell {
     }
     
     
-    @IBAction func didTapOnRegisterNowBtnAction(_ sender: Any) {
-        regRadioImg.image = UIImage(named: "radioSelected1")?.withRenderingMode(.alwaysOriginal).withTintColor(.Buttoncolor)
-        loginRadioImg.image = UIImage(named: "radiounselected")?.withRenderingMode(.alwaysOriginal)
-        mobileHolderView.isHidden = false
-        guestBtn.isHidden = false
-        regBtn.setTitle("Register", for: .normal)
-    }
-    
-    @IBAction func didTapOnLoginNowBtnAction(_ sender: Any) {
-        regRadioImg.image = UIImage(named: "radiounselected")?.withRenderingMode(.alwaysOriginal)
-        loginRadioImg.image = UIImage(named: "radioSelected1")?.withRenderingMode(.alwaysOriginal).withTintColor(.Buttoncolor)
-        mobileHolderView.isHidden = true
-        guestBtn.isHidden = true
-        regBtn.setTitle("Login", for: .normal)
-    }
-    
-    
     @IBAction func didTapOnRegisterBtnAction(_ sender: Any) {
-       
-        if (sender as AnyObject).titleLabel?.text == "Login" {
+        
+//        if (sender as AnyObject).titleLabel?.text == "Login" {
+//            delegate?.didTapOnLoginBtnAction(cell: self)
+//        }else {
+//            delegate?.didTapOnRegisterBtnAction(cell: self)
+//        }
+        
+        
+        if (sender as AnyObject).titleLabel.text == "Login" {
             delegate?.didTapOnLoginBtnAction(cell: self)
         }else {
             delegate?.didTapOnRegisterBtnAction(cell: self)
         }
+        
     }
     
     
@@ -160,7 +174,7 @@ extension PrimaryContactInfoTVCell {
         dropDown.bottomOffset = CGPoint(x: 0, y: countrycodeTF.frame.size.height + 10)
         dropDown.selectionAction = { [weak self] (index: Int, item: String) in
             
-           
+            
             self?.countrycodeTF.text = self?.countrycodesArray[index]
             self?.isoCountryCode = self?.isocountrycodeArray[index] ?? ""
             self?.billingCountryName = self?.countryNames[index] ?? ""

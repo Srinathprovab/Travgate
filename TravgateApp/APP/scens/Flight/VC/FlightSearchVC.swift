@@ -28,7 +28,7 @@ class FlightSearchVC: BaseTableVC, SearchDataViewModelDelegate, GetAirlineViewMo
      
     
     override func viewWillAppear(_ animated: Bool) {
-        callGetRecentSearchAPI()
+       
         addObserver()
         
     }
@@ -66,6 +66,7 @@ class FlightSearchVC: BaseTableVC, SearchDataViewModelDelegate, GetAirlineViewMo
         roundtriplbl.textColor = .TitleColor
         multicitylbl.textColor = .TitleColor
         
+       
         defaults.set("circle", forKey: UserDefaultsKeys.journeyType)
         setupRoundTripTVCells()
     }
@@ -410,6 +411,7 @@ extension FlightSearchVC {
                 
                 DispatchQueue.main.async {[self] in
                     setupOnewayTVCells()
+                    
                 }
             }else {
                 
@@ -418,7 +420,13 @@ extension FlightSearchVC {
                 }
                 
             }
+            
         }
+        
+        if MySingleton.shared.returnDateTapbool == true {
+            MySingleton.shared.returnDateTapbool = true
+        }
+        
     }
     
     
@@ -455,6 +463,7 @@ extension FlightSearchVC {
     
     
     func airlinesList(response: GetAirlineModel) {
+        
         MySingleton.shared.airlinelist = response.data ?? []
     }
     
@@ -466,6 +475,11 @@ extension FlightSearchVC {
 extension FlightSearchVC {
     
     func addObserver() {
+        
+       
+        DispatchQueue.main.async {
+          //  self.callGetRecentSearchAPI()
+        }
         
         NotificationCenter.default.addObserver(self, selector: #selector(nointernet), name: Notification.Name("offline"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(resultnil), name: NSNotification.Name("resultnil"), object: nil)

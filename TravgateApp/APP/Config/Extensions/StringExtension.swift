@@ -338,18 +338,18 @@ extension String{
         let phoneTest = NSPredicate(format: "SELF MATCHES %@", phoneRegex)
         return phoneTest.evaluate(with: phone)
     }
-  
+    
     
     public func isValidPassword() -> Bool {
         let passwordRegex = "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{6,}$"
         return NSPredicate(format: "SELF MATCHES %@", passwordRegex).evaluate(with: self)
-
+        
     }
     
-//    public func isValidPassword() -> Bool {
-//        let passwordRegex = "^[A-Za-z0-9!@#$%^&*()_+\\-=\\[\\]{};':\",./<>?]{6,}$"
-//        return NSPredicate(format: "SELF MATCHES %@", passwordRegex).evaluate(with: self)
-//    }
+    //    public func isValidPassword() -> Bool {
+    //        let passwordRegex = "^[A-Za-z0-9!@#$%^&*()_+\\-=\\[\\]{};':\",./<>?]{6,}$"
+    //        return NSPredicate(format: "SELF MATCHES %@", passwordRegex).evaluate(with: self)
+    //    }
     
     
     
@@ -362,7 +362,7 @@ extension String{
     }
     
     
-
+    
     
     func isValidEmail() -> Bool {
         // Regular expression pattern for email validation
@@ -480,4 +480,32 @@ extension UIImage {
         
         return newImage!
     }
+    
+    
+    
+    public class func gifImageWithData(_ data: Data) -> UIImage? {
+        guard let source = CGImageSourceCreateWithData(data as CFData, nil) else { return nil }
+        return UIImage.animatedImageWithSource(source)
+    }
+    
+    private class func animatedImageWithSource(_ source: CGImageSource) -> UIImage? {
+        let count = CGImageSourceGetCount(source)
+        var images = [UIImage]()
+        var gifDuration = 0.0
+        
+        for i in 0..<count {
+            guard let imageRef = CGImageSourceCreateImageAtIndex(source, i, nil) else { continue }
+            if let properties = CGImageSourceCopyPropertiesAtIndex(source, i, nil) as? [String: AnyObject],
+               let gifDict = properties[kCGImagePropertyGIFDictionary as String] as? [String: AnyObject],
+               let delayTime = gifDict[kCGImagePropertyGIFDelayTime as String] as? Double {
+                gifDuration += delayTime
+            }
+            let image = UIImage(cgImage: imageRef)
+            images.append(image)
+        }
+        
+        return UIImage.animatedImage(with: images, duration: gifDuration)
+    }
 }
+
+

@@ -198,9 +198,6 @@ class HotelBookingDetailsVC: BaseTableVC, LoginViewModelDelegate, RegisterViewMo
         
         
     }
-    override func loginNowButtonAction(cell: RegisterNowTableViewCell, email: String, pass: String) {
-        callLoginAPI(email: email, pass: pass)
-    }
     
     
     
@@ -218,38 +215,7 @@ class HotelBookingDetailsVC: BaseTableVC, LoginViewModelDelegate, RegisterViewMo
     
     
     
-    override func didTapOnguestButton(cell: RegisterSelectionLoginTableViewCell) {
-        cell.registerRadioImage.image = UIImage(named: "radiounselected")
-        cell.loginRadioImage.image = UIImage(named: "radiounselected")
-        cell.guestRadioImage.image = UIImage(named: "radioSelected1")?.withRenderingMode(.alwaysOriginal).withTintColor(.AppBtnColor)
-        self.mbviewmodel?.section = .guestLogin
-        
-        setuptv()
-        
-    }
-    
-    
-    override func registerButton(cell: RegisterSelectionLoginTableViewCell) {
-        cell.registerRadioImage.image = UIImage(named: "radioSelected1")?.withRenderingMode(.alwaysOriginal).withTintColor(.AppBtnColor)
-        cell.loginRadioImage.image = UIImage(named: "radiounselected")
-        cell.guestRadioImage.image = UIImage(named: "radiounselected")
-        self.mbviewmodel?.section = .register
-        
-        setuptv()
-    }
-    
-    
-    override func loginButton(cell: RegisterSelectionLoginTableViewCell) {
-        cell.registerRadioImage.image = UIImage(named: "radiounselected")
-        cell.loginRadioImage.image = UIImage(named: "radioSelected1")?.withRenderingMode(.alwaysOriginal).withTintColor(.AppBtnColor)
-        cell.guestRadioImage.image = UIImage(named: "radiounselected")
-        self.mbviewmodel?.section = .login
-        
-        
-        setuptv()
-    }
-    
-    
+  
     
     
     //MARK: - MBViewModel Delegate methods

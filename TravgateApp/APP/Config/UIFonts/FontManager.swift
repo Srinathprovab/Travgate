@@ -76,7 +76,6 @@ extension UIFont {
     
     
     
-    
     public static func OpenSansMedium(size: CGFloat) -> UIFont {
         return UIFont(name: "OpenSans-Medium", size: size)!
     }
@@ -107,4 +106,19 @@ extension UIFont {
     }
     
     
+    
+    
+    public static func InterSemiBold(size: CGFloat) -> UIFont {
+        return UIFont(name: "OpenSans-Medium", size: size)!
+    }
+    
+   
+    
+    public static func InterBold(size: CGFloat) -> UIFont {
+        return UIFont(name: "OpenSans-Bold", size: size)!
+    }
+    
+    public static func InterExtraBold(size: CGFloat) -> UIFont {
+        return UIFont(name: "OpenSans-Bold", size: size)!
+    }
 }

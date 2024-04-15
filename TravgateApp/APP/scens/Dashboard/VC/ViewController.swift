@@ -9,6 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -42,7 +43,7 @@ class ViewController: UIViewController {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.0, execute: {
             self.gotodashBoardScreen()
-            // self.gotoBookingConfirmedVC()
+           //  self.gotoBookingConfirmedVC()
             //self.gotoOttuPaymentGatewayVC()
         })
     }
@@ -62,7 +63,7 @@ class ViewController: UIViewController {
         
         guard let vc = BookingConfirmedVC.newInstance.self else {return}
         vc.modalPresentationStyle = .fullScreen
-        urlString = "https://provab.net/travgate/pro_new/mobile/index.php/voucher/flight/BAS-F-TP-0305-1709641808/212"
+        urlString = "https://provab.net/travgate/android_ios_webservices/mobile/index.php/voucher/flight/BAS-F-TP-0305-1709641808/212"
         callapibool = true
         present(vc, animated: true)
     }
@@ -76,7 +77,24 @@ class ViewController: UIViewController {
     }
     
     
-    
+    func setAttributedTextnew(str1:String,str2:String,lbl:UILabel,str1font:UIFont,str2font:UIFont,str1Color:UIColor,str2Color:UIColor)  {
+        
+        let atter1 = [NSAttributedString.Key.foregroundColor:str1Color,
+                      NSAttributedString.Key.font:str1font] as [NSAttributedString.Key : Any]
+        let atter2 = [NSAttributedString.Key.foregroundColor:str2Color,
+                      NSAttributedString.Key.font:str2font] as [NSAttributedString.Key : Any]
+        
+        let atterStr1 = NSMutableAttributedString(string: str1, attributes: atter1)
+        let atterStr2 = NSMutableAttributedString(string: str2, attributes: atter2)
+        
+        
+        let combination = NSMutableAttributedString()
+        combination.append(atterStr1)
+        combination.append(atterStr2)
+        
+        lbl.attributedText = combination
+        
+    }
 }
 
 

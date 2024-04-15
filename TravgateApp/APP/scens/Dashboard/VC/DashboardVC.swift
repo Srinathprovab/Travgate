@@ -426,7 +426,7 @@ extension DashboardVC {
     
     func addObserver() {
         
-        
+        MySingleton.shared.returnDateTapbool = false
         
         NotificationCenter.default.addObserver(self, selector: #selector(nointernet), name: Notification.Name("offline"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(resultnil), name: NSNotification.Name("resultnil"), object: nil)

@@ -227,6 +227,8 @@ class FlightSearchTVCell: TableViewCell, SelectCityViewModelProtocal {
             showreturndepDatePicker()
             showretDatePicker()
             
+            
+            
             returnDateBtn.isHidden = true
         }
         
@@ -239,8 +241,17 @@ class FlightSearchTVCell: TableViewCell, SelectCityViewModelProtocal {
         }else {
             directFlightCheckImg.image = UIImage(named: "uncheck")
         }
+        
+        
+        
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(returndate), name: Notification.Name("returndate"), object: nil)
     }
     
+    
+    @objc func returndate() {
+        showretDatePicker()
+    }
     
     
     
@@ -846,6 +857,10 @@ extension FlightSearchTVCell {
         self.retTF.inputAccessoryView = toolbar
         self.retTF.inputView = retDatePicker
         
+        if MySingleton.shared.returnDateTapbool == true {
+            
+        }
+        self.retTF.becomeFirstResponder()
         
     }
     

@@ -36,7 +36,7 @@
                                             <constraint firstAttribute="height" constant="32" id="yxe-ko-OcS"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Multiple operators Fare Families information add in flight details page please Read" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iZe-2j-7FP">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*Multiple operators Fare Families information add in flight details page please Read" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iZe-2j-7FP">
                                         <rect key="frame" x="42" y="10.333333333333334" width="450" height="29.333333333333329"/>
                                         <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="12"/>
                                         <color key="textColor" name="BackBtnColor"/>
@@ -77,7 +77,7 @@
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iec-Qa-0gH">
                                         <rect key="frame" x="42" y="10.333333333333327" width="450" height="29.333333333333329"/>
-                                        <string key="text">Once payment is confirmed, tickets will be issued within
+                                        <string key="text">*Once payment is confirmed, tickets will be issued within
  24 hours</string>
                                         <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="12"/>
                                         <color key="textColor" name="BackBtnColor"/>

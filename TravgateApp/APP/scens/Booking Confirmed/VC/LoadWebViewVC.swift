@@ -11,9 +11,6 @@ import SwiftyJSON
 
 class LoadWebViewVC: UIViewController, WKNavigationDelegate {
     
-    
-    
-    
     @IBOutlet weak var holderView: UIView!
     @IBOutlet weak var titlelbl: UILabel!
     @IBOutlet weak var webview: WKWebView!
@@ -29,15 +26,33 @@ class LoadWebViewVC: UIViewController, WKNavigationDelegate {
     
     var urlString = String()
     var keystr = String()
-  
+    var apicallbool = true
+    var openpaymentgatewaybool = false
+    let activityIndicatorView = UIActivityIndicatorView(style: .large)
     
     
     override func viewWillAppear(_ animated: Bool) {
         //loderBool = false
         
-     
+        activityIndicatorView.startAnimating()
+        self.webview.isUserInteractionEnabled = false
+        
+        
         if let url1 = URL(string: urlString) {
             webview.load(URLRequest(url: url1))
+        }
+        
+        
+        
+        let seconds = 60.0
+        DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {[self] in
+            if  openpaymentgatewaybool == false {
+                
+                
+                showAlertOnWindow(title: "",message: "Somthing Went Wrong",titles: ["OK"]) { title in
+                    self.gotoDashboard()
+                }
+            }
         }
         
     }
@@ -57,9 +72,14 @@ class LoadWebViewVC: UIViewController, WKNavigationDelegate {
        
         
         holderView.backgroundColor = .WhiteColor
+        // Do any additional setup after loading the view.
+        activityIndicatorView.center = view.center
+        activityIndicatorView.color = .Buttoncolor
+        view.addSubview(activityIndicatorView)
+        
        
         webview.navigationDelegate = self
-        webview.isUserInteractionEnabled = true
+//        webview.isUserInteractionEnabled = true
         
         
         if keystr == "voucher" {
@@ -92,7 +112,11 @@ extension LoadWebViewVC {
     func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
         if let response = navigationResponse.response as? HTTPURLResponse {
             print(response)
-           
+            
+            if response.statusCode == 200 {
+                openpaymentgatewaybool = true
+            }
+            
         }
         decisionHandler(.allow)
     }
@@ -100,17 +124,79 @@ extension LoadWebViewVC {
     
     
     func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
-       
+        openpaymentgatewaybool = true
         debugPrint("didCommit")
     }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         
+        
+        
+        // Simulate a time-consuming operation
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+            // Stop the activity indicator after 3 seconds (replace this with your actual data-fetching logic)
+            self.activityIndicatorView.stopAnimating()
+            self.webview.isUserInteractionEnabled = true
+            
+        }
+//        
+//        
+//        let str = webView.url?.absoluteString ?? ""
+//        webview.isHidden = false
+//        if apicallbool == false {
+//            
+//            if str.containsIgnoringCase(find: "paymentcancel") || str.containsIgnoringCase(find: "CANCELED") || str.containsIgnoringCase(find: "bookingFailuer"){
+//                
+//                webview.isHidden = true
+//                showAlertOnWindow(title: "",message: "Click Ok To Start New Search",titles: ["OK"]) { title in
+//                    self.gotoDashboard()
+//                }
+//            }else {
+//                
+//                webview.isHidden = true
+//                
+//                if let url1 = URL(string: str) {
+//                    webview.load(URLRequest(url: url1))
+//                }
+//                
+////                if let tabselect = defaults.string(forKey: UserDefaultsKeys.tabselect) {
+////                    if tabselect == "Flight" {
+////                        if str.contains(find: "flight/secure_booking"){
+////                            BASE_URL = ""
+////                          //  callSecureBookingAPI(urlstr: str)
+////                        }
+////                        
+////                        
+////                    }else {
+////                        if  str.contains(find: "payment_gateway/success"){
+////                            BASE_URL = ""
+////                           // callPayMentSucessAPI(urlstr: str)
+////                        }
+////                        
+////                        
+////                    }
+////                }
+//                
+//                
+//            }
+//        }
+//        apicallbool = false
+//        
     }
     
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
         debugPrint("didFail")
     }
-
     
+    
+    
+    
+}
+extension String {
+    func contains(find: String) -> Bool{
+        return self.range(of: find) != nil
+    }
+    func containsIgnoringCase(find: String) -> Bool{
+        return self.range(of: find, options: .caseInsensitive) != nil
+    }
 }

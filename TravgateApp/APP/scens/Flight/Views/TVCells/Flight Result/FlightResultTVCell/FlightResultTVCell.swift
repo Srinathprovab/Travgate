@@ -12,6 +12,7 @@ protocol FlightResultTVCellDelegate {
     func didTapOnBookNowBtnAction(cell:FlightResultTVCell)
     func didTapOnMoreSimilarFlightBtnAction(cell:FlightResultTVCell)
     func didTapFlightDetailsPopupBrtnBtnAction(cell:FlightResultTVCell)
+    func didTapOnReturnDateBtnAction(cell:FlightResultTVCell)
     
 }
 
@@ -25,6 +26,7 @@ class FlightResultTVCell: TableViewCell {
     @IBOutlet weak var kwdlbl: UILabel!
     @IBOutlet weak var moreSimilarBtn: UIButton!
     @IBOutlet weak var bottomView: UIView!
+    @IBOutlet weak var returnBtn: UIButton!
     
     
     var selectedResult = String()
@@ -56,6 +58,7 @@ class FlightResultTVCell: TableViewCell {
     }
     
     override func updateUI() {
+        returnBtn.layer.cornerRadius = 4
         selectedResult = cellInfo?.title ?? ""
         flightsummery = cellInfo?.data1 as! [Summary]
         flightlist = cellInfo?.moreData as? FlightList
@@ -83,7 +86,16 @@ class FlightResultTVCell: TableViewCell {
             bottomView.isHidden = true
         }
         
-        tvheight.constant = CGFloat((flightsummery.count ) * 133)
+        let journytype = defaults.string(forKey: UserDefaultsKeys.journeyType)
+        if journytype == "circle" {
+            returnBtn.isHidden = true
+            tvheight.constant = CGFloat((flightsummery.count ) * 133)
+        }else {
+            returnBtn.isHidden = false
+            tvheight.constant = CGFloat((flightsummery.count ) * 170)
+        }
+        
+       
         summeryTV.reloadData()
         
         
@@ -101,6 +113,12 @@ class FlightResultTVCell: TableViewCell {
     
     @IBAction func didTapOnBookNowBtnAction(_ sender: Any) {
         delegate?.didTapOnBookNowBtnAction(cell: self)
+    }
+    
+    @IBAction func didTapOnReturnDateBtnAction(_ sender: Any) {
+       
+        MySingleton.shared.returnDateTapbool = true
+        delegate?.didTapOnReturnDateBtnAction(cell: self)
     }
     
     

@@ -166,6 +166,18 @@ class FlightResultVC: BaseTableVC {
     }
     
     
+    //MARK: - didTapOnReturnDateBtnAction
+    override func didTapOnReturnDateBtnAction(cell:FlightResultTVCell) {
+        defaults.setValue("circle", forKey: UserDefaultsKeys.journeyType)
+        gotoFlightSearchVC()
+    }
+    
+    func gotoFlightSearchVC() {
+        guard let vc = FlightSearchVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
+    }
+    
 }
 
 //MARK: - callAPI flightList
@@ -191,6 +203,7 @@ extension FlightResultVC: FlightListModelProtocal {
         
         
         self.holderView.isHidden = false
+        MySingleton.shared.returnDateTapbool = false
         MySingleton.shared.searchid = "\(response.data?.search_id ?? 0)"
         MySingleton.shared.bookingsource = response.data?.j_flight_list?[0][0].booking_source_key ?? ""
         MySingleton.shared.bookingsourcekey = response.data?.j_flight_list?[0][0].booking_source ?? ""

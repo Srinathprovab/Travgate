@@ -95,6 +95,7 @@ class MySingleton {
     var hotelcountrycode = String()
     var checkTermsAndCondationStatus = false
     var directflightString = String()
+    var returnDateTapbool = false
    
     var guestbool = false
     var nationalityCode = String()
@@ -125,7 +126,7 @@ class MySingleton {
     var sessionid = String()
     var farerulesrefKey = [[String]]()
     var farerulesrefContent = [[String]]()
-    
+    var tapRegorLogonBool = false
     
     var confpassword = String()
     var recentData:[Recent_searches]?

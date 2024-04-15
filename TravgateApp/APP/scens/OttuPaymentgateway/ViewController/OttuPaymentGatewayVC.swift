@@ -43,7 +43,9 @@ class OttuPaymentGatewayVC: UIViewController, OttuDelegate {
         //apiKey - API Public key should be used. See API documentation.
         //lang - You can use it to change the language. We support two languages english and arabic. You can use "en" for english and "ar" for arabic.
        
-       
+       print(MySingleton.shared.sessionid)
+        print(MySingleton.shared.merchantid)
+        print(authorizationkey)
         
         
         let session_id = "\(MySingleton.shared.sessionid)"
@@ -90,9 +92,17 @@ class OttuPaymentGatewayVC: UIViewController, OttuDelegate {
     func dismissed() {
         DispatchQueue.main.asyncAfter(deadline: .now()+1) {
             let alert = UIAlertController(title: self.message.capitalized, message: "\(String(describing: self.responseDict))", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            
+            alert.addAction(UIAlertAction(title: "Ok", style: .default){ (action) in
+                self.goto()
+            })
             self.present(alert, animated: true, completion: nil)
         }
+    }
+    
+    
+    func goto(){
+        
     }
     
 }

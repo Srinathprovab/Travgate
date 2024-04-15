@@ -6,6 +6,9 @@
 //
 
 import UIKit
+protocol OperatorsCheckBoxTVCellDelegate {
+    func enableContinuetoPaymentBtn(cell:OperatorsCheckBoxTVCell)
+}
 
 class OperatorsCheckBoxTVCell: TableViewCell {
 
@@ -15,7 +18,10 @@ class OperatorsCheckBoxTVCell: TableViewCell {
     
     var check1bool = false
     var check2bool = false
+    var enablePaymentButtonBool1 = false
+    var enablePaymentButtonBool2 = false
     
+    var delegate:OperatorsCheckBoxTVCellDelegate?
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -31,8 +37,11 @@ class OperatorsCheckBoxTVCell: TableViewCell {
     @IBAction func didTapOnMultipleOperatoreBtnAction(_ sender: Any) {
         check1bool.toggle()
         if check1bool {
+            enablePaymentButtonBool1 = true
             check1img.image = UIImage(named: "check")
+            enableContinueToPaymentBool()
         }else {
+            enablePaymentButtonBool1 = false
             check1img.image = UIImage(named: "uncheck")
         }
     }
@@ -41,9 +50,18 @@ class OperatorsCheckBoxTVCell: TableViewCell {
     @IBAction func didTapOnPaymentCeheckBoxBtnAction(_ sender: Any) {
         check2bool.toggle()
         if check2bool {
+            enablePaymentButtonBool2 = true
             check2img.image = UIImage(named: "check")
+            enableContinueToPaymentBool()
         }else {
+            enablePaymentButtonBool2 = false
             check2img.image = UIImage(named: "uncheck")
+            enableContinueToPaymentBool()
         }
+    }
+    
+    
+    func enableContinueToPaymentBool() {
+        delegate?.enableContinuetoPaymentBtn(cell: self)
     }
 }

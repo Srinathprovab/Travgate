@@ -36,18 +36,56 @@ var BASE_URL1 = "https://provab.net/travgate/android_ios_webservices/mobile/inde
 
 var accessToken = "e3VzZXJuYW1lOmFudWpob29kYSxwYXNzd29yZDp0cmF2Z2F0ZUBtb2JpbGVhcHAsYXV0aHR5cGU6dGVzdH0="
 var authorizationkey = "Api-Key mXSkj6CS.hXxp9suftZUk7X8zagbA9GhQnhQL9KOh"
+//var authorizationkey = "Api-Key 5d8f6bb5377bcf52b7da1d5cfbef843c94ee04ea"
 
 var defaultCountryCode = "+91"
 var mobilenoMaxLength = Int()
 var mobilenoMaxLengthBool = false
 
+var whatsAppCheck = false
+var priceCheck = false
+var flexibleCheck = false
+var notificationCheck = false
+var addonCheck = false
+var totlConvertedGrand = Double()
+var whatsAppAmount = Int()
+var flexibleAmount = Int()
+var addonAmount = Int()
+var priceChangeAmount = Int()
+var notificationAmount = Int()
+var services = [Addon_services]()
+var addon_services = [Addon_services]()
+var whatsAppPrice = String()
+var flexiblePrie = String()
+var priceChange = String()
+var notificationPrice = String()
+
+var AdultsTotalPrice = String()
+var ChildTotalPrice = String()
+var InfantTotalPrice = String()
+var sub_total_adult : String?
+var sub_total_child : String?
+var sub_total_infant : String?
+var isChecked =  true
+var totalRooms = 0
+var totalAdults = 0
+var totalChildren = 0
+
+var Adults_Base_Price = String()
+var Adults_Tax_Price = String()
+var Childs_Base_Price = String()
+var Childs_Tax_Price = String()
+var Infants_Base_Price = String()
+var Infants_Tax_Price = String()
+var TotalPrice_API = String()
+var grandTotal = String()
+var subtotal = String()
+
+
 //HOTEL
 var adtArray = [String]()
 var chArray = [String]()
 var hotelDetailsTapBool = true
-var totalRooms = 0
-var totalAdults = 0
-var totalChildren = 0
 var oldjournyType = ""
 var selectedSpecificatonArray = [String]()
 
@@ -129,7 +167,6 @@ var roomselected = String()
 var selectedrRateKeyArray = String()
 var hotelSearchResult = [HotelSearchResult]()
 var selectedCellStates: [IndexPath: Bool] = [:]
-var grandTotal = String()
 var selectedCellIndices: [IndexPath] = [] // Keep track of selected cell indices
 
 

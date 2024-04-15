@@ -79,6 +79,8 @@ enum TVCellType {
     case RegisterSelectionLoginTableViewCell
     case RegisterNowTableViewCell
     case GuestTVCell
+    case AddonTableViewCell
+    case PriceSummaryTVCell
    
     
     
@@ -144,7 +146,7 @@ class TableRow {
     
     var title: String?
     var subTitle: String?
-    
+    var covetedAmnt: Double?
     var text: String?
     var headerText: String?
     var buttonTitle: String?
@@ -221,6 +223,7 @@ class TableRow {
     init() {}
     
     init(title: String? = nil, subTitle: String? = nil,fromTime: String? = nil ,
+         covetedAmnt: Double? = nil ,
          toTime: String? = nil,
          fromCity: String? = nil ,
          toCity: String? = nil ,
@@ -242,7 +245,7 @@ class TableRow {
         self.title = title
         self.bgColor = bgColor
         self.subTitle = subTitle
-        
+        self.covetedAmnt = covetedAmnt
         
         self.fromTime = fromTime
         self.toTime = toTime
