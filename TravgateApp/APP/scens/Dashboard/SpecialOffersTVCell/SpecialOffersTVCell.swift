@@ -16,7 +16,7 @@ class SpecialOffersTVCell: TableViewCell {
     
     var itemCount = Int()
     var autoScrollTimer: Timer?
-    var offerlist = [Deal_code_list]()
+    var offerlist = [Deail_code_list]()
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

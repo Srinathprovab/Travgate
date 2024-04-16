@@ -92,35 +92,42 @@ class SideMenuViewController: BaseTableVC, ProfileViewModelDelegate, LogoutViewM
     
     override func didTaponCell(cell: SideMenuTitleTVCell) {
         switch cell.menuTitlelbl.text {
+            
         case "Flight":
             showFlightSearchVC()
             break
+            
         case "Hotel":
-            print("Hotel")
+            gotoSearchHotelVC()
             break
+            
         case "Visa":
             gotoCVisaVC()
             break
+            
         case "Auto Payment":
             gotoCAutoPaymentVC()
             break
+            
         case "My Bookings":
             print("My Bookings")
             break
+            
         case "Free Cancelation":
             print("Free Cancelation")
             break
+            
         case "Customer Support":
             print("Customer Support")
             break
+            
         case "Logout":
             callLogoutAPI()
             break
             
         case "Delete Account":
-            
             deleteUserAccountAPI()
-            
+            break
             
         default:
             break
@@ -131,6 +138,12 @@ class SideMenuViewController: BaseTableVC, ProfileViewModelDelegate, LogoutViewM
     
     func showFlightSearchVC() {
         guard let vc = FlightSearchVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
+    }
+    
+    func gotoSearchHotelVC() {
+        guard let vc = SearchHotelVC.newInstance.self else {return}
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)
     }

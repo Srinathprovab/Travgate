@@ -147,8 +147,6 @@ class FlightSearchVC: BaseTableVC, SearchDataViewModelDelegate, GetAirlineViewMo
     
     override func didTapOnReturnDateBtnAction(cell:FlightSearchTVCell) {
         roundtripTap()
-        NotificationCenter.default.post(name: NSNotification.Name("roundtripTap"), object: nil)
-        
     }
     
     
@@ -216,6 +214,7 @@ class FlightSearchVC: BaseTableVC, SearchDataViewModelDelegate, GetAirlineViewMo
     //MARK: - didTapOnRoundTripBtnAction
     @IBAction func didTapOnRoundTripBtnAction(_ sender: Any) {
         roundtripTap()
+        NotificationCenter.default.post(name: NSNotification.Name("roundtripTap"), object: nil)
     }
     
     //MARK: - didTapOnMulticityBtnAction

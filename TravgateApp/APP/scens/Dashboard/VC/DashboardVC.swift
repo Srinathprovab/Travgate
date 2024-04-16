@@ -136,8 +136,8 @@ extension DashboardVC:IndexPageViewModelDelegate {
     func indexPageDetails(response: IndexPagemodel) {
         
         MySingleton.shared.topFlightDetails = response.topFlightDetails ?? []
-        MySingleton.shared.topHotelDetails = response.topHotelDetails ?? []
-        MySingleton.shared.deail_code_list = response.deal_code_list ?? []
+        MySingleton.shared.topHotelDetails = response.city_guides ?? []
+        MySingleton.shared.deail_code_list = response.deail_code_list ?? []
         
         
         

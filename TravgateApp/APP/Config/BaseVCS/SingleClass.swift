@@ -39,8 +39,8 @@ class MySingleton {
     //Home Page
     var indexpagevm:IndexPageViewModel?
     var topFlightDetails = [TopFlightDetails]()
-    var topHotelDetails = [TopHotelDetails]()
-    var deail_code_list = [Deal_code_list]()
+    var topHotelDetails = [City_guides]()
+    var deail_code_list = [Deail_code_list]()
     var currencyListArray = [Currency_list]()
     var cruiseList = [CruiseData]()
     var cruise : CruiseModel?

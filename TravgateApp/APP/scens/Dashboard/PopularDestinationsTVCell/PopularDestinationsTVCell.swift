@@ -7,6 +7,13 @@
 
 import UIKit
 
+struct TopFlightListModel {
+    let airport_city: String
+    let image: String?
+    // Add other properties as needed
+}
+
+
 class PopularDestinationsTVCell: TableViewCell {
     
     
@@ -14,9 +21,14 @@ class PopularDestinationsTVCell: TableViewCell {
     @IBOutlet weak var selectDestCV: UICollectionView!
     
     
+    // Define a variable to store the selected index path
+    var countryBtnTapbool = false
+    var selectedIndex: IndexPath?
+    var filteredFlights: [TopFlightListModel] = []
     var itemCount = Int()
     var autoScrollTimer: Timer?
     var flightlist = [TopFlightDetails]()
+    var countryArray = [String]()
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -35,6 +47,25 @@ class PopularDestinationsTVCell: TableViewCell {
     override func updateUI() {
         flightlist = MySingleton.shared.topFlightDetails
         itemCount = flightlist.count
+        
+        countryArray.removeAll()
+        flightlist.forEach { i in
+            countryArray.append(i.country ?? "")
+        }
+        countryArray = countryArray.unique()
+        
+        
+        // Filter flightlist based on selected city
+        let selectedCity = countryArray[0]
+        // Assuming TopFlightListModel and TopFlightDetails have similar properties
+        filteredFlights = flightlist.filter { flight in
+            if let airportCity = flight.country {
+                return airportCity.contains(selectedCity)
+            }
+            return false
+        }.map { flight in
+            TopFlightListModel(airport_city: flight.airport_city ?? "", image: flight.image)
+        }
         // startAutoScroll()
         selectDestCV.reloadData()
     }
@@ -57,6 +88,7 @@ class PopularDestinationsTVCell: TableViewCell {
         layout.sectionInset = UIEdgeInsets(top: 0, left: 2, bottom: 0, right: 2)
         citySelectCV.collectionViewLayout = layout
         
+        selectedIndex = IndexPath(item: 0, section: 0)
         citySelectCV.showsHorizontalScrollIndicator = false
         citySelectCV.bounces = false
         
@@ -94,9 +126,9 @@ extension PopularDestinationsTVCell:UICollectionViewDelegate,UICollectionViewDat
         
         
         if collectionView == citySelectCV {
-            return flightlist.count
+            return countryArray.count
         }else {
-            return flightlist.count
+            return filteredFlights.count
         }
     }
     
@@ -107,29 +139,38 @@ extension PopularDestinationsTVCell:UICollectionViewDelegate,UICollectionViewDat
         if collectionView == citySelectCV {
             if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell1", for: indexPath) as? SelectCityCVCell {
                 
-                cell.titlelbl.text = flightlist[indexPath.row].country
+                cell.titlelbl.text = countryArray[indexPath.row]
+                
+               
+                
+                if indexPath == selectedIndex {
+                    cell.titlelbl.textColor = .WhiteColor
+                    cell.holderView.backgroundColor = .Buttoncolor
+                    citySelectCV.selectItem(at: indexPath, animated: false, scrollPosition: .left)
+                    
+                }else {
+                    // Reset styling for other cells
+                    cell.titlelbl.textColor = .TitleColor
+                    cell.holderView.backgroundColor = .WhiteColor
+                }
+                
+               
                 
                 commonCell = cell
             }
         }else {
+            
+            
             if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell2", for: indexPath) as? SelectDestCVCell {
+                let flight = filteredFlights[indexPath.row]
+                cell.titlelbl.text = flight.airport_city
                 
-                cell.titlelbl.text = flightlist[indexPath.row].country
-               // cell.img.sd_setImage(with: URL(string:  flightlist[indexPath.row].topFlightImg ?? ""), placeholderImage:UIImage(contentsOfFile:"placeholder.png"))
-                
-                
-                if flightlist[indexPath.row].image == nil || flightlist[indexPath.row].image?.isEmpty == true {
+                if flight.image == nil || flight.image?.isEmpty == true {
                     cell.img.image = UIImage(named: "noimage")
-                }else {
-                    // Assuming mg is a UIImageView instance
-                    cell.img.sd_setImage(with: URL(string: flightlist[indexPath.row].image ?? ""),
-                                         placeholderImage: UIImage(named: "placeholder.png"),
-                                         completed: { (image, error, cacheType, imageURL) in
-                        
+                } else {
+                    cell.img.sd_setImage(with: URL(string: flight.image ?? ""), placeholderImage: UIImage(named: "placeholder.png"), completed: { (image, error, cacheType, imageURL) in
                         if let error = error {
-                            // Handle error, image couldn't be loaded
                             print("Error loading image: \(error.localizedDescription)")
-                            // Set your placeholder image or default image here
                             cell.img.image = UIImage(named: "noimage1")
                         }
                     })
@@ -137,10 +178,53 @@ extension PopularDestinationsTVCell:UICollectionViewDelegate,UICollectionViewDat
                 
                 commonCell = cell
             }
+            
+            
         }
         return commonCell
     }
     
+    
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == citySelectCV {
+            if let cell = collectionView.cellForItem(at: indexPath) as? SelectCityCVCell {
+                cell.titlelbl.textColor = .WhiteColor
+                cell.holderView.backgroundColor = .Buttoncolor
+                countryBtnTapbool = true
+                // Filter flightlist based on selected city
+                let selectedCity = countryArray[indexPath.row]
+                // Assuming TopFlightListModel and TopFlightDetails have similar properties
+                filteredFlights = flightlist.filter { flight in
+                    if let airportCity = flight.country {
+                        return airportCity.contains(selectedCity)
+                    }
+                    return false
+                }.map { flight in
+                    TopFlightListModel(airport_city: flight.airport_city ?? "", image: flight.image)
+                }
+                
+                // Update the selected index path
+                selectedIndex = indexPath
+                
+                
+                // Reload the collection view to update with filtered data
+                selectDestCV.reloadData()
+            }
+        }
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        if collectionView == citySelectCV {
+            if let cell = collectionView.cellForItem(at: indexPath) as? SelectCityCVCell {
+                
+                cell.titlelbl.textColor = .TitleColor
+                cell.holderView.backgroundColor = .WhiteColor
+                
+            }
+        }
+    }
     
 }
 

@@ -7,28 +7,28 @@
 
 import Foundation
 struct IndexPagemodel : Codable {
-    let city_data_list : [City_data_list1]?
     let status : Bool?
-    let topHotelDetails : [TopHotelDetails]?
     let topFlightDetails : [TopFlightDetails]?
-    let deal_code_list : [Deal_code_list]?
+    let topHotelDetails : [TopHotelDetails]?
+    let deail_code_list : [Deail_code_list]?
+    let city_guides : [City_guides]?
 
     enum CodingKeys: String, CodingKey {
 
-        case city_data_list = "city_data_list"
         case status = "status"
-        case topHotelDetails = "topHotelDetails"
         case topFlightDetails = "topFlightDetails"
-        case deal_code_list = "deail_code_list"
+        case topHotelDetails = "topHotelDetails"
+        case deail_code_list = "deail_code_list"
+        case city_guides = "city_guides"
     }
 
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        city_data_list = try values.decodeIfPresent([City_data_list1].self, forKey: .city_data_list)
         status = try values.decodeIfPresent(Bool.self, forKey: .status)
-        topHotelDetails = try values.decodeIfPresent([TopHotelDetails].self, forKey: .topHotelDetails)
         topFlightDetails = try values.decodeIfPresent([TopFlightDetails].self, forKey: .topFlightDetails)
-        deal_code_list = try values.decodeIfPresent([Deal_code_list].self, forKey: .deal_code_list)
+        topHotelDetails = try values.decodeIfPresent([TopHotelDetails].self, forKey: .topHotelDetails)
+        deail_code_list = try values.decodeIfPresent([Deail_code_list].self, forKey: .deail_code_list)
+        city_guides = try values.decodeIfPresent([City_guides].self, forKey: .city_guides)
     }
 
 }

@@ -15,7 +15,7 @@ class TopcityGuidesTVCell: TableViewCell {
     
     var itemCount = Int()
     var autoScrollTimer: Timer?
-    var hotellist = [TopHotelDetails]()
+    var hotellist = [City_guides]()
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -72,7 +72,7 @@ extension TopcityGuidesTVCell:UICollectionViewDelegate,UICollectionViewDataSourc
         
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell1", for: indexPath) as? TopcityGuidesCVCell {
             
-            cell.titlelbl.text = hotellist[indexPath.row].country
+            cell.titlelbl.text = hotellist[indexPath.row].airport_city
        
             
             if hotellist[indexPath.row].image == nil || hotellist[indexPath.row].image!.isEmpty {

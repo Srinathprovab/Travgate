@@ -341,7 +341,8 @@
                                                 </constraints>
                                                 <color key="tintColor" name="HeadingColor"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" title="" image="Group 18076"/>
+                                                <state key="normal" title="" image="modify"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="modify" title=""/>
                                                 <connections>
                                                     <action selector="didTapOnModifySearchBtmAction:" destination="lH4-Ti-SxC" eventType="touchUpInside" id="bQK-Jq-nuT"/>
                                                 </connections>
@@ -1989,13 +1990,13 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Group 18076" width="79" height="30"/>
         <image name="back" width="20" height="20"/>
         <image name="back1" width="20" height="20"/>
         <image name="close" width="26" height="26"/>
         <image name="filter" width="22" height="22"/>
         <image name="fsearch" width="427" height="267"/>
         <image name="left" width="28" height="28"/>
+        <image name="modify" width="79" height="30"/>
         <image name="right" width="28" height="28"/>
         <image name="searchbg" width="427" height="267"/>
         <image name="sort" width="26" height="26"/>
@@ -2012,7 +2013,7 @@
             <color red="0.93300002813339233" green="0.097999997437000275" blue="0.20800000429153442" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="BorderColor">
-            <color red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.80000001192092896" green="0.80000001192092896" blue="0.80000001192092896" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Buttoncolor">
             <color red="0.2669999897480011" green="0.70999997854232788" blue="0.046999998390674591" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

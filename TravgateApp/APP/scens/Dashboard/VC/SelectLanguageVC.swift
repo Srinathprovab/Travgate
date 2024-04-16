@@ -48,6 +48,8 @@ class SelectLanguageVC: BaseTableVC, CurrencyListViewModelDelegate {
     
     
     func setupUI() {
+        langView.isHidden = true
+        currencyView.isHidden = true
         
         langBtn.isUserInteractionEnabled = false
         currencyView.isHidden = true

@@ -9,6 +9,7 @@ import UIKit
 
 class SelectCityCVCell: UICollectionViewCell {
     
+    @IBOutlet weak var holderView: UIView!
     @IBOutlet weak var titlelbl: UILabel!
 
     override func awakeFromNib() {

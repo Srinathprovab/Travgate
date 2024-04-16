@@ -164,6 +164,7 @@ class ModifySearchVC: BaseTableVC {
     
     @IBAction func didTapOnRoundTripBtnAction(_ sender: Any) {
         roundtripTap()
+        NotificationCenter.default.post(name: NSNotification.Name("roundtripTap"), object: nil)
     }
     
     
@@ -179,7 +180,13 @@ extension ModifySearchVC {
     
     func setupUI(){
         
-        roundtripTap()
+       
+        
+        if let journytype = defaults.string(forKey: UserDefaultsKeys.journeyType), journytype == "circle" {
+            roundtripTap()
+        }else {
+            onewayTap()
+        }
         
         commonTableView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner] // Top left corner, Top right corner respectively
         commonTableView.layer.cornerRadius = 12

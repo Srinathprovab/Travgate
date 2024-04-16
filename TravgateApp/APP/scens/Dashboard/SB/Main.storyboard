@@ -495,24 +495,24 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="6rU-9K-bXK">
-                                        <rect key="frame" x="0.0" y="144.66666666666671" width="393" height="498.33333333333326"/>
+                                        <rect key="frame" x="0.0" y="72.333333333333314" width="393" height="570.66666666666674"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </tableView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="6rU-9K-bXK" firstAttribute="leading" secondItem="6lk-j5-axA" secondAttribute="leading" id="0dj-7s-6L2"/>
                                     <constraint firstItem="gUr-TW-oPU" firstAttribute="top" secondItem="iF8-S3-49X" secondAttribute="bottom" constant="30" id="3Cx-Vw-k5g"/>
-                                    <constraint firstItem="6rU-9K-bXK" firstAttribute="top" secondItem="gUr-TW-oPU" secondAttribute="bottom" constant="30" id="6ug-vd-Q9r"/>
+                                    <constraint firstAttribute="trailing" secondItem="6rU-9K-bXK" secondAttribute="trailing" id="6J9-SA-eZr"/>
                                     <constraint firstItem="iF8-S3-49X" firstAttribute="leading" secondItem="6lk-j5-axA" secondAttribute="leading" constant="16" id="CRn-vP-2hR"/>
                                     <constraint firstItem="gUr-TW-oPU" firstAttribute="leading" secondItem="iF8-S3-49X" secondAttribute="leading" id="Gcx-yy-k2Z"/>
                                     <constraint firstItem="iF8-S3-49X" firstAttribute="top" secondItem="6lk-j5-axA" secondAttribute="top" constant="20" id="JC9-hb-Yvu"/>
                                     <constraint firstItem="yAX-hj-3So" firstAttribute="centerY" secondItem="gUr-TW-oPU" secondAttribute="centerY" id="LbZ-EZ-lW7"/>
-                                    <constraint firstItem="6rU-9K-bXK" firstAttribute="leading" secondItem="6lk-j5-axA" secondAttribute="leading" id="Mw4-Y5-jii"/>
+                                    <constraint firstAttribute="bottom" secondItem="6rU-9K-bXK" secondAttribute="bottom" id="MCb-YW-8XE"/>
                                     <constraint firstItem="NiM-Af-KPH" firstAttribute="leading" secondItem="iF8-S3-49X" secondAttribute="trailing" constant="16" id="WRm-B6-C8e"/>
-                                    <constraint firstAttribute="bottom" secondItem="6rU-9K-bXK" secondAttribute="bottom" id="XJ3-kc-4ta"/>
                                     <constraint firstItem="NiM-Af-KPH" firstAttribute="centerY" secondItem="iF8-S3-49X" secondAttribute="centerY" id="XZn-6H-fYU"/>
                                     <constraint firstAttribute="trailing" secondItem="NiM-Af-KPH" secondAttribute="trailing" constant="16" id="a9j-Ta-7xv"/>
-                                    <constraint firstAttribute="trailing" secondItem="6rU-9K-bXK" secondAttribute="trailing" id="fPp-lq-C6C"/>
+                                    <constraint firstItem="6rU-9K-bXK" firstAttribute="top" secondItem="NiM-Af-KPH" secondAttribute="bottom" constant="20" id="uGy-PZ-rOq"/>
                                     <constraint firstItem="yAX-hj-3So" firstAttribute="leading" secondItem="gUr-TW-oPU" secondAttribute="trailing" constant="40" id="woh-oc-XON"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -548,7 +548,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nQj-6F-PsP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-770" y="1680"/>
+            <point key="canvasLocation" x="-770.2290076335878" y="1679.5774647887324"/>
         </scene>
         <!--BookingsVC-->
         <scene sceneID="yMl-hq-9pD">
@@ -1181,7 +1181,7 @@
         <image name="multiply" catalog="system" width="128" height="111"/>
         <image name="tab3" width="28" height="28"/>
         <namedColor name="BorderColor">
-            <color red="0.90200001001358032" green="0.9100000262260437" blue="0.90600001811981201" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.80000001192092896" green="0.80000001192092896" blue="0.80000001192092896" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Buttoncolor">
             <color red="0.2669999897480011" green="0.70999997854232788" blue="0.046999998390674591" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

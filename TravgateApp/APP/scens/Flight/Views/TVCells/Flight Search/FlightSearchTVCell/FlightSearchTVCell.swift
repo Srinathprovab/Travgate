@@ -246,11 +246,19 @@ class FlightSearchTVCell: TableViewCell, SelectCityViewModelProtocal {
         
         
         NotificationCenter.default.addObserver(self, selector: #selector(returndate), name: Notification.Name("returndate"), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(roundtripTap), name: Notification.Name("roundtripTap"), object: nil)
     }
     
     
     @objc func returndate() {
         showretDatePicker()
+    }
+    
+    @objc func roundtripTap() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.10) { [unowned self] in
+            retTF.becomeFirstResponder()
+        }
     }
     
     
@@ -403,6 +411,10 @@ class FlightSearchTVCell: TableViewCell, SelectCityViewModelProtocal {
     
     @IBAction func didTapOnReturnDateBtnAction(_ sender: Any) {
         delegate?.didTapOnReturnDateBtnAction(cell: self)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.10) { [unowned self] in
+            retTF.becomeFirstResponder()
+        }
     }
     
     
