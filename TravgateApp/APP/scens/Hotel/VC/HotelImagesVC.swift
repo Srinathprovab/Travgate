@@ -97,6 +97,7 @@ extension HotelImagesVC :UICollectionViewDelegate, UICollectionViewDataSource{
         guard let vc = SelectedHotelImageVC.newInstance.self else {return}
         vc.modalPresentationStyle = .overCurrentContext
         vc.imageurlString = imgString
+        vc.isvcfrom = "hotel"
         self.present(vc, animated: false)
     }
     

@@ -26,7 +26,6 @@ class ContactUsTVCell: TableViewCell, UITextViewDelegate {
     
     
     @IBOutlet weak var nameTF: UITextField!
-    @IBOutlet weak var emaillbl: UILabel!
     @IBOutlet weak var emailTF: UITextField!
     @IBOutlet weak var countryCodeTF: UITextField!
     @IBOutlet weak var mobileTF: UITextField!
@@ -78,7 +77,7 @@ class ContactUsTVCell: TableViewCell, UITextViewDelegate {
     func setupUI() {
         
         
-        emaillbl.text = "info@holidayscenter.com"
+       
         
         
         setupTF(tf: nameTF)

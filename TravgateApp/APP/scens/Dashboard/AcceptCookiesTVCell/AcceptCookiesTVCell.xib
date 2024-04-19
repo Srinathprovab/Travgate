@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="OpenSans-Medium.ttf">
+            <string>OpenSans-Medium</string>
+        </array>
+        <array key="OpenSans-SemiBold.ttf">
+            <string>OpenSans-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="222" id="KGk-i7-Jjw" customClass="AcceptCookiesTVCell" customModule="Travgate" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="360" height="222"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="360" height="222"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pwx-YZ-yEJ">
+                        <rect key="frame" x="0.0" y="0.0" width="360" height="222"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oDE-QW-G6l">
+                                <rect key="frame" x="20" y="20" width="320" height="22"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Medium" family="Open Sans" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YVO-a3-w8i">
+                                <rect key="frame" x="20" y="94" width="320" height="45"/>
+                                <color key="backgroundColor" name="Buttoncolor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="LIv-mu-TwK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="16"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="I Accept All Cookie">
+                                    <color key="titleColor" red="0.91372549020000005" green="0.97254901959999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapOnAcceptAllCookieBtnAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="cT6-WX-XJk"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5z9-nl-ra8">
+                                <rect key="frame" x="20" y="159" width="320" height="45"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="XAM-Xt-2iQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="16"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Reject All  Cookies">
+                                    <color key="titleColor" name="TitleColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapOnRejectCookieBtnAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="cJL-ZY-xjb"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="YVO-a3-w8i" firstAttribute="top" secondItem="oDE-QW-G6l" secondAttribute="bottom" constant="52" id="2ah-nS-8E4"/>
+                            <constraint firstItem="oDE-QW-G6l" firstAttribute="top" secondItem="pwx-YZ-yEJ" secondAttribute="top" constant="20" id="4Db-vD-njy"/>
+                            <constraint firstItem="YVO-a3-w8i" firstAttribute="leading" secondItem="pwx-YZ-yEJ" secondAttribute="leading" constant="20" id="FgL-qs-ZZo"/>
+                            <constraint firstAttribute="trailing" secondItem="YVO-a3-w8i" secondAttribute="trailing" constant="20" id="LHg-iS-qq0"/>
+                            <constraint firstItem="oDE-QW-G6l" firstAttribute="leading" secondItem="pwx-YZ-yEJ" secondAttribute="leading" constant="20" id="bIr-mc-3Wg"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="164" id="biE-1P-TRm"/>
+                            <constraint firstItem="5z9-nl-ra8" firstAttribute="leading" secondItem="pwx-YZ-yEJ" secondAttribute="leading" constant="20" id="cPO-DM-6XT"/>
+                            <constraint firstAttribute="trailing" secondItem="oDE-QW-G6l" secondAttribute="trailing" constant="20" id="dwq-gK-lkZ"/>
+                            <constraint firstItem="5z9-nl-ra8" firstAttribute="top" secondItem="YVO-a3-w8i" secondAttribute="bottom" constant="20" id="ikk-cH-g41"/>
+                            <constraint firstAttribute="trailing" secondItem="5z9-nl-ra8" secondAttribute="trailing" constant="20" id="kLi-HJ-moI"/>
+                            <constraint firstAttribute="bottom" secondItem="5z9-nl-ra8" secondAttribute="bottom" constant="18" id="qlb-RM-DKW"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="pwx-YZ-yEJ" secondAttribute="trailing" id="7zV-Yv-rT5"/>
+                    <constraint firstAttribute="bottom" secondItem="pwx-YZ-yEJ" secondAttribute="bottom" id="Juo-XG-h0D"/>
+                    <constraint firstItem="pwx-YZ-yEJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Nit-Tg-Hmj"/>
+                    <constraint firstItem="pwx-YZ-yEJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="r85-Oc-tCk"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="acceptBtn" destination="YVO-a3-w8i" id="VVH-jL-Gfn"/>
+                <outlet property="rejectBtn" destination="5z9-nl-ra8" id="SuZ-C9-k6w"/>
+                <outlet property="titlelbl" destination="oDE-QW-G6l" id="lVe-Fu-EBu"/>
+            </connections>
+            <point key="canvasLocation" x="167.93893129770993" y="145.07042253521126"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="Buttoncolor">
+            <color red="0.2669999897480011" green="0.70999997854232788" blue="0.046999998390674591" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TitleColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

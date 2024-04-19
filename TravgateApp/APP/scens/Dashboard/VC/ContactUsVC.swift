@@ -6,6 +6,9 @@
 //
 
 import UIKit
+import MessageUI
+import SafariServices
+import CallKit
 
 class ContactUsVC: BaseTableVC, mobilecontactusViewModelDelegate {
     
@@ -96,6 +99,30 @@ class ContactUsVC: BaseTableVC, mobilecontactusViewModelDelegate {
     }
     
     
+    //MARK: - ContactUsTVCell Delegate Methods
+    override func didTapOnAddressBtnAction(cell: ContactUsTVCell) {
+        gotoSelectedHotelImageVC()
+    }
+    
+    func gotoSelectedHotelImageVC() {
+        guard let vc = SelectedHotelImageVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .overCurrentContext
+        vc.imageurlString = "kuwait"
+        vc.isvcfrom = "contact"
+        present(vc, animated: false)
+    }
+    
+    override func didTapOnMailBtnAction(cell: ContactUsTVCell) {
+        openEmail(mailstr: "support@travgate.com")
+    }
+  
+    override func didTapOnPhoneBtnAction(cell: ContactUsTVCell) {
+        let phoneNumber = "+96522072747" // Replace with the actual phone number from your data
+        makePhoneCall(number: phoneNumber)
+        
+    }
+    
+    
     override func didTapOnSubmitBtnAction(cell: ContactUsTVCell) {
         
         guard !name.isEmpty else { showToast(message: "Enter Name"); return }
@@ -103,9 +130,9 @@ class ContactUsVC: BaseTableVC, mobilecontactusViewModelDelegate {
         guard email.isValidEmail() else { showToast(message: "Enter Valid Email Address"); return }
         guard !countrycode.isEmpty else { showToast(message: "Enter Country Code"); return }
         guard !mobile.isEmpty else { showToast(message: "Enter Mobile"); return }
-
+        
         CallContactUsAPI()
-
+        
     }
     
 }
@@ -126,7 +153,7 @@ extension ContactUsVC {
     
     
     func contactUsSucess(response: LoginModel) {
-       
+        
         showToast(message: response.msg ?? "")
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             self.dismiss(animated: true)
@@ -135,4 +162,40 @@ extension ContactUsVC {
     }
     
     
+}
+
+extension ContactUsVC:MFMailComposeViewControllerDelegate  {
+    
+    @objc func openEmail(mailstr:String) {
+        if MFMailComposeViewController.canSendMail() {
+            let composeVC = MFMailComposeViewController()
+            composeVC.mailComposeDelegate = self
+            composeVC.setToRecipients([mailstr]) // Set the recipient email address
+            
+            // Set the email subject
+            //    composeVC.setSubject("Hello from Swift!")
+            
+            // Set the email body
+            //   composeVC.setMessageBody("This is the body of the email.", isHTML: false)
+            
+            present(composeVC, animated: true, completion: nil)
+        } else {
+            // Handle the case when the device cannot send emails
+            print("Device cannot send emails.")
+        }
+    }
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
+    
+    func makePhoneCall(number: String) {
+        if let phoneURL = URL(string: "tel://\(number)"),
+           UIApplication.shared.canOpenURL(phoneURL) {
+            UIApplication.shared.open(phoneURL, options: [:], completionHandler: nil)
+        } else {
+            // Handle the case where the device cannot make calls or the URL is invalid.
+        }
+    }
 }

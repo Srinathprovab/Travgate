@@ -31,6 +31,7 @@ enum TVCellType {
     case SelectLanguageTVCell
     case TripsTVCell
     case FlightUpcomingTVCell
+    case AcceptCookiesTVCell
     
     //LOGIN
     case LoginTVCell
@@ -59,7 +60,6 @@ enum TVCellType {
     case BaggageInfoTVCell
     case FareRulesTVCell
     case InternationalTravelInsuranceTVCell
-    case SpecialAssistanceTVCell
     case AddonTVCell
     case FRulesTVCell
     case ContactUsTVCell
@@ -81,7 +81,9 @@ enum TVCellType {
     case GuestTVCell
     case AddonTableViewCell
     case PriceSummaryTVCell
-   
+    case SelectMealTVCell
+    case SpecialAssistanceTVCell
+    case NewSpecialAssistanceTVCell
     
     
     //FILTER

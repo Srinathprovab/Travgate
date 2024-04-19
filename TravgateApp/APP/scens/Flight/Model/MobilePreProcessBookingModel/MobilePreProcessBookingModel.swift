@@ -17,6 +17,7 @@ struct MobilePreProcessBookingModel : Codable {
     let pre_booking_params : Pre_booking_params?
     let search_data : MPBSearchData?
     let frequent_flyers : [Frequent_flyers]?
+   
     let status : Int?
     let msg : String?
     enum CodingKeys: String, CodingKey {
@@ -49,3 +50,6 @@ struct MobilePreProcessBookingModel : Codable {
     }
 
 }
+
+
+

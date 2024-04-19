@@ -9,7 +9,28 @@ import UIKit
 import WebKit
 import SwiftyJSON
 
-class LoadWebViewVC: UIViewController, WKNavigationDelegate {
+class LoadWebViewVC: UIViewController, WKNavigationDelegate, MobileSecureBookingViewModelDelegate, MPBViewModelDelegate {
+    func MPBDetails(response: MobilePreProcessBookingModel) {
+        
+    }
+    
+    func mobileprocesspassengerDetails(response: MobilePassengerdetailsModel) {
+        
+    }
+    
+    func mobilePreBookingModelDetails(response: MobilePreBookingModel) {
+        
+    }
+    
+    func mobileprepaymentconfirmationDetails(response: MobilePrePaymentModel) {
+        
+    }
+    
+    func mobilesendtopaymentDetails(response: MobilePrePaymentModel) {
+        
+    }
+    
+   
     
     @IBOutlet weak var holderView: UIView!
     @IBOutlet weak var titlelbl: UILabel!
@@ -63,7 +84,8 @@ class LoadWebViewVC: UIViewController, WKNavigationDelegate {
         super.viewDidLoad()
         
         setupUI()
-        
+        MySingleton.shared.viewmodel1 = MobileSecureBookingViewModel(self)
+        MySingleton.shared.mpbvm = MPBViewModel(self)
     }
     
     
@@ -139,49 +161,13 @@ extension LoadWebViewVC {
             self.webview.isUserInteractionEnabled = true
             
         }
-//        
-//        
-//        let str = webView.url?.absoluteString ?? ""
-//        webview.isHidden = false
-//        if apicallbool == false {
-//            
-//            if str.containsIgnoringCase(find: "paymentcancel") || str.containsIgnoringCase(find: "CANCELED") || str.containsIgnoringCase(find: "bookingFailuer"){
-//                
-//                webview.isHidden = true
-//                showAlertOnWindow(title: "",message: "Click Ok To Start New Search",titles: ["OK"]) { title in
-//                    self.gotoDashboard()
-//                }
-//            }else {
-//                
-//                webview.isHidden = true
-//                
-//                if let url1 = URL(string: str) {
-//                    webview.load(URLRequest(url: url1))
-//                }
-//                
-////                if let tabselect = defaults.string(forKey: UserDefaultsKeys.tabselect) {
-////                    if tabselect == "Flight" {
-////                        if str.contains(find: "flight/secure_booking"){
-////                            BASE_URL = ""
-////                          //  callSecureBookingAPI(urlstr: str)
-////                        }
-////                        
-////                        
-////                    }else {
-////                        if  str.contains(find: "payment_gateway/success"){
-////                            BASE_URL = ""
-////                           // callPayMentSucessAPI(urlstr: str)
-////                        }
-////                        
-////                        
-////                    }
-////                }
-//                
-//                
-//            }
-//        }
-//        apicallbool = false
-//        
+        
+        
+        let str = webView.url?.absoluteString ?? ""
+        if str.containsIgnoringCase(find: "payment_gateway/GetHandlerResponse"){
+            MySingleton.shared.mpbvm?.CALL_MOBILE_PAYMENT_API(dictParam: [:], url: str)
+        }
+        
     }
     
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
@@ -189,6 +175,22 @@ extension LoadWebViewVC {
     }
     
     
+    
+    func mobolePaymentDetails(response: PaymentModel) {
+        MySingleton.shared.viewmodel1?.Call_mobile_secure_booking_API(dictParam: [:], url: response.data ?? "")
+    }
+    
+    func mobilesecurebookingDetails(response: MobilePrePaymentModel) {
+        gotoBookingConfirmedVC(str: response.url ?? "")
+    }
+    
+    
+    func gotoBookingConfirmedVC(str:String) {
+        guard let vc = BookingConfirmedVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .fullScreen
+        urlString = str
+        present(vc, animated: true)
+    }
     
     
 }

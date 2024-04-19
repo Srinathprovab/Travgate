@@ -316,6 +316,13 @@ class FlightSearchTVCell: TableViewCell, SelectCityViewModelProtocal {
         
         defaults.setValue(d, forKey: UserDefaultsKeys.fcity)
         defaults.setValue(c, forKey: UserDefaultsKeys.tcity)
+        
+        
+        let u = "\(defaults.string(forKey: UserDefaultsKeys.fromCode) ?? "")"
+        let v = "\(defaults.string(forKey: UserDefaultsKeys.toCode) ?? "")"
+        
+        defaults.setValue(v, forKey: UserDefaultsKeys.fromCode)
+        defaults.setValue(u, forKey: UserDefaultsKeys.toCode)
     }
     
     @IBAction func didTapOnFlightSearchBtnAction(_ sender: Any) {
@@ -539,7 +546,14 @@ extension FlightSearchTVCell:UICollectionViewDelegate,UICollectionViewDataSource
             
             cell.titlelbl.text = infoArray[indexPath.row]
             cell.img.image = UIImage(named: infoimgArray[indexPath.row])
-            //            cell.img.sd_setImage(with: URL(string:  offerlist[indexPath.row].topDealImg ?? ""), placeholderImage:UIImage(contentsOfFile:"placeholder.png"))
+            
+            
+            // Check if the item is selected and update the checkbox accordingly
+            if MySingleton.shared.infoArray.contains(cell.titlelbl.text ?? "") {
+                cell.checkimg.image = UIImage(named: "check")
+            } else {
+                cell.checkimg.image = UIImage(named: "uncheck")?.withRenderingMode(.alwaysOriginal).withTintColor(.Buttoncolor)
+            }
             
             
             commonCell = cell
@@ -555,7 +569,11 @@ extension FlightSearchTVCell:UICollectionViewDelegate,UICollectionViewDataSource
             cell.checkimg.image = UIImage(named: "check")
             MySingleton.shared.infoArray.append(cell.titlelbl.text ?? "")
             
-            print(MySingleton.shared.infoArray.joined(separator: ","))
+            
+            // Update the boolean value based on the selected item
+            updateBoolValue(for: cell.titlelbl.text, isSelected: true)
+            
+            
         }
     }
     
@@ -568,7 +586,32 @@ extension FlightSearchTVCell:UICollectionViewDelegate,UICollectionViewDataSource
                 MySingleton.shared.infoArray.remove(at: index)
             }
             
-            print(MySingleton.shared.infoArray.joined(separator: ","))
+            // Update the boolean value based on the deselected item
+            updateBoolValue(for: cell.titlelbl.text, isSelected: false)
+            
+            
+        }
+    }
+    
+    
+    func updateBoolValue(for title: String?, isSelected: Bool) {
+        guard let title = title else { return }
+        
+        switch title {
+        case "Add Baggage":
+            MySingleton.shared.addBaggageBool = isSelected
+        case "Meal":
+            MySingleton.shared.addMealBool = isSelected
+        case "Add Insurance":
+            MySingleton.shared.addInsuranceBool = isSelected
+        case "Add Special assistance":
+            MySingleton.shared.addSpecialAssistanceBool = isSelected
+        case "Add Seat":
+            MySingleton.shared.addSeatBool = isSelected
+        case "Add airport Transfers":
+            MySingleton.shared.addAirportTransfersBool = isSelected
+        default:
+            break
         }
     }
     
@@ -679,7 +722,7 @@ extension FlightSearchTVCell:UITableViewDelegate, UITableViewDataSource {
                 
                 //toTF.becomeFirstResponder()
                 
-                
+                defaults.set(cityList[indexPath.row].code ?? "", forKey: UserDefaultsKeys.fromCode)
                 defaults.set(cityList[indexPath.row].label ?? "", forKey: UserDefaultsKeys.fromCity)
                 defaults.set(cityList[indexPath.row].id ?? "", forKey: UserDefaultsKeys.fromlocid)
                 //         defaults.set("\(cityList[indexPath.row].city ?? "") (\(cityList[indexPath.row].code ?? ""))", forKey: UserDefaultsKeys.fromairport)
@@ -697,7 +740,7 @@ extension FlightSearchTVCell:UITableViewDelegate, UITableViewDataSource {
                 toTF.placeholder = ""
                 toTF.resignFirstResponder()
                 
-                
+                defaults.set(cityList[indexPath.row].code ?? "", forKey: UserDefaultsKeys.toCode)
                 defaults.set(cityList[indexPath.row].label ?? "", forKey: UserDefaultsKeys.toCity)
                 defaults.set(cityList[indexPath.row].id ?? "", forKey: UserDefaultsKeys.tolocid)
                 //     defaults.set("\(cityList[indexPath.row].city ?? "") (\(cityList[indexPath.row].code ?? ""))", forKey: UserDefaultsKeys.toairport)

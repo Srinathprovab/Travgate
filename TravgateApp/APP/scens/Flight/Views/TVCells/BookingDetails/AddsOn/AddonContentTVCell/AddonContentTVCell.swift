@@ -19,7 +19,7 @@ class AddonContentTVCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     
 //    var isChecked = true
-    
+    var originValue = String()
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

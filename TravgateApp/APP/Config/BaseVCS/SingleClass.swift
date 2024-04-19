@@ -51,7 +51,8 @@ class MySingleton {
     var hotelAddonServices = [HotelAddonModel]()
     var fareRulesData = [FareRulesData]()
     var selectedAddonServices: [SelectedAddonService] = []
-
+    var mealListArray = [Meals_list]()
+    var ssrListArray = [Ssr_list]()
     
     //Flight Search
     var loderimgurl = String()
@@ -107,6 +108,24 @@ class MySingleton {
     var travelfrom = String()
     var travelto = String()
     var mrtitle = String()
+    
+    
+    
+    var addBaggageBool = false
+    var mealBool = false
+    var addMealBool = false
+    var addInsuranceBool = false
+    var addSpecialAssistanceBool = false
+    var addSeatBool = false
+    var addAirportTransfersBool = false
+    
+    var enablePaymentButtonBool1 = false
+    var enablePaymentButtonBool2 = false
+    
+    var selected_meals_codeArray = [String]()
+    var selected_special_assistance_codeArray = [String]()
+    var addon_servicesArray = [String]()
+    
     
     var visaNationalityCode = String()
     var visaResidencyCode = String()

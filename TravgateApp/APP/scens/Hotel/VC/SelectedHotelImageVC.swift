@@ -21,10 +21,16 @@ class SelectedHotelImageVC: UIViewController {
     }
     
     var imageurlString = String()
-    
+    var isvcfrom = String()
     
     override func viewWillAppear(_ animated: Bool) {
-        img.sd_setImage(with: URL(string: imageurlString ), placeholderImage:UIImage(contentsOfFile:"placeholder.png"))
+       
+        
+        if isvcfrom == "contact" {
+            img.image = UIImage(named: imageurlString)
+        }else {
+            img.sd_setImage(with: URL(string: imageurlString ), placeholderImage:UIImage(contentsOfFile:"placeholder.png"))
+        }
         
     }
     

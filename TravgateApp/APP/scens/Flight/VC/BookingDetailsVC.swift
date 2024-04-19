@@ -14,7 +14,7 @@ class BookingDetailsVC: BaseTableVC, MPBViewModelDelegate, MobileSecureBookingVi
     @IBOutlet weak var gifimg: UIImageView!
     @IBOutlet weak var sessionlbl: UILabel!
     @IBOutlet weak var holderView: UIView!
-    @IBOutlet weak var continuetoPaymentBtn: UIView!
+    @IBOutlet weak var continuetoPaymentBtnView: UIView!
     
     
     static var newInstance: BookingDetailsVC? {
@@ -30,12 +30,6 @@ class BookingDetailsVC: BaseTableVC, MPBViewModelDelegate, MobileSecureBookingVi
     
     //MARK: - Loading Functions
     override func viewWillAppear(_ animated: Bool) {
-        
-        whatsAppCheck = false
-        notificationCheck = false
-        priceCheck = false
-        flexibleCheck = false
-        
         addObserver()
     }
     
@@ -57,9 +51,15 @@ class BookingDetailsVC: BaseTableVC, MPBViewModelDelegate, MobileSecureBookingVi
     
     
     func setupUI() {
+        MySingleton.shared.addon_servicesArray.removeAll()
+        whatsAppCheck = false
+        notificationCheck = false
+        priceCheck = false
+        flexibleCheck = false
         gifimg.isHidden = true
-        continuetoPaymentBtn.backgroundColor = .Buttoncolor
-        continuetoPaymentBtn.isUserInteractionEnabled = false
+        
+        continuetoPaymentBtnView.backgroundColor = .Buttoncolor
+        continuetoPaymentBtnView.isUserInteractionEnabled = false
         guard let gifURL = Bundle.main.url(forResource: "pay", withExtension: "gif") else { return }
         guard let imageData = try? Data(contentsOf: gifURL) else { return }
         guard let image = UIImage.gifImageWithData(imageData) else { return }
@@ -222,7 +222,7 @@ class BookingDetailsVC: BaseTableVC, MPBViewModelDelegate, MobileSecureBookingVi
     //MARK: - PrimaryContactInfoTVCell Delegate Methods
     override func didTapOnCountryCodeBtn(cell: PrimaryContactInfoTVCell) {
         MySingleton.shared.nationalityCode = cell.isoCountryCode
-      //  MySingleton.shared.paymobilecountrycode = cell.countrycodeTF.text ?? ""
+        //  MySingleton.shared.paymobilecountrycode = cell.countrycodeTF.text ?? ""
     }
     
     
@@ -265,16 +265,19 @@ class BookingDetailsVC: BaseTableVC, MPBViewModelDelegate, MobileSecureBookingVi
     
     //MARK: - enableContinuetoPaymentBtn
     override func enableContinuetoPaymentBtn(cell: OperatorsCheckBoxTVCell) {
-       
-        if cell.enablePaymentButtonBool1 == true && cell.enablePaymentButtonBool2 == true {
-            continuetoPaymentBtn.backgroundColor = .BooknowBtnColor
-            continuetoPaymentBtn.isUserInteractionEnabled = true
+        
+        if MySingleton.shared.enablePaymentButtonBool1 == true && MySingleton.shared.enablePaymentButtonBool2 == true {
+            
+            continuetoPaymentBtnView.backgroundColor = .BooknowBtnColor
+            continuetoPaymentBtnView.isUserInteractionEnabled = true
             gifimg.isHidden = false
-            print("enableContinuetoPaymentBtn")
+            
         }else {
-            continuetoPaymentBtn.backgroundColor = .Buttoncolor
-            continuetoPaymentBtn.isUserInteractionEnabled = false
+            
+            continuetoPaymentBtnView.backgroundColor = .Buttoncolor
+            continuetoPaymentBtnView.isUserInteractionEnabled = false
             gifimg.isHidden = true
+            
         }
     }
     
@@ -294,22 +297,22 @@ class BookingDetailsVC: BaseTableVC, MPBViewModelDelegate, MobileSecureBookingVi
             notificationCheck = false
             totlConvertedGrand = totlConvertedGrand - Double(notificationAmount)
         }
-       // setuplabels(lbl: bookNowlbl, text: "\(defaults.string(forKey: UserDefaultsKeys.selectedCurrency) ?? ""): \(totlConvertedGrand)", textcolor: .WhiteColor, font: .InterBold(size: 18), align: .left)
+        // setuplabels(lbl: bookNowlbl, text: "\(defaults.string(forKey: UserDefaultsKeys.selectedCurrency) ?? ""): \(totlConvertedGrand)", textcolor: .WhiteColor, font: .InterBold(size: 18), align: .left)
         
         
         setupTVCell()
-      
+        
     }
     
-//    //MARK: - INITIAL SETUP LABELS
-//    func setuplabels(lbl:UILabel,text:String,textcolor:UIColor,font:UIFont,align:NSTextAlignment) {
-//        lbl.text = text
-//        lbl.textColor = textcolor
-//        lbl.font = font
-//        lbl.numberOfLines = 0
-//        lbl.textAlignment = align
-//    }
-
+    //    //MARK: - INITIAL SETUP LABELS
+    //    func setuplabels(lbl:UILabel,text:String,textcolor:UIColor,font:UIFont,align:NSTextAlignment) {
+    //        lbl.text = text
+    //        lbl.textColor = textcolor
+    //        lbl.font = font
+    //        lbl.numberOfLines = 0
+    //        lbl.textAlignment = align
+    //    }
+    
     
     
     override func didDeselectAddon(index: Int) {
@@ -327,7 +330,7 @@ class BookingDetailsVC: BaseTableVC, MPBViewModelDelegate, MobileSecureBookingVi
             notificationCheck = true
             totlConvertedGrand = totlConvertedGrand + Double(notificationAmount)
         }
-    //    setuplabels(lbl: bookNowlbl, text: "\(defaults.string(forKey: UserDefaultsKeys.selectedCurrency) ?? ""): \(totlConvertedGrand)", textcolor: .WhiteColor, font: .InterBold(size: 18), align: .left)
+        //    setuplabels(lbl: bookNowlbl, text: "\(defaults.string(forKey: UserDefaultsKeys.selectedCurrency) ?? ""): \(totlConvertedGrand)", textcolor: .WhiteColor, font: .InterBold(size: 18), align: .left)
         setupTVCell()
     }
     
@@ -376,6 +379,8 @@ extension BookingDetailsVC {
             MySingleton.shared.mpbFlightData = response.flight_data?[0].flight_details
             MySingleton.shared.frequent_flyersArray = response.frequent_flyers ?? []
             MySingleton.shared.addonServices = response.pre_booking_params?.addon_services ?? []
+            MySingleton.shared.mealListArray = response.pre_booking_params?.meals_list ?? []
+            MySingleton.shared.ssrListArray = response.pre_booking_params?.ssr_list ?? []
             
             services = response.pre_booking_params?.addon_services ?? []
             addon_services = response.pre_booking_params?.addon_services ?? []
@@ -487,20 +492,20 @@ extension BookingDetailsVC {
         
         
         
-        MySingleton.shared.tablerow.append(TableRow(height:10,cellType:.EmptyTVCell))
-        MySingleton.shared.tablerow.append(TableRow(cellType:.UsePromoCodesTVCell))
-        MySingleton.shared.tablerow.append(TableRow(cellType:.InternationalTravelInsuranceTVCell))
-        MySingleton.shared.tablerow.append(TableRow(cellType:.SpecialAssistanceTVCell))
+        //        MySingleton.shared.tablerow.append(TableRow(height:10,cellType:.EmptyTVCell))
+        //        MySingleton.shared.tablerow.append(TableRow(cellType:.UsePromoCodesTVCell))
+        //        MySingleton.shared.tablerow.append(TableRow(cellType:.InternationalTravelInsuranceTVCell))
+        //        MySingleton.shared.tablerow.append(TableRow(cellType:.SpecialAssistanceTVCell))
         
         
-//        MySingleton.shared.tablerow.append(TableRow(height:10,cellType:.EmptyTVCell))
-//        MySingleton.shared.tablerow.append(TableRow(cellType:.AddonTVCell))
+        //        MySingleton.shared.tablerow.append(TableRow(height:10,cellType:.EmptyTVCell))
+        //        MySingleton.shared.tablerow.append(TableRow(cellType:.AddonTVCell))
         
         MySingleton.shared.tablerow.append(TableRow(height: 10,bgColor:.AppHolderViewColor, cellType:.EmptyTVCell))
         MySingleton.shared.tablerow.append(TableRow(moreData: services, cellType:.AddonTableViewCell))
         
         MySingleton.shared.tablerow.append(TableRow(height:10,cellType:.EmptyTVCell))
-   //     MySingleton.shared.tablerow.append(TableRow(cellType:.FareSummaryTVCell))
+        //     MySingleton.shared.tablerow.append(TableRow(cellType:.FareSummaryTVCell))
         MySingleton.shared.tablerow.append(TableRow(covetedAmnt: totlConvertedGrand, cellType:.PriceSummaryTVCell))
         
         MySingleton.shared.tablerow.append(TableRow(cellType:.OperatorsCheckBoxTVCell))
@@ -667,6 +672,10 @@ extension BookingDetailsVC {
         let passportExpireDateString = "[\"" + passportExpireDateArray.joined(separator: "\",\"") + "\"]"
         let passengertypeArrayString = "[\"" + MySingleton.shared.passengertypeArray.joined(separator: "\",\"") + "\"]"
         
+        let addon_servicesArrayString = "[\"" + MySingleton.shared.addon_servicesArray.joined(separator: "\",\"") + "\"]"
+        
+        
+        
         
         MySingleton.shared.payload["search_id"] = MySingleton.shared.searchid
         MySingleton.shared.payload["tmp_flight_pre_booking_id"] = MySingleton.shared.tmpFlightPreBookingId
@@ -729,6 +738,15 @@ extension BookingDetailsVC {
         MySingleton.shared.payload["device_source"] = "MOBILE(A)"
         
         
+//        MySingleton.shared.payload["selected_meals_code"] = ""
+//        MySingleton.shared.payload["selected_special_assistance_code"] = ""
+        MySingleton.shared.payload["addon_services"] = addon_servicesArrayString
+    
+        
+        
+        print(MySingleton.shared.payload)
+        
+        
         // Check additional conditions
         if !callpaymentbool {
             showToast(message: "Add Details")
@@ -759,14 +777,29 @@ extension BookingDetailsVC {
             return
         }else {
             
-            MySingleton.shared.afterResultsBool = true
-            loderBool = true
-            showLoadera()
             
-            MySingleton.shared.mpbvm?.CALL_MOBILE_PROCESS_PASSENGER_DETAIL_API(dictParam:MySingleton.shared.payload)
+            if MySingleton.shared.infoArray.count > 0 {
+                
+                gotoMealSelectionVC()
+                
+            }else {
+                MySingleton.shared.afterResultsBool = true
+                loderBool = true
+                showLoadera()
+                
+                MySingleton.shared.mpbvm?.CALL_MOBILE_PROCESS_PASSENGER_DETAIL_API(dictParam:MySingleton.shared.payload)
+            }
+            
+            
         }
     }
     
+    func gotoMealSelectionVC() {
+        MySingleton.shared.callboolapi = true
+        guard let vc = MealSelectionVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: false)
+    }
     
     
     //MARK: mobile process passenger Details
@@ -774,11 +807,27 @@ extension BookingDetailsVC {
         
         DispatchQueue.main.async {
             BASE_URL = ""
-            MySingleton.shared.viewmodel1?.Call_mobile_secure_booking_API(dictParam: [:], url: "\(response.url ?? "")")
+            // MySingleton.shared.viewmodel1?.Call_mobile_secure_booking_API(dictParam: [:], url: "\(response.url ?? "")") no need
+            
+          //  MySingleton.shared.mpbvm?.CALL_MOBILE_PAYMENT_API(dictParam: [:], url: response.url ?? "")
+            
         }
         
     }
     
+    
+    
+    func mobolePaymentDetails(response: PaymentModel) {
+        self.gotoLoadWebViewVC(urlStr1: response.data ?? "")
+    }
+    
+    
+    func gotoLoadWebViewVC(urlStr1:String) {
+        guard let vc = LoadWebViewVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .fullScreen
+        vc.urlString = urlStr1
+        present(vc, animated: true)
+    }
     
     
     func mobilesecurebookingDetails(response: MobilePrePaymentModel) {
@@ -819,19 +868,18 @@ extension BookingDetailsVC {
             MySingleton.shared.payload["language"] = "en"
             MySingleton.shared.payload["extra"] = ""
             
-           
+            
             
             
             let random5DigitNumber = generateRandomNumber()
             MySingleton.shared.payload["order_no"] = "\(random5DigitNumber)"
             
-           
+            
             MySingleton.shared.afterResultsBool = true
             loderBool = true
             showLoadera()
-           
             
-            MySingleton.shared.mpbvm?.CALL_MOBILE_PAYMENT_API(dictParam: MySingleton.shared.payload, url: response.pay_url ?? "")
+            
         }
         
         
@@ -839,27 +887,9 @@ extension BookingDetailsVC {
     
     
     
-    func mobolePaymentDetails(response: PaymentModel) {
-        
-        
-        
-        MySingleton.shared.merchantid = response.order_no ?? ""
-        MySingleton.shared.sessionid = response.session_id ?? ""
-        
-        DispatchQueue.main.async {
-           // self.gotoOttuPaymentGatewayVC()
-            self.gotoLoadWebViewVC(urlStr1: response.checkout_url ?? "")
-        }
-        
-        
-    }
     
-    func gotoLoadWebViewVC(urlStr1:String) {
-        guard let vc = LoadWebViewVC.newInstance.self else {return}
-        vc.modalPresentationStyle = .fullScreen
-        vc.urlString = urlStr1
-        present(vc, animated: true)
-    }
+    
+    
     
     
     func generateRandomNumber() -> Int {

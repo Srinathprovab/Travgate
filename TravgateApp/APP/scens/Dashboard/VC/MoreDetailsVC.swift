@@ -43,17 +43,7 @@ class MoreDetailsVC: BaseTableVC, MoreDetailsViewModelDelegate {
     }
     
     
-    func setupTVCells() {
-        MySingleton.shared.tablerow.removeAll()
-        
-        
-        titlelbl.text = MySingleton.shared.moreDetailsData?.page_title ?? ""
-        MySingleton.shared.tablerow.append(TableRow(cellType:.MoreDetailsTVCell))
-       
-        commonTVData =  MySingleton.shared.tablerow
-        commonTableView.reloadData()
-    }
-    
+   
     
     @IBAction func didTapOnBackBtnAction(_ sender: Any) {
         dismiss(animated: true)
@@ -75,18 +65,18 @@ extension MoreDetailsVC {
         switch titleString {
         case "About Us":
             MySingleton.shared.moredetailsvm?.CALL_GET_MORE_DETAILS_API(dictParam: [:],
-                                                                        urlStr: "https://provab.net/travgate/pro_new/mobile/index.php/general/cms?id=1")
+                                                                        urlStr: "https://provab.net/travgate/android_ios_webservices/mobile/index.php/general/cms?id=1")
             break
             
         case "Terms & Conditions":
             MySingleton.shared.moredetailsvm?.CALL_GET_MORE_DETAILS_API(dictParam: [:],
-                                                                        urlStr: "https://provab.net/travgate/pro_new/mobile/index.php/general/cms?id=3")
+                                                                        urlStr: "https://provab.net/travgate/android_ios_webservices/mobile/index.php/general/cms?id=3")
             break
             
             
         case "Privacy Policy":
             MySingleton.shared.moredetailsvm?.CALL_GET_MORE_DETAILS_API(dictParam: [:],
-                                                                        urlStr: "https://provab.net/travgate/pro_new/mobile/index.php/general/cms?id=4")
+                                                                        urlStr: "https://provab.net/travgate/android_ios_webservices/mobile/index.php/general/cms?id=4")
             break
             
        
@@ -109,6 +99,18 @@ extension MoreDetailsVC {
             self.setupTVCells()
         }
     }
+    
+    func setupTVCells() {
+        MySingleton.shared.tablerow.removeAll()
+        
+        
+        titlelbl.text = MySingleton.shared.moreDetailsData?.page_title ?? ""
+        MySingleton.shared.tablerow.append(TableRow(cellType:.MoreDetailsTVCell))
+       
+        commonTVData =  MySingleton.shared.tablerow
+        commonTableView.reloadData()
+    }
+    
     
 }
 

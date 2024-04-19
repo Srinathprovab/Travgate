@@ -1171,6 +1171,61 @@
             </objects>
             <point key="canvasLocation" x="1509" y="1680"/>
         </scene>
+        <!--Accept CookiesVC-->
+        <scene sceneID="kRo-lq-9zp">
+            <objects>
+                <viewController storyboardIdentifier="AcceptCookiesVC" id="GFU-gc-ihe" customClass="AcceptCookiesVC" customModule="Travgate" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="e6A-rr-bV9">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y1v-P3-vwn">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="L9m-Gq-yIJ">
+                                        <rect key="frame" x="0.0" y="452" width="393" height="400"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="400" id="d4S-wp-EyE"/>
+                                        </constraints>
+                                    </tableView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ak2-Hc-l9p">
+                                        <rect key="frame" x="0.0" y="422" width="393" height="30"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="bXy-av-4i9"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="ak2-Hc-l9p" secondAttribute="trailing" id="3OJ-mG-HG8"/>
+                                    <constraint firstItem="ak2-Hc-l9p" firstAttribute="leading" secondItem="Y1v-P3-vwn" secondAttribute="leading" id="Ctq-E1-tz5"/>
+                                    <constraint firstItem="L9m-Gq-yIJ" firstAttribute="leading" secondItem="Y1v-P3-vwn" secondAttribute="leading" id="RDF-Sf-vxB"/>
+                                    <constraint firstItem="L9m-Gq-yIJ" firstAttribute="top" secondItem="ak2-Hc-l9p" secondAttribute="bottom" id="n0C-qO-9AU"/>
+                                    <constraint firstAttribute="trailing" secondItem="L9m-Gq-yIJ" secondAttribute="trailing" id="rNT-BF-bBz"/>
+                                    <constraint firstAttribute="bottom" secondItem="L9m-Gq-yIJ" secondAttribute="bottom" id="w7R-BI-5IP"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="KPr-V8-elg"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="KPr-V8-elg" firstAttribute="trailing" secondItem="Y1v-P3-vwn" secondAttribute="trailing" id="28o-uR-HKr"/>
+                            <constraint firstItem="Y1v-P3-vwn" firstAttribute="leading" secondItem="KPr-V8-elg" secondAttribute="leading" id="5lV-Zm-3pv"/>
+                            <constraint firstItem="Y1v-P3-vwn" firstAttribute="top" secondItem="e6A-rr-bV9" secondAttribute="top" id="EGJ-XB-RKR"/>
+                            <constraint firstAttribute="bottom" secondItem="Y1v-P3-vwn" secondAttribute="bottom" id="QXn-7g-78m"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="commonTableView" destination="L9m-Gq-yIJ" id="6cf-Rz-EyC"/>
+                        <outlet property="topview" destination="ak2-Hc-l9p" id="R8X-qe-4TZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UaN-gg-g0u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2451" y="1680"/>
+        </scene>
     </scenes>
     <resources>
         <image name="back1" width="20" height="20"/>

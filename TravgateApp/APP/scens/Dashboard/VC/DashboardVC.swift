@@ -28,6 +28,21 @@ class DashboardVC: BaseTableVC, AllCountryCodeListViewModelDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         addObserver()
+        
+        if !UserDefaults.standard.bool(forKey: "cookiesExecuteOnce") {
+           
+            self.gotoAcceptCookiesVC()
+            UserDefaults.standard.set(true, forKey: "cookiesExecuteOnce")
+        }
+    }
+    
+    
+    
+    
+    func gotoAcceptCookiesVC() {
+        guard let vc = AcceptCookiesVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .overCurrentContext
+        present(vc, animated: false)
     }
     
     override func viewDidLoad() {
