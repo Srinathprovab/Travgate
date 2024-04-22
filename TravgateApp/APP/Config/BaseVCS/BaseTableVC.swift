@@ -9,6 +9,7 @@ import UIKit
 import MaterialComponents
 
 class BaseTableVC: UIViewController, TabSelectTVCellDelegate, FlightSearchTVCellDelegate, FlightResultTVCellDelegate, SideMenuTitleTVCellDelegate, MenuBGTVCellDelegate, SliderTVCellDelegate, CheckBoxTVCellDelegate, FilterDepartureTVCellDelegate, LabelTVCellDelegate, PopularFiltersTVCellDelegate,DepartureTimeTVCellDelegate, ButtonTVCellDelegate, SortbyTVCellDelegate, BookingDetailsFlightDataTVCellDelegate, TDetailsLoginTVCellDelegate, AddDeatilsOfTravellerTVCellDelegate, ContactInformationTVCellDelegate, UsePromoCodesTVCellDelegate, LoginTVCellDelegate, ResetPasswordTVCellDelegate, SignupTVCellDelegate, EditProfileTVCellDelegate, HotelSearchTVCellDelegate, AddRoomsGuestsTVCellDelegate, NewDepartureTimeTVCellDelegate, VisaTVCellDelegate, AutoPaymentTVCellDelegate, TripsTVCellDelegate, YourRecentSearchesTVCellDelegate, RoomsTVcellDelegate, RegisterSelectionLoginTableViewCellDelegate, AddonTVCellDelegate, TravellerEconomyTVCellDelegate, HolidayPackagesTVCellDelegate, CruisePackegesTVCellDelegate, CruiseContactdetailsTVCellDelegate, HolidayContactdetailsTVCellDelegate, BCFlightDetailsTVCellDelegate, NewBookingConfirmedTVCellDelegate, HeaderTableViewCellDelegate, QuickLinkTableViewCellDelegate, FlightUpcomingTVCellDelegate, LoginDetailsTableViewCellDelegate, GuestTVCellDelegate, ContactUsTVCellDelegate, HotelImagesTVCellDelegate, AddDeatilsOfGuestTVCellDelegate, FareRulesTVCellDelegate, PrimaryContactInfoTVCellDelegate, OperatorsCheckBoxTVCellDelegate, AddonTableViewCellDelegate, PriceSummaryTVCellDelegate, AcceptCookiesTVCellDelegate, SelectMealTVCellDelegate, NewSpecialAssistanceTVCellDelegate {
+   
     
     
     
@@ -289,6 +290,7 @@ class BaseTableVC: UIViewController, TabSelectTVCellDelegate, FlightSearchTVCell
     func didTapOnPrivacyCookiesBtnAction(cell:AcceptCookiesTVCell) {}
     func didTapOnCheckBoxBtnAction(cell: SelectMealTVCell) {}
     func didTapOnCheckBoxBtnAction(cell: NewSpecialAssistanceTVCell) {}
+    func didTapOnServiceBtnAction(cell: NewSpecialAssistanceTVCell) {}
     
     
     
@@ -854,6 +856,14 @@ extension BaseTableVC: UITableViewDataSource {
                 let cell: NewSpecialAssistanceTVCell = commonTV.dequeTVCell(indexPath: indexPath)
                 cell.delegate = self
                 commonCell = cell
+                
+                
+                
+            case .SelectFareTVCell :
+                let cell: SelectFareTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                commonCell = cell
+                
+                
                 
             default:
                 print("handle this case in getCurrentCellAt")

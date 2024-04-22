@@ -162,12 +162,12 @@ extension UITextView{
     func setPlaceholder(ph:String) {
         
         let placeholderLabel = UILabel()
-        placeholderLabel.text = "Message"
+        placeholderLabel.text = ""
         placeholderLabel.font = UIFont.OpenSansRegular(size: 16)
         placeholderLabel.sizeToFit()
         placeholderLabel.tag = 222
         placeholderLabel.frame.origin = CGPoint(x: 5, y: (self.font?.pointSize)! / 2)
-        placeholderLabel.textColor = .AppLabelColor
+        placeholderLabel.textColor = .SubtitleColor
         placeholderLabel.isHidden = !self.text.isEmpty
         
         self.addSubview(placeholderLabel)

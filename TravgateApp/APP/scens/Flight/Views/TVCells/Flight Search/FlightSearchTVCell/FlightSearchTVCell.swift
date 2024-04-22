@@ -551,6 +551,7 @@ extension FlightSearchTVCell:UICollectionViewDelegate,UICollectionViewDataSource
             // Check if the item is selected and update the checkbox accordingly
             if MySingleton.shared.infoArray.contains(cell.titlelbl.text ?? "") {
                 cell.checkimg.image = UIImage(named: "check")
+                infoCV.selectItem(at: indexPath, animated: false, scrollPosition: .left)
             } else {
                 cell.checkimg.image = UIImage(named: "uncheck")?.withRenderingMode(.alwaysOriginal).withTintColor(.Buttoncolor)
             }

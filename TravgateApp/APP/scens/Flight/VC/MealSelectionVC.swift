@@ -100,7 +100,8 @@ class MealSelectionVC: BaseTableVC, MPBViewModelDelegate {
     
     //MARK: - didTapOnBackBtnAction
     @IBAction func didTapOnContinuetoBookBtnAction(_ sender: Any) {
-        MySingleton.shared.mpbvm?.CALL_MOBILE_PROCESS_PASSENGER_DETAIL_API(dictParam:MySingleton.shared.payload)
+        showToast(message: "Call Voucher API ...")
+       // MySingleton.shared.mpbvm?.CALL_MOBILE_PROCESS_PASSENGER_DETAIL_API(dictParam:MySingleton.shared.payload)
     }
     
     
@@ -112,6 +113,7 @@ class MealSelectionVC: BaseTableVC, MPBViewModelDelegate {
             
           //  MySingleton.shared.mpbvm?.CALL_MOBILE_PAYMENT_API(dictParam: [:], url: response.url ?? "")
             
+           
         }
         
     }
@@ -137,6 +139,9 @@ class MealSelectionVC: BaseTableVC, MPBViewModelDelegate {
         commonTableView.reloadData()
     }
     
+    override func didTapOnServiceBtnAction(cell: NewSpecialAssistanceTVCell) {
+        commonTableView.reloadData()
+    }
     
 
     func MPBDetails(response: MobilePreProcessBookingModel) {}

@@ -74,7 +74,6 @@ class BookingDetailsVC: BaseTableVC, MPBViewModelDelegate, MobileSecureBookingVi
                                          "UsePromoCodesTVCell",
                                          "RegisterSelectionLoginTableViewCell",
                                          "InternationalTravelInsuranceTVCell",
-                                         "SpecialAssistanceTVCell",
                                          "AddonTVCell",
                                          "LoginDetailsTableViewCell",
                                          "GuestRegisterTableViewCell",
@@ -783,11 +782,13 @@ extension BookingDetailsVC {
                 gotoMealSelectionVC()
                 
             }else {
-                MySingleton.shared.afterResultsBool = true
-                loderBool = true
-                showLoadera()
+//                MySingleton.shared.afterResultsBool = true
+//                loderBool = true
+//                showLoadera()
+//                
+//                MySingleton.shared.mpbvm?.CALL_MOBILE_PROCESS_PASSENGER_DETAIL_API(dictParam:MySingleton.shared.payload)
                 
-                MySingleton.shared.mpbvm?.CALL_MOBILE_PROCESS_PASSENGER_DETAIL_API(dictParam:MySingleton.shared.payload)
+                showToast(message: "Call Voucher API ...")
             }
             
             

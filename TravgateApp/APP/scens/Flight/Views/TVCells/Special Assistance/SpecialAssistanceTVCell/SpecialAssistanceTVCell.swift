@@ -40,18 +40,17 @@ class SpecialAssistanceTVCell: TableViewCell, AddSpecialAssistanceTVCellDelegate
     
     
     func didTapOnCheckBoxBtnAction(cell: AddSpecialAssistanceTVCell) {
-        //        cell.checkBoxBool.toggle()
-        //        if cell.checkBoxBool {
-        //            cell.addMealView.isHidden = false
-        //        }else {
-        //            cell.addMealView.isHidden = true
-        //        }
+       
     }
     
     func didTapOnShowSpecialAssistanceDropDownListBtnAction(cell: AddSpecialAssistanceTVCell) {
         cell.dropDown.show()
     }
     
+    
+    func didTapOnServiceBtnAction(cell:NewSpecialAssistanceTVCell) {
+        cell.serviceDropDown.show()
+    }
     
     
 }

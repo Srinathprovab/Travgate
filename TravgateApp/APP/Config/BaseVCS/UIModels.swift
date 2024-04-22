@@ -66,6 +66,7 @@ enum TVCellType {
     case MoreDetailsTVCell
     case OperatorsCheckBoxTVCell
     case PrimaryContactInfoTVCell
+    case SelectFareTVCell
    
     
     //Booking
