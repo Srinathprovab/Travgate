@@ -14,6 +14,7 @@ protocol SelectFareInfoTVCellDelegate {
 
 class SelectFareInfoTVCell: UITableViewCell {
     
+    @IBOutlet weak var holderView: BorderedView!
     @IBOutlet weak var closeView: UIView!
     @IBOutlet weak var selectBtn: UIButton!
     @IBOutlet weak var fareNamelbl: UILabel!

@@ -83,11 +83,14 @@ extension SimilarFlightsVC {
                 
                 
                 MySingleton.shared.tablerow.append(TableRow(title: j.selectedResult,
+                                                            subTitle: j.booking_source,
                                                             refundable:j.fareType,
                                                             key: "similar",
+                                                            text: j.booking_source_key,
                                                             moreData: j,
                                                             tempInfo: j.farerulesref_Key,
                                                             cellType:.FlightResultTVCell,
+                                                            userCatdetails:j.journeyKey,
                                                             data1: j.flight_details?.summary,
                                                             data2: j.farerulesref_content))
             }

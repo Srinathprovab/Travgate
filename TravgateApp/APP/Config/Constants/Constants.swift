@@ -115,7 +115,7 @@ var amenitiesArray = [String]()
 var nearBylocationsArray = [String]()
 var kwdPriceArray = [String]()
 var dateArray = [String]()
-var fl : [[FlightList]]?
+var flnew : [[FlightList]]?
 
 
 
@@ -178,6 +178,9 @@ struct ApiEndpoints {
     static let general_searchdata = "general/searchdata"
     static let general_removeRecentSearch = "general/removeRecentSearch"
     static let general_mobile_pre_flight_search = "general/mobile_pre_flight_search"
+    static let general_get_active_booking_source = "general/get_active_booking_source"
+    static let general_search_flight = "general/search_flight"
+    
     static let flight_getFlightDetails = "flight/getFlightDetails"
     static let flight_mobile_pre_process_booking = "flight/mobile_pre_process_booking"
     static let flight_mobile_pre_booking = "flight/mobile_pre_booking"

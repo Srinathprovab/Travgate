@@ -53,6 +53,8 @@ class MySingleton {
     var selectedAddonServices: [SelectedAddonService] = []
     var mealListArray = [Meals_list]()
     var ssrListArray = [Ssr_list]()
+    var journeyKeyArray = [String]()
+    var farekey = String()
     
     //Flight Search
     var loderimgurl = String()

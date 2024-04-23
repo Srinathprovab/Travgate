@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FlightResultVC: BaseTableVC {
+class FlightResultVC: BaseTableVC, FlightListModelProtocal {
     
     
     @IBOutlet weak var holderView: UIView!
@@ -28,6 +28,9 @@ class FlightResultVC: BaseTableVC {
     
     
     var filterdFlightList :[[FlightList]]?
+    var bsDataArray = [ABSData]()
+    var bookingSourceDataArrayCount = Int()
+    
     
     override func viewWillAppear(_ animated: Bool) {
         addObserver()
@@ -41,7 +44,7 @@ class FlightResultVC: BaseTableVC {
         setupUI()
         MySingleton.shared.dateFormatter.dateFormat = "HH:mm"
         MySingleton.shared.vm = FlightListViewModel(self)
-    
+        
     }
     
     
@@ -70,21 +73,34 @@ class FlightResultVC: BaseTableVC {
         MySingleton.shared.farerulesrefKey = cell.farerulesrefKey
         MySingleton.shared.farerulesrefContent = cell.farerulesrefContent
         
-//        guard let vc = FlightDeatilsVC.newInstance.self else {return}
-        guard let vc = SelectFareVC.newInstance.self else {return}
-        vc.modalPresentationStyle = .fullScreen
-        present(vc, animated: false)
+        MySingleton.shared.bookingsource = cell.bookingsourcekey
+        MySingleton.shared.bookingsourcekey = cell.bookingsourcekey
         
         
-        
-       
+        gotoFlightDeatilsVC()
     }
     
+    func gotoFlightDeatilsVC(){
+        guard let vc = FlightDeatilsVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: false)
+    }
     
-    //MARK: - didTapFlightDetailsPopupBrtnBtnAction
+    //MARK: -   didTapFlightDetailsPopupBrtnBtnAction
     override func didTapFlightDetailsPopupBrtnBtnAction(cell:FlightResultTVCell){
         MySingleton.shared.callboolapi = true
         MySingleton.shared.selectedResult = cell.selectedResult
+        MySingleton.shared.farerulesrefKey = cell.farerulesrefKey
+        MySingleton.shared.farerulesrefContent = cell.farerulesrefContent
+        
+        MySingleton.shared.bookingsource = cell.bookingsourcekey
+        MySingleton.shared.bookingsourcekey = cell.bookingsourcekey
+        
+        gotoFlightItinarryPopupVC()
+    }
+    
+    
+    func gotoFlightItinarryPopupVC() {
         guard let vc = FlightItinarryPopupVC.newInstance.self else {return}
         vc.modalPresentationStyle = .overCurrentContext
         present(vc, animated: false)
@@ -95,7 +111,10 @@ class FlightResultVC: BaseTableVC {
     override func didTapOnBookNowBtnAction(cell: FlightResultTVCell) {
         MySingleton.shared.callboolapi = true
         MySingleton.shared.selectedResult = cell.selectedResult
-       
+        
+        MySingleton.shared.bookingsource = cell.bookingsourcekey
+        MySingleton.shared.bookingsourcekey = cell.bookingsourcekey
+        
         gotoBookingDetailsVC()
         //callFlightDeatilsAPI()
     }
@@ -103,6 +122,9 @@ class FlightResultVC: BaseTableVC {
     
     //MARK: - didTapOnMoreSimilarFlightBtnAction
     override func didTapOnMoreSimilarFlightBtnAction(cell:FlightResultTVCell){
+        
+        MySingleton.shared.bookingsource = cell.bookingsourcekey
+        MySingleton.shared.bookingsourcekey = cell.bookingsourcekey
         
         if cell.newsimilarList.count != 0 {
             
@@ -180,143 +202,20 @@ class FlightResultVC: BaseTableVC {
         present(vc, animated: true)
     }
     
-}
-
-//MARK: - callAPI flightList meals_list
-extension FlightResultVC: FlightListModelProtocal {
     
-    
-    func callAPI() {
-        self.holderView.isHidden = true
-        
-        loderBool = true
-        showLoadera()
-        
-        MySingleton.shared.vm?.CALL_FLIGHT_SEARCH_API(dictParam: MySingleton.shared.payload)
-        
-        
+    //MARK: - didTapOnSelectFareBtnAction
+    override func didTapOnSelectFareBtnAction(cell:FlightResultTVCell) {
+        MySingleton.shared.farekey = cell.journeyKeyArray[0]
+        MySingleton.shared.bookingsource = cell.bookingsourcekey
+        MySingleton.shared.bookingsourcekey = cell.bookingsourcekey
+        gotoSelectFareVC()
     }
     
-    func flightList(response: FlightModel) {
-        
-        // Call this when you want to remove the child view controller
-        hideLoadera()
-        loderBool = false
-        
-        
-        self.holderView.isHidden = false
-        MySingleton.shared.returnDateTapbool = false
-        MySingleton.shared.searchid = "\(response.data?.search_id ?? 0)"
-        MySingleton.shared.bookingsource = response.data?.j_flight_list?[0][0].booking_source_key ?? ""
-        MySingleton.shared.bookingsourcekey = response.data?.j_flight_list?[0][0].booking_source ?? ""
-        MySingleton.shared.traceid = response.data?.traceId ?? ""
-        
-        MySingleton.shared.payemail = ""
-        MySingleton.shared.paymobile = ""
-        MySingleton.shared.paymobilecountrycode = ""
-        
-        cityslbl.text = "\(defaults.string(forKey: UserDefaultsKeys.fcity) ?? "") - \(defaults.string(forKey: UserDefaultsKeys.tcity) ?? "")"
-        paxlbl.text = "\(MySingleton.shared.adultsCount) Adults | \(MySingleton.shared.childCount) Child | \(MySingleton.shared.infantsCount) Infant | \(defaults.string(forKey: UserDefaultsKeys.selectClass) ?? "")"
-        depDatelbl.text = response.data?.search_params?.depature ?? ""
-        retDatelbl.text = response.data?.search_params?.searchreturn ?? ""
-        citycodeslbl.text = "(\(response.data?.search_params?.from_loc ?? "") - \(response.data?.search_params?.to_loc ?? ""))"
-        let journyType = defaults.string(forKey: UserDefaultsKeys.journeyType)
-        if journyType == "oneway" {
-            datelbl.text = MySingleton.shared.convertDateFormat(inputDate: response.data?.search_params?.depature ?? "", f1: "dd-MM-yyyy", f2: "MMM dd")
-            
-        }else {
-            datelbl.text = "\(MySingleton.shared.convertDateFormat(inputDate: response.data?.search_params?.depature ?? "", f1: "dd-MM-yyyy", f2: "MMM dd")) - \(MySingleton.shared.convertDateFormat(inputDate: response.data?.search_params?.searchreturn ?? "", f1: "dd-MM-yyyy", f2: "MMM dd"))"
-            
-        }
-        
-        
-        fl = response.data?.j_flight_list ?? [[]]
-        MySingleton.shared.flights = response.data?.j_flight_list ?? [[]]
-        DispatchQueue.main.async {[self] in
-            appendPriceAndDate(list: response.data?.j_flight_list ?? [[]])
-            self.setupTVCell(list: MySingleton.shared.flights)
-        }
+    func gotoSelectFareVC() {
+        guard let vc = SelectFareVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
     }
-    
-    
-    
-    
-    
-    func setupTVCell(list:[[FlightList]]) {
-        MySingleton.shared.tablerow.removeAll()
-        
-        
-        var updatedUniqueList: [[FlightList]] = []
-        updatedUniqueList = getUniqueElements_oneway(inputArray: list)
-        
-        
-        updatedUniqueList.forEach { i in
-            i.forEach { j in
-                
-                
-                
-                let similarFlights1 = similar(fare: Double(String(format: "%.2f", j.price?.api_total_display_fare ?? "")) ?? 0.0)
-                
-                
-                MySingleton.shared.tablerow.append(TableRow(title: j.selectedResult,
-                                                            refundable:j.fareType,
-                                                            key: "fl",
-                                                            data: similarFlights1,
-                                                            moreData: j,
-                                                            tempInfo: j.farerulesref_Key,
-                                                            cellType:.FlightResultTVCell,
-                                                            data1: j.flight_details?.summary, 
-                                                            data2: j.farerulesref_content))
-            }
-        }
-        
-        
-        
-        MySingleton.shared.tablerow.append(TableRow(height:50,cellType:.EmptyTVCell))
-        commonTVData = MySingleton.shared.tablerow
-        commonTableView.reloadData()
-        
-    }
-    
-    
-    
-    
-    func setupSortTVCell(list:[FlightList]) {
-        MySingleton.shared.tablerow.removeAll()
-        
-        
-        
-        var updatedUniqueList: [FlightList] = []
-        updatedUniqueList = getUniqueElements(inputArray: list)
-        
-        updatedUniqueList.forEach { j in
-            
-            
-            
-            let similarFlights1 = similar(fare: Double(String(format: "%.2f", j.price?.api_total_display_fare ?? "")) ?? 0.0)
-            
-            
-            MySingleton.shared.tablerow.append(TableRow(title: j.selectedResult,
-                                                        refundable:j.fareType,
-                                                        key: "fl",
-                                                        data: similarFlights1,
-                                                        moreData: j,
-                                                        tempInfo: j.farerulesref_Key,
-                                                        cellType:.FlightResultTVCell,
-                                                        data1: j.flight_details?.summary,
-                                                        data2: j.farerulesref_content))
-            
-        }
-        
-        
-        
-        
-        MySingleton.shared.tablerow.append(TableRow(height:50,cellType:.EmptyTVCell))
-        commonTVData = MySingleton.shared.tablerow
-        commonTableView.reloadData()
-        
-    }
-    
 }
 
 
@@ -351,7 +250,8 @@ extension FlightResultVC {
                 
                 self.datelbl.text = previousDayString
                 
-                callAPI()
+                //   callAPI()
+                callActiveBookingSourceAPI()
                 
             }else {
                 
@@ -379,7 +279,9 @@ extension FlightResultVC {
                     MySingleton.shared.payload["depature"] = MySingleton.shared.convertDateFormat(inputDate: defaults.string(forKey: UserDefaultsKeys.calDepDate) ?? "", f1: "dd-MM-yyyy", f2: "dd/MM/yyyy")
                     self.datelbl.text = nextDayString
                     
-                    callAPI()
+                    //  callAPI()
+                    
+                    callActiveBookingSourceAPI()
                 }
             }
             
@@ -414,7 +316,9 @@ extension FlightResultVC {
                 MySingleton.shared.payload["depature"] = MySingleton.shared.convertDateFormat(inputDate: defaults.string(forKey: UserDefaultsKeys.calDepDate) ?? "", f1: "dd-MM-yyyy", f2: "dd/MM/yyyy")
                 self.datelbl.text = nextDayString
                 
-                callAPI()
+                //  callAPI()
+                
+                callActiveBookingSourceAPI()
                 
             }else {
                 
@@ -442,7 +346,9 @@ extension FlightResultVC {
                     MySingleton.shared.payload["depature"] = MySingleton.shared.convertDateFormat(inputDate: defaults.string(forKey: UserDefaultsKeys.calDepDate) ?? "", f1: "dd-MM-yyyy", f2: "dd/MM/yyyy")
                     self.datelbl.text = nextDayString
                     
-                    callAPI()
+                    //   callAPI()
+                    
+                    callActiveBookingSourceAPI()
                 }
             }
             
@@ -527,69 +433,7 @@ extension FlightResultVC {
 }
 
 
-//MARK: - APPEND PRICE AND DATE
-extension FlightResultVC {
-    
-    func appendPriceAndDate(list:[[FlightList]]) {
-        
-        prices.removeAll()
-        kwdPriceArray.removeAll()
-        dateArray.removeAll()
-        AirlinesArray.removeAll()
-        ConnectingFlightsArray.removeAll()
-        ConnectingAirportsArray.removeAll()
-        luggageArray.removeAll()
-        
-        
-        
-        list.forEach { i in
-            i.map { k in
-                
-                k.flight_details?.summary.map({ l in
-                    
-                    l.map { m in
-                        
-                        let dateFormatter = DateFormatter()
-                        dateFormatter.dateFormat = "dd MMM yyyy"
-                        if let date = dateFormatter.date(from: "\(m.origin?.date ?? "")"){
-                            dateFormatter.dateFormat = "dd MMM"
-                            _ = dateFormatter.string(from: date)
-                            dateArray.append(dateFormatter.string(from: date))
-                        }
-                        
-                        faretypeArray.append(k.fareType ?? "")
-                        prices.append("\(k.price?.api_total_display_fare ?? 0.0)")
-                        AirlinesArray.append(m.operator_name ?? "")
-                        
-                        if m.weight_Allowance != nil || m.weight_Allowance?.isEmpty == false {
-                            luggageArray.append(MySingleton.shared.convertToDesiredFormat(m.weight_Allowance ?? ""))
-                        }
-                        
-                        
-                    }
-                })
-                
-                k.flight_details?.details?.forEach({ a in
-                    a.forEach { b in
-                        ConnectingFlightsArray.append(b.operator_name ?? "")
-                        ConnectingAirportsArray.append(b.destination?.airport_name ?? "")
-                    }
-                })
-                
-            }
-        }
-        
-        
-        faretypeArray = faretypeArray.unique()
-        dateArray = dateArray.unique()
-        AirlinesArray = AirlinesArray.unique()
-        ConnectingFlightsArray = ConnectingFlightsArray.unique()
-        ConnectingAirportsArray = ConnectingAirportsArray.unique()
-        prices = prices.unique()
-        luggageArray = luggageArray.unique()
-        
-    }
-}
+
 
 extension Sequence where Iterator.Element: Hashable {
     func unique() -> [Iterator.Element] {
@@ -610,29 +454,6 @@ extension FlightResultVC:AppliedFilters {
         
     }
     
-    
-    // Create a function to check if a given time string is within a time range
-//    func isTimeInRange(time: String, range: String) -> Bool {
-//        guard let departureDate = MySingleton.shared.dateFormatter.date(from: time) else {
-//            return false
-//        }
-//        
-//        let calendar = Calendar.current
-//        let hour = calendar.component(.hour, from: departureDate)
-//        
-//        switch range {
-//        case "12 am - 6 am":
-//            return hour >= 0 && hour < 6
-//        case "06 am - 12 pm":
-//            return hour >= 6 && hour < 12
-//        case "12 pm - 06 pm":
-//            return hour >= 12 && hour < 18
-//        case "06 pm - 12 am":
-//            return hour >= 18 && hour < 24
-//        default:
-//            return false
-//        }
-//    }
     
     
     func isTimeInRange(time: String, range: String) -> Bool {
@@ -675,7 +496,7 @@ extension FlightResultVC:AppliedFilters {
         
         
         
-        let sortedArray = fl.map { flight in
+        let sortedArray = flnew.map { flight in
             flight.filter { j in
                 
                 guard let summary = j.first?.flight_details?.summary else { return false }
@@ -902,7 +723,9 @@ extension FlightResultVC {
         
         
         if MySingleton.shared.callboolapi == true {
-            callAPI()
+            //  callAPI()
+            
+            callActiveBookingSourceAPI()
         }
     }
     
@@ -929,6 +752,14 @@ extension FlightResultVC {
     }
     
     
+    func gotoNoInternetScreen(keystr:String) {
+        callapibool = true
+        guard let vc = NoInternetConnectionVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .fullScreen
+        vc.key = keystr
+        self.present(vc, animated: false)
+    }
+    
     //MARK: - nointernet
     @objc func nointernet() {
         
@@ -951,6 +782,277 @@ extension FlightResultVC {
         guard let vc = BookingDetailsVC.newInstance.self else {return}
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: false)
+    }
+    
+}
+
+
+extension FlightResultVC {
+    
+    func callActiveBookingSourceAPI() {
+        
+        loderBool = true
+        showLoadera()
+        
+        MySingleton.shared.vm?.CALL_GET_ACTIVE_BOOKING_SOURCE_API(dictParam: [:])
+    }
+    
+    func activebookingSourceResult(response: ActiveBookingSourceModel) {
+        
+        bsDataArray = response.data ?? []
+        bookingSourceDataArrayCount = response.data?.count ?? 0
+        
+        
+        let seconds = 1.0
+        DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {[self] in
+            callGetFlightPreSearchAPI()
+        }
+    }
+    
+    func callGetFlightPreSearchAPI() {
+        
+        MySingleton.shared.vm?.CALL_GET_FLIGHTS_PRE_SEARCH_API(dictParam: MySingleton.shared.payload)
+        
+    }
+    
+    func flighPresearchResult(response:MobileFlightPreSearchModel) {
+        
+        MySingleton.shared.payload.removeAll()
+        
+        
+        bsDataArray.forEach { i in
+            
+            let seconds = 1.0
+            DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {[self] in
+                callFlightSearch(bookingsource: i.source_id ?? "",
+                                 searchid: response.data?[0].search_id ?? 0)
+            }
+            
+        }
+        
+        
+        
+    }
+    
+    func callFlightSearch(bookingsource:String,searchid:Int) {
+        
+        MySingleton.shared.payload["search_id"] = "\(searchid)"
+        MySingleton.shared.payload["booking_source"] = bookingsource
+        
+        MySingleton.shared.vm?.CALL_GET_FLIGHTS_SEARCH_API(dictParam: MySingleton.shared.payload)
+        
+    }
+    
+    
+    
+    func flightList(response: FlightModel) {
+        
+        bookingSourceDataArrayCount -= 1
+        MySingleton.shared.returnDateTapbool = false
+        MySingleton.shared.searchid = "\(response.data?.search_id ?? "0")"
+        MySingleton.shared.traceid = response.data?.traceId ?? ""
+       
+        
+        MySingleton.shared.payemail = ""
+        MySingleton.shared.paymobile = ""
+        MySingleton.shared.paymobilecountrycode = ""
+        
+        cityslbl.text = "\(defaults.string(forKey: UserDefaultsKeys.fcity) ?? "") - \(defaults.string(forKey: UserDefaultsKeys.tcity) ?? "")"
+        paxlbl.text = "\(MySingleton.shared.adultsCount) Adults | \(MySingleton.shared.childCount) Child | \(MySingleton.shared.infantsCount) Infant | \(defaults.string(forKey: UserDefaultsKeys.selectClass) ?? "")"
+        depDatelbl.text = response.data?.search_params?.depature ?? ""
+        retDatelbl.text = response.data?.search_params?.searchreturn ?? ""
+        citycodeslbl.text = "(\(response.data?.search_params?.from_loc ?? "") - \(response.data?.search_params?.to_loc ?? ""))"
+        let journyType = defaults.string(forKey: UserDefaultsKeys.journeyType)
+        if journyType == "oneway" {
+            datelbl.text = MySingleton.shared.convertDateFormat(inputDate: response.data?.search_params?.depature ?? "", f1: "dd-MM-yyyy", f2: "MMM dd")
+            
+        }else {
+            datelbl.text = "\(MySingleton.shared.convertDateFormat(inputDate: response.data?.search_params?.depature ?? "", f1: "dd-MM-yyyy", f2: "MMM dd")) - \(MySingleton.shared.convertDateFormat(inputDate: response.data?.search_params?.searchreturn ?? "", f1: "dd-MM-yyyy", f2: "MMM dd"))"
+            
+        }
+        
+     
+        
+        if let newResults = response.data?.j_flight_list, !newResults.isEmpty {
+            // Append the new data to the existing data
+            MySingleton.shared.flights.append(contentsOf: newResults)
+            
+        } else {
+            // No more items to load, update UI accordingly
+            print("No more items to load.")
+            // You can show a message or hide a loading indicator here
+        }
+        
+        
+        if bookingSourceDataArrayCount == 0 {
+            
+            holderView.isHidden = true
+            if MySingleton.shared.flights.count <= 0 {
+                gotoNoInternetScreen(keystr: "noresult")
+                
+            }else {
+                
+                appendPriceAndDate(list: MySingleton.shared.flights)
+            }
+        }
+        
+        
+        
+    }
+    
+    
+    
+    
+    func appendPriceAndDate(list:[[FlightList]]) {
+        
+        // Call this when you want to remove the child view controller
+        hideLoadera()
+        loderBool = false
+        self.holderView.isHidden = false
+        
+        flnew = list
+        prices.removeAll()
+        kwdPriceArray.removeAll()
+        dateArray.removeAll()
+        AirlinesArray.removeAll()
+        ConnectingFlightsArray.removeAll()
+        ConnectingAirportsArray.removeAll()
+        luggageArray.removeAll()
+        
+        
+        
+        list.forEach { i in
+            i.map { k in
+                
+                k.flight_details?.summary.map({ l in
+                    
+                    l.map { m in
+                        
+                        let dateFormatter = DateFormatter()
+                        dateFormatter.dateFormat = "dd MMM yyyy"
+                        if let date = dateFormatter.date(from: "\(m.origin?.date ?? "")"){
+                            dateFormatter.dateFormat = "dd MMM"
+                            _ = dateFormatter.string(from: date)
+                            dateArray.append(dateFormatter.string(from: date))
+                        }
+                        
+                        faretypeArray.append(k.fareType ?? "")
+                        prices.append("\(k.price?.api_total_display_fare ?? 0.0)")
+                        AirlinesArray.append(m.operator_name ?? "")
+                        
+                        if m.weight_Allowance != nil || m.weight_Allowance?.isEmpty == false {
+                            luggageArray.append(MySingleton.shared.convertToDesiredFormat(m.weight_Allowance ?? ""))
+                        }
+                        
+                        
+                    }
+                })
+                
+                k.flight_details?.details?.forEach({ a in
+                    a.forEach { b in
+                        ConnectingFlightsArray.append(b.operator_name ?? "")
+                        ConnectingAirportsArray.append(b.destination?.airport_name ?? "")
+                    }
+                })
+                
+            }
+        }
+        
+        
+        faretypeArray = faretypeArray.unique()
+        dateArray = dateArray.unique()
+        AirlinesArray = AirlinesArray.unique()
+        ConnectingFlightsArray = ConnectingFlightsArray.unique()
+        ConnectingAirportsArray = ConnectingAirportsArray.unique()
+        prices = prices.unique()
+        luggageArray = luggageArray.unique()
+        
+        DispatchQueue.main.async {
+            self.setupTVCell(list: MySingleton.shared.flights)
+        }
+        
+    }
+    
+    
+    func setupTVCell(list:[[FlightList]]) {
+        MySingleton.shared.tablerow.removeAll()
+        
+        
+        var updatedUniqueList: [[FlightList]] = []
+        updatedUniqueList = getUniqueElements_oneway(inputArray: list)
+        
+        
+        updatedUniqueList.forEach { i in
+            i.forEach { j in
+                
+                
+                
+                let similarFlights1 = similar(fare: Double(String(format: "%.2f", j.price?.api_total_display_fare ?? "")) ?? 0.0)
+                
+                
+                MySingleton.shared.tablerow.append(TableRow(title: j.selectedResult,
+                                                            subTitle: j.booking_source,
+                                                            refundable:j.fareType,
+                                                            key: "fl", 
+                                                            text: j.booking_source_key,
+                                                            data: similarFlights1,
+                                                            moreData: j,
+                                                            tempInfo: j.farerulesref_Key,
+                                                            cellType:.FlightResultTVCell,
+                                                            userCatdetails:j.journeyKey,
+                                                            data1: j.flight_details?.summary,
+                                                            data2: j.farerulesref_content))
+            }
+        }
+        
+        
+        
+        MySingleton.shared.tablerow.append(TableRow(height:50,cellType:.EmptyTVCell))
+        commonTVData = MySingleton.shared.tablerow
+        commonTableView.reloadData()
+        
+    }
+    
+    
+    
+    
+    func setupSortTVCell(list:[FlightList]) {
+        MySingleton.shared.tablerow.removeAll()
+        
+        
+        
+        var updatedUniqueList: [FlightList] = []
+        updatedUniqueList = getUniqueElements(inputArray: list)
+        
+        updatedUniqueList.forEach { j in
+            
+            
+            
+            let similarFlights1 = similar(fare: Double(String(format: "%.2f", j.price?.api_total_display_fare ?? "")) ?? 0.0)
+            
+            
+            MySingleton.shared.tablerow.append(TableRow(title: j.selectedResult,
+                                                        subTitle: j.booking_source,
+                                                        refundable:j.fareType,
+                                                        key: "fl",
+                                                        text: j.booking_source_key,
+                                                        data: similarFlights1,
+                                                        moreData: j,
+                                                        tempInfo: j.farerulesref_Key,
+                                                        cellType:.FlightResultTVCell,
+                                                        userCatdetails:j.journeyKey,
+                                                        data1: j.flight_details?.summary,
+                                                        data2: j.farerulesref_content))
+            
+        }
+        
+        
+        
+        
+        MySingleton.shared.tablerow.append(TableRow(height:50,cellType:.EmptyTVCell))
+        commonTVData = MySingleton.shared.tablerow
+        commonTableView.reloadData()
+        
     }
     
 }

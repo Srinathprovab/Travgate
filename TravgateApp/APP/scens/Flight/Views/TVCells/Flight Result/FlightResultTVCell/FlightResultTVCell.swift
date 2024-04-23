@@ -13,7 +13,7 @@ protocol FlightResultTVCellDelegate {
     func didTapOnMoreSimilarFlightBtnAction(cell:FlightResultTVCell)
     func didTapFlightDetailsPopupBrtnBtnAction(cell:FlightResultTVCell)
     func didTapOnReturnDateBtnAction(cell:FlightResultTVCell)
-    
+    func didTapOnSelectFareBtnAction(cell:FlightResultTVCell)
 }
 
 class FlightResultTVCell: TableViewCell {
@@ -28,15 +28,19 @@ class FlightResultTVCell: TableViewCell {
     @IBOutlet weak var bottomView: UIView!
     @IBOutlet weak var returnBtn: UIButton!
     
+    @IBOutlet weak var bookNowBtnView: BorderedView!
+    @IBOutlet weak var bookNowlbl: UILabel!
     
     var selectedResult = String()
     var newsimilarList = [[FlightList]]()
     var delegate:FlightResultTVCellDelegate?
     var flightsummery = [Summary]()
+    var journeyKeyArray = [String]()
     var flightlist :FlightList?
     var farerulesrefKey = [[String]]()
     var farerulesrefContent = [[String]]()
-    
+    var bookingsource = String()
+    var bookingsourcekey = String()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -95,7 +99,13 @@ class FlightResultTVCell: TableViewCell {
             tvheight.constant = CGFloat((flightsummery.count ) * 170)
         }
         
-       
+        if let journeyKeyA = cellInfo?.userCatdetails as? [String] {
+            journeyKeyArray = journeyKeyA
+        }
+        
+        bookingsource = cellInfo?.subTitle ?? ""
+        bookingsourcekey = cellInfo?.text ?? ""
+        
         summeryTV.reloadData()
         
         
@@ -112,7 +122,12 @@ class FlightResultTVCell: TableViewCell {
     }
     
     @IBAction func didTapOnBookNowBtnAction(_ sender: Any) {
-        delegate?.didTapOnBookNowBtnAction(cell: self)
+        
+        if self.bookNowlbl.text == "Select Fare" {
+            delegate?.didTapOnSelectFareBtnAction(cell: self)
+        }else {
+            delegate?.didTapOnBookNowBtnAction(cell: self)
+        }
     }
     
     @IBAction func didTapOnReturnDateBtnAction(_ sender: Any) {
@@ -167,7 +182,7 @@ extension FlightResultTVCell:UITableViewDelegate,UITableViewDataSource {
             cell.toCityNamelbl.text = "\(data.destination?.city ?? "")(\(data.destination?.loc ?? ""))"
             cell.hourslbl.text = data.duration
             cell.noOfStopslbl.text = "\(data.no_of_stops ?? 0) Stop"
-            cell.inNolbl.text = "\(data.operator_code ?? "") \(data.flight_number ?? "")"
+            cell.inNolbl.text = "\(data.operator_code ?? "") - \(data.flight_number ?? "")"
             cell.logoImg.sd_setImage(with: URL(string: data.operator_image ?? ""), placeholderImage:UIImage(contentsOfFile:"placeholder.png"))
             cell.classlbl.text = data.fclass?.name
             
@@ -177,6 +192,12 @@ extension FlightResultTVCell:UITableViewDelegate,UITableViewDataSource {
                 cell.ul.isHidden = true
             }
             
+            
+            if data.operator_code == "J9" {
+                self.bookNowlbl.text = "Select Fare"
+            }else {
+                self.bookNowlbl.text = "Book Now"
+            }
             
             
             c = cell

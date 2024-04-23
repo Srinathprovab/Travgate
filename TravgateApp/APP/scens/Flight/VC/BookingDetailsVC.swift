@@ -352,7 +352,7 @@ extension BookingDetailsVC {
             MySingleton.shared.payload.removeAll()
             MySingleton.shared.payload["search_id"] =  MySingleton.shared.searchid
             MySingleton.shared.payload["selectedResult"] =  MySingleton.shared.selectedResult
-            MySingleton.shared.payload["booking_source"] =  MySingleton.shared.bookingsource
+            MySingleton.shared.payload["booking_source"] =  MySingleton.shared.bookingsourcekey
             MySingleton.shared.payload["traceId"] =  MySingleton.shared.traceid
             MySingleton.shared.payload["user_id"] =  defaults.string(forKey: UserDefaultsKeys.userid) ?? "0"
             

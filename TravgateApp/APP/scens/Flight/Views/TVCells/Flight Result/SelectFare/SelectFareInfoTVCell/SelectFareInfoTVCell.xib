@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -66,7 +67,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Pay to Cancel upto 24hours prior to departure" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LuL-eu-Ahb">
-                                <rect key="frame" x="129" y="63.666666666666679" width="294" height="19.333333333333321"/>
+                                <rect key="frame" x="129" y="63.666666666666686" width="294" height="19.333333333333314"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="14"/>
                                 <color key="textColor" name="TitleColor"/>
                                 <nil key="highlightedColor"/>
@@ -211,6 +212,7 @@
                 <outlet property="classlbl" destination="f6A-Tb-iPc" id="Oqj-2J-2q1"/>
                 <outlet property="closeView" destination="aVV-8X-npH" id="bDh-ot-TU7"/>
                 <outlet property="fareNamelbl" destination="b0q-LF-20Q" id="L3N-T4-37C"/>
+                <outlet property="holderView" destination="bzD-Dz-ax5" id="mx2-qj-yLh"/>
                 <outlet property="pricelbl" destination="R0Q-Au-rYC" id="ZkC-j9-7Hd"/>
                 <outlet property="refundTypelbl" destination="LuL-eu-Ahb" id="qmK-Zy-ZHi"/>
                 <outlet property="selectBtn" destination="nhT-dx-PlD" id="FUH-xD-7iK"/>
@@ -227,10 +229,10 @@
             <color red="0.80000001192092896" green="0.80000001192092896" blue="0.80000001192092896" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="FareColor2">
-            <color red="0.15294117647058825" green="0.61960784313725492" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.15299999713897705" green="0.62000000476837158" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="FareSubTitleColor">
-            <color red="0.46666666666666667" green="0.46666666666666667" blue="0.46666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.46700000762939453" green="0.46700000762939453" blue="0.46700000762939453" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="TitleColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

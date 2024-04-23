@@ -19,6 +19,10 @@ class SelectFareVC: BaseTableVC {
     
     
     
+    override func viewWillAppear(_ animated: Bool) {
+        callGetFareListAPI()
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +31,12 @@ class SelectFareVC: BaseTableVC {
         setupUI()
     }
     
-    
+    func setupUI() {
+        commonTableView.registerTVCells(["SelectFareTVCell",
+                                         "EmptyTVCell"])
+        
+        
+    }
     
     
     @IBAction func didTapOnCloseBtnAction(_ sender: Any) {
@@ -36,15 +45,34 @@ class SelectFareVC: BaseTableVC {
     }
     
     
+    
+    override func didTapOnSelectFareBtnAction(cell: SelectFareTVCell) {
+        commonTableView.reloadData()
+    }
+    
+    override func didTapOnCloseFareBtnAction(cell: SelectFareTVCell) {
+        commonTableView.reloadData()
+    }
+    
+   
+    
+    
+    
+    
 }
 
 
 extension SelectFareVC {
     
-    func setupUI() {
-        commonTableView.registerTVCells(["SelectFareTVCell",
-                                         "EmptyTVCell"])
+
+    
+    func callGetFareListAPI() {
+        MySingleton.shared.payload.removeAll()
+        MySingleton.shared.payload["search_id"] = MySingleton.shared.searchid
+        MySingleton.shared.payload["serialized_journeyKey"] = MySingleton.shared.farekey
+        MySingleton.shared.payload["booking_source"] = MySingleton.shared.bookingsource
         
+    
         setupTVcells()
     }
     

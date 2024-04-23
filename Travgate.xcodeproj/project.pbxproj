@@ -242,6 +242,7 @@
 		656CCFF92BD65FF700A22B60 /* SelectFareTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656CCFF72BD65FF700A22B60 /* SelectFareTVCell.swift */; };
 		656CCFFA2BD65FF700A22B60 /* SelectFareTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 656CCFF82BD65FF700A22B60 /* SelectFareTVCell.xib */; };
 		656CCFFC2BD6647900A22B60 /* SelectFareVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656CCFFB2BD6647900A22B60 /* SelectFareVC.swift */; };
+		65721C672BD793650065B41B /* MobileFlightPreSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65721C662BD793650065B41B /* MobileFlightPreSearchModel.swift */; };
 		657CDBEE2B9ECED800A53808 /* MBViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657CDBED2B9ECED800A53808 /* MBViewModel.swift */; };
 		6586F74E2BA2D9BC00BB48CE /* TermsPopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6586F74D2BA2D9BC00BB48CE /* TermsPopupVC.swift */; };
 		6586F7522BA2DEAF00BB48CE /* TermsPopupTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6586F7502BA2DEAF00BB48CE /* TermsPopupTVCell.swift */; };
@@ -795,6 +796,7 @@
 		656CCFF72BD65FF700A22B60 /* SelectFareTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFareTVCell.swift; sourceTree = "<group>"; };
 		656CCFF82BD65FF700A22B60 /* SelectFareTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectFareTVCell.xib; sourceTree = "<group>"; };
 		656CCFFB2BD6647900A22B60 /* SelectFareVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFareVC.swift; sourceTree = "<group>"; };
+		65721C662BD793650065B41B /* MobileFlightPreSearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileFlightPreSearchModel.swift; sourceTree = "<group>"; };
 		657CDBED2B9ECED800A53808 /* MBViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBViewModel.swift; sourceTree = "<group>"; };
 		6586F74D2BA2D9BC00BB48CE /* TermsPopupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsPopupVC.swift; sourceTree = "<group>"; };
 		6586F7502BA2DEAF00BB48CE /* TermsPopupTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsPopupTVCell.swift; sourceTree = "<group>"; };
@@ -1914,6 +1916,7 @@
 				653E2D2F2B47EBBC0082AFF6 /* Details.swift */,
 				653E2D312B47EBFB0082AFF6 /* Price.swift */,
 				6514CD2B2B99A333004730B5 /* FirstDataForEachGroup.swift */,
+				65721C662BD793650065B41B /* MobileFlightPreSearchModel.swift */,
 			);
 			path = FlightModel;
 			sourceTree = "<group>";
@@ -4284,6 +4287,7 @@
 				651717E12B43F8D4003D3723 /* UIModels.swift in Sources */,
 				654242E62B8C998700434876 /* HolidaysInfoTVCell.swift in Sources */,
 				658B37872B4D75280011932C /* Booking_details.swift in Sources */,
+				65721C672BD793650065B41B /* MobileFlightPreSearchModel.swift in Sources */,
 				651717E52B43F8D4003D3723 /* SessionManager.swift in Sources */,
 				65B959312B468F8000A4EAE7 /* SelectCityViewModel.swift in Sources */,
 				658B37652B4D72A10011932C /* updatePaymentFlightViewModel.swift in Sources */,
@@ -4736,7 +4740,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 17;
+				CURRENT_PROJECT_VERSION = 18;
 				DEVELOPMENT_TEAM = 5TLY5PME9K;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TravgateApp/Info.plist;
@@ -4746,7 +4750,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -4770,7 +4774,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 17;
+				CURRENT_PROJECT_VERSION = 18;
 				DEVELOPMENT_TEAM = 5TLY5PME9K;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TravgateApp/Info.plist;
@@ -4780,7 +4784,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

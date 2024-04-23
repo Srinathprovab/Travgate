@@ -11,7 +11,7 @@ struct FlightDataModel : Codable {
     let col_2x_result : Bool?
     let is_domestic : Bool?
     let search_params : FlightSearchParams?
-    let search_id : Int?
+    let search_id : String?
     let j_flight_list : [[FlightList]]?
     let journey_id : Int?
     let pxtrip_type : String?
@@ -35,7 +35,7 @@ struct FlightDataModel : Codable {
         col_2x_result = try values.decodeIfPresent(Bool.self, forKey: .col_2x_result)
         is_domestic = try values.decodeIfPresent(Bool.self, forKey: .is_domestic)
         search_params = try values.decodeIfPresent(FlightSearchParams.self, forKey: .search_params)
-        search_id = try values.decodeIfPresent(Int.self, forKey: .search_id)
+        search_id = try values.decodeIfPresent(String.self, forKey: .search_id)
         j_flight_list = try values.decodeIfPresent([[FlightList]].self, forKey: .j_flight_list)
         journey_id = try values.decodeIfPresent(Int.self, forKey: .journey_id)
         pxtrip_type = try values.decodeIfPresent(String.self, forKey: .pxtrip_type)
