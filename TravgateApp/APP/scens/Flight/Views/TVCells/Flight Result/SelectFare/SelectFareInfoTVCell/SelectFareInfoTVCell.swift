@@ -22,26 +22,48 @@ class SelectFareInfoTVCell: UITableViewCell {
     @IBOutlet weak var refundTypelbl: UILabel!
     @IBOutlet weak var baggagelbl: UILabel!
     @IBOutlet weak var pricelbl: UILabel!
+    @IBOutlet weak var journytypecloaselbl: UILabel!
     
-    
+    var indexpathDep = [IndexPath]()
+    var indexpathRet = [IndexPath]()
+    var journyType = String()
     var delegate:SelectFareInfoTVCellDelegate?
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         setupUI()
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     
     func setupUI() {
+        
         closeView.isHidden = true
         selectBtn.layer.cornerRadius = 4
         
     }
+    
+    
+    
+    func configure(selected: Bool) {
+        if selected {
+            self.selectBtn.isHidden = true
+            self.closeView.isHidden = false
+            self.holderView.borderColor = UIColor.Buttoncolor
+            self.holderView.backgroundColor = .LayoverColor
+        } else {
+            self.selectBtn.isHidden = false
+            self.closeView.isHidden = true
+            self.holderView.borderColor = UIColor.BorderColor
+            self.holderView.backgroundColor = .WhiteColor
+        }
+    }
+    
+    
     
     
     @IBAction func didTapOnCloseFareBtnAction(_ sender: Any) {

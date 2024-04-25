@@ -213,6 +213,7 @@
                 <outlet property="closeView" destination="aVV-8X-npH" id="bDh-ot-TU7"/>
                 <outlet property="fareNamelbl" destination="b0q-LF-20Q" id="L3N-T4-37C"/>
                 <outlet property="holderView" destination="bzD-Dz-ax5" id="mx2-qj-yLh"/>
+                <outlet property="journytypecloaselbl" destination="hlk-Jz-Iti" id="bDQ-CK-ibJ"/>
                 <outlet property="pricelbl" destination="R0Q-Au-rYC" id="ZkC-j9-7Hd"/>
                 <outlet property="refundTypelbl" destination="LuL-eu-Ahb" id="qmK-Zy-ZHi"/>
                 <outlet property="selectBtn" destination="nhT-dx-PlD" id="FUH-xD-7iK"/>

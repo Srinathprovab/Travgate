@@ -193,6 +193,7 @@ struct ApiEndpoints {
     static let general_getMobileCurrency = "general/getMobileCurrency"
     static let general_mobile_contact_us = "general/mobile_contact_us"
     static let ajax_mobile_get_fare_rules = "ajax/mobile_get_fare_rules"
+    static let general_get_more_option_at_same_price = "general/get_more_option_at_same_price"
     
     //LOGIN
     static let auth_mobile_login = "auth/mobile_login"

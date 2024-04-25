@@ -7,7 +7,12 @@
 
 import UIKit
 
-class SelectFareVC: BaseTableVC {
+class SelectFareVC: BaseTableVC, SelectFareViewModelDelegate {
+    
+    
+    @IBOutlet weak var continueBtnView: UIView!
+    @IBOutlet weak var gifimg: UIImageView!
+    
     
     
     static var newInstance: SelectFareVC? {
@@ -29,9 +34,16 @@ class SelectFareVC: BaseTableVC {
         
         // Do any additional setup after loading the view.
         setupUI()
+        MySingleton.shared.farelistvm = SelectFareViewModel(self)
     }
     
     func setupUI() {
+        
+        continueBtnView.isHidden = true
+        guard let gifURL = Bundle.main.url(forResource: "pay", withExtension: "gif") else { return }
+        guard let imageData = try? Data(contentsOf: gifURL) else { return }
+        guard let image = UIImage.gifImageWithData(imageData) else { return }
+        gifimg.image = image
         commonTableView.registerTVCells(["SelectFareTVCell",
                                          "EmptyTVCell"])
         
@@ -46,40 +58,104 @@ class SelectFareVC: BaseTableVC {
     
     
     
-    override func didTapOnSelectFareBtnAction(cell: SelectFareTVCell) {
-        commonTableView.reloadData()
+    override func didTapOnSelectFareBtnAction(cell:SelectFareInfoTVCell, at indexPath: IndexPath) {
+        setupTVcells()
     }
     
-    override func didTapOnCloseFareBtnAction(cell: SelectFareTVCell) {
-        commonTableView.reloadData()
+    override func didTapOnCloseFareBtnAction(cell: SelectFareInfoTVCell, at indexPath: IndexPath) {
+        // Update cell UI
+        cell.selectBtn.isHidden = false
+        cell.closeView.isHidden = true
+        cell.holderView.borderColor = UIColor.BorderColor
+        cell.holderView.backgroundColor = .WhiteColor
+        
+        
+        // Remove the corresponding SelectFare object from the selectedFares array
+        // Check if the index is valid before removing the item
+        if indexPath.row < MySingleton.shared.selectedFares.count {
+            MySingleton.shared.selectedFares.remove(at: indexPath.row)
+        } else {
+            // Index is out of range, handle the error or provide a default action
+            print("Error: Index out of range")
+        }
+        
+        
+        DispatchQueue.main.async {
+            self.setupTVcells()
+        }
+       
+        
     }
     
-   
+    
+    override func didTapOnDepartureBtnAction(cell:SelectFareTVCell) {
+        //commonTableView.reloadData()
+    }
     
     
     
+    @IBAction func didTapOnProceeedBtnAction(_ sender: Any) {
+        
+    }
     
 }
 
 
 extension SelectFareVC {
     
-
+    
     
     func callGetFareListAPI() {
+        
         MySingleton.shared.payload.removeAll()
         MySingleton.shared.payload["search_id"] = MySingleton.shared.searchid
         MySingleton.shared.payload["serialized_journeyKey"] = MySingleton.shared.farekey
         MySingleton.shared.payload["booking_source"] = MySingleton.shared.bookingsource
         
-    
-        setupTVcells()
+        MySingleton.shared.farelistvm?.CALL_GET_FARLIST_API(dictParam: MySingleton.shared.payload)
     }
+    
+    
+    func fareListResponse(response: SelectFareModel) {
+        
+        
+        response.j_flight_list?.forEach({ i in
+            MySingleton.shared.fareFlightlistArray = i.first?.fareFamily?.onward ?? []
+            MySingleton.shared.fareReturnFlightlistArray = i.first?.fareFamily?.freturn ?? []
+        })
+        
+        DispatchQueue.main.async {
+            self.setupTVcells()
+        }
+    }
+    
+    
+    
     
     func setupTVcells() {
         MySingleton.shared.tablerow.removeAll()
         
-        MySingleton.shared.tablerow.append(TableRow(cellType:.SelectFareTVCell))
+        
+        if let jtype = defaults.string(forKey: UserDefaultsKeys.journeyType), jtype == "oneway" {
+            if MySingleton.shared.selectedFares.count > 0 {
+                continueBtnView.isHidden = false
+                MySingleton.shared.tablerow.append(TableRow(title:"selected",cellType:.SelectFareTVCell))
+            }else {
+                continueBtnView.isHidden = true
+                MySingleton.shared.tablerow.append(TableRow(title:"notselected",cellType:.SelectFareTVCell))
+            }
+        }else {
+            if MySingleton.shared.selectedFares.count == 1  {
+                continueBtnView.isHidden = false
+                MySingleton.shared.tablerow.append(TableRow(title:"selected",cellType:.SelectFareTVCell))
+            }else if MySingleton.shared.selectedFares.count == 2  {
+                continueBtnView.isHidden = false
+                MySingleton.shared.tablerow.append(TableRow(title:"selected",cellType:.SelectFareTVCell))
+            }else {
+                continueBtnView.isHidden = true
+                MySingleton.shared.tablerow.append(TableRow(title:"notselected",cellType:.SelectFareTVCell))
+            }
+        }
         
         MySingleton.shared.tablerow.append(TableRow(height:50,cellType:.EmptyTVCell))
         

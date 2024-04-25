@@ -35,7 +35,7 @@ class FlightResultTVCell: TableViewCell {
     var newsimilarList = [[FlightList]]()
     var delegate:FlightResultTVCellDelegate?
     var flightsummery = [Summary]()
-    var journeyKeyArray = [String]()
+    var journeyKeystr = String()
     var flightlist :FlightList?
     var farerulesrefKey = [[String]]()
     var farerulesrefContent = [[String]]()
@@ -99,9 +99,8 @@ class FlightResultTVCell: TableViewCell {
             tvheight.constant = CGFloat((flightsummery.count ) * 170)
         }
         
-        if let journeyKeyA = cellInfo?.userCatdetails as? [String] {
-            journeyKeyArray = journeyKeyA
-        }
+        
+        journeyKeystr = cellInfo?.headerText ?? ""
         
         bookingsource = cellInfo?.subTitle ?? ""
         bookingsourcekey = cellInfo?.text ?? ""

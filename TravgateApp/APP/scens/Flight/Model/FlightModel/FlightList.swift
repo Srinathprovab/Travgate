@@ -9,7 +9,7 @@ import Foundation
 
 struct FlightList : Codable {
     
-   
+    
     let fareType : String?
     let flight_details : FlightDetails?
     let price : Price?
@@ -20,11 +20,13 @@ struct FlightList : Codable {
     let farerulesref_Key : [[String]]?
     let farerulesref_content : [[String]]?
     let journeyKey : [String]?
+    let serialized_journeyKey : String?
+    let fareFamily : FareFamily?
     
-
+    
     enum CodingKeys: String, CodingKey {
-
-      
+        
+        
         case fareType = "FareType"
         case flight_details = "flight_details"
         case price = "price"
@@ -35,9 +37,12 @@ struct FlightList : Codable {
         case farerulesref_Key = "Farerulesref_Key"
         case farerulesref_content = "Farerulesref_content"
         case journeyKey = "journeyKey"
+        case serialized_journeyKey = "serialized_journeyKey"
+        case fareFamily = "fareFamily"
+        
         
     }
-
+    
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         
@@ -51,7 +56,9 @@ struct FlightList : Codable {
         farerulesref_Key = try values.decodeIfPresent([[String]].self, forKey: .farerulesref_Key)
         farerulesref_content = try values.decodeIfPresent([[String]].self, forKey: .farerulesref_content)
         journeyKey = try values.decodeIfPresent([String].self, forKey: .journeyKey)
+        serialized_journeyKey = try values.decodeIfPresent(String.self, forKey: .serialized_journeyKey)
+        fareFamily = try values.decodeIfPresent(FareFamily.self, forKey: .fareFamily)
         
     }
-
+    
 }

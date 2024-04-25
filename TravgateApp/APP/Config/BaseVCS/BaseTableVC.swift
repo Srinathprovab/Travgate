@@ -288,9 +288,9 @@ class BaseTableVC: UIViewController, TabSelectTVCellDelegate, FlightSearchTVCell
     func didTapOnCheckBoxBtnAction(cell: SelectMealTVCell) {}
     func didTapOnCheckBoxBtnAction(cell: NewSpecialAssistanceTVCell) {}
     func didTapOnServiceBtnAction(cell: NewSpecialAssistanceTVCell) {}
-    func didTapOnSelectFareBtnAction(cell: SelectFareTVCell) {}
-    func didTapOnCloseFareBtnAction(cell: SelectFareTVCell) {}
-    
+    func didTapOnSelectFareBtnAction(cell:SelectFareInfoTVCell, at indexPath: IndexPath) {}
+    func didTapOnCloseFareBtnAction(cell: SelectFareInfoTVCell, at indexPath: IndexPath) {}
+    func didTapOnDepartureBtnAction(cell:SelectFareTVCell) {}
    
     
     

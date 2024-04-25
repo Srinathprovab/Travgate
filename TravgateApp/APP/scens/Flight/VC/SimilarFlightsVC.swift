@@ -87,6 +87,7 @@ extension SimilarFlightsVC {
                                                             refundable:j.fareType,
                                                             key: "similar",
                                                             text: j.booking_source_key,
+                                                            headerText: j.serialized_journeyKey,
                                                             moreData: j,
                                                             tempInfo: j.farerulesref_Key,
                                                             cellType:.FlightResultTVCell,

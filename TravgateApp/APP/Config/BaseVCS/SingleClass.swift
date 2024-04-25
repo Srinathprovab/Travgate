@@ -55,6 +55,8 @@ class MySingleton {
     var ssrListArray = [Ssr_list]()
     var journeyKeyArray = [String]()
     var farekey = String()
+    var selectedFares: [SelectFare] = []
+    var indexpathA = [IndexPath]()
     
     //Flight Search
     var loderimgurl = String()
@@ -159,7 +161,10 @@ class MySingleton {
     var selectedAddonTotalPrice = 0
     var afterAddonAmountAdded = 0
     var moreDetailsData : MoreDetailsData?
-   
+    var fareFlightlistArray = [Onward]()
+    var fareReturnFlightlistArray = [FligtsFareReturn]()
+    var selectedIndexPathsDeparture: Set<IndexPath> = []
+    var selectedIndexPathsReturn: Set<IndexPath> = []
     
     
     //View Models
@@ -184,6 +189,7 @@ class MySingleton {
     var moredetailsvm:MoreDetailsViewModel?
     var currencylistvm:CurrencyListViewModel?
     var contactusvm:mobilecontactusViewModel?
+    var farelistvm:SelectFareViewModel?
     
     //TIMER
     weak var delegate: TimerManagerDelegate?

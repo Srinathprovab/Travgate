@@ -205,13 +205,16 @@ class FlightResultVC: BaseTableVC, FlightListModelProtocal {
     
     //MARK: - didTapOnSelectFareBtnAction
     override func didTapOnSelectFareBtnAction(cell:FlightResultTVCell) {
-        MySingleton.shared.farekey = cell.journeyKeyArray[0]
-        MySingleton.shared.bookingsource = cell.bookingsourcekey
+        MySingleton.shared.farekey = cell.journeyKeystr
+        MySingleton.shared.bookingsource = cell.bookingsource
         MySingleton.shared.bookingsourcekey = cell.bookingsourcekey
         gotoSelectFareVC()
     }
     
     func gotoSelectFareVC() {
+        MySingleton.shared.selectedFares.removeAll()
+        MySingleton.shared.selectedIndexPathsDeparture.removeAll()
+        MySingleton.shared.selectedIndexPathsReturn.removeAll()
         guard let vc = SelectFareVC.newInstance.self else {return}
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)
@@ -724,7 +727,7 @@ extension FlightResultVC {
         
         if MySingleton.shared.callboolapi == true {
             //  callAPI()
-            
+            MySingleton.shared.flights.removeAll()
             callActiveBookingSourceAPI()
         }
     }
@@ -995,6 +998,7 @@ extension FlightResultVC {
                                                             refundable:j.fareType,
                                                             key: "fl", 
                                                             text: j.booking_source_key,
+                                                            headerText: j.serialized_journeyKey,
                                                             data: similarFlights1,
                                                             moreData: j,
                                                             tempInfo: j.farerulesref_Key,
@@ -1036,6 +1040,7 @@ extension FlightResultVC {
                                                         refundable:j.fareType,
                                                         key: "fl",
                                                         text: j.booking_source_key,
+                                                        headerText: j.serialized_journeyKey,
                                                         data: similarFlights1,
                                                         moreData: j,
                                                         tempInfo: j.farerulesref_Key,
