@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="PaymentTypeCVCell" customModule="Travgate" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="187" height="83"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="187" height="83"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YSt-sp-Cfe" customClass="BorderedView" customModule="Travgate" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="187" height="83"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JcT-IF-BWK">
+                                <rect key="frame" x="10" y="29.666666666666671" width="24" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="8SE-Fv-qJ3"/>
+                                    <constraint firstAttribute="width" constant="24" id="uxR-dU-5O4"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2uE-l0-Sj1">
+                                <rect key="frame" x="49" y="25.666666666666671" width="43" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="2TE-EL-scF"/>
+                                    <constraint firstAttribute="width" constant="43" id="Q2D-zq-9yk"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="JcT-IF-BWK" firstAttribute="centerY" secondItem="YSt-sp-Cfe" secondAttribute="centerY" id="GJd-Nb-45e"/>
+                            <constraint firstItem="2uE-l0-Sj1" firstAttribute="leading" secondItem="JcT-IF-BWK" secondAttribute="trailing" constant="15" id="VVU-e6-W8d"/>
+                            <constraint firstItem="JcT-IF-BWK" firstAttribute="leading" secondItem="YSt-sp-Cfe" secondAttribute="leading" constant="10" id="cFQ-DU-Z41"/>
+                            <constraint firstItem="2uE-l0-Sj1" firstAttribute="centerY" secondItem="JcT-IF-BWK" secondAttribute="centerY" id="fKC-zf-0qs"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" name="BorderColor"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="4"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="YSt-sp-Cfe" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Stf-iZ-pyd"/>
+                <constraint firstAttribute="trailing" secondItem="YSt-sp-Cfe" secondAttribute="trailing" id="XuV-Ji-AbQ"/>
+                <constraint firstItem="YSt-sp-Cfe" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="a0h-I3-iM7"/>
+                <constraint firstAttribute="bottom" secondItem="YSt-sp-Cfe" secondAttribute="bottom" id="uD6-RE-xgq"/>
+            </constraints>
+            <size key="customSize" width="187" height="83"/>
+            <connections>
+                <outlet property="payTypeImg" destination="2uE-l0-Sj1" id="8DN-m2-w69"/>
+                <outlet property="radioImg" destination="JcT-IF-BWK" id="eKk-c4-rKE"/>
+            </connections>
+            <point key="canvasLocation" x="243.51145038167937" y="31.338028169014088"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <namedColor name="BorderColor">
+            <color red="0.80000001192092896" green="0.80000001192092896" blue="0.80000001192092896" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

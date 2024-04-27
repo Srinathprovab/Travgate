@@ -215,6 +215,7 @@ class FlightResultVC: BaseTableVC, FlightListModelProtocal {
         MySingleton.shared.selectedFares.removeAll()
         MySingleton.shared.selectedIndexPathsDeparture.removeAll()
         MySingleton.shared.selectedIndexPathsReturn.removeAll()
+        
         guard let vc = SelectFareVC.newInstance.self else {return}
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)

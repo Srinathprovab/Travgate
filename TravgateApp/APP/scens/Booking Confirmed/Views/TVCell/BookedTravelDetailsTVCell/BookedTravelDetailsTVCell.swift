@@ -19,12 +19,13 @@ class BookedTravelDetailsTVCell: TableViewCell {
     @IBOutlet weak var tvHeight: NSLayoutConstraint!
     
     
+    var keystr = String()
    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         setupUI()
-        setupTV()
+        
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -36,16 +37,31 @@ class BookedTravelDetailsTVCell: TableViewCell {
     
     
     override func updateUI() {
+    
+        keystr = cellInfo?.key ?? ""
         
         
-        
-        if Customerdetails.count > 0 {
-            tvHeight.constant = CGFloat(Customerdetails.count * 48)
+        if keystr == "BC" {
+            if Customerdetails.count > 0 {
+                tvHeight.constant = CGFloat(Customerdetails.count * 48)
+            }
+        }else {
+            travellerNamelbl.text = "Name"
+            typelbl.text = "Email"
+            seatlbl.text = "Mobile Number"
+            typelbl.isHidden = true
+            seatlbl.isHidden = true
+            if travelerArray.count > 0 {
+                tvHeight.constant = CGFloat(travelerArray.count * 48)
+            }
+            
         }
             
-        
         adultDetailsTV.reloadData()
     }
+    
+    
+
     
     func setupUI() {
         
@@ -58,18 +74,20 @@ class BookedTravelDetailsTVCell: TableViewCell {
         labelsView.layer.borderColor = UIColor.WhiteColor.cgColor
         // labelsView.addBottomBorderWithColor(color: .SubTitleColor, width: 1)
         ulView.backgroundColor = HexColor("#E6E8E7")
-        setuplabels(lbl: travellerNamelbl, text: "Traveller Name", textcolor: HexColor("#5B5B5B"), font: .LatoRegular(size: 13), align: .center)
-        setuplabels(lbl: typelbl, text: "Ticket No", textcolor: HexColor("#5B5B5B"), font: .LatoRegular(size: 13), align: .center)
-        setuplabels(lbl: seatlbl, text: "Status", textcolor: HexColor("#5B5B5B"), font: .LatoRegular(size: 13), align: .center)
+        setuplabels(lbl: travellerNamelbl, text: "Traveller Name", textcolor: HexColor("#5B5B5B"), font: .OpenSansBold(size: 14), align: .center)
+        setuplabels(lbl: typelbl, text: "Ticket No", textcolor: HexColor("#5B5B5B"), font: .OpenSansBold(size: 14), align: .center)
+        setuplabels(lbl: seatlbl, text: "Status", textcolor: HexColor("#5B5B5B"), font: .OpenSansBold(size: 14), align: .center)
         travellerNamelbl.text = "Passenger Name"
         typelbl.text = "Passport No"
         seatlbl.text = "    Country"
+        
+        
+        setupTV()
     }
     
     func setupTV() {
         adultDetailsTV.register(UINib(nibName: "BookedAdultDetailsTVCell", bundle: nil), forCellReuseIdentifier: "cell")
         adultDetailsTV.register(UINib(nibName: "BookedAdultDetailsTVCell", bundle: nil), forCellReuseIdentifier: "cell1")
-        adultDetailsTV.register(UINib(nibName: "BookedAdultDetailsTVCell", bundle: nil), forCellReuseIdentifier: "cell2")
         
         adultDetailsTV.delegate = self
         adultDetailsTV.dataSource = self
@@ -91,28 +109,61 @@ class BookedTravelDetailsTVCell: TableViewCell {
 
 
 extension BookedTravelDetailsTVCell:UITableViewDelegate,UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return Customerdetails.count
+        if keystr == "BC" {
+            return Customerdetails.count
+        }else {
+            return travelerArray.count
+        }
+       
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var c = UITableViewCell()
         
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? BookedAdultDetailsTVCell {
-            cell.selectionStyle = .none
+        
+        if keystr == "BC" {
             
-            let data = Customerdetails[indexPath.row]
-            cell.travellerNamelbl.text = "\(data.first_name ?? "") \(data.last_name ?? "")"
-            cell.typelbl.text = data.passport_number ?? ""
-            cell.seatlbl.text = data.passenger_nationality_name ?? ""
-            if indexPath.row == 0{
-                cell.setAttributedText(str1: "\(data.first_name ?? "") \(data.last_name ?? "")", str2: "\n\(cellInfo?.title ?? "")")
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? BookedAdultDetailsTVCell {
+                cell.selectionStyle = .none
+                
+                let data = Customerdetails[indexPath.row]
+                cell.travellerNamelbl.text = "\(data.first_name ?? "") \(data.last_name ?? "")"
+                cell.typelbl.text = data.passport_number ?? ""
+                cell.seatlbl.text = data.passenger_nationality_name ?? ""
+                if indexPath.row == 0{
+                    cell.setAttributedText(str1: "\(data.first_name ?? "") \(data.last_name ?? "")", str2: "\n\(cellInfo?.title ?? "")")
+                }
+                
+                c = cell
+            }
+        }else {
+            
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "cell1") as? BookedAdultDetailsTVCell {
+                cell.selectionStyle = .none
+                
+                let data = travelerArray[indexPath.row]
+                cell.travellerNamelbl.text = "\(data.firstName ?? "")"
+                cell.typelbl.text = MySingleton.shared.payemail
+                cell.seatlbl.text = MySingleton.shared.paymobile
+                
+                if indexPath.row == 0{
+                    cell.setAttributedText(str1: "\(data.firstName ?? "")", str2: "\n\(cellInfo?.title ?? "")")
+                }
+                
+                cell.typelbl.isHidden = true
+                cell.seatlbl.isHidden = true
+                
+                c = cell
             }
             
             
-            c = cell
         }
+        
+        
+        
+        
         return c
     }
     

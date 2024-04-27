@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="OpenSans-Bold.ttf">
+            <string>OpenSans-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="224" id="KGk-i7-Jjw" customClass="PaymentTypeTVCell" customModule="Travgate" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="524" height="224"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="524" height="224"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aTT-Vt-V6X" customClass="BorderedView" customModule="Travgate" customModuleProvider="target">
+                        <rect key="frame" x="16" y="10" width="492" height="204"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="fMo-H4-LwD">
+                                <rect key="frame" x="0.0" y="0.0" width="492" height="70"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="aXd-6N-kkx"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="4qA-ss-Ddx">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                            </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cx4-Wf-ktK">
+                                <rect key="frame" x="225" y="90" width="42" height="26.333333333333329"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SoW-ci-H3i">
+                                <rect key="frame" x="163.66666666666666" y="136.33333333333334" width="164.99999999999997" height="50"/>
+                                <color key="backgroundColor" name="BooknowBtnColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="165" id="VVf-Jg-f3a"/>
+                                    <constraint firstAttribute="height" constant="50" id="q45-Ca-I07"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="16"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Pay Now">
+                                    <color key="titleColor" red="0.91372549020000005" green="0.97254901959999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapOnPayNowBtnAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="CRC-vU-BCn"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="SoW-ci-H3i" firstAttribute="top" secondItem="cx4-Wf-ktK" secondAttribute="bottom" constant="20" id="Bi9-8F-bMW"/>
+                            <constraint firstAttribute="bottom" secondItem="SoW-ci-H3i" secondAttribute="bottom" constant="17.670000000000002" id="Smf-2x-TdF"/>
+                            <constraint firstItem="fMo-H4-LwD" firstAttribute="leading" secondItem="aTT-Vt-V6X" secondAttribute="leading" id="TiV-79-1mo"/>
+                            <constraint firstItem="cx4-Wf-ktK" firstAttribute="centerX" secondItem="aTT-Vt-V6X" secondAttribute="centerX" id="Yxz-v6-nZ8"/>
+                            <constraint firstItem="SoW-ci-H3i" firstAttribute="centerX" secondItem="aTT-Vt-V6X" secondAttribute="centerX" id="e7p-Kq-Jvg"/>
+                            <constraint firstAttribute="trailing" secondItem="fMo-H4-LwD" secondAttribute="trailing" id="fSz-dW-iX7"/>
+                            <constraint firstAttribute="height" constant="204" id="hWy-7n-32q"/>
+                            <constraint firstItem="cx4-Wf-ktK" firstAttribute="top" secondItem="fMo-H4-LwD" secondAttribute="bottom" constant="20" id="rOT-jF-PJu"/>
+                            <constraint firstItem="fMo-H4-LwD" firstAttribute="top" secondItem="aTT-Vt-V6X" secondAttribute="top" id="vLl-0b-97T"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" name="BorderColor"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="6"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="aTT-Vt-V6X" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="60G-zW-n80"/>
+                    <constraint firstAttribute="bottom" secondItem="aTT-Vt-V6X" secondAttribute="bottom" constant="10" id="JiG-P1-SFG"/>
+                    <constraint firstAttribute="trailing" secondItem="aTT-Vt-V6X" secondAttribute="trailing" constant="16" id="WFz-Ys-6PJ"/>
+                    <constraint firstItem="aTT-Vt-V6X" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="gTJ-kC-MZ8"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="kwdlbl" destination="cx4-Wf-ktK" id="inx-iD-gjN"/>
+                <outlet property="paymentTypeCV" destination="fMo-H4-LwD" id="Uex-lM-0Ew"/>
+                <outlet property="paynowBtn" destination="SoW-ci-H3i" id="Jad-0u-zja"/>
+            </connections>
+            <point key="canvasLocation" x="294.6564885496183" y="122.53521126760565"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="BooknowBtnColor">
+            <color red="0.93300002813339233" green="0.097999997437000275" blue="0.20800000429153442" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="BorderColor">
+            <color red="0.80000001192092896" green="0.80000001192092896" blue="0.80000001192092896" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

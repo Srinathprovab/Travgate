@@ -175,7 +175,7 @@ extension BookingConfirmedVC {
         tablerow.append(TableRow(title:"\(bookedjurnycitys)",key: "bc",cellType:.LabelTVCell))
         tablerow.append(TableRow(moreData: bookingitinerarydetails,cellType:.BCFlightDetailsTVCell))
         tablerow.append(TableRow(title:"Passenger Details",key: "bc",cellType:.LabelTVCell))
-        tablerow.append(TableRow(title:"Lead Passenger",moreData:Customerdetails,cellType:.BookedTravelDetailsTVCell))
+        tablerow.append(TableRow(title:"Lead Passenger",key:"BC",moreData:Customerdetails,cellType:.BookedTravelDetailsTVCell))
         tablerow.append(TableRow(height:10,cellType:.EmptyTVCell))
         tablerow.append(TableRow(title:"Important Information",key: "bc",cellType:.LabelTVCell))
         tablerow.append(TableRow(cellType:.ImportentInfoTableViewCell))

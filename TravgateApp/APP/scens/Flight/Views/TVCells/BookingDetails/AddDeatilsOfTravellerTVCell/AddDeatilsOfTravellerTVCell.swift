@@ -145,7 +145,7 @@ class AddDeatilsOfTravellerTVCell: TableViewCell {
     
     
     func collapsView() {
-        dropdownimg.image = UIImage(named: "downarrow")?.withRenderingMode(.alwaysOriginal).withTintColor(.AppLabelColor)
+        dropdownimg.image = UIImage(named: "downarrow1")?.withRenderingMode(.alwaysOriginal).withTintColor(.AppLabelColor)
         saveView.isHidden = true
         viewHeight.constant = 0
     }

@@ -785,9 +785,9 @@ extension BookingDetailsVC {
                 loderBool = true
                 showLoadera()
                 
-                MySingleton.shared.mpbvm?.CALL_MOBILE_PROCESS_PASSENGER_DETAIL_API(dictParam:MySingleton.shared.payload)
+              //  MySingleton.shared.mpbvm?.CALL_MOBILE_PROCESS_PASSENGER_DETAIL_API(dictParam:MySingleton.shared.payload)
                 
-             
+                gotoSelectPaymentMethodsVC()
             }
             
             
@@ -797,6 +797,14 @@ extension BookingDetailsVC {
     func gotoMealSelectionVC() {
         MySingleton.shared.callboolapi = true
         guard let vc = MealSelectionVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: false)
+    }
+    
+    
+    func gotoSelectPaymentMethodsVC() {
+        MySingleton.shared.callboolapi = true
+        guard let vc = SelectPaymentMethodsVC.newInstance.self else {return}
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: false)
     }
