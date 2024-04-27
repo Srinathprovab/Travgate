@@ -185,7 +185,14 @@ extension FlightResultTVCell:UITableViewDelegate,UITableViewDataSource {
             cell.logoImg.sd_setImage(with: URL(string: data.operator_image ?? ""), placeholderImage:UIImage(contentsOfFile:"placeholder.png"))
             cell.classlbl.text = data.fclass?.name
             
+           
+            cell.luggagelbl.text = "7kg"
             
+            if let convertedString = MySingleton.shared.convertToPC(input: data.weight_Allowance ?? "") {
+                cell.worklbl.text = convertedString
+            } else {
+                print("Invalid input format")
+            }
             
             if summeryTV.isLast(for: indexPath) {
                 cell.ul.isHidden = true

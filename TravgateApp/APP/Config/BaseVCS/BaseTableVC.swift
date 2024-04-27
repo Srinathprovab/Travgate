@@ -869,6 +869,10 @@ extension BaseTableVC: UITableViewDataSource {
                 commonCell = cell
                 
                 
+            case .BaggageInfoImageTVCell :
+                let cell: BaggageInfoImageTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                commonCell = cell
+                
                 
             default:
                 print("handle this case in getCurrentCellAt")

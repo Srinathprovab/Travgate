@@ -11,6 +11,8 @@ class MoreServiceCVCell: UICollectionViewCell {
 
     @IBOutlet weak var titlelbl: UILabel!
     @IBOutlet weak var img: UIImageView!
+    @IBOutlet weak var holderView: UIView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

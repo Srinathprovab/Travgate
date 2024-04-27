@@ -12,21 +12,23 @@ class BaggageInfoTVCell: TableViewCell {
     
     @IBOutlet weak var titlelbl: UILabel!
     @IBOutlet weak var cityslbl: UILabel!
-
+    @IBOutlet weak var carronbaggagelbl: UILabel!
+    @IBOutlet weak var checkedinbaggagelbl: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     
     
     override func updateUI() {
-       
+        
         
         if cellInfo?.title == "0" {
             titlelbl.text = "Departure"
@@ -36,6 +38,10 @@ class BaggageInfoTVCell: TableViewCell {
         
         
         cityslbl.text = cellInfo?.subTitle ?? ""
+        carronbaggagelbl.text = cellInfo?.buttonTitle ?? ""
+        checkedinbaggagelbl.text = cellInfo?.text ?? ""
+        
+        
     }
     
 }

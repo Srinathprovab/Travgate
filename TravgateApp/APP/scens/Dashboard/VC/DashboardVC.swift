@@ -7,7 +7,9 @@
 
 import UIKit
 
-class DashboardVC: BaseTableVC, AllCountryCodeListViewModelDelegate {
+class DashboardVC: BaseTableVC, AllCountryCodeListViewModelDelegate, SearchDataViewModelDelegate {
+    
+    
     
     
     //MARK: - side menu initial setup
@@ -30,7 +32,7 @@ class DashboardVC: BaseTableVC, AllCountryCodeListViewModelDelegate {
         addObserver()
         
         if !UserDefaults.standard.bool(forKey: "cookiesExecuteOnce") {
-           
+            
             self.gotoAcceptCookiesVC()
             UserDefaults.standard.set(true, forKey: "cookiesExecuteOnce")
         }
@@ -53,7 +55,7 @@ class DashboardVC: BaseTableVC, AllCountryCodeListViewModelDelegate {
         setupUI()
         MySingleton.shared.indexpagevm = IndexPageViewModel(self)
         MySingleton.shared.countrylistvm = AllCountryCodeListViewModel(self)
-        
+        MySingleton.shared.recentsearchvm = SearchDataViewModel(self)
     }
     
     
@@ -504,5 +506,24 @@ extension DashboardVC {
     
     func getCountryList(response: AllCountryCodeListModel) {
         MySingleton.shared.clist = response.all_country_code_list ?? []
+        
+        
+        DispatchQueue.main.async {[self] in
+            callGetRecentSearchAPI()
+        }
+    }
+    
+    
+    
+    func callGetRecentSearchAPI() {
+        MySingleton.shared.recentsearchvm?.CALL_GET_FLIGHT_SEARCH_RECENT_DATA_API(dictParam: [:])
+    }
+    
+    func flightRecentSearchDate(response: SearchDataModel) {
+        MySingleton.shared.recentData = response.recent_searches ?? []
+    }
+    
+    func removeflightRecentSearchDate(response: LoginModel) {
+        
     }
 }

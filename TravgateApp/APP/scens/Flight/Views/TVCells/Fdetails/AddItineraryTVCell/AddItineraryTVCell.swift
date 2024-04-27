@@ -26,6 +26,8 @@ class AddItineraryTVCell: UITableViewCell {
     @IBOutlet weak var stopslbl: UILabel!
     @IBOutlet weak var imgwidth: NSLayoutConstraint!
     @IBOutlet weak var imgleft: NSLayoutConstraint!
+    @IBOutlet weak var luggagelbl: UILabel!
+    @IBOutlet weak var worklbl: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

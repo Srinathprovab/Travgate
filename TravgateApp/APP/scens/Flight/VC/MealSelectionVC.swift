@@ -21,6 +21,9 @@ class MealSelectionVC: BaseTableVC, MPBViewModelDelegate {
         return vc
     }
     
+    var mealsCodeA = [String]()
+    var ssrCodeA = [String]()
+    
     override func viewWillAppear(_ animated: Bool) {
         addObserver()
     }
@@ -100,8 +103,11 @@ class MealSelectionVC: BaseTableVC, MPBViewModelDelegate {
     
     //MARK: - didTapOnBackBtnAction
     @IBAction func didTapOnContinuetoBookBtnAction(_ sender: Any) {
-        showToast(message: "Call Voucher API ...")
-       // MySingleton.shared.mpbvm?.CALL_MOBILE_PROCESS_PASSENGER_DETAIL_API(dictParam:MySingleton.shared.payload)
+        MySingleton.shared.afterResultsBool = true
+        loderBool = true
+        showLoadera()
+        
+        MySingleton.shared.mpbvm?.CALL_MOBILE_PROCESS_PASSENGER_DETAIL_API(dictParam:MySingleton.shared.payload)
     }
     
     
@@ -109,11 +115,7 @@ class MealSelectionVC: BaseTableVC, MPBViewModelDelegate {
         
         DispatchQueue.main.async {
             BASE_URL = ""
-            // MySingleton.shared.viewmodel1?.Call_mobile_secure_booking_API(dictParam: [:], url: "\(response.url ?? "")") no need
-            
-          //  MySingleton.shared.mpbvm?.CALL_MOBILE_PAYMENT_API(dictParam: [:], url: response.url ?? "")
-            
-           
+            MySingleton.shared.mpbvm?.CALL_MOBILE_PAYMENT_API(dictParam: [:], url: response.url ?? "")
         }
         
     }
@@ -170,11 +172,28 @@ extension MealSelectionVC {
         }
         
         if MySingleton.shared.addMealBool == true {
+            
+            mealsCodeA.removeAll()
+            travelerArray.forEach { i in
+                mealsCodeA.append("")
+            }
+            
+            let mealsCodeAString = "[\"" + mealsCodeA.joined(separator: "\",\"") + "\"]"
+            MySingleton.shared.payload["selected_meals_code"] = mealsCodeAString
             MySingleton.shared.tablerow.append(TableRow(cellType:.SelectMealTVCell))
         }
         
         if MySingleton.shared.addSpecialAssistanceBool == true {
+            
+            ssrCodeA.removeAll()
+            travelerArray.forEach { i in
+                ssrCodeA.append("")
+            }
+            
+            let ssrCodeAString = "[\"" + ssrCodeA.joined(separator: "\",\"") + "\"]"
+            MySingleton.shared.payload["selected_special_assistance_code"] = ssrCodeAString
             MySingleton.shared.tablerow.append(TableRow(cellType:.NewSpecialAssistanceTVCell))
+            
         }
         
         

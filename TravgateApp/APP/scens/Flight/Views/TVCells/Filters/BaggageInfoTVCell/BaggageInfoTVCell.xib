@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -9,8 +10,8 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="OpenSans-Light.ttf">
-            <string>OpenSans-Light</string>
+        <array key="OpenSans-Bold.ttf">
+            <string>OpenSans-Bold</string>
         </array>
         <array key="OpenSans-Medium.ttf">
             <string>OpenSans-Medium</string>
@@ -22,15 +23,15 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="227" id="KGk-i7-Jjw" customClass="BaggageInfoTVCell" customModule="Travgate" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="438" height="347"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="103" id="KGk-i7-Jjw" customClass="BaggageInfoTVCell" customModule="Travgate" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="437" height="223"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="438" height="347"/>
+                <rect key="frame" x="0.0" y="0.0" width="437" height="223"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i1l-Vm-tHe" customClass="BorderedView" customModule="Travgate" customModuleProvider="target">
-                        <rect key="frame" x="10" y="10" width="418" height="327"/>
+                        <rect key="frame" x="10" y="10" width="417" height="203"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fg5-0q-OMt" customClass="BorderedView" customModule="Travgate" customModuleProvider="target">
                                 <rect key="frame" x="10" y="10" width="100" height="30"/>
@@ -69,82 +70,46 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="C7K-Au-PYr">
-                                <rect key="frame" x="59" y="49.999999999999993" width="344" height="65.333333333333314"/>
+                                <rect key="frame" x="59" y="54" width="343" height="46.333333333333343"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Checked Baggage" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o0X-tl-u1B">
-                                        <rect key="frame" x="0.0" y="0.0" width="344" height="22"/>
-                                        <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="16"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Carry-on Baggage:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o0X-tl-u1B">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="22"/>
+                                        <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The total weight per person cannot exceed 20 kg. Each piece cannot exceed 75*55*35 cm in size." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="guO-hD-j7N">
-                                        <rect key="frame" x="0.0" y="27.000000000000004" width="344" height="38.333333333333343"/>
-                                        <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="14"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7 Kilograms" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="guO-hD-j7N">
+                                        <rect key="frame" x="0.0" y="27" width="343" height="19.333333333333329"/>
+                                        <fontDescription key="fontDescription" name="OpenSans-Medium" family="Open Sans" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bag2" translatesAutoresizingMaskIntoConstraints="NO" id="DJ9-ai-wgJ">
-                                <rect key="frame" x="10" y="154" width="34" height="34"/>
+                                <rect key="frame" x="10" y="144" width="34" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="34" id="V3f-J0-faO"/>
                                     <constraint firstAttribute="height" constant="34" id="fZr-x6-mfI"/>
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="vEw-Fw-Zsj">
-                                <rect key="frame" x="59" y="135.33333333333334" width="344" height="71.333333333333343"/>
+                                <rect key="frame" x="59" y="138" width="343" height="46.333333333333343"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Carry-on Baggage:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9t6-aj-k8o">
-                                        <rect key="frame" x="0.0" y="0.0" width="344" height="22.666666666666668"/>
-                                        <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="16"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Checked -In Baggage" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9t6-aj-k8o">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="22"/>
+                                        <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="T1 piece(s) per person, 7 kg per piece." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lnh-7J-MAS">
-                                        <rect key="frame" x="0.0" y="27.666666666666657" width="344" height="19.333333333333329"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lnh-7J-MAS">
+                                        <rect key="frame" x="0.0" y="27" width="343" height="19.333333333333329"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="19.333333333333329" id="HLO-FI-OlX"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="14"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Each piece cannot exceed 55*38*20 cm in size." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qd2-E9-oF0">
-                                        <rect key="frame" x="0.0" y="52" width="344" height="19.333333333333329"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="19.333333333333329" id="fwu-Qr-MyG"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="14"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="cfe-eG-59S">
-                                <rect key="frame" x="59" y="222.66666666666666" width="344" height="97.666666666666657"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Personal item" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="91e-k0-06r">
-                                        <rect key="frame" x="0.0" y="0.0" width="344" height="22"/>
-                                        <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="16"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 piece per person" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cw6-qJ-IAH">
-                                        <rect key="frame" x="0.0" y="27.000000000000028" width="344" height="22"/>
-                                        <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="16"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Each piece cannot exceed 25*33*20 cm in size" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k9V-GR-Fgg">
-                                        <rect key="frame" x="0.0" y="54.000000000000028" width="344" height="19.333333333333329"/>
-                                        <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="14"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Must be placed under the seat front of you" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Hp-5d-2eG">
-                                        <rect key="frame" x="0.0" y="78.333333333333343" width="344" height="19.333333333333329"/>
-                                        <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="14"/>
+                                        <string key="text">0 Kilograms per person.
+</string>
+                                        <fontDescription key="fontDescription" name="OpenSans-Medium" family="Open Sans" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -153,27 +118,21 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="cfe-eG-59S" firstAttribute="leading" secondItem="vEw-Fw-Zsj" secondAttribute="leading" id="3wX-fA-w1d"/>
                             <constraint firstItem="fg5-0q-OMt" firstAttribute="top" secondItem="i1l-Vm-tHe" secondAttribute="top" constant="10" id="5lg-Sx-g7B"/>
                             <constraint firstItem="vEw-Fw-Zsj" firstAttribute="centerY" secondItem="DJ9-ai-wgJ" secondAttribute="centerY" id="CMs-EI-RW1"/>
                             <constraint firstAttribute="trailing" secondItem="C7K-Au-PYr" secondAttribute="trailing" constant="15" id="EQq-TF-jtp"/>
-                            <constraint firstAttribute="bottom" secondItem="cfe-eG-59S" secondAttribute="bottom" constant="6.6699999999999999" id="Fm5-TU-e4p"/>
+                            <constraint firstAttribute="height" constant="203" id="Fpj-mB-5wD"/>
                             <constraint firstItem="DJ9-ai-wgJ" firstAttribute="leading" secondItem="i1l-Vm-tHe" secondAttribute="leading" constant="10" id="G9C-Zs-wQM"/>
                             <constraint firstAttribute="trailing" secondItem="vEw-Fw-Zsj" secondAttribute="trailing" constant="15" id="IgJ-Dg-rkC"/>
                             <constraint firstItem="vEw-Fw-Zsj" firstAttribute="leading" secondItem="DJ9-ai-wgJ" secondAttribute="trailing" constant="15" id="ORf-yB-ftE"/>
                             <constraint firstItem="LRE-Kn-Rut" firstAttribute="leading" secondItem="i1l-Vm-tHe" secondAttribute="leading" constant="10" id="QvP-xY-H7f"/>
-                            <constraint firstAttribute="height" constant="327" id="THl-Eq-UL3"/>
-                            <constraint firstItem="vEw-Fw-Zsj" firstAttribute="top" secondItem="i1l-Vm-tHe" secondAttribute="top" constant="135.33333333333337" id="UJl-FR-D8t"/>
-                            <constraint firstAttribute="trailing" secondItem="cfe-eG-59S" secondAttribute="trailing" constant="15" id="VvQ-gL-VvO"/>
                             <constraint firstItem="fg5-0q-OMt" firstAttribute="leading" secondItem="i1l-Vm-tHe" secondAttribute="leading" constant="10" id="b0T-sl-SXr"/>
                             <constraint firstItem="C7K-Au-PYr" firstAttribute="leading" secondItem="LRE-Kn-Rut" secondAttribute="trailing" constant="15" id="dJb-Bd-9Oo"/>
-                            <constraint firstItem="cfe-eG-59S" firstAttribute="top" secondItem="vEw-Fw-Zsj" secondAttribute="bottom" constant="16" id="eHj-Uo-tcY"/>
                             <constraint firstItem="Hix-Fh-X7b" firstAttribute="centerY" secondItem="fg5-0q-OMt" secondAttribute="centerY" id="fCs-DJ-aEv"/>
-                            <constraint firstItem="vEw-Fw-Zsj" firstAttribute="top" secondItem="C7K-Au-PYr" secondAttribute="bottom" constant="20" id="mll-a5-7t2"/>
                             <constraint firstItem="Hix-Fh-X7b" firstAttribute="leading" secondItem="fg5-0q-OMt" secondAttribute="trailing" constant="15" id="q7v-Bn-K52"/>
-                            <constraint firstItem="DJ9-ai-wgJ" firstAttribute="top" secondItem="LRE-Kn-Rut" secondAttribute="bottom" constant="60" id="sG7-ub-Irx"/>
+                            <constraint firstItem="C7K-Au-PYr" firstAttribute="centerY" secondItem="LRE-Kn-Rut" secondAttribute="centerY" id="qgm-s5-O6O"/>
+                            <constraint firstItem="DJ9-ai-wgJ" firstAttribute="top" secondItem="LRE-Kn-Rut" secondAttribute="bottom" constant="50" id="sG7-ub-Irx"/>
                             <constraint firstItem="LRE-Kn-Rut" firstAttribute="top" secondItem="fg5-0q-OMt" secondAttribute="bottom" constant="20" id="vhq-T3-T4y"/>
-                            <constraint firstItem="C7K-Au-PYr" firstAttribute="top" secondItem="fg5-0q-OMt" secondAttribute="bottom" constant="10" id="yl5-Rs-7d4"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
@@ -197,17 +156,19 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="carronbaggagelbl" destination="guO-hD-j7N" id="RBB-Tt-Rhl"/>
+                <outlet property="checkedinbaggagelbl" destination="lnh-7J-MAS" id="8td-2o-shw"/>
                 <outlet property="cityslbl" destination="Hix-Fh-X7b" id="uuI-yD-g8i"/>
                 <outlet property="titlelbl" destination="Iyb-f4-L04" id="zXg-Xt-MAm"/>
             </connections>
-            <point key="canvasLocation" x="413.74045801526717" y="158.80281690140845"/>
+            <point key="canvasLocation" x="412.97709923664121" y="201.05633802816902"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="bag1" width="33" height="33"/>
         <image name="bag2" width="27" height="32.333332061767578"/>
         <namedColor name="BorderColor">
-            <color red="0.0" green="0.0" blue="0.0" alpha="0.15000000596046448" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.80000001192092896" green="0.80000001192092896" blue="0.80000001192092896" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Buttoncolor">
             <color red="0.2669999897480011" green="0.70999997854232788" blue="0.046999998390674591" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

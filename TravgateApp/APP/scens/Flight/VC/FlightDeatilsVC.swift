@@ -61,6 +61,7 @@ class FlightDeatilsVC: BaseTableVC, FlightDetailsViewModelDelegate {
                                          "FRulesTVCell",
                                          "EmptyTVCell",
                                          "BaggageInfoTVCell",
+                                         "BaggageInfoImageTVCell",
                                          "FareRulesTVCell",
                                          "FareBreakdownTVCell"])
         
@@ -95,9 +96,7 @@ class FlightDeatilsVC: BaseTableVC, FlightDetailsViewModelDelegate {
     
     
     @IBAction func didTapOnBookNowBtnAction(_ sender: Any) {
-        
         gotoBookingDetailsVC()
-        
     }
     
     
@@ -135,7 +134,7 @@ extension FlightDeatilsVC {
     
     func ittanneryTap(){
         
-        ittaneryView.backgroundColor = .BooknowBtnColor
+        ittaneryView.backgroundColor = .Buttoncolor
         fareBrakDownView.backgroundColor = .WhiteColor
         fareRulesView.backgroundColor = .WhiteColor
         baggageView.backgroundColor = .WhiteColor
@@ -152,7 +151,7 @@ extension FlightDeatilsVC {
     func fareBreakdownTap(){
         
         ittaneryView.backgroundColor = .WhiteColor
-        fareBrakDownView.backgroundColor = .BooknowBtnColor
+        fareBrakDownView.backgroundColor = .Buttoncolor
         fareRulesView.backgroundColor = .WhiteColor
         baggageView.backgroundColor = .WhiteColor
         
@@ -168,7 +167,7 @@ extension FlightDeatilsVC {
         
         ittaneryView.backgroundColor = .WhiteColor
         fareBrakDownView.backgroundColor = .WhiteColor
-        fareRulesView.backgroundColor = .BooknowBtnColor
+        fareRulesView.backgroundColor = .Buttoncolor
         baggageView.backgroundColor = .WhiteColor
         
         ittanerylbl.textColor = .TitleColor
@@ -184,7 +183,7 @@ extension FlightDeatilsVC {
         ittaneryView.backgroundColor = .WhiteColor
         fareBrakDownView.backgroundColor = .WhiteColor
         fareRulesView.backgroundColor = .WhiteColor
-        baggageView.backgroundColor = .BooknowBtnColor
+        baggageView.backgroundColor = .Buttoncolor
         
         ittanerylbl.textColor = .TitleColor
         fareBrakDownlbl.textColor = .TitleColor
@@ -291,11 +290,20 @@ extension FlightDeatilsVC {
             
             
             MySingleton.shared.tablerow.append(TableRow(title:"\(index)",
+                                                        
                                                         subTitle: "\(value.origin_loc ?? "")-\(value.destination_loc ?? "")",
+                                                        text: value.weight_Allowance,
+                                                        buttonTitle: value.cabin_baggage,
                                                         cellType:.BaggageInfoTVCell))
         }
         
         
+        
+        
+        MySingleton.shared.tablerow.append(TableRow(title:"After booking you can contact a travel advisor to add extra baggage, subject to the airliness avaliblity & rates.",
+                                                    cellType:.BaggageInfoImageTVCell))
+        MySingleton.shared.tablerow.append(TableRow(title:"0 Kilograms Each Luggage piece cannot exceed the airline's allowed dimensions or size",
+                                                    cellType:.BaggageInfoImageTVCell))
         
         MySingleton.shared.tablerow.append(TableRow(height:50,cellType:.EmptyTVCell))
         

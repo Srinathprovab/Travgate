@@ -737,8 +737,7 @@ extension BookingDetailsVC {
         MySingleton.shared.payload["device_source"] = "MOBILE(A)"
         
         
-//        MySingleton.shared.payload["selected_meals_code"] = ""
-//        MySingleton.shared.payload["selected_special_assistance_code"] = ""
+
         MySingleton.shared.payload["addon_services"] = addon_servicesArrayString
     
         
@@ -782,13 +781,13 @@ extension BookingDetailsVC {
                 gotoMealSelectionVC()
                 
             }else {
-//                MySingleton.shared.afterResultsBool = true
-//                loderBool = true
-//                showLoadera()
-//                
-//                MySingleton.shared.mpbvm?.CALL_MOBILE_PROCESS_PASSENGER_DETAIL_API(dictParam:MySingleton.shared.payload)
+                MySingleton.shared.afterResultsBool = true
+                loderBool = true
+                showLoadera()
                 
-                showToast(message: "Call Voucher API ...")
+                MySingleton.shared.mpbvm?.CALL_MOBILE_PROCESS_PASSENGER_DETAIL_API(dictParam:MySingleton.shared.payload)
+                
+             
             }
             
             
@@ -808,9 +807,9 @@ extension BookingDetailsVC {
         
         DispatchQueue.main.async {
             BASE_URL = ""
-            // MySingleton.shared.viewmodel1?.Call_mobile_secure_booking_API(dictParam: [:], url: "\(response.url ?? "")") no need
+           
             
-          //  MySingleton.shared.mpbvm?.CALL_MOBILE_PAYMENT_API(dictParam: [:], url: response.url ?? "")
+            MySingleton.shared.mpbvm?.CALL_MOBILE_PAYMENT_API(dictParam: [:], url: response.url ?? "")
             
         }
         

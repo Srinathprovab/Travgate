@@ -33,6 +33,8 @@ class LoderVC: UIViewController, SearchLoaderViewModelDelegate, SearchHotelLoder
     
     override func viewWillAppear(_ animated: Bool) {
         
+        
+        
         if MySingleton.shared.afterResultsBool == false {
             callAPI()
         }else {
@@ -41,6 +43,8 @@ class LoderVC: UIViewController, SearchLoaderViewModelDelegate, SearchHotelLoder
             img.image = UIImage(named: "travlogo")
            // img.sd_setImage(with: URL(string: "MySingleton.shared.loderimgurl" ), placeholderImage:UIImage(contentsOfFile:"placeholder.png"))
         }
+        
+        
     }
     
     
@@ -105,7 +109,7 @@ class LoderVC: UIViewController, SearchLoaderViewModelDelegate, SearchHotelLoder
     
     func loadGifFrames() {
         // Replace "your_gif_file" with the name of your GIF file (without extension)
-        if let gifURL = Bundle.main.url(forResource: "loder", withExtension: "gif"),
+        if let gifURL = Bundle.main.url(forResource: MySingleton.shared.loderString, withExtension: "gif"),
            let gifSource = CGImageSourceCreateWithURL(gifURL as CFURL, nil) {
             let frameCount = CGImageSourceGetCount(gifSource)
             

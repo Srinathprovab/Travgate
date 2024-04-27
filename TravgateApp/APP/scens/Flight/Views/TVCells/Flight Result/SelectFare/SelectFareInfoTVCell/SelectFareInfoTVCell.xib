@@ -33,32 +33,32 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bzD-Dz-ax5" customClass="BorderedView" customModule="Travgate" customModuleProvider="target">
                         <rect key="frame" x="16" y="10" width="433" height="140"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fare Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sUv-wQ-ind">
-                                <rect key="frame" x="10" y="14.999999999999998" width="75.333333333333329" height="19.333333333333329"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Fare Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sUv-wQ-ind">
+                                <rect key="frame" x="10" y="15" width="75.333333333333329" height="19.333333333333329"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="14"/>
                                 <color key="textColor" name="FareSubTitleColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Extra" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b0q-LF-20Q">
-                                <rect key="frame" x="87.333333333333329" y="14.999999999999998" width="37" height="19.333333333333329"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Extra" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b0q-LF-20Q">
+                                <rect key="frame" x="87.333333333333329" y="15" width="37" height="19.333333333333329"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="14"/>
                                 <color key="textColor" name="FareColor2"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cabin Class:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M1a-Le-umU">
-                                <rect key="frame" x="10" y="39.333333333333336" width="78.333333333333329" height="19.333333333333336"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Cabin Class:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M1a-Le-umU">
+                                <rect key="frame" x="10" y="39.333333333333329" width="78.333333333333329" height="19.333333333333336"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="14"/>
                                 <color key="textColor" name="FareSubTitleColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Economy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f6A-Tb-iPc">
-                                <rect key="frame" x="90.333333333333329" y="39.333333333333336" width="59.999999999999986" height="19.333333333333336"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Economy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f6A-Tb-iPc">
+                                <rect key="frame" x="90.333333333333329" y="39.333333333333329" width="59.999999999999986" height="19.333333333333336"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="14"/>
                                 <color key="textColor" name="TitleColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Refundable Type: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="40p-C0-Xak">
-                                <rect key="frame" x="10" y="63.666666666666679" width="117" height="19.333333333333336"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" ambiguous="YES" text="Refundable Type: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="40p-C0-Xak">
+                                <rect key="frame" x="10" y="63.666666666666679" width="117" height="19.333333333333321"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="117" id="WWU-TF-IiY"/>
                                 </constraints>
@@ -163,6 +163,7 @@
                             <constraint firstItem="40p-C0-Xak" firstAttribute="top" secondItem="M1a-Le-umU" secondAttribute="bottom" constant="5" id="B43-ec-XCf"/>
                             <constraint firstItem="b0q-LF-20Q" firstAttribute="centerY" secondItem="sUv-wQ-ind" secondAttribute="centerY" id="BuL-KE-zTI"/>
                             <constraint firstItem="sUv-wQ-ind" firstAttribute="top" secondItem="bzD-Dz-ax5" secondAttribute="top" constant="15" id="C9e-xG-8hx"/>
+                            <constraint firstAttribute="trailing" secondItem="Usd-V0-bD5" secondAttribute="trailing" constant="10" id="FPC-4o-i7a"/>
                             <constraint firstAttribute="trailing" secondItem="LuL-eu-Ahb" secondAttribute="trailing" constant="10" id="FQf-fr-t5D"/>
                             <constraint firstItem="sUv-wQ-ind" firstAttribute="leading" secondItem="bzD-Dz-ax5" secondAttribute="leading" constant="10" id="JnI-IW-TLZ"/>
                             <constraint firstItem="R0Q-Au-rYC" firstAttribute="leading" secondItem="z0p-fK-hd7" secondAttribute="trailing" constant="2" id="Kiw-FR-Oiy"/>
@@ -183,7 +184,6 @@
                             <constraint firstItem="Usd-V0-bD5" firstAttribute="leading" secondItem="Jsd-qo-3f5" secondAttribute="trailing" constant="2" id="ppl-Jp-774"/>
                             <constraint firstItem="z0p-fK-hd7" firstAttribute="top" secondItem="Jsd-qo-3f5" secondAttribute="bottom" constant="5" id="rcU-FO-fp5"/>
                             <constraint firstItem="M1a-Le-umU" firstAttribute="top" secondItem="sUv-wQ-ind" secondAttribute="bottom" constant="5" id="ruF-xB-ACG"/>
-                            <constraint firstItem="40p-C0-Xak" firstAttribute="top" secondItem="bzD-Dz-ax5" secondAttribute="top" constant="63.666666666666671" id="tMN-Sj-k4u"/>
                             <constraint firstItem="z0p-fK-hd7" firstAttribute="leading" secondItem="bzD-Dz-ax5" secondAttribute="leading" constant="10" id="uLv-FI-sKj"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>

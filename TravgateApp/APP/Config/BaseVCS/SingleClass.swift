@@ -30,6 +30,7 @@ class MySingleton {
     static let shared = MySingleton()
     
     // Declare your variables
+    var loderString = "loder"
     var myVariable1: Int
     var myVariable2: String
     var tablerow = [TableRow]()
@@ -37,6 +38,7 @@ class MySingleton {
     var payload1 = [String:Any]()
     
     //Home Page
+    var tabselect = String()
     var indexpagevm:IndexPageViewModel?
     var topFlightDetails = [TopFlightDetails]()
     var topHotelDetails = [City_guides]()
@@ -358,6 +360,27 @@ class MySingleton {
         lbl.attributedText = combination
         
     }
+    
+    
+    func convertToPC(input: String) -> String? {
+        // Split the input string by space
+        let components = input.components(separatedBy: " ")
+        
+        // Check if the input string follows the "NumberOfPieces X" format
+        if components.count == 2, components[0] == "NumberOfPieces", let number = Int(components[1]) {
+            return "\(number)pc"
+        }
+        
+        // Check if the input string follows the "X Kilograms" format
+        if components.count == 2, let number = Int(components[0]), components[1].lowercased() == "kilograms" {
+            return "\(number)kg"
+        }
+        
+        // Return nil if the input format is invalid
+        return nil
+    }
+
+   
     
 }
 
