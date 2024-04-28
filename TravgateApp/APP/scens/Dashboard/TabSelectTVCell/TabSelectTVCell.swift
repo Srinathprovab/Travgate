@@ -39,7 +39,7 @@ class TabSelectTVCell: TableViewCell {
     @IBOutlet weak var moreServiceCV: UICollectionView!
     @IBOutlet weak var titlelbl: UILabel!
     
-   
+    
     var serviceArray = ["Visa","Holidays","Transfers","Activities","Cruise","Auto pay"]
     var serviceImgsArray = ["s1","s2","s3","s4","s5","s6"]
     var delegate:TabSelectTVCellDelegate?
@@ -132,23 +132,23 @@ class TabSelectTVCell: TableViewCell {
     func taponflightView(){
         
         MySingleton.shared.tabselect = "flight"
-        flightView.layer.borderColor = UIColor.Buttoncolor.cgColor
-        hotelView.layer.borderColor = UIColor.BorderColor.cgColor
-        moreView.layer.borderColor = UIColor.BorderColor.cgColor
+        //        flightView.layer.borderColor = UIColor.Buttoncolor.cgColor
+        //        hotelView.layer.borderColor = UIColor.BorderColor.cgColor
+        //        moreView.layer.borderColor = UIColor.BorderColor.cgColor
     }
     
     func taponhotelView(){
         MySingleton.shared.tabselect = "hotel"
-        flightView.layer.borderColor = UIColor.BorderColor.cgColor
-        hotelView.layer.borderColor = UIColor.Buttoncolor.cgColor
-        moreView.layer.borderColor = UIColor.BorderColor.cgColor
+        //        flightView.layer.borderColor = UIColor.BorderColor.cgColor
+        //        hotelView.layer.borderColor = UIColor.Buttoncolor.cgColor
+        //        moreView.layer.borderColor = UIColor.BorderColor.cgColor
     }
     
     func taponmoreView(){
         MySingleton.shared.tabselect = "more"
-        flightView.layer.borderColor = UIColor.BorderColor.cgColor
-        hotelView.layer.borderColor = UIColor.BorderColor.cgColor
-        moreView.layer.borderColor = UIColor.Buttoncolor.cgColor
+        //        flightView.layer.borderColor = UIColor.BorderColor.cgColor
+        //        hotelView.layer.borderColor = UIColor.BorderColor.cgColor
+        //        moreView.layer.borderColor = UIColor.Buttoncolor.cgColor
     }
     
 }
@@ -229,7 +229,7 @@ extension TabSelectTVCell:UICollectionViewDelegate,UICollectionViewDataSource {
         if let cell = collectionView.cellForItem(at: indexPath) as? MoreServiceCVCell {
             cell.holderView.layer.borderColor = UIColor.BorderColor.cgColor
         }
-    
+        
     }
     
     

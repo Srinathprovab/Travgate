@@ -55,6 +55,8 @@ class EditProfileVC: BaseTableVC, ProfileViewModelDelegate {
     
     
     func setupUI() {
+        profileView.layer.cornerRadius = 40
+        profilePic.layer.cornerRadius = 40
         profiledetails()
         setAttributedString(str1: "Change Picture")
         commonTableView.backgroundColor = .WhiteColor

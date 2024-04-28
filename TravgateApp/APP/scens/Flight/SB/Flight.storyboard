@@ -2159,17 +2159,23 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EYp-hC-jyU" customClass="BorderedView" customModule="Travgate" customModuleProvider="target">
                                                         <rect key="frame" x="20" y="27.666666666666629" width="353" height="65"/>
                                                         <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zHz-cX-M0v">
+                                                                <rect key="frame" x="15.000000000000004" y="22.333333333333371" width="41.333333333333343" height="20.333333333333329"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
                                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="FTm-kA-TCX">
-                                                                <rect key="frame" x="55.000000000000014" y="12" width="243.33333333333337" height="40"/>
+                                                                <rect key="frame" x="104" y="12" width="234" height="40"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Proceed To Payment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HMO-WD-Rgq">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="193.33333333333334" height="40"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="184" height="40"/>
                                                                         <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="18"/>
                                                                         <color key="textColor" name="WhiteColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2gU-S0-h61">
-                                                                        <rect key="frame" x="203.33333333333331" y="0.0" width="40" height="40"/>
+                                                                        <rect key="frame" x="194" y="0.0" width="40" height="40"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="40" id="Czv-o7-R26"/>
                                                                             <constraint firstAttribute="width" constant="40" id="nSo-LB-jDr"/>
@@ -2190,15 +2196,18 @@
                                                         </subviews>
                                                         <color key="backgroundColor" name="BooknowBtnColor"/>
                                                         <constraints>
+                                                            <constraint firstAttribute="height" constant="65" id="2T2-yf-fBc"/>
+                                                            <constraint firstAttribute="trailing" secondItem="FTm-kA-TCX" secondAttribute="trailing" constant="15" id="6G0-Y2-xED"/>
+                                                            <constraint firstItem="zHz-cX-M0v" firstAttribute="centerY" secondItem="EYp-hC-jyU" secondAttribute="centerY" id="6M1-aa-MZN"/>
                                                             <constraint firstItem="nxC-pg-ouG" firstAttribute="top" secondItem="EYp-hC-jyU" secondAttribute="top" id="6qR-we-qUP"/>
                                                             <constraint firstAttribute="trailing" secondItem="nxC-pg-ouG" secondAttribute="trailing" id="AqI-P9-twv"/>
+                                                            <constraint firstItem="FTm-kA-TCX" firstAttribute="centerY" secondItem="EYp-hC-jyU" secondAttribute="centerY" id="BnK-Kq-XXb"/>
                                                             <constraint firstItem="FTm-kA-TCX" firstAttribute="top" secondItem="EYp-hC-jyU" secondAttribute="top" constant="12.33" id="Q5T-xN-Sgw"/>
-                                                            <constraint firstAttribute="height" constant="65" id="SJ2-yk-Lpv"/>
-                                                            <constraint firstAttribute="trailing" secondItem="FTm-kA-TCX" secondAttribute="trailing" constant="54.670000000000002" id="b5q-kd-drT"/>
                                                             <constraint firstAttribute="bottom" secondItem="FTm-kA-TCX" secondAttribute="bottom" constant="12.67" id="gPY-eg-Wbu"/>
                                                             <constraint firstAttribute="bottom" secondItem="nxC-pg-ouG" secondAttribute="bottom" id="hVz-gD-p1D"/>
+                                                            <constraint firstItem="zHz-cX-M0v" firstAttribute="leading" secondItem="EYp-hC-jyU" secondAttribute="leading" constant="15" id="jfA-vr-sgh"/>
+                                                            <constraint firstItem="FTm-kA-TCX" firstAttribute="centerY" secondItem="EYp-hC-jyU" secondAttribute="centerY" id="mvS-kV-cBI"/>
                                                             <constraint firstItem="nxC-pg-ouG" firstAttribute="leading" secondItem="EYp-hC-jyU" secondAttribute="leading" id="r6n-XA-TTC"/>
-                                                            <constraint firstItem="FTm-kA-TCX" firstAttribute="leading" secondItem="EYp-hC-jyU" secondAttribute="leading" constant="55" id="t4g-Yp-nVB"/>
                                                         </constraints>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -2278,6 +2287,7 @@
                         <outlet property="commonTableView" destination="6gf-ma-rlQ" id="I06-hH-BkJ"/>
                         <outlet property="continueBtnView" destination="OTO-fD-5yv" id="elo-g3-qry"/>
                         <outlet property="gifimg" destination="2gU-S0-h61" id="Eod-8r-br5"/>
+                        <outlet property="kwdlbl" destination="zHz-cX-M0v" id="f2U-Nu-cg3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ynB-M0-6IW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -10,6 +10,7 @@ import UIKit
 class LoginVC: BaseTableVC, LoginViewModelDelegate {
     
     
+    
     static var newInstance: LoginVC? {
         let storyboard = UIStoryboard(name: Storyboard.Login.name,
                                       bundle: nil)
@@ -31,7 +32,7 @@ class LoginVC: BaseTableVC, LoginViewModelDelegate {
         
     }
     
-   
+    
     func setupUI() {
         commonTableView.isScrollEnabled = false
         commonTableView.registerTVCells(["LoginTVCell"])
@@ -113,9 +114,9 @@ extension LoginVC {
     
     
     func loginSucess(response: LoginModel) {
-       
+        
         showToast(message: response.data ?? "")
-    
+        
         if response.status == true {
             
             defaults.set(true, forKey: UserDefaultsKeys.loggedInStatus)
@@ -124,10 +125,11 @@ extension LoginVC {
             NotificationCenter.default.post(name: NSNotification.Name("logindone"), object: nil)
             let seconds = 2.0
             DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {[self] in
-               dismiss(animated: true)
+                dismiss(animated: true)
             }
+           
         }
-
+        
     }
     
     

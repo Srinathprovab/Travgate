@@ -40,6 +40,7 @@ class MyAccountVC: BaseTableVC {
     
     
     func setupUI() {
+        profileView.layer.cornerRadius = 40
         profilePic.layer.cornerRadius = 40
         setAttributedString(str1: "Login To View Your Profile")
         commonTableView.backgroundColor = .WhiteColor

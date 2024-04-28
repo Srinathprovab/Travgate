@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BookingDetailsVC: BaseTableVC, MPBViewModelDelegate, MobileSecureBookingViewModelDelegate, LoginViewModelDelegate, RegisterViewModelDelegate, MBViewModelDelegate {
+class BookingDetailsVC: BaseTableVC, MPBViewModelDelegate, MobileSecureBookingViewModelDelegate, LoginViewModelDelegate, RegisterViewModelDelegate, MBViewModelDelegate, ProfileViewModelDelegate {
     
     
     
@@ -45,6 +45,7 @@ class BookingDetailsVC: BaseTableVC, MPBViewModelDelegate, MobileSecureBookingVi
         
         MySingleton.shared.loginvm = LoginViewModel(self)
         MySingleton.shared.registervm = RegisterViewModel(self)
+        MySingleton.shared.profilevm = ProfileViewModel(self)
         
         self.mbviewmodel = MBViewModel(self)
     }
@@ -409,6 +410,13 @@ extension BookingDetailsVC {
             sub_total_child = i?.sub_total_child ?? "0"
             sub_total_infant = i?.sub_total_infant ?? "0"
             
+            if (defaults.string(forKey: UserDefaultsKeys.loggedInStatus) != nil) == true {
+                DispatchQueue.main.async {[self] in
+                    callShowProfileAPI()
+                }
+            }
+            
+            
             DispatchQueue.main.async {[self] in
                 setupTVCell()
             }
@@ -431,12 +439,12 @@ extension BookingDetailsVC {
         }
         
         
-        
-        if MySingleton.shared.guestbool == false {
-            MySingleton.shared.tablerow.append(TableRow(cellType:.RegisterSelectionLoginTableViewCell))
-            MySingleton.shared.tablerow.append(TableRow(cellType:.PrimaryContactInfoTVCell))
+        if (defaults.string(forKey: UserDefaultsKeys.loggedInStatus) != nil) == false {
+            if MySingleton.shared.guestbool == false {
+                MySingleton.shared.tablerow.append(TableRow(cellType:.RegisterSelectionLoginTableViewCell))
+                MySingleton.shared.tablerow.append(TableRow(cellType:.PrimaryContactInfoTVCell))
+            }
         }
-        
         
         
         MySingleton.shared.passengertypeArray.removeAll()
@@ -1208,4 +1216,25 @@ extension BookingDetailsVC {
             }
         }
     }
+    
+    
+    func callShowProfileAPI() {
+        MySingleton.shared.payload.removeAll()
+        MySingleton.shared.payload["user_id"] = defaults.string(forKey: UserDefaultsKeys.userid) ?? "0"
+        MySingleton.shared.profilevm?.view.hideLoader()
+        MySingleton.shared.profilevm?.CALL_SHOW_PROFILE_DETAILS_API(dictParam:  MySingleton.shared.payload)
+    }
+    
+    func profileDetails(response: ProfileModel) {
+        MySingleton.shared.payemail = response.data?.email ?? ""
+        MySingleton.shared.paymobile = response.data?.phone ?? ""
+        MySingleton.shared.paymobilecountrycode = response.data?.country_code ?? ""
+        
+    }
+    
+    func profileUpdateSucess(response: ProfileModel) {
+        
+    }
 }
+
+

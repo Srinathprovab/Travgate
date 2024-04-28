@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MealSelectionVC: BaseTableVC, MPBViewModelDelegate {
+class MealSelectionVC: BaseTableVC {
     
     
     @IBOutlet weak var continuetoPaymentBtnView: UIView!
@@ -35,7 +35,6 @@ class MealSelectionVC: BaseTableVC, MPBViewModelDelegate {
         // Do any additional setup after loading the view.
         setUI()
         
-        MySingleton.shared.mpbvm = MPBViewModel(self)
         
     }
     
@@ -103,34 +102,23 @@ class MealSelectionVC: BaseTableVC, MPBViewModelDelegate {
     
     //MARK: - didTapOnBackBtnAction
     @IBAction func didTapOnContinuetoBookBtnAction(_ sender: Any) {
-        MySingleton.shared.afterResultsBool = true
-        loderBool = true
-        showLoadera()
         
-        MySingleton.shared.mpbvm?.CALL_MOBILE_PROCESS_PASSENGER_DETAIL_API(dictParam:MySingleton.shared.payload)
-    }
-    
-    
-    func mobileprocesspassengerDetails(response: MobilePassengerdetailsModel) {
-        
-        DispatchQueue.main.async {
-            BASE_URL = ""
-            MySingleton.shared.mpbvm?.CALL_MOBILE_PAYMENT_API(dictParam: [:], url: response.url ?? "")
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) { [unowned self] in
+            gotoSelectPaymentMethodsVC()
         }
-        
+
     }
     
-    func mobolePaymentDetails(response: PaymentModel) {
-        self.gotoLoadWebViewVC(urlStr1: response.data ?? "")
-    }
-    
-    
-    func gotoLoadWebViewVC(urlStr1:String) {
-        guard let vc = LoadWebViewVC.newInstance.self else {return}
+    func gotoSelectPaymentMethodsVC() {
+        MySingleton.shared.callboolapi = true
+        guard let vc = SelectPaymentMethodsVC.newInstance.self else {return}
         vc.modalPresentationStyle = .fullScreen
-        vc.urlString = urlStr1
-        present(vc, animated: true)
+        present(vc, animated: false)
     }
+    
+   
+    
+   
     
     
     override func didTapOnCheckBoxBtnAction(cell: SelectMealTVCell) {
@@ -145,13 +133,8 @@ class MealSelectionVC: BaseTableVC, MPBViewModelDelegate {
         commonTableView.reloadData()
     }
     
-
-    func MPBDetails(response: MobilePreProcessBookingModel) {}
-    func mobilePreBookingModelDetails(response: MobilePreBookingModel) {}
-    func mobileprepaymentconfirmationDetails(response: MobilePrePaymentModel) {}
-    func mobilesendtopaymentDetails(response: MobilePrePaymentModel) {}
     
-    
+   
 }
 
 

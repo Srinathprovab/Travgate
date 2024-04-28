@@ -46,10 +46,10 @@ class BookedTravelDetailsTVCell: TableViewCell {
                 tvHeight.constant = CGFloat(Customerdetails.count * 48)
             }
         }else {
-            travellerNamelbl.text = "Name"
-            typelbl.text = "Email"
-            seatlbl.text = "Mobile Number"
-            typelbl.isHidden = true
+            travellerNamelbl.text = "Passenger"
+            typelbl.text = "Name"
+           // seatlbl.text = "Mobile Number"
+           // typelbl.isHidden = true
             seatlbl.isHidden = true
             if travelerArray.count > 0 {
                 tvHeight.constant = CGFloat(travelerArray.count * 48)
@@ -144,15 +144,15 @@ extension BookedTravelDetailsTVCell:UITableViewDelegate,UITableViewDataSource {
                 cell.selectionStyle = .none
                 
                 let data = travelerArray[indexPath.row]
-                cell.travellerNamelbl.text = "\(data.firstName ?? "")"
-                cell.typelbl.text = MySingleton.shared.payemail
+                //cell.travellerNamelbl.text = "\(data.firstName ?? "")"
+                cell.typelbl.text = "\(data.firstName ?? "")"
                 cell.seatlbl.text = MySingleton.shared.paymobile
                 
                 if indexPath.row == 0{
-                    cell.setAttributedText(str1: "\(data.firstName ?? "")", str2: "\n\(cellInfo?.title ?? "")")
+                    cell.setAttributedText(str1: "\(cellInfo?.title ?? "")", str2: "")
                 }
                 
-                cell.typelbl.isHidden = true
+               
                 cell.seatlbl.isHidden = true
                 
                 c = cell

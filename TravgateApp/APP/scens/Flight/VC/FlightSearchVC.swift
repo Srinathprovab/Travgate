@@ -49,7 +49,7 @@ class FlightSearchVC: BaseTableVC, SearchDataViewModelDelegate, GetAirlineViewMo
         onewayView.backgroundColor = .Buttoncolor
         roundtripView.backgroundColor = .WhiteColor
         multicityView.backgroundColor = .WhiteColor
-        onewaylbl.textColor = .TitleColor
+        onewaylbl.textColor = .WhiteColor
         roundtriplbl.textColor = .TitleColor
         multicitylbl.textColor = .TitleColor
         
@@ -63,7 +63,7 @@ class FlightSearchVC: BaseTableVC, SearchDataViewModelDelegate, GetAirlineViewMo
         roundtripView.backgroundColor = .Buttoncolor
         multicityView.backgroundColor = .WhiteColor
         onewaylbl.textColor = .TitleColor
-        roundtriplbl.textColor = .TitleColor
+        roundtriplbl.textColor = .WhiteColor
         multicitylbl.textColor = .TitleColor
         
        
@@ -77,7 +77,7 @@ class FlightSearchVC: BaseTableVC, SearchDataViewModelDelegate, GetAirlineViewMo
         multicityView.backgroundColor = .Buttoncolor
         onewaylbl.textColor = .TitleColor
         roundtriplbl.textColor = .TitleColor
-        multicitylbl.textColor = .TitleColor
+        multicitylbl.textColor = .WhiteColor
         
         // setupOnewayTVCells()
     }

@@ -12,6 +12,7 @@ class SelectFareVC: BaseTableVC, SelectFareViewModelDelegate {
     
     @IBOutlet weak var continueBtnView: UIView!
     @IBOutlet weak var gifimg: UIImageView!
+    @IBOutlet weak var kwdlbl: UILabel!
     
     
     
@@ -38,7 +39,13 @@ class SelectFareVC: BaseTableVC, SelectFareViewModelDelegate {
     }
     
     func setupUI() {
-        
+        MySingleton.shared.setAttributedTextnew(str1: "\(defaults.string(forKey: UserDefaultsKeys.selectedCurrency) ?? ""): ",
+                                                str2: String(format: "%.2f", MySingleton.shared.totalselectedfareprice),
+                                                lbl: kwdlbl,
+                                                str1font: .OpenSansBold(size: 15),
+                                                str2font: .OpenSansBold(size: 18),
+                                                str1Color: .WhiteColor,
+                                                str2Color: .WhiteColor)
         continueBtnView.isHidden = true
         guard let gifURL = Bundle.main.url(forResource: "pay", withExtension: "gif") else { return }
         guard let imageData = try? Data(contentsOf: gifURL) else { return }
@@ -59,6 +66,15 @@ class SelectFareVC: BaseTableVC, SelectFareViewModelDelegate {
     
     
     override func didTapOnSelectFareBtnAction(cell:SelectFareInfoTVCell, at indexPath: IndexPath) {
+        
+        MySingleton.shared.setAttributedTextnew(str1: "\(defaults.string(forKey: UserDefaultsKeys.selectedCurrency) ?? ""): ",
+                                                str2: String(format: "%.2f", MySingleton.shared.totalselectedfareprice),
+                                                lbl: kwdlbl,
+                                                str1font: .OpenSansBold(size: 15),
+                                                str2font: .OpenSansBold(size: 18),
+                                                str1Color: .WhiteColor,
+                                                str2Color: .WhiteColor)
+        
         setupTVcells()
     }
     
@@ -69,6 +85,8 @@ class SelectFareVC: BaseTableVC, SelectFareViewModelDelegate {
         cell.holderView.borderColor = UIColor.BorderColor
         cell.holderView.backgroundColor = .WhiteColor
         
+        
+        MySingleton.shared.totalselectedfareprice -= cell.fareamount 
         
         // Remove the corresponding SelectFare object from the selectedFares array
         // Check if the index is valid before removing the item
@@ -95,7 +113,14 @@ class SelectFareVC: BaseTableVC, SelectFareViewModelDelegate {
     
     
     @IBAction func didTapOnProceeedBtnAction(_ sender: Any) {
-        
+        gotoBookingDetailsVC()
+    }
+    
+    func gotoBookingDetailsVC() {
+        MySingleton.shared.selectedFares.removeAll()
+        guard let vc = BookingDetailsVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
     }
     
 }

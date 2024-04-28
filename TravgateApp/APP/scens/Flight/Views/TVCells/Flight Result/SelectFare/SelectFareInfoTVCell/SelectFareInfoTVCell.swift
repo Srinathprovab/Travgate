@@ -24,6 +24,8 @@ class SelectFareInfoTVCell: UITableViewCell {
     @IBOutlet weak var pricelbl: UILabel!
     @IBOutlet weak var journytypecloaselbl: UILabel!
     
+    
+    var fareamount = Double()
     var indexpathDep = [IndexPath]()
     var indexpathRet = [IndexPath]()
     var journyType = String()

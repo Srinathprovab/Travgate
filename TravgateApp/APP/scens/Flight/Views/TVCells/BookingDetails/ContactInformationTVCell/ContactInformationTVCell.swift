@@ -68,6 +68,13 @@ class ContactInformationTVCell: TableViewCell {
         loadCountryNamesAndCode()
         
         
+        let loggedInStatus = defaults.object(forKey: UserDefaultsKeys.loggedInStatus) as? Bool
+        if loggedInStatus == true {
+            emailTF.text =  MySingleton.shared.payemail
+            mobileTF.text = MySingleton.shared.paymobile
+            countrycodeTF.text =  MySingleton.shared.paymobilecountrycode
+        }
+        
         if MySingleton.shared.guestbool == true {
             emailTF.text =  MySingleton.shared.payemail
             mobileTF.text = MySingleton.shared.paymobile

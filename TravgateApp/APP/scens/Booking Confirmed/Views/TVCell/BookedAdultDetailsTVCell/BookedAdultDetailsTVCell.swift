@@ -48,7 +48,10 @@ class BookedAdultDetailsTVCell: UITableViewCell {
     
     func setAttributedText(str1:String,str2:String)  {
         
-        let atter1 = [NSAttributedString.Key.foregroundColor:HexColor("#5B5B5B"),NSAttributedString.Key.font:UIFont.LatoRegular(size: 14)] as [NSAttributedString.Key : Any]
+        
+        let atter1 = [NSAttributedString.Key.foregroundColor:UIColor.AppCalenderDateSelectColor,NSAttributedString.Key.font:UIFont.LatoRegular(size: 14)] as [NSAttributedString.Key : Any]
+        
+        //        let atter1 = [NSAttributedString.Key.foregroundColor:HexColor("#5B5B5B"),NSAttributedString.Key.font:UIFont.LatoRegular(size: 14)] as [NSAttributedString.Key : Any]
         let atter2 = [NSAttributedString.Key.foregroundColor:UIColor.AppCalenderDateSelectColor,NSAttributedString.Key.font:UIFont.LatoRegular(size: 10)] as [NSAttributedString.Key : Any]
         
         let atterStr1 = NSMutableAttributedString(string: str1, attributes: atter1)
@@ -63,6 +66,6 @@ class BookedAdultDetailsTVCell: UITableViewCell {
         
     }
     
-   
+    
     
 }

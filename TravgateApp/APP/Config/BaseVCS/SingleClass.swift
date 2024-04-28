@@ -103,7 +103,10 @@ class MySingleton {
     var checkTermsAndCondationStatus = false
     var directflightString = String()
     var returnDateTapbool = false
-   
+    var totalselectedDepfareprice = Double()
+    var totalselectedRetfareprice = Double()
+    var totalselectedfareprice = Double()
+    
     var guestbool = false
     var nationalityCode = String()
     var email = String()

@@ -13,6 +13,7 @@ struct SelectFare {
     let RefundableType: String?
     let Baggage: String?
     let Price: String?
+    let amount: Double?
     let selectedBool:Bool?
     let journyType:String?
 }
@@ -33,7 +34,7 @@ class SelectFareTVCell: TableViewCell, SelectFareInfoTVCellDelegate {
     @IBOutlet weak var selectFareTV: UITableView!
     @IBOutlet weak var tvHeight: NSLayoutConstraint!
     
-    
+  
     var key = String()
     var selectedFareType: String = "departure"
     var btnTapString = String()
@@ -144,9 +145,6 @@ class SelectFareTVCell: TableViewCell, SelectFareInfoTVCellDelegate {
     // Delegate method called when select button is tapped
     func didTapOnSelectFareBtnAction(cell: SelectFareInfoTVCell) {
         guard let indexPath = selectFareTV.indexPath(for: cell) else { return }
-        
-        
-        
         delegate?.didTapOnSelectFareBtnAction(cell: cell, at: indexPath)
     }
     
@@ -212,6 +210,7 @@ extension SelectFareTVCell:UITableViewDelegate,UITableViewDataSource {
                 cell.baggagelbl.text = data.Baggage
                 cell.pricelbl.text = data.Price
                 cell.journyType = data.journyType ?? ""
+                cell.fareamount = data.amount ?? 0.0
                 cell.configure(selected: true)
                 
                 c = cell
@@ -235,7 +234,7 @@ extension SelectFareTVCell:UITableViewDelegate,UITableViewDataSource {
                     cell.baggagelbl.text = "Baggage: Carry-on (1-7kg) Checked in (30Kg)"
                     cell.pricelbl.text = "\(data.price?.api_currency ?? "") \(data.price?.api_total_display_fare ?? 0.0)"
                     cell.refundTypelbl.text = "\(data.fareType ?? "") "
-                    
+                    cell.fareamount = data.price?.api_total_display_fare ?? 0.0
                     
                     
                     if selectedDepartureIndex == indexPath {
@@ -258,7 +257,7 @@ extension SelectFareTVCell:UITableViewDelegate,UITableViewDataSource {
                     cell.baggagelbl.text = "Baggage: Carry-on (1-7kg) Checked in (30Kg)"
                     cell.pricelbl.text = "\(data.price?.api_currency ?? "") \(data.price?.api_total_display_fare ?? 0.0)"
                     cell.refundTypelbl.text = "\(data.fareType ?? "") "
-                    
+                    cell.fareamount = data.price?.api_total_display_fare ?? 0.0
                     
                     
                     if selectedReturnIndex == indexPath {
@@ -296,6 +295,9 @@ extension SelectFareTVCell:UITableViewDelegate,UITableViewDataSource {
     }
     
     
+
+    
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let cell = tableView.cellForRow(at: indexPath) as? SelectFareInfoTVCell else {
             return
@@ -311,11 +313,13 @@ extension SelectFareTVCell:UITableViewDelegate,UITableViewDataSource {
                               cabinClass: cell.classlbl.text,
                               RefundableType: cell.refundTypelbl.text,
                               Baggage: cell.baggagelbl.text,
-                              Price: cell.pricelbl.text,
+                              Price: cell.pricelbl.text, 
+                              amount: cell.fareamount,
                               selectedBool: true,
                               journyType: cell.journyType)
         
         
+        MySingleton.shared.totalselectedfareprice = 0.0
         
         // Check which button was tapped
         if btnTapString == "departure" {
@@ -323,9 +327,13 @@ extension SelectFareTVCell:UITableViewDelegate,UITableViewDataSource {
             if let previousDepartureIndex = selectedDepartureIndex {
                 // Deselect the previously selected departure cell
                 tableView.deselectRow(at: previousDepartureIndex, animated: true)
+                
+               
             }
             selectedDepartureIndex = indexPath
             
+            MySingleton.shared.totalselectedDepfareprice = 0.0
+            MySingleton.shared.totalselectedDepfareprice = cell.fareamount
             depSelectedFares.removeAll()
             depSelectedFares.append(fare)
             
@@ -338,6 +346,9 @@ extension SelectFareTVCell:UITableViewDelegate,UITableViewDataSource {
                 tableView.deselectRow(at: previousReturnIndex, animated: true)
             }
             selectedReturnIndex = indexPath
+            
+            MySingleton.shared.totalselectedRetfareprice = 0.0
+            MySingleton.shared.totalselectedRetfareprice = cell.fareamount
             
             retSelectedFares.removeAll()
             retSelectedFares.append(fare)
@@ -352,6 +363,9 @@ extension SelectFareTVCell:UITableViewDelegate,UITableViewDataSource {
             
             MySingleton.shared.selectedFares.removeAll()
             MySingleton.shared.selectedFares.append(contentsOf: depSelectedFares)
+            
+            
+            MySingleton.shared.totalselectedfareprice = MySingleton.shared.totalselectedDepfareprice 
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [unowned self] in
                 delegate?.didTapOnSelectFareBtnAction(cell: cell, at: indexPath)
@@ -368,6 +382,7 @@ extension SelectFareTVCell:UITableViewDelegate,UITableViewDataSource {
                 MySingleton.shared.selectedFares.append(contentsOf: depSelectedFares)
                 MySingleton.shared.selectedFares.append(contentsOf: retSelectedFares)
                 
+                MySingleton.shared.totalselectedfareprice = MySingleton.shared.totalselectedDepfareprice + MySingleton.shared.totalselectedRetfareprice
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [unowned self] in
                     delegate?.didTapOnSelectFareBtnAction(cell: cell, at: indexPath)
