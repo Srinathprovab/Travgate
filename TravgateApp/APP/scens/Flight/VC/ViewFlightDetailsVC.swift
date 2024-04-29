@@ -69,6 +69,11 @@ extension ViewFlightDetailsVC {
     func callAPI() {
         holderView.isHidden = true
         
+        MySingleton.shared.afterResultsBool = true
+        loderBool = true
+        showLoadera()
+        
+        
         MySingleton.shared.payload.removeAll()
         MySingleton.shared.payload["search_id"] = MySingleton.shared.searchid
         MySingleton.shared.payload["booking_source"] = MySingleton.shared.bookingsource
@@ -80,6 +85,9 @@ extension ViewFlightDetailsVC {
     
     
     func flightDetails(response: FlightDetailsModel) {
+        loderBool = false
+        hideLoadera()
+        
         holderView.isHidden = false
         self.fd = response.flightDetails ?? [[]]
         

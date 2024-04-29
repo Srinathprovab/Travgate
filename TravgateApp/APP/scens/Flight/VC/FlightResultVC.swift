@@ -7,7 +7,9 @@
 
 import UIKit
 
-class FlightResultVC: BaseTableVC, FlightListModelProtocal {
+class FlightResultVC: BaseTableVC, FlightListModelProtocal, SearchDataViewModelDelegate {
+    
+    
     
     
     @IBOutlet weak var holderView: UIView!
@@ -44,6 +46,8 @@ class FlightResultVC: BaseTableVC, FlightListModelProtocal {
         setupUI()
         MySingleton.shared.dateFormatter.dateFormat = "HH:mm"
         MySingleton.shared.vm = FlightListViewModel(self)
+        MySingleton.shared.recentsearchvm = SearchDataViewModel(self)
+        
         
     }
     
@@ -721,6 +725,8 @@ extension FlightResultVC {
     
     func addObserver() {
         
+        NotificationCenter.default.addObserver(self, selector: #selector(modifyclose), name: Notification.Name("modifyclose"), object: nil)
+        
         NotificationCenter.default.addObserver(self, selector: #selector(nointernet), name: Notification.Name("offline"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(resultnil), name: NSNotification.Name("resultnil"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(nointrnetreload), name: Notification.Name("nointrnetreload"), object: nil)
@@ -728,10 +734,19 @@ extension FlightResultVC {
         
         
         if MySingleton.shared.callboolapi == true {
-            //  callAPI()
             MySingleton.shared.flights.removeAll()
-            callActiveBookingSourceAPI()
+            
+            holderView.isHidden = true
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [unowned self] in
+                callActiveBookingSourceAPI()
+            }
+           
+           
         }
+    }
+    
+    @objc func modifyclose() {
+        self.holderView.isHidden = false
     }
     
     
@@ -775,6 +790,18 @@ extension FlightResultVC {
     }
     
     
+    
+    func callGetRecentSearchAPI() {
+        MySingleton.shared.recentsearchvm?.CALL_GET_FLIGHT_SEARCH_RECENT_DATA_API(dictParam: [:])
+    }
+    
+    func flightRecentSearchDate(response: SearchDataModel) {
+        MySingleton.shared.recentData = response.recent_searches ?? []
+    }
+    
+    func removeflightRecentSearchDate(response: LoginModel) {
+        
+    }
 }
 
 
@@ -796,9 +823,10 @@ extension FlightResultVC {
     
     func callActiveBookingSourceAPI() {
         
-        MySingleton.shared.loderString = "payment"
+        MySingleton.shared.loderString = "loder"
         loderBool = true
         showLoadera()
+       
         
         MySingleton.shared.vm?.CALL_GET_ACTIVE_BOOKING_SOURCE_API(dictParam: [:])
     }
@@ -857,11 +885,13 @@ extension FlightResultVC {
         MySingleton.shared.returnDateTapbool = false
         MySingleton.shared.searchid = "\(response.data?.search_id ?? "0")"
         MySingleton.shared.traceid = response.data?.traceId ?? ""
-       
+        
         
         MySingleton.shared.payemail = ""
         MySingleton.shared.paymobile = ""
         MySingleton.shared.paymobilecountrycode = ""
+        MySingleton.shared.enablePaymentButtonBool1 = false
+        MySingleton.shared.enablePaymentButtonBool2 = false
         
         cityslbl.text = "\(defaults.string(forKey: UserDefaultsKeys.fcity) ?? "") - \(defaults.string(forKey: UserDefaultsKeys.tcity) ?? "")"
         paxlbl.text = "\(MySingleton.shared.adultsCount) Adults | \(MySingleton.shared.childCount) Child | \(MySingleton.shared.infantsCount) Infant | \(defaults.string(forKey: UserDefaultsKeys.selectClass) ?? "")"
@@ -877,7 +907,7 @@ extension FlightResultVC {
             
         }
         
-     
+        
         
         if let newResults = response.data?.j_flight_list, !newResults.isEmpty {
             // Append the new data to the existing data
@@ -892,7 +922,7 @@ extension FlightResultVC {
         
         if bookingSourceDataArrayCount == 0 {
             
-            holderView.isHidden = true
+           
             if MySingleton.shared.flights.count <= 0 {
                 gotoNoInternetScreen(keystr: "noresult")
                 
@@ -977,6 +1007,13 @@ extension FlightResultVC {
             self.setupTVCell(list: MySingleton.shared.flights)
         }
         
+        
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [unowned self] in
+            callGetRecentSearchAPI()
+        }
+        
+        
     }
     
     
@@ -999,7 +1036,7 @@ extension FlightResultVC {
                 MySingleton.shared.tablerow.append(TableRow(title: j.selectedResult,
                                                             subTitle: j.booking_source,
                                                             refundable:j.fareType,
-                                                            key: "fl", 
+                                                            key: "fl",
                                                             text: j.booking_source_key,
                                                             headerText: j.serialized_journeyKey,
                                                             data: similarFlights1,

@@ -7,8 +7,7 @@
 
 import UIKit
 
-class BookingDetailsVC: BaseTableVC, MPBViewModelDelegate, MobileSecureBookingViewModelDelegate, LoginViewModelDelegate, RegisterViewModelDelegate, MBViewModelDelegate, ProfileViewModelDelegate {
-    
+class BookingDetailsVC: BaseTableVC, LoginViewModelDelegate, RegisterViewModelDelegate, MPBViewModelDelegate {
     
     
     @IBOutlet weak var gifimg: UIImageView!
@@ -39,15 +38,10 @@ class BookingDetailsVC: BaseTableVC, MPBViewModelDelegate, MobileSecureBookingVi
         // Do any additional setup after loading the view.
         setupUI()
         MySingleton.shared.delegate = self
-        MySingleton.shared.mpbvm = MPBViewModel(self)
-        MySingleton.shared.viewmodel1 = MobileSecureBookingViewModel(self)
-        
-        
         MySingleton.shared.loginvm = LoginViewModel(self)
         MySingleton.shared.registervm = RegisterViewModel(self)
-        MySingleton.shared.profilevm = ProfileViewModel(self)
+        MySingleton.shared.mpbvm = MPBViewModel(self)
         
-        self.mbviewmodel = MBViewModel(self)
     }
     
     
@@ -235,12 +229,36 @@ class BookingDetailsVC: BaseTableVC, MPBViewModelDelegate, MobileSecureBookingVi
     
     
     override func didTapOnLoginBtnAction(cell:PrimaryContactInfoTVCell) {
-        callLoginAPI()
+        
+        if MySingleton.shared.payemail.isEmpty == true {
+            showToast(message: "Enter Email Address")
+        }else if MySingleton.shared.payemail.isValidEmail() == false {
+            showToast(message: "Enter Valid Email Address")
+        }else if MySingleton.shared.regpassword.isEmpty == true {
+            showToast(message: "Enter Password")
+        }else {
+            callLoginAPI()
+        }
+        
     }
     
     
     override func didTapOnRegisterBtnAction(cell:PrimaryContactInfoTVCell) {
-        callRegisterAPI()
+        
+        if MySingleton.shared.payemail.isEmpty == true {
+            showToast(message: "Enter Email Address")
+        }else if MySingleton.shared.payemail.isValidEmail() == false {
+            showToast(message: "Enter Valid Email Address")
+        }else if MySingleton.shared.paymobile.isEmpty == true {
+            showToast(message: "Enter Mobile Number")
+        }else if MySingleton.shared.paymobilecountrycode.isEmpty == true {
+            showToast(message: "Please Select Country Code")
+        }else if MySingleton.shared.regpassword.isEmpty == true {
+            showToast(message: "Enter Password")
+        }else {
+            callRegisterAPI()
+        }
+        
     }
     
     
@@ -410,11 +428,6 @@ extension BookingDetailsVC {
             sub_total_child = i?.sub_total_child ?? "0"
             sub_total_infant = i?.sub_total_infant ?? "0"
             
-            if (defaults.string(forKey: UserDefaultsKeys.loggedInStatus) != nil) == true {
-                DispatchQueue.main.async {[self] in
-                    callShowProfileAPI()
-                }
-            }
             
             
             DispatchQueue.main.async {[self] in
@@ -745,9 +758,9 @@ extension BookingDetailsVC {
         MySingleton.shared.payload["device_source"] = "MOBILE(A)"
         
         
-
+        
         MySingleton.shared.payload["addon_services"] = addon_servicesArrayString
-    
+        
         
         
         print(MySingleton.shared.payload)
@@ -793,8 +806,6 @@ extension BookingDetailsVC {
                 loderBool = true
                 showLoadera()
                 
-              //  MySingleton.shared.mpbvm?.CALL_MOBILE_PROCESS_PASSENGER_DETAIL_API(dictParam:MySingleton.shared.payload)
-                
                 gotoSelectPaymentMethodsVC()
             }
             
@@ -818,95 +829,6 @@ extension BookingDetailsVC {
     }
     
     
-    //MARK: mobile process passenger Details
-    func mobileprocesspassengerDetails(response: MobilePassengerdetailsModel) {
-        
-        DispatchQueue.main.async {
-            BASE_URL = ""
-           
-            
-            MySingleton.shared.mpbvm?.CALL_MOBILE_PAYMENT_API(dictParam: [:], url: response.url ?? "")
-            
-        }
-        
-    }
-    
-    
-    
-    func mobolePaymentDetails(response: PaymentModel) {
-        self.gotoLoadWebViewVC(urlStr1: response.data ?? "")
-    }
-    
-    
-    func gotoLoadWebViewVC(urlStr1:String) {
-        guard let vc = LoadWebViewVC.newInstance.self else {return}
-        vc.modalPresentationStyle = .fullScreen
-        vc.urlString = urlStr1
-        present(vc, animated: true)
-    }
-    
-    
-    func mobilesecurebookingDetails(response: MobilePrePaymentModel) {
-        
-        loderBool = false
-        hideLoadera()
-        
-        
-        if response.status == false {
-            showToast(message: response.message ?? "")
-        }else {
-            
-            MySingleton.shared.payload.removeAll()
-            
-            //        amount:100.00
-            //        currency_code:KWD
-            //        pg_codes:knet-test
-            //        type:e_commerce
-            //        mailto:customer_email:s@provab.com
-            //        customer_first_name:Sudhir
-            //        customer_last_name:Singh
-            //        customer_phone:8840955727
-            //        language:en
-            //        extra:"full_name":"Kamran","ticket_information":"Tciket-1"
-            //        order_no:SSA3312348
-            //payment_type:one_off
-            
-            
-            MySingleton.shared.payload["amount"] = totlConvertedGrand
-            MySingleton.shared.payload["currency_code"] = defaults.string(forKey: UserDefaultsKeys.selectedCurrency)
-            MySingleton.shared.payload["pg_codes[0]"] = "knet-test"
-            MySingleton.shared.payload["pg_codes[1]"] = "credit-card-test"
-            MySingleton.shared.payload["type"] = "e_commerce"
-            MySingleton.shared.payload["customer_email"] = MySingleton.shared.payemail
-            MySingleton.shared.payload["customer_first_name"] = "srinath"
-            MySingleton.shared.payload["customer_last_name"] = "provab"
-            MySingleton.shared.payload["customer_phone"] = MySingleton.shared.paymobile
-            MySingleton.shared.payload["language"] = "en"
-            MySingleton.shared.payload["extra"] = ""
-            
-            
-            
-            
-            let random5DigitNumber = generateRandomNumber()
-            MySingleton.shared.payload["order_no"] = "\(random5DigitNumber)"
-            
-            
-            MySingleton.shared.afterResultsBool = true
-            loderBool = true
-            showLoadera()
-            
-            
-        }
-        
-        
-    }
-    
-    
-    
-    
-    
-    
-    
     
     func generateRandomNumber() -> Int {
         let randomNumber = Int.random(in: 10000...99999)
@@ -918,51 +840,6 @@ extension BookingDetailsVC {
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)
     }
-    
-    
-    func mobilePreBookingModelDetails(response: MobilePreBookingModel) {
-        
-        BASE_URL = ""
-        MySingleton.shared.payload["search_id"] = response.data?.search_id
-        MySingleton.shared.payload["app_reference"] = response.data?.app_reference
-        MySingleton.shared.payload["promocode_val"] = response.data?.promocode_val
-        MySingleton.shared.payload["selectedCurrency"] = defaults.string(forKey: UserDefaultsKeys.selectedCurrency)
-        
-        
-        
-        if response.status == false {
-            showToast(message: response.message ?? "")
-        }else {
-            mbviewmodel?.Call_mobile_pre_payment_confirmation_API(dictParam: MySingleton.shared.payload, url: "https://travrun.com/pro_new/mobile/index.php/flight/mobile_pre_payment_confirmation")
-        }
-    }
-    
-    func mobileprepaymentconfirmationDetails(response: MobilePrePaymentModel) {
-        
-        
-        if response.status == false {
-            showToast(message: response.message ?? "")
-        }else {
-            BASE_URL = ""
-            mbviewmodel?.Call_mobile_send_to_payment_API(dictParam: [:], url: response.url ?? "")
-        }
-        
-    }
-    
-    func mobilesendtopaymentDetails(response: MobilePrePaymentModel) {
-        
-        
-        if response.status == false {
-            showToast(message: response.message ?? "")
-        }else {
-            DispatchQueue.main.async {
-                BASE_URL = ""
-                MySingleton.shared.viewmodel1?.Call_mobile_secure_booking_API(dictParam: [:], url: response.url ?? "")
-            }
-        }
-        
-    }
-    
     
     
 }
@@ -1040,8 +917,8 @@ extension BookingDetailsVC:TimerManagerDelegate {
         MySingleton.shared.setAttributedTextnew(str1: "Your Session Expires In : ",
                                                 str2: "\(formattedTime)",
                                                 lbl: sessionlbl,
-                                                str1font: .OpenSansMedium(size: 12),
-                                                str2font: .OpenSansMedium(size: 12),
+                                                str1font: .OpenSansMedium(size: 14),
+                                                str2font: .OpenSansMedium(size: 14),
                                                 str1Color: .TitleColor,
                                                 str2Color: .BooknowBtnColor)
         
@@ -1154,14 +1031,17 @@ extension BookingDetailsVC {
     
     func callRegisterAPI() {
         
+        MySingleton.shared.afterResultsBool = true
+        loderBool = true
+        showLoadera()
+        
         MySingleton.shared.payload.removeAll()
+        MySingleton.shared.payload["first_name"] = "firstname"
+        MySingleton.shared.payload["last_name"] = "lastname"
         MySingleton.shared.payload["email"] = MySingleton.shared.payemail
         MySingleton.shared.payload["password"] = MySingleton.shared.regpassword
         MySingleton.shared.payload["phone"] = MySingleton.shared.paymobile
         MySingleton.shared.payload["country_code"] = MySingleton.shared.paymobilecountrycode
-        
-        print( MySingleton.shared.payload)
-        
         
         MySingleton.shared.registervm?.CALL_USER_REGISTER_API(dictParam:  MySingleton.shared.payload)
         
@@ -1169,13 +1049,16 @@ extension BookingDetailsVC {
     
     
     func registerSucess(response: RegisterModel) {
-        print(response)
+        
+        holderView.isHidden = false
+        loderBool = false
+        hideLoadera()
+        
+        
         if response.status == false {
             showToast(message: response.msg ?? "")
         } else {
             
-            //            defaults.set(true, forKey: UserDefaultsKeys.regStatus)
-            //            defaults.set(response.data?.user_id, forKey: UserDefaultsKeys.userid)
             MySingleton.shared.guestbool = true
             showToast(message: "Register Sucess")
             let seconds = 2.0
@@ -1190,6 +1073,11 @@ extension BookingDetailsVC {
     //MARK: - callLoginAPI loginSucess
     
     func callLoginAPI() {
+        
+        MySingleton.shared.afterResultsBool = true
+        loderBool = true
+        showLoadera()
+        
         MySingleton.shared.payload.removeAll()
         MySingleton.shared.payload["username"] = MySingleton.shared.payemail
         MySingleton.shared.payload["password"] = MySingleton.shared.regpassword
@@ -1198,15 +1086,25 @@ extension BookingDetailsVC {
     }
     
     func loginSucess(response: LoginModel) {
-        print(response)
+        holderView.isHidden = false
+        loderBool = false
+        hideLoadera()
+        
+        
         if response.status == false {
             showToast(message: response.data ?? "")
         }else {
             defaults.set(true, forKey: UserDefaultsKeys.loggedInStatus)
-            //  defaults.set(response.email, forKey: UserDefaultsKeys.useremail)
-            defaults.set(response.user_id, forKey: UserDefaultsKeys.userid)
-            //            defaults.set(response.contry_code, forKey: UserDefaultsKeys.countryCode)
-            //            defaults.set(response.contact, forKey: UserDefaultsKeys.usermobile)
+            defaults.set(response.logindetails?.user_id, forKey: UserDefaultsKeys.userid)
+            
+            
+            defaults.set(response.logindetails?.email, forKey: UserDefaultsKeys.useremail)
+            defaults.set(response.logindetails?.phone, forKey: UserDefaultsKeys.usermobile)
+            defaults.set(response.logindetails?.country_code, forKey: UserDefaultsKeys.usermobilecode)
+            
+            MySingleton.shared.payemail = response.logindetails?.email ?? ""
+            MySingleton.shared.paymobile = response.logindetails?.phone ?? ""
+            MySingleton.shared.paymobilecountrycode = response.logindetails?.country_code ?? ""
             
             showToast(message: response.data ?? "")
             let seconds = 2.0
@@ -1215,26 +1113,12 @@ extension BookingDetailsVC {
                 
             }
         }
-    }
-    
-    
-    func callShowProfileAPI() {
-        MySingleton.shared.payload.removeAll()
-        MySingleton.shared.payload["user_id"] = defaults.string(forKey: UserDefaultsKeys.userid) ?? "0"
-        MySingleton.shared.profilevm?.view.hideLoader()
-        MySingleton.shared.profilevm?.CALL_SHOW_PROFILE_DETAILS_API(dictParam:  MySingleton.shared.payload)
-    }
-    
-    func profileDetails(response: ProfileModel) {
-        MySingleton.shared.payemail = response.data?.email ?? ""
-        MySingleton.shared.paymobile = response.data?.phone ?? ""
-        MySingleton.shared.paymobilecountrycode = response.data?.country_code ?? ""
         
     }
     
-    func profileUpdateSucess(response: ProfileModel) {
-        
-    }
+    
+    
+    
 }
 
 

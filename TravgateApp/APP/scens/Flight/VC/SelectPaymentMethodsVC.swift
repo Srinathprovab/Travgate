@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SelectPaymentMethodsVC: BaseTableVC, MPBViewModelDelegate {
+class SelectPaymentMethodsVC: BaseTableVC, MobileProcessPassengerDetailVMDelegate, MobilePaymentVMDelegate {
     
     
     
@@ -23,7 +23,9 @@ class SelectPaymentMethodsVC: BaseTableVC, MPBViewModelDelegate {
         
         // Do any additional setup after loading the view.
         setupUI()
-        MySingleton.shared.mpbvm = MPBViewModel(self)
+        MySingleton.shared.passengerDetailsVM = MobileProcessPassengerDetailVM(self)
+        MySingleton.shared.mobilepaymentvm = MobilePaymentVM(self)
+        
     }
     
     
@@ -53,6 +55,18 @@ class SelectPaymentMethodsVC: BaseTableVC, MPBViewModelDelegate {
     func MPBDetails(response: MobilePreProcessBookingModel) {
         
     }
+    
+    
+    
+    //MARK: - didTapOnFlightDetails BookingDetailsFlightDataTVCell
+    override func didTapOnFlightDetails(cell: BookingDetailsFlightDataTVCell) {
+        MySingleton.shared.callboolapi = true
+        guard let vc = ViewFlightDetailsVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: false)
+    }
+    
+    
 }
 
 
@@ -65,6 +79,8 @@ extension SelectPaymentMethodsVC {
         MySingleton.shared.tablerow.removeAll()
         
         
+        MySingleton.shared.tablerow.append(TableRow(height:10,cellType:.EmptyTVCell))
+        MySingleton.shared.tablerow.append(TableRow(cellType:.PaymentTypeTVCell))
         
         if (MySingleton.shared.mpbFlightData?.summary?.count ?? 0) > 0 {
             MySingleton.shared.tablerow.append(TableRow(cellType:.BookingDetailsFlightDataTVCell,
@@ -72,8 +88,6 @@ extension SelectPaymentMethodsVC {
             
         }
         
-        
-        MySingleton.shared.tablerow.append(TableRow(cellType:.PaymentTypeTVCell))
         
         MySingleton.shared.tablerow.append(TableRow(title:"Lead Passenger",
                                                     key:"payment",
@@ -96,12 +110,11 @@ extension SelectPaymentMethodsVC {
     
     
     func CALL_MOBILE_PROCESS_PASSENGER_DETAIL_API() {
-        print("didTapOnPayNowBtnAction")
-        print(MySingleton.shared.payload)
+        MySingleton.shared.loderString = "payment"
         
         showToast(message: "Still Under Development")
         
-        //  MySingleton.shared.mpbvm?.CALL_MOBILE_PROCESS_PASSENGER_DETAIL_API(dictParam:MySingleton.shared.payload)
+        //  MySingleton.shared.passengerDetailsVM?.CALL_MOBILE_PROCESS_PASSENGER_DETAIL_API(dictParam:MySingleton.shared.payload)
     }
     
     //MARK: mobile process passenger Details
@@ -109,7 +122,7 @@ extension SelectPaymentMethodsVC {
         
         DispatchQueue.main.async {
             BASE_URL = ""
-            MySingleton.shared.mpbvm?.CALL_MOBILE_PAYMENT_API(dictParam: [:], url: response.url ?? "")
+            //   MySingleton.shared.mobilepaymentvm?.CALL_MOBILE_PAYMENT_API(dictParam: [:], url: response.url ?? "")
             
         }
         

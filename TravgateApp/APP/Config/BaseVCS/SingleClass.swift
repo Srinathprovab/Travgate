@@ -176,7 +176,6 @@ class MySingleton {
     var loginvm:LoginViewModel?
     var vm:FlightListViewModel?
     var fdvm:FlightDetailsViewModel?
-    var mpbvm:MPBViewModel?
     var resetpasswordvm:ResetPasswordViewModel?
     var registervm:RegisterViewModel?
     var profilevm:ProfileViewModel?
@@ -195,6 +194,10 @@ class MySingleton {
     var currencylistvm:CurrencyListViewModel?
     var contactusvm:mobilecontactusViewModel?
     var farelistvm:SelectFareViewModel?
+    var mpbvm:MPBViewModel?
+    var mobilepaymentvm:MobilePaymentVM?
+    var passengerDetailsVM:MobileProcessPassengerDetailVM?
+    
     
     //TIMER
     weak var delegate: TimerManagerDelegate?

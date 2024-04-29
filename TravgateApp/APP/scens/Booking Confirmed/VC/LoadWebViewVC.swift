@@ -9,28 +9,9 @@ import UIKit
 import WebKit
 import SwiftyJSON
 
-class LoadWebViewVC: UIViewController, WKNavigationDelegate, MobileSecureBookingViewModelDelegate, MPBViewModelDelegate {
-    func MPBDetails(response: MobilePreProcessBookingModel) {
-        
-    }
+class LoadWebViewVC: UIViewController, WKNavigationDelegate, MobileSecureBookingViewModelDelegate, MobilePaymentVMDelegate {
     
-    func mobileprocesspassengerDetails(response: MobilePassengerdetailsModel) {
-        
-    }
     
-    func mobilePreBookingModelDetails(response: MobilePreBookingModel) {
-        
-    }
-    
-    func mobileprepaymentconfirmationDetails(response: MobilePrePaymentModel) {
-        
-    }
-    
-    func mobilesendtopaymentDetails(response: MobilePrePaymentModel) {
-        
-    }
-    
-   
     
     @IBOutlet weak var holderView: UIView!
     @IBOutlet weak var titlelbl: UILabel!
@@ -85,13 +66,13 @@ class LoadWebViewVC: UIViewController, WKNavigationDelegate, MobileSecureBooking
         
         setupUI()
         MySingleton.shared.viewmodel1 = MobileSecureBookingViewModel(self)
-        MySingleton.shared.mpbvm = MPBViewModel(self)
+        MySingleton.shared.mobilepaymentvm = MobilePaymentVM(self)
     }
     
     
     func setupUI() {
         
-       
+        
         
         holderView.backgroundColor = .WhiteColor
         // Do any additional setup after loading the view.
@@ -99,9 +80,9 @@ class LoadWebViewVC: UIViewController, WKNavigationDelegate, MobileSecureBooking
         activityIndicatorView.color = .Buttoncolor
         view.addSubview(activityIndicatorView)
         
-       
+        
         webview.navigationDelegate = self
-//        webview.isUserInteractionEnabled = true
+        //        webview.isUserInteractionEnabled = true
         
         
         if keystr == "voucher" {
@@ -111,7 +92,7 @@ class LoadWebViewVC: UIViewController, WKNavigationDelegate, MobileSecureBooking
         }
     }
     
-   
+    
     
     @IBAction func didTapOnBackBtnAction(_ sender: Any) {
         gotoDashboard()
@@ -165,7 +146,7 @@ extension LoadWebViewVC {
         
         let str = webView.url?.absoluteString ?? ""
         if str.containsIgnoringCase(find: "payment_gateway/GetHandlerResponse"){
-            MySingleton.shared.mpbvm?.CALL_MOBILE_PAYMENT_API(dictParam: [:], url: str)
+            MySingleton.shared.mobilepaymentvm?.CALL_MOBILE_PAYMENT_API(dictParam: [:], url: str)
         }
         
     }
@@ -194,6 +175,10 @@ extension LoadWebViewVC {
     
     
 }
+
+
+
+
 extension String {
     func contains(find: String) -> Bool{
         return self.range(of: find) != nil

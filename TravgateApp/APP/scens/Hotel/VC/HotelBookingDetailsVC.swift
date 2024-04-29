@@ -403,7 +403,7 @@ extension HotelBookingDetailsVC {
         }else {
             defaults.set(true, forKey: UserDefaultsKeys.loggedInStatus)
             //  defaults.set(response.email, forKey: UserDefaultsKeys.useremail)
-            defaults.set(response.user_id, forKey: UserDefaultsKeys.userid)
+            defaults.set(response.logindetails?.user_id, forKey: UserDefaultsKeys.userid)
             //            defaults.set(response.contry_code, forKey: UserDefaultsKeys.countryCode)
             //            defaults.set(response.contact, forKey: UserDefaultsKeys.usermobile)
             

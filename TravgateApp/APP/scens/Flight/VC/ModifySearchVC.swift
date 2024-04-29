@@ -132,7 +132,9 @@ class ModifySearchVC: BaseTableVC {
     
     @IBAction func didTapOnBackBtnAction(_ sender: Any) {
         MySingleton.shared.callboolapi = false
+        NotificationCenter.default.post(name: NSNotification.Name("modifyclose"), object: nil)
         dismiss(animated: true)
+       
     }
     
     

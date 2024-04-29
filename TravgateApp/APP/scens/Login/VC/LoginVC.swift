@@ -120,7 +120,12 @@ extension LoginVC {
         if response.status == true {
             
             defaults.set(true, forKey: UserDefaultsKeys.loggedInStatus)
-            defaults.set(response.user_id, forKey: UserDefaultsKeys.userid)
+            defaults.set(response.logindetails?.user_id, forKey: UserDefaultsKeys.userid)
+           
+            defaults.set(response.logindetails?.email, forKey: UserDefaultsKeys.useremail)
+            defaults.set(response.logindetails?.phone, forKey: UserDefaultsKeys.usermobile)
+            defaults.set(response.logindetails?.country_code, forKey: UserDefaultsKeys.usermobilecode)
+            
             
             NotificationCenter.default.post(name: NSNotification.Name("logindone"), object: nil)
             let seconds = 2.0

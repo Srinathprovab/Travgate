@@ -56,16 +56,20 @@ class PopularDestinationsTVCell: TableViewCell {
         
         
         // Filter flightlist based on selected city
-        let selectedCity = countryArray[0]
-        // Assuming TopFlightListModel and TopFlightDetails have similar properties
-        filteredFlights = flightlist.filter { flight in
-            if let airportCity = flight.country {
-                return airportCity.contains(selectedCity)
+        if countryArray.count > 0 {
+            let selectedCity = countryArray[0]
+            // Assuming TopFlightListModel and TopFlightDetails have similar properties
+            filteredFlights = flightlist.filter { flight in
+                if let airportCity = flight.country {
+                    return airportCity.contains(selectedCity)
+                }
+                return false
+            }.map { flight in
+                TopFlightListModel(airport_city: flight.airport_city ?? "", image: flight.image)
             }
-            return false
-        }.map { flight in
-            TopFlightListModel(airport_city: flight.airport_city ?? "", image: flight.image)
+           
         }
+        
         // startAutoScroll()
         selectDestCV.reloadData()
     }

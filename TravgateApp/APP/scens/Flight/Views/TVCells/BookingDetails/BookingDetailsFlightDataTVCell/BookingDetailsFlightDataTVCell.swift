@@ -20,6 +20,11 @@ class BookingDetailsFlightDataTVCell: TableViewCell {
     @IBOutlet weak var detailsbtn: UIButton!
     
     
+    
+    var selectedResult = String()
+    var farerulesrefKey = String()
+    var farerulesrefContent = String()
+    
     var delegate:BookingDetailsFlightDataTVCellDelegate?
     var flightsummery = [Summary]()
     var flightlist :FlightList?

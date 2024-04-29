@@ -17,7 +17,7 @@
         <!--InsuranceVC-->
         <scene sceneID="vzS-TR-we6">
             <objects>
-                <viewController storyboardIdentifier="InsuranceVC" id="GGv-Nf-7fg" customClass="InsuranceVC" customModule="TravgateApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="InsuranceVC" id="GGv-Nf-7fg" customClass="InsuranceVC" customModule="Travgate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cel-u0-VqL">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -32,13 +32,17 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="393" height="260"/>
                                             </imageView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h4S-sz-858">
-                                                <rect key="frame" x="13" y="60" width="24" height="24"/>
+                                                <rect key="frame" x="13" y="60" width="34" height="34"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back" translatesAutoresizingMaskIntoConstraints="NO" id="36a-io-5ho">
-                                                        <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
+                                                        <rect key="frame" x="5" y="5" width="24" height="24"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="24" id="REJ-8Q-hWo"/>
+                                                            <constraint firstAttribute="width" constant="24" id="avQ-9x-zmK"/>
+                                                        </constraints>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mR2-gp-D00">
-                                                        <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="34" height="34"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain"/>
                                                         <connections>
@@ -48,20 +52,18 @@
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstItem="36a-io-5ho" firstAttribute="leading" secondItem="h4S-sz-858" secondAttribute="leading" id="0T1-L1-Mo4"/>
-                                                    <constraint firstAttribute="height" constant="24" id="0hS-LI-Kb6"/>
+                                                    <constraint firstAttribute="height" constant="34" id="0hS-LI-Kb6"/>
                                                     <constraint firstAttribute="trailing" secondItem="mR2-gp-D00" secondAttribute="trailing" id="Aj7-CJ-xB1"/>
                                                     <constraint firstAttribute="bottom" secondItem="mR2-gp-D00" secondAttribute="bottom" id="Bkb-Xh-Rn0"/>
-                                                    <constraint firstAttribute="width" constant="24" id="U38-ik-RTm"/>
-                                                    <constraint firstAttribute="trailing" secondItem="36a-io-5ho" secondAttribute="trailing" id="c5V-up-gnv"/>
-                                                    <constraint firstItem="36a-io-5ho" firstAttribute="top" secondItem="h4S-sz-858" secondAttribute="top" id="d6q-P9-ybm"/>
-                                                    <constraint firstAttribute="bottom" secondItem="36a-io-5ho" secondAttribute="bottom" id="i0l-7e-bzf"/>
+                                                    <constraint firstAttribute="width" constant="34" id="U38-ik-RTm"/>
+                                                    <constraint firstItem="36a-io-5ho" firstAttribute="centerY" secondItem="h4S-sz-858" secondAttribute="centerY" id="f0d-WB-4lb"/>
                                                     <constraint firstItem="mR2-gp-D00" firstAttribute="leading" secondItem="h4S-sz-858" secondAttribute="leading" id="nBe-3A-IyU"/>
+                                                    <constraint firstItem="36a-io-5ho" firstAttribute="centerX" secondItem="h4S-sz-858" secondAttribute="centerX" id="oK1-HL-6U8"/>
                                                     <constraint firstItem="mR2-gp-D00" firstAttribute="top" secondItem="h4S-sz-858" secondAttribute="top" id="zKc-mh-Z4i"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WSR-Yp-GKq" customClass="BorderedView" customModule="TravgateApp" customModuleProvider="target">
-                                                <rect key="frame" x="139" y="57" width="115" height="30"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WSR-Yp-GKq" customClass="BorderedView" customModule="Travgate" customModuleProvider="target">
+                                                <rect key="frame" x="139" y="62" width="115" height="30"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Insurence" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="USB-5a-f0r">
                                                         <rect key="frame" x="0.0" y="0.0" width="115" height="30"/>

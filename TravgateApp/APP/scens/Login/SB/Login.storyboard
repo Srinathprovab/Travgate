@@ -273,10 +273,10 @@ instructions to your email.</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5lb-Ql-iiY">
-                                                <rect key="frame" x="15" y="69" width="24" height="24"/>
+                                                <rect key="frame" x="15" y="64" width="34" height="34"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="24" id="3pY-DN-h3b"/>
-                                                    <constraint firstAttribute="width" constant="24" id="eRv-oz-VSM"/>
+                                                    <constraint firstAttribute="height" constant="34" id="3pY-DN-h3b"/>
+                                                    <constraint firstAttribute="width" constant="34" id="eRv-oz-VSM"/>
                                                 </constraints>
                                                 <color key="tintColor" name="HeadingColor"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -396,7 +396,7 @@ instructions to your email.</string>
         <image name="loginbg" width="375" height="811"/>
         <image name="tab3" width="28" height="28"/>
         <namedColor name="BorderColor">
-            <color red="0.0" green="0.0" blue="0.0" alpha="0.16" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.80000001192092896" green="0.80000001192092896" blue="0.80000001192092896" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Buttoncolor">
             <color red="0.2669999897480011" green="0.70999997854232788" blue="0.046999998390674591" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

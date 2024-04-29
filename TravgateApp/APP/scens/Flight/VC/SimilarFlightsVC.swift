@@ -41,6 +41,8 @@ class SimilarFlightsVC: BaseTableVC {
         MySingleton.shared.selectedResult = cell.selectedResult
         MySingleton.shared.farerulesrefKey = cell.farerulesrefKey
         MySingleton.shared.farerulesrefContent = cell.farerulesrefContent
+        
+        
         guard let vc = FlightDeatilsVC.newInstance.self else {return}
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: false)

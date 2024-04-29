@@ -571,10 +571,10 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pwU-p5-h2f">
-                                                <rect key="frame" x="13" y="61" width="30" height="30"/>
+                                                <rect key="frame" x="13" y="59" width="34" height="34"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="1IB-7e-jwR"/>
-                                                    <constraint firstAttribute="width" constant="30" id="URI-pE-plP"/>
+                                                    <constraint firstAttribute="height" constant="34" id="1IB-7e-jwR"/>
+                                                    <constraint firstAttribute="width" constant="34" id="URI-pE-plP"/>
                                                 </constraints>
                                                 <color key="tintColor" name="TitleColor"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -1034,10 +1034,10 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hjX-mR-fHm">
-                                                <rect key="frame" x="13" y="61" width="30" height="30"/>
+                                                <rect key="frame" x="13" y="59" width="34" height="34"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="30" id="L9b-TW-yt4"/>
-                                                    <constraint firstAttribute="height" constant="30" id="k4d-Gw-HJA"/>
+                                                    <constraint firstAttribute="width" constant="34" id="L9b-TW-yt4"/>
+                                                    <constraint firstAttribute="height" constant="34" id="k4d-Gw-HJA"/>
                                                 </constraints>
                                                 <color key="tintColor" name="TitleColor"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -1112,10 +1112,10 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0m0-FJ-6nD">
-                                                <rect key="frame" x="13" y="50" width="30" height="30"/>
+                                                <rect key="frame" x="13" y="48" width="34" height="34"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="30" id="Dj8-y1-I3n"/>
-                                                    <constraint firstAttribute="height" constant="30" id="g3r-fQ-8cd"/>
+                                                    <constraint firstAttribute="width" constant="34" id="Dj8-y1-I3n"/>
+                                                    <constraint firstAttribute="height" constant="34" id="g3r-fQ-8cd"/>
                                                 </constraints>
                                                 <color key="tintColor" name="TitleColor"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>

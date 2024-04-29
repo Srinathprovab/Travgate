@@ -76,9 +76,20 @@ class DashboardVC: BaseTableVC, AllCountryCodeListViewModelDelegate, SearchDataV
         MySingleton.shared.tablerow.removeAll()
         
         MySingleton.shared.tablerow.append(TableRow(cellType:.TabSelectTVCell))
-        MySingleton.shared.tablerow.append(TableRow(cellType:.PopularDestinationsTVCell))
-        MySingleton.shared.tablerow.append(TableRow(cellType:.TopcityGuidesTVCell))
-        MySingleton.shared.tablerow.append(TableRow(cellType:.SpecialOffersTVCell))
+        
+        if MySingleton.shared.topFlightDetails.count > 0 {
+            MySingleton.shared.tablerow.append(TableRow(cellType:.PopularDestinationsTVCell))
+        }
+        
+        if MySingleton.shared.topHotelDetails.count > 0 {
+            MySingleton.shared.tablerow.append(TableRow(cellType:.TopcityGuidesTVCell))
+        }
+        
+        if MySingleton.shared.deail_code_list.count > 0 {
+            MySingleton.shared.tablerow.append(TableRow(cellType:.SpecialOffersTVCell))
+        }
+       
+      
         MySingleton.shared.tablerow.append(TableRow(height:30,cellType:.EmptyTVCell))
         
         

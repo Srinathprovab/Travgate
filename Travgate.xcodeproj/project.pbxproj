@@ -253,6 +253,8 @@
 		656CCFFC2BD6647900A22B60 /* SelectFareVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656CCFFB2BD6647900A22B60 /* SelectFareVC.swift */; };
 		65721C672BD793650065B41B /* MobileFlightPreSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65721C662BD793650065B41B /* MobileFlightPreSearchModel.swift */; };
 		657CDBEE2B9ECED800A53808 /* MBViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657CDBED2B9ECED800A53808 /* MBViewModel.swift */; };
+		65859BEB2BDF794100DB121B /* MobileProcessPassengerDetailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65859BEA2BDF794100DB121B /* MobileProcessPassengerDetailVM.swift */; };
+		65859BED2BDF79AF00DB121B /* MobilePaymentVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65859BEC2BDF79AF00DB121B /* MobilePaymentVM.swift */; };
 		6586F74E2BA2D9BC00BB48CE /* TermsPopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6586F74D2BA2D9BC00BB48CE /* TermsPopupVC.swift */; };
 		6586F7522BA2DEAF00BB48CE /* TermsPopupTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6586F7502BA2DEAF00BB48CE /* TermsPopupTVCell.swift */; };
 		6586F7532BA2DEAF00BB48CE /* TermsPopupTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6586F7512BA2DEAF00BB48CE /* TermsPopupTVCell.xib */; };
@@ -821,6 +823,8 @@
 		656CCFFB2BD6647900A22B60 /* SelectFareVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFareVC.swift; sourceTree = "<group>"; };
 		65721C662BD793650065B41B /* MobileFlightPreSearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileFlightPreSearchModel.swift; sourceTree = "<group>"; };
 		657CDBED2B9ECED800A53808 /* MBViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBViewModel.swift; sourceTree = "<group>"; };
+		65859BEA2BDF794100DB121B /* MobileProcessPassengerDetailVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileProcessPassengerDetailVM.swift; sourceTree = "<group>"; };
+		65859BEC2BDF79AF00DB121B /* MobilePaymentVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobilePaymentVM.swift; sourceTree = "<group>"; };
 		6586F74D2BA2D9BC00BB48CE /* TermsPopupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsPopupVC.swift; sourceTree = "<group>"; };
 		6586F7502BA2DEAF00BB48CE /* TermsPopupTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsPopupTVCell.swift; sourceTree = "<group>"; };
 		6586F7512BA2DEAF00BB48CE /* TermsPopupTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TermsPopupTVCell.xib; sourceTree = "<group>"; };
@@ -3140,6 +3144,8 @@
 				65D39CF12B7B7D6700917F74 /* GetAirlineViewModel.swift */,
 				657CDBED2B9ECED800A53808 /* MBViewModel.swift */,
 				65292D752BD91D80002CB908 /* SelectFareViewModel.swift */,
+				65859BEA2BDF794100DB121B /* MobileProcessPassengerDetailVM.swift */,
+				65859BEC2BDF79AF00DB121B /* MobilePaymentVM.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -4356,6 +4362,7 @@
 				658B37422B4D54FA0011932C /* UsePromoCodesTVCell.swift in Sources */,
 				65D85C1C2B4A54FA00D939D0 /* ButtonTVCell.swift in Sources */,
 				658B374D2B4D71350011932C /* PopupVC.swift in Sources */,
+				65859BED2BDF79AF00DB121B /* MobilePaymentVM.swift in Sources */,
 				653E2D282B47EB290082AFF6 /* FlightSummery.swift in Sources */,
 				65CB2CFE2B493294009B5B2E /* MenuBGTVCell.swift in Sources */,
 				65CE394C2BAFD7CD0087DE7A /* Cancellation_string.swift in Sources */,
@@ -4413,6 +4420,7 @@
 				651718102B43F8D4003D3723 /* StoryboardExtension.swift in Sources */,
 				65B6798C2B443AE500E5D1C3 /* PopularDestinationsTVCell.swift in Sources */,
 				65D5715B2BAAEB180093E4EA /* HotelBookingViewModel.swift in Sources */,
+				65859BEB2BDF794100DB121B /* MobileProcessPassengerDetailVM.swift in Sources */,
 				658B37822B4D75280011932C /* Booking_itinerary_summary.swift in Sources */,
 				65CB2D0F2B4953D8009B5B2E /* ItinearyFlightDetails.swift in Sources */,
 				65BFE1E02B8DF64600CE27B2 /* HolidayContactdetailsTVCell.swift in Sources */,
@@ -4846,7 +4854,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -4880,7 +4888,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
