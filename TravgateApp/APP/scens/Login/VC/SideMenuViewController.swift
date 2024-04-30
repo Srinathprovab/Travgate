@@ -41,7 +41,11 @@ class SideMenuViewController: BaseTableVC, ProfileViewModelDelegate, LogoutViewM
     
     
     @objc func logindone() {
-        callShowProfileAPI()
+        
+        DispatchQueue.main.async {
+            self.callShowProfileAPI()
+        }
+        
     }
     
     
@@ -179,6 +183,7 @@ extension SideMenuViewController {
     
     
     func callShowProfileAPI() {
+        basicloderBool = true
         MySingleton.shared.payload.removeAll()
         MySingleton.shared.payload["user_id"] = defaults.string(forKey: UserDefaultsKeys.userid) ?? "0"
         MySingleton.shared.profilevm?.CALL_SHOW_PROFILE_DETAILS_API(dictParam:  MySingleton.shared.payload)
@@ -186,6 +191,7 @@ extension SideMenuViewController {
     
     
     func profileDetails(response: ProfileModel) {
+        basicloderBool = false
         MySingleton.shared.profiledata = response.data
         
         DispatchQueue.main.async {
@@ -199,12 +205,13 @@ extension SideMenuViewController {
     
     
     func callLogoutAPI() {
+        basicloderBool = true
         MySingleton.shared.logoutvm?.CALL_USER_LOGOUT_API(dictParam: [:])
     }
     
     
     func logoutSucess(response: LoginModel) {
-        
+        basicloderBool = false
         defaults.set(false, forKey: UserDefaultsKeys.loggedInStatus)
         defaults.set("0", forKey: UserDefaultsKeys.userid)
         showToast(message: response.data ?? "")
@@ -223,6 +230,7 @@ extension SideMenuViewController {
     
     
     func deleteUserAccountAPI() {
+        basicloderBool = true
         MySingleton.shared.payload.removeAll()
         MySingleton.shared.payload["user_id"] = defaults.string(forKey: UserDefaultsKeys.userid) ?? ""
         MySingleton.shared.logoutvm?.CALL__DELETE_USER_API(dictParam:  MySingleton.shared.payload)
@@ -230,9 +238,12 @@ extension SideMenuViewController {
     
     
     func userDeleteSucess(response: LoginModel) {
+        basicloderBool = false
         
         defaults.set(false, forKey: UserDefaultsKeys.loggedInStatus)
         defaults.set("0", forKey: UserDefaultsKeys.userid)
+        MySingleton.shared.guestbool = false
+        
         
         showToast(message: response.msg ?? "")
         let seconds = 2.0

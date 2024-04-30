@@ -815,13 +815,14 @@ class FilterVC: BaseTableVC{
                     
                     
                 case "Luggage":
+                    
                     if let index = selectedLuggageArray.firstIndex(of: cell.titlelbl.text ?? "") {
                         selectedLuggageArray.remove(at: index)
                     }
                     
-                    if selectedLuggageArray.isEmpty == true {
-                        filterModel.luggage.removeAll()
-                    }
+//                    if selectedLuggageArray.isEmpty == true {
+//                        filterModel.luggage.removeAll()
+//                    }
                     
                     print(selectedLuggageArray.joined(separator: "---"))
                     break
@@ -1154,6 +1155,7 @@ class FilterVC: BaseTableVC{
                         filterModel.connectingAirports.removeAll()
                     }
                     
+                    
                     if !selectedLuggageArray.isEmpty {
                         filterModel.luggage = selectedLuggageArray
                     }else {
@@ -1451,7 +1453,7 @@ extension FilterVC {
         }
         
         if !filterModel.luggage.isEmpty {
-            luggageArray = filterModel.luggage
+            selectedLuggageArray = filterModel.luggage
         }
         
         

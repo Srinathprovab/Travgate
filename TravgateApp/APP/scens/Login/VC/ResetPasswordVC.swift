@@ -92,6 +92,7 @@ extension ResetPasswordVC {
     
     
     func callAPI() {
+        basicloderBool = true
         MySingleton.shared.payload.removeAll()
         
         MySingleton.shared.payload["email"] = email
@@ -102,7 +103,7 @@ extension ResetPasswordVC {
     
     
     func resetpasswordSucess(response: LoginModel) {
-        
+        basicloderBool = false
         showToast(message: response.data ?? "")
         if response.status == true {
             let seconds = 1.0

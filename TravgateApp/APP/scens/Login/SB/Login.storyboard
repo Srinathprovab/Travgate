@@ -308,12 +308,12 @@ instructions to your email.</string>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <color key="tintColor" red="0.70196078429999997" green="0.70196078429999997" blue="0.70196078429999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
-                                                    <constraint firstItem="duR-SU-70a" firstAttribute="top" secondItem="VtH-IP-sXs" secondAttribute="top" id="4wK-qh-8nH"/>
-                                                    <constraint firstItem="duR-SU-70a" firstAttribute="leading" secondItem="VtH-IP-sXs" secondAttribute="leading" id="DYu-kv-cKA"/>
-                                                    <constraint firstAttribute="trailing" secondItem="duR-SU-70a" secondAttribute="trailing" id="JdO-np-m21"/>
+                                                    <constraint firstAttribute="trailing" secondItem="duR-SU-70a" secondAttribute="trailing" id="20W-u1-CkY"/>
                                                     <constraint firstAttribute="width" constant="80" id="N7l-2o-x3q"/>
-                                                    <constraint firstAttribute="bottom" secondItem="duR-SU-70a" secondAttribute="bottom" id="PEZ-Q6-PhM"/>
+                                                    <constraint firstItem="duR-SU-70a" firstAttribute="leading" secondItem="VtH-IP-sXs" secondAttribute="leading" id="aoO-MR-dZT"/>
                                                     <constraint firstAttribute="height" constant="80" id="hph-9g-bnt"/>
+                                                    <constraint firstAttribute="bottom" secondItem="duR-SU-70a" secondAttribute="bottom" id="mah-hK-OBN"/>
+                                                    <constraint firstItem="duR-SU-70a" firstAttribute="top" secondItem="VtH-IP-sXs" secondAttribute="top" id="tsM-IZ-AO7"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
@@ -381,6 +381,7 @@ instructions to your email.</string>
                     <connections>
                         <outlet property="changePicturelbl" destination="rA6-DK-5Eo" id="3K6-t4-iXi"/>
                         <outlet property="commonTableView" destination="ePo-7R-e5H" id="qJg-hw-nvP"/>
+                        <outlet property="holderView" destination="gyW-Qg-omz" id="ztb-ed-p0Y"/>
                         <outlet property="profilePic" destination="duR-SU-70a" id="iu0-m4-xTE"/>
                         <outlet property="profileView" destination="VtH-IP-sXs" id="NaQ-Lx-6hG"/>
                     </connections>

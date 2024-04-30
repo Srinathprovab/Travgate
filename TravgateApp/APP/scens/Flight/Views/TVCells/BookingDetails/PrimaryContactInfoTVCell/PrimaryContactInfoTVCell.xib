@@ -170,13 +170,27 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" keyboardType="phonePad" textContentType="password"/>
                                                     </textField>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g0v-SF-4bO">
+                                                        <rect key="frame" x="395" y="2" width="40" height="40"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="40" id="2SX-Lx-k9T"/>
+                                                            <constraint firstAttribute="width" constant="40" id="ibV-x5-gUr"/>
+                                                        </constraints>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" image="hidepass"/>
+                                                        <connections>
+                                                            <action selector="didTapOnShowPasswordBtnAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="rrG-1A-hha"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstItem="Xnu-42-1nY" firstAttribute="leading" secondItem="qb8-Rv-H6K" secondAttribute="leading" id="3Nk-2G-h5d"/>
                                                     <constraint firstAttribute="trailing" secondItem="Xnu-42-1nY" secondAttribute="trailing" id="HB6-Ji-Ct6"/>
+                                                    <constraint firstAttribute="trailing" secondItem="g0v-SF-4bO" secondAttribute="trailing" constant="10" id="WOF-Vy-w5s"/>
                                                     <constraint firstAttribute="height" constant="44" id="mqH-4t-z0R"/>
                                                     <constraint firstAttribute="bottom" secondItem="Xnu-42-1nY" secondAttribute="bottom" id="qGI-h9-VNC"/>
+                                                    <constraint firstItem="g0v-SF-4bO" firstAttribute="centerY" secondItem="qb8-Rv-H6K" secondAttribute="centerY" id="x3z-j2-OoY"/>
                                                     <constraint firstItem="Xnu-42-1nY" firstAttribute="top" secondItem="qb8-Rv-H6K" secondAttribute="top" id="yfg-QY-I3t"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
@@ -290,11 +304,13 @@
                 <outlet property="mobileTF" destination="WWf-gr-BLa" id="wn5-Zs-8g7"/>
                 <outlet property="passTF" destination="Xnu-42-1nY" id="2e3-td-TDq"/>
                 <outlet property="regBtn" destination="wjH-Lz-UVH" id="5z5-Ig-TTH"/>
+                <outlet property="showpassBtn" destination="g0v-SF-4bO" id="TGw-za-DIF"/>
             </connections>
             <point key="canvasLocation" x="269.46564885496184" y="667.6056338028169"/>
         </tableViewCell>
     </objects>
     <resources>
+        <image name="hidepass" width="24" height="24"/>
         <namedColor name="BooknowBtnColor">
             <color red="0.93300002813339233" green="0.097999997437000275" blue="0.20800000429153442" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

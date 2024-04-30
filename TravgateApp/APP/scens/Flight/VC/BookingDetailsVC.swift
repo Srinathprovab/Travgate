@@ -361,7 +361,7 @@ extension BookingDetailsVC {
     func callAPI() {
         holderView.isHidden = true
         
-        
+        MySingleton.shared.loderString = "fdetails"
         MySingleton.shared.afterResultsBool = true
         loderBool = true
         showLoadera()
@@ -452,11 +452,16 @@ extension BookingDetailsVC {
         }
         
         
-        if (defaults.string(forKey: UserDefaultsKeys.loggedInStatus) != nil) == false {
+        let userloggedBool = defaults.bool(forKey: UserDefaultsKeys.loggedInStatus)
+        if userloggedBool == false {
+            
             if MySingleton.shared.guestbool == false {
+                
                 MySingleton.shared.tablerow.append(TableRow(cellType:.RegisterSelectionLoginTableViewCell))
                 MySingleton.shared.tablerow.append(TableRow(cellType:.PrimaryContactInfoTVCell))
+                
             }
+            
         }
         
         
@@ -1031,9 +1036,7 @@ extension BookingDetailsVC {
     
     func callRegisterAPI() {
         
-        MySingleton.shared.afterResultsBool = true
-        loderBool = true
-        showLoadera()
+        basicloderBool = true
         
         MySingleton.shared.payload.removeAll()
         MySingleton.shared.payload["first_name"] = "firstname"
@@ -1050,9 +1053,7 @@ extension BookingDetailsVC {
     
     func registerSucess(response: RegisterModel) {
         
-        holderView.isHidden = false
-        loderBool = false
-        hideLoadera()
+        basicloderBool = false
         
         
         if response.status == false {
@@ -1074,9 +1075,7 @@ extension BookingDetailsVC {
     
     func callLoginAPI() {
         
-        MySingleton.shared.afterResultsBool = true
-        loderBool = true
-        showLoadera()
+        basicloderBool = true
         
         MySingleton.shared.payload.removeAll()
         MySingleton.shared.payload["username"] = MySingleton.shared.payemail
@@ -1086,10 +1085,9 @@ extension BookingDetailsVC {
     }
     
     func loginSucess(response: LoginModel) {
-        holderView.isHidden = false
-        loderBool = false
-        hideLoadera()
         
+        
+        basicloderBool = false
         
         if response.status == false {
             showToast(message: response.data ?? "")

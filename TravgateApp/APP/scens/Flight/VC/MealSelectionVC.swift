@@ -57,7 +57,20 @@ class MealSelectionVC: BaseTableVC {
                                          "SelectMealTVCell",
                                          "NewSpecialAssistanceTVCell"])
         
-        setupBookingInformationTVCell()
+        
+        
+        MySingleton.shared.loderString = "fdetails"
+        MySingleton.shared.afterResultsBool = true
+        loderBool = true
+        showLoadera()
+        
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) { [unowned self] in
+            loderBool = false
+            hideLoadera()
+            setupBookingInformationTVCell()
+        }
+        
         
     }
     
@@ -106,7 +119,7 @@ class MealSelectionVC: BaseTableVC {
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) { [unowned self] in
             gotoSelectPaymentMethodsVC()
         }
-
+        
     }
     
     func gotoSelectPaymentMethodsVC() {
@@ -116,9 +129,9 @@ class MealSelectionVC: BaseTableVC {
         present(vc, animated: false)
     }
     
-   
     
-   
+    
+    
     
     
     override func didTapOnCheckBoxBtnAction(cell: SelectMealTVCell) {
@@ -134,7 +147,7 @@ class MealSelectionVC: BaseTableVC {
     }
     
     
-   
+    
 }
 
 

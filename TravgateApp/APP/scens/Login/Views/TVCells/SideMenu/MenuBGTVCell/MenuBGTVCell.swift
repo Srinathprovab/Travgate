@@ -38,7 +38,7 @@ class MenuBGTVCell: TableViewCell {
     override func updateUI() {
         if defaults.bool(forKey: UserDefaultsKeys.loggedInStatus) == true {
             
-            loginBtn.setTitle("   \( MySingleton.shared.profiledata?.first_name ?? "")", for: .normal)
+            loginBtn.setTitle("   \( MySingleton.shared.profiledata?.first_name ?? "") \( MySingleton.shared.profiledata?.last_name ?? "")", for: .normal)
             loginBtn.isUserInteractionEnabled = false
             editProfileView.isHidden = false
             
@@ -67,7 +67,31 @@ class MenuBGTVCell: TableViewCell {
             editProfileView.isHidden = true
             loginBtn.isUserInteractionEnabled = true
         }
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(logindone), name: Notification.Name("logindone"), object: nil)
     }
+    
+    @objc func logindone() {
+        if MySingleton.shared.profiledata?.image != "" {
+            profileImage.sd_setImage(with: URL(string: MySingleton.shared.profiledata?.image ?? ""), placeholderImage:UIImage(contentsOfFile:"placeholder.png"),options: [.retryFailed], completed: { (image, error, cacheType, imageURL) in
+                if let error = error {
+                    // Handle error loading image
+                    print("Error loading image: \(error.localizedDescription)")
+                    // Check if the error is due to a 404 Not Found response
+                    if (error as NSError).code == NSURLErrorBadServerResponse {
+                        // Set placeholder image for 404 error
+                        self.profileImage.image = UIImage(named: "noimage")
+                    } else {
+                        // Set placeholder image for other errors
+                        self.profileImage.image = UIImage(named: "noimage")
+                    }
+                }
+            })
+        }else {
+            profileImage.image = UIImage(named: "noprofile")?.withRenderingMode(.alwaysOriginal)
+        }
+    }
+    
     
     
     func setupUI() {
@@ -82,7 +106,7 @@ class MenuBGTVCell: TableViewCell {
         
         editProfileView.backgroundColor = .clear
         editProfileBtn.layer.cornerRadius = 15
-        editProfileBtn.layer.borderColor = UIColor.WhiteColor.cgColor
+        editProfileBtn.layer.borderColor = UIColor.Buttoncolor.cgColor
         editProfileBtn.layer.borderWidth = 2
     }
     

@@ -69,7 +69,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b2C-ho-ae3" customClass="BorderedView" customModule="Travgate" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="31.666666666666657" width="304" height="48"/>
                                         <subviews>
-                                            <textField opaque="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Address" textAlignment="natural" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="csQ-94-e3K">
+                                            <textField opaque="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email Address" textAlignment="natural" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="csQ-94-e3K">
                                                 <rect key="frame" x="0.0" y="0.0" width="304" height="48"/>
                                                 <fontDescription key="fontDescription" name="OpenSans-Medium" family="Open Sans" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -189,7 +189,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q4S-4Z-4SH">
-                                <rect key="frame" x="50" y="419" width="260" height="48"/>
+                                <rect key="frame" x="50" y="462" width="260" height="48"/>
                                 <color key="backgroundColor" name="Buttoncolor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="1Jc-sU-TAq"/>
@@ -204,13 +204,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Or Sign Up" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GJp-69-y9H">
-                                <rect key="frame" x="150.33333333333334" y="547" width="59.666666666666657" height="14"/>
+                                <rect key="frame" x="150.33333333333334" y="590" width="59.666666666666657" height="14"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dLa-a7-aL5">
-                                <rect key="frame" x="90.333333333333329" y="553" width="49.999999999999986" height="2"/>
+                                <rect key="frame" x="90.333333333333329" y="596" width="49.999999999999986" height="2"/>
                                 <color key="backgroundColor" name="BorderColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="2" id="vAg-CH-6DP"/>
@@ -218,37 +218,56 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gxv-hp-A7h">
-                                <rect key="frame" x="220" y="553" width="50" height="2"/>
+                                <rect key="frame" x="220" y="596" width="50" height="2"/>
                                 <color key="backgroundColor" name="BorderColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="K9n-XW-RTS"/>
                                     <constraint firstAttribute="height" constant="2" id="U1G-0j-H7s"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="apV-7M-xn1">
-                                <rect key="frame" x="157.66666666666666" y="581" width="45" height="25"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="25" id="HfW-2r-Dvc"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="12"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Sign Up">
-                                    <color key="titleColor" name="Buttoncolor"/>
-                                </state>
-                                <connections>
-                                    <action selector="didTapOnSignUpBtnAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="3Jl-D2-eNJ"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wJm-L5-xod">
+                                <rect key="frame" x="91.666666666666686" y="624" width="177" height="25"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9S2-DG-gXL">
+                                        <rect key="frame" x="0.0" y="0.0" width="132" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="Wg2-Bb-nIS"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="OpenSans-Medium" family="Open Sans" pointSize="12"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Don’t have an account?">
+                                            <color key="titleColor" name="TitleColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTapOnSignUpBtnAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="nQn-dA-au6"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="apV-7M-xn1">
+                                        <rect key="frame" x="132" y="0.0" width="45" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="HfW-2r-Dvc"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="12"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Sign Up">
+                                            <color key="titleColor" name="BooknowBtnColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTapOnSignUpBtnAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="3Jl-D2-eNJ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="q4S-4Z-4SH" secondAttribute="trailing" constant="50" id="4Bu-BD-joy"/>
                             <constraint firstItem="gxv-hp-A7h" firstAttribute="leading" secondItem="GJp-69-y9H" secondAttribute="trailing" constant="10" id="7Lu-7f-icV"/>
-                            <constraint firstItem="apV-7M-xn1" firstAttribute="top" secondItem="GJp-69-y9H" secondAttribute="bottom" constant="20" id="9QM-eM-eaD"/>
                             <constraint firstAttribute="trailing" secondItem="hFi-T1-w40" secondAttribute="trailing" constant="28" id="FLK-Bj-iGK"/>
                             <constraint firstItem="IYd-fK-08i" firstAttribute="top" secondItem="hFi-T1-w40" secondAttribute="bottom" constant="20" id="HK0-TC-yQD"/>
                             <constraint firstAttribute="trailing" secondItem="C3H-WH-7vm" secondAttribute="trailing" constant="15" id="I5H-5f-opT"/>
                             <constraint firstItem="GJp-69-y9H" firstAttribute="leading" secondItem="dLa-a7-aL5" secondAttribute="trailing" constant="10" id="LDl-mY-q3Q"/>
+                            <constraint firstItem="wJm-L5-xod" firstAttribute="centerX" secondItem="xoC-bw-nS6" secondAttribute="centerX" id="Ne6-P0-TOi"/>
                             <constraint firstItem="GJp-69-y9H" firstAttribute="top" secondItem="q4S-4Z-4SH" secondAttribute="bottom" constant="80" id="OKi-sf-Qmn"/>
                             <constraint firstItem="CNf-4G-bXo" firstAttribute="top" secondItem="IYd-fK-08i" secondAttribute="bottom" constant="10" id="QYJ-rU-wYu"/>
                             <constraint firstItem="q4S-4Z-4SH" firstAttribute="leading" secondItem="xoC-bw-nS6" secondAttribute="leading" constant="50" id="Vha-qY-1zm"/>
@@ -258,10 +277,10 @@
                             <constraint firstAttribute="trailing" secondItem="CNf-4G-bXo" secondAttribute="trailing" constant="32" id="a45-Kd-79C"/>
                             <constraint firstItem="C3H-WH-7vm" firstAttribute="centerY" secondItem="Ah6-7Y-xme" secondAttribute="centerY" id="dab-rp-Ug7"/>
                             <constraint firstItem="IYd-fK-08i" firstAttribute="leading" secondItem="xoC-bw-nS6" secondAttribute="leading" constant="28" id="hd6-0M-QWo"/>
-                            <constraint firstItem="q4S-4Z-4SH" firstAttribute="top" secondItem="CNf-4G-bXo" secondAttribute="bottom" constant="7" id="ibf-gn-JnB"/>
+                            <constraint firstItem="q4S-4Z-4SH" firstAttribute="top" secondItem="CNf-4G-bXo" secondAttribute="bottom" constant="50" id="ibf-gn-JnB"/>
                             <constraint firstItem="GJp-69-y9H" firstAttribute="centerX" secondItem="xoC-bw-nS6" secondAttribute="centerX" id="lkE-zD-JmR"/>
                             <constraint firstItem="gxv-hp-A7h" firstAttribute="centerY" secondItem="GJp-69-y9H" secondAttribute="centerY" id="qTz-Mq-MIF"/>
-                            <constraint firstItem="apV-7M-xn1" firstAttribute="centerX" secondItem="GJp-69-y9H" secondAttribute="centerX" id="sod-Ee-liB"/>
+                            <constraint firstItem="wJm-L5-xod" firstAttribute="top" secondItem="GJp-69-y9H" secondAttribute="bottom" constant="20" id="t5k-uI-nYh"/>
                             <constraint firstItem="hFi-T1-w40" firstAttribute="top" secondItem="Ah6-7Y-xme" secondAttribute="bottom" constant="75" id="wb9-MI-au9"/>
                             <constraint firstItem="Ah6-7Y-xme" firstAttribute="centerX" secondItem="xoC-bw-nS6" secondAttribute="centerX" id="y0e-4a-nUj"/>
                             <constraint firstItem="hFi-T1-w40" firstAttribute="leading" secondItem="xoC-bw-nS6" secondAttribute="leading" constant="28" id="zns-EB-q9g"/>
@@ -295,17 +314,20 @@
     </objects>
     <resources>
         <image name="close" width="26" height="26"/>
-        <image name="hidepass" width="512" height="512"/>
+        <image name="hidepass" width="24" height="24"/>
         <image name="loginbg" width="375" height="811"/>
         <image name="logo" width="336" height="108"/>
         <namedColor name="BooknowBtnColor">
             <color red="0.93300002813339233" green="0.097999997437000275" blue="0.20800000429153442" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="BorderColor">
-            <color red="0.0" green="0.0" blue="0.0" alpha="0.16" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.80000001192092896" green="0.80000001192092896" blue="0.80000001192092896" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Buttoncolor">
             <color red="0.2669999897480011" green="0.70999997854232788" blue="0.046999998390674591" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TitleColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

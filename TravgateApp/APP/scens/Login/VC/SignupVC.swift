@@ -143,6 +143,7 @@ extension SignupVC {
     
     
     func callAPI() {
+        basicloderBool = true
         MySingleton.shared.payload.removeAll()
         MySingleton.shared.payload["first_name"] = fname
         MySingleton.shared.payload["last_name"] = lname
@@ -154,7 +155,7 @@ extension SignupVC {
     
     
     func registerSucess(response: RegisterModel) {
-        
+        basicloderBool = false
         showToast(message: response.msg ?? "")
         
         if response.status == true {

@@ -168,6 +168,7 @@ class FlightSearchTVCell: TableViewCell, SelectCityViewModelProtocal {
         
         
         airlineTF.isHidden = true
+        directFlightCheckImg.image = UIImage(named: "uncheck")?.withRenderingMode(.alwaysOriginal).withTintColor(.TitleColor)
     }
     
     override func updateUI() {
@@ -239,7 +240,7 @@ class FlightSearchTVCell: TableViewCell, SelectCityViewModelProtocal {
         if MySingleton.shared.directflightString == "on" {
             directFlightCheckImg.image = UIImage(named: "check")?.withRenderingMode(.alwaysOriginal).withTintColor(.Buttoncolor)
         }else {
-            directFlightCheckImg.image = UIImage(named: "uncheck")
+            directFlightCheckImg.image = UIImage(named: "uncheck")?.withRenderingMode(.alwaysOriginal).withTintColor(.TitleColor)
         }
         
         
@@ -279,7 +280,7 @@ class FlightSearchTVCell: TableViewCell, SelectCityViewModelProtocal {
             directFlightCheckImg.image = UIImage(named: "check")?.withRenderingMode(.alwaysOriginal).withTintColor(.Buttoncolor)
             MySingleton.shared.directflightString = "on"
         }else {
-            directFlightCheckImg.image = UIImage(named: "uncheck")
+            directFlightCheckImg.image = UIImage(named: "uncheck")?.withRenderingMode(.alwaysOriginal).withTintColor(.TitleColor)
             MySingleton.shared.directflightString = ""
         }
     }
@@ -525,13 +526,14 @@ extension FlightSearchTVCell:UICollectionViewDelegate,UICollectionViewDataSource
         infoCV.dataSource = self
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: 150, height: 50)
-        layout.scrollDirection = .vertical
+        layout.scrollDirection = .horizontal
         layout.minimumInteritemSpacing = 5
         layout.minimumLineSpacing = 5
         layout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
         infoCV.collectionViewLayout = layout
         infoCV.isScrollEnabled = false
         infoCV.allowsMultipleSelection = true
+        
     }
     
     

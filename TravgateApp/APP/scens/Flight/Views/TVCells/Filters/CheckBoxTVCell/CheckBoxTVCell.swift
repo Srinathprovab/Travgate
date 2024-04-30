@@ -71,7 +71,7 @@ class CheckBoxTVCell: TableViewCell {
         tvHeight.constant = CGFloat(nameArray.count * 50)
         
         switch titlelbl.text {
-        
+            
             
         case "multicity":
             titlelbl.text = ""
@@ -93,7 +93,7 @@ class CheckBoxTVCell: TableViewCell {
         btnView.isHidden = true
         //        btnViewHeight.constant = 0
         //        tvHeight.constant = 0
-    //    downImg.image = UIImage(named: "down")
+        //    downImg.image = UIImage(named: "down")
         holderView.backgroundColor = .WhiteColor
         titlelbl.textColor = .AppLabelColor
         titlelbl.font = UIFont.OpenSansMedium(size: 17)
@@ -152,27 +152,27 @@ class CheckBoxTVCell: TableViewCell {
 
 
 extension CheckBoxTVCell: UITableViewDataSource, UITableViewDelegate {
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return nameArray.count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! checkOptionsTVCell
         cell.selectionStyle = .none
         cell.titlelbl.text = nameArray[indexPath.row]
         cell.filtertitle = self.titlelbl.text ?? ""
-
+        
         // Check if this indexPath is in the selectedIndices array
         if selectedIndices.contains(indexPath) {
             cell.checkImg.image = UIImage(named: "check")?.withRenderingMode(.alwaysOriginal)
         } else {
             cell.checkImg.image = UIImage(named: "uncheck")?.withRenderingMode(.alwaysOriginal)
         }
-
+        
         // Explicitly set the cell's appearance here
         cell.setSelected(selectedIndices.contains(indexPath), animated: false)
-
+        
         if let tabselect = defaults.string(forKey: UserDefaultsKeys.tabselect) {
             if tabselect == "Flight" {
                 showSelectedFlightsFilterValues(cell: cell, indexPath: indexPath)
@@ -185,10 +185,10 @@ extension CheckBoxTVCell: UITableViewDataSource, UITableViewDelegate {
         if cellInfo?.key == "time" {
             
         }
-
+        
         return cell
     }
-
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let cell = tableView.cellForRow(at: indexPath) as? checkOptionsTVCell {
             if !selectedIndices.contains(indexPath) {
@@ -198,7 +198,7 @@ extension CheckBoxTVCell: UITableViewDataSource, UITableViewDelegate {
             delegate?.didTapOnCheckBox(cell: cell)
         }
     }
-
+    
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         if let cell = tableView.cellForRow(at: indexPath) as? checkOptionsTVCell {
             if let index = selectedIndices.firstIndex(of: indexPath) {
@@ -363,6 +363,7 @@ extension CheckBoxTVCell {
                 }
             }
             
+            
         case "Stops":
             
             if !filterModel.noOfStops.isEmpty {
@@ -443,6 +444,7 @@ extension CheckBoxTVCell {
                     cell.unselected() // Deselect the cell
                 }
             }
+            
             
         case "Connecting Airports":
             if !filterModel.connectingAirports.isEmpty {

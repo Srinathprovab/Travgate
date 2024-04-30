@@ -27,6 +27,7 @@ class PrimaryContactInfoTVCell: TableViewCell {
     @IBOutlet weak var countrycodeTF: UITextField!
     @IBOutlet weak var regBtn: UIButton!
     @IBOutlet weak var guestBtn: UIButton!
+    @IBOutlet weak var showpassBtn: UIButton!
     
     
     var delegate:PrimaryContactInfoTVCellDelegate?
@@ -44,7 +45,7 @@ class PrimaryContactInfoTVCell: TableViewCell {
     var countryNameArray = [String]()
     var isoCountryCode = String()
     var billingCountryName = String()
-    
+    var showpasswordbool = false
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -161,6 +162,18 @@ class PrimaryContactInfoTVCell: TableViewCell {
         delegate?.didTapOnGuestBtnAction(cell: self)
     }
     
+    
+    @IBAction func didTapOnShowPasswordBtnAction(_ sender: Any) {
+        showpasswordbool.toggle()
+        if showpasswordbool {
+            showpassBtn.setImage(UIImage(named: "showpass")?.withRenderingMode(.alwaysOriginal).withTintColor(.Buttoncolor), for: .normal)
+            passTF.isSecureTextEntry = false
+        }else {
+            showpassBtn.setImage(UIImage(named: "hidepass"), for: .normal)
+            passTF.isSecureTextEntry = true
+        }
+    }
+    
 }
 
 extension PrimaryContactInfoTVCell {
@@ -266,7 +279,7 @@ extension PrimaryContactInfoTVCell {
             let characterSet = CharacterSet(charactersIn: string)
             return allowedCharacters.isSuperset(of: characterSet) && newString.length <= maxLength
         }else {
-            maxLength = 30
+            maxLength = 100
             let currentString: NSString = textField.text! as NSString
             let newString: NSString =  currentString.replacingCharacters(in: range, with: string) as NSString
             return newString.length <= maxLength

@@ -62,6 +62,7 @@ class FlightResultTVCell: TableViewCell {
     }
     
     override func updateUI() {
+        
         returnBtn.layer.cornerRadius = 4
         selectedResult = cellInfo?.title ?? ""
         flightsummery = cellInfo?.data1 as! [Summary]
@@ -74,6 +75,12 @@ class FlightResultTVCell: TableViewCell {
         
         kwdlbl.text = "\(flightlist?.price?.api_currency ?? ""):\(kwdprice)"
         strikekwdlbl.text = "\(flightlist?.price?.api_currency ?? ""):\(strikekwdprice)"
+        
+        if kwdprice == strikekwdprice {
+            strikekwdlbl.isHidden = true
+        }else {
+            strikekwdlbl.isHidden = false
+        }
         
         
         setAttributedString1(str1: strikekwdlbl.text ?? "")
@@ -108,6 +115,7 @@ class FlightResultTVCell: TableViewCell {
         summeryTV.reloadData()
         
         
+       
     }
     
     

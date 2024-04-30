@@ -200,8 +200,10 @@ extension FlightDeatilsVC {
 extension FlightDeatilsVC {
     
     func callAPI() {
+       
         holderView.isHidden = true
         
+        MySingleton.shared.loderString = "fdetails"
         MySingleton.shared.afterResultsBool = true
         loderBool = true
         showLoadera()

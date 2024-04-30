@@ -259,7 +259,9 @@ extension FlightResultVC {
                 
                 self.datelbl.text = previousDayString
                 
-                //   callAPI()
+                
+                
+                //     callAPI()
                 callActiveBookingSourceAPI()
                 
             }else {
@@ -288,7 +290,8 @@ extension FlightResultVC {
                     MySingleton.shared.payload["depature"] = MySingleton.shared.convertDateFormat(inputDate: defaults.string(forKey: UserDefaultsKeys.calDepDate) ?? "", f1: "dd-MM-yyyy", f2: "dd/MM/yyyy")
                     self.datelbl.text = nextDayString
                     
-                    //  callAPI()
+                    
+                    // callAPI()
                     
                     callActiveBookingSourceAPI()
                 }
@@ -325,7 +328,10 @@ extension FlightResultVC {
                 MySingleton.shared.payload["depature"] = MySingleton.shared.convertDateFormat(inputDate: defaults.string(forKey: UserDefaultsKeys.calDepDate) ?? "", f1: "dd-MM-yyyy", f2: "dd/MM/yyyy")
                 self.datelbl.text = nextDayString
                 
-                //  callAPI()
+                
+                
+                
+                //   callAPI()
                 
                 callActiveBookingSourceAPI()
                 
@@ -355,7 +361,9 @@ extension FlightResultVC {
                     MySingleton.shared.payload["depature"] = MySingleton.shared.convertDateFormat(inputDate: defaults.string(forKey: UserDefaultsKeys.calDepDate) ?? "", f1: "dd-MM-yyyy", f2: "dd/MM/yyyy")
                     self.datelbl.text = nextDayString
                     
-                    //   callAPI()
+                    
+                    
+                    // callAPI()
                     
                     callActiveBookingSourceAPI()
                 }
@@ -582,8 +590,8 @@ extension FlightResultVC:AppliedFilters {
                 
                 
                 let luggageMatch = luggageFilterArray.isEmpty || summary.contains(where: {
-                    let formattedWeight = MySingleton.shared.convertToDesiredFormat($0.weight_Allowance ?? "")
-                    return luggageFilterArray.contains(formattedWeight)
+                    let formattedWeight = MySingleton.shared.convertToPC(input: $0.weight_Allowance ?? "")
+                    return luggageFilterArray.contains(formattedWeight ?? "")
                 }) == true
                 
                 
@@ -740,8 +748,8 @@ extension FlightResultVC {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [unowned self] in
                 callActiveBookingSourceAPI()
             }
-           
-           
+            
+            
         }
     }
     
@@ -826,7 +834,7 @@ extension FlightResultVC {
         MySingleton.shared.loderString = "loder"
         loderBool = true
         showLoadera()
-       
+        
         
         MySingleton.shared.vm?.CALL_GET_ACTIVE_BOOKING_SOURCE_API(dictParam: [:])
     }
@@ -851,7 +859,7 @@ extension FlightResultVC {
     
     func flighPresearchResult(response:MobileFlightPreSearchModel) {
         
-        MySingleton.shared.payload.removeAll()
+        MySingleton.shared.payload1.removeAll()
         
         
         bsDataArray.forEach { i in
@@ -870,10 +878,10 @@ extension FlightResultVC {
     
     func callFlightSearch(bookingsource:String,searchid:Int) {
         
-        MySingleton.shared.payload["search_id"] = "\(searchid)"
-        MySingleton.shared.payload["booking_source"] = bookingsource
+        MySingleton.shared.payload1["search_id"] = "\(searchid)"
+        MySingleton.shared.payload1["booking_source"] = bookingsource
         
-        MySingleton.shared.vm?.CALL_GET_FLIGHTS_SEARCH_API(dictParam: MySingleton.shared.payload)
+        MySingleton.shared.vm?.CALL_GET_FLIGHTS_SEARCH_API(dictParam: MySingleton.shared.payload1)
         
     }
     
@@ -922,7 +930,7 @@ extension FlightResultVC {
         
         if bookingSourceDataArrayCount == 0 {
             
-           
+            
             if MySingleton.shared.flights.count <= 0 {
                 gotoNoInternetScreen(keystr: "noresult")
                 
@@ -976,8 +984,12 @@ extension FlightResultVC {
                         prices.append("\(k.price?.api_total_display_fare ?? 0.0)")
                         AirlinesArray.append(m.operator_name ?? "")
                         
-                        if m.weight_Allowance != nil || m.weight_Allowance?.isEmpty == false {
-                            luggageArray.append(MySingleton.shared.convertToDesiredFormat(m.weight_Allowance ?? ""))
+                        
+                        
+                        if let convertedString = MySingleton.shared.convertToPC(input: m.weight_Allowance ?? "") {
+                            luggageArray.append(convertedString)
+                        } else {
+                            print("Invalid input format")
                         }
                         
                         
@@ -1002,6 +1014,7 @@ extension FlightResultVC {
         ConnectingAirportsArray = ConnectingAirportsArray.unique()
         prices = prices.unique()
         luggageArray = luggageArray.unique()
+        
         
         DispatchQueue.main.async {
             self.setupTVCell(list: MySingleton.shared.flights)

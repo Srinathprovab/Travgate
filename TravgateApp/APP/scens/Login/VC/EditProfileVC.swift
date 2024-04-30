@@ -14,7 +14,7 @@ class EditProfileVC: BaseTableVC, ProfileViewModelDelegate {
     
     
     
-    
+    @IBOutlet weak var holderView: UIView!
     @IBOutlet weak var profileView: BorderedView!
     @IBOutlet weak var changePicturelbl: UILabel!
     @IBOutlet weak var profilePic: UIImageView!
@@ -44,6 +44,9 @@ class EditProfileVC: BaseTableVC, ProfileViewModelDelegate {
     var country_code = String()
     
     var pickerbool = false
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -55,14 +58,23 @@ class EditProfileVC: BaseTableVC, ProfileViewModelDelegate {
     
     
     func setupUI() {
-        profileView.layer.cornerRadius = 40
+        
+        profileView.backgroundColor = .clear
         profilePic.layer.cornerRadius = 40
-        profiledetails()
+        profilePic.layer.borderColor = UIColor.BorderColor.cgColor
+        profilePic.layer.borderWidth = 2
+        
+       
         setAttributedString(str1: "Change Picture")
         commonTableView.backgroundColor = .WhiteColor
         commonTableView.registerTVCells(["EditProfileTVCell",
                                          "EmptyTVCell"])
-        setupTVCells()
+        
+        
+        DispatchQueue.main.async {
+            self.callShowProfileAPI()
+        }
+        
     }
     
     
@@ -265,7 +277,7 @@ extension EditProfileVC:UIImagePickerControllerDelegate & UINavigationController
 extension EditProfileVC {
     
     func profiledetails() {
-        profilePic.layer.cornerRadius = 40
+        
         first_name = MySingleton.shared.profiledata?.first_name ?? ""
         last_name = MySingleton.shared.profiledata?.last_name ?? ""
         date_of_birth = MySingleton.shared.profiledata?.date_of_birth ?? ""
@@ -278,13 +290,27 @@ extension EditProfileVC {
         email = MySingleton.shared.profiledata?.email ?? ""
         gender = MySingleton.shared.profiledata?.gender ?? ""
         
+    
         
-        if MySingleton.shared.profiledata?.image == "" || MySingleton.shared.profiledata?.image == nil {
-            profilePic.image = UIImage(named: "noprofile")
+        if MySingleton.shared.profiledata?.image != "" {
+            profilePic.sd_setImage(with: URL(string: MySingleton.shared.profiledata?.image ?? ""), placeholderImage:UIImage(contentsOfFile:"placeholder.png"),options: [.retryFailed], completed: { (image, error, cacheType, imageURL) in
+                if let error = error {
+                    // Handle error loading image
+                    print("Error loading image: \(error.localizedDescription)")
+                    // Check if the error is due to a 404 Not Found response
+                    if (error as NSError).code == NSURLErrorBadServerResponse {
+                        // Set placeholder image for 404 error
+                        self.profilePic.image = UIImage(named: "noimage")
+                    } else {
+                        // Set placeholder image for other errors
+                        self.profilePic.image = UIImage(named: "noimage")
+                    }
+                }
+            })
         }else {
-            profilePic.sd_setImage(with: URL(string:  MySingleton.shared.profiledata?.image ?? ""), placeholderImage:UIImage(contentsOfFile:"placeholder.png"))
+            profilePic.image = UIImage(named: "noprofile")?.withRenderingMode(.alwaysOriginal)
         }
-       
+        
         
         if gender == "" {
             gender = "Male"
@@ -294,6 +320,7 @@ extension EditProfileVC {
     
     
     func updateProfile(){
+        
         if first_name.isEmpty == true {
             showToast(message: "Enter First Name")
         }else  if last_name.isEmpty == true {
@@ -324,10 +351,7 @@ extension EditProfileVC {
         }
     }
     
-    
-    func profileDetails(response: ProfileModel) {
-        
-    }
+
     
     func profileUpdateSucess(response: ProfileModel) {
         
@@ -343,6 +367,10 @@ extension EditProfileVC {
     
     
     func callUpdateProfileAPI() {
+        
+        
+
+        basicloderBool = true
         MySingleton.shared.profilevm?.view.showLoader()
         
         let headersnew: HTTPHeaders = [
@@ -356,7 +384,7 @@ extension EditProfileVC {
                 multipartFormData.append("\(value)".data(using: String.Encoding.utf8)!, withName: key)
             }
             
-       //      Append the image to the request
+            //      Append the image to the request
             if let imageData = self.profilePic?.image?.jpegData(compressionQuality: 0.4) {
                 multipartFormData.append(imageData, withName: "image", fileName: "\(Date()).jpg", mimeType: "image/jpeg")
             }
@@ -366,7 +394,12 @@ extension EditProfileVC {
             switch response.result {
             case .success(let profileUpdateModel):
                 // Handle success
+                
+                
+
+                basicloderBool = false
                 MySingleton.shared.profilevm?.view.hideLoader()
+                
                 self.showToast(message: profileUpdateModel.msg ?? "")
                 
                 MySingleton.shared.profiledata = profileUpdateModel.data
@@ -396,3 +429,30 @@ extension EditProfileVC {
 }
 
 
+extension EditProfileVC {
+    
+    func callShowProfileAPI() {
+        basicloderBool = true
+        MySingleton.shared.profilevm?.view.showLoader()
+        MySingleton.shared.payload.removeAll()
+        MySingleton.shared.payload["user_id"] = defaults.string(forKey: UserDefaultsKeys.userid) ?? "0"
+        MySingleton.shared.profilevm?.CALL_SHOW_PROFILE_DETAILS_API(dictParam:  MySingleton.shared.payload)
+    }
+    
+    
+    func profileDetails(response: ProfileModel) {
+        basicloderBool = false
+        MySingleton.shared.profilevm?.view.hideLoader()
+        MySingleton.shared.profiledata = response.data
+        
+        DispatchQueue.main.async {
+            self.setupTVCells()
+        }
+        
+        DispatchQueue.main.async {
+            self.profiledetails()
+        }
+    }
+    
+    
+}

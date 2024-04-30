@@ -106,6 +106,7 @@ extension LoginVC {
     
     
     func callAPI() {
+        basicloderBool = true
         MySingleton.shared.payload.removeAll()
         MySingleton.shared.payload["username"] = email
         MySingleton.shared.payload["password"] = password
@@ -114,7 +115,7 @@ extension LoginVC {
     
     
     func loginSucess(response: LoginModel) {
-        
+        basicloderBool = false
         showToast(message: response.data ?? "")
         
         if response.status == true {

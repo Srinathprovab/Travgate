@@ -36,7 +36,19 @@ class SelectPaymentMethodsVC: BaseTableVC, MobileProcessPassengerDetailVMDelegat
                                          "EmptyTVCell"])
         
         
-        setupTVCells()
+        MySingleton.shared.loderString = "fdetails"
+        MySingleton.shared.afterResultsBool = true
+        loderBool = true
+        showLoadera()
+        
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) { [unowned self] in
+            loderBool = false
+            hideLoadera()
+            setupTVCells()
+        }
+        
+       
         
     }
     
@@ -110,7 +122,12 @@ extension SelectPaymentMethodsVC {
     
     
     func CALL_MOBILE_PROCESS_PASSENGER_DETAIL_API() {
+        
         MySingleton.shared.loderString = "payment"
+        MySingleton.shared.afterResultsBool = true
+        loderBool = true
+        showLoadera()
+        
         
         showToast(message: "Still Under Development")
         
@@ -136,6 +153,13 @@ extension SelectPaymentMethodsVC {
     
     
     func gotoLoadWebViewVC(urlStr1:String) {
+        
+        //        holderView.isHidden = false
+        loderBool = false
+        hideLoadera()
+        
+        
+        
         guard let vc = LoadWebViewVC.newInstance.self else {return}
         vc.modalPresentationStyle = .fullScreen
         vc.urlString = urlStr1
@@ -207,8 +231,6 @@ extension SelectPaymentMethodsVC {
             }else {
                 gotoFlightResultVC()
             }
-            
-            
             
             
         }

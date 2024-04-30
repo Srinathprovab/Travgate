@@ -28,9 +28,8 @@ class FlightSearchVC: BaseTableVC, SearchDataViewModelDelegate, GetAirlineViewMo
      
     
     override func viewWillAppear(_ animated: Bool) {
-       
+        basicloderBool = false
         addObserver()
-        
     }
     
     

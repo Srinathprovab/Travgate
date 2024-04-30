@@ -37,10 +37,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7eB-Fp-qkP" customClass="BorderedView" customModule="Travgate" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="404" height="1016"/>
+                        <rect key="frame" x="0.0" y="0.0" width="404" height="1043"/>
                         <subviews>
                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="huY-kN-cmK" customClass="BorderedView" customModule="Travgate" customModuleProvider="target">
-                                <rect key="frame" x="24" y="941" width="356" height="60"/>
+                                <rect key="frame" x="24" y="968" width="356" height="60"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flight Search" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RuK-tz-jKb">
                                         <rect key="frame" x="122" y="17.666666666666629" width="112" height="24.666666666666671"/>
@@ -764,7 +764,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2hh-hL-JPy" customClass="BorderedView" customModule="Travgate" customModuleProvider="target">
                                         <rect key="frame" x="192.66666666666663" y="0.0" width="187.33333333333337" height="74"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Child(12+11)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3r0-UQ-eas">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Child(12-11)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3r0-UQ-eas">
                                                 <rect key="frame" x="15" y="7" width="157.33333333333334" height="18"/>
                                                 <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="13"/>
                                                 <color key="textColor" name="fromcolor"/>
@@ -911,7 +911,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lzu-dU-ILg" customClass="BorderedView" customModule="Travgate" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="187.66666666666666" height="74"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Infants(0+2)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iG1-L5-c9h">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Infants(0-2)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iG1-L5-c9h">
                                                 <rect key="frame" x="15" y="7" width="157.66666666666666" height="18"/>
                                                 <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="13"/>
                                                 <color key="textColor" name="fromcolor"/>
@@ -1061,6 +1061,7 @@
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pkQ-ZU-cgU">
                                                         <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                        <color key="tintColor" name="Buttoncolor"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain"/>
                                                         <connections>
@@ -1359,7 +1360,7 @@
                                 </constraints>
                             </tableView>
                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="TsD-Il-vGh">
-                                <rect key="frame" x="0.0" y="704" width="404" height="218"/>
+                                <rect key="frame" x="0.0" y="704" width="404" height="230"/>
                                 <subviews>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="      Select Aditional options" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VLD-Q3-HfQ">
                                         <rect key="frame" x="0.0" y="-17" width="181" height="17"/>
@@ -1371,7 +1372,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D0V-3o-bwK">
-                                        <rect key="frame" x="0.0" y="0.0" width="404" height="218"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="404" height="230"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="info" translatesAutoresizingMaskIntoConstraints="NO" id="Dff-3W-0E7">
                                                 <rect key="frame" x="12" y="12" width="20" height="20"/>
@@ -1380,15 +1381,15 @@
                                                     <constraint firstAttribute="height" constant="20" id="pM3-x5-OOE"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select the additional options it will added in Final booking page" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rn1-Tf-YMo">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select the additional options it will added in Final booking page" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rn1-Tf-YMo">
                                                 <rect key="frame" x="39" y="13.666666666666687" width="358" height="16.666666666666671"/>
                                                 <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="12"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="diY-vl-7l0">
-                                                <rect key="frame" x="14" y="48.333333333333371" width="376" height="159.66666666666663"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <rect key="frame" x="14" y="40.333333333333371" width="376" height="184.66666666666663"/>
+                                                <color key="backgroundColor" name="WhiteColor"/>
                                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="16c-Z3-1QN">
                                                     <size key="itemSize" width="128" height="128"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -1399,16 +1400,16 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="diY-vl-7l0" firstAttribute="top" secondItem="rn1-Tf-YMo" secondAttribute="bottom" constant="18" id="0RQ-2D-rOT"/>
+                                            <constraint firstItem="diY-vl-7l0" firstAttribute="top" secondItem="rn1-Tf-YMo" secondAttribute="bottom" constant="10" id="0RQ-2D-rOT"/>
                                             <constraint firstItem="Dff-3W-0E7" firstAttribute="leading" secondItem="D0V-3o-bwK" secondAttribute="leading" constant="12" id="331-GR-HrM"/>
                                             <constraint firstItem="diY-vl-7l0" firstAttribute="leading" secondItem="D0V-3o-bwK" secondAttribute="leading" constant="14" id="Ax7-Pv-kpF"/>
-                                            <constraint firstAttribute="height" constant="218" id="Bf6-MM-de6"/>
+                                            <constraint firstAttribute="height" constant="230" id="Bf6-MM-de6"/>
                                             <constraint firstAttribute="trailing" secondItem="diY-vl-7l0" secondAttribute="trailing" constant="14" id="FDv-Za-yiU"/>
                                             <constraint firstItem="Dff-3W-0E7" firstAttribute="top" secondItem="D0V-3o-bwK" secondAttribute="top" constant="12" id="N70-o1-aQi"/>
                                             <constraint firstAttribute="trailing" secondItem="rn1-Tf-YMo" secondAttribute="trailing" constant="7" id="hyc-Wn-fdY"/>
                                             <constraint firstItem="rn1-Tf-YMo" firstAttribute="centerY" secondItem="Dff-3W-0E7" secondAttribute="centerY" id="uVd-Ab-SaN"/>
                                             <constraint firstItem="rn1-Tf-YMo" firstAttribute="leading" secondItem="Dff-3W-0E7" secondAttribute="trailing" constant="7" id="uWP-a2-Qjw"/>
-                                            <constraint firstAttribute="bottom" secondItem="diY-vl-7l0" secondAttribute="bottom" constant="10" id="wth-tv-RxV"/>
+                                            <constraint firstAttribute="bottom" secondItem="diY-vl-7l0" secondAttribute="bottom" constant="5" id="wth-tv-RxV"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -1420,7 +1421,6 @@
                             <constraint firstItem="6KK-rm-HNf" firstAttribute="top" secondItem="laL-7q-pIO" secondAttribute="bottom" constant="3" id="3ff-HL-0wz"/>
                             <constraint firstItem="kIK-8T-7Bh" firstAttribute="top" secondItem="pNI-6H-l9w" secondAttribute="bottom" constant="18" id="4e4-HV-iCj"/>
                             <constraint firstItem="6KK-rm-HNf" firstAttribute="trailing" secondItem="laL-7q-pIO" secondAttribute="trailing" id="98x-Qv-NGe"/>
-                            <constraint firstItem="huY-kN-cmK" firstAttribute="top" secondItem="TsD-Il-vGh" secondAttribute="bottom" constant="19" id="ANJ-A2-1Q8"/>
                             <constraint firstItem="F12-gK-2lN" firstAttribute="top" secondItem="laL-7q-pIO" secondAttribute="bottom" constant="8" id="C06-ji-N9q"/>
                             <constraint firstAttribute="trailing" secondItem="I9g-dC-gbt" secondAttribute="trailing" constant="12" id="CdV-lQ-dBM"/>
                             <constraint firstAttribute="bottom" secondItem="huY-kN-cmK" secondAttribute="bottom" constant="15" id="E9l-Ly-grG"/>
@@ -1447,6 +1447,7 @@
                             <constraint firstAttribute="trailing" secondItem="pNI-6H-l9w" secondAttribute="trailing" constant="12" id="wJb-nl-JXQ"/>
                             <constraint firstItem="pNI-6H-l9w" firstAttribute="leading" secondItem="7eB-Fp-qkP" secondAttribute="leading" constant="12" id="wja-y6-Pao"/>
                             <constraint firstItem="4Kc-eq-oTY" firstAttribute="top" secondItem="I9g-dC-gbt" secondAttribute="bottom" constant="3" id="wkW-cT-Qdw"/>
+                            <constraint firstItem="huY-kN-cmK" firstAttribute="top" secondItem="TsD-Il-vGh" secondAttribute="bottom" constant="34" id="x25-gQ-ZDW"/>
                             <constraint firstItem="F12-gK-2lN" firstAttribute="leading" secondItem="7eB-Fp-qkP" secondAttribute="leading" constant="12" id="y3Z-OE-Nb6"/>
                             <constraint firstAttribute="trailing" secondItem="F12-gK-2lN" secondAttribute="trailing" constant="12" id="yyF-TB-7nt"/>
                         </constraints>
@@ -1532,7 +1533,7 @@
         <image name="swap" width="18.333333969116211" height="11.666666984558105"/>
         <image name="uncheck" width="28" height="30"/>
         <namedColor name="BorderColor">
-            <color red="0.90200001001358032" green="0.9100000262260437" blue="0.90600001811981201" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.80000001192092896" green="0.80000001192092896" blue="0.80000001192092896" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Buttoncolor">
             <color red="0.2669999897480011" green="0.70999997854232788" blue="0.046999998390674591" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

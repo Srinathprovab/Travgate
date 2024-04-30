@@ -69,6 +69,39 @@ class SimilarFlightsVC: BaseTableVC {
     }
     
     
+    //MARK: - didTapOnSelectFareBtnAction
+    override func didTapOnSelectFareBtnAction(cell:FlightResultTVCell) {
+        MySingleton.shared.callboolapi = true
+        MySingleton.shared.selectedResult = cell.selectedResult
+        
+        MySingleton.shared.farekey = cell.journeyKeystr
+        MySingleton.shared.bookingsource = cell.bookingsource
+        MySingleton.shared.bookingsourcekey = cell.bookingsourcekey
+        
+        gotoSelectFareVC()
+    }
+    
+    func gotoSelectFareVC() {
+        MySingleton.shared.selectedFares.removeAll()
+        guard let vc = SelectFareVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
+    }
+    
+    
+    //MARK: - didTapOnReturnDateBtnAction
+    override func didTapOnReturnDateBtnAction(cell:FlightResultTVCell) {
+        defaults.setValue("circle", forKey: UserDefaultsKeys.journeyType)
+        gotoFlightSearchVC()
+    }
+    
+    func gotoFlightSearchVC() {
+        guard let vc = FlightSearchVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
+    }
+    
+    
 }
 
 
@@ -82,6 +115,7 @@ extension SimilarFlightsVC {
         
         MySingleton.shared.similarflightList.forEach { i in
             i.forEach { j in
+                
                 
                 
                 MySingleton.shared.tablerow.append(TableRow(title: j.selectedResult,
