@@ -124,7 +124,7 @@ class FlightResultVC: BaseTableVC, FlightListModelProtocal, SearchDataViewModelD
     }
     
     
-    //MARK: - didTapOnMoreSimilarFlightBtnAction
+    //MARK: - didTapOnMoreSimilarFlightBtnAction ======
     override func didTapOnMoreSimilarFlightBtnAction(cell:FlightResultTVCell){
         
         MySingleton.shared.bookingsource = cell.bookingsourcekey
@@ -140,6 +140,9 @@ class FlightResultVC: BaseTableVC, FlightListModelProtocal, SearchDataViewModelD
         }else {
             showToast(message: "No Flights Found")
         }
+        
+       // commonTableView.reloadRows(at: [IndexPath(item: cell.indexPath?.row ?? 0, section: 0)], with: .automatic)
+        
     }
     
     
@@ -225,6 +228,8 @@ class FlightResultVC: BaseTableVC, FlightListModelProtocal, SearchDataViewModelD
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)
     }
+    
+    
 }
 
 
@@ -341,7 +346,7 @@ extension FlightResultVC {
                 // Convert the date string to a Date object
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "dd-MM-yyyy"
-                let dateString = defaults.string(forKey: UserDefaultsKeys.calDepDate) ?? ""
+                let dateString = defaults.string(forKey: UserDefaultsKeys.calRetDate) ?? ""
                 guard let date = dateFormatter.date(from: dateString) else { return }
                 
                 // Get the next day's date
@@ -356,9 +361,9 @@ extension FlightResultVC {
                 }else {
                     
                     
-                    defaults.set(nextDayString, forKey: UserDefaultsKeys.calDepDate)
+                    defaults.set(nextDayString, forKey: UserDefaultsKeys.calRetDate)
                     //  MySingleton.shared.payload["depature"] = defaults.string(forKey:UserDefaultsKeys.calDepDate)
-                    MySingleton.shared.payload["depature"] = MySingleton.shared.convertDateFormat(inputDate: defaults.string(forKey: UserDefaultsKeys.calDepDate) ?? "", f1: "dd-MM-yyyy", f2: "dd/MM/yyyy")
+                    MySingleton.shared.payload["return"] = MySingleton.shared.convertDateFormat(inputDate: defaults.string(forKey: UserDefaultsKeys.calRetDate) ?? "", f1: "dd-MM-yyyy", f2: "dd/MM/yyyy")
                     self.datelbl.text = nextDayString
                     
                     

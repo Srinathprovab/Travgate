@@ -30,6 +30,8 @@ class FlightResultTVCell: TableViewCell {
     
     @IBOutlet weak var bookNowBtnView: BorderedView!
     @IBOutlet weak var bookNowlbl: UILabel!
+    @IBOutlet weak var simalarView: UIView!
+    @IBOutlet weak var simalrViewHeight: NSLayoutConstraint!
     
     var selectedResult = String()
     var newsimilarList = [[FlightList]]()
@@ -58,6 +60,7 @@ class FlightResultTVCell: TableViewCell {
     
     
     func setupUI() {
+        simalarView.isHidden = true
         setupTV()
     }
     
@@ -120,6 +123,11 @@ class FlightResultTVCell: TableViewCell {
     
     
     @IBAction func didTapOnMoreSimilarFlightBtnAction(_ sender: Any) {
+        
+        print(newsimilarList.count)
+//        simalarView.isHidden = false
+//        simalrViewHeight.constant = CGFloat(80 * newsimilarList.count)
+        
         delegate?.didTapOnMoreSimilarFlightBtnAction(cell: self)
     }
     
@@ -201,6 +209,8 @@ extension FlightResultTVCell:UITableViewDelegate,UITableViewDataSource {
             } else {
                 print("Invalid input format")
             }
+            
+            
             
             if summeryTV.isLast(for: indexPath) {
                 cell.ul.isHidden = true

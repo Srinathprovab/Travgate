@@ -38,8 +38,17 @@ class BaggageInfoTVCell: TableViewCell {
         
         
         cityslbl.text = cellInfo?.subTitle ?? ""
-        carronbaggagelbl.text = cellInfo?.buttonTitle ?? ""
-        checkedinbaggagelbl.text = cellInfo?.text ?? ""
+        //   carronbaggagelbl.text = cellInfo?.buttonTitle ?? ""
+        
+        
+        let convertedString = MySingleton.shared.convertToDesiredFormat(cellInfo?.text ?? "0 Kg")
+        checkedinbaggagelbl.text = convertedString
+        
+        
+        let convertedString1 = MySingleton.shared.convertToDesiredFormat(cellInfo?.buttonTitle ?? "0 Kg")
+        carronbaggagelbl.text = convertedString1
+        
+        
         
         
     }

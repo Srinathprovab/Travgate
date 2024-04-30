@@ -288,8 +288,10 @@ class MySingleton {
         if let number = Int(inputString.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()) {
             if inputString.contains("Kilograms") {
                 return "\(number) kg"
+            } else if inputString.contains("Kg") {
+                return "\(number) Kilograms"
             } else if inputString.contains("NumberOfPieces") {
-                return "\(number) pc"
+                return "\(number) Piece per person."
             }
         }
         return "Invalid input format."

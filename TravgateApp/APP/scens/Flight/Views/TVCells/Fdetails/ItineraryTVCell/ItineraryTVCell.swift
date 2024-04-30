@@ -114,7 +114,7 @@ extension ItineraryTVCell:UITableViewDelegate,UITableViewDataSource {
             }
             
             
-            cell.luggagelbl.text = "7kg"
+            
             
             if let convertedString = MySingleton.shared.convertToPC(input: data.weight_Allowance ?? "") {
                 cell.worklbl.text = convertedString
@@ -122,8 +122,14 @@ extension ItineraryTVCell:UITableViewDelegate,UITableViewDataSource {
                 print("Invalid input format")
             }
             
+            cell.luggagelbl.text = data.cabin_baggage ?? ""
+            
+           
+            
             c = cell
         }
+        
+        
         return c
     }
     
