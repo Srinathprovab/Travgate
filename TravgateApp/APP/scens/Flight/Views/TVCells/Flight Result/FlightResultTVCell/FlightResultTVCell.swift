@@ -253,7 +253,13 @@ extension FlightResultTVCell {
             print("Similar List Count: \(similarListCount)")
             
             if similarListCount > 1 {
-                moreSimilarBtn.setTitle("More similar options(\(similarListCount))", for: .normal)
+                
+                if similarListCount == 1 {
+                    hideSimilarlbl()
+                }else {
+                    moreSimilarBtn.setTitle("More similar options(\(similarListCount - 1))", for: .normal)
+                }
+               
                 showSimilarlbl()
             } else {
                 hideSimilarlbl()

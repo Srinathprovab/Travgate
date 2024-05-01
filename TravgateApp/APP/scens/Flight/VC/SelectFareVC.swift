@@ -101,6 +101,7 @@ class SelectFareVC: BaseTableVC, SelectFareViewModelDelegate {
         DispatchQueue.main.async {
             self.setupTVcells()
         }
+        
        
         
     }

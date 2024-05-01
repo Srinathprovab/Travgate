@@ -213,6 +213,14 @@ extension SelectFareTVCell:UITableViewDelegate,UITableViewDataSource {
                 cell.fareamount = data.amount ?? 0.0
                 cell.configure(selected: true)
                 
+                if let jtype = defaults.string(forKey: UserDefaultsKeys.journeyType),jtype == "circle"{
+                    if MySingleton.shared.selectedFares.count == 2 {
+                        if tableView.isLast(for: indexPath) {
+                            cell.journytypecloaselbl.text = "Return"
+                        }
+                    }
+                }
+                
                 c = cell
                 
             }
@@ -231,9 +239,9 @@ extension SelectFareTVCell:UITableViewDelegate,UITableViewDataSource {
                     let data = MySingleton.shared.fareFlightlistArray[indexPath.row]
                     cell.fareNamelbl.text = "Extra"
                     cell.classlbl.text = data.productClass
-                    cell.baggagelbl.text = "Baggage: Carry-on (1-7kg) Checked in (30Kg)"
+                    cell.baggagelbl.text = "Carry-on (1-7kg) Checked in (30Kg)"
                     cell.pricelbl.text = "\(data.price?.api_currency ?? "") \(data.price?.api_total_display_fare ?? 0.0)"
-                    cell.refundTypelbl.text = "\(data.fareType ?? "") "
+                    cell.refundTypelbl.text = "Pay to Cancel upto 24 hours prior to departure"
                     cell.fareamount = data.price?.api_total_display_fare ?? 0.0
                     
                     
@@ -254,9 +262,9 @@ extension SelectFareTVCell:UITableViewDelegate,UITableViewDataSource {
                     let data = MySingleton.shared.fareReturnFlightlistArray[indexPath.row]
                     cell.fareNamelbl.text = "Extra"
                     cell.classlbl.text = data.productClass
-                    cell.baggagelbl.text = "Baggage: Carry-on (1-7kg) Checked in (30Kg)"
+                    cell.baggagelbl.text = "Carry-on (\(data.carryOnBaggage ?? "") Checked in (\(data.checkedBaggage ?? ""))"
                     cell.pricelbl.text = "\(data.price?.api_currency ?? "") \(data.price?.api_total_display_fare ?? 0.0)"
-                    cell.refundTypelbl.text = "\(data.fareType ?? "") "
+                    cell.refundTypelbl.text = "Pay to Cancel upto 24 hours prior to departure"
                     cell.fareamount = data.price?.api_total_display_fare ?? 0.0
                     
                     
@@ -274,9 +282,6 @@ extension SelectFareTVCell:UITableViewDelegate,UITableViewDataSource {
                     
                     
                 }
-                
-                
-
                 
                 cell.selectBtn.isHidden = true
                 cell.closeView.isHidden = true

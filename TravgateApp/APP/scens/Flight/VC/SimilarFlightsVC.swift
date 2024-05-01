@@ -19,7 +19,7 @@ class SimilarFlightsVC: BaseTableVC {
         return vc
     }
     
-    
+    var isFirstCell = true // Flag to check if it's the first cell
     
     override func viewWillAppear(_ animated: Bool) {
         setupTVCell()
@@ -108,39 +108,72 @@ class SimilarFlightsVC: BaseTableVC {
 extension SimilarFlightsVC {
     
     
+//    
+//    func setupTVCell() {
+//        MySingleton.shared.tablerow.removeAll()
+//        titlelbl.text = "\(MySingleton.shared.similarflightList.count) Flights Found"
+//        
+//        MySingleton.shared.similarflightList.forEach { i in
+//            i.forEach { j in
+//                
+//                
+//                
+//                MySingleton.shared.tablerow.append(TableRow(title: j.selectedResult,
+//                                                            subTitle: j.booking_source,
+//                                                            refundable:j.fareType,
+//                                                            key: "similar",
+//                                                            text: j.booking_source_key,
+//                                                            headerText: j.serialized_journeyKey,
+//                                                            moreData: j,
+//                                                            tempInfo: j.farerulesref_Key,
+//                                                            cellType:.FlightResultTVCell,
+//                                                            userCatdetails:j.journeyKey,
+//                                                            data1: j.flight_details?.summary,
+//                                                            data2: j.farerulesref_content))
+//            }
+//        }
+//        
+//        
+//        
+//        MySingleton.shared.tablerow.append(TableRow(height:50,cellType:.EmptyTVCell))
+//        commonTVData = MySingleton.shared.tablerow
+//        commonTableView.reloadData()
+//        
+//    }
+    
     
     func setupTVCell() {
         MySingleton.shared.tablerow.removeAll()
-        titlelbl.text = "\(MySingleton.shared.similarflightList.count) Flights Found"
+        
+        titlelbl.text = "\(MySingleton.shared.similarflightList.count - 1) Flights Found"
+        
+       
         
         MySingleton.shared.similarflightList.forEach { i in
             i.forEach { j in
-                
-                
-                
-                MySingleton.shared.tablerow.append(TableRow(title: j.selectedResult,
-                                                            subTitle: j.booking_source,
-                                                            refundable:j.fareType,
-                                                            key: "similar",
-                                                            text: j.booking_source_key,
-                                                            headerText: j.serialized_journeyKey,
-                                                            moreData: j,
-                                                            tempInfo: j.farerulesref_Key,
-                                                            cellType:.FlightResultTVCell,
-                                                            userCatdetails:j.journeyKey,
-                                                            data1: j.flight_details?.summary,
-                                                            data2: j.farerulesref_content))
+                if isFirstCell {
+                    isFirstCell = false // Set to false after first iteration
+                } else {
+                    MySingleton.shared.tablerow.append(TableRow(title: j.selectedResult,
+                                                                subTitle: j.booking_source,
+                                                                refundable:j.fareType,
+                                                                key: "similar",
+                                                                text: j.booking_source_key,
+                                                                headerText: j.serialized_journeyKey,
+                                                                moreData: j,
+                                                                tempInfo: j.farerulesref_Key,
+                                                                cellType:.FlightResultTVCell,
+                                                                userCatdetails:j.journeyKey,
+                                                                data1: j.flight_details?.summary,
+                                                                data2: j.farerulesref_content))
+                }
             }
         }
-        
-        
         
         MySingleton.shared.tablerow.append(TableRow(height:50,cellType:.EmptyTVCell))
         commonTVData = MySingleton.shared.tablerow
         commonTableView.reloadData()
-        
     }
-    
-    
+
     
 }

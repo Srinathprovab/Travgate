@@ -42,14 +42,19 @@ class BaggageInfoTVCell: TableViewCell {
         
         
         let convertedString = MySingleton.shared.convertToDesiredFormat(cellInfo?.text ?? "0 Kg")
-        checkedinbaggagelbl.text = convertedString
-        
-        
+        if convertedString != "Invalid input format." {
+            checkedinbaggagelbl.text = convertedString
+        } else {
+            checkedinbaggagelbl.text = "0Kg"
+        }
+
+       
         let convertedString1 = MySingleton.shared.convertToDesiredFormat(cellInfo?.buttonTitle ?? "0 Kg")
-        carronbaggagelbl.text = convertedString1
-        
-        
-        
+        if convertedString1 != "Invalid input format." {
+            carronbaggagelbl.text = convertedString1
+        } else {
+            carronbaggagelbl.text = "0Kg"
+        }
         
     }
     

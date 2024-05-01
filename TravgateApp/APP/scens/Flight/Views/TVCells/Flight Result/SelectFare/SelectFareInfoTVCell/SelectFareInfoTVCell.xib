@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -58,7 +57,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" ambiguous="YES" text="Refundable Type: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="40p-C0-Xak">
-                                <rect key="frame" x="10" y="63.666666666666679" width="117" height="19.333333333333321"/>
+                                <rect key="frame" x="10" y="63.666666666666671" width="117" height="19.333333333333329"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="117" id="WWU-TF-IiY"/>
                                 </constraints>
@@ -67,7 +66,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Pay to Cancel upto 24hours prior to departure" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LuL-eu-Ahb">
-                                <rect key="frame" x="129" y="63.666666666666686" width="294" height="19.333333333333314"/>
+                                <rect key="frame" x="129" y="63.666666666666671" width="294" height="19.333333333333329"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="14"/>
                                 <color key="textColor" name="TitleColor"/>
                                 <nil key="highlightedColor"/>
@@ -163,7 +162,7 @@
                             <constraint firstItem="40p-C0-Xak" firstAttribute="top" secondItem="M1a-Le-umU" secondAttribute="bottom" constant="5" id="B43-ec-XCf"/>
                             <constraint firstItem="b0q-LF-20Q" firstAttribute="centerY" secondItem="sUv-wQ-ind" secondAttribute="centerY" id="BuL-KE-zTI"/>
                             <constraint firstItem="sUv-wQ-ind" firstAttribute="top" secondItem="bzD-Dz-ax5" secondAttribute="top" constant="15" id="C9e-xG-8hx"/>
-                            <constraint firstAttribute="trailing" secondItem="Usd-V0-bD5" secondAttribute="trailing" constant="10" id="FPC-4o-i7a"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Usd-V0-bD5" secondAttribute="trailing" constant="10" id="FPC-4o-i7a"/>
                             <constraint firstAttribute="trailing" secondItem="LuL-eu-Ahb" secondAttribute="trailing" constant="10" id="FQf-fr-t5D"/>
                             <constraint firstItem="sUv-wQ-ind" firstAttribute="leading" secondItem="bzD-Dz-ax5" secondAttribute="leading" constant="10" id="JnI-IW-TLZ"/>
                             <constraint firstItem="R0Q-Au-rYC" firstAttribute="leading" secondItem="z0p-fK-hd7" secondAttribute="trailing" constant="2" id="Kiw-FR-Oiy"/>
