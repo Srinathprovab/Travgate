@@ -12,7 +12,7 @@ protocol SelectFareInfoTVCellDelegate {
     func didTapOnSelectFareBtnAction(cell:SelectFareInfoTVCell)
 }
 
-class SelectFareInfoTVCell: UITableViewCell {
+class SelectFareInfoTVCell: TableViewCell {
     
     @IBOutlet weak var holderView: BorderedView!
     @IBOutlet weak var closeView: UIView!
@@ -63,6 +63,29 @@ class SelectFareInfoTVCell: UITableViewCell {
             self.holderView.borderColor = UIColor.BorderColor
             self.holderView.backgroundColor = .WhiteColor
         }
+    }
+    
+    override func updateUI() {
+        fareNamelbl.text = cellInfo?.title ?? ""
+        classlbl.text = cellInfo?.subTitle ?? ""
+        refundTypelbl.text = cellInfo?.text ?? ""
+        baggagelbl.text = cellInfo?.buttonTitle ?? ""
+        pricelbl.text = cellInfo?.tempText ?? ""
+        journyType = cellInfo?.headerText ?? ""
+        
+        
+        if cellInfo?.key1 == "selected" {
+            configure(selected: true)
+        }else {
+            configure(selected: false)
+        }
+        
+        if journyType == "departure" {
+            journytypecloaselbl.text = "Departure"
+        }else {
+            journytypecloaselbl.text = "Return"
+        }
+        
     }
     
     

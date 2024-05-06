@@ -1,32 +1,24 @@
 //
-//  SelectFareVC.swift
+//  SelectedFaresVC.swift
 //  Travgate
 //
-//  Created by FCI on 22/04/24.
+//  Created by FCI on 03/05/24.
 //
 
 import UIKit
 
-class SelectFareVC: BaseTableVC, SelectFareViewModelDelegate {
-    
+class SelectedFaresVC: BaseTableVC {
     
     @IBOutlet weak var continueBtnView: UIView!
     @IBOutlet weak var gifimg: UIImageView!
     @IBOutlet weak var kwdlbl: UILabel!
     
     
-    
-    static var newInstance: SelectFareVC? {
+    static var newInstance: SelectedFaresVC? {
         let storyboard = UIStoryboard(name: Storyboard.Flight.name,
                                       bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: self.className()) as? SelectFareVC
+        let vc = storyboard.instantiateViewController(withIdentifier: self.className()) as? SelectedFaresVC
         return vc
-    }
-    
-    
-    
-    override func viewWillAppear(_ animated: Bool) {
-        callGetFareListAPI()
     }
     
     
@@ -34,9 +26,10 @@ class SelectFareVC: BaseTableVC, SelectFareViewModelDelegate {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        
         setupUI()
-        MySingleton.shared.farelistvm = SelectFareViewModel(self)
     }
+    
     
     func setupUI() {
         MySingleton.shared.setAttributedTextnew(str1: "\(defaults.string(forKey: UserDefaultsKeys.selectedCurrency) ?? ""): ",
@@ -55,51 +48,46 @@ class SelectFareVC: BaseTableVC, SelectFareViewModelDelegate {
                                          "EmptyTVCell"])
         
         
+        setupTVcells1()
     }
+    
     
     
     @IBAction func didTapOnCloseBtnAction(_ sender: Any) {
         MySingleton.shared.callboolapi = false
         MySingleton.shared.selectedFares.removeAll()
-        dismiss(animated: true)
+        self.presentingViewController?.self.presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func didTapOnProceeedBtnAction(_ sender: Any) {
+        gotoBookingDetailsVC()
+    }
+    
+    func gotoBookingDetailsVC() {
+        MySingleton.shared.selectedFares.removeAll()
+        guard let vc = BookingDetailsVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
+    }
     
     
     override func didTapOnSelectFareBtnAction(cell:SelectFareInfoTVCell, at indexPath: IndexPath) {
         
+        MySingleton.shared.setAttributedTextnew(str1: "\(defaults.string(forKey: UserDefaultsKeys.selectedCurrency) ?? ""): ",
+                                                str2: String(format: "%.2f", MySingleton.shared.totalselectedfareprice),
+                                                lbl: kwdlbl,
+                                                str1font: .OpenSansBold(size: 15),
+                                                str2font: .OpenSansBold(size: 18),
+                                                str1Color: .WhiteColor,
+                                                str2Color: .WhiteColor)
+        
+        setupTVcells()
         
         
-        let jtype = defaults.string(forKey: UserDefaultsKeys.journeyType)
-        if jtype == "oneway" {
-            MySingleton.shared.setAttributedTextnew(str1: "\(defaults.string(forKey: UserDefaultsKeys.selectedCurrency) ?? ""): ",
-                                                    str2: String(format: "%.2f", MySingleton.shared.totalselectedfareprice),
-                                                    lbl: kwdlbl,
-                                                    str1font: .OpenSansBold(size: 15),
-                                                    str2font: .OpenSansBold(size: 18),
-                                                    str1Color: .WhiteColor,
-                                                    str2Color: .WhiteColor)
-            
-            setupTVcells()
-            
-            
-            
-            
-        }else {
-            
-            
-            
-            gotoSelectedFaresVC()
-        }
     }
     
     
-    func gotoSelectedFaresVC() {
-        MySingleton.shared.selectedFares.removeAll()
-        guard let vc = SelectedFaresVC.newInstance.self else {return}
-        vc.modalPresentationStyle = .fullScreen
-        present(vc, animated: false)
-    }
+    
     
     override func didTapOnCloseFareBtnAction(cell: SelectFareInfoTVCell, at indexPath: IndexPath) {
         // Update cell UI
@@ -129,55 +117,27 @@ class SelectFareVC: BaseTableVC, SelectFareViewModelDelegate {
         
     }
     
-    
-    override func didTapOnDepartureBtnAction(cell:SelectFareTVCell) {
-        //commonTableView.reloadData()
-    }
-    
-    
-    
-    @IBAction func didTapOnProceeedBtnAction(_ sender: Any) {
-        gotoBookingDetailsVC()
-    }
-    
-    func gotoBookingDetailsVC() {
-        MySingleton.shared.selectedFares.removeAll()
-        guard let vc = BookingDetailsVC.newInstance.self else {return}
-        vc.modalPresentationStyle = .fullScreen
-        present(vc, animated: true)
-    }
-    
 }
 
 
-extension SelectFareVC {
+
+extension SelectedFaresVC {
     
     
     
-    func callGetFareListAPI() {
+    
+    
+    func setupTVcells1() {
+        MySingleton.shared.tablerow.removeAll()
         
-        MySingleton.shared.payload.removeAll()
-        MySingleton.shared.payload["search_id"] = MySingleton.shared.searchid
-        MySingleton.shared.payload["serialized_journeyKey"] = MySingleton.shared.farekey
-        MySingleton.shared.payload["booking_source"] = MySingleton.shared.bookingsource
+        continueBtnView.isHidden = true
+        MySingleton.shared.tablerow.append(TableRow(title:"notselected",key: "",cellType:.SelectFareTVCell))
         
-        MySingleton.shared.farelistvm?.CALL_GET_FARLIST_API(dictParam: MySingleton.shared.payload)
+        MySingleton.shared.tablerow.append(TableRow(height:50,cellType:.EmptyTVCell))
+        
+        commonTVData =  MySingleton.shared.tablerow
+        commonTableView.reloadData()
     }
-    
-    
-    func fareListResponse(response: SelectFareModel) {
-        
-        
-        response.j_flight_list?.forEach({ i in
-            MySingleton.shared.fareFlightlistArray = i.first?.fareFamily?.onward ?? []
-            MySingleton.shared.fareReturnFlightlistArray = i.first?.fareFamily?.freturn ?? []
-        })
-        
-        DispatchQueue.main.async {
-            self.setupTVcells()
-        }
-    }
-    
     
     
     
@@ -209,7 +169,6 @@ extension SelectFareVC {
                 MySingleton.shared.tablerow.append(TableRow(title:"selected",cellType:.SelectFareTVCell))
             }else {
                 continueBtnView.isHidden = true
-                MySingleton.shared.tablerow.append(TableRow(title:"notselected",cellType:.SelectFareTVCell))
             }
         }
         
@@ -218,4 +177,6 @@ extension SelectFareVC {
         commonTVData =  MySingleton.shared.tablerow
         commonTableView.reloadData()
     }
+    
+    
 }

@@ -8,7 +8,7 @@
 import UIKit
 import MaterialComponents
 
-class BaseTableVC: UIViewController, TabSelectTVCellDelegate, FlightSearchTVCellDelegate, FlightResultTVCellDelegate, SideMenuTitleTVCellDelegate, MenuBGTVCellDelegate, SliderTVCellDelegate, CheckBoxTVCellDelegate, FilterDepartureTVCellDelegate, LabelTVCellDelegate, PopularFiltersTVCellDelegate,DepartureTimeTVCellDelegate, ButtonTVCellDelegate, SortbyTVCellDelegate, BookingDetailsFlightDataTVCellDelegate, TDetailsLoginTVCellDelegate, AddDeatilsOfTravellerTVCellDelegate, ContactInformationTVCellDelegate, UsePromoCodesTVCellDelegate, LoginTVCellDelegate, ResetPasswordTVCellDelegate, SignupTVCellDelegate, EditProfileTVCellDelegate, HotelSearchTVCellDelegate, AddRoomsGuestsTVCellDelegate, NewDepartureTimeTVCellDelegate, VisaTVCellDelegate, AutoPaymentTVCellDelegate, TripsTVCellDelegate, YourRecentSearchesTVCellDelegate, RoomsTVcellDelegate, RegisterSelectionLoginTableViewCellDelegate, AddonTVCellDelegate, TravellerEconomyTVCellDelegate, HolidayPackagesTVCellDelegate, CruisePackegesTVCellDelegate, CruiseContactdetailsTVCellDelegate, HolidayContactdetailsTVCellDelegate, BCFlightDetailsTVCellDelegate, NewBookingConfirmedTVCellDelegate, HeaderTableViewCellDelegate, QuickLinkTableViewCellDelegate, FlightUpcomingTVCellDelegate, LoginDetailsTableViewCellDelegate, GuestTVCellDelegate, ContactUsTVCellDelegate, HotelImagesTVCellDelegate, AddDeatilsOfGuestTVCellDelegate, FareRulesTVCellDelegate, PrimaryContactInfoTVCellDelegate, OperatorsCheckBoxTVCellDelegate, AddonTableViewCellDelegate, PriceSummaryTVCellDelegate, AcceptCookiesTVCellDelegate, SelectMealTVCellDelegate, NewSpecialAssistanceTVCellDelegate, SelectFareTVCellDelegate, PaymentTypeTVCellDelegate {
+class BaseTableVC: UIViewController, TabSelectTVCellDelegate, FlightSearchTVCellDelegate, FlightResultTVCellDelegate, SideMenuTitleTVCellDelegate, MenuBGTVCellDelegate, SliderTVCellDelegate, CheckBoxTVCellDelegate, FilterDepartureTVCellDelegate, LabelTVCellDelegate, PopularFiltersTVCellDelegate,DepartureTimeTVCellDelegate, ButtonTVCellDelegate, SortbyTVCellDelegate, BookingDetailsFlightDataTVCellDelegate, TDetailsLoginTVCellDelegate, AddDeatilsOfTravellerTVCellDelegate, ContactInformationTVCellDelegate, UsePromoCodesTVCellDelegate, LoginTVCellDelegate, ResetPasswordTVCellDelegate, SignupTVCellDelegate, EditProfileTVCellDelegate, HotelSearchTVCellDelegate, AddRoomsGuestsTVCellDelegate, NewDepartureTimeTVCellDelegate, VisaTVCellDelegate, AutoPaymentTVCellDelegate, TripsTVCellDelegate, YourRecentSearchesTVCellDelegate, RoomsTVcellDelegate, RegisterSelectionLoginTableViewCellDelegate, AddonTVCellDelegate, TravellerEconomyTVCellDelegate, HolidayPackagesTVCellDelegate, CruisePackegesTVCellDelegate, CruiseContactdetailsTVCellDelegate, HolidayContactdetailsTVCellDelegate, BCFlightDetailsTVCellDelegate, NewBookingConfirmedTVCellDelegate, HeaderTableViewCellDelegate, QuickLinkTableViewCellDelegate, FlightUpcomingTVCellDelegate, LoginDetailsTableViewCellDelegate, GuestTVCellDelegate, ContactUsTVCellDelegate, HotelImagesTVCellDelegate, AddDeatilsOfGuestTVCellDelegate, FareRulesTVCellDelegate, PrimaryContactInfoTVCellDelegate, OperatorsCheckBoxTVCellDelegate, AddonTableViewCellDelegate, PriceSummaryTVCellDelegate, AcceptCookiesTVCellDelegate, SelectMealTVCellDelegate, NewSpecialAssistanceTVCellDelegate, SelectFareTVCellDelegate, PaymentTypeTVCellDelegate, SelectFareInfoTVCellDelegate {
     
     
     
@@ -294,6 +294,9 @@ class BaseTableVC: UIViewController, TabSelectTVCellDelegate, FlightSearchTVCell
     func didTapOnCloseFareBtnAction(cell: SelectFareInfoTVCell, at indexPath: IndexPath) {}
     func didTapOnDepartureBtnAction(cell:SelectFareTVCell) {}
     func didTapOnPayNowBtnAction(cell: PaymentTypeTVCell) {}
+    func didTapOnCloseFareBtnAction(cell: SelectFareInfoTVCell) {}
+    func didTapOnSelectFareBtnAction(cell: SelectFareInfoTVCell) {}
+    
     
     
     
@@ -883,6 +886,15 @@ extension BaseTableVC: UITableViewDataSource {
                 let cell: PaymentTypeTVCell = commonTV.dequeTVCell(indexPath: indexPath)
                 cell.delegate = self
                 commonCell = cell
+                
+                
+                
+            case .SelectFareInfoTVCell :
+                let cell: SelectFareInfoTVCell = commonTV.dequeTVCell(indexPath: indexPath)
+                cell.delegate = self
+                commonCell = cell
+                
+                
                 
             default:
                 print("handle this case in getCurrentCellAt")

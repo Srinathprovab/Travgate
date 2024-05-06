@@ -258,9 +258,10 @@ extension FlightResultTVCell {
                     hideSimilarlbl()
                 }else {
                     moreSimilarBtn.setTitle("More similar options(\(similarListCount - 1))", for: .normal)
+                    showSimilarlbl()
                 }
                
-                showSimilarlbl()
+                //showSimilarlbl()
             } else {
                 hideSimilarlbl()
             }

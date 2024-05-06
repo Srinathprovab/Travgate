@@ -224,7 +224,7 @@ class FlightResultVC: BaseTableVC, FlightListModelProtocal, SearchDataViewModelD
     
     func gotoSelectFareVC() {
         MySingleton.shared.selectedFares.removeAll()
-        guard let vc = SelectFareVC.newInstance.self else {return}
+        guard let vc = FareListVC.newInstance.self else {return}
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)
     }

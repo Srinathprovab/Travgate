@@ -69,6 +69,7 @@ enum TVCellType {
     case SelectFareTVCell
     case BaggageInfoImageTVCell
     case PaymentTypeTVCell
+    case SelectFareInfoTVCell
    
     
     //Booking

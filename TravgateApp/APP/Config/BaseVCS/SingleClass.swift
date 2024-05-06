@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import EasyTipView
 
 
 func setupLabels(lbl:UILabel,text:String,textcolor:UIColor,font:UIFont) {
@@ -57,7 +58,7 @@ class MySingleton {
     var ssrListArray = [Ssr_list]()
     var journeyKeyArray = [String]()
     var farekey = String()
-    var selectedFares: [SelectFare] = []
+    var selectedFares = [SelectFare]()
     var indexpathA = [IndexPath]()
     
     //Flight Search
@@ -205,9 +206,23 @@ class MySingleton {
     var timer: Timer?
     var totalTime = 1
     private var backgroundTask: UIBackgroundTaskIdentifier = .invalid
+    var preferences = EasyTipView.Preferences()
+    
 
-
-   
+    func setupTipView(arrowPosition:EasyTipView.ArrowPosition){
+        preferences.drawing.font = .OpenSansMedium(size: 13)
+        preferences.drawing.foregroundColor = UIColor.white
+        preferences.drawing.backgroundColor = .Buttoncolor
+        preferences.drawing.arrowPosition = arrowPosition
+        
+        preferences.animating.dismissTransform = CGAffineTransform(translationX: 0, y: -15)
+        preferences.animating.showInitialTransform = CGAffineTransform(translationX: 0, y: -15)
+        preferences.animating.showInitialAlpha = 0
+        preferences.animating.showDuration = 1.5
+        preferences.animating.dismissDuration = 1.5
+        
+        EasyTipView.globalPreferences = preferences
+    }
     
     
     // Private initializer to prevent multiple instances

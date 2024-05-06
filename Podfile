@@ -24,6 +24,7 @@ target 'Travgate' do
   pod 'SwiftRangeSlider', '~> 2.0'
   pod 'MyFatoorah'
   pod 'Ottu'
+  pod 'EasyTipView', '~> 2.1.0'
 
 
   target 'TravgateTests' do

@@ -37,7 +37,7 @@ class SelectFareTVCell: TableViewCell, SelectFareInfoTVCellDelegate {
   
     var key = String()
     var selectedFareType: String = "departure"
-    var btnTapString = String()
+    
     var showFareSelectedBool = false
     var delegate:SelectFareTVCellDelegate?
     var selectedDepartureIndex: IndexPath?
@@ -58,7 +58,7 @@ class SelectFareTVCell: TableViewCell, SelectFareInfoTVCellDelegate {
     }
     
     func setupUI() {
-        tapOnDep()
+        
         setupTV()
     }
     
@@ -70,7 +70,6 @@ class SelectFareTVCell: TableViewCell, SelectFareInfoTVCellDelegate {
         
         if let jtype = defaults.string(forKey: UserDefaultsKeys.journeyType), jtype == "oneway" {
             retBtn.isHidden = true
-            tapOnDep()
         }else {
             retBtn.isHidden = false
         }
@@ -78,7 +77,13 @@ class SelectFareTVCell: TableViewCell, SelectFareInfoTVCellDelegate {
         if key == "selected" {
             updateHeight(count: MySingleton.shared.selectedFares.count)
         }else {
-            updateHeight(count: MySingleton.shared.fareFlightlistArray.count)
+           
+            if btnTapString == "departure" {
+                tapOnDep()
+            }else {
+                taponReturn()
+            }
+            
         }
         
         
@@ -108,12 +113,14 @@ class SelectFareTVCell: TableViewCell, SelectFareInfoTVCellDelegate {
     }
     
     func tapOnDep() {
+        
         depBtn.backgroundColor = UIColor.Buttoncolor
         depBtn.setTitleColor(.WhiteColor, for: .normal)
         retBtn.backgroundColor = UIColor.WhiteColor
         retBtn.setTitleColor(.TitleColor, for: .normal)
+        
         selectdeplbl.text = "Select Fare for departure"
-        btnTapString = "departure"
+        btnTapString = "return"
         updateHeight(count: MySingleton.shared.fareFlightlistArray.count)
         
     }
@@ -125,13 +132,16 @@ class SelectFareTVCell: TableViewCell, SelectFareInfoTVCellDelegate {
     }
     
     func taponReturn() {
+        
         depBtn.backgroundColor = UIColor.WhiteColor
         depBtn.setTitleColor(.TitleColor, for: .normal)
         retBtn.backgroundColor = UIColor.Buttoncolor
         retBtn.setTitleColor(.WhiteColor, for: .normal)
+        
         selectdeplbl.text = "Select Fare for Return"
-        btnTapString = "return"
+        btnTapString = "departure"
         updateHeight(count: MySingleton.shared.fareReturnFlightlistArray.count)
+        
     }
     
     
@@ -214,11 +224,20 @@ extension SelectFareTVCell:UITableViewDelegate,UITableViewDataSource {
                 cell.configure(selected: true)
                 
                 if let jtype = defaults.string(forKey: UserDefaultsKeys.journeyType),jtype == "circle"{
+                    
                     if MySingleton.shared.selectedFares.count == 2 {
+                        
+                        self.depBtn.isUserInteractionEnabled = false
+                        self.retBtn.isUserInteractionEnabled = false
+                        
                         if tableView.isLast(for: indexPath) {
                             cell.journytypecloaselbl.text = "Return"
                         }
+                    }else {
+                        self.depBtn.isUserInteractionEnabled = true
+                        self.retBtn.isUserInteractionEnabled = true
                     }
+                    
                 }
                 
                 c = cell
@@ -342,6 +361,7 @@ extension SelectFareTVCell:UITableViewDelegate,UITableViewDataSource {
             depSelectedFares.removeAll()
             depSelectedFares.append(fare)
             
+            
         }
         
         if btnTapString == "return" {
@@ -357,6 +377,9 @@ extension SelectFareTVCell:UITableViewDelegate,UITableViewDataSource {
             
             retSelectedFares.removeAll()
             retSelectedFares.append(fare)
+            
+            
+            
         }
         
         // Reload data to reflect the selection changes

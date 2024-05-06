@@ -116,7 +116,7 @@ var nearBylocationsArray = [String]()
 var kwdPriceArray = [String]()
 var dateArray = [String]()
 var flnew : [[FlightList]]?
-
+var btnTapString = "departure"
 
 
 var bookedjurnycitys = String()
