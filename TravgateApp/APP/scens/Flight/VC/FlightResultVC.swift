@@ -469,12 +469,10 @@ extension Sequence where Iterator.Element: Hashable {
 //MARK: - AppliedFilters
 
 extension FlightResultVC:AppliedFilters {
-    
-    
-    
-    func hotelFilterByApplied(minpricerange: Double, maxpricerange: Double, starRating: String, refundableTypeArray: [String], nearByLocA: [String], niberhoodA: [String], aminitiesA: [String]) {
+    func hotelFilterByApplied(minpricerange: Double, maxpricerange: Double, starRating: String, starRatingNew: [String], refundableTypeArray: [String], nearByLocA: [String], niberhoodA: [String], aminitiesA: [String]) {
         
     }
+    
     
     
     

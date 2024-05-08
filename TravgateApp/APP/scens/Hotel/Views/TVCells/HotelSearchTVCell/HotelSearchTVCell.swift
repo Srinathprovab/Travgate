@@ -83,7 +83,7 @@ class HotelSearchTVCell: TableViewCell, HotelCitySearchViewModelDelegate {
     func setupUI() {
         
         fromcityTF.textColor = .AppLabelColor
-        fromcityTF.font = .OpenSansRegular(size: 14)
+        fromcityTF.font = .OpenSansMedium(size: 16)
         fromcityTF.delegate = self
         fromcityTF.addTarget(self, action: #selector(textFiledEditingChanged(_:)), for: .editingChanged)
         fromcityTF.isHidden = false
@@ -98,6 +98,10 @@ class HotelSearchTVCell: TableViewCell, HotelCitySearchViewModelDelegate {
         nationalitylTF.addTarget(self, action: #selector(searchTextChanged(_:)), for: .editingChanged)
         nationalitylTF.isHidden = false
         nationalitylTF.setLeftPaddingPoints(15)
+        
+        if starRatingInputArray.count > 0 {
+            hotelfiltermodel.starRatingNew = starRatingInputArray
+        }
         
         setupCV()
     }
@@ -501,26 +505,24 @@ extension HotelSearchTVCell:UICollectionViewDelegate,UICollectionViewDataSource 
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? RatingCVCell {
             
             cell.titlelbl.text = starTitelArray[indexPath.row]
-            if indexPath.row == 2 {
-                cell.titlelbl.textColor = .WhiteColor
-                cell.holderView.backgroundColor = .Buttoncolor
-                cell.starimg.tintColor = .WhiteColor
-                ratingCV.selectItem(at: indexPath, animated: false, scrollPosition: .left)
-            }
             
-            if indexPath.row == 3 {
-                cell.titlelbl.textColor = .WhiteColor
-                cell.holderView.backgroundColor = .Buttoncolor
-                cell.starimg.tintColor = .WhiteColor
-                ratingCV.selectItem(at: indexPath, animated: false, scrollPosition: .left)
+            
+            if hotelfiltermodel.starRatingNew.contains(cell.titlelbl.text ?? "") {
                 
-            }
-            
-            if indexPath.row == 4 {
-                cell.titlelbl.textColor = .WhiteColor
-                cell.holderView.backgroundColor = .Buttoncolor
-                cell.starimg.tintColor = .WhiteColor
-                ratingCV.selectItem(at: indexPath, animated: false, scrollPosition: .left)
+                DispatchQueue.main.async {
+                    cell.holderView.backgroundColor = UIColor.Buttoncolor
+                    cell.titlelbl.textColor = .WhiteColor
+                    cell.starimg.tintColor = .WhiteColor
+                    collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .left)
+                }
+                
+            } else {
+                
+                DispatchQueue.main.async {
+                    cell.holderView.backgroundColor = UIColor.WhiteColor
+                    cell.titlelbl.textColor = .TitleColor
+                    cell.starimg.tintColor = .black
+                }
                 
             }
             
@@ -535,6 +537,8 @@ extension HotelSearchTVCell:UICollectionViewDelegate,UICollectionViewDataSource 
             cell.titlelbl.textColor = .WhiteColor
             cell.holderView.backgroundColor = .Buttoncolor
             cell.starimg.tintColor = .WhiteColor
+            
+            starRatingInputArray.append(cell.titlelbl.text ?? "")
         }
     }
     
@@ -544,6 +548,10 @@ extension HotelSearchTVCell:UICollectionViewDelegate,UICollectionViewDataSource 
             cell.titlelbl.textColor = .TitleColor
             cell.holderView.backgroundColor = .WhiteColor
             cell.starimg.tintColor = .TitleColor
+            
+            if let index = starRatingInputArray.firstIndex(of: cell.titlelbl.text ?? "") {
+                starRatingInputArray.remove(at: index)
+            }
         }
     }
     

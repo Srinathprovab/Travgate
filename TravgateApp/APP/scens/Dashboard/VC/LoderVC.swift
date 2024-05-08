@@ -23,7 +23,9 @@ class LoderVC: UIViewController, SearchLoaderViewModelDelegate, SearchHotelLoder
     @IBOutlet weak var guestlbl: UILabel!
     @IBOutlet weak var nightslbl: UILabel!
     @IBOutlet weak var roomslbl: UILabel!
-   
+    @IBOutlet weak var transfersInfoView: UIView!
+    
+    
     var searchdata:SearchData?
     var searchHoteldata:SearchHotelData?
     var gifImages: [UIImage] = []
@@ -88,6 +90,15 @@ class LoderVC: UIViewController, SearchLoaderViewModelDelegate, SearchHotelLoder
            
             triptypelbl.text = "\(searchdata?.trip_type ?? "") - \(defaults.string(forKey: UserDefaultsKeys.totalTravellerCount) ?? "") Travellers"
             
+        }else if tabselect == "transfers" {
+            
+            flightinfo.isHidden = true
+            hotelinfoView.isHidden = true
+            transfersInfoView.isHidden = false
+           
+            MySingleton.shared.loderString = "fdetails"
+           
+            
         }else {
             
             flightinfo.isHidden = true
@@ -146,9 +157,21 @@ class LoderVC: UIViewController, SearchLoaderViewModelDelegate, SearchHotelLoder
 extension LoderVC {
     
     func callAPI() {
+        
+        
         let tabselect = defaults.string(forKey: UserDefaultsKeys.tabselect)
         if tabselect == "Flight" {
             MySingleton.shared.lodervm?.CALL_FLIGHT_LODER_DETAILS_API(dictParam: MySingleton.shared.payload)
+        }else if tabselect == "transfers" {
+            
+            DispatchQueue.main.async {[self] in
+                flightinfo.isHidden = true
+                hotelinfoView.isHidden = true
+                transfersInfoView.isHidden = false
+               
+                MySingleton.shared.loderString = "fdetails"
+            }
+            
         }else {
            // MySingleton.shared.hotellodervm?.CALL_HOTEL_LODER_DETAILS_API(dictParam: MySingleton.shared.payload)
             

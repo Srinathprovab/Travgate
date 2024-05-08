@@ -418,6 +418,7 @@ extension SearchHotelsResultVC {
         faretypeArray .removeAll()
         facilityArray.removeAll()
         mapModelArray.removeAll()
+        hotelfiltermodel.starRatingNew = starRatingInputArray
         
         hotelsCountlbl.text = "\(list.count)"
         
@@ -698,7 +699,7 @@ extension SearchHotelsResultVC:AppliedFilters{
     
     //MARK: - hotelFilterByApplied
     
-    func hotelFilterByApplied(minpricerange: Double, maxpricerange: Double, starRating: String, refundableTypeArray: [String], nearByLocA: [String], niberhoodA: [String], aminitiesA: [String]) {
+    func hotelFilterByApplied(minpricerange: Double, maxpricerange: Double, starRating: String, starRatingNew: [String], refundableTypeArray: [String], nearByLocA: [String], niberhoodA: [String], aminitiesA: [String]) {
         
         // Set the filter flag to true
         isSearchBool = true
@@ -706,7 +707,7 @@ extension SearchHotelsResultVC:AppliedFilters{
         // Print filter parameters for debugging
         print("Min Price Range: \(minpricerange)")
         print("Max Price Range: \(maxpricerange)")
-        print("Star Rating: \(starRating)")
+        print("Star Rating: \(starRatingNew.joined(separator: ","))")
         print("Refundable Types: \(refundableTypeArray)")
         print(" ==== nearByLocA === \n\(nearByLocA)")
         print(" ==== niberhoodA === \n\(niberhoodA)")
@@ -718,8 +719,8 @@ extension SearchHotelsResultVC:AppliedFilters{
             guard let netPrice = Double(hotel.price ?? "0.0") else { return false }
             
             // Check if the hotel's star rating matches the selected star rating or is empty
-            let ratingMatches = starRating.isEmpty || String(hotel.star_rating ?? 0) == starRating
-            
+          //  let ratingMatches = starRating.isEmpty || String(hotel.star_rating ?? 0) == starRating
+            let ratingMatches = starRatingNew.isEmpty || starRatingNew.contains("\(hotel.star_rating ?? 0)")
             // Check if the hotel's refund type matches any selected refundable types or the array is empty
             let refundableMatch = refundableTypeArray.isEmpty || refundableTypeArray.contains(hotel.refund ?? "")
             

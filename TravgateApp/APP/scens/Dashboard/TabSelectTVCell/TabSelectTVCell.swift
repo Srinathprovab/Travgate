@@ -78,10 +78,10 @@ class TabSelectTVCell: TableViewCell {
             break
         }
         
-        MySingleton.shared.setupTipView(arrowPosition: .top)
-        let tipView =  EasyTipView(text: "Select Flight", preferences: MySingleton.shared.preferences)
-        tipView.show(forView: self.flightView, withinSuperview: self.contentView)
-        
+//        MySingleton.shared.setupTipView(arrowPosition: .top)
+//        let tipView =  EasyTipView(text: "Select Flight", preferences: MySingleton.shared.preferences)
+//        tipView.show(forView: self.flightView, withinSuperview: self.contentView)
+//        
         
         
     }

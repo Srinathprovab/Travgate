@@ -130,6 +130,12 @@ enum TVCellType {
     case CruiseItineraryTVCell
     case CruiseContactdetailsTVCell
     
+    
+    //Transfers
+    case BookTransfersTVCell
+    case TransfersInf0TVCell
+    case BDTransfersInf0TVCell
+    
 }
 
 enum CVCellType {

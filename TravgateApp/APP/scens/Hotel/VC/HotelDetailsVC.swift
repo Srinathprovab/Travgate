@@ -260,6 +260,7 @@ extension HotelDetailsVC {
     //MARK: - CALL HOTEL DETAILS API
     func callAPI() {
         
+        MySingleton.shared.loderString = "fdetails"
         MySingleton.shared.afterResultsBool = true
         loderBool = true
         showLoadera()

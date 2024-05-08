@@ -88,6 +88,8 @@ var chArray = [String]()
 var hotelDetailsTapBool = true
 var oldjournyType = ""
 var selectedSpecificatonArray = [String]()
+var startRatingArray = [String]()
+var starRatingInputArray = [String]()
 
 
 //DASHBOARD
@@ -370,6 +372,13 @@ struct UserDefaultsKeys {
     static var cruischildCount = "cruischildCount"
     static var cruisinfantsCount = "cruisinfantsCount"
     static var cruistotalpassengercount = "cruistotalpassengercount"
+    
+    //Transfer
+    static var transfercalDepDate = "transfercalDepDate"
+    static var transfercalRetDate = "transfercalRetDate"
+    
+    static var transfercalDepTime = "transfercalDepTime"
+    static var transfercalRetTime = "transfercalRetTime"
 }
 
 

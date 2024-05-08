@@ -50,6 +50,7 @@ class MySingleton {
     var cruiseDetails : CruiseDetailsModel?
     var bhotelDetials:Hotel_details?
     var user_specification = [String]()
+    var hotel_user_specification = [User_specification]()
     var roompaxesdetails = [Room_paxes_details]()
     var hotelAddonServices = [HotelAddonModel]()
     var fareRulesData = [FareRulesData]()

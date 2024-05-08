@@ -13,6 +13,8 @@ extension HotelBookingDetailsVC {
     
     func addObserver() {
         
+        MySingleton.shared.guestbool = false
+        
         NotificationCenter.default.addObserver(self, selector: #selector(addon(_:)), name: NSNotification.Name("addon"), object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(nointernet), name: Notification.Name("offline"), object: nil)
@@ -20,7 +22,7 @@ extension HotelBookingDetailsVC {
         NotificationCenter.default.addObserver(self, selector: #selector(reload), name: Notification.Name("reload"), object: nil)
         
         
-
+        
     }
     
     
@@ -53,13 +55,13 @@ extension HotelBookingDetailsVC {
         let formattedTime = String(format: "%02d:%02d", minutes, seconds)
         
         
-//        MySingleton.shared.setAttributedTextnew(str1: "\(formattedTime)",
-//                                                str2: "",
-//                                                lbl: sessionTimelbl,
-//                                                str1font: .OpenSansMedium(size: 12),
-//                                                str2font: .OpenSansMedium(size: 12),
-//                                                str1Color: .BooknowBtnColor,
-//                                                str2Color: .BooknowBtnColor)
+        //        MySingleton.shared.setAttributedTextnew(str1: "\(formattedTime)",
+        //                                                str2: "",
+        //                                                lbl: sessionTimelbl,
+        //                                                str1font: .OpenSansMedium(size: 12),
+        //                                                str2font: .OpenSansMedium(size: 12),
+        //                                                str1Color: .BooknowBtnColor,
+        //                                                str2Color: .BooknowBtnColor)
         
         
     }
@@ -95,7 +97,7 @@ extension HotelBookingDetailsVC {
         updateTotalAmount(updatedGrandTotal: updatedGrandTotal)
         
     }
-   
+    
     func updateTotalAmount(updatedGrandTotal:Decimal) {
         
         // Update totalAmount label
@@ -108,16 +110,9 @@ extension HotelBookingDetailsVC {
 
 
 
-class HotelBookingDetailsVC: BaseTableVC, LoginViewModelDelegate, RegisterViewModelDelegate, MBViewModelDelegate, HotelBookingViewModelDelegate, TimerManagerDelegate {
-    func paymentDetails(response: PaymentModel) {
-        
-    }
+class HotelBookingDetailsVC: BaseTableVC, LoginViewModelDelegate, RegisterViewModelDelegate, HotelBookingViewModelDelegate, TimerManagerDelegate {
     
-    func mobolePaymentDetails(response: PaymentModel) {
-        
-    }
     
-   
     @IBOutlet weak var kwdlbl: UILabel!
     
     static var newInstance: HotelBookingDetailsVC? {
@@ -128,7 +123,7 @@ class HotelBookingDetailsVC: BaseTableVC, LoginViewModelDelegate, RegisterViewMo
     }
     
     var regViewModel: RegisterViewModel?
-    var mbviewmodel:MBViewModel?
+    //  var mbviewmodel:MBViewModel?
     var hdvm:HotelBookingVM?
     
     
@@ -150,7 +145,7 @@ class HotelBookingDetailsVC: BaseTableVC, LoginViewModelDelegate, RegisterViewMo
         
         MySingleton.shared.loginvm = LoginViewModel(self)
         MySingleton.shared.registervm = RegisterViewModel(self)
-        self.mbviewmodel = MBViewModel(self)
+        //  self.mbviewmodel = MBViewModel(self)
         self.hdvm = HotelBookingVM(self)
         MySingleton.shared.delegate = self
     }
@@ -164,6 +159,8 @@ class HotelBookingDetailsVC: BaseTableVC, LoginViewModelDelegate, RegisterViewMo
                                          "RegisterSelectionLoginTableViewCell",
                                          "GuestTVCell",
                                          "AddonTVCell",
+                                         "RegisterSelectionLoginTableViewCell",
+                                         "PrimaryContactInfoTVCell",
                                          "RegisterNowTableViewCell",
                                          "LoginDetailsTableViewCell",
                                          "HotelFareSummaryTVCell",
@@ -183,63 +180,9 @@ class HotelBookingDetailsVC: BaseTableVC, LoginViewModelDelegate, RegisterViewMo
         search_same_input()
     }
     
+   
     
-    
-    //MARK: - GuestTVCell RegisterNowTableViewCell RegisterNowButtonAction
-    override func GuestRegisterNowButtonAction(cell: GuestTVCell, email: String, pass: String, phone: String, countryCode: String) {
-        
-        defaults.set(true, forKey: UserDefaultsKeys.regStatus)
-        defaults.set(email, forKey: UserDefaultsKeys.useremail)
-        defaults.set(countryCode, forKey: UserDefaultsKeys.countryCode)
-        defaults.set(phone, forKey: UserDefaultsKeys.usermobile)
-        showToast(message: "Sucessfully Registered!..")
-        
-        commonTableView.reloadData()
-        
-        
-    }
-    
-    
-    
-    override func RegisterNowButtonAction(cell: LoginDetailsTableViewCell, email: String, pass: String, phone: String, countryCode: String) {
-        
-        defaults.set(true, forKey: UserDefaultsKeys.regStatus)
-        defaults.set(email, forKey: UserDefaultsKeys.useremail)
-        defaults.set(countryCode, forKey: UserDefaultsKeys.countryCode)
-        defaults.set(phone, forKey: UserDefaultsKeys.usermobile)
-        showToast(message: "Successfully Registered!..")
-        
-        commonTableView.reloadData()
-        
-    }
-    
-    
-    
-  
-    
-    
-    //MARK: - MBViewModel Delegate methods
-    func mobilepreprocessbookingDetails(response: MobilePreProcessBookingModel) {
-        
-    }
-    
-    func mobileprocesspassengerDetails(response: MBPModel) {
-        
-    }
-    
-    func mobilePreBookingModelDetails(response: MobilePreBookingModel) {
-        
-    }
-    
-    func mobileprepaymentconfirmationDetails(response: MobilePrePaymentModel) {
-        
-    }
-    
-    func mobilesendtopaymentDetails(response: MobilePrePaymentModel) {
-        
-    }
-    
-    
+
     
     //MARK: - ContactInformationTVCell Delegate Methods
     override func didTapOnCountryCodeBtn(cell: ContactInformationTVCell) {
@@ -300,6 +243,59 @@ class HotelBookingDetailsVC: BaseTableVC, LoginViewModelDelegate, RegisterViewMo
             commonTableView.reloadRows(at: [indexPath], with: .none)
         }
     }
+    
+    //MARK: - didTapOnRegisterNowOrLoginButtonAction
+    override func didTapOnRegisterNowOrLoginButtonAction(cell: RegisterSelectionLoginTableViewCell) {
+        commonTableView.reloadData()
+    }
+    
+    
+    //MARK: - PrimaryContactInfoTVCell Delegate Methods
+    override func didTapOnCountryCodeBtn(cell: PrimaryContactInfoTVCell) {
+        MySingleton.shared.nationalityCode = cell.isoCountryCode
+        //  MySingleton.shared.paymobilecountrycode = cell.countrycodeTF.text ?? ""
+    }
+    
+    
+    override func didTapOnGuestBtnAction(cell:PrimaryContactInfoTVCell) {
+        MySingleton.shared.guestbool = true
+        showToast(message: "Successfully Registered!..")
+        setuptv()
+    }
+    
+    
+    override func didTapOnLoginBtnAction(cell:PrimaryContactInfoTVCell) {
+        
+        if MySingleton.shared.payemail.isEmpty == true {
+            showToast(message: "Enter Email Address")
+        }else if MySingleton.shared.payemail.isValidEmail() == false {
+            showToast(message: "Enter Valid Email Address")
+        }else if MySingleton.shared.regpassword.isEmpty == true {
+            showToast(message: "Enter Password")
+        }else {
+            callLoginAPI()
+        }
+        
+    }
+    
+    
+    override func didTapOnRegisterBtnAction(cell:PrimaryContactInfoTVCell) {
+        
+        if MySingleton.shared.payemail.isEmpty == true {
+            showToast(message: "Enter Email Address")
+        }else if MySingleton.shared.payemail.isValidEmail() == false {
+            showToast(message: "Enter Valid Email Address")
+        }else if MySingleton.shared.paymobile.isEmpty == true {
+            showToast(message: "Enter Mobile Number")
+        }else if MySingleton.shared.paymobilecountrycode.isEmpty == true {
+            showToast(message: "Please Select Country Code")
+        }else if MySingleton.shared.regpassword.isEmpty == true {
+            showToast(message: "Enter Password")
+        }else {
+            callRegisterAPI()
+        }
+        
+    }
 }
 
 //MARK: - setupUI
@@ -319,35 +315,30 @@ extension HotelBookingDetailsVC {
         MySingleton.shared.tablerow.append(TableRow(cellType:.HotelBookingCancellationpolicyTVCell))
         
         
-        if defaults.bool(forKey: UserDefaultsKeys.loggedInStatus) == false {
-            //  MySingleton.shared.tablerow.append(TableRow(cellType:.TDetailsLoginTVCell))
-            // mbviewmodel?.section = .guestLogin
+        let userloggedBool = defaults.bool(forKey: UserDefaultsKeys.loggedInStatus)
+        if userloggedBool == false {
             
-            MySingleton.shared.tablerow.append(TableRow(height: 14,bgColor:.AppHolderViewColor, cellType:.EmptyTVCell))
-            MySingleton.shared.tablerow.append(TableRow(cellType: .RegisterSelectionLoginTableViewCell))
-            MySingleton.shared.tablerow.append(TableRow(height: 12,bgColor:.AppHolderViewColor, cellType:.EmptyTVCell))
-            if self.mbviewmodel?.section == .guestLogin {
-                MySingleton.shared.tablerow.append(TableRow(cellType: .GuestTVCell))
-                MySingleton.shared.tablerow.append(TableRow(height: 12,bgColor:.AppHolderViewColor, cellType:.EmptyTVCell))
-            }  else if self.mbviewmodel?.section == .login {
-                MySingleton.shared.tablerow.append(TableRow(key: "register",cellType: .RegisterNowTableViewCell))
-                MySingleton.shared.tablerow.append(TableRow(height: 12,bgColor:.AppHolderViewColor, cellType:.EmptyTVCell))
-            } else if self.mbviewmodel?.section == .register {
-                MySingleton.shared.tablerow.append(TableRow(cellType: .LoginDetailsTableViewCell))
-                MySingleton.shared.tablerow.append(TableRow(height: 12,bgColor:.AppHolderViewColor, cellType:.EmptyTVCell))
+            if MySingleton.shared.guestbool == false {
+                
+                MySingleton.shared.tablerow.append(TableRow(cellType:.RegisterSelectionLoginTableViewCell))
+                MySingleton.shared.tablerow.append(TableRow(cellType:.PrimaryContactInfoTVCell))
+                
             }
             
-        }else {
-            MySingleton.shared.tablerow.append(TableRow(height: 12,bgColor:.AppHolderViewColor, cellType:.EmptyTVCell))
         }
         
         
         
-        MySingleton.shared.tablerow.append(TableRow(title:"Guest Details",cellType:.TotalNoofTravellerTVCell))
+        
+        MySingleton.shared.tablerow.append(TableRow(title:"Guest Details",
+                                                    cellType:.TotalNoofTravellerTVCell))
         
         for i in 1...MySingleton.shared.hoteladultscount {
             MySingleton.shared.positionsCount += 1
-            let travellerCell = TableRow(title: "Adult \(i)", key: "adult", characterLimit:  MySingleton.shared.positionsCount, cellType: .AddDeatilsOfGuestTVCell)
+            let travellerCell = TableRow(title: "Adult \(i)",
+                                         key: "adult",
+                                         characterLimit:MySingleton.shared.positionsCount,
+                                         cellType: .AddDeatilsOfGuestTVCell)
             
             MySingleton.shared.tablerow.append(travellerCell)
             
@@ -357,7 +348,10 @@ extension HotelBookingDetailsVC {
         if MySingleton.shared.hotelchildcount != 0 {
             for i in 1...MySingleton.shared.hotelchildcount {
                 MySingleton.shared.positionsCount += 1
-                MySingleton.shared.tablerow.append(TableRow(title:"Child \(i)",key:"child",characterLimit:  MySingleton.shared.positionsCount,cellType:.AddDeatilsOfGuestTVCell))
+                MySingleton.shared.tablerow.append(TableRow(title:"Child \(i)"
+                                                            ,key:"child",
+                                                            characterLimit:MySingleton.shared.positionsCount,
+                                                            cellType:.AddDeatilsOfGuestTVCell))
                 
             }
         }
@@ -379,50 +373,14 @@ extension HotelBookingDetailsVC {
 
 
 
-extension HotelBookingDetailsVC {
-    func registerSucess(response: RegisterModel) {
-        print(response)
-        if response.status == false {
-            showToast(message: response.msg ?? "")
-        } else {
-            showToast(message: "Register Sucess")
-            defaults.set(true, forKey: UserDefaultsKeys.regStatus)
-            defaults.set(response.data?.user_id, forKey: UserDefaultsKeys.userid)
-            let seconds = 2.0
-            DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {[self] in
-                setuptv()
-            }
-        }
-    }
-    
-    
-    func loginSucess(response: LoginModel) {
-        print(response)
-        if response.status == false {
-            showToast(message: response.data ?? "")
-        }else {
-            defaults.set(true, forKey: UserDefaultsKeys.loggedInStatus)
-            //  defaults.set(response.email, forKey: UserDefaultsKeys.useremail)
-            defaults.set(response.logindetails?.user_id, forKey: UserDefaultsKeys.userid)
-            //            defaults.set(response.contry_code, forKey: UserDefaultsKeys.countryCode)
-            //            defaults.set(response.contact, forKey: UserDefaultsKeys.usermobile)
-            
-            showToast(message: response.data ?? "")
-            let seconds = 2.0
-            DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {[self] in
-                setuptv()
-                
-            }
-        }
-    }
-}
-
 
 
 //MARK: - callHotelMobileBookingAPI
 extension HotelBookingDetailsVC {
     
     func callHotelMobileBookingAPI() {
+        
+        MySingleton.shared.loderString = "fdetails"
         MySingleton.shared.afterResultsBool = true
         loderBool = true
         showLoadera()
@@ -447,13 +405,13 @@ extension HotelBookingDetailsVC {
         
         loderBool = false
         hideLoadera()
-        MySingleton.shared.user_specification.removeAll()
+        MySingleton.shared.hotel_user_specification.removeAll()
         
         MySingleton.shared.bhotelDetials = response.data?.hotel_details
-        MySingleton.shared.user_specification = response.data?.user_specification ?? []
+        MySingleton.shared.hotel_user_specification = response.data?.user_specification ?? []
         MySingleton.shared.roompaxesdetails = response.data?.room_paxes_details ?? []
         MySingleton.shared.hotelAddonServices = response.data?.addon_services ?? []
-       
+        
         
         MySingleton.shared.setAttributedTextnew(str1: defaults.string(forKey: UserDefaultsKeys.selectedCurrency) ?? "",
                                                 str2: String(format: "%.2f", response.data?.hotel_total_price ?? 0.0) ,
@@ -688,10 +646,8 @@ extension HotelBookingDetailsVC {
         let firstnameString = "[\"" + firstnameArray.joined(separator: "\",\"") + "\"]"
         let lastNameString = "[\"" + lastNameArray.joined(separator: "\",\"") + "\"]"
         let passengertypeString = "[\"" + passengertypeArray.joined(separator: "\",\"") + "\"]"
-        let laedpassengerArrayString = "[\"" + laedpassengerArray.joined(separator: "\",\"") + "\"]"
-        let spcialReqArrayStr = "[\"" + selectedSpecificatonArray.joined(separator: "\",\"") + "\"]"
-        
-        
+        //        let laedpassengerArrayString = "[\"" + laedpassengerArray.joined(separator: "\",\"") + "\"]"
+        //        let spcialReqArrayStr = "[\"" + selectedSpecificatonArray.joined(separator: "\",\"") + "\"]"
         
         
         MySingleton.shared.payload["token"] = htoken
@@ -712,22 +668,6 @@ extension HotelBookingDetailsVC {
         MySingleton.shared.payload["user_id"] = defaults.string(forKey: UserDefaultsKeys.userid) ?? "0"
         
         
-        //   MySingleton.shared.payload["token_key"] = htokenkey
-        //   MySingleton.shared.payload["payment_method"] = "PNHB1"
-        //  MySingleton.shared.payload["payment_booking_source"] = ""
-        //   MySingleton.shared.payload["promo_actual_value"] = ""
-        //   MySingleton.shared.payload["base_en_rate"] = ""
-        //  MySingleton.shared.payload["total_price_with_rewards"] = ""
-        //   MySingleton.shared.payload["lead_passenger"] = laedpassengerArrayString
-        //  MySingleton.shared.payload["rateKey"] = ""
-        //  MySingleton.shared.payload["mealsID"] = ""
-        //   MySingleton.shared.payload["nationality"] = "\([""])"
-        //   MySingleton.shared.payload["payment_value"] = "payment_gateway_knet"
-        //  MySingleton.shared.payload["users_comments"] = ""
-        //  MySingleton.shared.payload["special_req"] = spcialReqArrayStr
-        //  MySingleton.shared.payload["search_id"] = hsearchid
-        //     MySingleton.shared.payload["dob"] = "\([""])"
-
         
         // Check additional conditions
         if MySingleton.shared.payemail == "" {
@@ -756,9 +696,99 @@ extension HotelBookingDetailsVC {
     
     
     func hotelpreBookingDetails(response: HotelMBPModel) {
-        
         print(response.data?.post_data?.url)
     }
     
+    
+}
 
+
+
+
+extension HotelBookingDetailsVC {
+    
+    
+    //MARK: - callRegisterAPI registerSucess
+    
+    func callRegisterAPI() {
+        
+        basicloderBool = true
+        
+        MySingleton.shared.payload.removeAll()
+        MySingleton.shared.payload["first_name"] = "firstname"
+        MySingleton.shared.payload["last_name"] = "lastname"
+        MySingleton.shared.payload["email"] = MySingleton.shared.payemail
+        MySingleton.shared.payload["password"] = MySingleton.shared.regpassword
+        MySingleton.shared.payload["phone"] = MySingleton.shared.paymobile
+        MySingleton.shared.payload["country_code"] = MySingleton.shared.paymobilecountrycode
+        
+        MySingleton.shared.registervm?.CALL_USER_REGISTER_API(dictParam:  MySingleton.shared.payload)
+        
+    }
+    
+    
+    func registerSucess(response: RegisterModel) {
+        
+        basicloderBool = false
+        
+        
+        if response.status == false {
+            showToast(message: response.msg ?? "")
+        } else {
+            
+            MySingleton.shared.guestbool = true
+            showToast(message: "Register Sucess")
+            let seconds = 2.0
+            DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {[self] in
+                setuptv()
+            }
+        }
+    }
+    
+    
+    
+    
+    
+    //MARK: - callLoginAPI loginSucess
+    
+    func callLoginAPI() {
+        
+        basicloderBool = true
+        
+        MySingleton.shared.payload.removeAll()
+        MySingleton.shared.payload["username"] = MySingleton.shared.payemail
+        MySingleton.shared.payload["password"] = MySingleton.shared.regpassword
+        MySingleton.shared.loginvm?.CALL_USER_LOGIN_API(dictParam:  MySingleton.shared.payload)
+        
+    }
+    
+    func loginSucess(response: LoginModel) {
+        
+        
+        basicloderBool = false
+        
+        if response.status == false {
+            showToast(message: response.data ?? "")
+        }else {
+            MySingleton.shared.guestbool = true
+            defaults.set(true, forKey: UserDefaultsKeys.loggedInStatus)
+            defaults.set(response.logindetails?.user_id, forKey: UserDefaultsKeys.userid)
+            
+            
+            defaults.set(response.logindetails?.email, forKey: UserDefaultsKeys.useremail)
+            defaults.set(response.logindetails?.phone, forKey: UserDefaultsKeys.usermobile)
+            defaults.set(response.logindetails?.country_code, forKey: UserDefaultsKeys.usermobilecode)
+            
+            MySingleton.shared.payemail = response.logindetails?.email ?? ""
+            MySingleton.shared.paymobile = response.logindetails?.phone ?? ""
+            MySingleton.shared.paymobilecountrycode = response.logindetails?.country_code ?? ""
+            
+            showToast(message: response.data ?? "")
+            let seconds = 2.0
+            DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {[self] in
+                setuptv()
+            }
+        }
+        
+    }
 }

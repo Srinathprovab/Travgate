@@ -28,6 +28,7 @@ struct HotelFilterModel {
     var minPriceRange: Double?
     var maxPriceRange: Double?
     var starRating = String()
+    var starRatingNew : [String] = []
     var refundableTypes: [String] = []
     var nearByLocA: [String] = []
     var niberhoodA: [String] = []
@@ -71,6 +72,7 @@ protocol AppliedFilters:AnyObject {
     func hotelFilterByApplied(minpricerange:Double,
                               maxpricerange:Double,
                               starRating: String,
+                              starRatingNew: [String],
                               refundableTypeArray:[String],
                               nearByLocA:[String],
                               niberhoodA:[String],
@@ -301,7 +303,7 @@ class FilterVC: BaseTableVC{
         tablerow.removeAll()
         
         tablerow.append(TableRow(title:"Price",cellType:.SliderTVCell))
-        tablerow.append(TableRow(title:"Star Ratings ",cellType:.PopularFiltersTVCell))
+        tablerow.append(TableRow(title:"Star Ratings",cellType:.PopularFiltersTVCell))
         tablerow.append(TableRow(title:"Booking Type",data: paymentTypeArray,cellType:.CheckBoxTVCell))
         tablerow.append(TableRow(title:"Neighbourhood",data: neighbourwoodArray,cellType:.CheckBoxTVCell))
         tablerow.append(TableRow(title:"Near By Location's",data: nearBylocationsArray,cellType:.CheckBoxTVCell))
@@ -357,22 +359,7 @@ class FilterVC: BaseTableVC{
         
     }
     
-    
-    override func didTapOnOneRatingViewBtn(cell: PopularFiltersTVCell) {
-        starRatingFilter = cell.onelbl.text ?? ""
-    }
-    override func didTapOnTwoRatingViewBtn(cell: PopularFiltersTVCell) {
-        starRatingFilter = cell.twolbl.text ?? ""
-    }
-    override func didTapOnThreeatingViewBtn(cell: PopularFiltersTVCell) {
-        starRatingFilter = cell.threelbl.text ?? ""
-    }
-    override func didTapOnFouratingViewBtn(cell: PopularFiltersTVCell) {
-        starRatingFilter = cell.fourlbl.text ?? ""
-    }
-    override func didTapOnFivetingViewBtn(cell: PopularFiltersTVCell) {
-        starRatingFilter = cell.fivelbl.text ?? ""
-    }
+   
     
     override func didTapOnLowtoHighBtn(cell: SortbyTVCell) {
         cell.lowtoHighlbl.textColor = .WhiteColor
@@ -1204,6 +1191,14 @@ class FilterVC: BaseTableVC{
                 }
                 
                 
+                if !startRatingArray.isEmpty {
+                    hotelfiltermodel.starRatingNew = startRatingArray
+                }else {
+                    hotelfiltermodel.starRatingNew.removeAll()
+                }
+                
+                
+                
                 if !hotelRefundablerTypeFilteArray.isEmpty {
                     hotelfiltermodel.refundableTypes = hotelRefundablerTypeFilteArray
                 }else {
@@ -1233,7 +1228,8 @@ class FilterVC: BaseTableVC{
                 
                 delegate?.hotelFilterByApplied(minpricerange:  hotelfiltermodel.minPriceRange ?? 0.0,
                                                maxpricerange:  hotelfiltermodel.maxPriceRange ?? 0.0,
-                                               starRating:  hotelfiltermodel.starRating,
+                                               starRating:  hotelfiltermodel.starRating, 
+                                               starRatingNew: startRatingArray,
                                                refundableTypeArray: hotelfiltermodel.refundableTypes,
                                                nearByLocA: hotelfiltermodel.nearByLocA,
                                                niberhoodA: hotelfiltermodel.niberhoodA,
@@ -1259,6 +1255,15 @@ class FilterVC: BaseTableVC{
         lbl.numberOfLines = 0
         lbl.textAlignment = align
     }
+    
+    
+    //MARK: - didTapOnStarRatingCell
+    override func didTapOnStarRatingCell(cell: StarRatingCVCell) {
+        starRatingFilter = cell.titlelbl.text ?? ""
+        print(startRatingArray.joined(separator: ","))
+    }
+    
+    
 }
 
 
@@ -1498,6 +1503,10 @@ extension FilterVC {
         if !hotelfiltermodel.niberhoodA.isEmpty {
             selectedNeighbourwoodArray = hotelfiltermodel.niberhoodA
         }
+        
+        if !hotelfiltermodel.starRatingNew.isEmpty {
+            startRatingArray = hotelfiltermodel.starRatingNew
+        }
     }
     
     
@@ -1526,6 +1535,9 @@ extension FilterVC {
         selectednearBylocationsArray.removeAll()
         selectedNeighbourwoodArray.removeAll()
         selectedamenitiesArray.removeAll()
+        hotelfiltermodel.starRatingNew.removeAll()
+        startRatingArray.removeAll()
+        
         
         // Deselect all cells in your checkOptionsTVCell table view
         deselectAllCheckOptionsCells()

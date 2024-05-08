@@ -136,7 +136,8 @@ class DashboardVC: BaseTableVC, AllCountryCodeListViewModelDelegate, SearchDataV
     }
     
     override func didTapOnTransfersbtnAction(cell: TabSelectTVCell) {
-        print("didTapOnTransfersbtnAction")
+        defaults.set("transfers", forKey: UserDefaultsKeys.tabselect)
+        gotoBookTransfersVC()
     }
     
     override func didTapOnActivitiesbtnAction(cell: TabSelectTVCell) {
@@ -231,7 +232,11 @@ extension DashboardVC {
         present(vc, animated: true)
     }
     
-    
+    func gotoBookTransfersVC() {
+        guard let vc = BookTransfersVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
+    }
     
     func setupMenu(){
         

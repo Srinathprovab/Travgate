@@ -35,7 +35,7 @@ class UserSpecificationTVCell: TableViewCell {
     }
     
     func updateHeight() {
-        tvHeight.constant = CGFloat(MySingleton.shared.user_specification.count * 40)
+        tvHeight.constant = CGFloat(MySingleton.shared.hotel_user_specification.count * 40)
         userSpecificationTV.reloadData()
     }
     
@@ -66,14 +66,14 @@ extension UserSpecificationTVCell:UITableViewDelegate,UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return MySingleton.shared.user_specification.count
+        return MySingleton.shared.hotel_user_specification.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var c = UITableViewCell()
         if let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? AddUserSpecificationTVCell {
             
-            cell.titlelbl.text = MySingleton.shared.user_specification[indexPath.row]
+            cell.titlelbl.text = MySingleton.shared.hotel_user_specification[indexPath.row].specialrequests_name ?? ""
             
             c = cell
             

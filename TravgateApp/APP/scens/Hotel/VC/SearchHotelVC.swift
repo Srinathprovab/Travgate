@@ -121,6 +121,8 @@ extension SearchHotelVC {
         
         setInitalValues()
         
+        
+        
         commonTableView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner] // Top left corner, Top right corner respectively
         commonTableView.layer.cornerRadius = 12
         commonTableView.clipsToBounds = true
@@ -153,6 +155,9 @@ extension SearchHotelVC {
     
     
     func setInitalValues() {
+        
+        startRatingArray.removeAll()
+        starRatingInputArray = ["3","4","5"]
         
         adtArray.removeAll()
         chArray.removeAll()

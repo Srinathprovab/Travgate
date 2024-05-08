@@ -28,7 +28,7 @@ struct HotelBookingData : Codable {
     //  let reward_usable : Int?
     //let reward_earned : Int?
     //    let total_price_with_rewards : Int?
-    let user_specification : [String]?
+    let user_specification : [User_specification]?
     let addon_services : [HotelAddonModel]?
     
     enum CodingKeys: String, CodingKey {
@@ -79,7 +79,7 @@ struct HotelBookingData : Codable {
         //  reward_usable = try values.decodeIfPresent(Int.self, forKey: .reward_usable)
         // reward_earned = try values.decodeIfPresent(Int.self, forKey: .reward_earned)
         //        total_price_with_rewards = try values.decodeIfPresent(Int.self, forKey: .total_price_with_rewards)
-        user_specification = try values.decodeIfPresent([String].self, forKey: .user_specification)
+        user_specification = try values.decodeIfPresent([User_specification].self, forKey: .user_specification)
         addon_services = try values.decodeIfPresent([HotelAddonModel].self, forKey: .addon_services)
     }
     
