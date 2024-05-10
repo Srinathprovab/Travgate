@@ -99,8 +99,11 @@ class HotelSearchTVCell: TableViewCell, HotelCitySearchViewModelDelegate {
         nationalitylTF.isHidden = false
         nationalitylTF.setLeftPaddingPoints(15)
         
-        if starRatingInputArray.count > 0 {
+        if startRatingArray.count == 0 {
             hotelfiltermodel.starRatingNew = starRatingInputArray
+            startRatingArray = starRatingInputArray
+        }else {
+            hotelfiltermodel.starRatingNew = startRatingArray
         }
         
         setupCV()

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="OpenSans-Bold.ttf">
+            <string>OpenSans-Bold</string>
+        </array>
+        <array key="OpenSans-Medium.ttf">
+            <string>OpenSans-Medium</string>
+        </array>
+        <array key="OpenSans-Regular.ttf">
+            <string>OpenSans-Regular</string>
+        </array>
+        <array key="OpenSans-SemiBold.ttf">
+            <string>OpenSans-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="143" id="KGk-i7-Jjw" customClass="SportInfoTVCell" customModule="Travgate" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="498" height="145"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="498" height="145"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZdL-a7-IFE" customClass="BorderedView" customModule="Travgate" customModuleProvider="target">
+                        <rect key="frame" x="16" y="0.0" width="466" height="135"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Tue 07 May 2024-2:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AZM-2Y-FQ9">
+                                <rect key="frame" x="9.9999999999999929" y="14" width="122.33333333333331" height="16.666666666666671"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="12"/>
+                                <color key="textColor" red="0.4392156862745098" green="0.4392156862745098" blue="0.4392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Football(Soccer)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZH8-7M-EGq">
+                                <rect key="frame" x="9.9999999999999929" y="38.666666666666664" width="123.33333333333331" height="22"/>
+                                <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="16"/>
+                                <color key="textColor" name="TitleColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Semi-Final; Paris SG VS Borussia Dortmund " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sWe-9b-lVw">
+                                <rect key="frame" x="10" y="68.666666666666671" width="328.66666666666669" height="22"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Medium" family="Open Sans" pointSize="16"/>
+                                <color key="textColor" name="TitleColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Parc des Princes-Paris -France" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KiY-gl-fvC">
+                                <rect key="frame" x="10" y="98.666666666666671" width="223.33333333333334" height="22"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="16"/>
+                                <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SfH-xq-9KV">
+                                <rect key="frame" x="336" y="85" width="120" height="40"/>
+                                <color key="backgroundColor" name="TransferBookNowColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="K4x-VS-3dA"/>
+                                    <constraint firstAttribute="width" constant="120" id="pKK-qs-t7m"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="OpenSans-Medium" family="Open Sans" pointSize="16"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="View Ticket">
+                                    <color key="titleColor" name="WhiteColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapOnViewTicketBtnAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="JVf-9y-ugW"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sp1" translatesAutoresizingMaskIntoConstraints="NO" id="WHr-nc-M73">
+                                <rect key="frame" x="406" y="10" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="aqO-UU-5nW"/>
+                                    <constraint firstAttribute="height" constant="40" id="q1s-Q1-wRZ"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sp2" translatesAutoresizingMaskIntoConstraints="NO" id="Gxj-mM-QOL">
+                                <rect key="frame" x="356" y="10" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="41I-Ja-7dM"/>
+                                    <constraint firstAttribute="width" constant="40" id="hta-mh-Ku0"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="KWD:25.597" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="00i-X1-Gpn">
+                                <rect key="frame" x="339.66666666666669" y="47.666666666666664" width="116.33333333333331" height="27.333333333333336"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="116.33" id="yyg-Cl-HKw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="sWe-9b-lVw" firstAttribute="top" secondItem="ZH8-7M-EGq" secondAttribute="bottom" constant="8" id="1CA-8x-zz4"/>
+                            <constraint firstItem="WHr-nc-M73" firstAttribute="top" secondItem="ZdL-a7-IFE" secondAttribute="top" constant="10" id="EKe-nC-doG"/>
+                            <constraint firstItem="SfH-xq-9KV" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="KiY-gl-fvC" secondAttribute="trailing" constant="10" id="K3R-Ty-dKH"/>
+                            <constraint firstItem="KiY-gl-fvC" firstAttribute="top" secondItem="sWe-9b-lVw" secondAttribute="bottom" constant="8" id="MOJ-nH-jag"/>
+                            <constraint firstItem="WHr-nc-M73" firstAttribute="leading" secondItem="Gxj-mM-QOL" secondAttribute="trailing" constant="10" id="SZi-gr-uLc"/>
+                            <constraint firstItem="SfH-xq-9KV" firstAttribute="top" secondItem="00i-X1-Gpn" secondAttribute="bottom" constant="10" id="V5C-Er-slr"/>
+                            <constraint firstItem="sWe-9b-lVw" firstAttribute="leading" secondItem="ZdL-a7-IFE" secondAttribute="leading" constant="10" id="W99-Ib-YxU"/>
+                            <constraint firstAttribute="trailing" secondItem="00i-X1-Gpn" secondAttribute="trailing" constant="10" id="WEK-xP-9PH"/>
+                            <constraint firstItem="AZM-2Y-FQ9" firstAttribute="leading" secondItem="ZdL-a7-IFE" secondAttribute="leading" constant="10" id="ZlY-1v-uIX"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="sWe-9b-lVw" secondAttribute="trailing" constant="40" id="fXH-vS-wOz"/>
+                            <constraint firstAttribute="trailing" secondItem="SfH-xq-9KV" secondAttribute="trailing" constant="10" id="feY-VR-ftr"/>
+                            <constraint firstItem="Gxj-mM-QOL" firstAttribute="centerY" secondItem="WHr-nc-M73" secondAttribute="centerY" id="h98-rP-VtZ"/>
+                            <constraint firstAttribute="bottom" secondItem="KiY-gl-fvC" secondAttribute="bottom" constant="14.33" id="l2v-Rb-nQn"/>
+                            <constraint firstItem="ZH8-7M-EGq" firstAttribute="leading" secondItem="ZdL-a7-IFE" secondAttribute="leading" constant="10" id="lLr-jL-nKD"/>
+                            <constraint firstAttribute="trailing" secondItem="WHr-nc-M73" secondAttribute="trailing" constant="20" id="lt1-ob-IIt"/>
+                            <constraint firstItem="ZH8-7M-EGq" firstAttribute="top" secondItem="AZM-2Y-FQ9" secondAttribute="bottom" constant="8" id="noX-vg-ueh"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="135" id="pmY-Vf-k0s"/>
+                            <constraint firstItem="AZM-2Y-FQ9" firstAttribute="top" secondItem="ZdL-a7-IFE" secondAttribute="top" constant="14" id="uVW-mO-aIg"/>
+                            <constraint firstItem="KiY-gl-fvC" firstAttribute="leading" secondItem="ZdL-a7-IFE" secondAttribute="leading" constant="10" id="vB7-uo-A2x"/>
+                            <constraint firstAttribute="bottom" secondItem="SfH-xq-9KV" secondAttribute="bottom" constant="10" id="ymw-5r-lCs"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" name="BorderColor"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="6"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="ZdL-a7-IFE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="2lE-cQ-wSZ"/>
+                    <constraint firstItem="ZdL-a7-IFE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="8uO-nP-lum"/>
+                    <constraint firstAttribute="bottom" secondItem="ZdL-a7-IFE" secondAttribute="bottom" constant="10" id="XQb-17-HyF"/>
+                    <constraint firstAttribute="trailing" secondItem="ZdL-a7-IFE" secondAttribute="trailing" constant="16" id="o15-KW-VwO"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="datelbl" destination="AZM-2Y-FQ9" id="ye3-4S-qQE"/>
+                <outlet property="sportcitylbl" destination="KiY-gl-fvC" id="Vt3-Ac-c7b"/>
+                <outlet property="sportimg1" destination="WHr-nc-M73" id="X9m-4n-Snw"/>
+                <outlet property="sportimg2" destination="Gxj-mM-QOL" id="qQR-kc-Pbf"/>
+                <outlet property="subtitlelbl" destination="sWe-9b-lVw" id="kUT-ze-rnb"/>
+                <outlet property="titlelbl" destination="ZH8-7M-EGq" id="bQA-K5-dAW"/>
+                <outlet property="viewTicketBtn" destination="SfH-xq-9KV" id="8WX-f9-aLD"/>
+            </connections>
+            <point key="canvasLocation" x="271.75572519083971" y="146.12676056338029"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="sp1" width="40" height="40"/>
+        <image name="sp2" width="40" height="40"/>
+        <namedColor name="BorderColor">
+            <color red="0.72200000286102295" green="0.72200000286102295" blue="0.72200000286102295" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TitleColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TransferBookNowColor">
+            <color red="0.96100002527236938" green="0.37299999594688416" blue="0.37299999594688416" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="WhiteColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

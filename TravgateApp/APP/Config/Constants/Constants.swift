@@ -376,9 +376,14 @@ struct UserDefaultsKeys {
     //Transfer
     static var transfercalDepDate = "transfercalDepDate"
     static var transfercalRetDate = "transfercalRetDate"
-    
+
     static var transfercalDepTime = "transfercalDepTime"
     static var transfercalRetTime = "transfercalRetTime"
+    
+    
+    //sportds
+    static var sportcalDepDate = "sportcalDepDate"
+    static var sportcalRetDate = "sportcalRetDate"
 }
 
 

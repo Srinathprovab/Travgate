@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="OpenSans-SemiBold.ttf">
+            <string>OpenSans-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="73" id="KGk-i7-Jjw" customClass="TermsAgreeTVCell" customModule="Travgate" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="502" height="73"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="502" height="73"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fbw-bb-Vbd">
+                        <rect key="frame" x="0.0" y="0.0" width="502" height="73"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="uncheck" translatesAutoresizingMaskIntoConstraints="NO" id="o7c-Tl-RyX">
+                                <rect key="frame" x="10" y="10" width="24" height="24"/>
+                                <color key="tintColor" name="TitleColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="24" id="D6T-Ew-Cid"/>
+                                    <constraint firstAttribute="height" constant="24" id="bBP-Tf-iMl"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DSZ-zH-RFp">
+                                <rect key="frame" x="44" y="10" width="448" height="63"/>
+                                <string key="text">By Booking This item, You agree to pay the total amount shown, with includes service fees. you also agree to the terms ans conditions and privacy policy .</string>
+                                <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="14"/>
+                                <color key="textColor" name="TitleColor"/>
+                                <nil key="highlightedColor"/>
+                                <string key="userLabel">By booking this item, you agree to pay the total amount shown, which includes Service Fees, on the right and to the , User Terms, Privacy policy .</string>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o4N-NF-Zhj">
+                                <rect key="frame" x="0.0" y="0.0" width="502" height="73"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain"/>
+                                <connections>
+                                    <action selector="didTapOnCheckBoxBtnAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="DcP-Fb-Bxv"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="o7c-Tl-RyX" firstAttribute="top" secondItem="Fbw-bb-Vbd" secondAttribute="top" constant="10" id="G2E-X1-8Sd"/>
+                            <constraint firstAttribute="bottom" secondItem="DSZ-zH-RFp" secondAttribute="bottom" id="LNt-7i-R19"/>
+                            <constraint firstItem="o4N-NF-Zhj" firstAttribute="top" secondItem="Fbw-bb-Vbd" secondAttribute="top" id="Lio-uv-BC1"/>
+                            <constraint firstItem="o7c-Tl-RyX" firstAttribute="leading" secondItem="Fbw-bb-Vbd" secondAttribute="leading" constant="10" id="OJc-Z0-OYL"/>
+                            <constraint firstAttribute="trailing" secondItem="DSZ-zH-RFp" secondAttribute="trailing" constant="10" id="PzD-oh-RU7"/>
+                            <constraint firstItem="DSZ-zH-RFp" firstAttribute="top" secondItem="o7c-Tl-RyX" secondAttribute="top" id="TZJ-Qf-efp"/>
+                            <constraint firstItem="o4N-NF-Zhj" firstAttribute="leading" secondItem="Fbw-bb-Vbd" secondAttribute="leading" id="We8-Te-2Cy"/>
+                            <constraint firstItem="DSZ-zH-RFp" firstAttribute="leading" secondItem="o7c-Tl-RyX" secondAttribute="trailing" constant="10" id="XC0-lx-e56"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="73" id="XkQ-cG-eAu"/>
+                            <constraint firstAttribute="bottom" secondItem="o4N-NF-Zhj" secondAttribute="bottom" id="ctw-96-DKa"/>
+                            <constraint firstItem="DSZ-zH-RFp" firstAttribute="top" secondItem="Fbw-bb-Vbd" secondAttribute="top" constant="10" id="oTH-WO-9jS"/>
+                            <constraint firstAttribute="trailing" secondItem="o4N-NF-Zhj" secondAttribute="trailing" id="vwZ-sR-dp7"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="Fbw-bb-Vbd" secondAttribute="bottom" id="9CD-Tx-5l7"/>
+                    <constraint firstItem="Fbw-bb-Vbd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="VXM-Yz-jpw"/>
+                    <constraint firstAttribute="trailing" secondItem="Fbw-bb-Vbd" secondAttribute="trailing" id="eD4-du-Tna"/>
+                    <constraint firstItem="Fbw-bb-Vbd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="mwl-Ds-Xop"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="checkboximg" destination="o7c-Tl-RyX" id="Zc0-as-JB6"/>
+            </connections>
+            <point key="canvasLocation" x="276.3358778625954" y="112.32394366197184"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="uncheck" width="28" height="30"/>
+        <namedColor name="TitleColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

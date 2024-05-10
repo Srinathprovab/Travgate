@@ -70,7 +70,7 @@ enum TVCellType {
     case BaggageInfoImageTVCell
     case PaymentTypeTVCell
     case SelectFareInfoTVCell
-   
+    
     
     //Booking
     case BookingConfirmedTVCell
@@ -135,6 +135,19 @@ enum TVCellType {
     case BookTransfersTVCell
     case TransfersInf0TVCell
     case BDTransfersInf0TVCell
+    case TFlighDetailsTVCell
+    case TContactDetailsTVCell
+    case TermsAgreeTVCell
+    
+    //Sports
+    case SportsSearchTVCell
+    case SportInfoTVCell
+    case SelectedSportInfoTVCell
+    case SportsStadiumTVCell
+    
+    
+    //Insurence
+    case InsurenceSearchTVCell
     
 }
 

@@ -30,6 +30,33 @@ class BDTransferVC: BaseTableVC {
         dismiss(animated: true)
     }
     
+    
+    override func doneTimePicker(cell: TFlighDetailsTVCell) {
+        self.view.endEditing(true)
+    }
+    
+    override func cancelTimePicker(cell: TFlighDetailsTVCell) {
+        self.view.endEditing(true)
+    }
+    
+    
+    override func didTapOnCountryCodeBtn(cell: TContactDetailsTVCell) {
+        print(cell.countrycodeTF.text ?? "")
+    }
+    
+    
+    
+    @IBAction func didTapOnContinueBtnAction(_ sender: Any) {
+        gotoBDTransferVC()
+    }
+    
+    
+    func gotoBDTransferVC() {
+       guard let vc = SelectPaymentMethodsVC.newInstance.self else {return}
+       vc.modalPresentationStyle = .fullScreen
+       self.present(vc, animated: true)
+   }
+    
 }
 
 
@@ -40,21 +67,23 @@ extension BDTransferVC {
     func setupUI(){
         
         commonTableView.registerTVCells(["BDTransfersInf0TVCell",
-                                         "EmptyTVCell"])
+                                         "EmptyTVCell",
+                                         "TContactDetailsTVCell",
+                                         "TermsAgreeTVCell",
+                                         "TFlighDetailsTVCell"])
         setupVisaTVCells(keystr: "oneway")
         
     }
     
     
-    
-    
     func setupVisaTVCells(keystr:String) {
         MySingleton.shared.tablerow.removeAll()
         
-        MySingleton.shared.tablerow.append(TableRow(key:keystr,
-                                                    cellType:.BDTransfersInf0TVCell))
-        
-        MySingleton.shared.tablerow.append(TableRow(height:50,cellType:.EmptyTVCell))
+        MySingleton.shared.tablerow.append(TableRow(key:keystr,cellType:.BDTransfersInf0TVCell))
+        MySingleton.shared.tablerow.append(TableRow(cellType:.TFlighDetailsTVCell))
+        MySingleton.shared.tablerow.append(TableRow(cellType:.TContactDetailsTVCell))
+        MySingleton.shared.tablerow.append(TableRow(cellType:.TermsAgreeTVCell))
+        MySingleton.shared.tablerow.append(TableRow(height:20,cellType:.EmptyTVCell))
         
         commonTVData = MySingleton.shared.tablerow
         commonTableView.reloadData()

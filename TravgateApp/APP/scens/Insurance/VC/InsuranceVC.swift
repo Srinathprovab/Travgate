@@ -12,18 +12,14 @@ class InsuranceVC: BaseTableVC {
     
     
     static var newInstance: InsuranceVC? {
-        let storyboard = UIStoryboard(name: Storyboard.Visa.name,
+        let storyboard = UIStoryboard(name: Storyboard.Insurance.name,
                                       bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: self.className()) as? InsuranceVC
         return vc
     }
     
     
-    var fname = String()
-    var lname = String()
-    var email = String()
-    var mobile = String()
-    var countrycode = String()
+    
     
     override func viewWillAppear(_ animated: Bool) {
         addObserver()
@@ -39,36 +35,6 @@ class InsuranceVC: BaseTableVC {
     
     
     
-    override func editingTextField(tf:UITextField){
-        
-        switch tf.tag {
-        case 1:
-            fname = tf.text ?? ""
-            break
-            
-        case 2:
-            lname = tf.text ?? ""
-            break
-            
-        case 3:
-            email = tf.text ?? ""
-            break
-            
-        case 4:
-            countrycode = tf.text ?? ""
-            break
-            
-        case 5:
-            mobile = tf.text ?? ""
-            break
-            
-            
-            
-            
-        default:
-            break
-        }
-    }
     
     
     
@@ -78,32 +44,45 @@ class InsuranceVC: BaseTableVC {
     }
     
     
-    override func didTapOnPaynowBtnAction(cell: AutoPaymentTVCell) {
-        
-        if fname.isEmpty == true {
-            showToast(message: "Enter First Name")
-            errorTextField(v: cell.fnameTF)
-        }else if lname.isEmpty == true {
-            showToast(message: "Enter Last Name")
-            errorTextField(v: cell.lnameTF)
-        }else if mobile.isEmpty == true {
-            showToast(message: "Enter Mobile Number")
-            errorTextField(v: cell.mobileTF)
-        }else if email.isEmpty == true {
-            showToast(message: "Enter Email Address")
-            errorTextField(v: cell.emailTF)
-        }else if email.isValidEmail() == false {
-            showToast(message: "Enter Valid Email Address")
-            errorTextField(v: cell.emailTF)
-        }else {
-            callAPI()
-        }
+    
+    //MARK: - InsurenceSearchTVCell Delegate Methodes
+    override func didTapOnWhoTravellingBtnAction(cell:InsurenceSearchTVCell) {
+        print("\(cell.travellinglbl.text ?? "")")
+    }
+    
+    override func didTapOnWithWhomTravellingBtnAction(cell:InsurenceSearchTVCell) {
+        print("\(cell.withWhomTravellinglbl.text ?? "")")
+    }
+    
+    override func didTapOnTravelZoneBtnAction(cell:InsurenceSearchTVCell) {
+        print("\(cell.travelZonelbl.text ?? "")")
     }
     
     
-    func errorTextField(v:UITextField) {
-        v.layer.borderColor = UIColor.BooknowBtnColor.cgColor
+    override func didTapOnMultiTripslblBtnAction(cell:InsurenceSearchTVCell) {
+        print("\(cell.multiTripslbl.text ?? "")")
     }
+    
+    override func donedatePicker(cell:InsurenceSearchTVCell){
+        self.view.endEditing(true)
+    }
+    
+    
+    override func cancelDatePicker(cell:InsurenceSearchTVCell) {
+        self.view.endEditing(true)
+    }
+    
+    override func didTapOnAddAdditionalTravellerBtnAction(cell:InsurenceSearchTVCell) {
+        print("\(cell.additionalTravelerslbl.text ?? "")")
+    }
+    
+    
+    override func didTapOnInsurenceSearchBtnAction(cell: InsurenceSearchTVCell) {
+        print("didTapOnInsurenceSearchBtnAction")
+    }
+    
+    
+    
     
 }
 
@@ -117,19 +96,19 @@ extension InsuranceVC {
         commonTableView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner] // Top left corner, Top right corner respectively
         commonTableView.layer.cornerRadius = 12
         commonTableView.clipsToBounds = true
-        commonTableView.registerTVCells(["AutoPaymentTVCell",
+        commonTableView.registerTVCells(["InsurenceSearchTVCell",
                                          "EmptyTVCell"])
         
-        setupVisaTVCells()
+        setupTVCells()
         
     }
     
     
     
-    func setupVisaTVCells() {
+    func setupTVCells() {
         MySingleton.shared.tablerow.removeAll()
         
-        MySingleton.shared.tablerow.append(TableRow(cellType:.AutoPaymentTVCell))
+        MySingleton.shared.tablerow.append(TableRow(cellType:.InsurenceSearchTVCell))
         MySingleton.shared.tablerow.append(TableRow(height:50,cellType:.EmptyTVCell))
         
         commonTVData = MySingleton.shared.tablerow

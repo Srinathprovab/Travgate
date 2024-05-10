@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="OpenSans-Medium.ttf">
+            <string>OpenSans-Medium</string>
+        </array>
+        <array key="OpenSans-Regular.ttf">
+            <string>OpenSans-Regular</string>
+        </array>
+        <array key="OpenSans-SemiBold.ttf">
+            <string>OpenSans-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="SelectedSportInfoTVCell" customModule="Travgate" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="498" height="145"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="498" height="145"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ed6-aN-VbB" customClass="BorderedView" customModule="Travgate" customModuleProvider="target">
+                        <rect key="frame" x="16" y="0.0" width="466" height="135"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Tue 07 May 2024-2:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5UX-04-nmU">
+                                <rect key="frame" x="9.9999999999999929" y="14" width="122.33333333333331" height="16.666666666666671"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="12"/>
+                                <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Football(Soccer)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ohM-z2-BpZ">
+                                <rect key="frame" x="9.9999999999999929" y="38.666666666666664" width="123.33333333333331" height="22"/>
+                                <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="16"/>
+                                <color key="textColor" name="TitleColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Semi-Final; Paris SG VS Borussia Dortmund " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IWr-xT-dh7">
+                                <rect key="frame" x="10" y="68.666666666666671" width="328.66666666666669" height="22"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Medium" family="Open Sans" pointSize="16"/>
+                                <color key="textColor" name="TitleColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Parc des Princes-Paris -France" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Y1-OY-NVO">
+                                <rect key="frame" x="10" y="98.666666666666671" width="223.33333333333334" height="22"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="16"/>
+                                <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="5Lw-Qq-0HP">
+                                <rect key="frame" x="356" y="47.666666666666657" width="90" height="40"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sp2" translatesAutoresizingMaskIntoConstraints="NO" id="cZ6-Ns-zqy">
+                                        <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="PJS-ik-Vzq"/>
+                                            <constraint firstAttribute="height" constant="40" id="dZV-aG-fBM"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sp1" translatesAutoresizingMaskIntoConstraints="NO" id="zQ2-5F-FHX">
+                                        <rect key="frame" x="50" y="0.0" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="3Vc-wk-L8R"/>
+                                            <constraint firstAttribute="width" constant="40" id="J3n-wS-QEV"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="5UX-04-nmU" firstAttribute="top" secondItem="Ed6-aN-VbB" secondAttribute="top" constant="14" id="1oV-s4-bNg"/>
+                            <constraint firstItem="5Lw-Qq-0HP" firstAttribute="centerY" secondItem="Ed6-aN-VbB" secondAttribute="centerY" id="5hf-nL-pbQ"/>
+                            <constraint firstItem="ohM-z2-BpZ" firstAttribute="top" secondItem="5UX-04-nmU" secondAttribute="bottom" constant="8" id="8yf-ms-jKs"/>
+                            <constraint firstItem="7Y1-OY-NVO" firstAttribute="leading" secondItem="Ed6-aN-VbB" secondAttribute="leading" constant="10" id="CuV-rA-Xve"/>
+                            <constraint firstItem="5UX-04-nmU" firstAttribute="leading" secondItem="Ed6-aN-VbB" secondAttribute="leading" constant="10" id="HzB-qV-f0r"/>
+                            <constraint firstItem="IWr-xT-dh7" firstAttribute="top" secondItem="ohM-z2-BpZ" secondAttribute="bottom" constant="8" id="Nw6-Vl-zOy"/>
+                            <constraint firstItem="7Y1-OY-NVO" firstAttribute="top" secondItem="IWr-xT-dh7" secondAttribute="bottom" constant="8" id="QAQ-hS-0zf"/>
+                            <constraint firstAttribute="trailing" secondItem="5Lw-Qq-0HP" secondAttribute="trailing" constant="20" id="V9r-5A-k8c"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="135" id="f5D-5X-ey4"/>
+                            <constraint firstItem="ohM-z2-BpZ" firstAttribute="leading" secondItem="Ed6-aN-VbB" secondAttribute="leading" constant="10" id="gqu-fI-NKa"/>
+                            <constraint firstItem="IWr-xT-dh7" firstAttribute="leading" secondItem="Ed6-aN-VbB" secondAttribute="leading" constant="10" id="rhU-Li-U2M"/>
+                            <constraint firstAttribute="bottom" secondItem="7Y1-OY-NVO" secondAttribute="bottom" constant="14.33" id="x2D-bo-FBI"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="IWr-xT-dh7" secondAttribute="trailing" constant="40" id="zh3-J5-ASP"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" name="BorderColor"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="6"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Ed6-aN-VbB" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="N0r-So-xyB"/>
+                    <constraint firstItem="Ed6-aN-VbB" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Qsi-Cg-JZ5"/>
+                    <constraint firstAttribute="trailing" secondItem="Ed6-aN-VbB" secondAttribute="trailing" constant="16" id="Rul-Ej-0hj"/>
+                    <constraint firstAttribute="bottom" secondItem="Ed6-aN-VbB" secondAttribute="bottom" constant="10" id="yW6-1y-Axj"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="datelbl" destination="5UX-04-nmU" id="sdn-sG-7iY"/>
+                <outlet property="sportcitylbl" destination="7Y1-OY-NVO" id="lC6-xx-lFe"/>
+                <outlet property="sportimg1" destination="zQ2-5F-FHX" id="0Ii-HO-uQR"/>
+                <outlet property="sportimg2" destination="cZ6-Ns-zqy" id="Hbr-2o-1Kw"/>
+                <outlet property="subtitlelbl" destination="IWr-xT-dh7" id="8fU-Za-lbt"/>
+                <outlet property="titlelbl" destination="ohM-z2-BpZ" id="4DH-Q4-Q2A"/>
+            </connections>
+            <point key="canvasLocation" x="139" y="20"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="sp1" width="40" height="40"/>
+        <image name="sp2" width="40" height="40"/>
+        <namedColor name="BorderColor">
+            <color red="0.72200000286102295" green="0.72200000286102295" blue="0.72200000286102295" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TitleColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

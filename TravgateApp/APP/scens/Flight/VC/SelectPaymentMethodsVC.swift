@@ -18,6 +18,9 @@ class SelectPaymentMethodsVC: BaseTableVC, MobileProcessPassengerDetailVMDelegat
         return vc
     }
     
+    
+   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,6 +36,7 @@ class SelectPaymentMethodsVC: BaseTableVC, MobileProcessPassengerDetailVMDelegat
         commonTableView.registerTVCells(["BookingDetailsFlightDataTVCell",
                                          "PaymentTypeTVCell",
                                          "BookedTravelDetailsTVCell",
+                                         "BDTransfersInf0TVCell",
                                          "EmptyTVCell"])
         
         
@@ -42,25 +46,41 @@ class SelectPaymentMethodsVC: BaseTableVC, MobileProcessPassengerDetailVMDelegat
         showLoadera()
         
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) { [unowned self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) { [unowned self] in
             loderBool = false
             hideLoadera()
-            setupTVCells()
+            
+            
+            if let tabselect = defaults.string(forKey: UserDefaultsKeys.tabselect), tabselect == "Flight" {
+                setupTVCells()
+            }else {
+                setupTransfersTVCells()
+            }
+            
+            
         }
-        
-       
         
     }
     
     
     @IBAction func didTapOnCloseBtnAction(_ sender: Any) {
         MySingleton.shared.callboolapi = true
-        sameInputs_Again_CallSaerchAPI()
+       
+        if let tabselect = defaults.string(forKey: UserDefaultsKeys.tabselect), tabselect == "Flight" {
+            sameInputs_Again_CallSaerchAPI()
+        }else {
+            dismiss(animated: true)
+        }
     }
     
     //MARK: - PaymentTypeTVCell
     override func didTapOnPayNowBtnAction(cell: PaymentTypeTVCell) {
-        CALL_MOBILE_PROCESS_PASSENGER_DETAIL_API()
+       
+        if let tabselect = defaults.string(forKey: UserDefaultsKeys.tabselect), tabselect == "Flight" {
+            CALL_MOBILE_PROCESS_PASSENGER_DETAIL_API()
+        }else {
+            showToast(message: "Still Under Development")
+        }
     }
     
     
@@ -82,8 +102,9 @@ class SelectPaymentMethodsVC: BaseTableVC, MobileProcessPassengerDetailVMDelegat
 }
 
 
+
+//MARK: - CALL_MOBILE_PROCESS_PASSENGER_DETAIL_API
 extension SelectPaymentMethodsVC {
-    
     
     
     func setupTVCells() {
@@ -114,11 +135,6 @@ extension SelectPaymentMethodsVC {
         
     }
     
-    
-}
-
-//MARK: - CALL_MOBILE_PROCESS_PASSENGER_DETAIL_API
-extension SelectPaymentMethodsVC {
     
     
     func CALL_MOBILE_PROCESS_PASSENGER_DETAIL_API() {
@@ -250,4 +266,27 @@ extension SelectPaymentMethodsVC {
     
     
     
+}
+
+
+
+extension SelectPaymentMethodsVC {
+    
+    func setupTransfersTVCells() {
+        
+        MySingleton.shared.tablerow.removeAll()
+        
+        
+        MySingleton.shared.tablerow.append(TableRow(height:10,cellType:.EmptyTVCell))
+        MySingleton.shared.tablerow.append(TableRow(cellType:.PaymentTypeTVCell))
+        MySingleton.shared.tablerow.append(TableRow(cellType:.BDTransfersInf0TVCell))
+        
+        MySingleton.shared.tablerow.append(TableRow(height:50,cellType:.EmptyTVCell))
+        
+        
+        
+        commonTVData = MySingleton.shared.tablerow
+        commonTableView.reloadData()
+        
+    }
 }

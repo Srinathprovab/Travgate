@@ -193,6 +193,11 @@ extension SearchHotelVC {
         MySingleton.shared.payload["child"] = chArray
         
         
+        if starRatingInputArray.count > 0 {
+            MySingleton.shared.payload["star_rating"] = starRatingInputArray
+        }
+        
+        
         if defaults.string(forKey: UserDefaultsKeys.hotelchildcount) == "0" {
             
             MySingleton.shared.payload["childAge_1"] = [""]

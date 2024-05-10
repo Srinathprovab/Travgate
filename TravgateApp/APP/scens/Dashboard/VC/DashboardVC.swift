@@ -140,8 +140,8 @@ class DashboardVC: BaseTableVC, AllCountryCodeListViewModelDelegate, SearchDataV
         gotoBookTransfersVC()
     }
     
-    override func didTapOnActivitiesbtnAction(cell: TabSelectTVCell) {
-        print("didTapOnActivitiesbtnAction")
+    override func didTapOnSportsbtnAction(cell: TabSelectTVCell) {
+        gotoSportsSearchVC()
     }
     
     override func didTapOnCruisebtnAction(cell: TabSelectTVCell) {
@@ -150,6 +150,10 @@ class DashboardVC: BaseTableVC, AllCountryCodeListViewModelDelegate, SearchDataV
     
     override func didTapOnAutopaybtnAction(cell: TabSelectTVCell) {
         gotoAutoPaymentVC()
+    }
+    
+    override func didTapOnInsurencebtnAction(cell:TabSelectTVCell) {
+        gotoInsuranceVC()
     }
     
 }
@@ -237,6 +241,20 @@ extension DashboardVC {
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)
     }
+    
+    func gotoSportsSearchVC() {
+        guard let vc = SportsSearchVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
+    }
+    
+    func gotoInsuranceVC() {
+        guard let vc = InsuranceVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
+    }
+    
+    
     
     func setupMenu(){
         

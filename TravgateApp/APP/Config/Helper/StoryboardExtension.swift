@@ -22,6 +22,8 @@ enum Storyboard: String {
     case Ottu
     case Fare
     case Transfers
+    case Sports
+    case Insurance
    
     
     var name: String {
