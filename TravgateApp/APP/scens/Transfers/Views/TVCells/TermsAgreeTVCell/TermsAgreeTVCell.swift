@@ -10,6 +10,7 @@ import UIKit
 class TermsAgreeTVCell: TableViewCell {
     
     @IBOutlet weak var checkboximg: UIImageView!
+    @IBOutlet weak var titlelbl: UILabel!
     
     
     var checkBool = false
@@ -23,6 +24,12 @@ class TermsAgreeTVCell: TableViewCell {
         
         // Configure the view for the selected state
     }
+    
+    
+    override func updateUI() {
+        titlelbl.text = cellInfo?.title ?? ""
+    }
+    
     
     @IBAction func didTapOnCheckBoxBtnAction(_ sender: Any) {
         // checkboximg.image = UIImage(named: checkBool ? "check" : "uncheck")

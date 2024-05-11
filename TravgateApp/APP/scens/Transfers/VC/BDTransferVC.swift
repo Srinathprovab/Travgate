@@ -82,7 +82,7 @@ extension BDTransferVC {
         MySingleton.shared.tablerow.append(TableRow(key:keystr,cellType:.BDTransfersInf0TVCell))
         MySingleton.shared.tablerow.append(TableRow(cellType:.TFlighDetailsTVCell))
         MySingleton.shared.tablerow.append(TableRow(cellType:.TContactDetailsTVCell))
-        MySingleton.shared.tablerow.append(TableRow(cellType:.TermsAgreeTVCell))
+        MySingleton.shared.tablerow.append(TableRow(title:"By Booking This item, You agree to pay the total amount shown, with includes service fees. you also agree to the terms ans conditions and privacy policy .",cellType:.TermsAgreeTVCell))
         MySingleton.shared.tablerow.append(TableRow(height:20,cellType:.EmptyTVCell))
         
         commonTVData = MySingleton.shared.tablerow

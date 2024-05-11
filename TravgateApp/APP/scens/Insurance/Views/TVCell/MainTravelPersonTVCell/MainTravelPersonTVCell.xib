@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="OpenSans-SemiBold.ttf">
+            <string>OpenSans-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="65" id="KGk-i7-Jjw" customClass="MainTravelPersonTVCell" customModule="Travgate" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="473" height="614"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="473" height="614"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FKl-4U-nwy" customClass="BorderedView" customModule="Travgate" customModuleProvider="target">
+                        <rect key="frame" x="14" y="0.0" width="445" height="600"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Main Travel person" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1eL-Ko-gRl">
+                                <rect key="frame" x="14" y="10" width="417" height="25"/>
+                                <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="1eL-Ko-gRl" firstAttribute="top" secondItem="FKl-4U-nwy" secondAttribute="top" constant="10" id="INf-TO-3vf"/>
+                            <constraint firstItem="1eL-Ko-gRl" firstAttribute="leading" secondItem="FKl-4U-nwy" secondAttribute="leading" constant="14" id="KgJ-c5-jWe"/>
+                            <constraint firstAttribute="height" constant="600" id="YOZ-Jf-bud"/>
+                            <constraint firstAttribute="trailing" secondItem="1eL-Ko-gRl" secondAttribute="trailing" constant="14" id="hIB-Sg-NK4"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" name="BorderColor"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="6"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="FKl-4U-nwy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="14" id="AxM-sp-heE"/>
+                    <constraint firstAttribute="trailing" secondItem="FKl-4U-nwy" secondAttribute="trailing" constant="14" id="Dtg-nY-MeM"/>
+                    <constraint firstAttribute="bottom" secondItem="FKl-4U-nwy" secondAttribute="bottom" constant="14" id="QQA-QN-A30"/>
+                    <constraint firstItem="FKl-4U-nwy" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="VqK-f8-sCT"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <point key="canvasLocation" x="255.72519083969465" y="27.112676056338028"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="BorderColor">
+            <color red="0.72200000286102295" green="0.72200000286102295" blue="0.72200000286102295" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

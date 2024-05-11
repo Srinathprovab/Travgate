@@ -78,6 +78,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="checkboximg" destination="o7c-Tl-RyX" id="Zc0-as-JB6"/>
+                <outlet property="titlelbl" destination="DSZ-zH-RFp" id="ds2-2Z-gEr"/>
             </connections>
             <point key="canvasLocation" x="276.3358778625954" y="112.32394366197184"/>
         </tableViewCell>

@@ -78,10 +78,14 @@ class InsuranceVC: BaseTableVC {
     
     
     override func didTapOnInsurenceSearchBtnAction(cell: InsurenceSearchTVCell) {
-        print("didTapOnInsurenceSearchBtnAction")
+        gotoInsurancePlaneVC()
     }
     
-    
+    func gotoInsurancePlaneVC() {
+        guard let vc = InsurancePlaneVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true)
+    }
     
     
 }

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="OpenSans-Regular.ttf">
+            <string>OpenSans-Regular</string>
+        </array>
+        <array key="OpenSans-SemiBold.ttf">
+            <string>OpenSans-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="51" id="KGk-i7-Jjw" customClass="PremiumInfoTVCell" customModule="Travgate" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="378" height="49"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="378" height="49"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qd3-CV-3Dk">
+                        <rect key="frame" x="0.0" y="0.0" width="378" height="49"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1TC-tz-sQM">
+                                <rect key="frame" x="16" y="0.0" width="346" height="1"/>
+                                <color key="backgroundColor" name="BorderColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="SS2-UQ-bsE"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uQn-99-m77">
+                                <rect key="frame" x="26.000000000000004" y="17" width="35.333333333333343" height="19.333333333333329"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="14"/>
+                                <color key="textColor" red="0.37647058823529411" green="0.37647058823529411" blue="0.37647058823529411" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L4r-By-aSV">
+                                <rect key="frame" x="315" y="17" width="37" height="20"/>
+                                <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="14"/>
+                                <color key="textColor" name="TitleColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="49" id="0bL-4a-Prp"/>
+                            <constraint firstAttribute="trailing" secondItem="L4r-By-aSV" secondAttribute="trailing" constant="26" id="E0c-Ov-Gym"/>
+                            <constraint firstItem="1TC-tz-sQM" firstAttribute="leading" secondItem="Qd3-CV-3Dk" secondAttribute="leading" constant="16" id="Eiw-3h-VuH"/>
+                            <constraint firstItem="L4r-By-aSV" firstAttribute="top" secondItem="1TC-tz-sQM" secondAttribute="bottom" constant="16" id="F5n-xd-bHn"/>
+                            <constraint firstAttribute="trailing" secondItem="1TC-tz-sQM" secondAttribute="trailing" constant="16" id="G6I-EW-4AU"/>
+                            <constraint firstItem="uQn-99-m77" firstAttribute="top" secondItem="1TC-tz-sQM" secondAttribute="bottom" constant="16" id="J0L-4h-cmv"/>
+                            <constraint firstItem="uQn-99-m77" firstAttribute="leading" secondItem="Qd3-CV-3Dk" secondAttribute="leading" constant="26" id="LG4-iG-ZbP"/>
+                            <constraint firstAttribute="bottom" secondItem="uQn-99-m77" secondAttribute="bottom" constant="12.67" id="LHe-Ge-cnm"/>
+                            <constraint firstItem="1TC-tz-sQM" firstAttribute="top" secondItem="Qd3-CV-3Dk" secondAttribute="top" id="sJS-3D-VIS"/>
+                            <constraint firstAttribute="bottom" secondItem="L4r-By-aSV" secondAttribute="bottom" constant="12" id="z44-EX-x8G"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="Qd3-CV-3Dk" secondAttribute="trailing" id="D5Y-o3-zMW"/>
+                    <constraint firstAttribute="bottom" secondItem="Qd3-CV-3Dk" secondAttribute="bottom" id="Jfk-qV-RF4"/>
+                    <constraint firstItem="Qd3-CV-3Dk" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="ac6-tc-McX"/>
+                    <constraint firstItem="Qd3-CV-3Dk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="eA0-zn-vZU"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="subtitlelbl" destination="L4r-By-aSV" id="bZ9-AU-yVO"/>
+                <outlet property="titlelbl" destination="uQn-99-m77" id="6N6-dY-0YY"/>
+            </connections>
+            <point key="canvasLocation" x="183.20610687022901" y="60.91549295774648"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="BorderColor">
+            <color red="0.72200000286102295" green="0.72200000286102295" blue="0.72200000286102295" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TitleColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
