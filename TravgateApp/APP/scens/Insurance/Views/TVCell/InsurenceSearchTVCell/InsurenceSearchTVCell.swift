@@ -24,6 +24,7 @@ protocol InsurenceSearchTVCellDelegate {
 
 class InsurenceSearchTVCell: TableViewCell {
     
+    
     @IBOutlet weak var searchBtn: UIButton!
     @IBOutlet weak var travellingView: UIView!
     @IBOutlet weak var travellinglbl: UILabel!
@@ -33,16 +34,14 @@ class InsurenceSearchTVCell: TableViewCell {
     @IBOutlet weak var travelZonelbl: UILabel!
     @IBOutlet weak var multiTripsView: UIView!
     @IBOutlet weak var multiTripslbl: UILabel!
-    
     @IBOutlet weak var checkinlbl: UILabel!
     @IBOutlet weak var checkoutlbl: UILabel!
     @IBOutlet weak var checkinTF: UITextField!
     @IBOutlet weak var checkoutTF: UITextField!
-    
-    
     @IBOutlet weak var additionalTravelersView: UIView!
     @IBOutlet weak var additionalTravelerslbl: UILabel!
     @IBOutlet weak var selectTravellerView: UIView!
+    
     
     let travellingDropDown = DropDown()
     let withWhomDropDown = DropDown()
@@ -51,15 +50,23 @@ class InsurenceSearchTVCell: TableViewCell {
     let addTravellerDropDown = DropDown()
     let checkinDatePicker = UIDatePicker()
     let checkoutDatePicker = UIDatePicker()
+    var keyStr = String()
     var addTravellerBool = false
     var selectedTripDuration: String?
-    
-    
+    var selectwhomcode = String()
+    var selectagecode = String()
+    var selectzonecode = String()
+   
     var delegate:InsurenceSearchTVCellDelegate?
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         setupUI()
+        
+      
+        
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -80,6 +87,11 @@ class InsurenceSearchTVCell: TableViewCell {
         // showCheckoutDatePicker()
         checkoutTF.isUserInteractionEnabled = false
         setupAddTravellerDropDownsDropDropDown()
+        
+    }
+    
+    override func updateUI() {
+        
         
     }
     
@@ -114,6 +126,9 @@ class InsurenceSearchTVCell: TableViewCell {
         addTravellerDropDown.show()
     }
     
+   
+    
+    
 }
 
 
@@ -128,6 +143,7 @@ extension InsurenceSearchTVCell {
                                          "Traveller between 65 and 75 vears old",
                                          "Traveller between 75 and 80 years old",
                                          "Traveller over 80 years old"]
+        
         travellingDropDown.direction = .bottom
         travellingDropDown.backgroundColor = .WhiteColor
         travellingDropDown.anchorView = self.travellingView
@@ -145,6 +161,8 @@ extension InsurenceSearchTVCell {
                 self?.travellinglbl.textColor = .TitleColor
             }
             
+            
+            MySingleton.shared.insurencetravelcode = "\(index)"
             self?.delegate?.didTapOnWhoTravellingBtnAction(cell: self!)
             
         }
@@ -154,9 +172,9 @@ extension InsurenceSearchTVCell {
     //MARK: - setupWithWhomTravellingDropDropDown
     func setupWithWhomTravellingDropDropDown() {
         
-        withWhomDropDown.dataSource = ["Select",
-                                       "Self",
-                                       "Family"]
+        
+        withWhomDropDown.dataSource = withwhomtitleArray
+        
         withWhomDropDown.direction = .bottom
         withWhomDropDown.backgroundColor = .WhiteColor
         withWhomDropDown.anchorView = self.withWhomTravellingView
@@ -168,6 +186,8 @@ extension InsurenceSearchTVCell {
             
             
             self?.withWhomTravellinglbl.text = item
+            self?.selectagecode = withwhomcodeArray[index]
+            
             if item == "Select" {
                 self?.withWhomTravellinglbl.textColor = .SubtitleColor
             }else {
@@ -180,6 +200,8 @@ extension InsurenceSearchTVCell {
                 self?.additionalTravelersView.isHidden = true
             }
             
+            
+            MySingleton.shared.insurencwhomcode = withwhomcodeArray[index]
             self?.delegate?.didTapOnWithWhomTravellingBtnAction(cell: self!)
             
         }
@@ -189,10 +211,7 @@ extension InsurenceSearchTVCell {
     //MARK: - setupTravelZoneDropDropDown
     func setupTravelZoneDropDropDown() {
         
-        travelZoneDropDown.dataSource = ["Select",
-                                         "Worldwide including USA and Canada",
-                                         "Worldwide excluding USA and Canada",
-                                         "Only Schengen Zone"]
+        travelZoneDropDown.dataSource = zonetitleArray
         travelZoneDropDown.direction = .bottom
         travelZoneDropDown.backgroundColor = .WhiteColor
         travelZoneDropDown.anchorView = self.travelZoneView
@@ -204,12 +223,16 @@ extension InsurenceSearchTVCell {
             
             
             self?.travelZonelbl.text = item
+            self?.selectwhomcode = zonecodeArray[index]
+            
             if item == "Select" {
                 self?.travelZonelbl.textColor = .SubtitleColor
             }else {
                 self?.travelZonelbl.textColor = .TitleColor
             }
             
+            
+            MySingleton.shared.insurenczonecode = zonecodeArray[index]
             self?.delegate?.didTapOnTravelZoneBtnAction(cell: self!)
             
         }
@@ -219,30 +242,27 @@ extension InsurenceSearchTVCell {
     //MARK: - setupTravelZoneDropDropDown
     func setupMultiTripsDropDropDown() {
         
-        multiTripsDropDown.dataSource = ["Select",
-                                         "7 DAYS SINGLE TRIP",
-                                         "10 DAYS SINGLE TRIP",
-                                         "15 DAYS SINGLE TRIP",
-                                         "21 DAYS SINGLE TRIP",
-                                         "30 DAYS SINGLE TRIP",
-                                         "60 DAYS SINGLE TRIP"]
+        multiTripsDropDown.dataSource = multitripstittleArray
         multiTripsDropDown.direction = .bottom
         multiTripsDropDown.backgroundColor = .WhiteColor
-        multiTripsDropDown.anchorView = self.travelZoneView
+        multiTripsDropDown.anchorView = self.multiTripsView
         multiTripsDropDown.cellHeight = 40
         multiTripsDropDown.textColor = .TitleColor
         multiTripsDropDown.backgroundColor = .WhiteColor
-        multiTripsDropDown.bottomOffset = CGPoint(x: 0, y: travelZoneView.frame.size.height + 5)
+        multiTripsDropDown.bottomOffset = CGPoint(x: 0, y: multiTripsView.frame.size.height + 5)
         multiTripsDropDown.selectionAction = { [weak self] (index: Int, item: String) in
             
             
             self?.multiTripslbl.text = item
+            self?.selectzonecode = multitripscodeArray[index]
+            
             if item == "Select" {
                 self?.multiTripslbl.textColor = .SubtitleColor
             }else {
                 self?.multiTripslbl.textColor = .TitleColor
             }
             
+            MySingleton.shared.insurencmultitripscode = multitripscodeArray[index]
             self?.delegate?.didTapOnMultiTripslblBtnAction(cell: self!)
             
         }
@@ -263,17 +283,20 @@ extension InsurenceSearchTVCell {
         addTravellerDropDown.selectionAction = { [weak self] (index: Int, item: String) in
             
             
-            self?.additionalTravelerslbl.text = item
+            self?.additionalTravelerslbl.text = "\(item)"
             if item == "Select" {
                 self?.additionalTravelerslbl.textColor = .SubtitleColor
             }else {
                 self?.additionalTravelerslbl.textColor = .TitleColor
             }
             
+            MySingleton.shared.insurencePaxCount = item
             self?.delegate?.didTapOnAddAdditionalTravellerBtnAction(cell: self!)
             
         }
     }
+    
+    
 }
 
 
@@ -329,70 +352,6 @@ extension InsurenceSearchTVCell {
     
     
     
-    
-    
-    //MARK: - showCheckoutDatePicker
-    //    func showCheckoutDatePicker(){
-    //        //Formate Date
-    //        checkoutDatePicker.datePickerMode = .date
-    //        //        retDatePicker.minimumDate = Date()
-    //        // Set minimumDate for retDatePicker based on depDatePicker or retdepDatePicker
-    //        let selectedDate = self.checkinTF.isFirstResponder ? checkinDatePicker.date : checkoutDatePicker.date
-    //        checkoutDatePicker.minimumDate = selectedDate
-    //
-    //        checkoutDatePicker.preferredDatePickerStyle = .wheels
-    //
-    //
-    //        let formter = DateFormatter()
-    //        formter.dateFormat = "dd-MM-yyyy"
-    //
-    //
-    //
-    //
-    //        if let checkindate = formter.date(from: checkinlbl.text ?? "") {
-    //
-    //            if self.checkoutlbl.text == "Select Date" {
-    //                checkoutDatePicker.date = checkindate
-    //
-    //            }else {
-    //                if let checkoutdate = formter.date(from: checkoutlbl.text ?? "") {
-    //                    checkoutDatePicker.date = checkoutdate
-    //                }
-    //            }
-    //        }
-    //
-    //
-    //
-    //        //ToolBar
-    //        let toolbar = UIToolbar();
-    //        toolbar.sizeToFit()
-    //        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(donedatePicker));
-    //        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
-    //        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelDatePicker));
-    //
-    //        toolbar.setItems([doneButton,spaceButton,cancelButton], animated: false)
-    //
-    //        self.checkoutTF.inputAccessoryView = toolbar
-    //        self.checkoutTF.inputView = checkoutDatePicker
-    //
-    //
-    //    }
-    
-    
-    //    @objc func donedatePicker(){
-    //
-    //        let formatter = DateFormatter()
-    //        formatter.dateFormat = "dd-MM-yyyy"
-    //
-    //        checkinlbl.text = formatter.string(from: self.checkinDatePicker.date)
-    //      //  checkoutlbl.text = formatter.string(from: self.checkoutDatePicker.date)
-    //
-    //
-    //
-    //        delegate?.donedatePicker(cell:self)
-    //    }
-    
-    
     @objc func donedatePicker(){
         let formatter = DateFormatter()
         formatter.dateFormat = "dd-MM-yyyy"
@@ -422,6 +381,11 @@ extension InsurenceSearchTVCell {
         if let checkoutDate = calendar.date(byAdding: .day, value: numberOfDays, to: checkInDate) {
             self.checkoutlbl.text = formatter.string(from: checkoutDate)
         }
+        
+        
+        
+        MySingleton.shared.insurenceDepDate = checkinlbl.text ?? ""
+        MySingleton.shared.insurenceArrivalDate = checkoutlbl.text ?? ""
         
         delegate?.donedatePicker(cell:self)
     }

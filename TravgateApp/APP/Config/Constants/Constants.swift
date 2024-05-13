@@ -171,6 +171,15 @@ var hotelSearchResult = [HotelSearchResult]()
 var selectedCellStates: [IndexPath: Bool] = [:]
 var selectedCellIndices: [IndexPath] = [] // Keep track of selected cell indices
 
+var withwhomtitleArray = [String]()
+var withwhomcodeArray = [String]()
+
+var multitripstittleArray = [String]()
+var multitripscodeArray = [String]()
+
+var zonetitleArray = [String]()
+var zonecodeArray = [String]()
+
 
 /* URL endpoints */
 struct ApiEndpoints {
@@ -225,6 +234,10 @@ struct ApiEndpoints {
     static let cruise_get_more_info = "cruise/get_more_info/"
     static let cruise_cruise_enquiry_form = "cruise/cruise_enquiry_form"
     
+    //INSURENCE
+    static let insurance_get_insurance_items = "insurance/get_insurance_items"
+    static let general_mobile_pre_insurance_search = "general/mobile_pre_insurance_search"
+
     
 }
 

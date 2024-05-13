@@ -7,8 +7,8 @@
 
 import UIKit
 
-class InsuranceVC: BaseTableVC {
-    
+class InsuranceVC: BaseTableVC, GetInsuranceItemsVMDelegate {
+  
     
     
     static var newInstance: InsuranceVC? {
@@ -19,7 +19,7 @@ class InsuranceVC: BaseTableVC {
     }
     
     
-    
+    var keystr = String()
     
     override func viewWillAppear(_ animated: Bool) {
         addObserver()
@@ -31,6 +31,8 @@ class InsuranceVC: BaseTableVC {
         
         // Do any additional setup after loading the view.
         setupUI()
+        
+        MySingleton.shared.getInsuranceItemsVM = GetInsuranceItemsVM(self)
     }
     
     
@@ -45,23 +47,6 @@ class InsuranceVC: BaseTableVC {
     
     
     
-    //MARK: - InsurenceSearchTVCell Delegate Methodes
-    override func didTapOnWhoTravellingBtnAction(cell:InsurenceSearchTVCell) {
-        print("\(cell.travellinglbl.text ?? "")")
-    }
-    
-    override func didTapOnWithWhomTravellingBtnAction(cell:InsurenceSearchTVCell) {
-        print("\(cell.withWhomTravellinglbl.text ?? "")")
-    }
-    
-    override func didTapOnTravelZoneBtnAction(cell:InsurenceSearchTVCell) {
-        print("\(cell.travelZonelbl.text ?? "")")
-    }
-    
-    
-    override func didTapOnMultiTripslblBtnAction(cell:InsurenceSearchTVCell) {
-        print("\(cell.multiTripslbl.text ?? "")")
-    }
     
     override func donedatePicker(cell:InsurenceSearchTVCell){
         self.view.endEditing(true)
@@ -72,14 +57,49 @@ class InsuranceVC: BaseTableVC {
         self.view.endEditing(true)
     }
     
-    override func didTapOnAddAdditionalTravellerBtnAction(cell:InsurenceSearchTVCell) {
-        print("\(cell.additionalTravelerslbl.text ?? "")")
-    }
     
     
     override func didTapOnInsurenceSearchBtnAction(cell: InsurenceSearchTVCell) {
-        gotoInsurancePlaneVC()
+        
+        
+        
+        if MySingleton.shared.insurencetravelcode == "" {
+            showToast(message: "Select Travel ")
+        }else if MySingleton.shared.insurencwhomcode == "" {
+            showToast(message: "Select Whom ")
+        }else if MySingleton.shared.insurenczonecode == "" {
+            showToast(message: "Select Zone")
+        }else if MySingleton.shared.insurencmultitripscode == "" {
+            showToast(message: "Select Trips")
+        }else if MySingleton.shared.insurenceDepDate == "" {
+            showToast(message: "Select Travel Date")
+        }else {
+            MySingleton.shared.payload.removeAll()
+            MySingleton.shared.payload["age"] = MySingleton.shared.insurencetravelcode
+            MySingleton.shared.payload["whom"] = MySingleton.shared.insurencwhomcode
+            MySingleton.shared.payload["zone"] = MySingleton.shared.insurenczonecode
+            MySingleton.shared.payload["trip_type"] = MySingleton.shared.insurencmultitripscode
+            MySingleton.shared.payload["travel_date"] = MySingleton.shared.insurenceDepDate
+            MySingleton.shared.payload["arival_date"] = MySingleton.shared.insurenceArrivalDate
+            MySingleton.shared.payload["pax_count"] = MySingleton.shared.insurencePaxCount
+       
+            MySingleton.shared.getInsuranceItemsVM?.CALL_GET_INSURENCE_MOBILE_PRE_INSURENCE_API(dictParam: MySingleton.shared.payload)
+        }
+        
+       
+        
     }
+    
+    
+    func preInsurenceSearchResponse(response: GetInsuranceItemsModel) {
+        showToast(message: response.message ?? "")
+        
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [unowned self] in
+            gotoInsurancePlaneVC()
+        }
+    }
+    
     
     func gotoInsurancePlaneVC() {
         guard let vc = InsurancePlaneVC.newInstance.self else {return}
@@ -103,9 +123,10 @@ extension InsuranceVC {
         commonTableView.registerTVCells(["InsurenceSearchTVCell",
                                          "EmptyTVCell"])
         
-        setupTVCells()
+        
         
     }
+    
     
     
     
@@ -125,14 +146,6 @@ extension InsuranceVC {
 
 
 
-extension InsuranceVC {
-    
-    
-    func callAPI() {
-        print("callAPI")
-    }
-    
-}
 
 extension InsuranceVC {
     
@@ -142,7 +155,85 @@ extension InsuranceVC {
         NotificationCenter.default.addObserver(self, selector: #selector(resultnil), name: NSNotification.Name("resultnil"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(reload), name: Notification.Name("reload"), object: nil)
         
+        withwhomtitleArray.removeAll()
+        withwhomcodeArray.removeAll()
+        
+        multitripstittleArray.removeAll()
+        multitripscodeArray.removeAll()
+        
+        zonetitleArray.removeAll()
+        zonecodeArray.removeAll()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { [unowned self] in
+            callgetWhomAPI()
+        }
+        
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [unowned self] in
+            callgetZoneAPI()
+        }
+        
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) { [unowned self] in
+            callgetAgeAPI()
+        }
+        
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [unowned self] in
+            setupTVCells()
+        }
     }
+    
+    
+    func callgetWhomAPI(){
+        MySingleton.shared.payload.removeAll()
+        MySingleton.shared.payload["item_name"] = "select_whom"
+        MySingleton.shared.getInsuranceItemsVM?.CALL_GET_INSURENCE_WHOM_ITEMS_API(dictParam: MySingleton.shared.payload)
+    }
+    
+    
+    func insurenceWhomItemlist(response: GetInsuranceItemsModel) {
+        zonetitleArray.append("Select")
+        zonecodeArray.append("Select")
+        
+        response.data?.forEach({ i in
+            zonetitleArray.append(i.title ?? "")
+            zonecodeArray.append(i.code ?? "")
+        })
+    }
+    
+    
+    func callgetZoneAPI(){
+        MySingleton.shared.payload.removeAll()
+        MySingleton.shared.payload["item_name"] = "select_zone"
+        MySingleton.shared.getInsuranceItemsVM?.CALL_GET_INSURENCE_ZONE_ITEMS_API(dictParam: MySingleton.shared.payload)
+    }
+    
+    func insurenceZoneItemlist(response: GetInsuranceItemsModel) {
+        multitripstittleArray.append("Select")
+        multitripscodeArray.append("Select")
+        
+        response.data?.forEach({ i in
+            multitripstittleArray.append(i.title ?? "")
+            multitripscodeArray.append(i.code ?? "")
+        })
+    }
+    
+    
+    func callgetAgeAPI(){
+        MySingleton.shared.payload.removeAll()
+        MySingleton.shared.payload["item_name"] = "select_age"
+        MySingleton.shared.getInsuranceItemsVM?.CALL_GET_INSURENCE_AGE_ITEMS_API(dictParam: MySingleton.shared.payload)
+    }
+    func insurenceAgeItemlist(response: GetInsuranceItemsModel) {
+        withwhomtitleArray.append("Select")
+        withwhomcodeArray.append("Select")
+        response.data?.forEach({ i in
+            withwhomtitleArray.append(i.title ?? "")
+            withwhomcodeArray.append(i.code ?? "")
+        })
+    }
+    
     
     
     @objc func reload() {
@@ -165,6 +256,8 @@ extension InsuranceVC {
         vc.key = "nointernet"
         self.present(vc, animated: true)
     }
+    
+    
     
     
 }

@@ -146,6 +146,14 @@ class MySingleton {
     var cruiseCountryCode = String()
     var selectedResultStr = String()
     
+    var insurencetravelcode = String()
+    var insurencwhomcode = String()
+    var insurenczonecode = String()
+    var insurencmultitripscode = String()
+    var insurencePaxCount = "1"
+    var insurenceDepDate = String()
+    var insurenceArrivalDate = String()
+    
     var bookingsrc = String()
     var htoken = String()
     var htokenkey = String()
@@ -199,6 +207,7 @@ class MySingleton {
     var mpbvm:MPBViewModel?
     var mobilepaymentvm:MobilePaymentVM?
     var passengerDetailsVM:MobileProcessPassengerDetailVM?
+    var getInsuranceItemsVM:GetInsuranceItemsVM?
     
     
     //TIMER

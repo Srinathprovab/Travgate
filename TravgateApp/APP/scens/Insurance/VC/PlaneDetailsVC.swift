@@ -43,6 +43,17 @@ class PlaneDetailsVC: BaseTableVC {
     }
     
     
+    override func didTapOnPremiumDetailsBtnAction(cell: InsurancePlaneTVCell) {
+        gotoPremiumDetailsVC()
+    }
+    
+    
+    func gotoPremiumDetailsVC() {
+        guard let vc = PremiumDetailsVC.newInstance.self else {return}
+        vc.modalPresentationStyle = .overCurrentContext
+        self.present(vc, animated: false)
+    }
+    
     
     
     @IBAction func didTapOnBackBtnAction(_ sender: Any) {

@@ -30,6 +30,8 @@ class PremiumDetailsVC: BaseTableVC {
     
     
     
+  
+    
     
     @IBAction func didTapOnBackBtnAction(_ sender: Any) {
         dismiss(animated: false)
