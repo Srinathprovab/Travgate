@@ -180,9 +180,9 @@ class HotelBookingDetailsVC: BaseTableVC, LoginViewModelDelegate, RegisterViewMo
         search_same_input()
     }
     
-   
     
-
+    
+    
     
     //MARK: - ContactInformationTVCell Delegate Methods
     override func didTapOnCountryCodeBtn(cell: ContactInformationTVCell) {
@@ -670,7 +670,9 @@ extension HotelBookingDetailsVC {
         
         
         // Check additional conditions
-        if MySingleton.shared.payemail == "" {
+        if callpaymenthotelbool == false{
+            showToast(message: "Add Details")
+        }else if MySingleton.shared.payemail == "" {
             showToast(message: "Enter Email Address")
         }else if MySingleton.shared.payemail.isValidEmail() == false {
             showToast(message: "Enter Valid Email Addreess")
@@ -680,8 +682,6 @@ extension HotelBookingDetailsVC {
             showToast(message: "Enter Country Code")
         }else if mobilenoMaxLengthBool == false {
             showToast(message: "Enter Valid Mobile No")
-        }else if callpaymenthotelbool == false{
-            showToast(message: "Add Details")
         }else if fnameCharBool == false{
             showToast(message: "More Than 3 Char")
         }else if lnameCharBool == false{
@@ -696,7 +696,7 @@ extension HotelBookingDetailsVC {
     
     
     func hotelpreBookingDetails(response: HotelMBPModel) {
-        print(response.data?.post_data?.url)
+        print(response.data?.post_data?.url ?? "")
     }
     
     

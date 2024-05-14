@@ -9,6 +9,7 @@ import Foundation
 
 protocol MPBViewModelDelegate : BaseViewModelProtocol {
     func MPBDetails(response : MobilePreProcessBookingModel)
+    func promocodeDetails(response : PromocodeModel)
 }
 
 class MPBViewModel {
@@ -41,5 +42,28 @@ class MPBViewModel {
         }
     }
     
-  
+    
+    //MARK: - CALL_PROMOCODE_APPLY_API
+    func CALL_PROMOCODE_APPLY_API(dictParam: [String: Any]){
+        let parms = NSDictionary(dictionary:dictParam)
+        print("Parameters = \(parms)")
+        
+     //   self.view?.showLoader()
+        
+        ServiceManager.postOrPutApiCall(endPoint: ApiEndpoints.management_promocode , parameters: parms, resultType: PromocodeModel.self, p:dictParam) { sucess, result, errorMessage in
+            
+            DispatchQueue.main.async {
+             //   self.view?.hideLoader()
+                if sucess {
+                    guard let response = result else {return}
+                    self.view.promocodeDetails(response: response)
+                } else {
+                    
+                    self.view.showToast(message: errorMessage ?? "")
+                }
+            }
+        }
+    }
+    
+    
 }

@@ -9,6 +9,7 @@ import UIKit
 
 protocol PriceSummaryTVCellDelegate {
     func didTapOnRemoveTravelInsuranceBtn(cell:PriceSummaryTVCell)
+    func didTapOnRemovePromoCodeBtnAction(cell:PriceSummaryTVCell)
 }
 
 class PriceSummaryTVCell: TableViewCell {
@@ -31,6 +32,7 @@ class PriceSummaryTVCell: TableViewCell {
     @IBOutlet weak var totalPaymentValuelbl: UILabel!
     @IBOutlet weak var tvheight: NSLayoutConstraint!
     @IBOutlet weak var travellerAdultTV: UITableView!
+    @IBOutlet weak var promoview: UIView!
     
     var delegate:PriceSummaryTVCellDelegate?
     var key = String()
@@ -136,6 +138,12 @@ class PriceSummaryTVCell: TableViewCell {
         }
         
         
+        if MySingleton.shared.promocodebool == true {
+            promoview.isHidden = false
+        }else {
+            promoview.isHidden = true
+        }
+        
     }
     
     func setupUI(){
@@ -186,6 +194,11 @@ class PriceSummaryTVCell: TableViewCell {
         lbl.font = font
     }
     
+    
+    
+    @IBAction func didTapOnRemovePromoCodeBtnAction(_ sender: Any) {
+        delegate?.didTapOnRemovePromoCodeBtnAction(cell: self)
+    }
     
 }
 

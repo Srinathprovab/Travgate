@@ -23,7 +23,7 @@ class BookingDetailsVC: BaseTableVC, LoginViewModelDelegate, RegisterViewModelDe
         return vc
     }
     
-    
+    var promocodeValue = Double()
     var regViewModel: RegisterViewModel?
     var mbviewmodel:MBViewModel?
     
@@ -322,16 +322,6 @@ class BookingDetailsVC: BaseTableVC, LoginViewModelDelegate, RegisterViewModelDe
         
     }
     
-    //    //MARK: - INITIAL SETUP LABELS
-    //    func setuplabels(lbl:UILabel,text:String,textcolor:UIColor,font:UIFont,align:NSTextAlignment) {
-    //        lbl.text = text
-    //        lbl.textColor = textcolor
-    //        lbl.font = font
-    //        lbl.numberOfLines = 0
-    //        lbl.textAlignment = align
-    //    }
-    
-    
     
     override func didDeselectAddon(index: Int) {
         if index == 0 {
@@ -350,6 +340,63 @@ class BookingDetailsVC: BaseTableVC, LoginViewModelDelegate, RegisterViewModelDe
         }
         //    setuplabels(lbl: bookNowlbl, text: "\(defaults.string(forKey: UserDefaultsKeys.selectedCurrency) ?? ""): \(totlConvertedGrand)", textcolor: .WhiteColor, font: .InterBold(size: 18), align: .left)
         setupTVCell()
+    }
+    
+    
+    override func didTapOnApplyPromosCodesBtn(cell:UsePromoCodesTVCell) {
+        callApplyPromocodeAPI(promoStr: cell.codesTF.text ?? "")
+    }
+    
+    
+    override func didTapOnRemovePromoCodeBtnAction(cell:PriceSummaryTVCell) {
+        
+        MySingleton.shared.promocodebool.toggle()
+        totlConvertedGrand = Double(Int(promocodeValue) + Int(totlConvertedGrand))
+        
+        
+        DispatchQueue.main.async {
+            self.setupTVCell()
+        }
+        
+    }
+    
+    
+    
+    func callApplyPromocodeAPI(promoStr:String) {
+        
+        MySingleton.shared.payload.removeAll()
+        MySingleton.shared.payload["promocode"] = promoStr
+        MySingleton.shared.payload["moduletype"] = "e325b16aa10bc2b065742595902073cb"
+        MySingleton.shared.payload["total_amount_val"] = totlConvertedGrand
+        MySingleton.shared.payload["convenience_fee"] = "0"
+        MySingleton.shared.payload["booking_source"] = "PTBSID0000000016"
+        MySingleton.shared.payload["search_id"] = MySingleton.shared.searchid
+        MySingleton.shared.payload["access_key_tp"] = MySingleton.shared.accesskeytp
+        
+        MySingleton.shared.mpbvm?.CALL_PROMOCODE_APPLY_API(dictParam: MySingleton.shared.payload)
+        
+    }
+    
+    func promocodeDetails(response : PromocodeModel) {
+        
+        if response.status == 0 {
+            NotificationCenter.default.post(name: NSNotification.Name("invalidPromocode"), object: nil) 
+            
+        }else {
+            
+            NotificationCenter.default.post(name: NSNotification.Name("validPromocode"), object: nil)
+
+            MySingleton.shared.promocodebool.toggle()
+            
+            promocodeValue = Double(String(format: "%.2f", response.total_amount_val_KWD ?? 0.0)) ?? 0.0
+            totlConvertedGrand = Double(String(format: "%.2f", response.total_amount_val_KWD ?? 0.0)) ?? 0.0
+            
+            DispatchQueue.main.async {
+                self.setupTVCell()
+            }
+        }
+        
+        
     }
     
 }
@@ -516,13 +563,14 @@ extension BookingDetailsVC {
         MySingleton.shared.tablerow.append(TableRow(cellType:.ContactInformationTVCell))
         
         
+        if MySingleton.shared.promocodebool == false {
+            MySingleton.shared.tablerow.append(TableRow(height:10,cellType:.EmptyTVCell))
+            MySingleton.shared.tablerow.append(TableRow(cellType:.UsePromoCodesTVCell))
+        }
         
-        //        MySingleton.shared.tablerow.append(TableRow(height:10,cellType:.EmptyTVCell))
-        //        MySingleton.shared.tablerow.append(TableRow(cellType:.UsePromoCodesTVCell))
+        
         //        MySingleton.shared.tablerow.append(TableRow(cellType:.InternationalTravelInsuranceTVCell))
         //        MySingleton.shared.tablerow.append(TableRow(cellType:.SpecialAssistanceTVCell))
-        
-        
         //        MySingleton.shared.tablerow.append(TableRow(height:10,cellType:.EmptyTVCell))
         //        MySingleton.shared.tablerow.append(TableRow(cellType:.AddonTVCell))
         

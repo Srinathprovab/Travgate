@@ -273,14 +273,23 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flash" translatesAutoresizingMaskIntoConstraints="NO" id="C5W-uh-5dx">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                             </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="6tY-Dk-cmt">
+                                <rect key="frame" x="54" y="239" width="285" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="40e-AT-C6A"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="nsV-KU-TFV"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="6tY-Dk-cmt" firstAttribute="leading" secondItem="nsV-KU-TFV" secondAttribute="leading" constant="54" id="3fR-zS-lfm"/>
                             <constraint firstItem="nsV-KU-TFV" firstAttribute="trailing" secondItem="C5W-uh-5dx" secondAttribute="trailing" id="8cF-00-6tL"/>
                             <constraint firstItem="C5W-uh-5dx" firstAttribute="top" secondItem="ibm-Jg-M33" secondAttribute="top" id="Gs9-f7-ZRG"/>
                             <constraint firstAttribute="bottom" secondItem="C5W-uh-5dx" secondAttribute="bottom" id="K6p-fK-95q"/>
                             <constraint firstItem="C5W-uh-5dx" firstAttribute="leading" secondItem="nsV-KU-TFV" secondAttribute="leading" id="RpS-Rf-wux"/>
+                            <constraint firstItem="6tY-Dk-cmt" firstAttribute="top" secondItem="nsV-KU-TFV" secondAttribute="top" constant="180" id="afc-ld-3TL"/>
+                            <constraint firstItem="nsV-KU-TFV" firstAttribute="trailing" secondItem="6tY-Dk-cmt" secondAttribute="trailing" constant="54" id="xDY-wy-tnN"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -1270,10 +1279,11 @@
         <image name="edit1" width="18.333333969116211" height="18"/>
         <image name="flash" width="428" height="926"/>
         <image name="loder.gif" width="142" height="142"/>
+        <image name="logo" width="218" height="74"/>
         <image name="multiply" catalog="system" width="128" height="111"/>
         <image name="tab3" width="28" height="28"/>
         <namedColor name="BorderColor">
-            <color red="0.80000001192092896" green="0.80000001192092896" blue="0.80000001192092896" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.72200000286102295" green="0.72200000286102295" blue="0.72200000286102295" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Buttoncolor">
             <color red="0.2669999897480011" green="0.70999997854232788" blue="0.046999998390674591" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1294,16 +1304,16 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray4Color">
-            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemMintColor">
-            <color red="0.0" green="0.7803921568627451" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.78039215689999997" blue="0.74509803919999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemPinkColor">
-            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tintColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

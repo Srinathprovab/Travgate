@@ -62,7 +62,7 @@ class SearchHotelsResultVC: BaseTableVC, UITextFieldDelegate, HotelSearchViewMod
     
     
     func setupinitialView() {
-       
+        
         setupUI()
         commonTableView.register(UINib(nibName: "HotelsTVCell", bundle: nil), forCellReuseIdentifier: "cell44")
         
@@ -78,7 +78,7 @@ class SearchHotelsResultVC: BaseTableVC, UITextFieldDelegate, HotelSearchViewMod
         setupinitialView()
         viewModel = HotelSearchViewModel(self)
         MySingleton.shared.delegate = self
-      
+        
         
     }
     
@@ -310,7 +310,7 @@ extension SearchHotelsResultVC {
     
     func callHotelPreSearchAPI() {
         
-       
+        
         do {
             
             let arrJson = try JSONSerialization.data(withJSONObject: payload, options: JSONSerialization.WritingOptions.prettyPrinted)
@@ -423,15 +423,8 @@ extension SearchHotelsResultVC {
         hotelsCountlbl.text = "\(list.count)"
         
         list.forEach { i in
-//            if let price = i.price, (Int(price) ?? 0) > 0 {
-//                hotelprices.append("\(price)")
-//            }
             
             hotelprices.append(i.price ?? "0")
-            
-            //                    if let hotelLocation = i.hotelLocation, !hotelLocation.isEmpty {
-            //                        nearBylocationsArray.append(hotelLocation)
-            //                    }
             
             if let refund = i.refund, !refund.isEmpty {
                 faretypeArray.append(refund)
@@ -512,17 +505,18 @@ extension SearchHotelsResultVC {
                 cell.lat = dict.latitude ?? ""
                 cell.long = dict.longitude ?? ""
                 
-                cell.perNightlbl.text = "Total Price For 2 Night"
+                
+                if MySingleton.shared.totalnights == "0" || MySingleton.shared.totalnights == "1" {
+                    cell.markupPricelbl.text = "Total Price For 1 Night"
+                }else {
+                    cell.markupPricelbl.text = "Total Price For \(MySingleton.shared.totalnights) Nights"
+                }
+                
                 //   cell.setAttributedString1(str1:dict.currency ?? "", str2: dict.price ?? "")
                 cell.ratingView.value = CGFloat(dict.star_rating ?? 0)
                 
                 cell.hotel_DescLabel = dict.hotel_desc ?? "bbbbb"
-                //                if let hotel_desc = dict.hotel_desc{
-                //                    cell.hotelDescLabel = hotel_desc
-                //                } else {
-                //                    // Handle the case when facility is empty or nil
-                //                    print("hotel_desc array is empty or nil")
-                //                }
+                
                 
                 if let facilities = dict.facility, !facilities.isEmpty {
                     cell.facilityArray = facilities
@@ -531,13 +525,7 @@ extension SearchHotelsResultVC {
                     print("Facility array is empty or nil")
                 }
                 
-                
-                //                cell.faretypelbl.text = dict.refund ?? ""
-                //                if cell.faretypelbl.text == "Non Refundable" {
-                //                    cell.faretypelbl.textColor = .AppBtnColor
-                //                }
-                
-                
+              
                 if dict.star_rating == 0 {
                     cell.ratingView.isHidden = true
                 }else {
@@ -571,18 +559,17 @@ extension SearchHotelsResultVC {
                 cell.hotelid = String(dict.hotel_code ?? "0")
                 cell.lat = dict.latitude ?? ""
                 cell.long = dict.longitude ?? ""
-                cell.perNightlbl.text = "Total Price For 2 Night"
+                
+                if MySingleton.shared.totalnights == "0" || MySingleton.shared.totalnights == "1" {
+                    cell.markupPricelbl.text = "Total Price For 1 Night"
+                }else {
+                    cell.markupPricelbl.text = "Total Price For \(MySingleton.shared.totalnights) Nights"
+                }
                 //      cell.setAttributedString1(str1:dict.currency ?? "", str2: dict.price ?? "")
                 
                 
                 cell.hotel_DescLabel = dict.hotel_desc ?? "bbbbb"
-                //                if let hotel_desc = dict.hotel_desc{
-                //                    cell.hotelDescLabel = hotel_desc
-                //                } else {
-                //                    // Handle the case when facility is empty or nil
-                //                    print("hotel_desc array is empty or nil")
-                //                }
-                
+               
                 if let facilities = dict.facility, !facilities.isEmpty {
                     cell.facilityArray = facilities
                 } else {
@@ -590,12 +577,7 @@ extension SearchHotelsResultVC {
                     print("Facility array is empty or nil")
                 }
                 
-                
-                
-                //                cell.faretypelbl.text = dict.refund ?? ""
-                //                if cell.faretypelbl.text == "Non Refundable" {
-                //                    cell.faretypelbl.textColor = .AppBtnColor
-                //                }
+               
                 
                 if dict.star_rating == 0 {
                     cell.ratingView.isHidden = true
@@ -635,8 +617,10 @@ extension SearchHotelsResultVC {
     }
     
     func callHotelSearchPaginationAPI() {
+        
         print("You've reached the last cell, trigger the API call.")
         loderBool = false
+        
         payload.removeAll()
         payload["booking_source"] = hbookingsource
         payload["search_id"] = hsearchid
@@ -719,7 +703,7 @@ extension SearchHotelsResultVC:AppliedFilters{
             guard let netPrice = Double(hotel.price ?? "0.0") else { return false }
             
             // Check if the hotel's star rating matches the selected star rating or is empty
-          //  let ratingMatches = starRating.isEmpty || String(hotel.star_rating ?? 0) == starRating
+            //  let ratingMatches = starRating.isEmpty || String(hotel.star_rating ?? 0) == starRating
             let ratingMatches = starRatingNew.isEmpty || starRatingNew.contains("\(hotel.star_rating ?? 0)")
             // Check if the hotel's refund type matches any selected refundable types or the array is empty
             let refundableMatch = refundableTypeArray.isEmpty || refundableTypeArray.contains(hotel.refund ?? "")

@@ -119,7 +119,8 @@ class MySingleton {
     var travelfrom = String()
     var travelto = String()
     var mrtitle = String()
-    
+    var totalnights = String()
+    var promocodebool = false
     
     
     var addBaggageBool = false

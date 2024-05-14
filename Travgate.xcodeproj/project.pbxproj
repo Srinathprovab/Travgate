@@ -262,6 +262,7 @@
 		656CCFF92BD65FF700A22B60 /* SelectFareTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656CCFF72BD65FF700A22B60 /* SelectFareTVCell.swift */; };
 		656CCFFA2BD65FF700A22B60 /* SelectFareTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 656CCFF82BD65FF700A22B60 /* SelectFareTVCell.xib */; };
 		656CCFFC2BD6647900A22B60 /* SelectFareVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656CCFFB2BD6647900A22B60 /* SelectFareVC.swift */; };
+		65714B9A2BF38513005F4BA3 /* PromocodeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65714B992BF38513005F4BA3 /* PromocodeModel.swift */; };
 		65721C672BD793650065B41B /* MobileFlightPreSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65721C662BD793650065B41B /* MobileFlightPreSearchModel.swift */; };
 		657CDBEE2B9ECED800A53808 /* MBViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657CDBED2B9ECED800A53808 /* MBViewModel.swift */; };
 		65859BEB2BDF794100DB121B /* MobileProcessPassengerDetailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65859BEA2BDF794100DB121B /* MobileProcessPassengerDetailVM.swift */; };
@@ -888,6 +889,7 @@
 		656CCFF72BD65FF700A22B60 /* SelectFareTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFareTVCell.swift; sourceTree = "<group>"; };
 		656CCFF82BD65FF700A22B60 /* SelectFareTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectFareTVCell.xib; sourceTree = "<group>"; };
 		656CCFFB2BD6647900A22B60 /* SelectFareVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFareVC.swift; sourceTree = "<group>"; };
+		65714B992BF38513005F4BA3 /* PromocodeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromocodeModel.swift; sourceTree = "<group>"; };
 		65721C662BD793650065B41B /* MobileFlightPreSearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileFlightPreSearchModel.swift; sourceTree = "<group>"; };
 		657CDBED2B9ECED800A53808 /* MBViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBViewModel.swift; sourceTree = "<group>"; };
 		65859BEA2BDF794100DB121B /* MobileProcessPassengerDetailVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileProcessPassengerDetailVM.swift; sourceTree = "<group>"; };
@@ -3213,6 +3215,7 @@
 				65AD14EE2B4E54F30064E8B0 /* MobilePrePaymentModel.swift */,
 				65AD14F02B4E553A0064E8B0 /* MobilePaymentModel.swift */,
 				65AD14F62B4E708C0064E8B0 /* MobilePassengerdetailsModel.swift */,
+				65714B992BF38513005F4BA3 /* PromocodeModel.swift */,
 			);
 			path = MBPModel;
 			sourceTree = "<group>";
@@ -5049,6 +5052,7 @@
 				659CE6582B76321400D2BEBE /* Format_desc.swift in Sources */,
 				6532717E2B73397100D52486 /* VisaTVCell.swift in Sources */,
 				656CCFF42BD65F4900A22B60 /* SelectFareInfoTVCell.swift in Sources */,
+				65714B9A2BF38513005F4BA3 /* PromocodeModel.swift in Sources */,
 				659CE6742B7653C800D2BEBE /* SearchLoaderViewModel.swift in Sources */,
 				652379CC2B5E956F0067E84A /* LoginModel.swift in Sources */,
 				65F28BEB2BEDFA7C00ED4103 /* SelectedSportInfoTVCell.swift in Sources */,

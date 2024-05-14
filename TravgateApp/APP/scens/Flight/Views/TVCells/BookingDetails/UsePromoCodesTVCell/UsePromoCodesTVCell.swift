@@ -27,6 +27,7 @@ class UsePromoCodesTVCell: TableViewCell {
     @IBOutlet weak var promoCodesTV: UITableView!
     @IBOutlet weak var promoCodesTVHeight: NSLayoutConstraint!
     @IBOutlet weak var titleView: UIStackView!
+    @IBOutlet weak var errorlbl: UILabel!
     
     var delegate:UsePromoCodesTVCellDelegate?
     //   var promoCodesList = [MBPromoCodeList]()
@@ -48,6 +49,11 @@ class UsePromoCodesTVCell: TableViewCell {
     var count = Int()
     override func updateUI() {
         
+        NotificationCenter.default.addObserver(self, selector: #selector(InvalidPromocode), name: Notification.Name("invalidPromocode"), object: nil)
+
+        NotificationCenter.default.addObserver(self, selector: #selector(ValidPromocode), name: Notification.Name("validPromocode"), object: nil)
+
+        
         //   promoCodesList = cellInfo?.moreData as! [MBPromoCodeList]
         count = cellInfo?.characterLimit ?? 0
         //     promoCodesTVHeight.constant = CGFloat(promoCodesList.count * 40)
@@ -68,6 +74,14 @@ class UsePromoCodesTVCell: TableViewCell {
         
         
         promoCodesTV.reloadData()
+    }
+    
+    @objc func InvalidPromocode() {
+        errorlbl.isHidden = false
+    }
+    
+    @objc func ValidPromocode() {
+        errorlbl.isHidden = true
     }
     
     
@@ -114,6 +128,7 @@ class UsePromoCodesTVCell: TableViewCell {
     
     
     @objc func editingChanged(_ tf: UITextField){
+        errorlbl.isHidden = true
         delegate?.editingChanged(tf: tf)
     }
     
@@ -125,10 +140,7 @@ class UsePromoCodesTVCell: TableViewCell {
     
     
     @IBAction func didTapOnApplyPromosCodesBtn(_ sender: Any) {
-        //        defaults.set(promoCodesList[self.index].promo_code, forKey: UserDefaultsKeys.promocodecode)
-        //        defaults.set(promoCodesList[self.index].value, forKey: UserDefaultsKeys.promocodeval)
         delegate?.didTapOnApplyPromosCodesBtn(cell: self)
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "apply"), object: self.index)
     }
     
 }
